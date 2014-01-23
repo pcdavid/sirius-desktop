@@ -88,21 +88,20 @@ public class TreeDialectUIServices implements DialectUIServices {
     /**
      * {@inheritDoc}
      */
-    public IEditorPart openEditor(Session session, DRepresentation dRepresentation, IProgressMonitor monitor) {
+    public IEditorPart openEditor(final Session session, final DRepresentation dRepresentation, IProgressMonitor monitor) {
         IEditorPart editorPart = null;
         try {
             monitor.beginTask("tree opening", 10);
             if (dRepresentation instanceof DTree) {
                 DslCommonPlugin.PROFILER.startWork(SiriusTasksKey.OPEN_TREE_KEY);
-                URI uri = EcoreUtil.getURI(dRepresentation);
-                final IEditorInput editorInput = new SessionEditorInput(uri, getEditorName(dRepresentation), session);
+                final IEditorInput editorInput = getEditorInput(session, dRepresentation);
                 monitor.worked(2);
                 monitor.subTask("tree opening : " + dRepresentation.getName());
                 RunnableWithResult<IEditorPart> runnable = new RunnableWithResult.Impl<IEditorPart>() {
                     public void run() {
                         final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
                         try {
-                            setResult(page.openEditor(editorInput, DTreeEditor.ID));
+                            setResult(page.openEditor(editorInput, getEditorID(dRepresentation)));
                         } catch (final PartInitException e) {
                             // silent catch
                         }
@@ -122,6 +121,29 @@ public class TreeDialectUIServices implements DialectUIServices {
         return editorPart;
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#getEditorID(org.eclipse.sirius.viewpoint.DRepresentation)
+     */
+    public String getEditorID(DRepresentation dRepresentation) {
+        return DTreeEditor.ID;
+    }
+    
+    @Override
+    public SessionEditorInput getEditorInput(Session session, DRepresentation dRepresentation) {
+        final SessionEditorInput res;
+        
+        if (dRepresentation instanceof DTree) {
+            final URI uri = EcoreUtil.getURI(dRepresentation);
+            res = new SessionEditorInput(uri, getEditorName(dRepresentation), session);
+        } else {
+            res = null;
+        }
+        
+        return res;
+    }
+    
     /**
      * {@inheritDoc}
      * 

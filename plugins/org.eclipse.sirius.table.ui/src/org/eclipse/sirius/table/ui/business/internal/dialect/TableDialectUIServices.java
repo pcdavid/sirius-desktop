@@ -88,17 +88,10 @@ public class TableDialectUIServices implements DialectUIServices {
                 DslCommonPlugin.PROFILER.startWork(SiriusTasksKey.OPEN_TABLE_KEY);
                 final URI uri = EcoreUtil.getURI(dTable);
                 final String editorName = DialectUIManager.INSTANCE.getEditorName(dTable);
-                monitor.worked(2);
                 final IEditorInput editorInput = new SessionEditorInput(uri, editorName, session);
+                monitor.worked(2);
 
-                final String editorId;
-                if (dTable.getDescription() instanceof EditionTableDescription) {
-                    editorId = DTableEditionEditor.ID;
-                } else if (dTable.getDescription() instanceof CrossTableDescription) {
-                    editorId = DTableCrossEditor.ID;
-                } else {
-                    editorId = null;
-                }
+                final String editorId = getEditorID(dRepresentation);
                 if (editorId != null) {
                     monitor.subTask("table opening : " + dRepresentation.getName());
                     RunnableWithResult<IEditorPart> runnable = new RunnableWithResult.Impl<IEditorPart>() {
@@ -126,6 +119,44 @@ public class TableDialectUIServices implements DialectUIServices {
         return editorPart;
     }
 
+    /**
+     *  {@inheritDoc}
+     *  
+     * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#getEditorID(org.eclipse.sirius.viewpoint.DRepresentation)
+     */
+    public String getEditorID(DRepresentation dRepresentation) {
+        final String editorId;
+        if (dRepresentation instanceof DTable) {
+            DTable dTable = (DTable) dRepresentation;
+            if (dTable.getDescription() instanceof EditionTableDescription) {
+                editorId = DTableEditionEditor.ID;
+            } else if (dTable.getDescription() instanceof CrossTableDescription) {
+                editorId = DTableCrossEditor.ID;
+            } else {
+                editorId = null;
+            }
+        } else {
+            editorId = null;
+        }
+        return editorId;
+    }
+    
+    @Override
+    public SessionEditorInput getEditorInput(Session session, DRepresentation dRepresentation) {
+        final SessionEditorInput res;
+        
+        if (dRepresentation instanceof DTable) {
+            final DTable dTable = (DTable) dRepresentation;
+            final URI uri = EcoreUtil.getURI(dTable);
+            final String editorName = DialectUIManager.INSTANCE.getEditorName(dTable);
+            res = new SessionEditorInput(uri, editorName, session);
+        } else {
+            res = null;
+        }
+        
+        return res;
+    }
+    
     /**
      * 
      * {@inheritDoc}

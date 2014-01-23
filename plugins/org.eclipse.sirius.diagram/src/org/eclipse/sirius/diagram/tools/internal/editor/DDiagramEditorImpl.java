@@ -13,9 +13,12 @@ package org.eclipse.sirius.diagram.tools.internal.editor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.commands.operations.IOperationHistoryListener;
 import org.eclipse.core.commands.operations.IUndoContext;
@@ -28,6 +31,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.common.command.Command;
@@ -78,6 +82,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.text.AbstractInformationControlManager;
 import org.eclipse.jface.text.IDocument;
@@ -90,7 +95,9 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
+import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
 import org.eclipse.sirius.business.api.query.DDiagramElementQuery;
+import org.eclipse.sirius.business.api.query.URIQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionManager;
@@ -103,6 +110,8 @@ import org.eclipse.sirius.diagram.business.api.view.SiriusGMFHelper;
 import org.eclipse.sirius.diagram.business.api.view.refresh.CanonicalSynchronizer;
 import org.eclipse.sirius.diagram.business.api.view.refresh.CanonicalSynchronizerFactory;
 import org.eclipse.sirius.diagram.business.internal.command.RefreshDiagramOnOpeningCommand;
+import org.eclipse.sirius.diagram.business.internal.dialect.DiagramDialectArrangeOperation;
+import org.eclipse.sirius.diagram.business.internal.dialect.DiagramDialectEditorInput;
 import org.eclipse.sirius.diagram.business.internal.session.DiagramSessionHelper;
 import org.eclipse.sirius.diagram.edit.api.part.AbstractDDiagramEditPart;
 import org.eclipse.sirius.diagram.edit.api.part.AbstractDiagramNameEditPart;
@@ -177,6 +186,8 @@ import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInputFactory;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
+import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
+import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelectionCommand;
 import org.eclipse.sirius.viewpoint.DDiagram;
 import org.eclipse.sirius.viewpoint.DDiagramElement;
 import org.eclipse.sirius.viewpoint.DRepresentation;
@@ -184,6 +195,8 @@ import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.DSemanticDiagram;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.viewpoint.description.Layer;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
@@ -341,6 +354,22 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
      */
     @Override
     public void init(final IEditorSite site, IEditorInput input) throws PartInitException {
+        // If the current DDiagram is shared on a CDO repository and
+        // some
+        // needed Viewpoints are not activated (for example a
+        // contributed
+        // activated layer)
+        final DDiagram diag;
+        if (input instanceof DiagramDialectEditorInput) {
+            diag = ((DiagramDialectEditorInput) input).getAndForgetDiagram();
+        } else {
+            diag = null;
+        }
+        Set<Viewpoint> viewpointsActivated = null;
+        if (diag != null && URIQuery.CDO_URI_SCHEME.equals(diag.eResource().getURI().scheme())) {
+            viewpointsActivated = activateNeededViewpoints(session, diag, new NullProgressMonitor());
+        }
+
         IEditorInput correctedInput = getCorrectedInput(input);
 
         if (correctedInput instanceof SessionEditorInput) {
@@ -393,6 +422,54 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
             SiriusDiagramEditorPlugin.getInstance().getLog().log(new Status(IStatus.ERROR, SiriusDiagramEditorPlugin.ID, "Error while getting the session.", e));
         }
 
+        if (viewpointsActivated != null && !viewpointsActivated.isEmpty()) {
+            informOfActivateNeededViewpoints(viewpointsActivated);
+        }
+        if (diag != null) {
+            new DiagramDialectArrangeOperation().arrange(this, diag);
+        }
+    }
+
+    private Set<Viewpoint> activateNeededViewpoints(Session session, DDiagram dDiagram, IProgressMonitor monitor) {
+        List<Layer> activatedLayers = dDiagram.getActivatedLayers();
+        Set<Viewpoint> neededViewpoints = new LinkedHashSet<Viewpoint>();
+        for (Layer activatedLayer : activatedLayers) {
+            if (!activatedLayer.eIsProxy() && activatedLayer.eContainer() != null) {
+                Viewpoint viewpoint = (Viewpoint) activatedLayer.eContainer().eContainer();
+                neededViewpoints.add(viewpoint);
+            }
+        }
+        Set<Viewpoint> selectedViewpoints = new LinkedHashSet<Viewpoint>();
+        for (Viewpoint viewpoint : session.getSelectedViewpoints(false)) {
+            selectedViewpoints.add(SiriusResourceHelper.getCorrespondingViewpoint(session, viewpoint));
+        }
+        neededViewpoints.removeAll(selectedViewpoints);
+        if (!neededViewpoints.isEmpty()) {
+            Command changeViewpointsSelectionCmd = new ChangeViewpointSelectionCommand(session, new ViewpointSelectionCallback(), neededViewpoints, Collections.<Viewpoint> emptySet(),
+                    new SubProgressMonitor(monitor, neededViewpoints.size()));
+            session.getTransactionalEditingDomain().getCommandStack().execute(changeViewpointsSelectionCmd);
+            monitor.worked(1);
+        }
+        return neededViewpoints;
+    }
+
+    private void informOfActivateNeededViewpoints(Set<Viewpoint> viewpointsActivated) {
+        Iterator<Viewpoint> iterator = viewpointsActivated.iterator();
+        Viewpoint neededSirius = iterator.next();
+        String viewpointsName = neededSirius.getName();
+        while (iterator.hasNext()) {
+            neededSirius = iterator.next();
+            viewpointsName += ", " + neededSirius.getName();
+        }
+        final String description = viewpointsName;
+        PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+
+            public void run() {
+                MessageDialog.openInformation(PlatformUI.getWorkbench().getDisplay().getActiveShell(), "Viewpoints selection", "The current diagram requires some viewpoints selected (" + description
+                        + "), because some activated layers are contributed by these viewpoints");
+            }
+
+        });
     }
 
     private void initUndoContext() {

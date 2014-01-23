@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.sirius.ui.tools.api.actions.export.SizeTooLargeException;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
@@ -99,6 +100,26 @@ public interface DialectUIServices {
      */
     IEditorPart openEditor(Session session, DRepresentation dRepresentation, IProgressMonitor monitor);
 
+    /**
+     * Gets the editor ID for the given representation.
+     * @param dRepresentation
+     *            {@link DRepresentation} to open.
+     * 
+     * @return the editor ID for the given representation if any, <code>null</code> otherwise.
+     */
+    String getEditorID(DRepresentation dRepresentation);
+    
+    /**
+     * Gets the {@link SessionEditorInput} for the given {@link Session} and {@link DRepresentation}. 
+     *  
+     * @param session
+     *            the current {@link Session}.
+     * @param dRepresentation
+     *            {@link DRepresentation} to open.
+     * @return the {@link SessionEditorInput} for the given {@link Session} and {@link DRepresentation}, or <code>null</code> if none could be created
+     */
+    SessionEditorInput getEditorInput(Session session, DRepresentation dRepresentation);    
+    
     /**
      * Sets the given {@link DRepresentationElement}s as current selection for
      * the editor.

@@ -31,6 +31,7 @@ import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUI;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
+import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.sirius.ui.tools.api.actions.export.SizeTooLargeException;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
@@ -95,6 +96,29 @@ public class DialectUIManagerImpl implements DialectUIManager {
         return null;
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     */
+    public String getEditorID(DRepresentation dRepresentation) {
+        for (final DialectUI dialect : dialects.values()) {
+            if (dialect.getServices().canHandle(dRepresentation)) {
+                return dialect.getServices().getEditorID(dRepresentation);
+            }
+        }
+        return null;
+    }
+    
+    @Override
+    public SessionEditorInput getEditorInput(Session session, DRepresentation dRepresentation) {
+        for (final DialectUI dialect : dialects.values()) {
+            if (dialect.getServices().canHandle(dRepresentation)) {
+                return dialect.getServices().getEditorInput(session, dRepresentation);
+            }
+        }
+        return null;
+    }
+    
     /**
      * 
      * {@inheritDoc}

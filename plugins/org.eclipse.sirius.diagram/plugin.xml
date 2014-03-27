@@ -17,14 +17,14 @@
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
       <?gmfgen generated="false"?>
       <metamodel nsURI="http://www.eclipse.org/sirius/diagram/1.1.0">
-         <specializationType
+        <metamodelType
                id="org.eclipse.sirius.diagram.DDiagram_1000"
                name="%metatype.name.DDiagram_1000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice">
-               <specializes id="org.eclipse.sirius.diagram.DDiagram_3001"/>
+               eclass="DDiagram"
+               edithelper="org.eclipse.sirius.diagram.internal.edit.helpers.SiriusBaseEditHelper">
             <param name="semanticHint" value="1000"/>
-         </specializationType>
+         </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.eclipse.org/sirius/diagram/1.1.0">
          <metamodelType
@@ -228,20 +228,6 @@
          extension="aird">
       </fileTypes>
    </extension>
-   
-   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
-
-             <metamodel nsURI="http://www.eclipse.org/sirius/diagram/1.1.0">
-         <metamodelType
-               id="org.eclipse.sirius.diagram.DDiagram_3001"
-               name="%metatype.name.DDiagram_3001"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="DDiagram"
-               edithelper="org.eclipse.sirius.diagram.business.internal.edit.helpers.DDiagramEditHelper">
-            <param name="semanticHint" value="3001"/>
-         </metamodelType>
-      </metamodel>
-	</extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated diagram -->

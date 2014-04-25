@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2008, 2017 Borland Software Corporation and others.
+ * Copyright (c) 2008, 2018 Borland Software Corporation and others.
  * 
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -69,8 +69,8 @@ public class SVGFigure extends Figure implements StyledFigure, ITransparentFigur
         }
 
         /**
-         * Computes the weight of a rendered image, as the number of bytes
-         * occupied by the raw raster data (assumes 4 8-bit channels).
+         * Computes the weight of a rendered image, as the number of bytes occupied by the raw raster data (assumes 4
+         * 8-bit channels).
          */
         private static final class ImageWeigher implements Weigher<String, Image> {
             @Override
@@ -128,9 +128,8 @@ public class SVGFigure extends Figure implements StyledFigure, ITransparentFigur
         }
 
         /**
-         * Remove all entries whose key begins with the given key. Remove from
-         * the document map, the entries with the given keys to force to re-read
-         * the file.
+         * Remove all entries whose key begins with the given key. Remove from the document map, the entries with the
+         * given keys to force to re-read the file.
          *
          * @param documentKey
          *            the document key.
@@ -320,10 +319,17 @@ public class SVGFigure extends Figure implements StyledFigure, ITransparentFigur
     }
 
     /**
-     * Should be called when SVG document has been changed. It will be
-     * re-rendered and figure will be repainted.
+     * Should be called when SVG document has been changed. It will be re-rendered and figure will be repainted.
      */
     public void contentChanged() {
+        prepareDocument();
+        repaint();
+    }
+
+    /**
+     * Prepare the class internal state so that the transcoder is ready to provide the image if needed.
+     */
+    protected void prepareDocument() {
         Document document = getDocument();
         modeWithViewBox = false;
         for (int i = 0; i < document.getChildNodes().getLength(); i++) {
@@ -340,11 +346,11 @@ public class SVGFigure extends Figure implements StyledFigure, ITransparentFigur
         }
         if (transcoder != null) {
             transcoder.contentChanged();
-            // Each time that SVG document is changed, we store the real ratio of the image (width/height); the transcoder aspect ratio. Indeed, after the transcoder aspect ratio will be
+            // Each time that SVG document is changed, we store the real ratio of the image (width/height); the
+            // transcoder aspect ratio. Indeed, after the transcoder aspect ratio will be
             // the previous displayed ratio and not the real ratio of the image.
             initialAspectRatio = transcoder.getAspectRatio();
         }
-        repaint();
     }
 
     protected SimpleImageTranscoder getTranscoder() {
@@ -361,8 +367,8 @@ public class SVGFigure extends Figure implements StyledFigure, ITransparentFigur
     }
 
     /**
-     * Compute a key for this figure. This key is used to store in cache the
-     * corresponding {@link org.eclipse.swt.graphics.Image}.
+     * Compute a key for this figure. This key is used to store in cache the corresponding
+     * {@link org.eclipse.swt.graphics.Image}.
      *
      * The key must begin by the document key.
      *
@@ -457,9 +463,8 @@ public class SVGFigure extends Figure implements StyledFigure, ITransparentFigur
     }
 
     /**
-     * Remove all entries whose key begins with the given key. Remove from the
-     * document map, the entries with the given keys to force to re-read the
-     * file.
+     * Remove all entries whose key begins with the given key. Remove from the document map, the entries with the given
+     * keys to force to re-read the file.
      *
      * @param documentKey
      *            the document key.

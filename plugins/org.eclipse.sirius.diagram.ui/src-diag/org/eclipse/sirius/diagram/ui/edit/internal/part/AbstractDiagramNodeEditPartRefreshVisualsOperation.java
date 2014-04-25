@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009 THALES GLOBAL SERVICES.
+ * Copyright (c) 2009, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -40,7 +40,6 @@ import org.eclipse.sirius.diagram.ui.tools.api.graphical.edit.styles.IStyleConfi
 import org.eclipse.sirius.diagram.ui.tools.api.graphical.edit.styles.StyleConfiguration;
 import org.eclipse.sirius.diagram.ui.tools.api.layout.LayoutUtils;
 import org.eclipse.sirius.ext.gmf.runtime.gef.ui.figures.SiriusWrapLabel;
-import org.eclipse.swt.graphics.Image;
 
 /**
  * Class which handles the refresh on visuals.
@@ -77,8 +76,7 @@ public class AbstractDiagramNodeEditPartRefreshVisualsOperation {
     /**
      * Check if refresh can occur.
      * 
-     * @return <code>true</code> if refresh methods could be called safely,
-     *         <code>false</code> otherwise
+     * @return <code>true</code> if refresh methods could be called safely, <code>false</code> otherwise
      */
     public boolean canRefresh() {
         return node != null;
@@ -173,8 +171,10 @@ public class AbstractDiagramNodeEditPartRefreshVisualsOperation {
         if (width == -1 && node.getOwnedStyle() instanceof WorkspaceImage) {
             WorkspaceImage workspaceImage = (WorkspaceImage) node.getStyle();
             final String path = workspaceImage.getWorkspacePath();
-            final Image image = WorkspaceImageFigure.getImageInstanceFromPath(path);
-            width = image.getBounds().width;
+            final Dimension bounds = WorkspaceImageFigure.getImageBounds(path);
+            if (bounds != null) {
+                width = bounds.width;
+            }
         } else {
             width = width * LayoutUtils.SCALE;
         }
@@ -211,7 +211,7 @@ public class AbstractDiagramNodeEditPartRefreshVisualsOperation {
         }
 
         final int tmpHeight = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getSize_Height())).intValue();
-         if (tmpHeight > 0) {
+        if (tmpHeight > 0) {
             height = tmpHeight;
         }
 
@@ -224,10 +224,8 @@ public class AbstractDiagramNodeEditPartRefreshVisualsOperation {
     }
 
     /**
-     * Convenience method to retreive the value for the supplied value from the
-     * editpart's associated view element. Same as calling
-     * <code> ViewUtil.getStructuralFeatureValue(getNotationView(),feature)</code>
-     * .
+     * Convenience method to retreive the value for the supplied value from the editpart's associated view element. Same
+     * as calling <code> ViewUtil.getStructuralFeatureValue(getNotationView(),feature)</code> .
      * 
      * @param feature
      *            the feature

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2011, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -26,9 +26,8 @@ import org.eclipse.sirius.ext.base.Options;
 import org.eclipse.swt.graphics.Image;
 
 /**
- * The {@link SVGWorkspaceImageFigure} is useful to load svg images using a
- * cache. The image can be in the workspace, or if it's not found in the
- * workspace it will be looked up in the plug-ins.
+ * The {@link SVGWorkspaceImageFigure} is useful to load svg images using a cache. The image can be in the workspace, or
+ * if it's not found in the workspace it will be looked up in the plug-ins.
  *
  * @author mporhel
  *
@@ -45,8 +44,7 @@ public class SVGWorkspaceImageFigure extends SVGFigure implements IWorkspaceImag
     }
 
     /**
-     * Create the {@link SVGWorkspaceImageFigure} from a {@link WorkspaceImage}
-     * instance.
+     * Create the {@link SVGWorkspaceImageFigure} from a {@link WorkspaceImage} instance.
      *
      * @param image
      *            {@link SVGWorkspaceImageFigure} specification.
@@ -166,8 +164,8 @@ public class SVGWorkspaceImageFigure extends SVGFigure implements IWorkspaceImag
      * Get an {@link Image} instance. The image will be stored in a cache.
      *
      * @param path
-     *            the path is a "/project/file" path, if it's not found in the
-     *            workspace, the class will look for the file in the plug-ins.
+     *            the path is a "/project/file" path, if it's not found in the workspace, the class will look for the
+     *            file in the plug-ins.
      * @return an image instance given the path.
      */
     public static Image flyWeightImage(String path) {
@@ -178,14 +176,30 @@ public class SVGWorkspaceImageFigure extends SVGFigure implements IWorkspaceImag
     }
 
     /**
-     * Remove all entries whose key begins with the given key. Remove from the
-     * document map, the entries with the given keys to force to re-read the
-     * file.
+     * Get the dimension of an image file. You should prefer this method instead of getting the {@link Image} instance
+     * itself and then retrieving its size as this avoid the creation of a native resource which might create deadlock
+     * situations if not done in the UI thread. See https://bugs.eclipse.org/bugs/show_bug.cgi?id=265265
+     * 
+     * @param path
+     *            the path is a "/project/file" path, if it's not found in the workspace, the class will look for the
+     *            file in the plug-ins.
+     * @return a {@link Dimension} instance having the width and height of the image or null if the image can't be found
+     *         or loaded.
+     */
+    public static Dimension getImageBounds(final String path) {
+        SVGWorkspaceImageFigure fig = new SVGWorkspaceImageFigure();
+        fig.updateImageURI(path);
+        fig.prepareDocument();
+        return fig.getBounds().getSize();
+    }
+
+    /**
+     * Remove all entries whose key begins with the given key. Remove from the document map, the entries with the given
+     * keys to force to re-read the file.
      *
      * @param workspacePath
      *            the modified or deleted image file path.
-     * @return an option with the document uri used as key for the svg file if a
-     *         corresponding element was removed.
+     * @return an option with the document uri used as key for the svg file if a corresponding element was removed.
      */
     public static Option<String> removeFromCache(String workspacePath) {
         Option<String> imageUri = SVGWorkspaceImageFigure.getImageUri(workspacePath, true);

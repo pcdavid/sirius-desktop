@@ -72,6 +72,7 @@ import org.eclipse.sirius.viewpoint.description.validation.provider.ValidationIt
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.sirius.viewpoint.provider.ViewpointItemProviderAdapterFactory;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -147,6 +148,8 @@ public final class DiagramUIPlugin extends EMFPlugin {
         private ILabelProvider labelProvider;
 
         private Map<ImageWithDimensionDescriptor, Image> descriptorsToImages;
+
+        private Map<ImageDescriptor, ImageData> descriptorToImageData;
 
         private ResourceMissingDocumentProvider ressourceMissingDocumentProvider;
 
@@ -265,6 +268,7 @@ public final class DiagramUIPlugin extends EMFPlugin {
 
             adapterFactory = createAdapterFactory();
             descriptorsToImages = new HashMap<ImageWithDimensionDescriptor, Image>();
+            descriptorToImageData = new HashMap<>();
             ressourceMissingDocumentProvider = new ResourceMissingDocumentProvider();
 
             workspaceImageFigureRefresher = new WorkspaceImageFigureRefresher();
@@ -340,6 +344,9 @@ public final class DiagramUIPlugin extends EMFPlugin {
                     img.dispose();
                 }
             }
+
+            descriptorToImageData = null;
+
             /* dispose missing resources creation */
             this.ressourceMissingDocumentProvider.dispose();
 
@@ -610,6 +617,32 @@ public final class DiagramUIPlugin extends EMFPlugin {
         }
 
         /**
+         * Return the already loaded data for the given image descriptor.
+         * 
+         * @param descriptor
+         *            The descriptor of the image
+         * @return the ImageData or null if it hasn't been loaded
+         */
+        public ImageData getImageDataFor(ImageDescriptor descriptor) {
+            return descriptorToImageData.get(descriptor);
+        }
+
+        /**
+         * Store the ImageData for the given image descriptor. This avoid loading it each time we needs it. If some data
+         * are already stored for the given image descriptor, they will be overridden.
+         * 
+         * @param descriptor
+         *            The ImageDescriptor
+         * @param data
+         *            The data of the image represented by the given ImageDescriptor
+         */
+        public void cacheImageData(ImageDescriptor descriptor, ImageData data) {
+            if (data != null) {
+                descriptorToImageData.put(descriptor, data);
+            }
+        }
+
+        /**
          *
          * @param desc
          *            an image descriptor.
@@ -646,18 +679,23 @@ public final class DiagramUIPlugin extends EMFPlugin {
         }
 
         /**
-         *
+         * Return true if the cached {@link Image} or {@link ImageData} have been removed from cache. False otherwise.
+         * 
          * @param desc
          *            an image descriptor.
-         * @return an Image instance
+         * @return true if the cached {@link Image} or {@link ImageData} have been removed from cache. False otherwise.
          */
         public boolean removeCacheImage(ImageDescriptor desc) {
             final ImageWithDimensionDescriptor realDesc = new ImageWithDimensionDescriptorImpl(desc);
-            return removeCacheImage(realDesc);
+            return removeCacheImageData(desc) || removeCacheImage(realDesc);
         }
 
         private boolean removeCacheImage(ImageWithDimensionDescriptor realDesc) {
             return descriptorsToImages.remove(realDesc) != null;
+        }
+
+        private boolean removeCacheImageData(ImageDescriptor desc) {
+            return descriptorToImageData.remove(desc) != null;
         }
 
         /**

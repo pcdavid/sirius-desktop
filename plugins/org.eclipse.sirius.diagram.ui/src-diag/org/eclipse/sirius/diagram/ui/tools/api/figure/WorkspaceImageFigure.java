@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2007, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,17 +20,18 @@ import org.eclipse.sirius.diagram.ContainerStyle;
 import org.eclipse.sirius.diagram.WorkspaceImage;
 import org.eclipse.sirius.diagram.ui.internal.refresh.listeners.WorkspaceFileResourceChangeListener;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
+import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin.Implementation;
 import org.eclipse.sirius.diagram.ui.tools.api.image.DiagramImagesPath;
 import org.eclipse.sirius.ext.gmf.runtime.gef.ui.figures.AbstractTransparentImage;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
 
 /**
- * The {@link WorkspaceImageFigure} is useful to load images using a cache. The
- * image can be in the workspace, or if it's not found in the workspace it will
- * be looked up in the plug-ins.
- *
+ * The {@link WorkspaceImageFigure} is useful to load images using a cache. The image can be in the workspace, or if
+ * it's not found in the workspace it will be looked up in the plug-ins.
+ * 
  * @author cbrun
- *
+ * 
  */
 public class WorkspaceImageFigure extends AbstractTransparentImage implements IWorkspaceImageFigure {
 
@@ -40,7 +41,7 @@ public class WorkspaceImageFigure extends AbstractTransparentImage implements IW
 
     /**
      * Create a new {@link WorkspaceImageFigure}.
-     *
+     * 
      * @param flyWeightImage
      *            an image instance.
      */
@@ -77,31 +78,67 @@ public class WorkspaceImageFigure extends AbstractTransparentImage implements IW
 
     /**
      * Get an {@link Image} instance. The image will be stored in a cache.
-     *
+     * 
      * @param path
-     *            the path is a "/project/file" path, if it's not found in the
-     *            workspace, the class will look for the file in the plug-ins.
+     *            the path is a "/project/file" path, if it's not found in the workspace, the class will look for the
+     *            file in the plug-ins.
      * @return an image instance given the path.
      */
     public static Image flyWeightImage(final String path) {
         if (path != null) {
-            final File imageFile = WorkspaceFileResourceChangeListener.getInstance().getFileFromURI(path);
-            ImageDescriptor desc = null;
-            if (imageFile != null && WorkspaceFileResourceChangeListener.getInstance().getReadStatusOfFile(imageFile)) {
-                try {
-                    desc = WorkspaceFileResourceChangeListener.getInstance().findImageDescriptor(imageFile);
-                } catch (MalformedURLException e) {
-                    // do nothing
-                }
-            }
+            ImageDescriptor desc = getImageDescriptor(path);
             return WorkspaceImageFigure.flyWeightImage(desc);
         }
         return WorkspaceImageFigure.getImageNotFound();
     }
 
     /**
+     * Get the dimension of an image file. You should prefer this method instead of getting the {@link Image} instance
+     * itself and then retrieving its size as this avoid the creation of a native resource which might create deadlock
+     * situations if not done in the UI thread. See https://bugs.eclipse.org/bugs/show_bug.cgi?id=265265
+     * 
+     * @param path
+     *            the path is a "/project/file" path. If it's not found in the workspace, the method will look for the
+     *            file in the plug-ins.
+     * @return a {@link Dimension} instance having the width and height of the image or null if the image can't be found
+     *         or loaded.
+     */
+    public static Dimension getImageBounds(final String path) {
+        Dimension result = null;
+        if (path != null && isSvgImage(path)) {
+            result = SVGWorkspaceImageFigure.getImageBounds(path);
+        } else if (path != null) {
+            ImageDescriptor descriptor = getImageDescriptor(path);
+            if (descriptor != null) {
+                ImageData imgData = DiagramUIPlugin.getPlugin().getImageDataFor(descriptor);
+                if (imgData == null) {
+                    imgData = descriptor.getImageData(100);
+                    DiagramUIPlugin.getPlugin().cacheImageData(descriptor, imgData);
+                }
+                if (imgData != null) {
+                    result = new Dimension(imgData.width, imgData.height);
+                }
+            }
+        }
+        return result;
+    }
+
+    private static ImageDescriptor getImageDescriptor(final String path) {
+        final File imageFile = WorkspaceFileResourceChangeListener.getInstance().getFileFromURI(path);
+        ImageDescriptor desc = null;
+        if (imageFile != null && WorkspaceFileResourceChangeListener.getInstance().getReadStatusOfFile(imageFile)) {
+            try {
+                desc = WorkspaceFileResourceChangeListener.getInstance().findImageDescriptor(imageFile);
+            } catch (MalformedURLException e) {
+                // do nothing
+            }
+        }
+        return desc;
+    }
+
+    /**
      * Get an {@link Image} instance. The image will be stored in a cache.
-     *
+     * 
      * @param desc
      *            the image descriptor
      * @return an image instance given the image descriptor.
@@ -115,15 +152,15 @@ public class WorkspaceImageFigure extends AbstractTransparentImage implements IW
     }
 
     private static Image getImageNotFound() {
-        return DiagramUIPlugin.getPlugin().getImage(DiagramUIPlugin.Implementation.findImageWithDimensionDescriptor(DiagramImagesPath.IMAGE_NOT_FOUND));
+        return DiagramUIPlugin.getPlugin().getImage(Implementation.findImageWithDimensionDescriptor(DiagramImagesPath.IMAGE_NOT_FOUND));
     }
 
     /**
      * Create an {@link WorkspaceImageFigure} instance from an image path.
-     *
+     * 
      * @param path
-     *            the path is a "/project/file" path, if it's not found in the
-     *            workspace, the class will look for the file in the plug-ins.
+     *            the path is a "/project/file" path, if it's not found in the workspace, the class will look for the
+     *            file in the plug-ins.
      * @return an image instance given the path.
      */
     public static WorkspaceImageFigure createImageFigure(final String path) {
@@ -133,7 +170,7 @@ public class WorkspaceImageFigure extends AbstractTransparentImage implements IW
 
     /**
      * Create an {@link WorkspaceImageFigure} instance from a workspace image.
-     *
+     * 
      * @param wksImage
      *            : an instance of {@link WorkspaceImage}.
      * @return the image figure built using the {@link WorkspaceImage} object.
@@ -146,7 +183,7 @@ public class WorkspaceImageFigure extends AbstractTransparentImage implements IW
 
     /**
      * Get the image aspect ratio.
-     *
+     * 
      * @return the image aspect ratio
      */
     @Override
@@ -156,7 +193,7 @@ public class WorkspaceImageFigure extends AbstractTransparentImage implements IW
 
     /**
      * Refresh the figure.
-     *
+     * 
      * @param bundledImage
      *            the image associated to the figure
      */
@@ -172,7 +209,7 @@ public class WorkspaceImageFigure extends AbstractTransparentImage implements IW
 
     /**
      * Refresh the figure.
-     *
+     * 
      * @param containerStyle
      *            the style of the container
      */

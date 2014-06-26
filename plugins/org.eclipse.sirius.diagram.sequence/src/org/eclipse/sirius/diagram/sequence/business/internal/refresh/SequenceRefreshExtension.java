@@ -81,7 +81,13 @@ public class SequenceRefreshExtension implements IRefreshExtension {
                         AbsoluteBoundsFilter prevFlag = flags.get(semanticTarget);
 
                         AbsoluteBoundsFilter newFlag = DiagramFactory.eINSTANCE.createAbsoluteBoundsFilter();
-                        newFlag.setX(LayoutConstants.EXTERNAL_CHANGE_FLAG.x);
+                        // Do not mark as externally changed an element which
+                        // has just been flagged as created by a tool.
+                        if (prevFlag.getX() == LayoutConstants.TOOL_CREATION_FLAG.x) {
+                            newFlag.setX(prevFlag.getX());
+                        } else {
+                            newFlag.setX(LayoutConstants.EXTERNAL_CHANGE_FLAG.x);
+                        }
                         newFlag.setY(prevFlag.getY());
                         newFlag.setHeight(prevFlag.getHeight());
                         newFlag.setWidth(prevFlag.getWidth());

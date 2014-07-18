@@ -1,0 +1,142 @@
+h1. Sirius Headless
+
+h2. Preamble
+
+_Summary_: This evolution allows the use of the core Sirius services without any UI running.
+
+|_. Version |_. Status |_. Date        |_. Authors |_. Changes |
+| v0.1        | DRAFT    | 2014-07-16 | cbrun    | Initial version. |
+
+_Relevant tickets_ :
+* "Bugzilla #439871  ":https://bugs.eclipse.org/bugs/show_bug.cgi?id=439871
+
+
+h2. Introduction
+
+One of outcomes which are expected by improving Sirius's modularization is to allow usage of the core APIs 
+in slightly different contexts. Being able to work with Sirius headless - aka with no UI - is one of those contexts. 
+Standalone - aka without OSGi - is another interesting target, some consummers are already using parts of the APIs but have
+to jump through several hoops.
+
+We want the core services of Sirius to be able to work in these contexts, first priority being headless.
+ 
+This will also enable us to write faster tests that don't need any UI.
+
+h2(#details). Detailed Specification
+
+Sirius need to support the following services from an API point of view, both in standalone and headless environment
+
+h4. Short term :
+
+Model Loading and browsing : we should be able to load Sirius data models (.odesign and .aird) 
+Session management : being able to create, open and close session, enable viewpoints.
+Representation Management : being able to create/delete/refresh table, diagram and trees.
+
+h4. Medium term :
+
+Editing : being able to trigger tools, direct-edit and most of the actions Sirius is responsible for.
+Export : being able to export the representations - as close as possible to the actual rendering from Eclipse.
+
+h2. Backward Compatibility and Migration Paths
+
+h3. Metamodel Changes
+
+There will be no metamodel changes.
+
+h3. API Changes
+
+A whole part of API will move from org.eclipse.sirius.diagram.ui to org.eclipse.sirius.diagram : specifically every code which is called from DiagramDialect and DiagramDialectService.
+
+h3. Packaging Changes
+
+The current packaging will not change but a new packaging will be offered through a dedicated update-site and target platforms.
+
+A new plugin o.e.s.standalone will be created to represent the list of bundles we support in standalone (through the plugin dependencies) and provide an API (SiriusStandaloneSetup) to 
+initialize and configure Sirius for a standalone usage.
+
+h3. User Interface Changes
+
+This evolution will not change any user interface.
+
+h3. Documentation Changes
+
+h2. Tests and Non-regression strategy
+
+Every scenario we want to support has to be tested during the "headless build" as being actually headless is a property one can loose very easily.
+
+A specific test project will be created. The included tests should be able to run either in headless or in a complete IDE.
+Some Tests we already have (like those in the StandaloneTestSuite will be moved in this project and we will assess how many of the current tests can be moved easily enough into this new project.
+
+Right now none of the test.support plugins is able to compile in headlesss and to make test.support compile in headless we will have to move and adapt quite a lot of code which is in o.e.s.diagram.ui right now.
+
+A specific CI job runing with the profile "headless" will be setup and will run regularly. This help in making sure a undesired dependency is not introduced.
+
+h3. how to enforce valid dependencies in the parts of Sirius which we want to work in headless ?
+
+By defining a specific target platform which only contains "headless friendly" components and by defining tests scenarios which are ran on top of the headless build.
+
+h2. Implementation choices and tradeoffs
+
+
+h4. how do we ship these headless components ?
+
+Through a specific update sites. Most adopters which are needing headless components want to make sure they don't use 
+a non-headless one. Keeping them separated in their own update-site will help them. In an ideal world we could even strive to achieve 
+separate builds, the "complete" one reusing bits builts by the headless build. But on the other hand that would introduce one more step in the build
+which has its own undesirable effects.
+
+
+h4. GMF notational model synchronization
+
+Sirius maintains actually two models in sync for the diagram part : the DDiagram model and the Diagram (from gmf notation) which contains all the required information to actually render a diagram using GMF - in particular positions and layout informations.
+
+We already have extracted the DDiagram=>Diagram synchronization in a single class whereas before it was split among edit parts. But this need information we can only take from draw2d or SWT itself to compute some information.
+
+The assessment of moving this logic down one more level (without depending on any ui) is a task in itself. For a first milestone we will aim at having the DDiagram model updatable in headless, not the gmf notational model as long as we can load and browse it.
+
+So right now we will only make sure the DDiagram=>Diagram logic stays in the diagram.ui plugin but is getting called from the o.e.s.diagram when necessary.
+
+h4. Sequence Diagrams
+
+Sequence diagrams are relying on some Draw2D/other UI APIs to do the actual layout computation. Just like the gmf notational model synchronization Sequence diagrams will be out of the scope of the headless and standalone supported plugins for now.
+
+h4. Separate Build chain 
+
+We have several choices here for building the headless components themselves :
+
+h5. have a dedicated build consumed by Sirius
+
+The Sirius build would have to consume the result of the headless build. They have two separate target platforms then (but Sirius can include the Sirius-headless one) and to produce a complete Sirius p2 repository one has to go through 2 builds (at least, not counting the Tests build if it is kept separated)
+The drawbacks of this solution is that we have to take extra care to *transfer* the headless build bits in the Sirius build and to make sure the latest one is actually used. Just like when we consume a component which has many evolution and on which we are tightly coupled. 
+
+h5. have a dedicated Maven profile
+
+The dedicated profile only contains modules which are making sense in the headless context and use a dedicated target platform.
+The drawbacks of this solution is that one has to *think about launching this specific build* to check.
+On the other hand it does not disturb the actual build system.
+ 
+h5. Choice
+
+In order to keep the releng and CI overhead as low as possible I would pick the dedicated maven profile solution. The dedicated build option only makes sense with a lower coupling between Sirius and Sirius-Headless.
+
+
+h2. Change Breakdown 
+
+Here are a list of steps :
+
+
+# define a minimal target platform. The most sensible way to do that is to explicitely include the required plugins and avoid features in the target platform.
+# split this target platform in two parts : the headless and complete ones, complete including headless. One have to go by hand
+# enable the headless target platform, see what compiles, adapt the code up to the point where the services we want to expose are compiling
+# write down JUnit tests to make sure the service we want to expose works correctly
+# make sure the JUnit tests are run in "headless" mode.
+# fix issues, extend the tests, repeat up to the point you get your result
+# test the changes with the traditional target platforms, test the corresponding build with the integration tests
+# fix broken stuffs
+# merge
+
+I did a/b/c/d/e as part of the experiment. It actually works quite well though integration tests have not been run on top of those changes yet.
+Everything is published here for now : https://github.com/cbrun/org.eclipse.sirius/tree/headless
+The CI build is updated with a specific profile to only build the headless part of Sirius.
+
+A project org.eclipse.sirius.headless.tests has been created though not commited yet as it rely on Java8 (that was another experiment) for now and Sirius has to be JavaSE-6 compatible.

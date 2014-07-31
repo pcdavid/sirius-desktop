@@ -1,0 +1,106 @@
+h1. Sirius Standalone
+
+h2. Preamble
+
+_Summary_: This evolution allows the use of the core Sirius services without the OSGi runtime
+
+|_. Version |_. Status |_. Date        |_. Authors |_. Changes |
+| v0.1        | DRAFT    | 2014-07-16 | cbrun    | Initial version. |
+
+_Relevant tickets_ :
+* "Bugzilla #440865  ":https://bugs.eclipse.org/bugs/show_bug.cgi?id=440865
+
+
+h2. Introduction
+
+Providing the capability to work with Sirius with no OSGi runtime would ease integration with many other Java technologies.
+Some consummers of Sirius are already trying to use parts of the APIs without any OSGi runtime but have to jump through several hoops.
+# Figure out what are the dependencies which are actually being used and which are "standalone compliant" 
+# Initialize Sirius so that the core APIs are available.
+
+We want the core services of Sirius to be able to work in these contexts.
+ 
+This will also enable us to write faster tests that don't need any runtime.
+
+h2(#details). Detailed Specification
+
+Sirius need to support the following services from an API point of view in standalone
+
+h4. Short term :
+
+Model Loading and browsing : we should be able to load Sirius data models (.odesign and .aird) 
+Session management : being able to create, open and close session, enable viewpoints.
+Representation Management : being able to create/delete/refresh table, diagram and trees.
+
+h4. Medium term :
+
+Editing : being able to trigger tools, direct-edit and most of the actions Sirius is responsible for.
+Export : being able to export the representations - as close as possible to the actual rendering from Eclipse.
+
+
+h2. Backward Compatibility and Migration Paths
+
+h3. Metamodel Changes
+
+There will be no metamodel changes.
+
+h3. API Changes
+
+TBD
+
+h3. Packaging Changes
+
+A new plugin o.e.s.standalone will be created to represent the list of bundles we support in standalone (through the plugin dependencies) and provide an API (e.q. SiriusStandaloneSetup) to initialize and configure Sirius for a standalone usage.
+
+We should also be able to ship a folder with the complete list of jars which are required to use Sirius as a standalone app, or even better an uber jar using the maven shade plugin.
+
+h3. User Interface Changes
+
+This evolution will not change any user interface.
+
+h3. Documentation Changes
+
+
+The development guide targeted to the Sirius team should be updated so that guidelines regarding the standalone support and the cross-cutting concerns (logging, access to the workspace...) are documented.
+
+
+h2. Tests and Non-regression strategy
+
+
+h3. how to enforce the standalone scenarios are working ?
+
+By defining tests consuming the standalone jar.  In an ideal world the tests should be shared among headless and standalone support.
+
+h2. Implementation choices and tradeoffs
+
+h4. URI mappings
+
+Models which will have to be leveraged in standalone might refers to other models through the platform:/[plugin|resource] scheme. 
+
+The SiriusStandaloneSetup should make sure that the URI mappings required by Sirius itself will be declared (notably platform:/plugin/org.eclipse.sirius/model/Environment.xmi) and should provide utilities to easily declare the mappings either from a Jar or from a Project folder.
+
+Something like setup.registerAsPluginModels(jarFile,"com.adopter.myplugin","odesign","ecore",..)
+or setup.registerAsProjectModels(jarFile,"...)
+
+Such utility probably exists in EMF core itself in some sort.
+
+h4. EMF's infrastructure for standalone + eclipse compatibility
+
+EMF Provides support for both Eclipse and standalone usage. EMFPlugin is one of those, enabling to use the classic log and resource locators calls in both standalone and OSGi environments.
+
+TBD : This need to be investigated, how does its EMFPlugin patterns works, is that suitable for logging or access to the plugin singleton, is there any other tradeoff ? 
+
+h4. Abstraction vs conditionals
+
+There are basically two ways to achieve a pure standalone behavior. 
+Either we add many IF ECLIPSE_RUNNING and hide the calls we *should not make* behind those, or we abstract them away.
+From a small experiment, what happens most of the time is :
+# some code access the Plugin instance - which was not created as there is no OSGi runtime
+# logging fails because the ILog was not created by the runtime.
+# the workspace is accessed (getRoot().getWorkspace()) but is not opened and not accessible
+# Some extension point is parsed => Platform is not here, hence failure.
+# Probably some others..
+
+All of these are good candidates for a specific abstraction which would bring more consistency accross the Sirius code.
+
+ 

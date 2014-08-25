@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.sirius.tree.business.api.interaction;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.sirius.synchronizer.SemanticPartitionInvalidator;
 import org.eclipse.sirius.ext.base.Option;
@@ -47,31 +48,68 @@ public class DTreeItemUserInteraction {
 
     /**
      * Expands the treeItem.
+     * 
      */
     public void expand() {
+        expand(new NullProgressMonitor());
+    }
+
+    /**
+     * Expands the treeItem.
+     * 
+     * @param monitor
+     *            a progress monitor to make sure the user can cancel the
+     *            operation.
+     */
+    public void expand(IProgressMonitor monitor) {
         item.setExpanded(true);
-        refreshContent();
+        refreshContent(monitor);
     }
 
     /**
      * Expands all child of the treeItem.
+     * 
      */
     public void expandAll() {
-        expand();
+        expandAll(new NullProgressMonitor());
+
+    }
+
+    /**
+     * Expands all child of the treeItem.
+     * 
+     * @param monitor
+     *            a progress monitor to make sure the user can cancel the
+     *            operation.
+     */
+    public void expandAll(IProgressMonitor monitor) {
+        expand(monitor);
         for (DTreeItem child : item.getOwnedTreeItems()) {
-            new DTreeItemUserInteraction(child, ctx).expandAll();
+            new DTreeItemUserInteraction(child, ctx).expandAll(monitor);
         }
     }
 
     /**
      * Refresh the content of the TreeItem.
+     * 
      */
     public void refreshContent() {
+        refreshContent(new NullProgressMonitor());
+    }
+
+    /**
+     * Refresh the content of the TreeItem.
+     * 
+     * @param monitor
+     *            a progress monitor to make sure the user can cancel the
+     *            operation.
+     */
+    public void refreshContent(IProgressMonitor monitor) {
         SemanticPartitionInvalidator invalidator = new SemanticPartitionInvalidator();
         Option<DTree> parentTree = new DTreeItemQuery(item).getParentTree();
         if (parentTree.some()) {
             DTreeRefresh refresher = new DTreeRefresh(item, new TreeDescriptionQuery(parentTree.get().getDescription()).getAllDescendantMappings(), invalidator, ctx);
-            refresher.refresh(new NullProgressMonitor());
+            refresher.refresh(monitor);
         }
     }
 
@@ -89,6 +127,17 @@ public class DTreeItemUserInteraction {
      * Collapses the treeItem.
      */
     public void collapse() {
+        collapse(new NullProgressMonitor());
+    }
+
+    /**
+     * Collapses the treeItem.
+     * 
+     * @param monitor
+     *            a progress monitor to make sure the user can cancel the
+     *            operation.
+     */
+    public void collapse(IProgressMonitor monitor) {
         item.setExpanded(false);
     }
 

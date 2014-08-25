@@ -77,11 +77,14 @@ public class DTreeUserInteraction {
     /**
      * Expands all items of the DTree recursively.
      * 
+     * @param monitor
+     *            a progress monitor to make sure the user can cancel the
+     *            operation.
      * @return this user interaction
      */
-    public DTreeUserInteraction expandAll() {
+    public DTreeUserInteraction expandAll(IProgressMonitor monitor) {
         for (DTreeItem child : tree.getOwnedTreeItems()) {
-            new DTreeItemUserInteraction(child, ctx).expandAll();
+            new DTreeItemUserInteraction(child, ctx).expandAll(monitor);
         }
         return this;
     }
@@ -89,9 +92,12 @@ public class DTreeUserInteraction {
     /**
      * Expand all root items of the DTree.
      * 
+     * @param monitor
+     *            a progress monitor to make sure the user can cancel the
+     *            operation.
      * @return this user interaction
      */
-    public DTreeUserInteraction expand() {
+    public DTreeUserInteraction expand(IProgressMonitor monitor) {
         Iterator<DTreeItem> it = Iterators.filter(Iterators.filter(tree.eAllContents(), DTreeItem.class), new Predicate<DTreeItem>() {
 
             public boolean apply(DTreeItem input) {
@@ -99,7 +105,7 @@ public class DTreeUserInteraction {
             }
         });
         while (it.hasNext()) {
-            new DTreeItemUserInteraction(it.next(), ctx).expand();
+            new DTreeItemUserInteraction(it.next(), ctx).expand(monitor);
 
         }
         return this;

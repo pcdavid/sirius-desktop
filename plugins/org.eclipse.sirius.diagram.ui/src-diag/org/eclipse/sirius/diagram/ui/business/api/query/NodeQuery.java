@@ -31,6 +31,8 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainer2EditPart
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeList2EditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListViewNodeListCompartment2EditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListViewNodeListCompartmentEditPart;
 import org.eclipse.sirius.diagram.ui.internal.refresh.GMFHelper;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
 import org.eclipse.sirius.diagram.ui.tools.api.layout.LayoutUtils;
@@ -183,7 +185,31 @@ public class NodeQuery {
      */
     public boolean isContainer() {
         int type = SiriusVisualIDRegistry.getVisualID(this.node.getType());
-        boolean result = type == DNodeContainer2EditPart.VISUAL_ID || type == DNodeContainerEditPart.VISUAL_ID || type == DNodeList2EditPart.VISUAL_ID || type == DNodeListEditPart.VISUAL_ID;
+        boolean result = type == DNodeContainer2EditPart.VISUAL_ID || type == DNodeContainerEditPart.VISUAL_ID || isListContainer();
+        return result;
+    }
+
+    /**
+     * Tests whether the queried Node corresponds to a list container.
+     * 
+     * @return <code>true</code> if the queried View corresponds to a list
+     *         container node.
+     */
+    public boolean isListContainer() {
+        int type = SiriusVisualIDRegistry.getVisualID(this.node.getType());
+        boolean result = type == DNodeList2EditPart.VISUAL_ID || type == DNodeListEditPart.VISUAL_ID;
+        return result;
+    }
+
+    /**
+     * Tests whether the queried Node corresponds to a list compartment.
+     * 
+     * @return <code>true</code> if the queried View corresponds to a list
+     *         compartment node.
+     */
+    public boolean isListCompartment() {
+        int type = SiriusVisualIDRegistry.getVisualID(this.node.getType());
+        boolean result = type == DNodeListViewNodeListCompartmentEditPart.VISUAL_ID || type == DNodeListViewNodeListCompartment2EditPart.VISUAL_ID;
         return result;
     }
 

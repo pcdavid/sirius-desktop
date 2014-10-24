@@ -14,7 +14,9 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.TextUtilities;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
@@ -23,11 +25,14 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.LayoutConstraint;
 import org.eclipse.gmf.runtime.notation.Location;
 import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.Size;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.ContainerStyle;
@@ -44,8 +49,13 @@ import org.eclipse.sirius.diagram.ui.internal.refresh.borderednode.CanonicalDBor
 import org.eclipse.sirius.diagram.ui.tools.api.layout.LayoutUtils;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.ui.IEditorPart;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
 
 /**
@@ -61,7 +71,14 @@ public final class GMFHelper {
      * the DEFAULT_MARGIN + the InvisibleResizableCompartmentFigure top Inset
      * (1px)
      */
-    private static Point CONTAINER_INSETS = new Point(4, 5);
+
+    private static final Insets CONTAINER_INSETS = new Insets(4, 4, 4, 4);
+
+    private static final Insets INVISIBLE_COMPARTEMENT_INSETS = new Insets(1, 0, 0, 0);
+
+    private static final Insets ALL_CONTAINER_INSETS = CONTAINER_INSETS.getAdded(INVISIBLE_COMPARTEMENT_INSETS);
+
+    private static final Insets LIST_COMPARTEMENT_INSETS = new Insets(1, 4, 0, 4);
 
     private GMFHelper() {
         // Helper to not instantiate
@@ -129,15 +146,28 @@ public final class GMFHelper {
         if (!nodeQuery.isBorderedNode() && parentNodeQuery.isContainer()) {
             EObject element = parentNode.getElement();
             if (element instanceof DDiagramElementContainer) {
-                ContainerStyle containerStyle = ((DDiagramElementContainer) element).getOwnedStyle();
-                int borderSize = containerStyle.getBorderSize().intValue();
-                if (borderSize == 0) {
-                    borderSize = 1;
-                }
-                locationToTranslate.translate(CONTAINER_INSETS).translate(borderSize, borderSize);
+                int borderSize = getBorderSize((DDiagramElementContainer) element);
+                locationToTranslate.translate(new Point(ALL_CONTAINER_INSETS.left, ALL_CONTAINER_INSETS.top)).translate(borderSize, borderSize);
             }
         }
 
+    }
+
+    /**
+     * Get the diagramElementContainer border size.
+     * 
+     * @param diagramElementContainer
+     *            the diagram element container to retrieve the border size.
+     * @return the border size. If the specified border size is 0, it returns
+     *         the minimum size 1.
+     */
+    private static int getBorderSize(DDiagramElementContainer diagramElementContainer) {
+        ContainerStyle containerStyle = diagramElementContainer.getOwnedStyle();
+        int borderSize = containerStyle.getBorderSize().intValue();
+        if (borderSize == 0) {
+            borderSize = 1;
+        }
+        return borderSize;
     }
 
     /**
@@ -386,13 +416,36 @@ public final class GMFHelper {
 
                     // Make a default size for label (this size is purely an
                     // average estimate)
-                    replaceAutoSize(node, bounds, useFigureForAutoSizeConstraint, new Dimension(50, 20));
+                    replaceAutoSize(node, bounds, useFigureForAutoSizeConstraint, getLabelDimension(node));
                 }
             } else {
                 replaceAutoSize(node, bounds, useFigureForAutoSizeConstraint, null);
             }
         }
         return bounds;
+    }
+
+    private static Dimension getLabelDimension(Node label) {
+        Dimension defaultDimension = new Dimension(50, 20);
+
+        EObject container = label.eContainer();
+        if (container instanceof View) {
+            Object style = ((View) container).getStyle(NotationPackage.eINSTANCE.getFontStyle());
+            if (style instanceof FontStyle) {
+                String fontName = ((FontStyle) style).getFontName();
+                int fontHeight = ((FontStyle) style).getFontHeight();
+
+                Font defaultFont = JFaceResources.getDefaultFont();
+                Font font = new Font(defaultFont.getDevice(), fontName, fontHeight, SWT.BOLD);
+                EObject element = label.getElement();
+                if (element instanceof DRepresentationElement) {
+                    return TextUtilities.INSTANCE.getTextExtents(((DRepresentationElement) element).getName(), font);
+                }
+
+            }
+        }
+
+        return defaultDimension;
     }
 
     /**
@@ -482,23 +535,37 @@ public final class GMFHelper {
      * @return Point at the bottom right of the rectangle
      */
     public static Point getBottomRight(Node node) {
-        int right = 0;
-        int bottom = 0;
-        for (Iterator<Node> children = Iterators.filter(node.getChildren().iterator(), Node.class); children.hasNext(); /* */) {
-            Node child = children.next();
-            // The bordered nodes is ignored
-            if (!(new NodeQuery(node).isBorderedNode())) {
-                Rectangle bounds = getBounds(child);
-                Point bottomRight = bounds.getBottomRight();
-                if (bottomRight.x > right) {
-                    right = bottomRight.x;
-                }
-                if (bottomRight.y > bottom) {
-                    bottom = bottomRight.y;
+        Point bottomRightPoint = new Point(0, 0);
+        NodeQuery nodeQuery = new NodeQuery(node);
+        if (nodeQuery.isListContainer()) {
+            bottomRightPoint = getListContainerBottomRight(node);
+        } else {
+            for (Iterator<Node> children = Iterators.filter(node.getChildren().iterator(), Node.class); children.hasNext(); /* */) {
+                Node child = children.next();
+                // The bordered nodes are ignored
+                if (!nodeQuery.isBorderedNode()) {
+                    Rectangle bounds = getBounds(child);
+                    Point bottomRight = bounds.getBottomRight();
+                    if (bottomRight.x > bottomRightPoint.x()) {
+                        bottomRightPoint.setX(bottomRight.x);
+                    }
+                    if (bottomRight.y > bottomRightPoint.y()) {
+                        bottomRightPoint.setY(bottomRight.y);
+                    }
                 }
             }
         }
-        return new Point(right, bottom);
+        return bottomRightPoint;
+    }
+
+    private static Point getListContainerBottomRight(Node listContainerNode) {
+        Point bottomRight = new Point(0, 0);
+
+        for (Object child : Iterables.filter(listContainerNode.getChildren(), new ListCompartmentPredicate())) {
+
+        }
+
+        return bottomRight;
     }
 
     private static Dimension getDefaultSize(AbstractDNode abstractDNode) {
@@ -552,5 +619,18 @@ public final class GMFHelper {
             result = Options.newSome((GraphicalEditPart) targetEditPart);
         }
         return result;
+    }
+
+    private static class ListCompartmentPredicate implements Predicate<Object> {
+
+        @Override
+        public boolean apply(Object input) {
+            if (input instanceof Node) {
+                NodeQuery nodeQuery = new NodeQuery((Node) input);
+                return nodeQuery.isListCompartment();
+            }
+            return false;
+        }
+
     }
 }

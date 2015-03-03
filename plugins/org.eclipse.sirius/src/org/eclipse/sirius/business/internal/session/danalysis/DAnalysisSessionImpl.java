@@ -909,6 +909,16 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
         this.reloadingPolicy = reloadingPolicy;
     }
 
+    /**
+     * Change the reloader.
+     * 
+     * @param reloader
+     *            the reloader to set.
+     */
+    public void setReloader(Reloader reloader) {
+        this.resourcesSynchronizer.setReloader(reloader);
+    }
+
     @Override
     public ReloadingPolicy getReloadingPolicy() {
         return reloadingPolicy != null ? reloadingPolicy : new ReloadingPolicyImpl(new NoUICallback());

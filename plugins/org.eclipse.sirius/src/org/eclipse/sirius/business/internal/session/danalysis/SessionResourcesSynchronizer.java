@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2015 THALES GLOBAL SERVICES and Obeo.
+ * Copyright (c) 2007, 2015 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,18 +12,17 @@ package org.eclipse.sirius.business.internal.session.danalysis;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.sirius.business.api.query.ResourceQuery;
@@ -50,6 +49,8 @@ import com.google.common.collect.Multimap;
  */
 public class SessionResourcesSynchronizer implements ResourceSyncClient {
     private final DAnalysisSessionImpl session;
+
+    private Reloader reloader = new Reloader();
 
     /**
      * Creates a new synchronizer.
@@ -179,49 +180,28 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
         session.notifyListeners(SessionListener.ABOUT_TO_BE_REPLACED);
         TransactionalEditingDomain ted = session.getTransactionalEditingDomain();
 
+        // Command to remove oldAnalysisResource.
         Command reloadingAnalysisCmd = null;
-        ResourceQuery resourceQuery = new ResourceQuery(resource);
-        boolean representationsResource = resourceQuery.isRepresentationsResource();
+        boolean representationsResource = new ResourceQuery(resource).isRepresentationsResource();
         if (representationsResource) {
             reloadingAnalysisCmd = new AnalysisResourceReloadedCommand(session, ted, resource);
         }
         List<Resource> resourcesBeforeReload = Lists.newArrayList(ted.getResourceSet().getResources());
-        /* execute the reload operation as a read-only transaction */
-        RunnableWithResult<?> reload = new RunnableWithResult.Impl<Object>() {
-            @Override
-            public void run() {
-                session.disableCrossReferencerResolve(resource);
-                resource.unload();
-                session.enableCrossReferencerResolve(resource);
-                try {
-                    resource.load(Collections.EMPTY_MAP);
-                    EcoreUtil.resolveAll(resource);
-                    session.getSemanticCrossReferencer().resolveProxyCrossReferences(resource);
-                } catch (IOException e) {
-                    setResult(e);
+
+        IStatus reloadStatus = reloader.reload(resource, session);
+        if (!reloadStatus.isOK()) {
+            SiriusPlugin.getDefault().error("A reload operation failed for unknown reason", null);
+        } else {
+            if (representationsResource) {
+                ted.getCommandStack().execute(reloadingAnalysisCmd);
+                if (resource.getURI().equals(session.getSessionResource().getURI())) {
+                    session.sessionResourceReloaded(resource);
                 }
             }
-        };
-        try {
-            ted.runExclusive(reload);
-            if (reload.getResult() != null) {
-                throw (IOException) reload.getResult();
-            } else if (!reload.getStatus().isOK()) {
-                SiriusPlugin.getDefault().error("a reload operation failed for unknown reason", null);
-            } else {
-                if (representationsResource) {
-                    ted.getCommandStack().execute(reloadingAnalysisCmd);
-                    if (resource.getURI().equals(session.getSessionResource().getURI())) {
-                        session.sessionResourceReloaded(resource);
-                    }
-                }
-                // Add the unknown resources to the semantic resources of this
-                // session.
-                session.discoverAutomaticallyLoadedSemanticResources(resourcesBeforeReload);
-                session.notifyListeners(SessionListener.REPLACED);
-            }
-        } catch (InterruptedException e) {
-            // do nothing
+            // Add the unknown resources to the semantic resources of this
+            // session.
+            session.discoverAutomaticallyLoadedSemanticResources(resourcesBeforeReload);
+            session.notifyListeners(SessionListener.REPLACED);
         }
     }
 
@@ -301,4 +281,18 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
         return Iterables.concat(session.getSemanticResources(), session.getAllSessionResources(), session.getControlledResources());
     }
 
+    /**
+     * Set a reloader to use when reloading some resource handled by the
+     * session.
+     * 
+     * Has no effect with if the given reloader is null.
+     * 
+     * @param reloader
+     *            the reloader to set.
+     */
+    public void setReloader(Reloader reloader) {
+        if (reloader != null) {
+            this.reloader = reloader;
+        }
+    }
 }

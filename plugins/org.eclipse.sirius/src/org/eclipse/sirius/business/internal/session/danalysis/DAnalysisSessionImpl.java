@@ -126,7 +126,7 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
 
     /** The {@link DAnalysis} of the main session resource (*.aird). */
     private DAnalysis mainDAnalysis;
-    
+
     private SessionResourcesTracker tracker = new SessionResourcesTracker(this);
 
     // Session's configuration
@@ -420,7 +420,7 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
             }
         }
     }
-    
+
     DAnalysis getMainAnalysis() {
         return this.mainDAnalysis;
     }
@@ -841,7 +841,13 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
             if (savedResources == null) {
                 // If the savedResources list is null, something went wrong and
                 // has already been logged.
-                status = save.getStatus();
+                if (runExclusive) {
+                    // getTransactionalEditingDomain().runExclusive will
+                    // Status.OK_STATUS as status except in case of a rollabck.
+                    status = new Status(IStatus.ERROR, SiriusPlugin.ID, "An error occurred while saving the session. Please check the error log for more details.");
+                } else {
+                    status = save.getStatus();
+                }
             } else {
                 CommandStack commandStack = transactionalEditingDomain.getCommandStack();
                 if (commandStack instanceof BasicCommandStack) {

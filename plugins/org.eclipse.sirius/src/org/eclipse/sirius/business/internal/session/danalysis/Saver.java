@@ -13,7 +13,10 @@ package org.eclipse.sirius.business.internal.session.danalysis;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain.Lifecycle;
 import org.eclipse.emf.transaction.TransactionalEditingDomainEvent;
@@ -112,7 +115,10 @@ final class Saver extends TransactionalEditingDomainListenerImpl {
             if (!isSaving.get()) {
                 try {
                     isSaving.set(true);
-                    session.doSave(options, monitor, runExclusive);
+                    IStatus status = session.doSave(options, monitor, runExclusive);
+                    if (status != null && !status.isOK()) {
+                        throw new WrappedException(new CoreException(status));
+                    }
                 } finally {
                     disarm();
                     isSaving.set(false);

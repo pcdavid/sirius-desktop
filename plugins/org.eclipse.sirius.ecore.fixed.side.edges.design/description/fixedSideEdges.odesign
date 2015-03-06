@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="fixed.side.edges" version="8.1.0">
+  <ownedViewpoints name="fixed.side.edges" modelFileExtension="ecore">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Fixed Side Edge Diagram" domainClass="EPackage">
+      <layout xsi:type="description_1:CompositeLayout" direction="LeftToRight"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="FSED_EClass" semanticCandidatesExpression="[eAllContents()->filter(EClass)/]" domainClass="EClass">
+          <style xsi:type="style:SquareDescription" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="FSED_EPackages2EPackages" sourceMapping="//@ownedViewpoints[name='fixed.side.edges']/@ownedRepresentations[name='Fixed%20Side%20Edge%20Diagram']/@defaultLayer/@containerMappings[name='FSED_EPackage']" targetMapping="//@ownedViewpoints[name='fixed.side.edges']/@ownedRepresentations[name='Fixed%20Side%20Edge%20Diagram']/@defaultLayer/@containerMappings[name='FSED_EPackage']" targetFinderExpression="[eSubpackages/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="FSED_EPackages2EClasses" sourceMapping="//@ownedViewpoints[name='fixed.side.edges']/@ownedRepresentations[name='Fixed%20Side%20Edge%20Diagram']/@defaultLayer/@containerMappings[name='FSED_EPackage']" targetMapping="//@ownedViewpoints[name='fixed.side.edges']/@ownedRepresentations[name='Fixed%20Side%20Edge%20Diagram']/@defaultLayer/@nodeMappings[name='FSED_EClass']" targetFinderExpression="[eClassifiers/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="FSED_EPackage" semanticCandidatesExpression="[eAllContents()->filter(EPackage)/]" domainClass="EPackage">
+          <style xsi:type="style:FlatContainerStyleDescription">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

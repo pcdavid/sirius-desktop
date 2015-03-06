@@ -1,0 +1,59 @@
+h1. Sirius Customization Technical Documentation: Having edges connected to a fixed side location
+
+h2. Preamble
+
+This technical documentation presents how to extend Sirius behavior to choose where connection should point on its source and/or its target 
+
+|_. Version |_. Status        |_. Date         |_. Authors |_. Changes      |
+| v0.1         | DRAFT    | 2015-05-03 | smonnier       | Initial version |
+
+
+h2. Having edges connected to a fixed side location
+
+* To display edges with anchor at a specific location on its source and/or its target without stopping at the border, we will need the following elements:
+** a connection router that does not reset the connection end points
+** a Container Edit Part with fixed anchor location
+** a Node Edit Part with fixed anchor location
+** a ChangeBendpointsOfEdgesCommand that does not adjust the connection end points
+
+
+h3. The edit part provider
+
+* To implement the previous point, we will need custom edit parts. This is why we are using a specific edit part provider @FixedSideEdgesEditPartProvider@ using the extension point @org.eclipse.gmf.runtime.diagram.ui.editpartProviders@.
+
+h3. Providing a new connection router
+
+* In this sample, we wanted to modify the default @ObliqueRouter@ only. In this router, we need to remove in the @routeLine@ method the call to @resetEndPointsToEdge@. As it presents, this method *Reset the end points of the connection line to the appropriate anchor position on the start and end figures*.
+* To provide a new router, we first need to provide a new @ConnectionEditPart@. This is done in @FixedSideEdgesEditPartProvider.getEdgeEditPartClass(View view)@ where we return a @FixedSideEdgeEditPart@ class if the edge mapping is matching the one from the sample.
+* In this new @FixedSideEdgeEditPart@ we just needed to override the method @installRouter@ to provide the new @FixedSideEdgesObliqueRouter@ if the selected router is defined as oblique (named Manual in this context).
+* Finally this new router only override the @routeLine@ method in order to remove the call to @resetEndPointsToEdge@.
+
+h3. Providing a new Container Edit Part
+
+* In this sample, one of the Mapping is a ContainerMapping used to represent EPackage. The objective are:
+** to set a fixed anchor for any connection having an EPackage as source. The source anchor will be located at middle of the south side.
+** to set a fixed anchor for any connection having an EPackage as target. The target anchor will be located in the right upper area of the target, not on the border.
+* This has been implemented with @FixedSideEdgesDNodeContainerEditPart@ which is contributed in @FixedSideEdgesEditPartProvider.getNodeEditPartClass@. Note that we validated that the view element is a DNodeContainer but also that the visualID should match the one of a @DNodeContainerEditPart@ to avoid providing our new EditPart if the current view is used for a LabelEditPart. the final test is to check if it concerns our @ContainerNodeMapping@.
+* Finally, in @FixedSideEdgesDNodeContainerEditPart@ only two methods are overridden:
+** @getSourceConnectionAnchor@ to have a fixed Anchor located at middle of the south side or (0.5, 1) where (O,O) is the upper left corner and (1,1) is the lower right corner.
+** @getTargetConnectionAnchor@ to have a fixed Anchor located in the right upper area of the target, not on the border or (0.75, 0.25).
+
+h3. Providing a new Node Edit Part
+
+* In this sample, one of the Mapping is a NodeMapping used to represent EClass. The objective is:
+** to set a fixed anchor for any connection having an EPackage as target. The target anchor will be located at the quarter of the east side.
+* This has been implemented with @FixedSideEdgesDNodeEditPart@ which is contributed in @FixedSideEdgesEditPartProvider.getNodeEditPartClass@. Note that we validated that the view element is a DNode but also that the visualID should match the one of a @DNodeEditPart@ to avoid providing our new EditPart if the current view is used for a LabelEditPart. the final test is to check if it concerns our @NodeMapping@.
+* In @FixedSideEdgesDNodeEditPart@ two kinds of methods are overridden:
+** @createNodePlate@ to provide a new figure @FixedSideEdgesAirDefaultSizeNodeFigure@ that will handle the anchor location.
+** every other methods are overridden to manage the @nodePlate@ that is private in the super class.
+* Finally, in @FixedSideEdgesAirDefaultSizeNodeFigure@ the method @createConnectionAnchor@ has been overridden to provide an anchor at a fixed location at a quarter of the east side, or (1, 0.25).
+
+h3. Providing a new Node Edit Part
+
+* The last step is to forbid the execution of a command that adjust the end points of a connection. This is part of a default behavior of sirius that was not expected to be overridden and need several contribution in order to ignore this command.
+* First in @FixedSideEdgesEditPartProvider.getDiagramEditPartClass@ we provided a new DiagramEditPart @FixedSideEdgesDDiagramEditPart@
+* In this @FixedSideEdgesDDiagramEditPart@ the method @createDefaultEditPolicies@ has been overriden to install @FixedSideEdgesAirXYLayoutEditPolicy@ as the new *LAYOUT_ROLE* @EditPolicy@.
+* This @FixedSideEdgesAirXYLayoutEditPolicy@ has the method @createChildEditPolicy@ overriden to provide @FixedSideEdgesAirResizableEditPolicy@ as a new child @EditPolicy@.
+* @FixedSideEdgesAirResizableEditPolicy@ is overridden in @getMoveCommand@ to provide @FixedSideEdgesChangeBendpointsOfEdgesCommand@
+* Finally, @FixedSideEdgesChangeBendpointsOfEdgesCommand@ has the method @getBendpointsChangedCommand@ overridden, so from the @CompositeTransactionalCommand@ resulting from the call of the super command, will be removed the @SetConnectionBendpointsAccordingToExtremityMoveCommmand@. This command caused the adjustement of the end point of the connection to be displayed on the closest border if the connection went over the source or target.
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="org.eclipse.sirius.ecore.fixed.side.edges.design.Activator"
+               id="org.eclipse.sirius.ecore.fixed.side.edges.design"
+	       name="fixed.side.edges">
+    </component>
+  </extension>
+  <extension
+        point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+     <editpartProvider
+           class="org.eclipse.sirius.ecore.fixed.side.edges.design.edit.part.FixedSideEdgesEditPartProvider">
+        <Priority
+              name="High">
+        </Priority>
+     </editpartProvider>
+  </extension>
+</plugin>

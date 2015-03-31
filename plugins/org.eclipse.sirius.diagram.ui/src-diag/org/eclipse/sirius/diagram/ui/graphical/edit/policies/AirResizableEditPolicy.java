@@ -12,6 +12,7 @@ package org.eclipse.sirius.diagram.ui.graphical.edit.policies;
 
 import java.util.List;
 
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
@@ -20,6 +21,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.UnexecutableCommand;
@@ -41,7 +43,10 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.LabelPosition;
 import org.eclipse.sirius.diagram.NodeStyle;
+import org.eclipse.sirius.diagram.business.api.query.DNodeQuery;
 import org.eclipse.sirius.diagram.description.DiagramElementMapping;
+import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramBorderNodeEditPart;
+import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramNodeEditPart;
 import org.eclipse.sirius.diagram.ui.edit.internal.validators.ResizeValidator;
 import org.eclipse.sirius.diagram.ui.internal.edit.commands.CenterEditPartEdgesCommand;
@@ -166,6 +171,29 @@ public class AirResizableEditPolicy extends ResizableShapeEditPolicy {
             }
         }
         return selectionHandles;
+    }
+
+    /**
+     * Operand can only be vertically resized.
+     * 
+     * {@inheritDoc}
+     */
+    @Override
+    protected void createResizeHandle(List handles, int direction) {
+        EditPart host = getHost();
+        if (host instanceof IDiagramNodeEditPart || host instanceof IDiagramBorderNodeEditPart) {
+            DNode node = (DNode) ((IDiagramElementEditPart) host).resolveDiagramElement();
+            DNodeQuery query = new DNodeQuery(node);
+
+            if (!query.allowsVerticalResize() && (PositionConstants.NORTH_SOUTH & direction) == direction) {
+                return;
+            }
+
+            if (!query.allowsHorizontalResize() && (PositionConstants.EAST_WEST & direction) == direction) {
+                return;
+            }
+        }
+        super.createResizeHandle(handles, direction);
     }
 
     /**

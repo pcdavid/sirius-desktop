@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 Obeo.
+ * Copyright (c) 2014, 2015 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,10 +10,16 @@
  *******************************************************************************/
 package org.eclipse.sirius.tests.suite;
 
+import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.sirius.tests.SiriusTestsPlugin;
+import org.eclipse.sirius.tests.support.api.TestsUtil;
 
 /**
  * Sirius Gerrit Junit Tests.
@@ -39,7 +45,11 @@ public class GerritJUnitSuite extends TestCase {
      */
     public static Test suite() {
         TestSuite suite = new TestSuite("Sirius Gerrit JUnit Tests");
-        AllSiriusTestSuite.addGerritPart(suite);
+        List<Class<? extends TestCase>> allTestCases = TestsUtil.getAllTestCases(Platform.getBundle(SiriusTestsPlugin.PLUGIN_ID), "/org/eclipse/sirius/tests/unit/");
+
+        for (Class<? extends TestCase> clazz : TestsUtil.getFilteredTestCases(allTestCases, false, null, null, true, null)) {
+            suite.addTestSuite(clazz);
+        }
         return suite;
     }
 }

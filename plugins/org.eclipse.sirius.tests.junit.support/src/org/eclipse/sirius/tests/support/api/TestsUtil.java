@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2010, 2014 THALES GLOBAL SERVICES
+ * Copyright (c) 2010, 2015 THALES GLOBAL SERVICES
  * All rights reserved.   This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,12 +12,24 @@
  */
 package org.eclipse.sirius.tests.support.api;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import junit.framework.TestCase;
+
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.tabbar.Tabbar;
+import org.eclipse.sirius.tests.support.api.SiriusTestCaseMetaData.Category;
+import org.eclipse.sirius.tests.support.api.SiriusTestCaseMetaData.ErrorTag;
+import org.eclipse.sirius.tests.support.api.SiriusTestCaseMetaData.PluginOrStandalone;
 import org.eclipse.ui.PlatformUI;
 import org.junit.Assert;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.Version;
+import org.osgi.framework.wiring.BundleWiring;
 
 /**
  * Useful operation common to test cases.
@@ -285,5 +297,107 @@ public final class TestsUtil {
      */
     public static boolean isDynamicTabbar() {
         return Tabbar.canBeDynamic();
+    }
+
+    /**
+     * Search testCases of a bundle in a given package.
+     * 
+     * @param bundle
+     *            the bundle
+     * @param packagePath
+     *            packagePath starting with "/"
+     * @return found testCases in package of bundle
+     */
+    public static List<Class<? extends TestCase>> getAllTestCases(Bundle bundle, String packagePath) {
+        BundleWiring bundleWiring = bundle.adapt(BundleWiring.class);
+        Collection<String> resources = bundleWiring.listResources(packagePath, "*.class", BundleWiring.LISTRESOURCES_LOCAL | BundleWiring.LISTRESOURCES_RECURSE);
+        List<Class<? extends TestCase>> classes = new ArrayList<Class<? extends TestCase>>();
+        ClassLoader cl = bundleWiring.getClassLoader();
+        for (String s : resources) {
+            String str = s.replace('/', '.').substring(0, s.length() - 6);
+            try {
+                Class<?> clazz = Class.forName(str, false, cl);
+                if (TestCase.class.isAssignableFrom(clazz) && clazz.isAnnotationPresent(SiriusTestCaseMetaData.class)) {
+                    classes.add((Class<? extends TestCase>) clazz);
+                }
+            } catch (ClassNotFoundException cnfe) {
+            } catch (NoClassDefFoundError ncdfe) {
+            }
+        }
+
+        Collections.sort(classes, new Comparator<Class<? extends TestCase>>() {
+            @Override
+            public int compare(Class<? extends TestCase> c1, Class<? extends TestCase> c2) {
+                return c1.getName().compareTo(c2.getName());
+            }
+        });
+        return classes;
+    }
+
+    /**
+     * Get the filtered list of TestCases according to criteria.<br>
+     * The filter is based on {@link SiriusTestCaseMetaData}. The test is filtered
+     * if this annotation is not found.<br>
+     * All filter are added; the more filter the smaller the returned list is.
+     * 
+     * @param testCasesToFilter
+     *            testCases to filter
+     * @param disabled
+     *            if not null, filter with disabled testCases
+     * @param category
+     *            if not null, filter according to category
+     * @param pluginOrStandalone
+     *            if not null, filter according to pluginOrStandalone
+     * @param gerrit
+     *            if not null, filter with gerrit testCases
+     * @param errorTag
+     *            if not null, filter according to errorTag
+     * @return filtered testCases
+     */
+    public static List<Class<? extends TestCase>> getFilteredTestCases(List<Class<? extends TestCase>> testCasesToFilter, Boolean disabled, Category category, PluginOrStandalone pluginOrStandalone,
+            Boolean gerrit, ErrorTag errorTag) {
+        List<Class<? extends TestCase>> filteredTestCases = new ArrayList<Class<? extends TestCase>>();
+
+        boolean keepTest = false;
+        for (Class<? extends TestCase> clazz : testCasesToFilter) {
+            keepTest = false;
+            SiriusTestCaseMetaData annotation = clazz.getAnnotation(SiriusTestCaseMetaData.class);
+            if (annotation != null) {
+                if (disabled != null) {
+                    keepTest = annotation.disabled() == disabled;
+                    if (!keepTest) {
+                        continue;
+                    }
+                }
+                if (category != null) {
+                    keepTest = annotation.category().equals(category);
+                    if (!keepTest) {
+                        continue;
+                    }
+                }
+                if (pluginOrStandalone != null) {
+                    keepTest = annotation.pluginStandalone().equals(pluginOrStandalone);
+                    if (!keepTest) {
+                        continue;
+                    }
+                }
+                if (gerrit != null) {
+                    keepTest = annotation.gerrit() == gerrit;
+                    if (!keepTest) {
+                        continue;
+                    }
+                }
+                if (errorTag != null) {
+                    keepTest = annotation.errorTag().equals(errorTag);
+                    if (!keepTest) {
+                        continue;
+                    }
+                }
+                if (keepTest) {
+                    filteredTestCases.add(clazz);
+                }
+            }
+        }
+        return filteredTestCases;
     }
 }

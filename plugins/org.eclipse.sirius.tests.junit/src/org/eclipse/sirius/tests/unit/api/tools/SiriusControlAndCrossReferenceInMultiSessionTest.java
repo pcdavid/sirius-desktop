@@ -34,6 +34,9 @@ import org.eclipse.sirius.business.internal.session.danalysis.LocalResourceColle
 import org.eclipse.sirius.tests.SiriusTestsPlugin;
 import org.eclipse.sirius.tests.support.api.EclipseTestsSupportHelper;
 import org.eclipse.sirius.tests.support.api.SiriusTestCase;
+import org.eclipse.sirius.tests.support.api.SiriusTestCaseMetaData;
+import org.eclipse.sirius.tests.support.api.SiriusTestCaseMetaData.Category;
+import org.eclipse.sirius.tests.support.api.SiriusTestCaseMetaData.PluginOrStandalone;
 import org.eclipse.sirius.tools.api.command.ICommandFactory;
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
 import org.eclipse.sirius.viewpoint.DAnalysis;
@@ -52,6 +55,7 @@ import com.google.common.collect.UnmodifiableIterator;
  * 
  * @author <a href="mailto:laurent.fasani@obeo.fr">Laurent Fasani</a>
  */
+@SiriusTestCaseMetaData(category = Category.COMMON, pluginStandalone = PluginOrStandalone.PLUGIN)
 public class SiriusControlAndCrossReferenceInMultiSessionTest extends SiriusTestCase {
 
     private static final String PATH = "/data/unit/control/multisession/";

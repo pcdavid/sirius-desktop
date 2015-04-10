@@ -46,6 +46,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -885,21 +886,26 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
                 monitor.beginTask("Semantic resource addition : " + semanticModelURI.lastSegment(), 3);
 
                 Resource newSemanticResource = resourceSet.getResource(semanticModelURI, false);
-                if (newSemanticResource != null && newSemanticResource.getContents().isEmpty()) {
-                    // The resource is probably loaded (created) with a proxy
-                    // resolution. Indeed, in case of proxy, the method
-                    // eResolveProxy causes a creation of an empty resource in
-                    // the resourceSet.
-                    // So we must unload it before load it again.
-                    // resourceSet.
-                    newSemanticResource.unload();
+                if (newSemanticResource != null) {
+                    if (newSemanticResource.getContents().isEmpty()) {
+                        // The resource is probably loaded (created) with a
+                        // proxy resolution. Indeed, in case of proxy, the
+                        // method eResolveProxy causes a creation of an
+                        // empty resource in the resourceSet. So we must unload
+                        // it before load it again.
+                        newSemanticResource.unload();
+                    }
                 }
-                monitor.worked(1);
-                newSemanticResource = resourceSet.getResource(semanticModelURI, true);
-                if (!getSemanticResources().contains(newSemanticResource)) {
-                    addSemanticResource(newSemanticResource, addCrossReferencedResources, monitor);
-                }
-            } finally {
+                    monitor.worked(1);
+                    newSemanticResource = resourceSet.getResource(semanticModelURI, true);
+                    if (!getSemanticResources().contains(newSemanticResource)) {
+                        addSemanticResource(newSemanticResource, addCrossReferencedResources, monitor);
+                    }
+            } 
+            catch (WrappedException e) {
+                SiriusPlugin.getDefault().warning("Unable to load the resource " + semanticModelURI, e.exception());
+            } 
+            finally {
                 monitor.done();
                 ResourceSetUtil.resetProgressMonitor(resourceSet);
             }
@@ -1767,6 +1773,9 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
     }
 
     private void processAction(final Action action, final Resource resource, IProgressMonitor pm) throws Exception {
+        if (SiriusPlugin.getDefault().isDebugging()) {
+            SiriusPlugin.getDefault().getLog().log(new Status(IStatus.INFO, SiriusPlugin.ID, "Action: " + action + " | " + toString() + " | resource: " + resource.getURI()));
+        }
         switch (action) {
         case CLOSE_SESSION:
             close(pm);
@@ -1827,6 +1836,9 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
 
                 resource.unload();
 
+                //TODO warkaround propostion 2
+                // remove new empty resource here
+                
                 enableCrossReferencerResolve(resource);
                 try {
                     resource.load(Collections.EMPTY_MAP);

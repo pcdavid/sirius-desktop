@@ -304,8 +304,9 @@ public final class JavaExtensionsManager {
             }
         }
         for (Entry<String, EPackage> entry : newDeclarations.entries()) {
-            boolean changedType = firstRun || lastDeclarerIDsInBundles.contains(entry.getKey()) != newDeclarersAsBundles.contains(entry.getKey());
-            if (changedType) {
+            boolean isFromWorkspace = !newDeclarersAsBundles.contains(entry.getKey());
+            boolean changedType = firstRun || lastDeclarerIDsInBundles.contains(entry.getKey()) != isFromWorkspace;
+            if (isFromWorkspace || changedType) {
                 loadedEPackage(entry.getValue());
             }
         }

@@ -29,7 +29,6 @@ import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -69,7 +68,9 @@ import org.eclipse.sirius.business.internal.session.ReloadingPolicyImpl;
 import org.eclipse.sirius.business.internal.session.RepresentationNameListener;
 import org.eclipse.sirius.business.internal.session.SessionEventBrokerImpl;
 import org.eclipse.sirius.common.tools.DslCommonPlugin;
+import org.eclipse.sirius.common.tools.api.interpreter.EPackageLoadingCallback;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
+import org.eclipse.sirius.common.tools.api.interpreter.JavaExtensionsManager;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSetSync;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSetSync.ResourceStatus;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSyncClient;
@@ -165,6 +166,34 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
 
     private RepresentationNameListener representationNameListener;
 
+    private JavaExtensionsManager classpathManager;
+
+    private EPackageLoadingCallback ePackageLoadingCallback = new EPackageLoadingCallback() {
+
+        @Override
+        public void loaded(String nsURI, EPackage pak) {
+            EPackage knownPackage = getTransactionalEditingDomain().getResourceSet().getPackageRegistry().getEPackage(nsURI);
+            if (knownPackage == null || knownPackage != pak) {
+                /*
+                 * if knownPackage is null it means the given EPackage is not
+                 * registered in the current registry. This might happen when
+                 * editing some dynamic instances for instance.
+                 */
+                getTransactionalEditingDomain().getResourceSet().getPackageRegistry().put(nsURI, pak);
+            }
+            getModelAccessor().activateMetamodels(Collections.singleton(new EcoreMetamodelDescriptor(pak)));
+
+        }
+
+        @Override
+        public void unloaded(String nsURI, EPackage pak) {
+            EPackage knownPackage = getTransactionalEditingDomain().getResourceSet().getPackageRegistry().getEPackage(nsURI);
+            if (knownPackage == null || knownPackage != pak) {
+                getTransactionalEditingDomain().getResourceSet().getPackageRegistry().remove(nsURI);
+            }
+        }
+    };
+
     /**
      * Create a new session.
      * 
@@ -186,7 +215,6 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
         setResourceCollector(new LocalResourceCollector(getTransactionalEditingDomain().getResourceSet()));
         setDeferSaveToPostCommit(true);
         setSaveInExclusiveTransaction(true);
-
     }
 
     // *******************
@@ -218,6 +246,8 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
         // setting the new value.
         this.interpreter.setProperty(IInterpreter.FILES, null);
         this.interpreter.setProperty(IInterpreter.FILES, filePaths);
+        this.classpathManager.updateScope(null);
+        this.classpathManager.updateScope(filePaths);
         InterpreterRegistry.prepareImportsFromSession(this.interpreter, this);
         this.interpreter.setCrossReferencer(getSemanticCrossReferencer());
     }
@@ -596,7 +626,6 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
             set.getResources().add(newResource);
         }
         if (newResource.getContents().size() > 0) {
-            notifyNewMetamodels(newResource);
             for (final DAnalysis analysis : this.allAnalyses()) {
                 analysis.getSemanticResources().add(new ResourceDescriptor(newResource.getURI()));
             }
@@ -605,29 +634,6 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
         ControlledResourcesDetector.refreshControlledResources(this);
 
         registerResourceInCrossReferencer(newResource);
-    }
-
-    private void notifyNewMetamodels(final Resource newResource) {
-        if (Boolean.valueOf(System.getProperty("org.eclipse.sirius.enableUnsafeOptimisations", "false"))) {
-            return;
-        }
-        final Collection<EPackage> collectedMetamodels = collectMetamodels(newResource.getAllContents());
-        final ModelAccessor accessor = getModelAccessor();
-        if (accessor != null) {
-            final Collection<EcoreMetamodelDescriptor> descriptors = new ArrayList<EcoreMetamodelDescriptor>();
-            for (final EPackage package1 : collectedMetamodels) {
-                descriptors.add(new EcoreMetamodelDescriptor(package1));
-            }
-            accessor.activateMetamodels(descriptors);
-        }
-    }
-
-    private Collection<EPackage> collectMetamodels(final TreeIterator<EObject> allContents) {
-        final Collection<EPackage> result = new LinkedHashSet<EPackage>();
-        while (allContents.hasNext()) {
-            result.add(allContents.next().eClass().getEPackage());
-        }
-        return result;
     }
 
     /**
@@ -1130,6 +1136,20 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
             monitor.worked(1);
             DslCommonPlugin.PROFILER.startWork(SiriusTasksKey.OPEN_SESSION_KEY);
 
+            if (this.classpathManager == null) {
+                this.classpathManager = JavaExtensionsManager.createManagerWithOverride();
+                this.classpathManager.addEPackageCallBack(ePackageLoadingCallback);
+            }
+            monitor.worked(1);
+            /*
+             * we have to configure the interpreter before loading any model as
+             * the configuration might register an EPackage instance in the
+             * current EPackage registry which might be needed to actually load
+             * the model.
+             */
+            configureInterpreter();
+            monitor.worked(1);
+
             ResourceSetSync.getOrInstallResourceSetSync(transactionalEditingDomain).registerClient(resourcesSynchronizer);
             monitor.worked(1);
             this.representationNameListener = new RepresentationNameListener(this);
@@ -1139,12 +1159,6 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
             monitor.worked(1);
 
             setSynchronizeStatusofEveryResource();
-            monitor.worked(1);
-
-            configureInterpreter();
-            monitor.worked(1);
-
-            initializeAccessor();
             monitor.worked(1);
 
             ViewpointRegistry.getInstance().addListener(this.vsmUpdater);
@@ -1238,6 +1252,11 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
         }
         crossReferencer = null;
         saver.dispose();
+
+        if (classpathManager != null) {
+            classpathManager.dispose();
+        }
+        classpathManager = null;
 
         transactionalEditingDomain.dispose();
         doDisposePermissionAuthority(resourceSet);

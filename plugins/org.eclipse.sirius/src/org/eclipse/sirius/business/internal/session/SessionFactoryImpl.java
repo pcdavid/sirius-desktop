@@ -13,6 +13,9 @@ package org.eclipse.sirius.business.internal.session;
 import java.io.IOException;
 import java.util.Collections;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -25,11 +28,14 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.factory.SessionFactory;
 import org.eclipse.sirius.business.internal.movida.Movida;
 import org.eclipse.sirius.business.internal.movida.registry.ViewpointRegistry;
 import org.eclipse.sirius.business.internal.movida.registry.ViewpointURIConverter;
+import org.eclipse.sirius.business.internal.query.ModelingProjectQuery;
+import org.eclipse.sirius.business.internal.resource.parser.XMIAirdFileSaxParser;
 import org.eclipse.sirius.business.internal.session.danalysis.DAnalysisSessionImpl;
 import org.eclipse.sirius.common.tools.api.editing.EditingDomainFactoryService;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSetFactory;
@@ -109,6 +115,25 @@ public final class SessionFactoryImpl implements SessionFactory {
         ResourceSet resourceSet = transactionalEditingDomain.getResourceSet();
         // Make ResourceSet aware of resource loading with progress monitor
         ResourceSetUtil.setProgressMonitor(resourceSet, new SubProgressMonitor(monitor, 2));
+        // IWorkspaceRoot.
+
+        String fragment = sessionResourceURI.toPlatformString(true).split("/")[1];
+
+        // get the workspace
+        IWorkspace workspace = ResourcesPlugin.getWorkspace();
+        IProject project = workspace.getRoot().getProject(fragment);
+
+        // get the file
+        ModelingProject modelingProject = new ModelingProject();
+        modelingProject.setProject(project);
+
+        // IPath location = new Path(sessionResourceURI.toPlatformString(true));
+        // IFileStore store = EFS.getLocalFileSystem().getStore(location);
+        // IFile file = workspace.getRoot().getFileForLocation(location);
+
+        ModelingProjectQuery modelingProjectQuery = new ModelingProjectQuery(modelingProject);
+        XMIAirdFileSaxParser xmiAirdFileSaxParser = new XMIAirdFileSaxParser(modelingProjectQuery.getRepresentationFiles());
+        xmiAirdFileSaxParser.analyze(new NullProgressMonitor());
 
         Session session = null;
         try {

@@ -33,13 +33,13 @@ import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
 import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationContainer;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -63,7 +63,7 @@ public class DeleteRepresentationAction extends Action {
      *            the representations to delete
      */
     public DeleteRepresentationAction(Collection<DRepresentation> representations) {
-        super("Delete", AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/others/delete.gif"));
+        super("Delete", AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUiPlugin.ID, "/icons/full/others/delete.gif"));
         this.selectedRepresentations = representations;
 
         // Disable the action if the selection is not valid
@@ -139,9 +139,9 @@ public class DeleteRepresentationAction extends Action {
                 PlatformUI.getWorkbench().getProgressService().run(true, false, representationsDeletionRunnable);
             }
         } catch (final InvocationTargetException e) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+            SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, e.getLocalizedMessage(), e));
         } catch (final InterruptedException e) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+            SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, e.getLocalizedMessage(), e));
         }
     }
 

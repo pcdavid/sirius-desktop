@@ -32,6 +32,7 @@ import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.common.ui.tools.api.util.SWTUtil;
 import org.eclipse.sirius.tools.api.command.ui.RefreshFilter;
 import org.eclipse.sirius.tools.api.command.ui.RefreshFilterManager;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.EditingSessionEvent;
@@ -220,7 +221,7 @@ public class EditingSession implements IEditingSession, ISaveablesSource, Refres
                 detachEditor(editor);
             } catch (IllegalStateException e) {
                 // In case of CDO server shutdown
-                SiriusEditPlugin.getPlugin().log(e);
+                SiriusUiPlugin.getPlugin().log(e);
             } finally {
                 DialectUIManager.INSTANCE.closeEditor(editor, save);
             }

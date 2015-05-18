@@ -39,9 +39,9 @@ import org.eclipse.sirius.diagram.business.api.componentization.DiagramMappingsM
 import org.eclipse.sirius.diagram.business.api.query.DDiagramElementQuery;
 import org.eclipse.sirius.diagram.business.internal.metamodel.helper.LayerHelper;
 import org.eclipse.sirius.diagram.provider.DiagramItemProviderAdapterFactory;
-import org.eclipse.sirius.diagram.ui.business.api.provider.AbstractDDiagramElementLabelItemProvider;
-import org.eclipse.sirius.diagram.ui.business.api.provider.DEdgeLabelItemProvider;
-import org.eclipse.sirius.diagram.ui.business.api.provider.DNodeLabelItemProvider;
+import org.eclipse.sirius.diagram.edit.business.api.provider.AbstractDDiagramElementLabelItemProvider;
+import org.eclipse.sirius.diagram.edit.business.api.provider.DEdgeLabelItemProvider;
+import org.eclipse.sirius.diagram.edit.business.api.provider.DNodeLabelItemProvider;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DiagramOutlinePageListener;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.viewpoint.provider.ViewpointItemProviderAdapterFactory;

@@ -32,6 +32,7 @@ import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
@@ -39,7 +40,6 @@ import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelection
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 
@@ -170,7 +170,7 @@ public class UserSession {
         if (representation != null) {
             openEditor(representation, new NullProgressMonitor());
         } else {
-            SiriusEditPlugin.getPlugin().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "Cannot found representation: " + name));
+            SiriusUiPlugin.getPlugin().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, "Cannot found representation: " + name));
         }
         return this;
     }
@@ -227,6 +227,7 @@ public class UserSession {
     private UserSession selectViewpoints(final Iterable<String> viewpointNames, final boolean onlyThisViewpoints) {
         try {
             PlatformUI.getWorkbench().getProgressService().busyCursorWhile(new IRunnableWithProgress() {
+                @Override
                 public void run(IProgressMonitor monitor) {
                     Set<Viewpoint> viewpoints = Sets.newLinkedHashSet();
                     for (final String viewpointName : viewpointNames) {
@@ -237,9 +238,9 @@ public class UserSession {
                 }
             });
         } catch (InvocationTargetException e) {
-            SiriusEditPlugin.getPlugin().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "Cannot select viewpoints: " + viewpointNames + ".", e));
+            SiriusUiPlugin.getPlugin().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, "Cannot select viewpoints: " + viewpointNames + ".", e));
         } catch (InterruptedException e) {
-            SiriusEditPlugin.getPlugin().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "Cannot select viewpoints: " + viewpointNames + ".", e));
+            SiriusUiPlugin.getPlugin().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, "Cannot select viewpoints: " + viewpointNames + ".", e));
         }
         return this;
     }

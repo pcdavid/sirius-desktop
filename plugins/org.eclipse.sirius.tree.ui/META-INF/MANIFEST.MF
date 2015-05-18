@@ -8,9 +8,7 @@ Bundle-Activator: org.eclipse.sirius.tree.ui.provider.TreeUIPlugin$Implementatio
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.eclipse.sirius.tree.description.provider;version="2.0.4",
- org.eclipse.sirius.tree.provider;version="3.0.0",
- org.eclipse.sirius.tree.ui.business.api.helper;version="2.0.4",
+Export-Package: org.eclipse.sirius.tree.ui.business.api.helper;version="2.0.4",
  org.eclipse.sirius.tree.ui.business.internal.dialect;x-internal:=true;version="2.1.0",
  org.eclipse.sirius.tree.ui.properties.propertysource;version="2.0.4",
  org.eclipse.sirius.tree.ui.properties.section.common;version="3.0.0",
@@ -39,8 +37,10 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.8.0",
  org.eclipse.emf.workspace;bundle-version="1.5.1",
  org.eclipse.ui.ide;bundle-version="3.8.2",
  org.eclipse.sirius.common.ui;bundle-version="2.0.0",
- org.eclipse.jface.text;bundle-version="3.8.2"
+ org.eclipse.jface.text;bundle-version="3.8.2",
+ org.eclipse.sirius.tree.edit;bundle-version="3.0.0"
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.sirius.ext.base;version="2.0.0",
- org.eclipse.sirius.ext.emf.ui.properties
+ org.eclipse.sirius.ext.emf.ui.properties,
+ org.eclipse.sirius.viewpoint.provider

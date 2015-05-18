@@ -34,10 +34,10 @@ import org.eclipse.sirius.business.api.query.FileQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.resource.ImageFileFormat;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.tools.api.actions.export.ExportAction;
 import org.eclipse.sirius.ui.tools.api.dialogs.ExportSeveralRepresentationsAsImagesDialog;
 import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
@@ -60,6 +60,7 @@ public class ExportRepresentationsFromFileAction implements IObjectActionDelegat
      * @see org.eclipse.ui.IObjectActionDelegate#setActivePart(org.eclipse.jface.action.IAction,
      *      org.eclipse.ui.IWorkbenchPart)
      */
+    @Override
     public void setActivePart(final IAction action, final IWorkbenchPart targetPart) {
     }
 
@@ -68,6 +69,7 @@ public class ExportRepresentationsFromFileAction implements IObjectActionDelegat
      * 
      * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
      */
+    @Override
     public void run(final IAction action) {
 
         final Shell shell = Display.getCurrent().getActiveShell();
@@ -117,10 +119,10 @@ public class ExportRepresentationsFromFileAction implements IObjectActionDelegat
             try {
                 pmd.run(false, false, exportAllRepresentationsRunnable);
             } catch (final InvocationTargetException e) {
-                SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+                SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, e.getLocalizedMessage(), e));
                 MessageDialog.openError(shell, "Error", e.getTargetException().getMessage());
             } catch (final InterruptedException e) {
-                SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+                SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, e.getLocalizedMessage(), e));
                 MessageDialog.openInformation(shell, "Cancelled", e.getMessage());
             } finally {
                 pmd.close();
@@ -138,6 +140,7 @@ public class ExportRepresentationsFromFileAction implements IObjectActionDelegat
      * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction,
      *      org.eclipse.jface.viewers.ISelection)
      */
+    @Override
     public void selectionChanged(final IAction action, final ISelection selection) {
         action.setEnabled(false);
         if (selection instanceof IStructuredSelection && !selection.isEmpty() && ((IStructuredSelection) selection).getFirstElement() instanceof IFile) {

@@ -14,10 +14,10 @@ import java.util.Collection;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.tools.api.views.modelexplorerview.IModelExplorerTabExtension;
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.DeleteActionHandler;
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.ModelExplorerView;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.events.KeyAdapter;
@@ -62,6 +62,7 @@ public class CommonNavigatorTab implements IModelExplorerTabExtension {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void init(IViewSite site) {
         /* do nothing */
     }
@@ -69,6 +70,7 @@ public class CommonNavigatorTab implements IModelExplorerTabExtension {
     /**
      * {@inheritDoc}
      */
+    @Override
     public Control createTabControl(CTabFolder tabFolder) {
         view.createNavigatorControl(tabFolder);
         hookGlobalActions();
@@ -88,6 +90,7 @@ public class CommonNavigatorTab implements IModelExplorerTabExtension {
         bars.setGlobalActionHandler(ActionFactory.DELETE.getId(), deleteActionHandler);
 
         view.getCommonViewer().getControl().addKeyListener(new KeyAdapter() {
+            @Override
             public void keyPressed(KeyEvent event) {
                 if (event.character == SWT.DEL && event.stateMask == 0 && deleteActionHandler.isEnabled()) {
                     deleteActionHandler.run();
@@ -101,6 +104,7 @@ public class CommonNavigatorTab implements IModelExplorerTabExtension {
     /**
      * {@inheritDoc}
      */
+    @Override
     public String getToolTipText() {
         return MODEL_EXPLORER_STRUCTURE_TAB_NAME;
     }
@@ -108,6 +112,7 @@ public class CommonNavigatorTab implements IModelExplorerTabExtension {
     /**
      * {@inheritDoc}
      */
+    @Override
     public Iterable<IAction> getActions() {
         Collection<IAction> actions = Sets.newLinkedHashSet();
 
@@ -134,12 +139,13 @@ public class CommonNavigatorTab implements IModelExplorerTabExtension {
      * @return the tab image
      */
     public Image getImage() {
-        return SiriusEditPlugin.getPlugin().getBundledImage(MODEL_EXPLORER_STRUCTURE_TAB_ICON);
+        return SiriusUiPlugin.getPlugin().getBundledImage(MODEL_EXPLORER_STRUCTURE_TAB_ICON);
     }
 
     /**
      * {@inheritDoc}
      */
+    @Override
     public void dispose() {
         view = null;
     }

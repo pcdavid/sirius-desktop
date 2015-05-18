@@ -26,8 +26,8 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
@@ -47,6 +47,7 @@ public class ModelingToggleNatureAction extends AbstractHandler {
      * 
      * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent)
      */
+    @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
         Set<IProject> selectedProjects = getSelectedProjects(event);
         for (IProject project : selectedProjects) {
@@ -83,6 +84,7 @@ public class ModelingToggleNatureAction extends AbstractHandler {
         try {
             PlatformUI.getWorkbench().getProgressService().run(true, false, new IRunnableWithProgress() {
 
+                @Override
                 public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
                     try {
                         if (ModelingProject.hasModelingProjectNature(project)) {
@@ -91,7 +93,7 @@ public class ModelingToggleNatureAction extends AbstractHandler {
                             ModelingProjectManager.INSTANCE.convertToModelingProject(project, monitor);
                         }
                     } catch (CoreException e) {
-                        UICallBack uiCallback = SiriusEditPlugin.getPlugin().getUiCallback();
+                        UICallBack uiCallback = SiriusUiPlugin.getPlugin().getUiCallback();
                         if (uiCallback != null) {
                             uiCallback.openError("Convert Project to Modeling project", "Impossible to convert the project: " + e.getMessage());
                         }

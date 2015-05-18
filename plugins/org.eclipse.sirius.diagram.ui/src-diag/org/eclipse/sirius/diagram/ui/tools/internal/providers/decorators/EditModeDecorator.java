@@ -22,7 +22,7 @@ import org.eclipse.sirius.diagram.ui.tools.api.image.DiagramImagesPath;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
 import org.eclipse.sirius.ecore.extender.business.api.permission.LockStatus;
 import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.swt.graphics.Image;
 
 /**
@@ -127,7 +127,7 @@ public class EditModeDecorator extends AbstractSiriusDecorator {
         } else {
             // It means that the semantic element referenced by this edit part
             // is not editable, we return a "locked" image (red padlock)
-            return DiagramUIPlugin.getPlugin().getImage(SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied.gif"));
+            return DiagramUIPlugin.getPlugin().getImage(SiriusUiPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied.gif"));
         }
     }
 

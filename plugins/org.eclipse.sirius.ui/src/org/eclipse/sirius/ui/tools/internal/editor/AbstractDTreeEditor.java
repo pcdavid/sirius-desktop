@@ -46,6 +46,7 @@ import org.eclipse.sirius.ecore.extender.business.internal.permission.ReadOnlyWr
 import org.eclipse.sirius.tools.api.command.ICommandFactory;
 import org.eclipse.sirius.tools.api.permission.DRepresentationPermissionStatusListener;
 import org.eclipse.sirius.tools.api.permission.DRepresentationPermissionStatusQuery;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditorDialogFactory;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
@@ -56,7 +57,6 @@ import org.eclipse.sirius.ui.tools.api.properties.DTablePropertySheetpage;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
@@ -85,17 +85,17 @@ import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributo
  * 
  * @author <a href="mailto:laurent.redor@obeo.fr">Laurent Redor</a>
  */
-public abstract class AbstractDTreeEditor extends EditorPart implements DialectEditor, IViewerProvider, ITabbedPropertySheetPageContributor, IEditingDomainProvider, IReusableEditor, SessionListener,
-        ISaveablesSource, IPageListener {
+public abstract class AbstractDTreeEditor extends EditorPart
+        implements DialectEditor, IViewerProvider, ITabbedPropertySheetPageContributor, IEditingDomainProvider, IReusableEditor, SessionListener, ISaveablesSource, IPageListener {
 
     /** The PERMISSION_GRANTED_TO_CURRENT_USER_EXCLUSIVELY icon descriptor. */
-    private static final ImageDescriptor LOCK_BY_ME_IMAGE_DESCRIPTOR = SiriusEditPlugin.Implementation
+    private static final ImageDescriptor LOCK_BY_ME_IMAGE_DESCRIPTOR = SiriusUiPlugin.Implementation
             .getBundledImageDescriptor("icons/full/decorator/permission_granted_to_current_user_exclusively.gif");
 
     /** The PERMISSION_GRANTED_TO_CURRENT_USER_EXCLUSIVELY icon descriptor. */
-    private static final ImageDescriptor LOCK_BY_OTHER_IMAGE_DESCRIPTOR = SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied.gif");
+    private static final ImageDescriptor LOCK_BY_OTHER_IMAGE_DESCRIPTOR = SiriusUiPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied.gif");
 
-    private static final ImageDescriptor NO_WRITE_PERMISSION_IMAGE_DESCRIPTOR = SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_no_write.gif");;
+    private static final ImageDescriptor NO_WRITE_PERMISSION_IMAGE_DESCRIPTOR = SiriusUiPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_no_write.gif");;
 
     /**
      * This is the one adapter factory used for providing views of the model.
@@ -216,7 +216,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      */
     protected Image getLockByMeImage() {
         if (lockByMeImage == null || lockByMeImage.isDisposed()) {
-            lockByMeImage = SiriusEditPlugin.getPlugin().getImage(LOCK_BY_ME_IMAGE_DESCRIPTOR);
+            lockByMeImage = SiriusUiPlugin.getPlugin().getImage(LOCK_BY_ME_IMAGE_DESCRIPTOR);
         }
         return lockByMeImage;
     }
@@ -228,7 +228,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      */
     protected Image getLockByOtherImage() {
         if (lockByOtherImage == null || lockByOtherImage.isDisposed()) {
-            lockByOtherImage = SiriusEditPlugin.getPlugin().getImage(LOCK_BY_OTHER_IMAGE_DESCRIPTOR);
+            lockByOtherImage = SiriusUiPlugin.getPlugin().getImage(LOCK_BY_OTHER_IMAGE_DESCRIPTOR);
         }
         return lockByOtherImage;
     }
@@ -242,7 +242,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      */
     protected Image getNoWritePermissionImage() {
         if (noWritePermissionImage == null || noWritePermissionImage.isDisposed()) {
-            noWritePermissionImage = SiriusEditPlugin.getPlugin().getImage(NO_WRITE_PERMISSION_IMAGE_DESCRIPTOR);
+            noWritePermissionImage = SiriusUiPlugin.getPlugin().getImage(NO_WRITE_PERMISSION_IMAGE_DESCRIPTOR);
         }
         return noWritePermissionImage;
     }
@@ -254,6 +254,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      */
     public abstract Image getFrozenRepresentationImage();
 
+    @Override
     public TransactionalEditingDomain getEditingDomain() {
         return session.getTransactionalEditingDomain();
     }
@@ -426,6 +427,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      * 
      * @see org.eclipse.sirius.ui.business.api.dialect.DialectEditor#needsRefresh(int)
      */
+    @Override
     public boolean needsRefresh(int propId) {
         boolean result = false;
         if (propId == DialectEditor.PROP_REFRESH) {
@@ -476,6 +478,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      * 
      * @see org.eclipse.emf.common.ui.viewer.IViewerProvider#getViewer()
      */
+    @Override
     public Viewer getViewer() {
         Viewer viewer = null;
         if (treeViewerManager != null) {
@@ -602,6 +605,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
     /**
      * {@inheritDoc}
      */
+    @Override
     public void notify(final int changeKind) {
         AbstractDTreeEditorSessionListenerDelegate abstractDTreeEditorSessionListenerDelegate = new AbstractDTreeEditorSessionListenerDelegate(this, changeKind);
         if (Display.getCurrent() == null) {
@@ -674,6 +678,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      * 
      * @see org.eclipse.sirius.ui.business.api.dialect.DialectEditor#setDialogFactory(org.eclipse.sirius.ui.business.api.dialect.DialectEditorDialogFactory)
      */
+    @Override
     public void setDialogFactory(DialectEditorDialogFactory dialogFactory) {
         myDialogFactory = dialogFactory;
     }
@@ -683,6 +688,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      * 
      * @see org.eclipse.ui.ISaveablesSource#getSaveables()
      */
+    @Override
     public Saveable[] getSaveables() {
         if (session != null && session.isOpen()) {
             IEditingSession uiSession = getUISession();
@@ -698,6 +704,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      * 
      * @see org.eclipse.ui.ISaveablesSource#getActiveSaveables()
      */
+    @Override
     public Saveable[] getActiveSaveables() {
         return getSaveables();
     }
@@ -707,6 +714,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      * 
      * @see ISaveablePart2#promptToSaveOnClose()
      */
+    @Override
     public int promptToSaveOnClose() {
         choice = ISaveablePart2.DEFAULT;
         if (session != null && session.isOpen()) {
@@ -738,6 +746,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      * 
      * @see org.eclipse.ui.IPageListener#pageOpened(org.eclipse.ui.IWorkbenchPage)
      */
+    @Override
     public void pageOpened(IWorkbenchPage page) {
 
     }
@@ -747,6 +756,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      * 
      * @see org.eclipse.ui.IPageListener#pageActivated(org.eclipse.ui.IWorkbenchPage)
      */
+    @Override
     public void pageActivated(IWorkbenchPage page) {
         // As the page has been activated, we now can create the
         // UndoRedoActionHandler
@@ -758,6 +768,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      * 
      * @see org.eclipse.ui.IPageListener#pageClosed(org.eclipse.ui.IWorkbenchPage)
      */
+    @Override
     public void pageClosed(IWorkbenchPage page) {
 
     }
@@ -808,6 +819,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
         return searchedTreeItem;
     }
 
+    @Override
     public DialectEditorDialogFactory getDialogFactory() {
         return myDialogFactory;
     }

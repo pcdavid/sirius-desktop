@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.jface.wizard.WizardPage;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -67,6 +67,7 @@ public class GenericInitialObjectPage extends WizardPage {
      * .
      */
     protected ModifyListener validator = new ModifyListener() {
+        @Override
         public void modifyText(final ModifyEvent e) {
             setPageComplete(validatePage());
         }
@@ -144,6 +145,7 @@ public class GenericInitialObjectPage extends WizardPage {
      * 
      * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
      */
+    @Override
     public void createControl(final Composite parent) {
         final Composite composite = new Composite(parent, SWT.NONE);
 
@@ -178,10 +180,12 @@ public class GenericInitialObjectPage extends WizardPage {
         initialObjectField.addModifyListener(validator);
         // Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=294192
         initialObjectField.addSelectionListener(new SelectionListener() {
+            @Override
             public void widgetSelected(SelectionEvent e) {
                 setPageComplete(validatePage());
             }
 
+            @Override
             public void widgetDefaultSelected(SelectionEvent e) {
             }
         });
@@ -284,7 +288,7 @@ public class GenericInitialObjectPage extends WizardPage {
      * @return the label
      */
     protected String getLabel(final String typeName) {
-        final String label = SiriusEditPlugin.getPlugin().getItemText(typeName);
+        final String label = SiriusUiPlugin.getPlugin().getItemText(typeName);
         return label != null ? label : typeName;
     }
 }

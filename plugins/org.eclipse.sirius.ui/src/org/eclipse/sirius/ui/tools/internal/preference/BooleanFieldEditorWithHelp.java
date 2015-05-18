@@ -12,7 +12,7 @@ package org.eclipse.sirius.ui.tools.internal.preference;
 
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
@@ -94,7 +94,7 @@ public class BooleanFieldEditorWithHelp extends BooleanFieldEditor {
      * @return The help icon to show in our label.
      */
     protected Image getHelpIcon() {
-        ImageDescriptor findImageDescriptor = SiriusEditPlugin.Implementation.findImageDescriptor(ICONS_PREFERENCES_HELP);
-        return SiriusEditPlugin.getPlugin().getImage(findImageDescriptor);
+        ImageDescriptor findImageDescriptor = SiriusUiPlugin.Implementation.findImageDescriptor(ICONS_PREFERENCES_HELP);
+        return SiriusUiPlugin.getPlugin().getImage(findImageDescriptor);
     }
 }

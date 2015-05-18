@@ -46,6 +46,7 @@ import org.eclipse.sirius.common.ui.SiriusTransPlugin;
 import org.eclipse.sirius.common.ui.tools.api.selection.EMFMessageDialog;
 import org.eclipse.sirius.common.ui.tools.api.selection.EObjectSelectionWizard;
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.resource.LoadEMFResourceRunnableWithProgress;
 import org.eclipse.sirius.ui.tools.api.Messages;
@@ -55,7 +56,6 @@ import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.description.tool.SelectModelElementVariable;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
@@ -76,6 +76,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * @see org.eclipse.sirius.tools.api.command.ui.UICallBack#askForVariableValues(org.eclipse.emf.ecore.EObject,
      *      org.eclipse.sirius.viewpoint.description.tool.SelectModelElementVariable)
      */
+    @Override
     public Collection<EObject> askForVariableValues(final EObject model, final SelectModelElementVariable variable) throws InterruptedException {
         Collection<EObject> variableValues = new ArrayList<EObject>();
         final TreeItemWrapper input = new TreeItemWrapper(null, null);
@@ -123,6 +124,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * 
      * @see org.eclipse.sirius.tools.api.command.ui.UICallBack#askForDetailName(java.lang.String)
      */
+    @Override
     public String askForDetailName(final String defaultName) throws InterruptedException {
         return askForDetailName(defaultName, null);
     }
@@ -132,6 +134,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * 
      * @see org.eclipse.sirius.tools.api.command.ui.UICallBack#askForDetailName(java.lang.String)
      */
+    @Override
     public String askForDetailName(final String defaultName, final String representationDescription) throws InterruptedException {
         String description = null;
         if (representationDescription != null && representationDescription.trim().length() > 0) {
@@ -145,6 +148,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
         description += Messages.createRepresentationInputDialog_NewRepresentationNameLabel;
         final InputDialog askSiriusName = new InputDialog(Display.getDefault().getActiveShell(), Messages.createRepresentationInputDialog_Title, description, defaultName, new IInputValidator() {
 
+            @Override
             public String isValid(final String newText) {
                 return null;
             }
@@ -161,6 +165,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * @see org.eclipse.sirius.tools.api.command.ui.UICallBack#openEObjectsDialogMessage(java.util.Collection,
      *      java.lang.String, java.lang.String)
      */
+    @Override
     public boolean openEObjectsDialogMessage(final Collection<EObject> objects, final String title, final String message) {
         return EMFMessageDialog.openQuestionWithEObjects(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), ViewHelper.INSTANCE.createAdapterFactory(), objects, title, message);
     }
@@ -169,24 +174,27 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * 
      * {@inheritDoc}
      */
+    @Override
     public void openRepresentation(final Session openedSession, final DRepresentation representation) {
         try {
             new ProgressMonitorDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell()).run(false, false, new IRunnableWithProgress() {
 
+                @Override
                 public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
                     DialectUIManager.INSTANCE.openEditor(openedSession, representation, monitor);
                 }
             });
         } catch (InvocationTargetException e) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+            SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, e.getLocalizedMessage(), e));
         } catch (InterruptedException e) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+            SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, e.getLocalizedMessage(), e));
         }
     }
 
     /**
      * {@inheritDoc}
      */
+    @Override
     public Resource loadResource(final EditingDomain domain, final IFile file) {
         final LoadEMFResourceRunnableWithProgress operation = new LoadEMFResourceRunnableWithProgress(domain.getResourceSet(), file);
         try {
@@ -204,6 +212,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * 
      * @throws InterruptedException
      */
+    @Override
     public Collection<EObject> askForEObjects(String message, TreeItemWrapper input, AdapterFactory factory) throws InterruptedException {
         final EObjectSelectionWizard wizard = new EObjectSelectionWizard(EObjectSelectionWizard.WIZARD_GENERIC_DIALOG_TITLE, message, null, input, factory);
         wizard.setMany(true);
@@ -220,6 +229,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * 
      * @throws InterruptedException
      */
+    @Override
     public EObject askForEObject(String message, TreeItemWrapper input, AdapterFactory factory) throws InterruptedException {
         final EObjectSelectionWizard wizard = new EObjectSelectionWizard(EObjectSelectionWizard.WIZARD_GENERIC_DIALOG_TITLE, message, null, input, factory);
         wizard.setMany(false);
@@ -236,6 +246,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * 
      * @see org.eclipse.sirius.tools.api.command.ui.UICallBack#shouldReload(Resource)
      */
+    @Override
     public boolean shouldReload(final Resource resource) {
         return openQuestion("Reload the resource?", getCommonMessage(resource) + "externally changed, should we reload it?");
     }
@@ -245,6 +256,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * 
      * @see org.eclipse.sirius.tools.api.command.ui.UICallBack#shouldRemove(Resource)
      */
+    @Override
     public boolean shouldRemove(final Resource resource) {
         return openQuestion("Remove the resource?", getCommonMessage(resource) + "externally deleted, should we remove it and lose changes?");
     }
@@ -255,6 +267,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * @see org.eclipse.sirius.tools.api.command.ui.UICallBack#shouldClose(Session,
      *      Resource)
      */
+    @Override
     public boolean shouldClose(final Session session, final Resource resource) {
         return openQuestion("Close the representations file?", getCommonMessage(resource) + "deleted and contains critical data, should we close it?");
     }
@@ -274,6 +287,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
             return MessageDialog.openQuestion(getActiveShell(), title, message);
         } else {
             RunnableWithResult<Boolean> reload = new RunnableWithResult.Impl<Boolean>() {
+                @Override
                 public void run() {
                     setResult(MessageDialog.openQuestion(getActiveShell(), title, message));
                 }
@@ -287,7 +301,8 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * Return an expression describing what is saving :
      * <UL>
      * <LI>"Models" if only semantic files have been modified,</LI>
-     * <LI>"Representations" if only representations files have been modified,</LI>
+     * <LI>"Representations" if only representations files have been modified,
+     * </LI>
      * <LI>"Models and Representations" if both.</LI>
      * </UL>
      * suffixed with :
@@ -302,6 +317,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * 
      * @see org.eclipse.sirius.tools.api.command.ui.UICallBack#getSessionDisplayed(org.eclipse.sirius.business.api.session.Session)
      */
+    @Override
     public String getSessionNameToDisplayWhileSaving(Session session) {
         String name = "";
         if (session != null) {
@@ -367,6 +383,7 @@ public abstract class AbstractSWTCallback implements UICallBack {
      * @see org.eclipse.sirius.tools.api.command.ui.UICallBack#openError(java.lang.String,
      *      java.lang.String)
      */
+    @Override
     public void openError(String title, String message) {
         if (inUIThread()) {
             MessageDialog.openError(getActiveShell(), title, message);

@@ -19,10 +19,10 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.sirius.business.api.session.SessionListener;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
@@ -96,6 +96,7 @@ public class EditorNameAdapter extends AdapterImpl {
      */
     private void updateEditorInputName(final SessionEditorInput editorInput, final IEditorPart editor) {
         PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+            @Override
             public void run() {
                 editorInput.setName(editor.getTitle());
             }
@@ -130,9 +131,8 @@ public class EditorNameAdapter extends AdapterImpl {
                 try {
                     representation.eAdapters().remove(this);
                 } catch (NullPointerException e) {
-                    if (SiriusEditPlugin.getPlugin().isDebugging()) {
-                        SiriusEditPlugin.getPlugin().getLog().log(
-                                new Status(IStatus.WARNING, SiriusEditPlugin.ID, "Error while closing the representation, the remote server may be unreachable."));
+                    if (SiriusUiPlugin.getPlugin().isDebugging()) {
+                        SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.WARNING, SiriusUiPlugin.ID, "Error while closing the representation, the remote server may be unreachable."));
                     }
                 }
             }

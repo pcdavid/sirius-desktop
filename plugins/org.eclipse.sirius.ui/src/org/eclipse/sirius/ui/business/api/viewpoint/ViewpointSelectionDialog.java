@@ -31,8 +31,8 @@ import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.sirius.business.api.query.ViewpointQuery;
 import org.eclipse.sirius.business.internal.movida.ViewpointDependenciesTracker;
 import org.eclipse.sirius.business.internal.movida.registry.ViewpointRegistry;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.FillLayout;
@@ -69,18 +69,16 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
          * The item is checked, meaning the corresponding viewpoints and all the
          * item's parent are part of the selection.
          */
-        CHECKED,
-        /**
-         * The item is checked, but grayed out, meaning the corresponding
-         * viewpoint is part of the selection, but the item's parent is not.
-         * This is possible if a viewpoint appears as a sub-item of several
-         * other viewpoints.
-         */
-        GRAY_CHECKED,
-        /**
-         * The item is unchecked, meaning the corresponding viewpoints is not
-         * part of the selection.
-         */
+        CHECKED, /**
+                  * The item is checked, but grayed out, meaning the
+                  * corresponding viewpoint is part of the selection, but the
+                  * item's parent is not. This is possible if a viewpoint
+                  * appears as a sub-item of several other viewpoints.
+                  */
+        GRAY_CHECKED, /**
+                       * The item is unchecked, meaning the corresponding
+                       * viewpoints is not part of the selection.
+                       */
         UNCHECKED,
     }
 
@@ -140,6 +138,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
                 removeFromSelection();
             } else if (isInSelection()) {
                 if (Iterables.all(Iterables.filter(index.get(this.viewpoint), Predicates.not(Predicates.equalTo(this))), new Predicate<Item>() {
+                    @Override
                     public boolean apply(Item input) {
                         return input.parent != null && !input.parent.isInSelection();
                     }
@@ -200,6 +199,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
                 child.fillDescendants();
             }
             Collections.sort(descendants, Ordering.natural().onResultOf(new Function<Item, String>() {
+                @Override
                 public String apply(Item from) {
                     return from.viewpoint.getName();
                 }
@@ -222,14 +222,17 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
      * The content provider for the tree of viewpoints.
      */
     private final class ViewpointSelectionContentProvider implements ITreeContentProvider {
+        @Override
         public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
             // Ignore.
         }
 
+        @Override
         public void dispose() {
             // Ignore.
         }
 
+        @Override
         public Object[] getElements(Object inputElement) {
             if (inputElement instanceof List<?> && Iterables.all((List<?>) inputElement, Predicates.instanceOf(Item.class))) {
                 @SuppressWarnings("unchecked")
@@ -240,6 +243,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
             }
         }
 
+        @Override
         public boolean hasChildren(Object element) {
             if (element instanceof Item) {
                 return !((Item) element).descendants.isEmpty();
@@ -248,6 +252,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
             }
         }
 
+        @Override
         public Object getParent(Object element) {
             if (element instanceof Item) {
                 return ((Item) element).parent;
@@ -256,6 +261,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
             }
         }
 
+        @Override
         public Object[] getChildren(Object parentElement) {
             if (parentElement instanceof Item) {
                 return ((Item) parentElement).descendants.toArray();
@@ -305,9 +311,11 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
 
     private List<Item> computeItemHierarchy(final Collection<String> fileExtensions) {
         final Predicate<Viewpoint> isTopLevel = new Predicate<Viewpoint>() {
+            @Override
             public boolean apply(final Viewpoint vp) {
                 boolean top = vp != null && vp.getCustomizes().isEmpty();
                 boolean matchesSemancitModel = Iterables.any(fileExtensions, new Predicate<String>() {
+                    @Override
                     public boolean apply(String ext) {
                         return new ViewpointQuery(vp).handlesSemanticModelExtension(ext);
                     }
@@ -317,6 +325,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
         };
 
         List<Item> roots = Lists.newArrayList(Iterables.transform(Iterables.filter(this.registry.getViewpoints(), isTopLevel), new Function<Viewpoint, Item>() {
+            @Override
             public Item apply(Viewpoint from) {
                 return new Item(null, from);
             }
@@ -325,6 +334,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
             item.fillDescendants();
         }
         Collections.sort(roots, Ordering.natural().onResultOf(new Function<Item, String>() {
+            @Override
             public String apply(Item from) {
                 return from.viewpoint.getName();
             }
@@ -383,7 +393,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
             public void update(ViewerCell cell) {
                 Item item = (Item) cell.getElement();
                 cell.setText(item.getLabel());
-                cell.setImage(SiriusEditPlugin.getPlugin().getBundledImage("icons/full/obj16/Viewpoint.gif"));
+                cell.setImage(SiriusUiPlugin.getPlugin().getBundledImage("icons/full/obj16/Viewpoint.gif"));
             }
 
             @Override
@@ -393,6 +403,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
             }
         });
         tree.addCheckStateListener(new ICheckStateListener() {
+            @Override
             public void checkStateChanged(CheckStateChangedEvent event) {
                 if (event.getElement() instanceof Item) {
                     Item item = (Item) event.getElement();
@@ -417,6 +428,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
             }
         });
         tree.addSelectionChangedListener(new ISelectionChangedListener() {
+            @Override
             public void selectionChanged(SelectionChangedEvent event) {
                 ISelection sel = event.getSelection();
                 if (sel instanceof IStructuredSelection) {

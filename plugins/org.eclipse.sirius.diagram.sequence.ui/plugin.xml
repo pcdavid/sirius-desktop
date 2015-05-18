@@ -49,5 +49,25 @@
            kind="RepresentationsFile">
      </participant>
   </extension>
+  
+  <extension
+        point="org.eclipse.sirius.refreshExtensionProvider">
+     <refreshExtensionProvider
+           priority="normal"
+           providerClass="org.eclipse.sirius.diagram.sequence.ui.business.internal.refresh.SequenceRefreshExtensionProvider">
+     </refreshExtensionProvider>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.repairParticipant">
+     <repairParticipant
+           class="org.eclipse.sirius.diagram.sequence.ui.tool.internal.action.repair.SequenceDiagramRepairParticipant">
+     </repairParticipant>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.mmdescriptor">
+     <descriptorprovider
+           class="org.eclipse.sirius.diagram.sequence.ui.business.internal.metamodel.SequenceDiagramMetamodelsProvider">
+     </descriptorprovider>
+  </extension>
 
 </plugin>

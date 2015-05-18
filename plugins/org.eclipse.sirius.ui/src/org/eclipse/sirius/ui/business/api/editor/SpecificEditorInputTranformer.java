@@ -41,6 +41,7 @@ import org.eclipse.sirius.business.api.session.SessionCreationOperation;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.SessionSpecificEditorInput;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
@@ -50,7 +51,6 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.DView;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 
@@ -79,7 +79,9 @@ public class SpecificEditorInputTranformer {
      */
     protected Session session;
 
-    /** The temporary file created if file should not be saved in the workspace. */
+    /**
+     * The temporary file created if file should not be saved in the workspace.
+     */
     private File tempFile;
 
     /** The representation description used to create the diagram. */
@@ -164,9 +166,9 @@ public class SpecificEditorInputTranformer {
                 final DRepresentation representation = createSessionAndRepresentation(semanticModelPath, analysisFilenameURI);
                 return createNewEditorInput(representation, semanticModelPath);
             } catch (final IOException exception) {
-                SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "Failing of EditorInput transformation.", exception));
+                SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, "Failing of EditorInput transformation.", exception));
             } catch (CoreException exception) {
-                SiriusEditPlugin.getPlugin().getLog().log(exception.getStatus());
+                SiriusUiPlugin.getPlugin().getLog().log(exception.getStatus());
             }
         }
         return input;
@@ -286,7 +288,7 @@ public class SpecificEditorInputTranformer {
 
     /**
      * Activate the viewpoint.
-     * */
+     */
     private void activateSirius() {
         final ViewpointSelectionCallback selectionCallback = new ViewpointSelectionCallback();
         session.getTransactionalEditingDomain().getCommandStack()

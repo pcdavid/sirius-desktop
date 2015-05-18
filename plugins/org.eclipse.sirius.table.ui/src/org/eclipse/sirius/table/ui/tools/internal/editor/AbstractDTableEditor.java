@@ -61,6 +61,7 @@ import org.eclipse.sirius.table.ui.tools.internal.commands.EMFCommandFactoryUI;
 import org.eclipse.sirius.table.ui.tools.internal.editor.provider.DTableEditorUtil;
 import org.eclipse.sirius.tools.api.interpreter.InterpreterRegistry;
 import org.eclipse.sirius.tools.api.profiler.SiriusTasksKey;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.descriptor.ComposedImageDescriptor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.marker.TraceabilityMarkerNavigationProvider;
@@ -410,10 +411,10 @@ public abstract class AbstractDTableEditor extends AbstractDTreeEditor implement
             Image refreshImage = TableUIPlugin.Implementation.getImage(TableUIPlugin.Implementation.getBundledImageDescriptor("icons/" + DTableViewerManager.REFRESH_IMG + ".gif"));
             List<Object> images = new ArrayList<Object>(2);
             images.add(refreshImage);
-            Image lockByOtherOverlayIamge = SiriusEditPlugin.getPlugin().getImage(SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied_overlay.gif"));
+            Image lockByOtherOverlayIamge = SiriusUiPlugin.getPlugin().getImage(SiriusUiPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied_overlay.gif"));
             images.add(lockByOtherOverlayIamge);
             ImageDescriptor composedImageDescriptor = new ComposedImageDescriptor(new ComposedImage(images));
-            frozenRepresentationImage = SiriusEditPlugin.getPlugin().getImage(composedImageDescriptor);
+            frozenRepresentationImage = SiriusUiPlugin.getPlugin().getImage(composedImageDescriptor);
         }
         return frozenRepresentationImage;
     }

@@ -14,8 +14,8 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.sirius.diagram.BackgroundStyle;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.Operand;
-import org.eclipse.sirius.diagram.sequence.business.internal.layout.LayoutConstants;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.Operand;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.layout.LayoutConstants;
 import org.eclipse.sirius.diagram.ui.tools.api.figure.GradientRoundedRectangle;
 import org.eclipse.sirius.diagram.ui.tools.api.figure.OneLineMarginBorder;
 

@@ -56,6 +56,7 @@ import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.sirius.common.tools.internal.assist.ProposalProviderRegistry;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.viewpoint.description.DescriptionFactory;
 import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
 import org.eclipse.sirius.viewpoint.description.Group;
@@ -81,7 +82,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 public final class ViewpointSpecificationProject {
 
     /** The extension use for viewpoint model. */
-    public static final String VIEWPOINT_MODEL_EXTENSION = SiriusEditPlugin.getPlugin().getString("_UI_SiriusEditorFilenameExtension");
+    public static final String VIEWPOINT_MODEL_EXTENSION = SiriusUiPlugin.getPlugin().getString("_UI_SiriusEditorFilenameExtension");
 
     /**
      * The default initial object name for a odesign.
@@ -131,7 +132,8 @@ public final class ViewpointSpecificationProject {
      * @param modelName
      *            The model name
      * @return The new project.
-     * @throws CoreException .
+     * @throws CoreException
+     *             .
      */
     public static IProject createNewViewpointSpecificationProject(final String projectName, final String modelName) throws CoreException {
         final IPath projectLocationPath = ResourcesPlugin.getWorkspace().getRoot().getLocation();
@@ -161,11 +163,13 @@ public final class ViewpointSpecificationProject {
      * @param runnable
      *            The runnable to launch the operation
      * @return The new project.
-     * @throws CoreException .
+     * @throws CoreException
+     *             .
      */
     public static IProject createNewViewpointSpecificationProject(final IWorkbench workbench, final String projectName, final IPath projectLocationPath, final String modelName,
             final String modelInitialObjectName, final String encoding, final IRunnableContext runnable) throws CoreException {
         final IWorkspaceRunnable create = new IWorkspaceRunnable() {
+            @Override
             public void run(final IProgressMonitor monitor) throws CoreException {
                 final IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
                 if (!project.exists()) {
@@ -237,9 +241,12 @@ public final class ViewpointSpecificationProject {
      * @param runnable
      *            The runnable to launch the operation
      * @return the new odesign file.
-     * @throws IOException .
-     * @throws InvocationTargetException .
-     * @throws InterruptedException .
+     * @throws IOException
+     *             .
+     * @throws InvocationTargetException
+     *             .
+     * @throws InterruptedException
+     *             .
      */
     protected static IFile createODesignFile(final IProject prj, final String modelName, final String modelInitialObjectName, final String encoding, final IRunnableContext runnable)
             throws IOException, InvocationTargetException, InterruptedException {
@@ -265,8 +272,8 @@ public final class ViewpointSpecificationProject {
                     options.put(XMLResource.OPTION_ENCODING, encoding);
                     resource.save(options);
                 } catch (final IOException ioe) {
-                    final IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.OK, ioe.getMessage(), ioe);
-                    SiriusEditPlugin.getPlugin().getLog().log(status);
+                    final IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, IStatus.OK, ioe.getMessage(), ioe);
+                    SiriusUiPlugin.getPlugin().getLog().log(status);
                 } finally {
                     progressMonitor.done();
                 }
@@ -276,11 +283,11 @@ public final class ViewpointSpecificationProject {
         try {
             runnable.run(false, false, operation);
         } catch (final InvocationTargetException exception) {
-            final IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.OK, exception.getMessage(), exception);
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            final IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, IStatus.OK, exception.getMessage(), exception);
+            SiriusUiPlugin.getPlugin().getLog().log(status);
         } catch (final InterruptedException exception) {
-            final IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.OK, exception.getMessage(), exception);
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            final IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, IStatus.OK, exception.getMessage(), exception);
+            SiriusUiPlugin.getPlugin().getLog().log(status);
         }
 
         return modelFile;
@@ -292,6 +299,7 @@ public final class ViewpointSpecificationProject {
         if (activePart instanceof ISetSelectionTarget) {
             final ISelection targetSelection = new StructuredSelection(modelFile);
             ViewpointSpecificationProject.getShell().getDisplay().asyncExec(new Runnable() {
+                @Override
                 public void run() {
                     ((ISetSelectionTarget) activePart).selectReveal(targetSelection);
                 }
@@ -301,7 +309,7 @@ public final class ViewpointSpecificationProject {
         try {
             activePage.openEditor(new FileEditorInput(modelFile), workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
         } catch (final PartInitException exception) {
-            MessageDialog.openError(ViewpointSpecificationProject.getShell(), SiriusEditPlugin.getPlugin().getString("_UI_OpenEditorError_label"), exception.getMessage());
+            MessageDialog.openError(ViewpointSpecificationProject.getShell(), SiriusUiPlugin.getPlugin().getString("_UI_OpenEditorError_label"), exception.getMessage());
         }
     }
 
@@ -357,8 +365,8 @@ public final class ViewpointSpecificationProject {
     }
 
     private static void addAcceleoNature(IProject projet) {
-        ICommandService commandService = (ICommandService) PlatformUI.getWorkbench().getService(ICommandService.class);
-        IHandlerService handlerService = (IHandlerService) PlatformUI.getWorkbench().getService(IHandlerService.class);
+        ICommandService commandService = PlatformUI.getWorkbench().getService(ICommandService.class);
+        IHandlerService handlerService = PlatformUI.getWorkbench().getService(IHandlerService.class);
         Command addAcceleoNatureCommand = commandService.getCommand("org.eclipse.sirius.common.acceleo.mtl.ide.internal.convert");
 
         // If the acceleo interpreter is not present, do not configure.
@@ -375,8 +383,8 @@ public final class ViewpointSpecificationProject {
                 EvaluationContext evaluationContext = new EvaluationContext(null, Collections.singletonList(projet));
                 handlerService.executeCommandInContext(parmCommand, null, evaluationContext);
             } catch (CommandException e) {
-                final IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.OK, e.getMessage(), e);
-                SiriusEditPlugin.getPlugin().getLog().log(status);
+                final IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, IStatus.OK, e.getMessage(), e);
+                SiriusUiPlugin.getPlugin().getLog().log(status);
             }
         }
     }
@@ -406,8 +414,8 @@ public final class ViewpointSpecificationProject {
             final String finalContent = ViewpointSpecificationProject.applyReplacements(templateContent, replacements);
             ViewpointSpecificationProject.createFile(prj, new Path(newFilePath), finalContent, monitor);
         } catch (final IOException e) {
-            final IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.OK, e.getMessage(), e);
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            final IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, IStatus.OK, e.getMessage(), e);
+            SiriusUiPlugin.getPlugin().getLog().log(status);
         }
     }
 
@@ -425,7 +433,7 @@ public final class ViewpointSpecificationProject {
      *             a text file.
      */
     private static String getTemplateFileContents(final String path) throws IOException {
-        final InputStream is = FileLocator.openStream(SiriusEditPlugin.getPlugin().getBundle(), new Path(path), false);
+        final InputStream is = FileLocator.openStream(SiriusUiPlugin.getPlugin().getBundle(), new Path(path), false);
         final BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         final StringBuilder sb = new StringBuilder();
         String line = null;
@@ -491,11 +499,11 @@ public final class ViewpointSpecificationProject {
                 file.setContents(javaStream, true, false, monitor);
             }
         } catch (final CoreException e) {
-            final IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.OK, e.getMessage(), e);
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            final IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, IStatus.OK, e.getMessage(), e);
+            SiriusUiPlugin.getPlugin().getLog().log(status);
         } catch (final UnsupportedEncodingException e) {
-            final IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.OK, e.getMessage(), e);
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            final IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, IStatus.OK, e.getMessage(), e);
+            SiriusUiPlugin.getPlugin().getLog().log(status);
         }
     }
 

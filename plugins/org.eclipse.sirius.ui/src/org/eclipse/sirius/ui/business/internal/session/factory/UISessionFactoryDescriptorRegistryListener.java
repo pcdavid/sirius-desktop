@@ -21,7 +21,7 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IRegistryChangeEvent;
 import org.eclipse.core.runtime.IRegistryChangeListener;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 
 /**
  * This listener will allow us to be aware of contribution changes against the
@@ -33,7 +33,7 @@ import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 public class UISessionFactoryDescriptorRegistryListener implements IRegistryChangeListener {
 
     /** Name of the extension point to parse for extensions. */
-    public static final String UI_SESSION_FACTORY_EXTENSION_POINT = SiriusEditPlugin.ID + ".uiSessionFactory"; //$NON-NLS-1$
+    public static final String UI_SESSION_FACTORY_EXTENSION_POINT = SiriusUiPlugin.ID + ".uiSessionFactory"; //$NON-NLS-1$
 
     /** Name of the extension point's "uiSessionFactory" tag. */
     private static final String UI_SESSION_FACTORY_TAG_EXTENSION = "uiSessionFactory"; //$NON-NLS-1$
@@ -128,6 +128,7 @@ public class UISessionFactoryDescriptorRegistryListener implements IRegistryChan
      * 
      * {@inheritDoc}
      */
+    @Override
     public void registryChanged(IRegistryChangeEvent event) {
         IExtensionDelta[] deltas = event.getExtensionDeltas();
         List<IExtension> addedExtensions = new ArrayList<IExtension>();

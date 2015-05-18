@@ -24,8 +24,8 @@ import org.eclipse.jface.viewers.IDecorationContext;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.LabelDecorator;
 import org.eclipse.jface.viewers.LabelProviderChangedEvent;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.descriptor.ComposedImageDescriptor;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -33,12 +33,12 @@ public class ValidationDecoration extends LabelDecorator {
     /**
      * Default image descriptor for the error overlay.
      */
-    public static final ImageDescriptor ERROR_OVERLAY_DESC = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/validation/error_co.gif"); //$NON-NLS-1$;
+    public static final ImageDescriptor ERROR_OVERLAY_DESC = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUiPlugin.ID, "/icons/full/validation/error_co.gif"); //$NON-NLS-1$;
 
     /**
      * Image descriptor for warning overlay.
      */
-    public static final ImageDescriptor WARNING_OVERLAY_DESC = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/validation/warning_co.gif"); //$NON-NLS-1$
+    public static final ImageDescriptor WARNING_OVERLAY_DESC = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUiPlugin.ID, "/icons/full/validation/warning_co.gif"); //$NON-NLS-1$
 
     private List<ILabelProviderListener> listeners = new ArrayList<ILabelProviderListener>(1);
 
@@ -69,7 +69,7 @@ public class ValidationDecoration extends LabelDecorator {
             if (severity == Diagnostic.ERROR || severity == Diagnostic.WARNING) {
                 ComposedImage img = decorateSeverity(image, severity);
                 final ImageDescriptor descriptor = new ComposedImageDescriptor(img);
-                return SiriusEditPlugin.getPlugin().getImage(descriptor);
+                return SiriusUiPlugin.getPlugin().getImage(descriptor);
             }
         }
         return image;
@@ -79,9 +79,9 @@ public class ValidationDecoration extends LabelDecorator {
         List<Object> images = new ArrayList<Object>(2);
         images.add(image);
         if (severity == Diagnostic.ERROR) {
-            images.add(SiriusEditPlugin.getPlugin().getImage(ERROR_OVERLAY_DESC));
+            images.add(SiriusUiPlugin.getPlugin().getImage(ERROR_OVERLAY_DESC));
         } else if (severity == Diagnostic.WARNING) {
-            images.add(SiriusEditPlugin.getPlugin().getImage(WARNING_OVERLAY_DESC));
+            images.add(SiriusUiPlugin.getPlugin().getImage(WARNING_OVERLAY_DESC));
         }
 
         ComposedImage ci = new ComposedImage(images) {

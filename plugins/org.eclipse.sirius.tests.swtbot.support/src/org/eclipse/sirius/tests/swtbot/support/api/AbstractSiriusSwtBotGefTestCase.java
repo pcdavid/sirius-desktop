@@ -23,8 +23,6 @@ import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -89,12 +87,12 @@ import org.eclipse.sirius.tests.swtbot.support.api.perspective.DesignerPerspecti
 import org.eclipse.sirius.tests.swtbot.support.api.view.DesignerViews;
 import org.eclipse.sirius.tests.swtbot.support.utils.SWTBotCommonHelper;
 import org.eclipse.sirius.tests.swtbot.support.utils.SWTBotUtils;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.OpenRepresentationsFileJob;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
@@ -137,6 +135,8 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
+
+import junit.framework.TestCase;
 
 /**
  * Wrapper for several UI* classes to handle ui management in tests. If needed,
@@ -471,7 +471,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
     public void takeScreenshot(CharSequence suffix) {
         String fileName = SWTBotPreferences.SCREENSHOTS_DIR + "/" + "screenshot-" + ClassUtils.simpleClassName(getClass()) + AbstractSiriusSwtBotGefTestCase.POINT + getName() + suffix
                 + AbstractSiriusSwtBotGefTestCase.POINT + SWTBotPreferences.SCREENSHOT_FORMAT.toLowerCase();
-        new File(SWTBotPreferences.SCREENSHOTS_DIR).mkdirs(); //$NON-NLS-1$
+        new File(SWTBotPreferences.SCREENSHOTS_DIR).mkdirs(); // $NON-NLS-1$
         SWTUtils.captureScreenshot(fileName);
     }
 
@@ -761,7 +761,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
     protected void changeSiriusUIPreference(String preferenceKey, Boolean newValue) {
         assertNoSiriusCorePreferenceChangedinSiriusUIStore(preferenceKey);
 
-        IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        IPreferenceStore viewpointUIPrefs = SiriusUiPlugin.getPlugin().getPreferenceStore();
         oldValueSiriusUIPreferences.put(preferenceKey, viewpointUIPrefs.getBoolean(preferenceKey));
         viewpointUIPrefs.setValue(preferenceKey, newValue);
     }
@@ -1328,12 +1328,8 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
             public void logging(IStatus status, String plugin) {
                 switch (status.getSeverity()) {
                 case IStatus.ERROR:
-                    if (!"org.eclipse.ui.views.properties.tabbed".equals(status.getPlugin())
-                            && status.getMessage() != null
-                            && !status
-                                    .getMessage()
-                                    .startsWith(
-                                            "Contributor org.eclipse.ui.navigator.ProjectExplorer cannot be created., exception: org.eclipse.core.runtime.CoreException: Plug-in \"org.eclipse.ui.navigator.resources\" was unable to instantiate class \"org.eclipse.ui.internal.navigator.resources.workbench.TabbedPropertySheetTitleProvider\".")) {
+                    if (!"org.eclipse.ui.views.properties.tabbed".equals(status.getPlugin()) && status.getMessage() != null && !status.getMessage().startsWith(
+                            "Contributor org.eclipse.ui.navigator.ProjectExplorer cannot be created., exception: org.eclipse.core.runtime.CoreException: Plug-in \"org.eclipse.ui.navigator.resources\" was unable to instantiate class \"org.eclipse.ui.internal.navigator.resources.workbench.TabbedPropertySheetTitleProvider\".")) {
                         errorOccurs(status, plugin);
                     }
                     break;
@@ -1714,7 +1710,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
             platformPrefs.setValue(key, (Boolean) oldPlatformUIPreferences.get(key));
         }
 
-        IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        IPreferenceStore viewpointUIPrefs = SiriusUiPlugin.getPlugin().getPreferenceStore();
         for (String key : oldValueSiriusUIPreferences.keySet()) {
             viewpointUIPrefs.setValue(key, (Boolean) oldValueSiriusUIPreferences.get(key));
         }
@@ -1918,10 +1914,12 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
     private void captureScreenshot() {
         try {
             int maximumScreenshots = SWTBotPreferences.MAX_ERROR_SCREENSHOT_COUNT;
-            String fileName = SWTBotPreferences.SCREENSHOTS_DIR + "/screenshot-" + ClassUtils.simpleClassName(getClass()) + POINT + getName() + POINT //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+            String fileName = SWTBotPreferences.SCREENSHOTS_DIR + "/screenshot-" + ClassUtils.simpleClassName(getClass()) + POINT + getName() + POINT //$NON-NLS-1$ //$NON-NLS-2$
+                                                                                                                                                      // $NON-NLS-1$
+                                                                                                                                                      //$NON-NLS-1$ //$NON-NLS-3$
                     + SWTBotPreferences.SCREENSHOT_FORMAT.toLowerCase();
             if (++screenshotCounter <= maximumScreenshots) {
-                new File(SWTBotPreferences.SCREENSHOTS_DIR).mkdirs(); //$NON-NLS-1$
+                new File(SWTBotPreferences.SCREENSHOTS_DIR).mkdirs(); // $NON-NLS-1$
                 SWTUtils.captureScreenshot(fileName);
             } else {
                 log.info("No screenshot captured for '" + ClassUtils.simpleClassName(getClass()) + POINT + getName() //$NON-NLS-1$ //$NON-NLS-2$

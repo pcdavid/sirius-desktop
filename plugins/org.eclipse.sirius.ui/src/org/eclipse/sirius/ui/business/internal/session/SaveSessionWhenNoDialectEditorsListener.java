@@ -25,11 +25,11 @@ import org.eclipse.sirius.common.tools.api.resource.ResourceSetSync;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSetSync.ResourceStatus;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSyncClient;
 import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.preferences.SiriusUIPreferencesKeys;
 import org.eclipse.sirius.ui.business.api.session.EditingSessionEvent;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 
 import com.google.common.collect.Sets;
 
@@ -97,7 +97,7 @@ public class SaveSessionWhenNoDialectEditorsListener implements ResourceSyncClie
     }
 
     private boolean newMode() {
-        final IPreferenceStore preferenceStore = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        final IPreferenceStore preferenceStore = SiriusUiPlugin.getPlugin().getPreferenceStore();
         return preferenceStore != null && preferenceStore.getBoolean(SiriusUIPreferencesKeys.PREF_SAVE_WHEN_NO_EDITOR.name());
     }
 
@@ -108,6 +108,7 @@ public class SaveSessionWhenNoDialectEditorsListener implements ResourceSyncClie
      *      org.eclipse.sirius.common.tools.api.resource.ResourceSetSync.ResourceStatus,
      *      org.eclipse.sirius.common.tools.api.resource.ResourceSetSync.ResourceStatus)
      */
+    @Override
     public void statusChanged(Resource resource, ResourceStatus oldStatus, ResourceStatus newStatus) {
         // Do nothing while processing,
         // see statusesChanged(Collection<ReResourceStatusChange>)
@@ -116,6 +117,7 @@ public class SaveSessionWhenNoDialectEditorsListener implements ResourceSyncClie
     /**
      * {@inheritDoc}
      */
+    @Override
     public void statusesChanged(Collection<ResourceStatusChange> changes) {
         if (activation && newMode()) {
             statusChangedInternal(changes);

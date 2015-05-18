@@ -11,10 +11,10 @@
 package org.eclipse.sirius.diagram.sequence.ui.tool.internal.edit.validator;
 
 import org.eclipse.gef.requests.CreateConnectionRequest;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.ISequenceEvent;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.Lifeline;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.SequenceDiagram;
-import org.eclipse.sirius.diagram.sequence.business.internal.query.SequenceDiagramQuery;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.ISequenceEvent;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.Lifeline;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.SequenceDiagram;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.query.SequenceDiagramQuery;
 
 import com.google.common.base.Predicates;
 import com.google.common.collect.Iterables;

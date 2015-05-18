@@ -16,17 +16,17 @@ import java.util.Set;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
-import org.eclipse.sirius.diagram.sequence.business.internal.RangeHelper;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.AbstractFrame;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.CombinedFragment;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.ISequenceEvent;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.InteractionUse;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.Lifeline;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.Operand;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.State;
-import org.eclipse.sirius.diagram.sequence.business.internal.layout.LayoutConstants;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.AbstractFrame;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.CombinedFragment;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.ISequenceEvent;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.InteractionUse;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.Lifeline;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.Operand;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.State;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.layout.LayoutConstants;
 import org.eclipse.sirius.diagram.sequence.ui.tool.internal.util.RequestQuery;
 import org.eclipse.sirius.diagram.sequence.util.Range;
+import org.eclipse.sirius.diagram.ui.sequence.business.internal.RangeHelper;
 
 import com.google.common.base.Function;
 import com.google.common.base.Preconditions;

@@ -10,7 +10,7 @@
  *******************************************************************************/
 package org.eclipse.sirius.diagram.sequence.ui.tool.internal.edit.validator;
 
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.Operand;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.Operand;
 import org.eclipse.sirius.diagram.sequence.ui.tool.internal.util.RequestQuery;
 
 import com.google.common.base.Preconditions;

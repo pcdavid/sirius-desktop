@@ -20,6 +20,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.sirius.ui.tools.internal.wizards.pages.NewModelingProjectCreationWizardPage;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
@@ -68,6 +69,7 @@ public class ModelingProjectWizard extends Wizard implements INewWizard {
             final IPath locationPath = newProjectPage.getLocationPath();
             getContainer().run(true, false, new IRunnableWithProgress() {
 
+                @Override
                 public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
                     try {
                         ModelingProjectManager.INSTANCE.createNewModelingProject(projectName, locationPath, true, monitor);
@@ -77,12 +79,12 @@ public class ModelingProjectWizard extends Wizard implements INewWizard {
                 }
             });
         } catch (InvocationTargetException e) {
-            final IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.ERROR, e.getMessage(), e);
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            final IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, IStatus.ERROR, e.getMessage(), e);
+            SiriusUiPlugin.getPlugin().getLog().log(status);
             finished = false;
         } catch (InterruptedException e) {
-            final IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.ERROR, e.getMessage(), e);
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            final IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, IStatus.ERROR, e.getMessage(), e);
+            SiriusUiPlugin.getPlugin().getLog().log(status);
             finished = false;
         }
         return finished;
@@ -95,9 +97,10 @@ public class ModelingProjectWizard extends Wizard implements INewWizard {
      * @see org.eclipse.ui.IWorkbenchWizard#init(org.eclipse.ui.IWorkbench,
      *      org.eclipse.jface.viewers.IStructuredSelection)
      */
+    @Override
     public void init(final IWorkbench wkbch, final IStructuredSelection sel) {
         setWindowTitle("New Modeling Project");
-        setDefaultPageImageDescriptor(SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/wizban/banner_modeling_project.gif"));
+        setDefaultPageImageDescriptor(SiriusUiPlugin.Implementation.getBundledImageDescriptor("icons/wizban/banner_modeling_project.gif"));
     }
 
     /**
@@ -118,10 +121,10 @@ public class ModelingProjectWizard extends Wizard implements INewWizard {
      */
     @Override
     public void addPages() {
-        newProjectPage = new NewModelingProjectCreationWizardPage(SiriusEditPlugin.getPlugin().getString("_UI_ModelingProjectWizard_label")); //$NON-NLS-1$
+        newProjectPage = new NewModelingProjectCreationWizardPage(SiriusUiPlugin.getPlugin().getString("_UI_ModelingProjectWizard_label")); //$NON-NLS-1$
         newProjectPage.setInitialProjectName("");
-        newProjectPage.setTitle(SiriusEditPlugin.getPlugin().getString("_UI_ModelingProjectWizard_label")); //$NON-NLS-1$
-        newProjectPage.setDescription(SiriusEditPlugin.getPlugin().getString("_UI_ModelingProjectWizard_description")); //$NON-NLS-1$        
+        newProjectPage.setTitle(SiriusUiPlugin.getPlugin().getString("_UI_ModelingProjectWizard_label")); //$NON-NLS-1$
+        newProjectPage.setDescription(SiriusUiPlugin.getPlugin().getString("_UI_ModelingProjectWizard_description")); //$NON-NLS-1$
         addPage(newProjectPage);
         super.addPages();
     }

@@ -20,10 +20,10 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.editor.SpecificEditorInputTranformer;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.IMemento;
 
 /**
@@ -137,9 +137,9 @@ public class SessionSpecificEditorInput extends SessionEditorInput {
             final DRepresentation representation = tranformer.createSessionAndRepresentation(mySemanticModelPath, uri.toString());
             return SessionManager.INSTANCE.getSession(((DSemanticDecorator) representation).getTarget());
         } catch (final IOException exception) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "Failing of EditorInput transformation.", exception));
+            SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, "Failing of EditorInput transformation.", exception));
         } catch (CoreException exception) {
-            SiriusEditPlugin.getPlugin().getLog().log(exception.getStatus());
+            SiriusUiPlugin.getPlugin().getLog().log(exception.getStatus());
         }
         return null;
     }

@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalC
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.diagram.DEdge;
-import org.eclipse.sirius.diagram.sequence.business.internal.operation.InverseRelativeNodePositionOperation;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.operation.InverseRelativeNodePositionOperation;
 import org.eclipse.sirius.diagram.sequence.ui.tool.internal.figure.SequenceMessageLabelLocator;
 import org.eclipse.sirius.diagram.sequence.ui.tool.internal.util.RequestQuery;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramEdgeEditPart.ViewEdgeFigure;

@@ -21,9 +21,9 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.tools.api.views.common.item.ProjectDependenciesItem;
 import org.eclipse.sirius.viewpoint.DAnalysisSessionEObject;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 
 import com.google.common.collect.Iterables;
@@ -57,6 +57,7 @@ public class ProjectDependenciesItemImpl implements ProjectDependenciesItem {
      * 
      * @return the children, never <code>null</code>
      */
+    @Override
     public Collection<?> getChildren() {
         Collection<Object> children = Sets.newLinkedHashSet();
 
@@ -102,12 +103,14 @@ public class ProjectDependenciesItemImpl implements ProjectDependenciesItem {
         return deps;
     }
 
+    @Override
     public String getText() {
         return "Project Dependencies";
     }
 
+    @Override
     public Image getImage() {
-        return SiriusEditPlugin.getPlugin().getBundledImage("icons/obj16/ProjectDependencies.gif");
+        return SiriusUiPlugin.getPlugin().getBundledImage("icons/obj16/ProjectDependencies.gif");
     }
 
     /**
@@ -122,6 +125,7 @@ public class ProjectDependenciesItemImpl implements ProjectDependenciesItem {
     /**
      * {@inheritDoc}
      */
+    @Override
     public Object getParent() {
         return getProject();
     }
@@ -175,6 +179,7 @@ public class ProjectDependenciesItemImpl implements ProjectDependenciesItem {
      * 
      * @return the session of the modeling project
      */
+    @Override
     public Option<Session> getSession() {
         if (project != null) {
             return Options.newSome(project.getSession());

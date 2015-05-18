@@ -55,10 +55,10 @@ import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
 import org.eclipse.sirius.business.api.query.ViewpointQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.tools.api.util.StringUtil;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
 import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.SWTError;
 import org.eclipse.swt.browser.Browser;
@@ -203,6 +203,7 @@ public class ViewpointsSelectionWizardPage extends WizardPage {
      * 
      * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
      */
+    @Override
     public void createControl(final Composite parent) {
         initializeDialogUnits(parent);
 
@@ -258,6 +259,7 @@ public class ViewpointsSelectionWizardPage extends WizardPage {
 
         return Collections2.filter(registry.getViewpoints(), new Predicate<Viewpoint>() {
 
+            @Override
             public boolean apply(Viewpoint viewpoint) {
                 for (final String ext : fileExtensions) {
                     if (new ViewpointQuery(viewpoint).handlesSemanticModelExtension(ext))
@@ -297,6 +299,7 @@ public class ViewpointsSelectionWizardPage extends WizardPage {
         viewer.setLabelProvider(new ViewpointsTableLabelProvider());
 
         viewer.addCheckStateListener(new ICheckStateListener() {
+            @Override
             public void checkStateChanged(final CheckStateChangedEvent event) {
                 if (event.getChecked()) {
                     viewpoints.add((Viewpoint) event.getElement());
@@ -309,6 +312,7 @@ public class ViewpointsSelectionWizardPage extends WizardPage {
 
         viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 
+            @Override
             public void selectionChanged(SelectionChangedEvent event) {
                 ISelection selection = event.getSelection();
                 if (selection instanceof IStructuredSelection) {
@@ -514,14 +518,14 @@ public class ViewpointsSelectionWizardPage extends WizardPage {
                 if (element instanceof Viewpoint) {
                     final Viewpoint vp = (Viewpoint) element;
                     if (vp.getIcon() != null && vp.getIcon().length() > 0) {
-                        final ImageDescriptor desc = SiriusEditPlugin.Implementation.findImageDescriptor(vp.getIcon());
+                        final ImageDescriptor desc = SiriusUiPlugin.Implementation.findImageDescriptor(vp.getIcon());
                         if (desc != null) {
-                            image = SiriusEditPlugin.getPlugin().getImage(desc);
+                            image = SiriusUiPlugin.getPlugin().getImage(desc);
                             image = getEnhancedImage(image, vp);
                         }
                     }
                     if (image == null) {
-                        image = SiriusEditPlugin.getPlugin().getImage(SiriusEditPlugin.getPlugin().getItemImageDescriptor(vp));
+                        image = SiriusUiPlugin.getPlugin().getImage(SiriusUiPlugin.getPlugin().getItemImageDescriptor(vp));
                         image = getEnhancedImage(image, vp);
                     }
                 } else {
@@ -532,14 +536,14 @@ public class ViewpointsSelectionWizardPage extends WizardPage {
         }
 
         private ImageDescriptor getOverlayedDescriptor(final Image baseImage, final String decoratorPath) {
-            final ImageDescriptor decoratorDescriptor = SiriusEditPlugin.Implementation.getBundledImageDescriptor(decoratorPath);
+            final ImageDescriptor decoratorDescriptor = SiriusUiPlugin.Implementation.getBundledImageDescriptor(decoratorPath);
             return new DecorationOverlayIcon(baseImage, decoratorDescriptor, IDecoration.BOTTOM_LEFT);
         }
 
         private Image getEnhancedImage(final Image image, final Viewpoint viewpoint) {
             // Add decorator if the viewpoint comes from workspace
             if (!ViewpointRegistry.getInstance().isFromPlugin(viewpoint) && image != null) {
-                return SiriusEditPlugin.getPlugin().getImage(getOverlayedDescriptor(image, "icons/full/decorator/folder_close.gif"));
+                return SiriusUiPlugin.getPlugin().getImage(getOverlayedDescriptor(image, "icons/full/decorator/folder_close.gif"));
             }
             return image;
         }

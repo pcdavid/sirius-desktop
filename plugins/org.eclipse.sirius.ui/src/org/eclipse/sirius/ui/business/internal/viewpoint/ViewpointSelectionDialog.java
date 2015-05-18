@@ -36,9 +36,9 @@ import org.eclipse.jface.window.ToolTip;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.query.ViewpointQuery;
 import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.viewpoint.description.RepresentationExtensionDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
@@ -197,12 +197,12 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
             Item item = (Item) element;
 
             // Default image
-            Image viewpointImage = SiriusEditPlugin.getPlugin().getBundledImage("icons/full/obj16/Viewpoint.gif");
+            Image viewpointImage = SiriusUiPlugin.getPlugin().getBundledImage("icons/full/obj16/Viewpoint.gif");
 
             // Add decorator if the viewpoint comes from workspace
             if (!ViewpointRegistry.getInstance().isFromPlugin(item.getViewpoint())) {
-                final ImageDescriptor decoratorDescriptor = SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/folder_close.gif");
-                viewpointImage = SiriusEditPlugin.getPlugin().getImage(new DecorationOverlayIcon(viewpointImage, decoratorDescriptor, IDecoration.BOTTOM_LEFT));
+                final ImageDescriptor decoratorDescriptor = SiriusUiPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/folder_close.gif");
+                viewpointImage = SiriusUiPlugin.getPlugin().getImage(new DecorationOverlayIcon(viewpointImage, decoratorDescriptor, IDecoration.BOTTOM_LEFT));
             }
 
             return viewpointImage;

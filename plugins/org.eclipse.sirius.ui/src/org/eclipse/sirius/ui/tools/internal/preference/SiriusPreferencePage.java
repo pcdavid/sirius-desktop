@@ -16,8 +16,8 @@ import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.sirius.business.api.preferences.SiriusPreferencesKeys;
 import org.eclipse.sirius.common.tools.api.constant.CommonPreferencesConstants;
 import org.eclipse.sirius.common.ui.SiriusTransPlugin;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.preferences.SiriusUIPreferencesKeys;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -61,7 +61,7 @@ public class SiriusPreferencePage extends FieldEditorPreferencePage implements I
      */
     @Override
     protected void createFieldEditors() {
-        setPreferenceStore(SiriusEditPlugin.getPlugin().getPreferenceStore());
+        setPreferenceStore(SiriusUiPlugin.getPlugin().getPreferenceStore());
 
         Composite parent = getFieldEditorParent();
         if (parent.getLayout() == null) {
@@ -91,8 +91,8 @@ public class SiriusPreferencePage extends FieldEditorPreferencePage implements I
     private void addRefreshFields(Composite parent) {
         Composite refreshComposite = createGroup(parent, "Refresh");
 
-        refreshOnRepresentationOpening = new BooleanFieldEditor(SiriusUIPreferencesKeys.PREF_REFRESH_ON_REPRESENTATION_OPENING.name(), "Do refresh on representation opening", new Composite(
-                refreshComposite, SWT.NONE));
+        refreshOnRepresentationOpening = new BooleanFieldEditor(SiriusUIPreferencesKeys.PREF_REFRESH_ON_REPRESENTATION_OPENING.name(), "Do refresh on representation opening",
+                new Composite(refreshComposite, SWT.NONE));
         addField(refreshOnRepresentationOpening);
 
         autoRefresh = new BooleanFieldEditor(SiriusPreferencesKeys.PREF_AUTO_REFRESH.name(), "Automatic Refresh", new Composite(refreshComposite, SWT.NONE));
@@ -102,8 +102,8 @@ public class SiriusPreferencePage extends FieldEditorPreferencePage implements I
     private void addProfilingField(Composite parent) {
         Composite profilerComposite = createGroup(parent, "Profiler");
 
-        traceMode = new BooleanFieldEditorWithHelp(CommonPreferencesConstants.PREF_TRACE_ON, "Profiling", "Open the profiler view: Sirius Profiler > Time Profiler View.", new Composite(
-                profilerComposite, SWT.NONE));
+        traceMode = new BooleanFieldEditorWithHelp(CommonPreferencesConstants.PREF_TRACE_ON, "Profiling", "Open the profiler view: Sirius Profiler > Time Profiler View.",
+                new Composite(profilerComposite, SWT.NONE));
         addField(traceMode);
     }
 
@@ -148,6 +148,7 @@ public class SiriusPreferencePage extends FieldEditorPreferencePage implements I
      * 
      * @see org.eclipse.ui.IWorkbenchPreferencePage#init(org.eclipse.ui.IWorkbench)
      */
+    @Override
     public void init(final IWorkbench workbench) {
     }
 

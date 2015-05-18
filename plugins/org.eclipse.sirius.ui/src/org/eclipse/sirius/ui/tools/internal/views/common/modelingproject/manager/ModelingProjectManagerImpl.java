@@ -47,10 +47,10 @@ import org.eclipse.sirius.business.internal.query.ModelingProjectQuery;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSetFactory;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.ModelingProjectFileQuery;
 import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.OpenRepresentationsFileJob;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
@@ -75,6 +75,7 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
          * @see org.eclipse.sirius.business.api.session.SessionManagerListener#notify(org.eclipse.sirius.business.api.session.Session,
          *      int)
          */
+        @Override
         public void notify(Session updated, int notification) {
             if (notification == SessionListener.OPENING) {
                 // No need to at it again to the sessionFileLoading list because
@@ -87,6 +88,7 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
     };
 
     private Predicate<URI> isAlreadyLoadedPredicate = new Predicate<URI>() {
+        @Override
         public boolean apply(URI representationsFileURI) {
             return isAlreadyLoaded(representationsFileURI);
         }
@@ -119,6 +121,7 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
      * 
      * @see org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager#loadAndOpenRepresentationsFile(org.eclipse.emf.common.util.URI)
      */
+    @Override
     public void loadAndOpenRepresentationsFile(final URI representationsFileURI) {
         loadAndOpenRepresentationsFiles(Lists.newArrayList(representationsFileURI));
     }
@@ -128,6 +131,7 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
      * 
      * @see org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager#loadAndOpenRepresentationsFiles(java.util.List)
      */
+    @Override
     public void loadAndOpenRepresentationsFiles(final List<URI> representationsFilesURIs) {
         // Add the specific sessions listener (if not already added).
         SessionManager.INSTANCE.addSessionsListener(sessionManagerListener);
@@ -173,6 +177,7 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
      * 
      * @see org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager#clearCache(org.eclipse.emf.common.util.URI)
      */
+    @Override
     public void clearCache(URI representationsFileURI) {
         sessionFileLoading.remove(representationsFileURI);
     }
@@ -180,6 +185,7 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
     /**
      * {@inheritDoc}
      */
+    @Override
     public IProject createNewModelingProject(String projectName, boolean createAndOpenBlankRepresentationsFile, IProgressMonitor monitor) throws CoreException {
         return createNewModelingProject(projectName, null, createAndOpenBlankRepresentationsFile, monitor);
     }
@@ -187,9 +193,11 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
     /**
      * {@inheritDoc}
      */
+    @Override
     public IProject createNewModelingProject(final String projectName, final IPath projectLocationPath, final boolean createAndOpenBlankRepresentationsFile, IProgressMonitor monitor)
             throws CoreException {
         final IWorkspaceRunnable create = new IWorkspaceRunnable() {
+            @Override
             public void run(final IProgressMonitor monitor) throws CoreException {
                 try {
                     monitor.beginTask("Modeling Project creation : " + projectName, 3);
@@ -229,8 +237,10 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void convertToModelingProject(final IProject project, IProgressMonitor monitor) throws CoreException {
         final IWorkspaceRunnable create = new IWorkspaceRunnable() {
+            @Override
             public void run(final IProgressMonitor monitor) throws CoreException {
                 try {
                     monitor.beginTask("Conversion to Modeling Project", 1);
@@ -256,8 +266,10 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void removeModelingNature(final IProject project, IProgressMonitor monitor) throws CoreException {
         final IWorkspaceRunnable create = new IWorkspaceRunnable() {
+            @Override
             public void run(final IProgressMonitor monitor) throws CoreException {
                 doRemoveModelingNature(project, monitor);
             }
@@ -268,6 +280,7 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void createLocalRepresentationsFile(IProject project, IProgressMonitor monitor) throws CoreException {
         URI representationsURI = URI.createPlatformResourceURI(project.getFullPath().append(ModelingProject.DEFAULT_REPRESENTATIONS_FILE_NAME).toString(), true);
 
@@ -331,7 +344,7 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
                     } else if (e.getMessage().contains(ModelingProjectQuery.A_MODELING_PROJECT_MUST_CONTAIN_ONLY_ONE)) {
                         // several files have been found : rollback
                         removeModelingNature(project, new SubProgressMonitor(monitor, 1));
-                        throw new CoreException(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getMessage()));
+                        throw new CoreException(new Status(IStatus.ERROR, SiriusUiPlugin.ID, e.getMessage()));
                     }
                 }
 

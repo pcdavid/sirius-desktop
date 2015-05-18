@@ -13,8 +13,8 @@ package org.eclipse.sirius.diagram.sequence.ui.tool.internal.edit.operation;
 import java.util.Collection;
 
 import org.eclipse.gmf.runtime.notation.Edge;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.ISequenceEvent;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.Message;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.ISequenceEvent;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.Message;
 
 /**
  * This operation is called to shift the given messages. It adjusts the GMF

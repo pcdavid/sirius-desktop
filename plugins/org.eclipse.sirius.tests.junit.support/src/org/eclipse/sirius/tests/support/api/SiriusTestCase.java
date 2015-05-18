@@ -27,8 +27,6 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -89,6 +87,7 @@ import org.eclipse.sirius.tools.api.command.ICommandFactory;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.sirius.tools.api.command.ui.NoUICallback;
 import org.eclipse.sirius.tools.api.interpreter.InterpreterRegistry;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.action.RefreshActionListenerRegistry;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
@@ -102,7 +101,6 @@ import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.description.Group;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
@@ -116,6 +114,8 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
+
+import junit.framework.TestCase;
 
 /**
  * The main test case for viewpoint unit tests.
@@ -131,10 +131,9 @@ public abstract class SiriusTestCase extends TestCase {
         /**
          * URI of type platform.
          */
-        RESOURCE_PLATFORM_URI,
-        /**
-         * URI of type plugin.
-         */
+        RESOURCE_PLATFORM_URI, /**
+                                * URI of type plugin.
+                                */
         RESOURCE_PLUGIN_URI
     }
 
@@ -150,8 +149,8 @@ public abstract class SiriusTestCase extends TestCase {
      * The default session URI used when there is no session path passed to the
      * generic setup.
      */
-    protected static final URI DEFAULT_MODELING_PROJECT_REPRESENTATIONS_FILE_URI = URI.createPlatformResourceURI(File.separator + SiriusTestCase.TEMPORARY_PROJECT_NAME + File.separator
-            + ModelingProject.DEFAULT_REPRESENTATIONS_FILE_NAME, true);
+    protected static final URI DEFAULT_MODELING_PROJECT_REPRESENTATIONS_FILE_URI = URI
+            .createPlatformResourceURI(File.separator + SiriusTestCase.TEMPORARY_PROJECT_NAME + File.separator + ModelingProject.DEFAULT_REPRESENTATIONS_FILE_NAME, true);
 
     private static final String DOT = ".";
 
@@ -403,7 +402,7 @@ public abstract class SiriusTestCase extends TestCase {
         TestsUtil.emptyEventsFromUIThread();
 
         /* Set no ui callbacks for tests */
-        SiriusEditPlugin.getPlugin().setUiCallback(new NoUICallback());
+        SiriusUiPlugin.getPlugin().setUiCallback(new NoUICallback());
 
         createOrLoadAndOpenSession(createSession, sessionResourceURI);
 
@@ -1696,7 +1695,7 @@ public abstract class SiriusTestCase extends TestCase {
     protected void changeSiriusUIPreference(String preferenceKey, Boolean newValue) {
         assertNoSiriusCorePreferenceChangedinSiriusUIStore(preferenceKey);
 
-        IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        IPreferenceStore viewpointUIPrefs = SiriusUiPlugin.getPlugin().getPreferenceStore();
         oldValueSiriusUIPreferences.put(preferenceKey, viewpointUIPrefs.getBoolean(preferenceKey));
         viewpointUIPrefs.setValue(preferenceKey, newValue);
     }
@@ -1893,7 +1892,7 @@ public abstract class SiriusTestCase extends TestCase {
         for (String key : oldValueSiriusPreferences.keySet()) {
             corePreferences.putBoolean(key, (Boolean) oldValueSiriusPreferences.get(key));
         }
-        IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        IPreferenceStore viewpointUIPrefs = SiriusUiPlugin.getPlugin().getPreferenceStore();
         for (String key : oldValueSiriusUIPreferences.keySet()) {
             viewpointUIPrefs.setValue(key, (Boolean) oldValueSiriusUIPreferences.get(key));
         }

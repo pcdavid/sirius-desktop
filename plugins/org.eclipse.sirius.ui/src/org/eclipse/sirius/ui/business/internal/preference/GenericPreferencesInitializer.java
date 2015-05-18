@@ -15,6 +15,7 @@ import org.eclipse.core.runtime.preferences.DefaultScope;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.sirius.business.api.preferences.SiriusPreferencesKeys;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.preferences.SiriusUIPreferencesKeys;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
@@ -33,7 +34,7 @@ public class GenericPreferencesInitializer extends AbstractPreferenceInitializer
      */
     @Override
     public void initializeDefaultPreferences() {
-        final IPreferenceStore uiPreferenceStore = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        final IPreferenceStore uiPreferenceStore = SiriusUiPlugin.getPlugin().getPreferenceStore();
         final IEclipsePreferences defaultCorePreferences = DefaultScope.INSTANCE.getNode(SiriusPlugin.ID);
 
         uiPreferenceStore.setDefault(SiriusUIPreferencesKeys.PREF_REFRESH_ON_REPRESENTATION_OPENING.name(), getValue("_Pref_RefreshOnRepresentationOpening"));
@@ -52,7 +53,7 @@ public class GenericPreferencesInitializer extends AbstractPreferenceInitializer
     }
 
     private boolean getValue(final String key) {
-        final String value = SiriusEditPlugin.INSTANCE.getString(key);
+        final String value = SiriusUiPlugin.INSTANCE.getString(key);
         return Boolean.valueOf(value);
     }
 }

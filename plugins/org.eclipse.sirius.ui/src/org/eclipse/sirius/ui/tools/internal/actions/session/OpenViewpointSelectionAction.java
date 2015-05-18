@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.action.Action;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.PlatformUI;
 
 /**
@@ -49,7 +49,7 @@ public class OpenViewpointSelectionAction extends Action {
      *            should be changed
      */
     public OpenViewpointSelectionAction(URI sessionURI) {
-        super(VIEWPOINTS_SELECTION_ACTION_TEXT, SiriusEditPlugin.INSTANCE.getImageDescriptor("full/obj16/Viewpoint.gif"));
+        super(VIEWPOINTS_SELECTION_ACTION_TEXT, SiriusUiPlugin.INSTANCE.getImageDescriptor("full/obj16/Viewpoint.gif"));
         this.sessionURI = sessionURI;
     }
 
@@ -60,6 +60,7 @@ public class OpenViewpointSelectionAction extends Action {
     public void run() {
         final Session session = SessionManager.INSTANCE.getExistingSession(sessionURI);
         PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+            @Override
             public void run() {
                 ViewpointSelection.openViewpointsSelectionDialog(session);
             }

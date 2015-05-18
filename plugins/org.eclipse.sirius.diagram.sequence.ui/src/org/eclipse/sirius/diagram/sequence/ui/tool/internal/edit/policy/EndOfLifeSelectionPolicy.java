@@ -26,13 +26,13 @@ import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalC
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.sequence.SequenceDDiagram;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.EndOfLife;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.ISequenceElementAccessor;
-import org.eclipse.sirius.diagram.sequence.business.internal.elements.Lifeline;
-import org.eclipse.sirius.diagram.sequence.business.internal.layout.LayoutConstants;
 import org.eclipse.sirius.diagram.sequence.ordering.CompoundEventEnd;
 import org.eclipse.sirius.diagram.sequence.ordering.EventEnd;
 import org.eclipse.sirius.diagram.sequence.ordering.SingleEventEnd;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.EndOfLife;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.ISequenceElementAccessor;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.elements.Lifeline;
+import org.eclipse.sirius.diagram.sequence.ui.business.internal.layout.LayoutConstants;
 import org.eclipse.sirius.diagram.sequence.ui.tool.internal.edit.operation.EndOfLifeOperations;
 import org.eclipse.sirius.diagram.sequence.ui.tool.internal.edit.operation.SequenceEditPartsOperations;
 import org.eclipse.sirius.diagram.sequence.ui.tool.internal.edit.operation.ShiftDescendantMessagesOperation;

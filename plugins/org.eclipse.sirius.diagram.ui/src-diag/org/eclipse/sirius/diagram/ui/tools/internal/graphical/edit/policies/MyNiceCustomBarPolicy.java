@@ -50,7 +50,7 @@ import org.eclipse.sirius.diagram.ui.tools.api.image.DiagramImagesPath;
 import org.eclipse.sirius.diagram.ui.tools.internal.figure.DropDownMenuFigure;
 import org.eclipse.sirius.diagram.ui.tools.internal.figure.PopupBarFigure;
 import org.eclipse.sirius.diagram.ui.tools.internal.handler.ChangeFilterActivation;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 
 import com.google.common.collect.Iterables;
 
@@ -175,7 +175,7 @@ public class MyNiceCustomBarPolicy extends DiagramAssistantEditPolicy implements
     }
 
     private DropDownMenuFigure createDropDownMenuFigure(final IFigure parent, final ImageDescriptor desc) {
-        final DropDownMenuFigure dropMenu = new DropDownMenuFigure(new ImageFigure(SiriusEditPlugin.getPlugin().getImage(desc)), parent);
+        final DropDownMenuFigure dropMenu = new DropDownMenuFigure(new ImageFigure(SiriusUiPlugin.getPlugin().getImage(desc)), parent);
 
         dropMenu.addMouseMotionListener(new MouseMotionListener.Stub() {
             @Override
@@ -206,7 +206,7 @@ public class MyNiceCustomBarPolicy extends DiagramAssistantEditPolicy implements
                 final boolean activated = EqualityHelper.contains(dDiagram.getActivatedLayers(), additionalLayer);
                 final ImageDescriptor imgDesc = activated ? DESC_ACTIVE_LAYER : DESC_INACTIVE_LAYER;
 
-                dropMenu.addToMenu(SiriusEditPlugin.getPlugin().getImage(imgDesc), new IdentifiedElementQuery(additionalLayer).getLabel(), new Runnable() {
+                dropMenu.addToMenu(SiriusUiPlugin.getPlugin().getImage(imgDesc), new IdentifiedElementQuery(additionalLayer).getLabel(), new Runnable() {
                     public void run() {
                         hideDiagramAssistant();
 
@@ -229,7 +229,7 @@ public class MyNiceCustomBarPolicy extends DiagramAssistantEditPolicy implements
             final boolean activated = EqualityHelper.contains(diagram.getActivatedFilters(), filter);
             final ImageDescriptor imgDesc = activated ? DESC_ACTIVE_FILTER : DESC_INACTIVE_FILTER;
 
-            dropMenu.addToMenu(SiriusEditPlugin.getPlugin().getImage(imgDesc), filter.getName(), new Runnable() {
+            dropMenu.addToMenu(SiriusUiPlugin.getPlugin().getImage(imgDesc), filter.getName(), new Runnable() {
 
                 public void run() {
                     hideDiagramAssistant();

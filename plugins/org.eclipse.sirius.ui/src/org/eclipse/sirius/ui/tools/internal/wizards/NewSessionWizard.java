@@ -39,11 +39,11 @@ import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.common.ui.tools.api.wizard.SelectFilesWizardPage;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.session.SessionHelper;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
 import org.eclipse.sirius.ui.tools.internal.wizards.pages.SessionFileCreationWizardPage;
 import org.eclipse.sirius.ui.tools.internal.wizards.pages.SessionKindSelectionWizardPage;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -125,12 +125,13 @@ public class NewSessionWizard extends Wizard implements INewWizard {
      * @see org.eclipse.ui.IWorkbenchWizard#init(org.eclipse.ui.IWorkbench,
      *      org.eclipse.jface.viewers.IStructuredSelection)
      */
+    @Override
     public void init(final IWorkbench w, final IStructuredSelection s) {
         this.selection = s;
         this.workbench = w;
         setWindowTitle("New Representations File");
         setNeedsProgressMonitor(true);
-        setDefaultPageImageDescriptor(SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/wizban/banner_aird.gif"));
+        setDefaultPageImageDescriptor(SiriusUiPlugin.Implementation.getBundledImageDescriptor("icons/wizban/banner_aird.gif"));
     }
 
     /**
@@ -184,6 +185,7 @@ public class NewSessionWizard extends Wizard implements INewWizard {
             final Session session = sessionCreationOperation.getSession();
             getContainer().run(false, false, new IRunnableWithProgress() {
 
+                @Override
                 public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
                     if (session != null && !semanticResourceURIs.isEmpty()) {
                         ViewpointSelection.openViewpointsSelectionDialog(session);
@@ -201,12 +203,12 @@ public class NewSessionWizard extends Wizard implements INewWizard {
             });
 
         } catch (final InterruptedException e) {
-            IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, SESSION_CREATION_ERROR_MSG, e);
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, SESSION_CREATION_ERROR_MSG, e);
+            SiriusUiPlugin.getPlugin().getLog().log(status);
             finished = false;
         } catch (final InvocationTargetException e) {
-            IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, SESSION_CREATION_ERROR_MSG, e.getTargetException());
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            IStatus status = new Status(IStatus.ERROR, SiriusUiPlugin.ID, SESSION_CREATION_ERROR_MSG, e.getTargetException());
+            SiriusUiPlugin.getPlugin().getLog().log(status);
             finished = false;
         }
         return finished;
@@ -268,8 +270,8 @@ public class NewSessionWizard extends Wizard implements INewWizard {
                 monitor.beginTask("Representations file creation", 1);
 
                 // Create a Session from the session model URI
-                org.eclipse.sirius.business.api.session.SessionCreationOperation sessionCreationOperation = new DefaultLocalSessionCreationOperation(sessionModelURI, new SubProgressMonitor(
-                        monitor, 1));
+                org.eclipse.sirius.business.api.session.SessionCreationOperation sessionCreationOperation = new DefaultLocalSessionCreationOperation(sessionModelURI,
+                        new SubProgressMonitor(monitor, 1));
                 sessionCreationOperation.execute();
                 session = sessionCreationOperation.getCreatedSession();
 

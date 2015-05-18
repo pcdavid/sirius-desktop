@@ -11,7 +11,7 @@
 package org.eclipse.sirius.tests.swtbot.support.api.dialog;
 
 import org.eclipse.jface.dialogs.IDialogSettings;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 
 /**
  * A class to allow cleaning of AbstractExportRepresentationsAsImagesDialog
@@ -24,7 +24,7 @@ public class ExportAsImageHelper {
     /**
      * The id for the persistent settings for the export representations dialog.
      */
-    private static final String DIALOG_SETTINGS_ID = "ExportRepresentationsAsImagesDialog"; //$NON-NLS-1$     
+    private static final String DIALOG_SETTINGS_ID = "ExportRepresentationsAsImagesDialog"; //$NON-NLS-1$
 
     /**
      * The id for the persistent folder setting for the export representations
@@ -50,10 +50,10 @@ public class ExportAsImageHelper {
      * @return the persistent settings for this dialog.
      */
     protected IDialogSettings getDialogSettings() {
-        IDialogSettings settings = SiriusEditPlugin.getPlugin().getDialogSettings();
+        IDialogSettings settings = SiriusUiPlugin.getPlugin().getDialogSettings();
         settings = settings.getSection(ExportAsImageHelper.DIALOG_SETTINGS_ID);
         if (settings == null) {
-            settings = SiriusEditPlugin.getPlugin().getDialogSettings().addNewSection(ExportAsImageHelper.DIALOG_SETTINGS_ID);
+            settings = SiriusUiPlugin.getPlugin().getDialogSettings().addNewSection(ExportAsImageHelper.DIALOG_SETTINGS_ID);
         }
         return settings;
     }

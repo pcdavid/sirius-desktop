@@ -37,6 +37,7 @@ import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
 import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.EditingSessionEvent;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
@@ -46,7 +47,6 @@ import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationContainer;
 import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -145,8 +145,8 @@ public class CreateRepresentationAction extends Action {
                 public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
                     try {
                         monitor.beginTask("Representation creation", 5);
-                        CreateRepresentationCommand createRepresentationCommand = new CreateRepresentationCommand(session, description, selection, representationName, new SubProgressMonitor(monitor,
-                                4));
+                        CreateRepresentationCommand createRepresentationCommand = new CreateRepresentationCommand(session, description, selection, representationName,
+                                new SubProgressMonitor(monitor, 4));
 
                         IEditingSession editingSession = SessionUIManager.INSTANCE.getUISession(session);
                         editingSession.notify(EditingSessionEvent.REPRESENTATION_ABOUT_TO_BE_CREATED_BEFORE_OPENING);
@@ -176,9 +176,9 @@ public class CreateRepresentationAction extends Action {
             IRunnableContext context = new ProgressMonitorDialog(shell);
             PlatformUI.getWorkbench().getProgressService().runInUI(context, runnable, null);
         } catch (final InvocationTargetException e) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+            SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, e.getLocalizedMessage(), e));
         } catch (final InterruptedException e) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+            SiriusUiPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUiPlugin.ID, e.getLocalizedMessage(), e));
         }
 
     }

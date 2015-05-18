@@ -19,9 +19,9 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.tools.api.views.common.item.AnalysisResourceItem;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 
 import com.google.common.collect.Lists;
@@ -66,6 +66,7 @@ public class AnalysisResourceItemImpl implements AnalysisResourceItem {
      * 
      * @see org.eclipse.sirius.ui.tools.api.views.common.item.ItemWrapper#getWrappedObject()
      */
+    @Override
     public Object getWrappedObject() {
         return resource;
     }
@@ -76,7 +77,7 @@ public class AnalysisResourceItemImpl implements AnalysisResourceItem {
      * @see org.eclipse.sirius.common.ui.tools.api.view.common.item.ItemDecorator#getImage()
      */
     public Image getImage() {
-        return SiriusEditPlugin.getPlugin().getBundledImage(SESSION_IMAGE);
+        return SiriusUiPlugin.getPlugin().getBundledImage(SESSION_IMAGE);
     }
 
     /**
@@ -101,6 +102,7 @@ public class AnalysisResourceItemImpl implements AnalysisResourceItem {
      * 
      * @see org.eclipse.sirius.ui.tools.api.views.common.item.CommonSessionItem#getSession()
      */
+    @Override
     public Option<Session> getSession() {
         return Options.newSome(session);
     }
@@ -150,6 +152,7 @@ public class AnalysisResourceItemImpl implements AnalysisResourceItem {
      * 
      * @see org.eclipse.sirius.ui.tools.api.views.common.item.CommonSessionItem#getChildren()
      */
+    @Override
     public Collection<?> getChildren() {
         final List<ViewpointItemImpl> all = Lists.newArrayList();
         if (resource != null) {
@@ -166,6 +169,7 @@ public class AnalysisResourceItemImpl implements AnalysisResourceItem {
      * 
      * @see org.eclipse.sirius.ui.tools.api.views.common.item.CommonSessionItem#getParent()
      */
+    @Override
     public Object getParent() {
         return parent;
     }

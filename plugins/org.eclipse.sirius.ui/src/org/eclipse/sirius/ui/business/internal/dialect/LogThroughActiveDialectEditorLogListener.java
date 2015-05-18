@@ -20,13 +20,13 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.ecore.extender.business.api.permission.exception.LockedInstanceException;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.preferences.SiriusUIPreferencesKeys;
 import org.eclipse.sirius.ui.tools.internal.views.common.navigator.SiriusCommonLabelProvider;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
@@ -36,8 +36,8 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 
 /**
- * A {@link ILogListener} that reacts to specific exceptions by logging them through the active {@link DialectEditor}
- * (if any).
+ * A {@link ILogListener} that reacts to specific exceptions by logging them
+ * through the active {@link DialectEditor} (if any).
  * 
  * @author <a href="mailto:alex.lagarde@obeo.fr">Alex Lagarde</a>
  * 
@@ -60,18 +60,20 @@ public final class LogThroughActiveDialectEditorLogListener implements ILogListe
      * 
      * {@inheritDoc}
      * 
-     * @see org.eclipse.core.runtime.ILogListener#logging(org.eclipse.core.runtime.IStatus, java.lang.String)
+     * @see org.eclipse.core.runtime.ILogListener#logging(org.eclipse.core.runtime.IStatus,
+     *      java.lang.String)
      */
+    @Override
     public void logging(IStatus status, String plugin) {
         boolean hasBeenLoggedThroughDialect = false;
         // Always consider final cause of exception
         final Throwable exception = getFinalCause(status);
         // Step 1: check preferences (should indicate that errors should be
         // logged through a pop-up)
-        if (SiriusEditPlugin.getPlugin().getPreferenceStore().getBoolean(SiriusUIPreferencesKeys.PREF_REACT_TO_PERMISSION_ISSUES_BY_GRAPHICAL_DISPLAY.name())) {
+        if (SiriusUiPlugin.getPlugin().getPreferenceStore().getBoolean(SiriusUIPreferencesKeys.PREF_REACT_TO_PERMISSION_ISSUES_BY_GRAPHICAL_DISPLAY.name())) {
             // Step 2: logging this error using a through the dialect if
             // possible and required
-            if (SiriusEditPlugin.getPlugin().getPreferenceStore().getBoolean(SiriusUIPreferencesKeys.PREF_DISPLAY_PERMISSION_ISSUES_THROUGH_DIALOG.name())) {
+            if (SiriusUiPlugin.getPlugin().getPreferenceStore().getBoolean(SiriusUIPreferencesKeys.PREF_DISPLAY_PERMISSION_ISSUES_THROUGH_DIALOG.name())) {
                 IEditorPart activeEditor = EclipseUIUtil.getActiveEditor();
                 if ((activeEditor != null) && (activeEditor instanceof DialectEditor)) {
                     if (shouldBeLoggedThroughDialect((DialectEditor) activeEditor, exception)) {
@@ -103,11 +105,13 @@ public final class LogThroughActiveDialectEditorLogListener implements ILogListe
     }
 
     /**
-     * Indicates whether the given exception should be logged through the active dialect or not.
+     * Indicates whether the given exception should be logged through the active
+     * dialect or not.
      * 
      * @param exception
      *            the exception that is being logged in the error log
-     * @return true if the given exception should be logged through the active dialect, false otherwise
+     * @return true if the given exception should be logged through the active
+     *         dialect, false otherwise
      */
     private boolean shouldBeLoggedThroughDialect(DialectEditor editor, Throwable exception) {
         // We only log LockedInstance exceptions
@@ -126,6 +130,7 @@ public final class LogThroughActiveDialectEditorLogListener implements ILogListe
                 }
                 Iterable<Setting> representationsElementsReferencingLockedElement = Iterables.filter(session.getSemanticCrossReferencer().getInverseReferences(lockedElement),
                         new Predicate<Setting>() {
+                            @Override
                             public boolean apply(Setting input) {
                                 if (input.getEObject() instanceof DSemanticDecorator) {
                                     DRepresentation concernedRepresentation = null;
@@ -153,7 +158,8 @@ public final class LogThroughActiveDialectEditorLogListener implements ILogListe
      * 
      * @param exception
      *            the exception that is being logged in the error log
-     * @return true if the given exception should be logged through a pop-up, false otherwise
+     * @return true if the given exception should be logged through a pop-up,
+     *         false otherwise
      */
     private boolean shouldBeLoggedThroughPopup(Throwable exception) {
         // We only consider LockedInstanceException

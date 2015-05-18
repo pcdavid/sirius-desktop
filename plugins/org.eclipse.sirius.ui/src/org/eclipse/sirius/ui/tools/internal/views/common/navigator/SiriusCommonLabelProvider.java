@@ -30,6 +30,7 @@ import org.eclipse.sirius.business.api.query.IFileQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.sirius.ui.api.SiriusUiPlugin;
 import org.eclipse.sirius.ui.business.api.preferences.SiriusUIPreferencesKeys;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
@@ -42,7 +43,6 @@ import org.eclipse.sirius.ui.tools.internal.views.common.FileSessionFinder;
 import org.eclipse.sirius.ui.tools.internal.views.common.SessionLabelProvider;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
@@ -67,7 +67,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * Default image descriptor for the "Sirius Modeling" overlay.
      */
-    public static final ImageDescriptor SIRIUS_MODELING_OVERLAY_DESC = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/ovr16/SessionDecorator.gif"); //$NON-NLS-1$;
+    public static final ImageDescriptor SIRIUS_MODELING_OVERLAY_DESC = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUiPlugin.ID, "/icons/full/ovr16/SessionDecorator.gif"); //$NON-NLS-1$ ;
 
     private static final String DIRTY = "*";
 
@@ -83,6 +83,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * {@inheritDoc}
      */
+    @Override
     public Image getImage(Object element) {
         Image img = null;
         if (!(element instanceof IResource) && sessionLabelProvider != null) {
@@ -98,12 +99,12 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
                 if (img != null && isDanglingRepresentation(element)) {
                     DSemanticDecorator dSemanticDecorator = getDSemanticDecorator(element);
                     String key = dSemanticDecorator.eClass().getName() + "_disabled";
-                    Image disabledImage = SiriusEditPlugin.getPlugin().getImageRegistry().get(key);
+                    Image disabledImage = SiriusUiPlugin.getPlugin().getImageRegistry().get(key);
                     if (disabledImage == null) {
                         ImageDescriptor desc = ImageDescriptor.createFromImage(img);
                         ImageDescriptor disabledDesc = ImageDescriptor.createWithFlags(desc, SWT.IMAGE_DISABLE);
-                        SiriusEditPlugin.getPlugin().getImageRegistry().put(key, disabledDesc);
-                        disabledImage = SiriusEditPlugin.getPlugin().getImageRegistry().get(key);
+                        SiriusUiPlugin.getPlugin().getImageRegistry().put(key, disabledDesc);
+                        disabledImage = SiriusUiPlugin.getPlugin().getImageRegistry().get(key);
                     }
                     img = disabledImage;
                 }
@@ -130,7 +131,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
                 // SiriusEditPlugin
                 String imgKey = fileExtension + "Decorated";
                 // Get the existing image (if any)
-                img = SiriusEditPlugin.getPlugin().getImageRegistry().get(imgKey);
+                img = SiriusUiPlugin.getPlugin().getImageRegistry().get(imgKey);
                 // If the image has already been computed, use it.
                 if (img == null) {
                     // Get the base image to overlay
@@ -144,7 +145,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
                         ImageDescriptor[] imageDescriptors = new ImageDescriptor[5];
                         imageDescriptors[IDecoration.TOP_RIGHT] = SIRIUS_MODELING_OVERLAY_DESC;
                         img = new DecorationOverlayIcon(imageDescriptor.createImage(), imageDescriptors).createImage();
-                        SiriusEditPlugin.getPlugin().getImageRegistry().put(imgKey, img);
+                        SiriusUiPlugin.getPlugin().getImageRegistry().put(imgKey, img);
                     }
                 }
             }
@@ -173,6 +174,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * {@inheritDoc}
      */
+    @Override
     public String getText(Object element) {
         String text = null;
         if (element instanceof IProject) {
@@ -238,6 +240,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     private List<Session> getOpenSessions(IFile file) {
 
         return Lists.newArrayList(Iterables.filter(FileSessionFinder.getSelectedSessions(Collections.singletonList(file)), new Predicate<Session>() {
+            @Override
             public boolean apply(Session input) {
                 return input.isOpen();
             }
@@ -258,7 +261,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
 
         if (session != null && uiSession != null && session.isOpen() && uiSession.isOpen()) {
 
-            IPreferenceStore preferenceStore = SiriusEditPlugin.getPlugin().getPreferenceStore();
+            IPreferenceStore preferenceStore = SiriusUiPlugin.getPlugin().getPreferenceStore();
             boolean shouldBeSavedWithoutEditor = preferenceStore != null && preferenceStore.getBoolean(SiriusUIPreferencesKeys.PREF_SAVE_WHEN_NO_EDITOR.name());
 
             // When option PREF_SAVE_WHEN_NO_EDITOR is enabled, show dirty
@@ -274,6 +277,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * {@inheritDoc}
      */
+    @Override
     public void addListener(ILabelProviderListener listener) {
         if (sessionLabelProvider != null) {
             sessionLabelProvider.addListener(listener);
@@ -283,6 +287,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * {@inheritDoc}
      */
+    @Override
     public void removeListener(ILabelProviderListener listener) {
         if (sessionLabelProvider != null) {
             sessionLabelProvider.removeListener(listener);
@@ -292,6 +297,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean isLabelProperty(Object element, String property) {
         return true;
     }
@@ -299,6 +305,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * {@inheritDoc}
      */
+    @Override
     public Color getForeground(final Object element) {
 
         Color foreground = null;
@@ -359,6 +366,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * {@inheritDoc}
      */
+    @Override
     public Color getBackground(Object element) {
         return null;
     }
@@ -366,6 +374,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * {@inheritDoc}
      */
+    @Override
     public void dispose() {
         if (sessionLabelProvider != null) {
             sessionLabelProvider.dispose();
@@ -376,18 +385,21 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * {@inheritDoc}
      */
+    @Override
     public void saveState(IMemento aMemento) {
     }
 
     /**
      * {@inheritDoc}
      */
+    @Override
     public void restoreState(IMemento aMemento) {
     }
 
     /**
      * {@inheritDoc}
      */
+    @Override
     public String getDescription(Object anElement) {
         return null;
     }
@@ -395,6 +407,7 @@ public class SiriusCommonLabelProvider implements ICommonLabelProvider, IColorPr
     /**
      * {@inheritDoc}
      */
+    @Override
     public void init(ICommonContentExtensionSite aConfig) {
 
     }

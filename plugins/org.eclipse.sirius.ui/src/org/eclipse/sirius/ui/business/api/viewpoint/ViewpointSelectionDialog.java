@@ -31,8 +31,8 @@ import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.sirius.business.api.query.ViewpointQuery;
 import org.eclipse.sirius.business.internal.movida.ViewpointDependenciesTracker;
 import org.eclipse.sirius.business.internal.movida.registry.ViewpointRegistry;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.FillLayout;
@@ -383,7 +383,7 @@ public class ViewpointSelectionDialog extends TitleAreaDialog {
             public void update(ViewerCell cell) {
                 Item item = (Item) cell.getElement();
                 cell.setText(item.getLabel());
-                cell.setImage(SiriusEditPlugin.getPlugin().getBundledImage("icons/full/obj16/Viewpoint.gif"));
+                cell.setImage(SiriusUIPlugin.getPlugin().getBundledImage("icons/full/obj16/Viewpoint.gif"));
             }
 
             @Override

@@ -46,6 +46,7 @@ import org.eclipse.sirius.common.ui.SiriusTransPlugin;
 import org.eclipse.sirius.common.ui.tools.api.selection.EMFMessageDialog;
 import org.eclipse.sirius.common.ui.tools.api.selection.EObjectSelectionWizard;
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.resource.LoadEMFResourceRunnableWithProgress;
 import org.eclipse.sirius.ui.tools.api.Messages;
@@ -55,7 +56,6 @@ import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.description.tool.SelectModelElementVariable;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
@@ -178,9 +178,9 @@ public abstract class AbstractSWTCallback implements UICallBack {
                 }
             });
         } catch (InvocationTargetException e) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+            SiriusUIPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUIPlugin.ID, e.getLocalizedMessage(), e));
         } catch (InterruptedException e) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+            SiriusUIPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUIPlugin.ID, e.getLocalizedMessage(), e));
         }
     }
 

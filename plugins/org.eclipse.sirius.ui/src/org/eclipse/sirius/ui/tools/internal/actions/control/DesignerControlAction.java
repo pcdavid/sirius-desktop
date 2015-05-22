@@ -26,9 +26,9 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.common.ui.tools.api.util.SWTUtil;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.tools.api.control.SiriusControlHandler;
 import org.eclipse.sirius.ui.tools.api.control.SiriusUncontrolHandler;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.ISaveablePart2;
 import org.eclipse.ui.PlatformUI;
@@ -88,9 +88,9 @@ public class DesignerControlAction extends ControlAction {
                         }
                     });
                 } catch (InvocationTargetException e) {
-                    SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+                    SiriusUIPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUIPlugin.ID, e.getLocalizedMessage(), e));
                 } catch (InterruptedException e) {
-                    SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e));
+                    SiriusUIPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUIPlugin.ID, e.getLocalizedMessage(), e));
                 }
 
             }

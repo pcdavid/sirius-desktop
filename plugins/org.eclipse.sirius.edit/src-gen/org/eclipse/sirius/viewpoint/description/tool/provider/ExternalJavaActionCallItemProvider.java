@@ -19,29 +19,28 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
-import org.eclipse.sirius.ecore.extender.tool.internal.StringUtil;
-import org.eclipse.sirius.viewpoint.description.tool.ToolDescription;
+import org.eclipse.sirius.common.tools.api.util.StringUtil;
+import org.eclipse.sirius.viewpoint.description.tool.ExternalJavaActionCall;
 import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 /**
  * This is the item provider adapter for a
- * {@link org.eclipse.sirius.viewpoint.description.tool.ToolDescription} object.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * {@link org.eclipse.sirius.viewpoint.description.tool.ExternalJavaActionCall}
+ * object. <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
  * @generated
  */
-public class ToolDescriptionItemProvider extends MappingBasedToolDescriptionItemProvider {
+public class ExternalJavaActionCallItemProvider extends MenuItemDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public ToolDescriptionItemProvider(AdapterFactory adapterFactory) {
+    public ExternalJavaActionCallItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -56,21 +55,22 @@ public class ToolDescriptionItemProvider extends MappingBasedToolDescriptionItem
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addIconPathPropertyDescriptor(object);
+            addActionPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Icon Path feature. <!--
+     * This adds a property descriptor for the Action feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    protected void addIconPathPropertyDescriptor(Object object) {
+    protected void addActionPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_ToolDescription_iconPath_feature"), getString("_UI_PropertyDescriptor_description", "_UI_ToolDescription_iconPath_feature", "_UI_ToolDescription_type"),
-                ToolPackage.Literals.TOOL_DESCRIPTION__ICON_PATH, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_GeneralPropertyCategory"), null));
+                getString("_UI_ExternalJavaActionCall_action_feature"),
+                getString("_UI_PropertyDescriptor_description", "_UI_ExternalJavaActionCall_action_feature", "_UI_ExternalJavaActionCall_type"),
+                ToolPackage.Literals.EXTERNAL_JAVA_ACTION_CALL__ACTION, true, false, true, null, getString("_UI_GeneralPropertyCategory"), null));
     }
 
     /**
@@ -87,9 +87,7 @@ public class ToolDescriptionItemProvider extends MappingBasedToolDescriptionItem
     public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(ToolPackage.Literals.TOOL_DESCRIPTION__ELEMENT);
-            childrenFeatures.add(ToolPackage.Literals.TOOL_DESCRIPTION__ELEMENT_VIEW);
-            childrenFeatures.add(ToolPackage.Literals.TOOL_DESCRIPTION__INITIAL_OPERATION);
+            childrenFeatures.add(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS);
         }
         return childrenFeatures;
     }
@@ -109,14 +107,14 @@ public class ToolDescriptionItemProvider extends MappingBasedToolDescriptionItem
     }
 
     /**
-     * This returns ToolDescription.gif. <!-- begin-user-doc --> <!--
+     * This returns ExternalJavaActionCall.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
      * @generated
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ToolDescription"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalJavaActionCall"));
     }
 
     /**
@@ -127,8 +125,8 @@ public class ToolDescriptionItemProvider extends MappingBasedToolDescriptionItem
      */
     @Override
     public String getText(Object object) {
-        String label = new IdentifiedElementQuery((ToolDescription) object).getLabel();
-        return StringUtil.isEmpty(label) ? getString("_UI_ToolDescription_type") : getString("_UI_ToolDescription_type") + " " + label;
+        String label = new IdentifiedElementQuery((ExternalJavaActionCall) object).getLabel();
+        return StringUtil.isEmpty(label) ? getString("_UI_ExternalJavaActionCall_type") : getString("_UI_ExternalJavaActionCall_type") + " " + label;
     }
 
     /**
@@ -143,13 +141,8 @@ public class ToolDescriptionItemProvider extends MappingBasedToolDescriptionItem
     public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(ToolDescription.class)) {
-        case ToolPackage.TOOL_DESCRIPTION__ICON_PATH:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-            return;
-        case ToolPackage.TOOL_DESCRIPTION__ELEMENT:
-        case ToolPackage.TOOL_DESCRIPTION__ELEMENT_VIEW:
-        case ToolPackage.TOOL_DESCRIPTION__INITIAL_OPERATION:
+        switch (notification.getFeatureID(ExternalJavaActionCall.class)) {
+        case ToolPackage.EXTERNAL_JAVA_ACTION_CALL__SUB_MODEL_OPERATIONS:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -167,11 +160,31 @@ public class ToolDescriptionItemProvider extends MappingBasedToolDescriptionItem
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_DESCRIPTION__ELEMENT, ToolFactory.eINSTANCE.createElementVariable()));
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createExternalJavaAction()));
 
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_DESCRIPTION__ELEMENT_VIEW, ToolFactory.eINSTANCE.createElementViewVariable()));
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createExternalJavaActionCall()));
 
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_DESCRIPTION__INITIAL_OPERATION, ToolFactory.eINSTANCE.createInitialOperation()));
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createCreateInstance()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createChangeContext()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createSetValue()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createSetObject()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createUnset()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createMoveElement()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createRemoveElement()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createFor()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createIf()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createDeleteView()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createSwitch()));
     }
 
 }

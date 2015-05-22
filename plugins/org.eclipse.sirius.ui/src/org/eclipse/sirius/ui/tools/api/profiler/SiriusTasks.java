@@ -13,7 +13,7 @@ package org.eclipse.sirius.ui.tools.api.profiler;
 import org.eclipse.sirius.common.tools.api.profiler.ProfilerTask;
 import org.eclipse.sirius.common.tools.api.profiler.TimeProfiler;
 import org.eclipse.sirius.tools.api.profiler.SiriusTasksKey;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 
 /**
  * Profiling tasks used.
@@ -377,7 +377,7 @@ public final class SiriusTasks {
     }
 
     private static String getImagePath(String key) {
-        return "/" + SiriusEditPlugin.ID + key;
+        return "/" + SiriusUIPlugin.ID + key;
     }
 
     // CHECKSTYLE:OFF

@@ -41,6 +41,7 @@ import org.eclipse.sirius.business.api.session.SessionCreationOperation;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.SessionSpecificEditorInput;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
@@ -50,7 +51,6 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.DView;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 
@@ -164,9 +164,9 @@ public class SpecificEditorInputTranformer {
                 final DRepresentation representation = createSessionAndRepresentation(semanticModelPath, analysisFilenameURI);
                 return createNewEditorInput(representation, semanticModelPath);
             } catch (final IOException exception) {
-                SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "Failing of EditorInput transformation.", exception));
+                SiriusUIPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUIPlugin.ID, "Failing of EditorInput transformation.", exception));
             } catch (CoreException exception) {
-                SiriusEditPlugin.getPlugin().getLog().log(exception.getStatus());
+                SiriusUIPlugin.getPlugin().getLog().log(exception.getStatus());
             }
         }
         return input;

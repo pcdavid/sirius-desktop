@@ -33,10 +33,10 @@ import org.eclipse.sirius.common.tools.api.resource.ResourceSetSync.ResourceStat
 import org.eclipse.sirius.common.tools.api.resource.ResourceSyncClient;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.tools.api.command.EditingDomainUndoContext;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.preferences.SiriusUIPreferencesKeys;
 import org.eclipse.sirius.viewpoint.DAnalysisSessionEObject;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.PlatformUI;
 
 /**
@@ -129,7 +129,7 @@ public class RestoreToLastSavePointListener implements ResourceSyncClient, IOper
         } catch (ExecutionException e) {
             // If something went wrong, we reload the changed resources:
             reloadTheResources();
-            String sessionLabel = SiriusEditPlugin.getPlugin().getUiCallback().getSessionNameToDisplayWhileSaving(session);
+            String sessionLabel = SiriusUIPlugin.getPlugin().getUiCallback().getSessionNameToDisplayWhileSaving(session);
             SiriusPlugin.getDefault().warning(sessionLabel + " modified resources were reloaded. An error occurs while attempting to cancel all modifications.", e);
         }
     }
@@ -217,7 +217,7 @@ public class RestoreToLastSavePointListener implements ResourceSyncClient, IOper
      * @return the preference value.
      */
     public boolean isAllowedToReturnToSyncState() {
-        IPreferenceStore preferenceStore = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        IPreferenceStore preferenceStore = SiriusUIPlugin.getPlugin().getPreferenceStore();
         return preferenceStore != null && preferenceStore.getBoolean(SiriusUIPreferencesKeys.PREF_RELOAD_ON_LAST_EDITOR_CLOSE.name());
     }
 }

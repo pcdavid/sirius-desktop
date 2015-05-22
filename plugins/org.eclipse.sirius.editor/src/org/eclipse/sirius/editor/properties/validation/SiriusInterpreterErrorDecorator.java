@@ -29,8 +29,8 @@ import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.LabelDecorator;
 import org.eclipse.sirius.editor.tools.internal.marker.SiriusEditorInterpreterMarkerService;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.descriptor.ComposedImageDescriptor;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -48,24 +48,24 @@ public class SiriusInterpreterErrorDecorator extends LabelDecorator implements I
     /**
      * Default image descriptor for the error overlay.
      */
-    public static final ImageDescriptor ERROR_OVERLAY_DESC = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/validation/error_co.png"); //$NON-NLS-1$;
+    public static final ImageDescriptor ERROR_OVERLAY_DESC = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/validation/error_co.png"); //$NON-NLS-1$;
 
     /**
      * Default image descriptor for the error overlay, if the current element
      * has no error, but at least one of its children has.
      */
-    public static final ImageDescriptor ERROR_OVERLAY_DESC_CHILDREN_ONLY = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/validation/error_co_children_only.png"); //$NON-NLS-1$;
+    public static final ImageDescriptor ERROR_OVERLAY_DESC_CHILDREN_ONLY = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/validation/error_co_children_only.png"); //$NON-NLS-1$;
 
     /**
      * Image descriptor for warning overlay.
      */
-    public static final ImageDescriptor WARNING_OVERLAY_DESC = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/validation/warning_co.png"); //$NON-NLS-1$
+    public static final ImageDescriptor WARNING_OVERLAY_DESC = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/validation/warning_co.png"); //$NON-NLS-1$
 
     /**
      * Default image descriptor for the warning overlay, if the current element
      * has no error, but at least one of its children has.
      */
-    public static final ImageDescriptor WARNING_OVERLAY_DESC_CHILDREN_ONLY = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/validation/warning_co_children_only.png"); //$NON-NLS-1$;
+    public static final ImageDescriptor WARNING_OVERLAY_DESC_CHILDREN_ONLY = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/validation/warning_co_children_only.png"); //$NON-NLS-1$;
 
     private List<ILabelProviderListener> listeners = new ArrayList<ILabelProviderListener>(1);
 
@@ -140,7 +140,7 @@ public class SiriusInterpreterErrorDecorator extends LabelDecorator implements I
                     img = decorateSeverity(image, IMarker.SEVERITY_ERROR, markersForElementOnly.isEmpty());
                 }
                 final ImageDescriptor descriptor = new ComposedImageDescriptor(img);
-                return SiriusEditPlugin.getPlugin().getImage(descriptor);
+                return SiriusUIPlugin.getPlugin().getImage(descriptor);
             }
         }
 
@@ -166,16 +166,16 @@ public class SiriusInterpreterErrorDecorator extends LabelDecorator implements I
         images.add(image);
         if (severity == IMarker.SEVERITY_ERROR) {
             if (childrenContainsErrorButNotElement) {
-                images.add(SiriusEditPlugin.getPlugin().getImage(ERROR_OVERLAY_DESC_CHILDREN_ONLY));
+                images.add(SiriusUIPlugin.getPlugin().getImage(ERROR_OVERLAY_DESC_CHILDREN_ONLY));
             } else {
-                images.add(SiriusEditPlugin.getPlugin().getImage(ERROR_OVERLAY_DESC));
+                images.add(SiriusUIPlugin.getPlugin().getImage(ERROR_OVERLAY_DESC));
             }
         } else {
             if (severity == IMarker.SEVERITY_WARNING) {
                 if (childrenContainsErrorButNotElement) {
-                    images.add(SiriusEditPlugin.getPlugin().getImage(WARNING_OVERLAY_DESC_CHILDREN_ONLY));
+                    images.add(SiriusUIPlugin.getPlugin().getImage(WARNING_OVERLAY_DESC_CHILDREN_ONLY));
                 } else {
-                    images.add(SiriusEditPlugin.getPlugin().getImage(WARNING_OVERLAY_DESC));
+                    images.add(SiriusUIPlugin.getPlugin().getImage(WARNING_OVERLAY_DESC));
                 }
             }
 

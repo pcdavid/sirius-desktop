@@ -11,18 +11,14 @@ icons/full/decorator/permission_denied.gif - org.eclipse.jdt.ui - icons/full/elc
 icons/full/decorator/permission_denied_overlay.gif - org.eclipse.jdt.ui - icons/full/elcl16/deadlock_view.gif
 icons/full/decorator/permission_granted_to_current_user_exclusively.gif - org.eclipse.jdt.ui - icons/full/elcl16/deadlock_view.gif
 icons/full/obj16/AcceleoVariable.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/RemoveVariableValueAction.gif
-icons/full/obj16/AddFeatureContribution.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/AddVariableValueAction.gif
 icons/full/obj16/AnnotationEntry.gif - org.eclipse.emf.codegen.ecore - org.eclipse.emf.codegen.ecore/templates/edit/Item.gif
 icons/full/obj16/BasicLabelStyle.gif - org.eclipse.emf.codegen.ecore - org.eclipse.emf.codegen.ecore/templates/edit/Item.gif
 icons/full/obj16/BorderedStyle.gif - org.eclipse.emf.codegen.ecore - org.eclipse.emf.codegen.ecore/templates/edit/Item.gif
 icons/full/obj16/Case.gif - org.eclipse.rse.ui - org.eclipse.rse.ui/icons/full/ctool16/newfilter_wiz.gif
 icons/full/obj16/ChangeContext.gif - org.eclipse.ui - org.eclipse.ui/icons/full/etool16/redo_edit.gif
-icons/full/obj16/ClearFeatureContribution.gif - org.eclipse.buckminster.jnlp.p2 - org.eclipse.buckminster.jnlp.p2/src/resources/icons/distro.incompatible.gif
 icons/full/obj16/ColorStep.gif - org.eclipse.gef - org.eclipse.gef/icons/palette_view.gif
 icons/full/obj16/ComputedColor.gif - org.eclipse.ajdt.mylyn.ui - org.eclipse.ajdt.mylyn.ui/icons/elcl16/proposals-other.gif
-icons/full/obj16/ComputedEObjectReference.gif - org.eclipse.ui - org.eclipse.ui/icons/full/etool16/redo_edit.gif
 icons/full/obj16/ContainerViewVariable.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/AddVariableValueAction.gif
-icons/full/obj16/ContributionPoint.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/ControlFlow.gif
 icons/full/obj16/CreateInstance.gif - org.eclipse.emf.ecore.edit - org.eclipse.emf.ecore.edit/icons/full/ctool16/CreateEPackage_eClassifiers_EClass.gif
 icons/full/obj16/Customization.gif - icon getted from http://www.eclipse.org/articles/Article-UI-Guidelines/Contents.html
 icons/full/obj16/DAnalysis.gif - org.eclipse.sirius.ui - org.eclipse.sirius.ui/icons/full/obj16/DAnalysis.gif
@@ -42,7 +38,6 @@ icons/full/obj16/DecorationDescriptionsSet.gif - org.eclipse.jdt.debug.ui - org.
 icons/full/obj16/Default.gif - org.eclipse.rse.ui - org.eclipse.rse.ui/icons/full/ctool16/newfilterpool_wiz.gif
 icons/full/obj16/DeleteView.gif - org.eclipse.ui - org.eclipse.ui/icons/full/obj16/delete_obj.gif
 icons/full/obj16/DiagramInitialization.gif - org.topcased.modeler.uml - org.topcased.modeler.uml/icons/diagram/ClassDiagram.gif
-icons/full/obj16/DirectEObjectReference.gif - org.eclipse.ui - org.eclipse.ui/icons/full/etool16/redo_edit.gif
 icons/full/obj16/DropContainerVariable.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/AddVariableValueAction.gif
 icons/full/obj16/EAttributeCustomization.gif org.eclipse.emf.ecore.edit - org.eclipse.emf.ecore.edit/icons/full/obj16/EAttribute.gif
 icons/full/obj16/EReferenceCustomization.gif org.eclipse.emf.ecore.edit - org.eclipse.emf.ecore.edit/icons/full/obj16/EReference.gif
@@ -64,7 +59,6 @@ icons/full/obj16/For.gif - fr.obeo.acceleo.template.edit - fr.obeo.acceleo.templ
 icons/full/obj16/Group.gif - org.eclipse.ui - org.eclipse.ui/icons/full/obj16/fldr_obj.gif
 icons/full/obj16/IdentifiedElement.gif - org.eclipse.ui - org.eclipse.ui/icons/full/obj16/fldr_obj.gif
 icons/full/obj16/If.gif - org.eclipse.debug.ui - org.eclipse.debug.ui/icons/full/elcl16/stepbystep_co.gif
-icons/full/obj16/IgnoreFeatureContribution.gif - .org.eclipse.ant.ui - org.eclipse.ant.ui/icons/full/dlcl16/filter_internal_targets.gif
 icons/full/obj16/InitEdgeCreationOperation.gif - org.eclipse.ui.cheatsheets - org.eclipse.ui.cheatsheets/icons/elcl16/start_task.gif
 icons/full/obj16/InitialContainerDropOperation.gif - org.eclipse.ui.cheatsheets - org.eclipse.ui.cheatsheets/icons/elcl16/start_task.gif
 icons/full/obj16/InitialNodeCreationOperation.gif - org.eclipse.ui.cheatsheets - org.eclipse.ui.cheatsheets/icons/elcl16/start_task.gif
@@ -86,8 +80,6 @@ icons/full/obj16/PasteDescription.gif - org.eclipse.ui - org.eclipse.ui/icons/fu
 icons/full/obj16/PopupMenu.gif - org.eclipse.ui - org.eclipse.ui/icons/full/obj16/submenu.gif
 icons/full/obj16/RGBValues.gif - org.eclipse.mylyn.context.ui - org.eclipse.mylyn.context.ui/icons/elcl16/color-palette.gif
 icons/full/obj16/RemoveElement.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/RemoveStructuralFeatureValueAction.gif and - org.eclipse.cdt.ui - org.eclipse.cdt.ui/icons/etool16/action-deleteconfig.gif
-icons/full/obj16/RemoveFeatureContribution.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/RemoveStructuralFeatureValueAction.gif and - org.eclipse.cdt.ui - org.eclipse.cdt.ui/icons/etool16/action-deleteconfig.gif
-icons/full/obj16/ResetFeatureContribution.gif - org.eclipse.debug.ui - org.eclipse.debug.ui/icons/full/elcl16/stepover_co.gif
 icons/full/obj16/RuleAudit.gif - org.eclipse.jdt.debug.ui - org.eclipse.jdt.debug.ui/icons/full/ovr16/conditional_ovr_disabled.gif
 icons/full/obj16/SelectContainerVariable.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/AddVariableValueAction.gif
 icons/full/obj16/SelectModelElementVariable.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/AddVariableValueAction.gif
@@ -95,7 +87,6 @@ icons/full/obj16/SelectionWizardDescription.gif - org.eclipse.ui - org.eclipse.u
 icons/full/obj16/SemanticBasedDecoration.gif - org.eclipse.jdt.debug.ui - org.eclipse.jdt.debug.ui/icons/full/ovr16/owned_ovr.gif
 icons/full/obj16/SemanticValidationRule.gif - org.eclipse.ui - org.eclipse.ui/icons/full/elcl16/step_done.gif
 icons/full/obj16/SessionManagerEObject.gif - org.eclipse.ui - org.eclipse.ui/icons/full/obj16/fldr_obj.gif
-icons/full/obj16/SetFeatureContribution.gif - org.eclipse.pde.ui - org.eclipse.pde.ui/icons/view16/variable_tab.gif
 icons/full/obj16/SetObject.gif - org.eclipse.jdt.debug.ui - org.eclipse.jdt.debug.ui/icons/full/elcl16/sethitcount_co.gif
 icons/full/obj16/SetValue.gif - org.eclipse.pde.ui - org.eclipse.pde.ui/icons/view16/variable_tab.gif
 icons/full/obj16/Sirius.gif - org.eclipse.sirius.ui - org.eclipse.sirius.ui/icons/full/obj16/Sirius.gif

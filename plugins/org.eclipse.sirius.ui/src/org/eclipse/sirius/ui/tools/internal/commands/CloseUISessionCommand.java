@@ -20,10 +20,10 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.common.ui.tools.api.util.SWTUtil;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.ISaveablePart2;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
@@ -80,7 +80,7 @@ public class CloseUISessionCommand extends WorkspaceModifyOperation {
                 // example)
                 // We may encounter an issue to connect to remote CDO server
                 // during close process
-                SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.WARNING, SiriusPlugin.ID, "Error while closing the session", e));
+                SiriusUIPlugin.getPlugin().getLog().log(new Status(IStatus.WARNING, SiriusPlugin.ID, "Error while closing the session", e));
             }
 
             final IEditingSession ui = SessionUIManager.INSTANCE.getUISession(session);
@@ -99,7 +99,7 @@ public class CloseUISessionCommand extends WorkspaceModifyOperation {
                 try {
                     ui.close(saveSession);
                 } catch (IllegalStateException e) {
-                    SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.WARNING, SiriusPlugin.ID, "Error while closing the session", e));
+                    SiriusUIPlugin.getPlugin().getLog().log(new Status(IStatus.WARNING, SiriusPlugin.ID, "Error while closing the session", e));
                 }
                 monitor.worked(1);
                 ui.close();

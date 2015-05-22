@@ -89,6 +89,7 @@ import org.eclipse.sirius.tools.api.command.ICommandFactory;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.sirius.tools.api.command.ui.NoUICallback;
 import org.eclipse.sirius.tools.api.interpreter.InterpreterRegistry;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.action.RefreshActionListenerRegistry;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
@@ -102,7 +103,6 @@ import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.description.Group;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
@@ -403,7 +403,7 @@ public abstract class SiriusTestCase extends TestCase {
         TestsUtil.emptyEventsFromUIThread();
 
         /* Set no ui callbacks for tests */
-        SiriusEditPlugin.getPlugin().setUiCallback(new NoUICallback());
+        SiriusUIPlugin.getPlugin().setUiCallback(new NoUICallback());
 
         createOrLoadAndOpenSession(createSession, sessionResourceURI);
 
@@ -1696,7 +1696,7 @@ public abstract class SiriusTestCase extends TestCase {
     protected void changeSiriusUIPreference(String preferenceKey, Boolean newValue) {
         assertNoSiriusCorePreferenceChangedinSiriusUIStore(preferenceKey);
 
-        IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        IPreferenceStore viewpointUIPrefs = SiriusUIPlugin.getPlugin().getPreferenceStore();
         oldValueSiriusUIPreferences.put(preferenceKey, viewpointUIPrefs.getBoolean(preferenceKey));
         viewpointUIPrefs.setValue(preferenceKey, newValue);
     }
@@ -1893,7 +1893,7 @@ public abstract class SiriusTestCase extends TestCase {
         for (String key : oldValueSiriusPreferences.keySet()) {
             corePreferences.putBoolean(key, (Boolean) oldValueSiriusPreferences.get(key));
         }
-        IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        IPreferenceStore viewpointUIPrefs = SiriusUIPlugin.getPlugin().getPreferenceStore();
         for (String key : oldValueSiriusUIPreferences.keySet()) {
             viewpointUIPrefs.setValue(key, (Boolean) oldValueSiriusUIPreferences.get(key));
         }

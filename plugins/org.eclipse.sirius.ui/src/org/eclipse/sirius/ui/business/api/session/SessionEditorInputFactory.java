@@ -13,7 +13,7 @@ package org.eclipse.sirius.ui.business.api.session;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.ui.URIEditorInputFactory;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.ui.IMemento;
 
 /**
@@ -73,7 +73,7 @@ public class SessionEditorInputFactory extends URIEditorInputFactory {
              */
             String bundleSymbolicName = memento.getString("bundle");
             String className = memento.getString("class");
-            if (SessionEditorInput.class.getName().equals(className) && SiriusEditPlugin.ID.equals(bundleSymbolicName)) {
+            if (SessionEditorInput.class.getName().equals(className) && SiriusUIPlugin.ID.equals(bundleSymbolicName)) {
                 element = null;
             }
         }

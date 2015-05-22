@@ -23,7 +23,7 @@ import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.sirius.business.api.query.FileQuery;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
@@ -77,7 +77,7 @@ public class SemanticResourceDialog extends ResourceDialog {
 
         if (!representationFiles.isEmpty()) {
             String message = "Representation files can not be added as semantic resources";
-            Status status = new Status(IStatus.WARNING, SiriusEditPlugin.ID, message + ": " + representationFiles);
+            Status status = new Status(IStatus.WARNING, SiriusUIPlugin.ID, message + ": " + representationFiles);
             ErrorDialog.openError(getParentShell(), "Incorrect selection", message + ", they will be removed from the selection.", status);
 
             Iterables.removeAll(urIs, representationFiles);

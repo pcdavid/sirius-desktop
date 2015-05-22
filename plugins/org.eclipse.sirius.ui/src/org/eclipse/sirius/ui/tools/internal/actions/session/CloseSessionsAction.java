@@ -22,8 +22,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.tools.internal.commands.CloseUISessionCommand;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.SelectionListenerAction;
 
@@ -94,9 +94,9 @@ public class CloseSessionsAction extends SelectionListenerAction {
         try {
             new ProgressMonitorDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()).run(true, false, operation);
         } catch (InvocationTargetException e) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "An error occured : ", e));
+            SiriusUIPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUIPlugin.ID, "An error occured : ", e));
         } catch (InterruptedException e) {
-            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "An error occured : ", e));
+            SiriusUIPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUIPlugin.ID, "An error occured : ", e));
         }
         if (session.isOpen()) {
             session.close(new NullProgressMonitor());

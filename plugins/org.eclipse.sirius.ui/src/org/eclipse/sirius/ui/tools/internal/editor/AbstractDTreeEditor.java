@@ -46,6 +46,7 @@ import org.eclipse.sirius.ecore.extender.business.internal.permission.ReadOnlyWr
 import org.eclipse.sirius.tools.api.command.ICommandFactory;
 import org.eclipse.sirius.tools.api.permission.DRepresentationPermissionStatusListener;
 import org.eclipse.sirius.tools.api.permission.DRepresentationPermissionStatusQuery;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditorDialogFactory;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
@@ -56,7 +57,6 @@ import org.eclipse.sirius.ui.tools.api.properties.DTablePropertySheetpage;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
@@ -89,13 +89,13 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
         ISaveablesSource, IPageListener {
 
     /** The PERMISSION_GRANTED_TO_CURRENT_USER_EXCLUSIVELY icon descriptor. */
-    private static final ImageDescriptor LOCK_BY_ME_IMAGE_DESCRIPTOR = SiriusEditPlugin.Implementation
+    private static final ImageDescriptor LOCK_BY_ME_IMAGE_DESCRIPTOR = SiriusUIPlugin.Implementation
             .getBundledImageDescriptor("icons/full/decorator/permission_granted_to_current_user_exclusively.gif");
 
     /** The PERMISSION_GRANTED_TO_CURRENT_USER_EXCLUSIVELY icon descriptor. */
-    private static final ImageDescriptor LOCK_BY_OTHER_IMAGE_DESCRIPTOR = SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied.gif");
+    private static final ImageDescriptor LOCK_BY_OTHER_IMAGE_DESCRIPTOR = SiriusUIPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied.gif");
 
-    private static final ImageDescriptor NO_WRITE_PERMISSION_IMAGE_DESCRIPTOR = SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_no_write.gif");;
+    private static final ImageDescriptor NO_WRITE_PERMISSION_IMAGE_DESCRIPTOR = SiriusUIPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_no_write.gif");;
 
     /**
      * This is the one adapter factory used for providing views of the model.
@@ -216,7 +216,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      */
     protected Image getLockByMeImage() {
         if (lockByMeImage == null || lockByMeImage.isDisposed()) {
-            lockByMeImage = SiriusEditPlugin.getPlugin().getImage(LOCK_BY_ME_IMAGE_DESCRIPTOR);
+            lockByMeImage = SiriusUIPlugin.getPlugin().getImage(LOCK_BY_ME_IMAGE_DESCRIPTOR);
         }
         return lockByMeImage;
     }
@@ -228,7 +228,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      */
     protected Image getLockByOtherImage() {
         if (lockByOtherImage == null || lockByOtherImage.isDisposed()) {
-            lockByOtherImage = SiriusEditPlugin.getPlugin().getImage(LOCK_BY_OTHER_IMAGE_DESCRIPTOR);
+            lockByOtherImage = SiriusUIPlugin.getPlugin().getImage(LOCK_BY_OTHER_IMAGE_DESCRIPTOR);
         }
         return lockByOtherImage;
     }
@@ -242,7 +242,7 @@ public abstract class AbstractDTreeEditor extends EditorPart implements DialectE
      */
     protected Image getNoWritePermissionImage() {
         if (noWritePermissionImage == null || noWritePermissionImage.isDisposed()) {
-            noWritePermissionImage = SiriusEditPlugin.getPlugin().getImage(NO_WRITE_PERMISSION_IMAGE_DESCRIPTOR);
+            noWritePermissionImage = SiriusUIPlugin.getPlugin().getImage(NO_WRITE_PERMISSION_IMAGE_DESCRIPTOR);
         }
         return noWritePermissionImage;
     }

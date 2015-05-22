@@ -26,6 +26,7 @@ import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.common.ui.tools.api.util.SWTUtil;
 import org.eclipse.sirius.common.ui.tools.api.view.IExpandSelectionTarget;
 import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.sirius.ui.tools.api.views.LockDecorationUpdater;
 import org.eclipse.sirius.ui.tools.api.views.modelexplorerview.IModelExplorerTabExtension;
@@ -35,7 +36,6 @@ import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.tab.Co
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.tab.ModelExplorerTabDescriptor;
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.tab.ModelExplorerTabRegistry;
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.tab.ModelExplorerTabRegistryListener;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
@@ -167,7 +167,7 @@ public class ModelExplorerView extends CommonNavigator implements IModelExplorer
 
         for (ModelExplorerTabDescriptor tabDescriptor : tabDescriptors) {
             IModelExplorerTabExtension tab = tabDescriptor.getTabExtension();
-            Image tabImage = SiriusEditPlugin.getPlugin().getImage(tabDescriptor.getImageDescriptor());
+            Image tabImage = SiriusUIPlugin.getPlugin().getImage(tabDescriptor.getImageDescriptor());
             if (tab != null && tabImage != null) {
                 TabInfo tabInfo = new TabInfo(tabDescriptor.getId(), tabImage, tab);
                 tabs.add(tabInfo);

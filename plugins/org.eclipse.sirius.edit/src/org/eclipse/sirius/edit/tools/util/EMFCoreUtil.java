@@ -8,7 +8,7 @@
  * Contributors:
  *    Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.sirius.ui.tools.internal.util;
+package org.eclipse.sirius.edit.tools.util;
 
 import java.net.MalformedURLException;
 import java.net.URL;

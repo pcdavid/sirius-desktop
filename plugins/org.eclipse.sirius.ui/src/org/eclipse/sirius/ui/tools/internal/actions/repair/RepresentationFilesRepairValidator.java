@@ -24,9 +24,9 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionStatus;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
@@ -108,7 +108,7 @@ public class RepresentationFilesRepairValidator {
         }
 
         boolean saveSessions = false;
-        String repairActionLabel = SiriusEditPlugin.getPlugin().getString("repairActionLabel");
+        String repairActionLabel = SiriusUIPlugin.getPlugin().getString("repairActionLabel");
         StringBuffer message = new StringBuffer("It's impossible to launch the \"" + repairActionLabel
                 + "\" action with opened representations file. So they will be closed before the repair process.");
         if (dirtySessionsName.size() > 0) {
@@ -131,7 +131,7 @@ public class RepresentationFilesRepairValidator {
             final MessageDialog dialog = new MessageDialog(shell, MESSAGE_TITLE, null, message.toString(), MessageDialog.QUESTION, buttons, 0);
             int result = dialog.open();
             if (result == SWT.DEFAULT || buttons[result].equals(IDialogConstants.CANCEL_LABEL)) {
-                throw new CoreException(new Status(IStatus.CANCEL, SiriusEditPlugin.ID, RepresentationFilesRepairValidator.OPERATION_CANCELED, "Migration canceled by user.", null));
+                throw new CoreException(new Status(IStatus.CANCEL, SiriusUIPlugin.ID, RepresentationFilesRepairValidator.OPERATION_CANCELED, "Migration canceled by user.", null));
             }
             if (buttons[result].equals(IDialogConstants.YES_LABEL)) {
                 saveSessions = true;
@@ -139,7 +139,7 @@ public class RepresentationFilesRepairValidator {
         } else {
             message.append("\nDo you want to continue?");
             if (!MessageDialog.openConfirm(shell, MESSAGE_TITLE, message.toString())) {
-                throw new CoreException(new Status(IStatus.CANCEL, SiriusEditPlugin.ID, RepresentationFilesRepairValidator.OPERATION_CANCELED, "Migration canceled by user.", null));
+                throw new CoreException(new Status(IStatus.CANCEL, SiriusUIPlugin.ID, RepresentationFilesRepairValidator.OPERATION_CANCELED, "Migration canceled by user.", null));
             }
         }
         return saveSessions;

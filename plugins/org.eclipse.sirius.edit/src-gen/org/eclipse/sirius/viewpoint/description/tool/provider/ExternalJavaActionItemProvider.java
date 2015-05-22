@@ -19,28 +19,29 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
-import org.eclipse.sirius.ecore.extender.tool.internal.StringUtil;
-import org.eclipse.sirius.viewpoint.description.tool.ExternalJavaActionCall;
+import org.eclipse.sirius.common.tools.api.util.StringUtil;
+import org.eclipse.sirius.viewpoint.description.tool.ExternalJavaAction;
 import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 /**
  * This is the item provider adapter for a
- * {@link org.eclipse.sirius.viewpoint.description.tool.ExternalJavaActionCall}
+ * {@link org.eclipse.sirius.viewpoint.description.tool.ExternalJavaAction}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
  * @generated
  */
-public class ExternalJavaActionCallItemProvider extends MenuItemDescriptionItemProvider {
+public class ExternalJavaActionItemProvider extends MenuItemDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public ExternalJavaActionCallItemProvider(AdapterFactory adapterFactory) {
+    public ExternalJavaActionItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,22 +56,21 @@ public class ExternalJavaActionCallItemProvider extends MenuItemDescriptionItemP
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addActionPropertyDescriptor(object);
+            addIdPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Action feature. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * This adds a property descriptor for the Id feature. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addActionPropertyDescriptor(Object object) {
+    protected void addIdPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_ExternalJavaActionCall_action_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_ExternalJavaActionCall_action_feature", "_UI_ExternalJavaActionCall_type"),
-                ToolPackage.Literals.EXTERNAL_JAVA_ACTION_CALL__ACTION, true, false, true, null, getString("_UI_GeneralPropertyCategory"), null));
+                getString("_UI_ExternalJavaAction_id_feature"), getString("_UI_ExternalJavaAction_id_description"), ToolPackage.Literals.EXTERNAL_JAVA_ACTION__ID, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_GeneralPropertyCategory"), null));
     }
 
     /**
@@ -88,6 +88,7 @@ public class ExternalJavaActionCallItemProvider extends MenuItemDescriptionItemP
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS);
+            childrenFeatures.add(ToolPackage.Literals.EXTERNAL_JAVA_ACTION__PARAMETERS);
         }
         return childrenFeatures;
     }
@@ -107,14 +108,14 @@ public class ExternalJavaActionCallItemProvider extends MenuItemDescriptionItemP
     }
 
     /**
-     * This returns ExternalJavaActionCall.gif. <!-- begin-user-doc --> <!--
+     * This returns ExternalJavaAction.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
      * @generated
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalJavaActionCall"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalJavaAction"));
     }
 
     /**
@@ -125,8 +126,8 @@ public class ExternalJavaActionCallItemProvider extends MenuItemDescriptionItemP
      */
     @Override
     public String getText(Object object) {
-        String label = new IdentifiedElementQuery((ExternalJavaActionCall) object).getLabel();
-        return StringUtil.isEmpty(label) ? getString("_UI_ExternalJavaActionCall_type") : getString("_UI_ExternalJavaActionCall_type") + " " + label;
+        String label = new IdentifiedElementQuery((ExternalJavaAction) object).getLabel();
+        return StringUtil.isEmpty(label) ? getString("_UI_ExternalJavaAction_type") : getString("_UI_ExternalJavaAction_type") + " " + label;
     }
 
     /**
@@ -141,8 +142,12 @@ public class ExternalJavaActionCallItemProvider extends MenuItemDescriptionItemP
     public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(ExternalJavaActionCall.class)) {
-        case ToolPackage.EXTERNAL_JAVA_ACTION_CALL__SUB_MODEL_OPERATIONS:
+        switch (notification.getFeatureID(ExternalJavaAction.class)) {
+        case ToolPackage.EXTERNAL_JAVA_ACTION__ID:
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            return;
+        case ToolPackage.EXTERNAL_JAVA_ACTION__SUB_MODEL_OPERATIONS:
+        case ToolPackage.EXTERNAL_JAVA_ACTION__PARAMETERS:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -185,6 +190,8 @@ public class ExternalJavaActionCallItemProvider extends MenuItemDescriptionItemP
         newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createDeleteView()));
 
         newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createSwitch()));
+
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.EXTERNAL_JAVA_ACTION__PARAMETERS, ToolFactory.eINSTANCE.createExternalJavaActionParameter()));
     }
 
 }

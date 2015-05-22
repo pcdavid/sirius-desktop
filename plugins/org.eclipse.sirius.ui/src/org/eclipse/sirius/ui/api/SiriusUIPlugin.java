@@ -1,18 +1,9 @@
 /**
- * Copyright (c) 2007, 2014 THALES GLOBAL SERVICES and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *    Obeo - initial API and implementation
- *
+ * 
  */
-package org.eclipse.sirius.viewpoint.provider;
+package org.eclipse.sirius.ui.api;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -27,16 +18,10 @@ import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -56,30 +41,29 @@ import org.eclipse.sirius.ui.tools.internal.actions.analysis.IAddModelDependency
 import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.resourcelistener.ModelingProjectResourceListenerRegistry;
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.tab.ModelExplorerTabRegistryListener;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.description.audit.provider.AuditItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.provider.DescriptionItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.style.provider.StyleItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.tool.provider.ToolItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.validation.provider.ValidationItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 /**
- * This is the central singleton for the Viewpoint edit plugin. <!--
- * begin-user-doc --> <!-- end-user-doc -->
- *
- * @generated
+ * This is the central singleton for the Viewpoint ui plugin.
+ * 
+ * @author sbegaudeau
  */
-public final class SiriusEditPlugin extends EMFPlugin {
+public class SiriusUIPlugin extends EMFPlugin {
+
     /**
      * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
      * @generated
      */
-    public static final SiriusEditPlugin INSTANCE = new SiriusEditPlugin();
+    public static final SiriusUIPlugin INSTANCE = new SiriusUIPlugin();
 
+    /**
+     * The identifier of the bundle.
+     */
     public static final String ID = "org.eclipse.sirius.ui";
 
     /**
@@ -95,7 +79,7 @@ public final class SiriusEditPlugin extends EMFPlugin {
      * 
      * @generated
      */
-    public SiriusEditPlugin() {
+    public SiriusUIPlugin() {
         super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, });
     }
 
@@ -112,7 +96,7 @@ public final class SiriusEditPlugin extends EMFPlugin {
         if (overridingLocator.size() > 0) {
             return overridingLocator.get(0);
         }
-        return SiriusEditPlugin.plugin;
+        return SiriusUIPlugin.plugin;
     }
 
     /**
@@ -121,7 +105,7 @@ public final class SiriusEditPlugin extends EMFPlugin {
      * @return the original (non overriden) resource locator.
      */
     public ResourceLocator getOriginalResourceLocator() {
-        return SiriusEditPlugin.plugin;
+        return SiriusUIPlugin.plugin;
     }
 
     /**
@@ -132,7 +116,7 @@ public final class SiriusEditPlugin extends EMFPlugin {
      * @generated
      */
     public static Implementation getPlugin() {
-        return SiriusEditPlugin.plugin;
+        return SiriusUIPlugin.plugin;
     }
 
     /**
@@ -142,8 +126,6 @@ public final class SiriusEditPlugin extends EMFPlugin {
      * @not-generated
      */
     public static class Implementation extends EclipseUIPlugin {
-
-        private ComposedAdapterFactory adapterFactory;
 
         private Map<ImageDescriptor, Image> descriptorsToImages;
 
@@ -175,7 +157,7 @@ public final class SiriusEditPlugin extends EMFPlugin {
 
             // Remember the static instance.
             //
-            SiriusEditPlugin.plugin = this;
+            SiriusUIPlugin.plugin = this;
         }
 
         /**
@@ -188,7 +170,6 @@ public final class SiriusEditPlugin extends EMFPlugin {
             super.start(context);
             initPreferences();
 
-            adapterFactory = createAdapterFactory();
             descriptorsToImages = new HashMap<ImageDescriptor, Image>();
             startDesignerCorePreferencesManagement();
 
@@ -207,8 +188,8 @@ public final class SiriusEditPlugin extends EMFPlugin {
             try {
                 SiriusTasks.initSiriusTasks();
             } catch (IllegalArgumentException e) {
-                final IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.OK, e.getMessage(), e);
-                SiriusEditPlugin.getPlugin().getLog().log(status);
+                final IStatus status = new Status(IStatus.ERROR, SiriusUIPlugin.ID, IStatus.OK, e.getMessage(), e);
+                SiriusUIPlugin.getPlugin().getLog().log(status);
             }
 
             try {
@@ -259,8 +240,8 @@ public final class SiriusEditPlugin extends EMFPlugin {
         private void initPreferences() {
             final IPreferencesService service = Platform.getPreferencesService();
             /* init the visual binding manager cache with the max sizes */
-            final int maxColorSize = service.getInt(SiriusEditPlugin.ID, DCorePreferences.COLOR_REGISTRY_MAX_SIZE, DCorePreferences.COLOR_REGISTRY_MAX_SIZE_DEFAULT_VALUE, null);
-            final int maxFontSize = service.getInt(SiriusEditPlugin.ID, DCorePreferences.FONT_REGISTRY_MAX_SIZE, DCorePreferences.FONT_REGISTRY_MAX_SIZE_DEFAULT_VALUE, null);
+            final int maxColorSize = service.getInt(SiriusUIPlugin.ID, DCorePreferences.COLOR_REGISTRY_MAX_SIZE, DCorePreferences.COLOR_REGISTRY_MAX_SIZE_DEFAULT_VALUE, null);
+            final int maxFontSize = service.getInt(SiriusUIPlugin.ID, DCorePreferences.FONT_REGISTRY_MAX_SIZE, DCorePreferences.FONT_REGISTRY_MAX_SIZE_DEFAULT_VALUE, null);
             VisualBindingManager.getDefault().init(maxColorSize, maxFontSize);
         }
 
@@ -303,14 +284,6 @@ public final class SiriusEditPlugin extends EMFPlugin {
          */
         @Override
         public void stop(BundleContext context) throws Exception {
-
-            try {
-                adapterFactory.dispose();
-                adapterFactory = null;
-            } catch (NullPointerException e) {
-                // can occur when using CDO (if the view is
-                // closed when transactions have been closed )
-            }
             /*
              * Disposing the images
              */
@@ -350,7 +323,7 @@ public final class SiriusEditPlugin extends EMFPlugin {
          * @return the image descriptor
          */
         public static ImageDescriptor getBundledImageDescriptor(String path) {
-            return AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, path);
+            return AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, path);
         }
 
         /**
@@ -391,14 +364,14 @@ public final class SiriusEditPlugin extends EMFPlugin {
         }
 
         /**
-         * Get an item descriptor
+         * Get an item descriptor.
          *
          * @param item
          *            the object item
          * @return an image descriptor.
          */
         public ImageDescriptor getItemImageDescriptor(final Object item) {
-            IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.adapt(item, IItemLabelProvider.class);
+            IItemLabelProvider labelProvider = (IItemLabelProvider) SiriusEditPlugin.getPlugin().getItemProvidersAdapterFactory().adapt(item, IItemLabelProvider.class);
             if (labelProvider != null) {
                 return ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(item));
             }
@@ -413,7 +386,7 @@ public final class SiriusEditPlugin extends EMFPlugin {
          * @return the label.
          */
         public String getItemText(final Object item) {
-            IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.adapt(item, IItemLabelProvider.class);
+            IItemLabelProvider labelProvider = (IItemLabelProvider) SiriusEditPlugin.getPlugin().getItemProvidersAdapterFactory().adapt(item, IItemLabelProvider.class);
             if (labelProvider != null) {
                 return labelProvider.getText(item);
             }
@@ -421,38 +394,8 @@ public final class SiriusEditPlugin extends EMFPlugin {
         }
 
         /**
-         * Create the adapter factories.
-         *
-         * @return the created adapter factories
-         */
-        protected ComposedAdapterFactory createAdapterFactory() {
-            List<ComposeableAdapterFactory> factories = new ArrayList<ComposeableAdapterFactory>();
-            factories.add(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
-            fillItemProviderFactories(factories);
-            return new ComposedAdapterFactory(factories);
-        }
-
-        protected void fillItemProviderFactories(List<ComposeableAdapterFactory> factories) {
-            factories.add(new ViewpointItemProviderAdapterFactory());
-            factories.add(new DescriptionItemProviderAdapterFactory());
-            factories.add(new StyleItemProviderAdapterFactory());
-            factories.add(new ToolItemProviderAdapterFactory());
-            factories.add(new ValidationItemProviderAdapterFactory());
-            factories.add(new AuditItemProviderAdapterFactory());
-            factories.add(new EcoreItemProviderAdapterFactory());
-            factories.add(new ResourceItemProviderAdapterFactory());
-            factories.add(new ReflectiveItemProviderAdapterFactory());
-        }
-
-        public AdapterFactory getItemProvidersAdapterFactory() {
-            if (adapterFactory == null) {
-                adapterFactory = createAdapterFactory();
-            }
-            return adapterFactory;
-        }
-
-        /**
-         *
+         * Returns the image.
+         * 
          * @param desc
          *            an image descriptor.
          * @return an Image instance

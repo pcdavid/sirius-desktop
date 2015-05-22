@@ -16,8 +16,8 @@ import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.sirius.business.api.preferences.SiriusPreferencesKeys;
 import org.eclipse.sirius.common.tools.api.constant.CommonPreferencesConstants;
 import org.eclipse.sirius.common.ui.SiriusTransPlugin;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.preferences.SiriusUIPreferencesKeys;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -61,7 +61,7 @@ public class SiriusPreferencePage extends FieldEditorPreferencePage implements I
      */
     @Override
     protected void createFieldEditors() {
-        setPreferenceStore(SiriusEditPlugin.getPlugin().getPreferenceStore());
+        setPreferenceStore(SiriusUIPlugin.getPlugin().getPreferenceStore());
 
         Composite parent = getFieldEditorParent();
         if (parent.getLayout() == null) {

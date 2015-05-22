@@ -23,11 +23,11 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSession;
 import org.eclipse.sirius.common.ui.tools.api.util.SWTUtil;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.ISaveablePart2;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -55,7 +55,7 @@ public class RemoveRepresentationResourceAction extends Action {
      *            current session.
      */
     public RemoveRepresentationResourceAction(final Collection<Resource> diagramResources, final Session session) {
-        super("Remove from representations file", AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/others/remove.gif"));
+        super("Remove from representations file", AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/others/remove.gif"));
         this.diagramResources = Sets.newHashSet(diagramResources);
         this.session = session;
 

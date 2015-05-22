@@ -19,9 +19,9 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.tools.api.actions.analysis.IAddModelDependencyWizard;
 import org.eclipse.sirius.ui.tools.internal.wizards.CreateOrAddResourceWizard;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -55,7 +55,7 @@ public class AddSemanticResourceAction extends Action {
      */
     public AddSemanticResourceAction(final Collection<URI> sessionsURIs) {
         super("Add Model");
-        final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/others/add.gif");
+        final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/others/add.gif");
         setImageDescriptor(descriptor);
         this.sessionsURI = sessionsURIs;
     }

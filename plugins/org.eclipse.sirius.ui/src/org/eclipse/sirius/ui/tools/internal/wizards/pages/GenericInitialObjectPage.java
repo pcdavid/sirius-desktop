@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.jface.wizard.WizardPage;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -284,7 +284,7 @@ public class GenericInitialObjectPage extends WizardPage {
      * @return the label
      */
     protected String getLabel(final String typeName) {
-        final String label = SiriusEditPlugin.getPlugin().getItemText(typeName);
+        final String label = SiriusUIPlugin.getPlugin().getItemText(typeName);
         return label != null ? label : typeName;
     }
 }

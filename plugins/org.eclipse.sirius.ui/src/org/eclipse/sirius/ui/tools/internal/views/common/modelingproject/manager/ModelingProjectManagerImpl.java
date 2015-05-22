@@ -47,10 +47,10 @@ import org.eclipse.sirius.business.internal.query.ModelingProjectQuery;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSetFactory;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.ModelingProjectFileQuery;
 import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.OpenRepresentationsFileJob;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
@@ -331,7 +331,7 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
                     } else if (e.getMessage().contains(ModelingProjectQuery.A_MODELING_PROJECT_MUST_CONTAIN_ONLY_ONE)) {
                         // several files have been found : rollback
                         removeModelingNature(project, new SubProgressMonitor(monitor, 1));
-                        throw new CoreException(new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getMessage()));
+                        throw new CoreException(new Status(IStatus.ERROR, SiriusUIPlugin.ID, e.getMessage()));
                     }
                 }
 

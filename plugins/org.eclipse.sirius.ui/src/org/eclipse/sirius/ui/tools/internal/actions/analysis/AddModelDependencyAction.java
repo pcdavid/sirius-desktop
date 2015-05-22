@@ -23,12 +23,12 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
 import org.eclipse.sirius.ui.tools.api.actions.analysis.IAddModelDependencyWizard;
 import org.eclipse.sirius.ui.tools.internal.dialogs.SemanticResourceDialog;
 import org.eclipse.sirius.ui.tools.internal.operations.SemanticResourceAdditionOperation;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
@@ -53,7 +53,7 @@ public class AddModelDependencyAction extends Action {
      */
     public AddModelDependencyAction(Session session) {
         super("Add Model");
-        final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/others/add.gif");
+        final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/others/add.gif");
         setImageDescriptor(descriptor);
         this.session = session;
     }

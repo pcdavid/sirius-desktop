@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.factory.SessionFactory;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.ui.IMemento;
 
 /**
@@ -185,7 +185,7 @@ public class SessionEditorInput extends URIEditorInput {
      */
     @Override
     protected String getBundleSymbolicName() {
-        return SiriusEditPlugin.getPlugin().getSymbolicName();
+        return SiriusUIPlugin.getPlugin().getSymbolicName();
     }
 
     /**

@@ -22,10 +22,10 @@ import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.sirius.common.tools.api.resource.ImageFileFormat;
 import org.eclipse.sirius.common.ui.tools.api.util.SWTUtil;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat.ExportDocumentFormat;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -269,10 +269,10 @@ public abstract class AbstractExportRepresentationsAsImagesDialog extends Dialog
      * @return the persistent settings for this dialog.
      */
     protected IDialogSettings getDialogSettings() {
-        IDialogSettings settings = SiriusEditPlugin.getPlugin().getDialogSettings();
+        IDialogSettings settings = SiriusUIPlugin.getPlugin().getDialogSettings();
         settings = settings.getSection(DIALOG_SETTINGS_ID);
         if (settings == null) {
-            settings = SiriusEditPlugin.getPlugin().getDialogSettings().addNewSection(DIALOG_SETTINGS_ID);
+            settings = SiriusUIPlugin.getPlugin().getDialogSettings().addNewSection(DIALOG_SETTINGS_ID);
         }
         return settings;
     }

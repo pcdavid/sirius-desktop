@@ -17,10 +17,10 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.IShellProvider;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionStatus;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPartReference;
@@ -64,7 +64,7 @@ public class SessionSaveable extends Saveable {
      */
     @Override
     public String getName() {
-        return SiriusEditPlugin.getPlugin().getUiCallback().getSessionNameToDisplayWhileSaving(session);
+        return SiriusUIPlugin.getPlugin().getUiCallback().getSessionNameToDisplayWhileSaving(session);
     }
 
     /**
@@ -74,7 +74,7 @@ public class SessionSaveable extends Saveable {
      */
     @Override
     public ImageDescriptor getImageDescriptor() {
-        return SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/obj16/SessionResourceFile.gif");
+        return SiriusUIPlugin.Implementation.getBundledImageDescriptor("icons/obj16/SessionResourceFile.gif");
     }
 
     /**

@@ -24,10 +24,10 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.ui.tools.api.view.common.item.ItemDecorator;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.tools.api.views.common.item.ViewpointItem;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 
 /**
@@ -213,8 +213,8 @@ public class ViewpointItemImpl implements ViewpointItem,
 	}
 
 	public Image getImage() {
-		return SiriusEditPlugin.getPlugin().getImage(
-				SiriusEditPlugin.getPlugin().getItemImageDescriptor(
+		return SiriusUIPlugin.getPlugin().getImage(
+				SiriusUIPlugin.getPlugin().getItemImageDescriptor(
 						viewpoint));
 	}
 }

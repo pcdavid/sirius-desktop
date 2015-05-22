@@ -30,6 +30,7 @@ import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.tools.api.util.EclipseUtil;
 import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUI;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
@@ -48,7 +49,6 @@ import org.eclipse.sirius.viewpoint.description.provider.DescriptionItemProvider
 import org.eclipse.sirius.viewpoint.description.style.provider.StyleItemProviderAdapterFactory;
 import org.eclipse.sirius.viewpoint.description.tool.provider.ToolItemProviderAdapterFactory;
 import org.eclipse.sirius.viewpoint.description.validation.provider.ValidationItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.sirius.viewpoint.provider.ViewpointItemProviderAdapterFactory;
 import org.eclipse.ui.IEditorPart;
 
@@ -424,7 +424,7 @@ public class DialectUIManagerImpl implements DialectUIManager {
      * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIManager#isRefreshActivatedOnRepresentationOpening()
      */
     public boolean isRefreshActivatedOnRepresentationOpening() {
-        return SiriusEditPlugin.getPlugin().getPreferenceStore().getBoolean(SiriusUIPreferencesKeys.PREF_REFRESH_ON_REPRESENTATION_OPENING.name());
+        return SiriusUIPlugin.getPlugin().getPreferenceStore().getBoolean(SiriusUIPreferencesKeys.PREF_REFRESH_ON_REPRESENTATION_OPENING.name());
     }
 
 }

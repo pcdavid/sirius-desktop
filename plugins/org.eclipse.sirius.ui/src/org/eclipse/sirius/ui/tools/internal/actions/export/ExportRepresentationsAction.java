@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat.ExportDocumentFormat;
 import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -63,7 +63,7 @@ public class ExportRepresentationsAction extends AbstractExportRepresentationsAc
      *            the selected {@link DRepresentation}.
      */
     public ExportRepresentationsAction(Session session, Collection<EObject> selectedEObjects, Collection<DRepresentation> selectedRepresentations) {
-        super(SiriusEditPlugin.INSTANCE.getString("exportRepresentationsAsImagesActionLabel"), AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/others/image.gif"));
+        super(SiriusUIPlugin.INSTANCE.getString("exportRepresentationsAsImagesActionLabel"), AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/others/image.gif"));
         this.session = session;
         this.selectedEObjects = selectedEObjects;
         this.selectedRepresentations = selectedRepresentations;

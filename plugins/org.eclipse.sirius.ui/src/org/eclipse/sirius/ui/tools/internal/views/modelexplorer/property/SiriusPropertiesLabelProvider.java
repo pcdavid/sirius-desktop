@@ -17,6 +17,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.DecoratingLabelProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
@@ -63,7 +64,7 @@ public class SiriusPropertiesLabelProvider extends DecoratingLabelProvider {
         if (selected != null && selected.eResource() != null) {
             if (selected instanceof DSemanticDecorator && ((DSemanticDecorator) selected).getTarget() != null) {
                 EObject eObject = ((DSemanticDecorator) selected).getTarget();
-                image = SiriusEditPlugin.getPlugin().getImage(SiriusEditPlugin.getPlugin().getItemImageDescriptor(eObject));
+                image = SiriusUIPlugin.getPlugin().getImage(SiriusUIPlugin.getPlugin().getItemImageDescriptor(eObject));
             } else {
                 image = super.getImage(selected);
             }

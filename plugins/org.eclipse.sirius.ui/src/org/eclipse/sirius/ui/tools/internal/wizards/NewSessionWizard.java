@@ -39,11 +39,11 @@ import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.common.ui.tools.api.wizard.SelectFilesWizardPage;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.session.SessionHelper;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
 import org.eclipse.sirius.ui.tools.internal.wizards.pages.SessionFileCreationWizardPage;
 import org.eclipse.sirius.ui.tools.internal.wizards.pages.SessionKindSelectionWizardPage;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -130,7 +130,7 @@ public class NewSessionWizard extends Wizard implements INewWizard {
         this.workbench = w;
         setWindowTitle("New Representations File");
         setNeedsProgressMonitor(true);
-        setDefaultPageImageDescriptor(SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/wizban/banner_aird.gif"));
+        setDefaultPageImageDescriptor(SiriusUIPlugin.Implementation.getBundledImageDescriptor("icons/wizban/banner_aird.gif"));
     }
 
     /**
@@ -201,12 +201,12 @@ public class NewSessionWizard extends Wizard implements INewWizard {
             });
 
         } catch (final InterruptedException e) {
-            IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, SESSION_CREATION_ERROR_MSG, e);
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            IStatus status = new Status(IStatus.ERROR, SiriusUIPlugin.ID, SESSION_CREATION_ERROR_MSG, e);
+            SiriusUIPlugin.getPlugin().getLog().log(status);
             finished = false;
         } catch (final InvocationTargetException e) {
-            IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, SESSION_CREATION_ERROR_MSG, e.getTargetException());
-            SiriusEditPlugin.getPlugin().getLog().log(status);
+            IStatus status = new Status(IStatus.ERROR, SiriusUIPlugin.ID, SESSION_CREATION_ERROR_MSG, e.getTargetException());
+            SiriusUIPlugin.getPlugin().getLog().log(status);
             finished = false;
         }
         return finished;

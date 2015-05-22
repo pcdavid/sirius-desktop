@@ -19,10 +19,10 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.sirius.business.api.session.SessionListener;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
@@ -130,9 +130,9 @@ public class EditorNameAdapter extends AdapterImpl {
                 try {
                     representation.eAdapters().remove(this);
                 } catch (NullPointerException e) {
-                    if (SiriusEditPlugin.getPlugin().isDebugging()) {
-                        SiriusEditPlugin.getPlugin().getLog().log(
-                                new Status(IStatus.WARNING, SiriusEditPlugin.ID, "Error while closing the representation, the remote server may be unreachable."));
+                    if (SiriusUIPlugin.getPlugin().isDebugging()) {
+                        SiriusUIPlugin.getPlugin().getLog().log(
+                                new Status(IStatus.WARNING, SiriusUIPlugin.ID, "Error while closing the representation, the remote server may be unreachable."));
                     }
                 }
             }

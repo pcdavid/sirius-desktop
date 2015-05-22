@@ -19,9 +19,9 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.tools.api.views.common.item.AnalysisResourceItem;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 
 import com.google.common.collect.Lists;
@@ -76,7 +76,7 @@ public class AnalysisResourceItemImpl implements AnalysisResourceItem {
      * @see org.eclipse.sirius.common.ui.tools.api.view.common.item.ItemDecorator#getImage()
      */
     public Image getImage() {
-        return SiriusEditPlugin.getPlugin().getBundledImage(SESSION_IMAGE);
+        return SiriusUIPlugin.getPlugin().getBundledImage(SESSION_IMAGE);
     }
 
     /**

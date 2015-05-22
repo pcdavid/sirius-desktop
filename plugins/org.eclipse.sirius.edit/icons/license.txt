@@ -1,0 +1,15 @@
+These followings icons are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+<icon file path> - <original eclipse plug-in> - <original file path>
+
+icons/full/obj16/AddFeatureContribution.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/AddVariableValueAction.gif
+icons/full/obj16/ClearFeatureContribution.gif - org.eclipse.buckminster.jnlp.p2 - org.eclipse.buckminster.jnlp.p2/src/resources/icons/distro.incompatible.gif
+icons/full/obj16/ComputedEObjectReference.gif - org.eclipse.ui - org.eclipse.ui/icons/full/etool16/redo_edit.gif
+icons/full/obj16/ContributionPoint.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/ControlFlow.gif
+icons/full/obj16/DirectEObjectReference.gif - org.eclipse.ui - org.eclipse.ui/icons/full/etool16/redo_edit.gif
+icons/full/obj16/IgnoreFeatureContribution.gif - .org.eclipse.ant.ui - org.eclipse.ant.ui/icons/full/dlcl16/filter_internal_targets.gif
+icons/full/obj16/RemoveFeatureContribution.gif - org.eclipse.uml2.uml.edit - org.eclipse.uml2.uml.edit/icons/full/obj16/RemoveStructuralFeatureValueAction.gif and - org.eclipse.cdt.ui - org.eclipse.cdt.ui/icons/etool16/action-deleteconfig.gif
+icons/full/obj16/ResetFeatureContribution.gif - org.eclipse.debug.ui - org.eclipse.debug.ui/icons/full/elcl16/stepover_co.gif
+icons/full/obj16/SetFeatureContribution.gif - org.eclipse.pde.ui - org.eclipse.pde.ui/icons/view16/variable_tab.gif

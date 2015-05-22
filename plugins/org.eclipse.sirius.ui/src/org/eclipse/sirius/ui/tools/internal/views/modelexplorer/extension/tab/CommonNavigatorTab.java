@@ -14,10 +14,10 @@ import java.util.Collection;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.tools.api.views.modelexplorerview.IModelExplorerTabExtension;
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.DeleteActionHandler;
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.ModelExplorerView;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.events.KeyAdapter;
@@ -134,7 +134,7 @@ public class CommonNavigatorTab implements IModelExplorerTabExtension {
      * @return the tab image
      */
     public Image getImage() {
-        return SiriusEditPlugin.getPlugin().getBundledImage(MODEL_EXPLORER_STRUCTURE_TAB_ICON);
+        return SiriusUIPlugin.getPlugin().getBundledImage(MODEL_EXPLORER_STRUCTURE_TAB_ICON);
     }
 
     /**

@@ -15,8 +15,8 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.session.factory.UISessionFactory;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 
 /**
  * {@link UISessionFactoryDescriptor} for Eclipse contributions.
@@ -50,8 +50,8 @@ public class EclipseUISessionFactoryDescriptor extends AbstractUISessionFactoryD
                 try {
                     uiSessionFactory = (UISessionFactory) element.createExecutableExtension(UI_SESSION_FACTORY_CLASS_ATTRIBUTE);
                 } catch (CoreException e) {
-                    SiriusEditPlugin.getPlugin().getLog()
-                            .log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "Error while loading the extension " + element.getDeclaringExtension().getUniqueIdentifier(), e));
+                    SiriusUIPlugin.getPlugin().getLog()
+                            .log(new Status(IStatus.ERROR, SiriusUIPlugin.ID, "Error while loading the extension " + element.getDeclaringExtension().getUniqueIdentifier(), e));
                 }
             }
         }

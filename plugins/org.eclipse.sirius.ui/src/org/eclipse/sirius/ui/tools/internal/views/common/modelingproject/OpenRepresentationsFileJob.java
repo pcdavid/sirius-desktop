@@ -40,12 +40,12 @@ import org.eclipse.sirius.business.internal.modelingproject.manager.InitializeMo
 import org.eclipse.sirius.business.internal.modelingproject.marker.ModelingMarker;
 import org.eclipse.sirius.common.tools.api.util.MarkerUtil;
 import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionHelper;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.statushandlers.StatusManager;
@@ -214,7 +214,7 @@ public class OpenRepresentationsFileJob extends AbstractRepresentationsFileJob {
                     if (sessions.isEmpty()) {
                         subMonitor.worked(10);
                         String errorMessage = logLoadingProblem(project, representationsFileURI, null);
-                        openingStatuses.add(new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.OK, errorMessage, null)); //$NON-NLS-1$)
+                        openingStatuses.add(new Status(IStatus.ERROR, SiriusUIPlugin.ID, IStatus.OK, errorMessage, null)); //$NON-NLS-1$)
                     } else {
                         subMonitor.subTask("Opening the startup representations of " + QUOTE + representationsFileURI.lastSegment() + QUOTE);
                         // Open the startup representations of each session
@@ -242,7 +242,7 @@ public class OpenRepresentationsFileJob extends AbstractRepresentationsFileJob {
         if (allStatuses.size() == 1) {
             result = allStatuses.get(0);
         } else if (allStatuses.size() > 1) {
-            result = new MultiStatus(SiriusEditPlugin.ID, IStatus.ERROR, allStatuses.toArray(new IStatus[0]), "Several modeling projects are invalid or can not be opened.", null);
+            result = new MultiStatus(SiriusUIPlugin.ID, IStatus.ERROR, allStatuses.toArray(new IStatus[0]), "Several modeling projects are invalid or can not be opened.", null);
         }
 
         return result;
@@ -351,7 +351,7 @@ public class OpenRepresentationsFileJob extends AbstractRepresentationsFileJob {
                     Job.getJobManager().join(AbstractRepresentationsFileJob.FAMILY, new NullProgressMonitor());
                 }
             } catch (InvocationTargetException e) {
-                StatusManager.getManager().handle(new Status(IStatus.ERROR, SiriusEditPlugin.ID, IStatus.OK, getLocalizedMessage(e), getCause(e)));
+                StatusManager.getManager().handle(new Status(IStatus.ERROR, SiriusUIPlugin.ID, IStatus.OK, getLocalizedMessage(e), getCause(e)));
             } catch (InterruptedException e) {
                 // Do nothing;
             }

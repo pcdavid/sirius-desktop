@@ -12,7 +12,7 @@ package org.eclipse.sirius.ui.tools.internal.preference;
 import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
@@ -81,8 +81,8 @@ public class IntegerFieldEditorWithHelp extends IntegerFieldEditor {
      * @return The help icon to show in our label.
      */
     protected Image getHelpIcon() {
-        ImageDescriptor findImageDescriptor = SiriusEditPlugin.Implementation.findImageDescriptor(ICONS_PREFERENCES_HELP);
-        return SiriusEditPlugin.getPlugin().getImage(findImageDescriptor);
+        ImageDescriptor findImageDescriptor = SiriusUIPlugin.Implementation.findImageDescriptor(ICONS_PREFERENCES_HELP);
+        return SiriusUIPlugin.getPlugin().getImage(findImageDescriptor);
     }
 
 }

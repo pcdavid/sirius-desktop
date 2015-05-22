@@ -26,7 +26,7 @@ import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.osgi.util.NLS;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.accessibility.ACC;
 import org.eclipse.swt.accessibility.AccessibleAdapter;
@@ -1128,10 +1128,10 @@ public class FilteredCommonTree extends Composite {
                 }
             }
             if (patternFilter == null) {
-                SiriusEditPlugin
+                SiriusUIPlugin
                         .getPlugin()
                         .getLog()
-                        .log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "Required filter " + PatternFilter.ID
+                        .log(new Status(IStatus.ERROR, SiriusUIPlugin.ID, "Required filter " + PatternFilter.ID
                                 + " is not present. Filter support of Model Explorer view will not function correctly.")); //$NON-NLS-1$  //$NON-NLS-1$
             }
             super.init();

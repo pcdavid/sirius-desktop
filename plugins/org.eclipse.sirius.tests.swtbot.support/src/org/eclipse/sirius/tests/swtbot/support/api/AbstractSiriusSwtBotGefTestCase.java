@@ -89,12 +89,12 @@ import org.eclipse.sirius.tests.swtbot.support.api.perspective.DesignerPerspecti
 import org.eclipse.sirius.tests.swtbot.support.api.view.DesignerViews;
 import org.eclipse.sirius.tests.swtbot.support.utils.SWTBotCommonHelper;
 import org.eclipse.sirius.tests.swtbot.support.utils.SWTBotUtils;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.OpenRepresentationsFileJob;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
@@ -761,7 +761,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
     protected void changeSiriusUIPreference(String preferenceKey, Boolean newValue) {
         assertNoSiriusCorePreferenceChangedinSiriusUIStore(preferenceKey);
 
-        IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        IPreferenceStore viewpointUIPrefs = SiriusUIPlugin.getPlugin().getPreferenceStore();
         oldValueSiriusUIPreferences.put(preferenceKey, viewpointUIPrefs.getBoolean(preferenceKey));
         viewpointUIPrefs.setValue(preferenceKey, newValue);
     }
@@ -1714,7 +1714,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
             platformPrefs.setValue(key, (Boolean) oldPlatformUIPreferences.get(key));
         }
 
-        IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
+        IPreferenceStore viewpointUIPrefs = SiriusUIPlugin.getPlugin().getPreferenceStore();
         for (String key : oldValueSiriusUIPreferences.keySet()) {
             viewpointUIPrefs.setValue(key, (Boolean) oldValueSiriusUIPreferences.get(key));
         }

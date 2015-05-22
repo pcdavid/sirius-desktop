@@ -51,6 +51,7 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
@@ -81,7 +82,6 @@ import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.ISaveablesSource;
 import org.eclipse.ui.IWorkbenchCommandConstants;
 import org.eclipse.ui.PlatformUI;
@@ -561,12 +561,12 @@ public class ContextMenuFiller implements IMenuListener, IMenuListener2 {
     }
 
     private Action buildCreateRepresentationAction(final Session session) {
-        final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/others/addRepresentation.gif");
+        final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/others/addRepresentation.gif");
         return new CreateRepresentationFromSessionAction(session, descriptor);
     }
 
     private Action buildCloseSessionAction(final List<Session> selection) {
-        final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/others/close.gif");
+        final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/others/close.gif");
         CloseSessionsAction closeSessionsAction = new CloseSessionsAction("Close");
         closeSessionsAction.setImageDescriptor(descriptor);
         closeSessionsAction.selectionChanged(new StructuredSelection(selection));
@@ -574,7 +574,7 @@ public class ContextMenuFiller implements IMenuListener, IMenuListener2 {
     }
 
     private Action buildSaveSessionAction(final List<Session> selection) {
-        final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusEditPlugin.ID, "/icons/full/others/save.gif");
+        final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(SiriusUIPlugin.ID, "/icons/full/others/save.gif");
         return new Action("Save", descriptor) {
             @Override
             public void run() {
@@ -593,7 +593,7 @@ public class ContextMenuFiller implements IMenuListener, IMenuListener2 {
                                         try {
                                             saveable.doSave(monitor);
                                         } catch (CoreException e) {
-                                            SiriusEditPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusEditPlugin.ID, "Error at session saving", e));
+                                            SiriusUIPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusUIPlugin.ID, "Error at session saving", e));
                                         }
                                     }
                                 } else {
@@ -603,11 +603,11 @@ public class ContextMenuFiller implements IMenuListener, IMenuListener2 {
                         });
 
                     } catch (final InterruptedException e) {
-                        IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e);
-                        SiriusEditPlugin.getPlugin().getLog().log(status);
+                        IStatus status = new Status(IStatus.ERROR, SiriusUIPlugin.ID, e.getLocalizedMessage(), e);
+                        SiriusUIPlugin.getPlugin().getLog().log(status);
                     } catch (final InvocationTargetException e) {
-                        IStatus status = new Status(IStatus.ERROR, SiriusEditPlugin.ID, e.getLocalizedMessage(), e.getTargetException());
-                        SiriusEditPlugin.getPlugin().getLog().log(status);
+                        IStatus status = new Status(IStatus.ERROR, SiriusUIPlugin.ID, e.getLocalizedMessage(), e.getTargetException());
+                        SiriusUIPlugin.getPlugin().getLog().log(status);
                     }
                 }
             }

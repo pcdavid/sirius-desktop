@@ -21,9 +21,9 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.tools.api.views.common.item.ProjectDependenciesItem;
 import org.eclipse.sirius.viewpoint.DAnalysisSessionEObject;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 
 import com.google.common.collect.Iterables;
@@ -107,7 +107,7 @@ public class ProjectDependenciesItemImpl implements ProjectDependenciesItem {
     }
 
     public Image getImage() {
-        return SiriusEditPlugin.getPlugin().getBundledImage("icons/obj16/ProjectDependencies.gif");
+        return SiriusUIPlugin.getPlugin().getBundledImage("icons/obj16/ProjectDependencies.gif");
     }
 
     /**

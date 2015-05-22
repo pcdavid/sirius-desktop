@@ -22,26 +22,28 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
-import org.eclipse.sirius.ecore.extender.tool.internal.StringUtil;
-import org.eclipse.sirius.viewpoint.description.tool.ExternalJavaAction;
+import org.eclipse.sirius.common.tools.api.util.StringUtil;
+import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
+import org.eclipse.sirius.viewpoint.description.provider.DocumentedElementItemProvider;
+import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
 import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 /**
  * This is the item provider adapter for a
- * {@link org.eclipse.sirius.viewpoint.description.tool.ExternalJavaAction}
+ * {@link org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
  * @generated
  */
-public class ExternalJavaActionItemProvider extends MenuItemDescriptionItemProvider {
+public class AbstractToolDescriptionItemProvider extends DocumentedElementItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public ExternalJavaActionItemProvider(AdapterFactory adapterFactory) {
+    public AbstractToolDescriptionItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -56,21 +58,62 @@ public class ExternalJavaActionItemProvider extends MenuItemDescriptionItemProvi
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addIdPropertyDescriptor(object);
+            addNamePropertyDescriptor(object);
+            addLabelPropertyDescriptor(object);
+            addPreconditionPropertyDescriptor(object);
+            addForceRefreshPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Id feature. <!-- begin-user-doc
+     * This adds a property descriptor for the Name feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      * 
      * @generated
      */
-    protected void addIdPropertyDescriptor(Object object) {
+    protected void addNamePropertyDescriptor(Object object) {
         itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_ExternalJavaAction_id_feature"), getString("_UI_ExternalJavaAction_id_description"), ToolPackage.Literals.EXTERNAL_JAVA_ACTION__ID, true, false, false,
+                getString("_UI_IdentifiedElement_name_feature"), getString("_UI_IdentifiedElement_name_description"), DescriptionPackage.Literals.IDENTIFIED_ELEMENT__NAME, true, false, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_GeneralPropertyCategory"), null));
+    }
+
+    /**
+     * This adds a property descriptor for the Label feature. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addLabelPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+                getString("_UI_IdentifiedElement_label_feature"), getString("_UI_IdentifiedElement_label_description"), DescriptionPackage.Literals.IDENTIFIED_ELEMENT__LABEL, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_GeneralPropertyCategory"), null));
+    }
+
+    /**
+     * This adds a property descriptor for the Precondition feature. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addPreconditionPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+                getString("_UI_AbstractToolDescription_precondition_feature"),
+                getString("_UI_PropertyDescriptor_description", "_UI_AbstractToolDescription_precondition_feature", "_UI_AbstractToolDescription_type"),
+                ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__PRECONDITION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_GeneralPropertyCategory"), null));
+    }
+
+    /**
+     * This adds a property descriptor for the Force Refresh feature. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addForceRefreshPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+                getString("_UI_AbstractToolDescription_forceRefresh_feature"),
+                getString("_UI_PropertyDescriptor_description", "_UI_AbstractToolDescription_forceRefresh_feature", "_UI_AbstractToolDescription_type"),
+                ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FORCE_REFRESH, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString("_UI_GeneralPropertyCategory"), null));
     }
 
     /**
@@ -87,8 +130,7 @@ public class ExternalJavaActionItemProvider extends MenuItemDescriptionItemProvi
     public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS);
-            childrenFeatures.add(ToolPackage.Literals.EXTERNAL_JAVA_ACTION__PARAMETERS);
+            childrenFeatures.add(ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS);
         }
         return childrenFeatures;
     }
@@ -108,17 +150,6 @@ public class ExternalJavaActionItemProvider extends MenuItemDescriptionItemProvi
     }
 
     /**
-     * This returns ExternalJavaAction.gif. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalJavaAction"));
-    }
-
-    /**
      * This returns the label text for the adapted class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -126,8 +157,11 @@ public class ExternalJavaActionItemProvider extends MenuItemDescriptionItemProvi
      */
     @Override
     public String getText(Object object) {
-        String label = new IdentifiedElementQuery((ExternalJavaAction) object).getLabel();
-        return StringUtil.isEmpty(label) ? getString("_UI_ExternalJavaAction_type") : getString("_UI_ExternalJavaAction_type") + " " + label;
+        String label = new IdentifiedElementQuery((AbstractToolDescription) object).getLabel();
+        // this StringUtil come from org.eclipse.sirius.ecore.extender.tool.internal.StringUtil
+        // I think it have to come from org.eclipse.sirius.common.tools.api.util.StringUtil
+        // and remove from the first one from Sirius
+        return StringUtil.isEmpty(label) ? getString("_UI_AbstractToolDescription_type") : getString("_UI_AbstractToolDescription_type") + " " + label;
     }
 
     /**
@@ -142,12 +176,14 @@ public class ExternalJavaActionItemProvider extends MenuItemDescriptionItemProvi
     public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(ExternalJavaAction.class)) {
-        case ToolPackage.EXTERNAL_JAVA_ACTION__ID:
+        switch (notification.getFeatureID(AbstractToolDescription.class)) {
+        case ToolPackage.ABSTRACT_TOOL_DESCRIPTION__NAME:
+        case ToolPackage.ABSTRACT_TOOL_DESCRIPTION__LABEL:
+        case ToolPackage.ABSTRACT_TOOL_DESCRIPTION__PRECONDITION:
+        case ToolPackage.ABSTRACT_TOOL_DESCRIPTION__FORCE_REFRESH:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
-        case ToolPackage.EXTERNAL_JAVA_ACTION__SUB_MODEL_OPERATIONS:
-        case ToolPackage.EXTERNAL_JAVA_ACTION__PARAMETERS:
+        case ToolPackage.ABSTRACT_TOOL_DESCRIPTION__FILTERS:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -165,33 +201,7 @@ public class ExternalJavaActionItemProvider extends MenuItemDescriptionItemProvi
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createExternalJavaAction()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createExternalJavaActionCall()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createCreateInstance()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createChangeContext()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createSetValue()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createSetObject()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createUnset()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createMoveElement()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createRemoveElement()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createFor()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createIf()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createDeleteView()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.CONTAINER_MODEL_OPERATION__SUB_MODEL_OPERATIONS, ToolFactory.eINSTANCE.createSwitch()));
-
-        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.EXTERNAL_JAVA_ACTION__PARAMETERS, ToolFactory.eINSTANCE.createExternalJavaActionParameter()));
+        newChildDescriptors.add(createChildParameter(ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS, ToolFactory.eINSTANCE.createToolFilterDescription()));
     }
 
 }

@@ -24,6 +24,7 @@ import org.eclipse.sirius.diagram.ui.tools.api.image.DiagramImagesPath;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
 import org.eclipse.sirius.ecore.extender.business.api.permission.LockStatus;
 import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.descriptor.ComposedImageDescriptor;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
@@ -43,14 +44,14 @@ import org.eclipse.ui.PlatformUI;
 public class DDiagramEditorSessionListenerDelegate implements Runnable {
 
     /** The PERMISSION_GRANTED_TO_CURRENT_USER_EXCLUSIVELY icon descriptor. */
-    private static final ImageDescriptor LOCK_BY_ME_IMAGE_DESCRIPTOR = SiriusEditPlugin.Implementation
+    private static final ImageDescriptor LOCK_BY_ME_IMAGE_DESCRIPTOR = SiriusUIPlugin.Implementation
             .getBundledImageDescriptor("icons/full/decorator/permission_granted_to_current_user_exclusively.gif");
 
     /** The PERMISSION_GRANTED_TO_CURRENT_USER_EXCLUSIVELY icon descriptor. */
-    private static final ImageDescriptor LOCK_BY_OTHER_IMAGE_DESCRIPTOR = SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied.gif");
+    private static final ImageDescriptor LOCK_BY_OTHER_IMAGE_DESCRIPTOR = SiriusUIPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied.gif");
 
     /** The NO_WRITE_PERMISSION icon description icon descriptor. */
-    private static final ImageDescriptor NO_WRITE_PERMISSION_IMAGE_DESCRIPTOR = SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_no_write.gif");
+    private static final ImageDescriptor NO_WRITE_PERMISSION_IMAGE_DESCRIPTOR = SiriusUIPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_no_write.gif");
 
     private DDiagramEditorImpl dDiagramEditorImpl;
 
@@ -263,8 +264,8 @@ public class DDiagramEditorSessionListenerDelegate implements Runnable {
             Image refreshImage = DiagramUIPlugin.getPlugin().getImage(DiagramUIPlugin.Implementation.getBundledImageDescriptor(DiagramImagesPath.REFRESH_IMG));
             List<Object> images = new ArrayList<Object>(2);
             images.add(refreshImage);
-            Image lockByOtherOverlayImage = SiriusEditPlugin.getPlugin()
-                    .getImage(SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied_overlay.gif"));
+            Image lockByOtherOverlayImage = SiriusUIPlugin.getPlugin()
+                    .getImage(SiriusUIPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied_overlay.gif"));
             images.add(lockByOtherOverlayImage);
             ImageDescriptor composedImageDescriptor = new ComposedImageDescriptor(new ComposedImage(images));
             frozenRepresentationImage = DiagramUIPlugin.getPlugin().getImage(composedImageDescriptor);

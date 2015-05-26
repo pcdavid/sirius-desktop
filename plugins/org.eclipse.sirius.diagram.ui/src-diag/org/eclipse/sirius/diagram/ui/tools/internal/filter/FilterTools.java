@@ -29,8 +29,8 @@ import org.eclipse.sirius.diagram.description.filter.FilterVariable;
 import org.eclipse.sirius.diagram.description.filter.VariableFilter;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 
 /**
  * Utility classes for Filters user interfaces.
@@ -60,7 +60,7 @@ public final class FilterTools {
      */
     public static Map<String, EObject> askForFilterValues(final DSemanticDiagram diagram, final VariableFilter filter) throws InterruptedException {
         final EObject model = diagram.getTarget();
-        final UICallBack uiCallback = SiriusEditPlugin.getPlugin().getUiCallback();
+        final UICallBack uiCallback = SiriusUIPlugin.getPlugin().getUiCallback();
         /*
          * First let's clear the Values history corresponding to this filter in
          * the viewpoint

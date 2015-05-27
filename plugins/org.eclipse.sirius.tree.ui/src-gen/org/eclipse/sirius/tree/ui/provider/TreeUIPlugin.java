@@ -34,6 +34,7 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.sirius.tree.edit.provider.TreeEditPlugin;
 import org.eclipse.sirius.tree.provider.TreeItemProviderAdapterFactory;
 import org.eclipse.sirius.viewpoint.description.audit.provider.AuditItemProviderAdapterFactory;
 import org.eclipse.sirius.viewpoint.description.provider.DescriptionItemProviderAdapterFactory;
@@ -84,7 +85,7 @@ public final class TreeUIPlugin extends EMFPlugin {
      * @generated
      */
     public TreeUIPlugin() {
-        super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, SiriusEditPlugin.INSTANCE, });
+        super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, SiriusEditPlugin.INSTANCE, TreeEditPlugin.INSTANCE});
     }
 
     /**

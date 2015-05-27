@@ -10,6 +10,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.sirius.description.contribution.provider,
  org.eclipse.sirius.edit.tools.util,
+ org.eclipse.sirius.ui.tools.api.provider,
  org.eclipse.sirius.viewpoint.description.audit.provider;version="2.0.4",
  org.eclipse.sirius.viewpoint.description.provider;version="2.0.4",
  org.eclipse.sirius.viewpoint.description.style.provider;version="2.0.4",

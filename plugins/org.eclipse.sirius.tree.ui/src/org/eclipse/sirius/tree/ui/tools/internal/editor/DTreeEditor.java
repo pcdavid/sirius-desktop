@@ -53,6 +53,7 @@ import org.eclipse.sirius.tree.business.api.command.TreeCommandFactoryService;
 import org.eclipse.sirius.tree.business.internal.helper.TreeHelper;
 import org.eclipse.sirius.tree.ui.provider.TreeUIPlugin;
 import org.eclipse.sirius.tree.ui.tools.internal.commands.EMFCommandFactoryUI;
+import org.eclipse.sirius.ui.api.SiriusUIPlugin;
 import org.eclipse.sirius.ui.business.api.descriptor.ComposedImageDescriptor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.marker.TraceabilityMarkerNavigationProvider;
@@ -63,7 +64,6 @@ import org.eclipse.sirius.ui.tools.internal.editor.AbstractDTreeEditor;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
@@ -112,7 +112,7 @@ public class DTreeEditor extends AbstractDTreeEditor implements org.eclipse.siri
      */
     public Image getInitialImage() {
         if (initialTitleImage == null || initialTitleImage.isDisposed()) {
-            initialTitleImage = SiriusEditPlugin.getPlugin().getImage(INITIAL_TITLE_IMAGE_DESCRIPTOR);
+            initialTitleImage = SiriusUIPlugin.getPlugin().getImage(INITIAL_TITLE_IMAGE_DESCRIPTOR);
         }
         return initialTitleImage;
     }
@@ -126,10 +126,10 @@ public class DTreeEditor extends AbstractDTreeEditor implements org.eclipse.siri
             Image refreshImage = TreeUIPlugin.getImage(TreeUIPlugin.getBundledImageDescriptor("icons/" + DTreeViewerManager.REFRESH_IMG + ".gif"));
             List<Object> images = new ArrayList<Object>(2);
             images.add(refreshImage);
-            Image lockByOtherOverlayImage = SiriusEditPlugin.getPlugin().getImage(SiriusEditPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied_overlay.gif"));
+            Image lockByOtherOverlayImage = SiriusUIPlugin.getPlugin().getImage(SiriusUIPlugin.Implementation.getBundledImageDescriptor("icons/full/decorator/permission_denied_overlay.gif"));
             images.add(lockByOtherOverlayImage);
             ImageDescriptor composedImageDescriptor = new ComposedImageDescriptor(new ComposedImage(images));
-            frozenRepresentationImage = SiriusEditPlugin.getPlugin().getImage(composedImageDescriptor);
+            frozenRepresentationImage = SiriusUIPlugin.getPlugin().getImage(composedImageDescriptor);
         }
         return frozenRepresentationImage;
     }

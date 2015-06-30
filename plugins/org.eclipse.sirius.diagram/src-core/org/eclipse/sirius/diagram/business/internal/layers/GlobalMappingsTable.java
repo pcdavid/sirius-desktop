@@ -157,6 +157,30 @@ public class GlobalMappingsTable {
     }
 
     /**
+     * return true if this mapping can be overriden by another mapping based on
+     * the active layers.
+     * 
+     * @param mapping
+     *            any {@link NodeMapping}, {@link ContainerMapping} or
+     *            {@link EdgeMapping}.
+     * @return true if this mapping can be overriden by another mapping based on
+     *         the active layers.
+     */
+    public boolean canBeOverriden(DiagramElementMapping mapping) {
+        boolean result = false;
+        if (mapping instanceof NodeMapping) {
+            result = nodeMappingsTable.canBeOverriden(mapping);
+        } else if (mapping instanceof ContainerMapping) {
+            result = containerMappingsTable.canBeOverriden(mapping);
+        } else if (mapping instanceof EdgeMapping) {
+            result = edgeMappingsTable.canBeOverriden(mapping);
+        } else {
+            throw new IllegalArgumentException("Mapping (" + mapping.getClass() + ") is not a ContainerMapping, NodeMapping, EdgeMapping");
+        }
+        return result;
+    }
+
+    /**
      * Search a mapping entry in the global mapping table.
      * 
      * @param mapping

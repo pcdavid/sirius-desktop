@@ -386,8 +386,12 @@ public final class DiagramMappingsManagerImpl implements DiagramMappingsManager,
         final Set<AbstractDNodeCandidate> candidateFilter = Sets.newHashSet();
 
         for (final DiagramElementMapping mapping : mappings) {
-            Collection<AbstractDNodeCandidate> candidateElementsProceed = visitor.visit(mapping, candidateFilter);
-            candidateFilter.addAll(candidateElementsProceed);
+
+            if (mappingsTable.canBeOverriden(mapping)) {
+                Collection<AbstractDNodeCandidate> candidateElementsProceed = visitor.visit(mapping, candidateFilter);
+                candidateFilter.addAll(candidateElementsProceed);
+            }
         }
     }
+
 }

@@ -16,7 +16,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
+import org.eclipse.sirius.diagram.business.api.query.DiagramElementMappingQuery;
 import org.eclipse.sirius.diagram.business.api.query.IEdgeMappingQuery;
 import org.eclipse.sirius.diagram.business.internal.componentization.mappings.table.CandidateMapping;
 import org.eclipse.sirius.diagram.description.ContainerMappingImport;
@@ -26,6 +28,8 @@ import org.eclipse.sirius.diagram.description.NodeMappingImport;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
 import org.eclipse.sirius.viewpoint.description.AbstractMappingImport;
+
+import com.google.common.collect.Sets;
 
 /**
  * A table to store mappings inheritance paths.
@@ -39,11 +43,14 @@ public class MappingsTable<T extends DiagramElementMapping> {
 
     private final List<MappingTableEntry> mappingsTable;
 
+    private Set<DiagramElementMapping> mappingsWithNoOverride;
+
     /**
      * Construct a new mappings table.
      */
     public MappingsTable() {
         mappingsTable = new ArrayList<MappingTableEntry>();
+        mappingsWithNoOverride = Sets.newLinkedHashSet();
     }
 
     /**
@@ -51,6 +58,19 @@ public class MappingsTable<T extends DiagramElementMapping> {
      */
     public void clear() {
         mappingsTable.clear();
+    }
+
+    /**
+     * return true if the given mapping is only part of hierarchies of one
+     * mappings and as such once set will not change.
+     * 
+     * @param m
+     *            any mapping
+     * @return true if the given mapping is only part of hierarchies of one
+     *         mappings and as such once set will not change.
+     */
+    public boolean canBeOverriden(DiagramElementMapping m) {
+        return !mappingsWithNoOverride.contains(m);
     }
 
     /**
@@ -69,6 +89,27 @@ public class MappingsTable<T extends DiagramElementMapping> {
          * Add the imports mappings
          */
         addImportMappings(candidateMappings);
+
+        computeMappingsWithNoOverrides(candidateMappings);
+
+    }
+
+    private void computeMappingsWithNoOverrides(final Collection<CandidateMapping> candidateMappings) {
+        Set<DiagramElementMapping> allMappings = Sets.newLinkedHashSet();
+        for (CandidateMapping candidateMapping : candidateMappings) {
+            allMappings.add(candidateMapping.getMapping());
+        }
+        Set<DiagramElementMapping> mappingsInHiearchyOfMoreThanOne = Sets.newLinkedHashSet();
+        for (DiagramElementMapping diagramElementMapping : allMappings) {
+            Iterator<DiagramElementMapping> it = new DiagramElementMappingQuery(diagramElementMapping).superTypes();
+            if (it.hasNext()) {
+                mappingsInHiearchyOfMoreThanOne.add(diagramElementMapping);
+                while (it.hasNext()) {
+                    mappingsInHiearchyOfMoreThanOne.add(it.next());
+                }
+            }
+        }
+        this.mappingsWithNoOverride = Sets.difference(allMappings, mappingsInHiearchyOfMoreThanOne);
     }
 
     private void addNotImportMappings(final Collection<CandidateMapping> candidateMappings) {

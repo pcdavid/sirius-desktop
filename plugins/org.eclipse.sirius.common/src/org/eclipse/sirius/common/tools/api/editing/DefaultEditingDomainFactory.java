@@ -10,7 +10,12 @@
  *******************************************************************************/
 package org.eclipse.sirius.common.tools.api.editing;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.impl.TransactionChangeRecorder;
+import org.eclipse.emf.transaction.impl.TransactionalEditingDomainImpl;
 import org.eclipse.emf.transaction.impl.TransactionalEditingDomainImpl.FactoryImpl;
 
 /**
@@ -27,7 +32,22 @@ public class DefaultEditingDomainFactory extends FactoryImpl implements IEditing
      * {@inheritDoc}
      */
     public TransactionalEditingDomain createEditingDomain() {
-        TransactionalEditingDomain editingDomain = super.createEditingDomain();
+        TransactionalEditingDomain editingDomain = new TransactionalEditingDomainImpl(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE)) {
+
+            @Override
+            protected TransactionChangeRecorder createChangeRecorder(ResourceSet rset) {
+                return new TransactionChangeRecorder(this, rset) {
+
+                    public void notifyChanged(Notification notification) {
+                        if (!notification.isTouch()) {
+                            super.notifyChanged(notification);
+                        }
+                    }
+                };
+            }
+        };
+
+        mapResourceSet(editingDomain);
         editingDomain.addResourceSetListener(new FileStatusPrecommitListener());
         return editingDomain;
     }

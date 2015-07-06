@@ -21,12 +21,6 @@ import org.eclipse.sirius.viewpoint.BasicLabelStyle;
 public interface ImageSelector {
 
     /**
-     * The name of the CDOResource containing shared images at the top level of
-     * the repo.
-     */
-    String IMAGES_RESOURCE_NAME = "images";
-
-    /**
      * Get a image.
      * 
      * @param basicLabelStyle

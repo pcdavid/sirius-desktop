@@ -13,13 +13,21 @@
 				<a href="#ReleaseNotesforSirius">Release Notes for Sirius</a>
 				<ol style="list-style: disc;">
 					<li>
+						<a href="#sirius4.0.0">Changes in Sirius 4.0.0</a>
+						<ol style="list-style: disc;">
+							<li>
+								<a href="#DeveloperVisibleChanges">Developer-Visible Changes</a>
+							</li>
+						</ol>
+					</li>
+					<li>
 						<a href="#sirius3.1.0">Changes in Sirius 3.1.0</a>
 						<ol style="list-style: disc;">
 							<li>
 								<a href="#UserVisibleChanges">User-Visible Changes</a>
 							</li>
 							<li>
-								<a href="#DeveloperVisibleChanges">Developer-Visible Changes</a>
+								<a href="#DeveloperVisibleChanges2">Developer-Visible Changes</a>
 							</li>
 						</ol>
 					</li>
@@ -33,7 +41,7 @@
 								<a href="#SpecifierVisibleChanges">Specifier-Visible Changes</a>
 							</li>
 							<li>
-								<a href="#DeveloperVisibleChanges2">Developer-Visible Changes</a>
+								<a href="#DeveloperVisibleChanges3">Developer-Visible Changes</a>
 							</li>
 						</ol>
 					</li>
@@ -57,6 +65,17 @@
 		<p>This document contains the release notes for recent major releases of Sirius. See also 
 			<a href="Release_Notes_Previous.html">the release notes from previous versions</a> for details about older releases.
 		</p>
+		<h2 id="sirius4.0.0">Changes in Sirius 4.0.0</h2>
+		<h3 id="DeveloperVisibleChanges">Developer-Visible Changes</h3>
+		<h4 id="Changesinorg.eclipse.sirius.ui">Changes in 
+			<code>org.eclipse.sirius.ui</code>
+		</h4>
+		<ul>
+			<li><span class="label label-danger">Removed</span> The constant 
+				<code>IMAGES_RESOURCE_NAME</code> in 
+				<code>org.eclipse.sirius.diagram.ui.business.api.image.ImageSelector</code> has been removed since it was not used anymore.
+			</li>
+		</ul>
 		<h2 id="sirius3.1.0">Changes in Sirius 3.1.0</h2>
 		<h3 id="UserVisibleChanges">User-Visible Changes</h3>
 		<ul>
@@ -64,7 +83,7 @@
 				<a href="./user/diagrams/Diagrams.html#snap_to_shapes">documentation</a> for details.
 			</li>
 		</ul>
-		<h3 id="DeveloperVisibleChanges">Developer-Visible Changes</h3>
+		<h3 id="DeveloperVisibleChanges2">Developer-Visible Changes</h3>
 		<h4 id="Changesinorg.eclipse.sirius.ext.gef">Changes in 
 			<code>org.eclipse.sirius.ext.gef</code>
 		</h4>
@@ -113,7 +132,7 @@
 				<em>Underline</em> and 
 				<em>Strike through</em> (or any combination of these).
 			</li>
-			<li><span class="label label-success">Added</span> Container elements on diagrams now support vertical and horizontal compartments layout (this is only visible if the modeler configuration makes use of this new feature). </li>
+			<li><span class="label label-success">Added</span> Container elements on diagrams now support vertical and horizontal compartments layout (this is only visible if the modeler configuration makes use of this new feature).</li>
 			<li><span class="label label-success">Added</span> In table and tree editors, a 
 				<em>Refresh</em> can now be launched by hitting <kbd>F5</kbd> like in diagrams (previously the only way was to click on the 
 				<em>Refresh</em> icon or menu item).
@@ -201,7 +220,7 @@
 				<em>EStructuralFeature</em> (inherited or with same name).
 			</li>
 		</ul>
-		<h3 id="DeveloperVisibleChanges2">Developer-Visible Changes</h3>
+		<h3 id="DeveloperVisibleChanges3">Developer-Visible Changes</h3>
 		<p>The most important and impacting changes in this release are (details below in plug-in specific sections):</p>
 		<ul>
 			<li><span class="label label-success">Added</span>  The new extension point 
@@ -209,7 +228,7 @@
 				<code>org.eclipse.sirius.ui</code>, can be used to provide customized cell editors for semantic element&#8217;s properties as shown in the properties view on a Sirius representation.
 			</li>
 			<li><span class="label label-success">Added</span>  The new class 
-				<code>org.eclipse.sirius.eef.components.SiriusAwarePropertiesEditingComponent</code> can be used as root class of the generated EEF components to greatly improve performances when using both EEF properties views with Sirius representations. 
+				<code>org.eclipse.sirius.eef.components.SiriusAwarePropertiesEditingComponent</code> can be used as root class of the generated EEF components to greatly improve performances when using both EEF properties views with Sirius representations.
 			</li>
 			<li><span class="label label-info">Modified</span> The minimum version of EEF required for using 
 				<code>org.eclipse.sirius.eef.adapters</code> is now 1.5.0 (from 1.2 before). EEF 1.5 is source and binary-compatible with EEF 1.2 to 1.4, and no re-generation of the EEF views should be needed to switch to 1.5.
@@ -302,7 +321,7 @@
 				<code>LazyCrossReferencer</code> type).
 			</li>
 			<li><span class="label label-success">Added</span> The static method 
-				<code>org.eclipse.sirius.common.tools.api.util.ReflectionHelper.getFieldValueWithoutException(Class&lt;?&gt;, String)</code> has been added to return an internal static value of a class.   
+				<code>org.eclipse.sirius.common.tools.api.util.ReflectionHelper.getFieldValueWithoutException(Class&lt;?&gt;, String)</code> has been added to return an internal static value of a class.
 			</li>
 			<li><span class="label label-success">Added</span> 
 				<code>org.eclipse.sirius.common.tools.api.resource.ResourceSetSync</code> has a new state 
@@ -419,7 +438,7 @@
 				<code>environment:/viewpoint</code> resource URI.
 			</li>
 			<li><span class="label label-success">Added</span> The new constant 
-				<code>org.eclipse.sirius.viewpoint.description.util.DescriptionResourceImpl.OPTION_SIRIUS_USE_URI_FRAGMENT_AS_ID</code> added to define a option to enable the use of a id map for odesign resource, id being uri&#8217;s fragment. 
+				<code>org.eclipse.sirius.viewpoint.description.util.DescriptionResourceImpl.OPTION_SIRIUS_USE_URI_FRAGMENT_AS_ID</code> added to define a option to enable the use of a id map for odesign resource, id being uri&#8217;s fragment.
 			</li>
 			<li><span class="label label-success">Added</span> The query 
 				<code>org.eclipse.sirius.business.api.query.EObjectQuery</code> has now a new constructor with an additional parameter, ECrossReferenceAdapter. This can be usefull if there is many calls to inverse references methods for the same Session. This avoids to get the semantic cross referencer from the EObject each time. This query also proposes a new method 
@@ -507,7 +526,7 @@
 				<code>getAllRepresentations()</code> strictly equivalent to 
 				<code>getOwnedRepresentations()</code>. Code that used 
 				<code>getAllRepresentations()</code> can simply use 
-				<code>getOwnedRepresentations()</code> instead. 
+				<code>getOwnedRepresentations()</code> instead.
 			</li>
 			<li><span class="label label-danger">Removed</span> The API 
 				<code>org.eclipse.sirius.viewpoint.DSourceFileLink</code> has been removed.
@@ -531,7 +550,7 @@
 				<code>org.eclipse.sirius.viewpoint.DContainer</code> has been removed.
 			</li>
 		</ul>
-		<h4 id="Changesinorg.eclipse.sirius.ui">Changes in 
+		<h4 id="Changesinorg.eclipse.sirius.ui2">Changes in 
 			<code>org.eclipse.sirius.ui</code>
 		</h4>
 		<ul>
@@ -554,7 +573,7 @@
 			<li><span class="label label-success">Added</span> A 
 				<code>org.eclipse.sirius.ui.tools.api.views.LockDecorationUpdater</code> is now available to add it on a 
 				<code>org.eclipse.ui.navigator.CommonNavigator</code> to be refreshed when notifications are send to 
-				<code>org.eclipse.sirius.ecore.extender.business.api.permission.IAuthorityListener</code>. 
+				<code>org.eclipse.sirius.ecore.extender.business.api.permission.IAuthorityListener</code>.
 			</li>
 			<li><span class="label label-success">Added</span> A new job 
 				<code>org.eclipse.sirius.ui.tools.api.views.RefreshLabelImageJob</code> has been added to refresh the icon of specified elements on a 
@@ -730,7 +749,7 @@
 				<code>DDiagram</code> or 
 				<code>DDiagramElement</code> from a semantic element, you can use 
 				<code>EObjectQuery.getInverseReferences(EReference)</code> API, see 
-				<code>org.eclipse.sirius.diagram.ui.business.api.view.ValidateAction.getDSemanticDecorator()</code> for an example. 
+				<code>org.eclipse.sirius.diagram.ui.business.api.view.ValidateAction.getDSemanticDecorator()</code> for an example.
 			</li>
 		</ul>
 		<h4 id="Changesinorg.eclipse.sirius.table">Changes in 
@@ -795,7 +814,7 @@
 			</li>
 			<li><span class="label label-success">Added</span> The EMF Command 
 				<code>org.eclipse.sirius.tree.business.api.command.DTreeItemLocalRefreshCommand</code> has been added to call 
-				<code>DTreeItemUserInteraction.refreshContent(boolean fullRefresh)</code> in an EMF Command. 
+				<code>DTreeItemUserInteraction.refreshContent(boolean fullRefresh)</code> in an EMF Command.
 			</li>
 			<li><span class="label label-success">Added</span> The method 
 				<code>org.eclipse.sirius.tree.business.api.interaction.DTreeItemUserInteraction.expand(IProgressMonitor)</code> has been added similar to 
@@ -1066,7 +1085,7 @@
 			<li>The &#171;Navigate&#187; top-level contextual menu entry with mixed actions for creating new representations and opening existing ones has been changed by two top-level menus:
 				<ul>
 					<li>One named &#171;New&#187;, which lists only the available actions to create new representations on the selected element.</li>
-					<li>One named &#171;Open&#187;, which lists only the existing representations on the selected element. </li>
+					<li>One named &#171;Open&#187;, which lists only the existing representations on the selected element.</li>
 				</ul>
 			</li>
 			<li>When a shape is resized (no matter the direction), the edge(s) connection location (toward or from this one) is kept. Before that, edges connections moved according to the ratio of the resizing.</li>
@@ -1181,7 +1200,7 @@
 				<code>org.eclipse.gmf.runtime.emf.core.util.CrossReferenceAdapter</code>. However considering the way Sirius uses GMF, this adapter is not needed.
 			</li>
 		</ul>
-		<h4 id="Changesinorg.eclipse.sirius.ui2">Changes in 
+		<h4 id="Changesinorg.eclipse.sirius.ui3">Changes in 
 			<code>org.eclipse.sirius.ui</code>
 		</h4>
 		<ul>
@@ -1215,7 +1234,7 @@
 			</li>
 			<li>A new class 
 				<code>org.eclipse.sirius.common.tools.api.resource.ResourceMigrationMarker</code> has been introduced for adopters. This marker can be attached to a Resource in order to indicate that some automatic migration 
-				<strong>might</strong> have change the structure of the model during the loading (with no isModified flag). Sirius will then use this information to consider saving the file even if there is no logical change. 
+				<strong>might</strong> have change the structure of the model during the loading (with no isModified flag). Sirius will then use this information to consider saving the file even if there is no logical change.
 			</li>
 		</ul>
 		<h4 id="Changesinorg.eclipse.sirius.common.ui2">Changes in 
@@ -1271,7 +1290,7 @@
 			<li>The 
 				<code>org.eclipse.sirius.diagram.ui.business.api.view.refresh</code> package and all its content has been move into the 
 				<code>org.eclipse.sirius.diagram</code> plug-in, under the name 
-				<code>org.eclipse.sirius.diagram.business.api.view.refresh</code>.  
+				<code>org.eclipse.sirius.diagram.business.api.view.refresh</code>.
 			</li>
 			<li>The method 
 				<code>org.eclipse.sirius.diagram.ui.business.internal.query.DNodeContainerQuery.getDefaultDimension()</code> has been added to compute the default size of a DNodeContainer.

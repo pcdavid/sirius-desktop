@@ -10,6 +10,7 @@ h3. Developer-Visible Changes
 
 h4. Changes in @org.eclipse.sirius.ui@
 
+* <span class="label label-info">MOVED</span> The classes @DSemanticDiagramScopePredicate@, @SiriusDiagramSessionEventBroker@, @SiriusGMFSynchronizerDispatcher@ and @SynchronizeGMFModelCommand@ have been moved from the package @org.eclipse.sirius.diagram.ui.internal.refresh@ from the bundle Sirius Diagram UI bundle to the package @org.eclipse.sirius.diagram.business.internal.refresh@ in the bundle Sirius Diagram.
 * <span class="label label-info">MOVED</span> The classes @org.eclipse.sirius.ui.business.api.action.RefreshActionListenerRegistry@ and @org.eclipse.sirius.ui.business.api.action.IRefreshActionListener@ have been moved out of the Sirius UI bundle to the Sirius bundle, they are now known as @org.eclipse.sirius.business.api.action.RefreshActionListenerRegistry@ and @org.eclipse.sirius.business.api.action.IRefreshActionListener@.
 * <span class="label label-danger">Removed</span> The constant @IMAGES_RESOURCE_NAME@ in @org.eclipse.sirius.diagram.ui.business.api.image.ImageSelector@ has been removed since it was not used anymore.
 

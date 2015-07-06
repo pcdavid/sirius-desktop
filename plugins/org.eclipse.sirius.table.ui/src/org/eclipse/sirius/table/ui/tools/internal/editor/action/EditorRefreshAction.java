@@ -22,9 +22,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.sirius.business.api.action.RefreshActionListenerRegistry;
 import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
 import org.eclipse.sirius.table.ui.tools.internal.editor.AbstractDTableEditor;
-import org.eclipse.sirius.ui.business.api.action.RefreshActionListenerRegistry;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 
 /**

@@ -10,8 +10,8 @@
  *******************************************************************************/
 package org.eclipse.sirius.common.acceleo.aql.business.internal;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -37,12 +37,20 @@ import org.eclipse.acceleo.query.validation.type.EClassifierType;
 import org.eclipse.acceleo.query.validation.type.IType;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.codegen.ecore.genmodel.GenClassifier;
+import org.eclipse.emf.codegen.ecore.genmodel.GenDataType;
+import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
+import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EStringToStringMapEntryImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.sirius.common.acceleo.aql.business.AQLSiriusPlugin;
 import org.eclipse.sirius.common.acceleo.aql.business.api.AQLConstants;
@@ -64,6 +72,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
 /**
@@ -80,6 +89,12 @@ public class AQLSiriusInterpreter extends AcceleoAbstractInterpreter {
 
     private ECrossReferenceAdapter siriusXref;
 
+    /**
+     * Mapping from {@link Class} qualified name to {@link EClassifier} for
+     * {@link EClassifier} loaded from the workspace.
+     */
+    private final Map<String, EClassifier> classifierToEClass = Maps.newHashMap();
+
     private CrossReferenceProvider xRef = new CrossReferenceProvider() {
 
         @Override
@@ -88,7 +103,7 @@ public class AQLSiriusInterpreter extends AcceleoAbstractInterpreter {
                 return siriusXref.getInverseReferences(self);
 
             } else {
-                return Collections.EMPTY_SET;
+                return Collections.emptySet();
             }
         }
     };
@@ -97,23 +112,38 @@ public class AQLSiriusInterpreter extends AcceleoAbstractInterpreter {
 
         @Override
         public void loaded(String qualifiedName, Class<?> clazz) {
-            try {
-                queryEnvironment.registerServicePackage(clazz);
-            } catch (InvalidAcceleoPackageException e) {
-                AQLSiriusPlugin.INSTANCE.log(new Status(IStatus.WARNING, AQLSiriusPlugin.INSTANCE.getSymbolicName(), "Error loading Java extension class " + qualifiedName + " :" + e.getMessage(), e));
+            final EClassifier eCls = classifierToEClass.get(qualifiedName);
+            if (eCls == null) {
+                try {
+                    queryEnvironment.registerServicePackage(clazz);
+                } catch (InvalidAcceleoPackageException e) {
+                    AQLSiriusPlugin.INSTANCE.log(new Status(IStatus.WARNING, AQLSiriusPlugin.INSTANCE.getSymbolicName(), "Error loading Java extension class " + qualifiedName + " :" + e.getMessage(),
+                            e));
+                }
+            } else {
+                queryEnvironment.registerCustomClassMapping(eCls, clazz);
             }
 
         }
 
         @Override
         public void notFound(String qualifiedName) {
-            AQLSiriusPlugin.INSTANCE.log(new Status(IStatus.WARNING, AQLSiriusPlugin.INSTANCE.getSymbolicName(), "Could not find Java extension class " + qualifiedName));
-
+            final EClassifier eCls = classifierToEClass.get(qualifiedName);
+            if (eCls == null) {
+                AQLSiriusPlugin.INSTANCE.log(new Status(IStatus.WARNING, AQLSiriusPlugin.INSTANCE.getSymbolicName(), "Could not find Java extension class " + qualifiedName));
+            } else {
+                AQLSiriusPlugin.INSTANCE.log(new Status(IStatus.WARNING, AQLSiriusPlugin.INSTANCE.getSymbolicName(), "Could not find EClassifier class " + qualifiedName));
+            }
         }
 
         @Override
         public void unloaded(String qualifiedName, Class<?> clazz) {
-            queryEnvironment.removeServicePackage(clazz);
+            final EClassifier eCls = classifierToEClass.get(qualifiedName);
+            if (eCls == null) {
+                queryEnvironment.removeServicePackage(clazz);
+            } else {
+                queryEnvironment.registerCustomClassMapping(eCls, null);
+            }
         }
     };
 
@@ -129,12 +159,12 @@ public class AQLSiriusInterpreter extends AcceleoAbstractInterpreter {
 
             @Override
             public void loaded(String nsURI, EPackage pak) {
-                queryEnvironment.registerEPackage(pak);
+                registerEPackage(queryEnvironment, pak);
             }
 
             @Override
             public void unloaded(String nsURI, EPackage pak) {
-                queryEnvironment.removeEPackage(pak.getName());
+                unregisterEPackage(queryEnvironment, pak);
             }
         };
         this.javaExtensions.addClassLoadingCallBack(callback);
@@ -164,7 +194,7 @@ public class AQLSiriusInterpreter extends AcceleoAbstractInterpreter {
             }
         }
         for (EPackage ePackage : additionalEPackages) {
-            this.queryEnvironment.registerEPackage(ePackage);
+            registerEPackage(this.queryEnvironment, ePackage);
         }
     }
 
@@ -223,7 +253,7 @@ public class AQLSiriusInterpreter extends AcceleoAbstractInterpreter {
     @Override
     public ValidationResult analyzeExpression(IInterpreterContext context, String fullExpression) {
         this.javaExtensions.reloadIfNeeded();
-        
+
         String trimmedExpression = new ExpressionTrimmer(fullExpression).getExpression();
         ValidationResult result = new ValidationResult();
 
@@ -294,7 +324,137 @@ public class AQLSiriusInterpreter extends AcceleoAbstractInterpreter {
          * and imports.
          */
         this.javaExtensions.reloadIfNeeded();
-        
+
         return this.queryEnvironment;
+    }
+
+    /**
+     * Registers the given {@link EPackage} to the given
+     * {@link IQueryEnvironment}.
+     * 
+     * @param queryEnvironment
+     *            the {@link IQueryEnvironment}
+     * @param ePackage
+     *            the {@link EPackage}
+     */
+    public void registerEPackage(IQueryEnvironment queryEnvironment, EPackage ePackage) {
+        queryEnvironment.registerEPackage(ePackage);
+        if (isPlatformResource(ePackage)) {
+            final URI genModelURI = EcorePlugin.getEPackageNsURIToGenModelLocationMap(true).get(ePackage.getNsURI());
+            if (genModelURI != null) {
+                final Resource genModelResource = ePackage.eResource().getResourceSet().getResource(genModelURI, true);
+                if (hasGenModel(genModelResource)) {
+                    GenModel genModel = (GenModel) genModelResource.getContents().get(0);
+                    registerEClasses(genModel);
+                } else {
+                    AQLSiriusPlugin.INSTANCE.log(new Status(IStatus.WARNING, AQLSiriusPlugin.INSTANCE.getSymbolicName(), "Could not load GenModel for " + ePackage.getNsURI()));
+                }
+                genModelResource.unload();
+            } else {
+                AQLSiriusPlugin.INSTANCE.log(new Status(IStatus.WARNING, AQLSiriusPlugin.INSTANCE.getSymbolicName(), "Could not find GenModel for " + ePackage.getNsURI()));
+            }
+        }
+    }
+
+    /**
+     * Registers the {@link Class} to {@link EClassifier} for the given
+     * {@link GenModel}.
+     * 
+     * @param genModel
+     *            the {@link GenModel}
+     */
+    private void registerEClasses(GenModel genModel) {
+        for (GenClassifier genClassifier : getGenClasses(genModel.getGenPackages())) {
+            String className = genClassifier.getImportedInstanceClassName();
+            classifierToEClass.put(className, genClassifier.getEcoreClassifier());
+            this.javaExtensions.addImport(className);
+        }
+    }
+
+    /**
+     * Unregisters the given {@link EPackage} to the given
+     * {@link IQueryEnvironment}.
+     * 
+     * @param queryEnvironment
+     *            the {@link IQueryEnvironment}
+     * @param ePackage
+     *            the {@link EPackage}
+     */
+    public void unregisterEPackage(IQueryEnvironment queryEnvironment, EPackage ePackage) {
+        queryEnvironment.removeEPackage(ePackage.getName());
+        if (isPlatformResource(ePackage)) {
+            final URI genModelURI = EcorePlugin.getEPackageNsURIToGenModelLocationMap(true).get(ePackage.getNsURI());
+            if (genModelURI != null) {
+                final Resource genModelResource = ePackage.eResource().getResourceSet().getResource(genModelURI, true);
+                if (hasGenModel(genModelResource)) {
+                    GenModel genModel = (GenModel) genModelResource.getContents().get(0);
+                    unregisterEClasses(genModel);
+                } else {
+                    AQLSiriusPlugin.INSTANCE.log(new Status(IStatus.WARNING, AQLSiriusPlugin.INSTANCE.getSymbolicName(), "Could not load GenModel for " + ePackage.getNsURI()));
+                }
+                genModelResource.unload();
+            } else {
+                AQLSiriusPlugin.INSTANCE.log(new Status(IStatus.WARNING, AQLSiriusPlugin.INSTANCE.getSymbolicName(), "Could not find GenModel for " + ePackage.getNsURI()));
+            }
+        }
+    }
+
+    /**
+     * Tells if the given {@link Resource} contains a {@link GenModel}.
+     * 
+     * @param genModelResource
+     *            the {@link Resource}
+     * @return <code>true</code> if the given {@link Resource} contains a
+     *         {@link GenModel}, <code>false</code> otherwise
+     */
+    private boolean hasGenModel(final Resource genModelResource) {
+        return genModelResource != null && !genModelResource.getContents().isEmpty() && genModelResource.getContents().get(0) instanceof GenModel;
+    }
+
+    /**
+     * Tells if the given {@link EPackage} is a platform resource.
+     * 
+     * @param ePackage
+     *            the {@link EPackage}
+     * @return <code>true</code> if the given {@link EPackage} has a file
+     *         resource, <code>false</code> otherwise
+     */
+    private boolean isPlatformResource(EPackage ePackage) {
+        return ePackage.eResource() == null || ePackage.eResource().getURI().isPlatformResource();
+    }
+
+    /**
+     * Unregisters the {@link Class} to {@link EClassifier} for the given
+     * {@link GenModel}.
+     * 
+     * @param genModel
+     *            the {@link GenModel}
+     */
+    private void unregisterEClasses(GenModel genModel) {
+        for (GenClassifier genClassifier : getGenClasses(genModel.getGenPackages())) {
+            String className = genClassifier.getImportedInstanceClassName();
+            this.javaExtensions.removeImport(className);
+            classifierToEClass.remove(className);
+        }
+    }
+
+    /**
+     * Gets the {@link List} of all contained {@link GenClassifier} from the
+     * given {@link List} of {@link GenPackage}.
+     * 
+     * @param genPackages
+     *            the {@link List} of {@link GenPackage}
+     * @return the {@link List} of all contained {@link GenClassifier} from the
+     *         given {@link List} of {@link GenPackage}
+     */
+    private List<GenClassifier> getGenClasses(List<GenPackage> genPackages) {
+        final List<GenClassifier> res = new ArrayList<GenClassifier>();
+
+        for (GenPackage genPackage : genPackages) {
+            res.addAll(genPackage.getGenClassifiers());
+            res.addAll(getGenClasses(genPackage.getNestedGenPackages()));
+        }
+
+        return res;
     }
 }

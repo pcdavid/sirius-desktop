@@ -126,7 +126,7 @@ public class AQLProposalProvider implements IProposalProvider {
 
             Map<String, Set<IType>> variableTypes = new LinkedHashMap<String, Set<IType>>();
             if (context.getCurrentSelected() != null) {
-                queryEnvironment.registerEPackage(context.getCurrentSelected().eClass().getEPackage());
+                ((AQLSiriusInterpreter) interpreter).registerEPackage(queryEnvironment, context.getCurrentSelected().eClass().getEPackage());
                 final Set<IType> potentialTypes = new LinkedHashSet<IType>(1);
                 potentialTypes.add(new EClassifierType(queryEnvironment, context.getCurrentSelected().eClass()));
                 variableTypes.put("self", potentialTypes); //$NON-NLS-1$

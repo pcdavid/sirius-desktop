@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
@@ -112,6 +113,7 @@ import org.eclipse.sirius.diagram.ui.tools.internal.edit.command.CommandFactory;
 import org.eclipse.sirius.editor.tools.internal.presentation.ViewpoitnDependenciesSelectionDialog;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.emf.AllContents;
+import org.eclipse.sirius.ext.gmf.runtime.editparts.GraphicalHelper;
 import org.eclipse.sirius.tests.sample.component.Component;
 import org.eclipse.sirius.tests.sample.component.util.PayloadMarkerAdapter;
 import org.eclipse.sirius.tests.sample.component.util.PayloadMarkerAdapter.FeatureAccess;
@@ -1093,25 +1095,38 @@ public class SiriusDebugView extends AbstractDebugView {
                 if (selection instanceof IAbstractDiagramNodeEditPart) {
                     IAbstractDiagramNodeEditPart part = (IAbstractDiagramNodeEditPart) selection;
                     StringBuilder sb = new StringBuilder();
-                    showFigures(part.getFigure(), 0, sb);
+
+                    DecimalFormat decimal = new DecimalFormat("000");
+                    if (GraphicalHelper.getZoom(part) < 1.0) {
+                        new DecimalFormat("000.0");
+                    }
+                    if (part.getFigure().getBounds().x > 999 || part.getFigure().getBounds().y > 999 || part.getFigure().getBounds().width > 999 || part.getFigure().getBounds().height > 999) {
+                        decimal = new DecimalFormat();
+                    }
+                    showFigures(part.getFigure(), 0, decimal, sb);
                     setText(sb.toString());
                 }
             }
         });
     }
 
-    private void showFigures(IFigure figure, int level, StringBuilder out) {
+    private void showFigures(IFigure figure, int level, DecimalFormat decimal, StringBuilder out) {
+        Rectangle bounds = figure.getBounds();
+
+        String boundsDetails = "(" + decimal.format(bounds.preciseX()) + ", " + decimal.format(bounds.preciseY()) + ", " + decimal.format(bounds.preciseWidth()) + ", "
+                + decimal.format(bounds.preciseHeight()) + ") ";
+        out.append(boundsDetails);
         for (int i = 0; i < level; i++) {
-            out.append("  ");
+            out.append("|  ");
         }
         out.append(figureDetails(figure)).append("\n");
         for (IFigure child : Iterables.filter(figure.getChildren(), IFigure.class)) {
-            showFigures(child, level + 1, out);
+            showFigures(child, level + 1, decimal, out);
         }
     }
 
     private String figureDetails(IFigure figure) {
-        return "Opaque: " + figure.isOpaque() + " Color: " + figure.getBackgroundColor() + " Class: " + figure.getClass().getSimpleName() + " Size: " + figure.getBounds().getSize();
+        return figure.getClass().getSimpleName() + " Opaque: " + figure.isOpaque() + " Color: " + figure.getBackgroundColor();
     }
 
     private static class RefreshGraphicalCoverage extends RecordingCommand {

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2010 THALES GLOBAL SERVICES.
+ * Copyright (c) 2009, 2015 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -54,7 +54,7 @@ public class SiriusUncontrolCommand extends UncontrolCommand {
      * to the semantic elements.
      */
     private final boolean uncontrolRepresentations;
-    
+
     /**
      * A boolean to set if the session should be save at the end of this
      * command.
@@ -83,7 +83,7 @@ public class SiriusUncontrolCommand extends UncontrolCommand {
     public SiriusUncontrolCommand(final EObject semanticRoot, final boolean uncontrolRepresentations, IProgressMonitor monitor) {
         this(semanticRoot, uncontrolRepresentations, true, monitor);
     }
-    
+
     /**
      * Create a new {@link SiriusUncontrolCommand}.
      * 
@@ -105,6 +105,7 @@ public class SiriusUncontrolCommand extends UncontrolCommand {
         this.shouldEndBySaving = shouldEndBySaving;
         this.monitor = monitor;
     }
+
     /**
      * Get root container of specified object.<br>
      * Default implementation consists in getting the resource container i.e the
@@ -180,7 +181,14 @@ public class SiriusUncontrolCommand extends UncontrolCommand {
     }
 
     private Resource getParentAirdResource() {
-        return getAirdResourceWithAnalysisOn(getRootContainer(semanticElementToUncontrol.eContainer()));
+        Resource targetAirdResource = null;
+        EObject fragmentEContainer = semanticElementToUncontrol.eContainer();
+        while (targetAirdResource == null && fragmentEContainer != null) {
+            EObject rootContainer = getRootContainer(fragmentEContainer);
+            targetAirdResource = getAirdResourceWithAnalysisOn(rootContainer);
+            fragmentEContainer = rootContainer == null ? null : rootContainer.eContainer();
+        }
+        return targetAirdResource == null ? session.getSessionResource() : targetAirdResource;
     }
 
     /**
@@ -193,12 +201,11 @@ public class SiriusUncontrolCommand extends UncontrolCommand {
      * @return the corresponding resource if found, false otherwise.
      */
     protected Resource getAirdResourceWithAnalysisOn(final EObject object) {
-
-        for (final Resource anResource : session.getAllSessionResources()) {
-            for (final DAnalysis analysis : getAnalyses(anResource)) {
+        for (final Resource aResource : session.getAllSessionResources()) {
+            for (final DAnalysis analysis : getAnalyses(aResource)) {
                 Set<EObject> releventModels = new DAnalysisQuery(analysis).getMainModels();
                 if (Iterables.contains(releventModels, object)) {
-                    return anResource;
+                    return aResource;
                 }
             }
         }

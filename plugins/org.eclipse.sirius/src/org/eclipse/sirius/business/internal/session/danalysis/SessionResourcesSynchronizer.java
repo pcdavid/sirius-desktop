@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2015 THALES GLOBAL SERVICES and Obeo.
+ * Copyright (c) 2007, 2017 THALES GLOBAL SERVICES and Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -21,10 +22,11 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.common.command.Command;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
@@ -44,10 +46,10 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 
 /**
- * A {@link ResourceSyncClient} that updates a session according to the resource
- * changes it is notified of.
+ * A {@link ResourceSyncClient} that updates a session according to the resource changes it is notified of.
  * 
  * @author pcdavid
  */
@@ -75,10 +77,22 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
 
     @Override
     public void statusesChanged(Collection<ResourceStatusChange> changes) {
+        processNewStatusesBlockingOtherThreads(this.session, changes);
+    }
+
+    /*
+     * Using a static method so that concurrent access from other threads are blocked until the end of the processing.
+     */
+    private static void processNewStatusesBlockingOtherThreads(DAnalysisSessionImpl session, Collection<ResourceStatusChange> changes) {
         if (session.isOpen()) {
-            Multimap<ResourceStatus, Resource> newStatuses = getImpactingNewStatuses(changes);
-            boolean allResourcesSync = allResourcesAreInSync();
-            for (ResourceStatus newStatus : newStatuses.keySet()) {
+            final IProgressMonitor pm = new NullProgressMonitor();
+            final Multimap<ResourceStatus, Resource> newStatuses = getImpactingNewStatuses(session, changes);
+            boolean allResourcesSync = allResourcesAreInSync(session);
+
+            boolean shouldClose = false;
+            final Set<Resource> resourcestoRemove = Sets.newLinkedHashSet();
+            final Set<Resource> resourcestoReload = Sets.newLinkedHashSet();
+            for (final ResourceStatus newStatus : newStatuses.keySet()) {
                 switch (newStatus) {
                 case SYNC:
                     if (allResourcesSync) {
@@ -93,33 +107,39 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
                 case CONFLICTING_DELETED:
                 case DELETED:
                 case CHANGES_CANCELED:
-                    IProgressMonitor pm = new NullProgressMonitor();
-                    for (Resource resource : newStatuses.get(newStatus)) {
-                        try {
-                            /*
-                             * if the project was renamed, deleted or closed we
-                             * should not try to reload any thing, this does not
-                             * make sense
-                             */
-                            if (isInProjectDeletedRenamedOrClosed(resource)) {
-                                processAction(Action.CLOSE_SESSION, resource, pm);
-                                return;
-                            }
-                            processActions(session.getReloadingPolicy().getActions(session, resource, newStatus), resource, pm);
-
-                            // CHECKSTYLE:OFF
-                        } catch (final Exception e) {
-                            // CHECKSTYLE:ON
-                            SiriusPlugin.getDefault().error(MessageFormat.format(Messages.SessionResourcesSynchronizer_cantHandleResourceChangeMsg, resource.getURI()), e);
-
-                        }
+                    Iterator<Resource> it = newStatuses.get(newStatus).iterator();
+                    while (!shouldClose && it.hasNext()) {
+                        Resource resource = it.next();
+                        /*
+                         * if the project was renamed, deleted or closed we should not try to reload any thing, this
+                         * does not make sense
+                         */
+                        shouldClose = isInProjectDeletedRenamedOrClosed(resource);
                     }
-                    // Reload were launched, get global status.
-                    allResourcesSync = allResourcesAreInSync();
-                    if (allResourcesSync) {
-                        session.notifyListeners(SessionListener.SYNC);
-                    } else {
-                        session.notifyListeners(SessionListener.DIRTY);
+                    if (!shouldClose) {
+
+                        for (Resource resource : newStatuses.get(newStatus)) {
+                            try {
+                                List<Action> actions = session.getReloadingPolicy().getActions(session, resource, newStatus);
+                                for (Action action : actions) {
+                                    switch (action) {
+                                    case RELOAD:
+                                        resourcestoReload.add(resource);
+                                        break;
+                                    case REMOVE:
+                                        resourcestoRemove.add(resource);
+                                        break;
+                                    default:
+                                        break;
+                                    }
+                                }
+                                // CHECKSTYLE:OFF
+                            } catch (final Exception e) {
+                                // CHECKSTYLE:ON
+                                SiriusPlugin.getDefault().error(MessageFormat.format(Messages.SessionResourcesSynchronizer_cantHandleResourceChangeMsg, resource.getURI()), e);
+
+                            }
+                        }
                     }
                     break;
                 default:
@@ -127,11 +147,69 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
                 }
             }
 
-            if (allResourcesSync) {
-                session.setSynchronizationStatus(SyncStatus.SYNC);
-            } else {
-                session.setSynchronizationStatus(SyncStatus.DIRTY);
+            if (shouldClose) {
+                session.close(pm);
+            } else if (session.isOpen()) {
+                removeOrReloadImpactedResources(session, pm, resourcestoRemove, resourcestoReload);
+                // Reload were launched, get global status.
+                allResourcesSync = allResourcesAreInSync(session);
+                if (allResourcesSync) {
+                    session.notifyListeners(SessionListener.SYNC);
+                } else {
+                    session.notifyListeners(SessionListener.DIRTY);
+                }
+
+                // delete session only if no more aird file is open
+                if (session.getAllSessionResources().isEmpty()) {
+                    session.close(pm);
+                } else {
+                    if (allResourcesSync) {
+                        session.setSynchronizationStatus(SyncStatus.SYNC);
+                    } else {
+                        session.setSynchronizationStatus(SyncStatus.DIRTY);
+                    }
+                }
             }
+
+        }
+    }
+
+    private static void removeOrReloadImpactedResources(DAnalysisSessionImpl session, final IProgressMonitor pm, final Set<Resource> resourcestoRemove, final Set<Resource> resourcestoReload) {
+        if (resourcestoReload.size() > 0) {
+            session.notifyListeners(SessionListener.ABOUT_TO_BE_REPLACED);
+        }
+        final TransactionalEditingDomain ted = session.getTransactionalEditingDomain();
+
+        if (resourcestoReload.size() > 0 || resourcestoRemove.size() > 0) {
+
+            for (Resource toRemove : resourcestoRemove) {
+                removeResourceFromSession(session, toRemove, pm);
+            }
+
+            final Set<Resource> airdResources = Sets.newLinkedHashSet();
+            for (Resource toReload : resourcestoReload) {
+                ResourceQuery resourceQuery = new ResourceQuery(toReload);
+                if (resourceQuery.isRepresentationsResource()) {
+                    airdResources.add(toReload);
+                }
+            }
+            List<Resource> resourcesBeforeReload = Lists.newArrayList(ted.getResourceSet().getResources());
+            try {
+                reloadResources(session, resourcestoReload, airdResources);
+            } catch (IOException e) {
+                SiriusPlugin.getDefault().error(MessageFormat.format(Messages.SessionResourcesSynchronizer_cantHandleResourceChangeMsg, resourcestoReload.toString()), e);
+            }
+
+            for (Resource airdResource : airdResources) {
+                if (airdResource.getURI().equals(session.getSessionResource().getURI())) {
+                    session.sessionResourceReloaded(airdResource);
+                }
+            }
+            session.discoverAutomaticallyLoadedResources(resourcesBeforeReload);
+
+        }
+        if (resourcestoReload.size() > 0) {
+            session.notifyListeners(SessionListener.REPLACED);
         }
     }
 
@@ -140,10 +218,9 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
      * 
      * @param resource
      *            the resource to check
-     * @return true if this resource is in an non-existent project or a closed
-     *         project, false otherwise
+     * @return true if this resource is in an non-existent project or a closed project, false otherwise
      */
-    private boolean isInProjectDeletedRenamedOrClosed(Resource resource) {
+    private static boolean isInProjectDeletedRenamedOrClosed(Resource resource) {
         IFile file = WorkspaceSynchronizer.getFile(resource);
         if (file != null) {
             IProject project = file.getProject();
@@ -154,88 +231,85 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
         return false;
     }
 
-    private void processActions(List<Action> actions, Resource resource, IProgressMonitor pm) throws Exception {
-        for (Action action : actions) {
-            processAction(action, resource, pm);
-        }
-    }
+    private static void reloadResources(DAnalysisSessionImpl session, final Collection<Resource> resources, Set<Resource> airdResources) throws IOException {
 
-    private void processAction(Action action, final Resource resource, IProgressMonitor pm) throws Exception {
-        switch (action) {
-        case CLOSE_SESSION:
-            session.close(pm);
-            break;
-        case RELOAD:
-            if (session.isOpen()) {
-                reloadResource(resource);
-            }
-            break;
-        case REMOVE:
-            removeResourceFromSession(resource, pm);
-            break;
-        default:
-            break;
-        }
-    }
-
-    private void reloadResource(final Resource resource) throws IOException {
-        session.notifyListeners(SessionListener.ABOUT_TO_BE_REPLACED);
         TransactionalEditingDomain ted = session.getTransactionalEditingDomain();
 
-        Command reloadingAnalysisCmd = null;
-        ResourceQuery resourceQuery = new ResourceQuery(resource);
-        boolean representationsResource = resourceQuery.isRepresentationsResource();
-        if (representationsResource) {
-            reloadingAnalysisCmd = new AnalysisResourceReloadedCommand(session, ted, resource);
-        }
-        List<Resource> resourcesBeforeReload = Lists.newArrayList(ted.getResourceSet().getResources());
         /* execute the reload operation as a read-only transaction */
         RunnableWithResult<?> reload = new RunnableWithResult.Impl<Object>() {
             @Override
             public void run() {
-                session.disableCrossReferencerResolve(resource);
-                resource.unload();
-                session.enableCrossReferencerResolve(resource);
-                try {
-                    resource.load(Collections.EMPTY_MAP);
-                    EcoreUtil.resolveAll(resource);
-                    session.getSemanticCrossReferencer().resolveProxyCrossReferences(resource);
-                } catch (IOException e) {
-                    setResult(e);
+                final Set<Resource> airdResources = Sets.newLinkedHashSet();
+                for (Resource resource : resources) {
+                    session.disableCrossReferencerResolve(resource);
+                    resource.unload();
+                    session.enableCrossReferencerResolve(resource);
+                    try {
+                        resource.load(Collections.EMPTY_MAP);
+                        EcoreUtil.resolveAll(resource);
+                        session.getSemanticCrossReferencer().resolveProxyCrossReferences(resource);
+                    } catch (IOException e) {
+                        setResult(e);
+                    }
+                    if (new ResourceQuery(resource).isRepresentationsResource()) {
+                        airdResources.add(resource);
+                    }
+                }
+                for (Resource aird : airdResources) {
+                    new AnalysisResourceReloadedCommand(session, ted, aird).execute();
                 }
             }
         };
-        try {
-            ted.runExclusive(reload);
-            if (reload.getResult() != null) {
-                throw (IOException) reload.getResult();
-            } else if (!reload.getStatus().isOK()) {
-                SiriusPlugin.getDefault().error(Messages.SessionResourcesSynchronizer_reloadOperationFailErrorMsg, null);
-            } else {
-                if (representationsResource) {
-                    ted.getCommandStack().execute(reloadingAnalysisCmd);
-                    if (resource.getURI().equals(session.getSessionResource().getURI())) {
-                        session.sessionResourceReloaded(resource);
-                    }
+        if (airdResources.size() > 0) {
+            /*
+             * aird resources are requiring a read-write transaction and should be processed after the other resources.
+             */
+            /*
+             * Wrapping the commands in a global one to make sure only one post-commit gets called for the whole
+             * operation.
+             */
+            ted.getCommandStack().execute(new RecordingCommand(ted) {
+                @Override
+                public boolean canUndo() {
+                    return false;
                 }
-                // Analyze the unknown resources to detect new semantic or
-                // session resources.
-                session.discoverAutomaticallyLoadedResources(resourcesBeforeReload);
-                session.notifyListeners(SessionListener.REPLACED);
+
+                @Override
+                public boolean canRedo() {
+                    return false;
+                }
+
+                @Override
+                protected void doExecute() {
+                    reload.run();
+                    reload.setStatus(Status.OK_STATUS);
+                }
+            });
+        } else {
+            try {
+                ted.runExclusive(reload);
+            } catch (InterruptedException e) {
+                // do nothing
             }
-        } catch (InterruptedException e) {
-            // do nothing
         }
+        if (reload.getResult() != null) {
+            throw (IOException) reload.getResult();
+        } else if (reload.getStatus() != null && !reload.getStatus().isOK()) {
+            SiriusPlugin.getDefault().error(Messages.SessionResourcesSynchronizer_reloadOperationFailErrorMsg, null);
+        }
+
     }
 
     /**
-     * Remove a resource from the current session and close the current session
-     * if it contains no more analysis resource.
+     * Remove a resource from the current session and close the current session if it contains no more analysis
+     * resource.
      * 
+     * @param session
+     *            the session.
      * @param resource
      *            The resource to remove
      */
-    private void removeResourceFromSession(Resource resource, IProgressMonitor pm) {
+    private static void removeResourceFromSession(DAnalysisSessionImpl session, Resource resource, IProgressMonitor pm) {
         if (session.getAllSemanticResources().contains(resource)) {
             session.getTransactionalEditingDomain().getCommandStack().execute(new RemoveSemanticResourceCommand(session, resource, new NullProgressMonitor(), false));
         } else if (session.getAllSessionResources().contains(resource)) {
@@ -247,35 +321,44 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
             }
             session.getResources().remove(resource);
         }
-        // delete session only if no more aird file is open
-        if (session.getAllSessionResources().isEmpty()) {
-            session.close(pm);
-        }
+
     }
 
     /**
-     * Indicates whether all resources (semantic and Danalysises) of this
-     * Session are whether {@link ResourceStatus#SYNC} or
-     * {@link ResourceStatus#READONLY}.
-     * 
-     * @return true if all resources (semantic and Danalysises) of this Session
-     *         are whether {@link ResourceStatus#SYNC} or
-     *         {@link ResourceStatus#READONLY}, false otherwise
-     */
-    protected boolean allResourcesAreInSync() {
-        return checkResourcesAreInSync(getAllSessionResources());
-    }
-
-    /**
-     * Indicates whether considered resources are whether
+     * Indicates whether all resources (semantic and Danalysises) of this Session are whether
      * {@link ResourceStatus#SYNC} or {@link ResourceStatus#READONLY}.
+     * 
+     * @return true if all resources (semantic and Danalysises) of this Session are whether {@link ResourceStatus#SYNC}
+     *         or {@link ResourceStatus#READONLY}, false otherwise
+     */
+
+    protected boolean allResourcesAreInSync() {
+        return allResourcesAreInSync(session);
+    }
+
+    /**
+     * Indicates whether all resources (semantic and Danalysises) of this Session are whether
+     * {@link ResourceStatus#SYNC} or {@link ResourceStatus#READONLY}.
+     * 
+     * @param session
+     *            the session.
+     * @return true if all resources (semantic and Danalysises) of this Session are whether {@link ResourceStatus#SYNC}
+     *         or {@link ResourceStatus#READONLY}, false otherwise
+     */
+    protected static boolean allResourcesAreInSync(DAnalysisSessionImpl session) {
+        return checkResourcesAreInSync(getAllSessionResources(session));
+    }
+
+    /**
+     * Indicates whether considered resources are whether {@link ResourceStatus#SYNC} or
+     * {@link ResourceStatus#READONLY}.
      * 
      * @param resourcesToConsider
      *            the resources to inspect.
-     * @return true if all considered are whether {@link ResourceStatus#SYNC} or
-     *         {@link ResourceStatus#READONLY}, false otherwise
+     * @return true if all considered are whether {@link ResourceStatus#SYNC} or {@link ResourceStatus#READONLY}, false
+     *         otherwise
      */
-    protected boolean checkResourcesAreInSync(Iterable<? extends Resource> resourcesToConsider) {
+    protected static boolean checkResourcesAreInSync(Iterable<? extends Resource> resourcesToConsider) {
         boolean allResourceAreInSync = true;
         for (Resource resource : resourcesToConsider) {
             ResourceStatus status = ResourceSetSync.getStatus(resource);
@@ -289,10 +372,10 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
         return allResourceAreInSync;
     }
 
-    private Multimap<ResourceStatus, Resource> getImpactingNewStatuses(Collection<ResourceStatusChange> changes) {
+    private static Multimap<ResourceStatus, Resource> getImpactingNewStatuses(DAnalysisSessionImpl session, Collection<ResourceStatusChange> changes) {
         Multimap<ResourceStatus, Resource> impactingNewStatuses = LinkedHashMultimap.create();
         Multimap<ResourceStatus, Resource> representationResourcesNewStatuses = LinkedHashMultimap.create();
-        Iterable<Resource> semanticOrControlledresources = getAllSemanticResources();
+        Iterable<Resource> semanticOrControlledresources = getAllSemanticResources(session);
         Set<Resource> representationResources = session.getAllSessionResources();
         for (ResourceStatusChange change : changes) {
             if (session.isResourceOfSession(change.getResource(), semanticOrControlledresources)) {
@@ -306,11 +389,11 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
         return impactingNewStatuses;
     }
 
-    private Iterable<Resource> getAllSessionResources() {
+    private static Iterable<Resource> getAllSessionResources(DAnalysisSessionImpl session) {
         return Iterables.concat(session.getSemanticResources(), session.getAllSessionResources(), session.getControlledResources());
     }
 
-    private Iterable<Resource> getAllSemanticResources() {
+    private static Iterable<Resource> getAllSemanticResources(DAnalysisSessionImpl session) {
         return Iterables.concat(session.getSemanticResources(), session.getControlledResources());
     }
 

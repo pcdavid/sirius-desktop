@@ -179,8 +179,10 @@
 			<code>org.eclipse.sirius</code>
 		</h4>
 		<ul>
-			<li><span class="label label-info">Modified</span> The 
-				<code>org.eclipse.sirius.business.api.query.DViewQuery.getAllContentInRepresentations(Predicate&lt;? super EObject&gt;)</code> now takes a 
+			<li><span class="label label-info">Modified</span> Any 
+				<code>org.eclipse.sirius.business.api.session.SessionListener</code> will now receive only one 
+				<code>SessionListener.ABOUT_TO_BE_REPLACED</code> and 
+				<code>SessionListener.REPLACED</code> for a single batch of changes whereas it used to receive one for each resource which is being reloaded.eclipse.sirius.business.api.query.DViewQuery.getAllContentInRepresentations(Predicate&lt;? super EObject&gt;)@ now takes a 
 				<code>java.util.Predicate</code> (from Java 8) as argument instead of a 
 				<code>com.google.common.base.Predicate</code>.
 			</li>

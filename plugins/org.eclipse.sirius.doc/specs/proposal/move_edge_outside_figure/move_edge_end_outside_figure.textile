@@ -1,0 +1,73 @@
+h1. Sirius Evolution Specification: Move edge end-point with the cursor slightly outside the figure
+
+h2. Preamble
+
+_Summary_: This evolution aims to let the possibility to move or (re)connect an edge end-point with the cursor outside but close to the figure bounds.
+
+|_. Version |_. Status |_. Date        |_. Authors |_. Changes |
+| v0.1        | DRAFT    | 2015-12-10 | fbarbin    | Initial version. |
+| v0.2        | DRAFT    | 2015-12-16 | fbarbin    | Changes following team review. |
+
+_Relevant tickets_ :
+* "Bug 484124 - Make possible to move an edge end-point with the cursor slightly outside the figure":https://bugs.eclipse.org/bugs/show_bug.cgi?id=484124
+
+h2. Introduction
+
+Currently, to move or (re)connect an edge end-point, the cursor has to stay within the current figure bounds. For instance, during the move of the edge end-point, if the cursor leaves the figure bounds, Sirius interprets this move as a reconnect attempt. The goal of this evolution is to keep considering we are inside the figure bounds if the cursor is in an extended zone around them.
+
+h2. Detailed Specification
+
+More generally, the behavior still the same but with virtual figure extended bounds. That means if the cursor get above the extended bounds of a A figure, if this figure is over a figure B, even if the cursor is visually above B (the extended bounds are not visible for the end user), we will consider it is above the A figure.
+
+
+This screenshot shows the current behavior when dragging the edge end outside the current figure:
+!reconnect.png!
+
+The edge is detached from the figure and the cursor is displayed as a cross.
+
+With this evolution, it will be possible to change edge end location with the cursor outside the figure bounds:
+!move.png!
+
+In the following examples we have two figures, a blue and red one which is above the blue figure. The extended bounds are represented by the light frame outside each figure.
+
+!extendedBoundsEx1.png!
+The edge end-point is considered in the blue figure bounds
+
+!extendedBoundsEx2.png!
+The edge end-point is considered in the red figure bounds.
+
+!extendedBoundsEx3.png!
+The edge end-point is considered in the red figure bounds.
+
+
+
+h2. Backward Compatibility and Migration Paths
+
+This evolution does not change any API.
+
+h3. Metamodel Changes
+
+There is no metamodel changes for this evolution.
+  
+h3. API Changes
+
+There is no API changes for this evolution.
+
+h3. User Interface Changes
+
+Except this new behavior, there is no user interface changes.
+
+h3. Documentation Changes
+
+The user documentation (Sirius User Manual > Diagrams > Manage edges) will be updated to describe the new behavior.
+
+h2. Tests and Non-regression strategy
+
+We should add SWTBot tests to check the behavior in the following cases:
+* The edge can be moved when dragging outside the figure bounds but within the extended zone.
+* The edge cannot be moved when dragging outside the extended zone.
+* The edge is reconnected when dragging over an other figure extended zone.
+
+h2. Implementation choices and tradeoffs
+
+

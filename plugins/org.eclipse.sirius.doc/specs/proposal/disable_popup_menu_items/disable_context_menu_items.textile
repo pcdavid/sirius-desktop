@@ -1,0 +1,68 @@
+h1. Sirius Evolution Specification: Disable elements in the representations context menu
+
+h2. Preamble
+
+_Summary_: This evolution aims to let the possibility to disable some actions in the Sirius context menu.
+
+|_. Version |_. Status |_. Date        |_. Authors |_. Changes |
+| v0.1        | DRAFT    | 2015-12-11 | fbarbin    | Initial version. |
+
+_Relevant tickets_:
+* "Bug 484309 - Make possible to disable some default actions in representations context menu":https://bugs.eclipse.org/bugs/show_bug.cgi?id=484309
+
+h2. Introduction
+
+The specifier can add popup menu actions in the representation context menu. Those actions appear at the end of the context menu. However, the specifier has no possibility to mask some actions or to choose where to add the new ones.
+
+h2. Detailed Specification
+
+With this evolution, the specifier will have the possibility to choose explicitly which popup menu items he wants to display for a specific kind of representation.
+The specifier will be able to:
+* Mask all default popup menu items.
+* Mask all default popup menu items except a specified sub-set.
+* Display all popup menu items except a specified sub-set.
+
+Diagram element popup menu:
+!popupMenu.png!
+
+Table popup menu:
+!popupMenu2.png!
+
+for convenience reasons, the specifier will be only able to display or to mask the first menu level. For instance, the "Edit" menu will be totally displayed or entirely masked. 
+
+h2. Backward Compatibility and Migration Paths
+
+
+h3. Metamodel Changes
+
+The Sirius description metamodel will change to integrate the new feature. Those changes will be detailed during the implementation.
+  
+h3. API Changes
+
+API changes will be detailed during the implementation.
+
+h3. User Interface Changes
+
+The VSM properties view will integrate this new feature.
+
+h3. Documentation Changes
+
+The specifier documentation will be updated to describe this new feature.
+
+h2. Tests and Non-regression strategy
+
+SWTBot tests will be added to check the following behaviors:
+* The specified masked actions are not visible in the context menu
+** for diagram
+** for diagram elements
+** for table
+** for tree
+* The specified visible actions and only these actions are visible for:
+** for diagram
+** for diagram elements
+** for table
+** for tree
+
+h2. Implementation choices and tradeoffs
+
+

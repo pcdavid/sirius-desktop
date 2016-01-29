@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2008, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -274,6 +274,11 @@ public final class SiriusUtil {
                     }
                 }
                 currentEObjectSession = SessionManager.INSTANCE.getSession(semanticRootElement);
+            } else if (semanticRootElement instanceof DRepresentation && semanticRootElement instanceof DSemanticDecorator) {
+                EObject model = ((DSemanticDecorator) semanticRootElement).getTarget();
+                if (model != null) {
+                    semanticRootElement = model;
+                }
             }
         }
         if (currentEObjectSession != null) {

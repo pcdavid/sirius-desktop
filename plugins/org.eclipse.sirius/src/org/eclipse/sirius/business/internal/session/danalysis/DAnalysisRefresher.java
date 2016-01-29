@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2012, 2017 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,6 +23,8 @@ import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.sirius.business.api.resource.ResourceDescriptor;
+import org.eclipse.sirius.business.internal.query.DSemanticDecoratorQuery;
+import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
@@ -126,9 +128,9 @@ public class DAnalysisRefresher extends ResourceSetListenerImpl {
         for (Notification notification : notifications) {
             if (Notification.ADD == notification.getEventType() && notification.getNewValue() instanceof DSemanticDecorator) {
                 DSemanticDecorator decorator = (DSemanticDecorator) notification.getNewValue();
-                Resource representationsResource = decorator.eResource();
-                if (decorator.getTarget() != null && representationsResource != null) {
-                    DAnalysis analysis = (DAnalysis) representationsResource.getContents().get(0);
+                Option<DAnalysis> dAnalysis = new DSemanticDecoratorQuery(decorator).getDAnalysis();
+                if (decorator.getTarget() != null && dAnalysis.some() && dAnalysis.get().eResource() != null) {
+                    DAnalysis analysis = dAnalysis.get();
                     Resource targetResource = decorator.getTarget().eResource();
                     registerNewReferencedResource(semanticResourceDescriptors, analysis, targetResource);
                 }

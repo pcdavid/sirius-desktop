@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 Obeo.
+ * Copyright (c) 2015, 2016 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,6 +34,7 @@ import org.eclipse.sirius.ecore.extender.tool.api.ModelUtils;
 import org.eclipse.sirius.ext.emf.EReferencePredicate;
 import org.eclipse.sirius.tools.api.profiler.SiriusTasksKey;
 import org.eclipse.sirius.viewpoint.DAnalysis;
+import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DView;
 import org.eclipse.sirius.viewpoint.Messages;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
@@ -201,6 +202,12 @@ class SessionResourcesTracker {
                         resolvedResources.add(vsmResource);
                     }
                 }
+
+                // Temporary force resolve/load of the .repfiles here.
+                for (DRepresentation rep : dView.getOwnedRepresentations()) {
+                    rep.getName();
+                }
+
             }
         }
     }
@@ -221,7 +228,8 @@ class SessionResourcesTracker {
 
     /**
      * Check the resources in the resourceSet. Detect new resources and add them
-     * to the session as new semantic resources or referenced session resources.<BR>
+     * to the session as new semantic resources or referenced session resources.
+     * <BR>
      * <BR>
      * New semantic resources are :
      * <UL>
@@ -270,6 +278,7 @@ class SessionResourcesTracker {
         Iterators.removeAll(resourcesAfterLoadOfSession.iterator(), referencedSessionResources);
 
         final Iterable<Resource> newSemanticResourcesIterator = Iterables.filter(resourcesAfterLoadOfSession, new Predicate<Resource>() {
+            @Override
             public boolean apply(Resource resource) {
                 // Remove empty resource and the Sirius environment
                 return !resource.getContents().isEmpty() && !(new URIQuery(resource.getURI()).isEnvironmentURI());

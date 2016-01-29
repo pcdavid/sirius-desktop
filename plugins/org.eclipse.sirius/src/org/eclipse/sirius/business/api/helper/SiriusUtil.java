@@ -274,6 +274,11 @@ public final class SiriusUtil {
                     }
                 }
                 currentEObjectSession = SessionManager.INSTANCE.getSession(semanticRootElement);
+            } else if (semanticRootElement instanceof DRepresentation && semanticRootElement instanceof DSemanticDecorator) {
+                EObject model = ((DSemanticDecorator) semanticRootElement).getTarget();
+                if (model != null) {
+                    semanticRootElement = model;
+                }
             }
         }
         if (currentEObjectSession != null) {

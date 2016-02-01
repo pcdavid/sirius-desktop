@@ -15,10 +15,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -33,6 +35,7 @@ import org.eclipse.sirius.business.api.session.SessionService;
 import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSelector;
 import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSessionHelper;
 import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSessionService;
+import org.eclipse.sirius.business.internal.command.control.ControlCommand;
 import org.eclipse.sirius.business.internal.query.DRepresentationDescriptorInternalHelper;
 import org.eclipse.sirius.common.tools.api.util.EqualityHelper;
 import org.eclipse.sirius.viewpoint.DAnalysis;
@@ -414,6 +417,16 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
         // the DRepresentation is stored as root object in the DAnalysis
         // resource
         dView.eResource().getContents().add(representation);
+
+        Resource aird = dView.eResource();
+        if (aird != null && aird.getURI().isPlatformResource()) {
+            // Automatically control representations.
+            URI repURI = EcoreUtil.getURI(representation);
+            String pathName = repURI.toPlatformString(true) + ".repfile"; //$NON-NLS-1$
+            ControlCommand cmd = new ControlCommand(representation, URI.createPlatformResourceURI(pathName, true));
+            cmd.execute();
+        }
+
     }
 
     @Override

@@ -797,6 +797,8 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
             Collection<Resource> semanticResourcesCollection = getSemanticResources();
             allResources.addAll(semanticResourcesCollection);
             allResources.addAll(getControlledResources());
+            allResources.addAll(getRepFiles());
+
             monitor.worked(1);
             RunnableWithResult<Collection<Resource>> save = new RunnableWithResult.Impl<Collection<Resource>>() {
                 @Override
@@ -1451,5 +1453,16 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
         }
 
         return containers;
+    }
+
+    public Collection<Resource> getRepFiles() {
+        Collection<Resource> newArrayList = Lists.newArrayList(getTransactionalEditingDomain().getResourceSet().getResources());
+        Collection<Resource> repFiles = Sets.newLinkedHashSet();
+        for (Resource res : newArrayList) {
+            if (!res.getContents().isEmpty() && res.getContents().get(0) instanceof DRepresentation) {
+                repFiles.add(res);
+            }
+        }
+        return repFiles;
     }
 }

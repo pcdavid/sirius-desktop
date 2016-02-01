@@ -62,6 +62,8 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
 
     private DAnalysisSelector analysisSelector;
 
+    private DRepresentationLocationManager representationLocationManager;
+
     /**
      * Create the services for analysis based session.
      * 
@@ -70,6 +72,7 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
      */
     public DAnalysisSessionServicesImpl(DAnalysisSessionImpl session) {
         this.session = Preconditions.checkNotNull(session);
+        this.representationLocationManager = new DRepresentationLocationManager();
     }
 
     @Override
@@ -340,7 +343,7 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
 
             }
         } else if (CustomDataConstants.DFEATUREEXTENSION.equals(key)) {
-            final Resource resource = associatedInstance.eResource();
+            final Resource resource = associatedInstance.eContainer().eResource();
             if (resource != null) {
                 resource.getContents().add(data);
             }
@@ -381,9 +384,8 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
     }
 
     /**
-     * Create the {@link DRepresentationDescriptor} in the {@link DView} and the
-     * associated {@link DRepresentation} as root object of the
-     * {@link DAnalysis} resource.
+     * Create the {@link DRepresentationDescriptor} in the {@link DView} and the associated {@link DRepresentation} as
+     * root object of the {@link DAnalysis} resource.
      * 
      * @param representation
      *            the {@link DRepresentation} to add
@@ -391,9 +393,9 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
      */
     private void addRepresentationToContainer(final DRepresentation representation, final Resource semanticResource) {
         final EObject semanticRoot = semanticResource.getContents().iterator().next();
-        final DRepresentationDescriptor descriptor = DRepresentationDescriptorInternalHelper.createDescriptor(representation);
+        RepresentationDescription description = DialectManager.INSTANCE.getDescription(representation);
 
-        final Viewpoint viewpoint = new RepresentationDescriptionQuery(descriptor.getDescription()).getParentViewpoint();
+        final Viewpoint viewpoint = new RepresentationDescriptionQuery(description).getParentViewpoint();
         DView dView = DAnalysisSessionHelper.findContainerForAddedRepresentation(semanticRoot, viewpoint, session.allAnalyses(), analysisSelector, representation);
 
         if (dView == null) {
@@ -409,11 +411,17 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
             analysis.getOwnedViews().add(dView);
         }
 
+        Resource resource = representationLocationManager.getOrCreateRepresentationResource(representation, session.getSessionResource());
+        if (resource == null) {
+            resource = dView.eResource();
+        }
+        if (resource != null) {
+            resource.getContents().add(representation);
+        }
+
+        final DRepresentationDescriptor descriptor = DRepresentationDescriptorInternalHelper.createDescriptor(representation);
         dView.getOwnedRepresentationDescriptors().add(descriptor);
 
-        // the DRepresentation is stored as root object in the DAnalysis
-        // resource
-        dView.eResource().getContents().add(representation);
     }
 
     @Override

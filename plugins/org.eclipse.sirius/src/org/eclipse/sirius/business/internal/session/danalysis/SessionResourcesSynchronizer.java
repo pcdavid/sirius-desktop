@@ -307,7 +307,7 @@ public class SessionResourcesSynchronizer implements ResourceSyncClient {
     }
 
     private Iterable<Resource> getAllSessionResources() {
-        return Iterables.concat(session.getSemanticResources(), session.getAllSessionResources(), session.getControlledResources());
+        return Iterables.concat(session.getSemanticResources(), session.getAllSessionResources(), session.getControlledResources(), session.getRepFiles());
     }
 
     private Iterable<Resource> getAllSemanticResources() {

@@ -94,6 +94,7 @@ import org.eclipse.sirius.tools.api.ui.RefreshEditorsPrecommitListener;
 import org.eclipse.sirius.tools.internal.interpreter.ODesignGenericInterpreter;
 import org.eclipse.sirius.tools.internal.resource.ResourceSetUtil;
 import org.eclipse.sirius.viewpoint.DAnalysis;
+import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.DView;
 import org.eclipse.sirius.viewpoint.Messages;
@@ -797,6 +798,8 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
             Collection<Resource> semanticResourcesCollection = getSemanticResources();
             allResources.addAll(semanticResourcesCollection);
             allResources.addAll(getControlledResources());
+            allResources.addAll(getRepFiles());
+
             monitor.worked(1);
             RunnableWithResult<Collection<Resource>> save = new RunnableWithResult.Impl<Collection<Resource>>() {
                 @Override
@@ -1451,5 +1454,24 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
         }
 
         return containers;
+    }
+
+    /**
+     * returns the repfile resources.
+     * 
+     * @return a collection of resource.
+     */
+    public Collection<Resource> getRepFiles() {
+        Collection<Resource> repFiles = Sets.newLinkedHashSet();
+
+        if (transactionalEditingDomain != null && transactionalEditingDomain.getResourceSet() != null) {
+            Collection<Resource> allResources = Lists.newArrayList(transactionalEditingDomain.getResourceSet().getResources());
+            for (Resource res : allResources) {
+                if (!res.getContents().isEmpty() && res.getContents().get(0) instanceof DRepresentation) {
+                    repFiles.add(res);
+                }
+            }
+        }
+        return repFiles;
     }
 }

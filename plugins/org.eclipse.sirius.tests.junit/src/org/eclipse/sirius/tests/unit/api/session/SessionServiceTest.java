@@ -61,7 +61,15 @@ public class SessionServiceTest extends SiriusDiagramTestCase implements EcoreMo
             }
         };
         executeCommand(cmd);
-        assertTrue(diagram.eResource().getContents().contains(eClass));
+
+        Resource diagramResource;
+        EObject diagramContainer = diagram.eContainer();
+        if (diagramContainer != null) {
+            diagramResource = diagramContainer.eResource();
+        } else {
+            diagramResource = diagram.eResource();
+        }
+        assertTrue(diagramResource.getContents().contains(eClass));
     }
 
     public void testGetCustomData() throws Exception {
@@ -76,7 +84,7 @@ public class SessionServiceTest extends SiriusDiagramTestCase implements EcoreMo
         };
         executeCommand(cmd);
 
-        Collection<EObject> collected = session.getServices().getCustomData(CustomDataConstants.DFEATUREEXTENSION, null);
+        Collection<EObject> collected = session.getServices().getCustomData(CustomDataConstants.DFEATUREEXTENSION, diagram);
         assertEquals(1, collected.size());
         assertTrue(collected.contains(eClass));
     }

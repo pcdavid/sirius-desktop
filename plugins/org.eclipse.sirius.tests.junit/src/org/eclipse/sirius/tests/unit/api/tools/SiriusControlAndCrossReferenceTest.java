@@ -85,7 +85,8 @@ public class SiriusControlAndCrossReferenceTest extends SiriusDiagramTestCase {
 
         // Check that control occurs
         assertEquals(controlledModelUri, packageToControl.eResource().getURI());
-        assertEquals(controlledAirdUri, representationTocontrol.eResource().getURI());
+        final Resource controlledAird = representationTocontrol.eResource();
+        assertEquals(controlledAirdUri, controlledAird.getURI());
         assertEquals(2, session.getAllSessionResources().size());
 
         // Check cross referencer installation on the new aird.
@@ -114,7 +115,10 @@ public class SiriusControlAndCrossReferenceTest extends SiriusDiagramTestCase {
             public void execute() {
                 DRepresentation rep3 = DialectManager.INSTANCE.createRepresentation("Test Rep", packageToControl, DialectManager.INSTANCE.getDescription(representationTocontrol), session,
                         new NullProgressMonitor());
-                assertEquals("The new diagram shuuld be int the referenced analysis.", controlledAirdUri, rep3.eResource().getURI());
+                DRepresentationQuery dRepresentationQuery = new DRepresentationQuery(rep3);
+                DRepresentationDescriptor descriptor = dRepresentationQuery.getRepresentationDescriptor();
+                assertEquals("The new diagram should be referenced from the referenced analysis.", controlledAirdUri, descriptor.eResource().getURI());
+                assertTrue("The new diagram should be in its own resource.", rep3.eResource().getContents().contains(rep3));
             };
         };
         session.getTransactionalEditingDomain().getCommandStack().execute(crc);

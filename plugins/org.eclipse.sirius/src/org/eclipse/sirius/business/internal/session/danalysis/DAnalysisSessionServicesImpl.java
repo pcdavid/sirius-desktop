@@ -422,11 +422,10 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
         if (aird != null && aird.getURI().isPlatformResource()) {
             // Automatically control representations.
             URI repURI = EcoreUtil.getURI(representation);
-            String pathName = repURI.toPlatformString(true) + ".repfile"; //$NON-NLS-1$
+            String pathName = repURI.toPlatformString(true).replace(".aird", "_aird") + "/" + repURI.fragment() + ".repfile"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
             ControlCommand cmd = new ControlCommand(representation, URI.createPlatformResourceURI(pathName, true));
             cmd.execute();
         }
-
     }
 
     @Override

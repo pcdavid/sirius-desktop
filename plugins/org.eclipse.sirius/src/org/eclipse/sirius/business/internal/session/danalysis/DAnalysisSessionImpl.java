@@ -1391,6 +1391,9 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
 
     @Override
     public String getID() {
+        if (sessionResource == null) {
+            return "Already closed session"; //$NON-NLS-1$
+        }
         return sessionResource.getURI().toString();
     }
 

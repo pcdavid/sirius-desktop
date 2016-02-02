@@ -351,7 +351,7 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
 
             }
         } else if (CustomDataConstants.DFEATUREEXTENSION.equals(key)) {
-            final Resource resource = associatedInstance.eContainer().eResource();
+            final Resource resource = associatedInstance.eResource();
             if (resource != null) {
                 resource.getContents().add(data);
             }

@@ -116,7 +116,7 @@ public class DiagramValidationTest extends SiriusDiagramTestCase {
         assertTrue("Validation constraint has not been called", ConstraintStub.hasBeenCalled());
 
         // Get session .aird file to find validation warnings
-        IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
+        IFile file = WorkspaceSynchronizer.getFile(diagram.eContainer().eResource());
         file.refreshLocal(1, new NullProgressMonitor());
         IMarker[] findUIMarkers = file.findMarkers(SiriusMarkerNavigationProvider.MARKER_TYPE, true, IResource.DEPTH_INFINITE);
         assertTrue("At least one marker must be found", findUIMarkers.length >= 1);
@@ -165,7 +165,7 @@ public class DiagramValidationTest extends SiriusDiagramTestCase {
         va.run();
 
         // Get session .aird file to find validation warnings
-        IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
+        IFile file = WorkspaceSynchronizer.getFile(diagram.eContainer().eResource());
         file.refreshLocal(1, new NullProgressMonitor());
         IMarker[] foundUIMarkers = file.findMarkers(SiriusMarkerNavigationProvider.MARKER_TYPE, true, IResource.DEPTH_INFINITE);
         assertEquals("Five markers must be found", 5, foundUIMarkers.length);

@@ -1456,11 +1456,14 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
     }
 
     public Collection<Resource> getRepFiles() {
-        Collection<Resource> newArrayList = Lists.newArrayList(getTransactionalEditingDomain().getResourceSet().getResources());
         Collection<Resource> repFiles = Sets.newLinkedHashSet();
-        for (Resource res : newArrayList) {
-            if (!res.getContents().isEmpty() && res.getContents().get(0) instanceof DRepresentation) {
-                repFiles.add(res);
+
+        if (transactionalEditingDomain != null && transactionalEditingDomain.getResourceSet() != null) {
+            Collection<Resource> allResources = Lists.newArrayList(transactionalEditingDomain.getResourceSet().getResources());
+            for (Resource res : allResources) {
+                if (!res.getContents().isEmpty() && res.getContents().get(0) instanceof DRepresentation) {
+                    repFiles.add(res);
+                }
             }
         }
         return repFiles;

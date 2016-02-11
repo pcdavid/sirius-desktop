@@ -66,4 +66,42 @@
             id="org.eclipse.sirius.ui.debug.SiriusDebugView">
       </view>
    </extension>
+   <extension point="org.eclipse.ui.popupMenus">
+     <objectContribution
+           id="org.eclipse.sirius.ui.debug.menu.migration.vsm"
+           nameFilter="*.odesign"
+           objectClass="org.eclipse.core.resources.IFile">
+        <action
+              class="org.eclipse.sirius.ui.debug.menus.MigrateSiriusModelAction"
+              enablesFor="+"
+              id="org.eclipse.sirius.ui.debug.menus.migration.vsm"
+              label="Migrate VSM"
+              menubarPath="additions">
+        </action>
+     </objectContribution>
+     <objectContribution
+           id="org.eclipse.sirius.ui.debug.menu.migration.aird"
+           nameFilter="*.aird"
+           objectClass="org.eclipse.core.resources.IFile">
+        <action
+              class="org.eclipse.sirius.ui.debug.menus.MigrateSiriusModelAction"
+              enablesFor="+"
+               id="org.eclipse.sirius.ui.debug.menus.migration.aird"
+              label="Migrate aird"
+              menubarPath="additions">
+        </action>
+     </objectContribution>
+     <objectContribution
+           id="fr.obeo.dsl.viewpoint.tests.vsm.migration.sirius.models"
+           nameFilter="*"
+           objectClass="org.eclipse.core.resources.IContainer">
+        <action
+              class="org.eclipse.sirius.ui.debug.menus.MigrateSiriusModelAction"
+              enablesFor="+"
+              id="org.eclipse.sirius.ui.debug.menus.migration.models"
+              label="Migrate Sirius models"
+              menubarPath="additions">
+        </action>
+     </objectContribution>
+   </extension>
 </plugin>

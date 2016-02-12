@@ -311,8 +311,9 @@ public abstract class AbstractDTreeEditor extends EditorPart
      */
     protected boolean isDeleted(final IEditorInput editorInput) {
         boolean isDeleted = false;
-        if (getRepresentation() != null) {
-            final Resource sessionResource = getRepresentation().eResource();
+        DRepresentation representation = getRepresentation();
+        if (representation != null) {
+            final Resource sessionResource = representation.eContainer() != null ? representation.eContainer().eResource() : representation.eResource();
             if (sessionResource != null) {
                 URI sessionResourceURI = sessionResource.getURI();
                 boolean sessionResourceExists = sessionResource.getResourceSet().getURIConverter().exists(sessionResourceURI, Collections.emptyMap());

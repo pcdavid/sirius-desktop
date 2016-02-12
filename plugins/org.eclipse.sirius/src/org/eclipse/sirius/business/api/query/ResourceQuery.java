@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.session.resource.AirdResource;
 import org.eclipse.sirius.viewpoint.DAnalysis;
+import org.eclipse.sirius.viewpoint.DRepresentation;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
@@ -43,15 +44,12 @@ public class ResourceQuery {
     }
 
     /**
-     * Returns the URIs of all the resources on which loaded elements of this
-     * resource depend and which are loaded/resolved. Calling this method does
-     * not load any new resource of resolve any proxy.
+     * Returns the URIs of all the resources on which loaded elements of this resource depend and which are
+     * loaded/resolved. Calling this method does not load any new resource of resolve any proxy.
      * <p>
-     * <em>WARNING:</em> This does not consider dependencies to sub-resources
-     * through containment references.
+     * <em>WARNING:</em> This does not consider dependencies to sub-resources through containment references.
      * 
-     * @return the URIs of all the Resources this one depends on and which are
-     *         loaded/resolved.
+     * @return the URIs of all the Resources this one depends on and which are loaded/resolved.
      */
     public Collection<URI> getResolvedDependencies() {
         Collection<URI> dependencies = Sets.newHashSet();
@@ -62,15 +60,12 @@ public class ResourceQuery {
     }
 
     /**
-     * Returns the URIs of all the resources on which loaded elements of this
-     * resource depend but which are not yet loaded/resolved. Calling this
-     * method does not load any new resource of resolve any proxy.
+     * Returns the URIs of all the resources on which loaded elements of this resource depend but which are not yet
+     * loaded/resolved. Calling this method does not load any new resource of resolve any proxy.
      * <p>
-     * <em>WARNING:</em> This does not consider dependencies to sub-resources
-     * through containment references.
+     * <em>WARNING:</em> This does not consider dependencies to sub-resources through containment references.
      * 
-     * @return the URIs of all the Resources this one depends on but which is
-     *         not yet loaded/resolved.
+     * @return the URIs of all the Resources this one depends on but which is not yet loaded/resolved.
      */
     public Collection<URI> getUnresolvedDependencies() {
         Collection<URI> dependencies = Sets.newHashSet();
@@ -85,12 +80,10 @@ public class ResourceQuery {
      * <UL>
      * <LI>resource with aird extension, or</LI>
      * <LI>resource of kind {@link AirdResource}, or</LI>
-     * <LI>resource with {@link org.eclipse.sirius.viewpoint.DAnalysis} as
-     * content.</LI>
+     * <LI>resource with {@link org.eclipse.sirius.viewpoint.DAnalysis} as content.</LI>
      * </UL>
      * 
-     * @return true if this resource is a representations resource, false
-     *         otherwise.
+     * @return true if this resource is a representations resource, false otherwise.
      */
     public boolean isRepresentationsResource() {
         boolean isRepresentationsResource = false;
@@ -106,8 +99,25 @@ public class ResourceQuery {
     }
 
     /**
-     * Tells if the current {@link Resource} corresponds to a modeler resource
-     * (*.odesign).
+     * Returns whether the resource is a representation file or not.
+     * 
+     * @return true if tje resource is a representation file, otherwise false.
+     */
+    public boolean isRepFile() {
+        boolean isRepresentationFile = false;
+        if (!isRepresentationFile && !resource.getContents().isEmpty()) {
+            for (EObject contentEObject : resource.getContents()) {
+                if (contentEObject instanceof DRepresentation) {
+                    isRepresentationFile = true;
+                    break;
+                }
+            }
+        }
+        return isRepresentationFile;
+    }
+
+    /**
+     * Tells if the current {@link Resource} corresponds to a modeler resource (*.odesign).
      * 
      * @return true if it is a modeler resource
      */

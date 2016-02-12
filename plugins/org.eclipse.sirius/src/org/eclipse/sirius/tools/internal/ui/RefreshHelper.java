@@ -50,7 +50,7 @@ public final class RefreshHelper {
                 if (!alreadyDoneNotifiers.contains(eObjectNotifier)) {
                     alreadyDoneNotifiers.add(eObjectNotifier);
                     Resource notifierResource = eObjectNotifier.eResource();
-                    if (notifierResource != null && !new ResourceQuery(notifierResource).isRepresentationsResource()) {
+                    if (notifierResource != null && !new ResourceQuery(notifierResource).isRepresentationsResource() && !new ResourceQuery(notifierResource).isRepFile()) {
                         isImpactingNotification = true;
                         break;
                     }

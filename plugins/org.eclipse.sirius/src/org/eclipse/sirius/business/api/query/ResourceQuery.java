@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.session.resource.AirdResource;
 import org.eclipse.sirius.viewpoint.DAnalysis;
+import org.eclipse.sirius.viewpoint.DRepresentation;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
@@ -103,6 +104,33 @@ public class ResourceQuery {
             isRepresentationsResource = resource.getContents().get(0) instanceof DAnalysis;
         }
         return isRepresentationsResource;
+    }
+
+    /**
+     * Returns whether the resource is a repfile or not.
+     * 
+     * @return true if repfile, otherwise false.
+     */
+    public boolean isRepFile() {
+        boolean isRepresentationFile = false;
+        // boolean hasUri = false
+        // try {
+        // hasUri = resource.getURI() != null;
+        // } catch (IllegalStateException e) {
+        // // Silent catch: if an issue occurred while getting this Resource's
+        // // URI, then it will not be considered as a representation resource
+        // }
+        // isRepresentationFile = hasUri && new
+        // FileQuery(resource.getURI().fileExtension()).isRepFile();
+        if (!isRepresentationFile && !resource.getContents().isEmpty()) {
+            for (EObject contentEObject : resource.getContents()) {
+                if (contentEObject instanceof DRepresentation) {
+                    isRepresentationFile = true;
+                    break;
+                }
+            }
+        }
+        return isRepresentationFile;
     }
 
     /**

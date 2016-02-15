@@ -11,12 +11,11 @@
 package org.eclipse.sirius.tree.ui.properties.propertysource;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.ui.IEditorPart;
-
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.tree.ui.provider.TreeUIPlugin;
 import org.eclipse.sirius.tree.ui.tools.internal.editor.DTreeEditor;
 import org.eclipse.sirius.ui.tools.api.properties.AbstractEObjectPropertySource;
+import org.eclipse.ui.IEditorPart;
 
 public class TreeCompositeEObjectPropertySource extends AbstractEObjectPropertySource {
 
@@ -32,7 +31,7 @@ public class TreeCompositeEObjectPropertySource extends AbstractEObjectPropertyS
         if (part instanceof DTreeEditor) {
             adapterFactory = ((DTreeEditor) part).getAdapterFactory();
         } else {
-            adapterFactory = TreeUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+            adapterFactory = TreeUIPlugin.getPlugin().createAdapterFactory();
         }
         return adapterFactory;
     }

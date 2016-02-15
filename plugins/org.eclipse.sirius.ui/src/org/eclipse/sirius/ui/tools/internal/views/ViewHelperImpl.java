@@ -90,6 +90,7 @@ public final class ViewHelperImpl implements ViewHelper {
      * Reset to null the contentProvider.
      */
     public void resetContentProvider() {
+        contentProvider.dispose();
         contentProvider = null;
     }
 

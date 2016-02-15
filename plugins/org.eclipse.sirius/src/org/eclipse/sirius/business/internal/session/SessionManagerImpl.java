@@ -26,10 +26,12 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.sirius.business.api.logger.MarkerRuntimeLogger;
 import org.eclipse.sirius.business.api.query.URIQuery;
 import org.eclipse.sirius.business.api.session.Session;
@@ -75,6 +77,8 @@ public class SessionManagerImpl extends SessionManagerEObjectImpl implements Ses
 
     private final Map<Session, SessionListener> sessionsToListeners = Maps.newHashMap();
 
+    private final Map<Session, AdapterFactory> sessionsToAdapterFactory = Maps.newHashMap();
+
     /**
      * Default initialization of a {@link SessionManagerImpl}.
      *
@@ -107,6 +111,8 @@ public class SessionManagerImpl extends SessionManagerEObjectImpl implements Ses
     public void add(final Session newSession) {
         Assert.isNotNull(newSession, Messages.SessionManagerImpl_cantAddNullSessionErrorMsg);
         if (!doGetSessions().contains(newSession)) {
+
+            sessionsToAdapterFactory.put(newSession, new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
             if (newSession instanceof DAnalysisSessionEObject) {
                 getOwnedSessions().add((DAnalysisSessionEObject) newSession);
             }
@@ -171,6 +177,8 @@ public class SessionManagerImpl extends SessionManagerEObjectImpl implements Ses
             if (sessionsToListeners.isEmpty()) {
                 SiriusPlugin.getDefault().getModelAccessorRegistry().dispose();
             }
+
+            sessionsToAdapterFactory.remove(removedSession);
         }
 
     }
@@ -373,5 +381,14 @@ public class SessionManagerImpl extends SessionManagerEObjectImpl implements Ses
             extensionPointListeners.addAll(EclipseUtil.getExtensionPlugins(SessionManagerListener.class, SessionManagerListener.ID, SessionManagerListener.CLASS_ATTRIBUTE));
         }
         return extensionPointListeners;
+    }
+
+    @Override
+    public AdapterFactory getAdapterFactory(EObject anyEObject) {
+        AdapterFactory adapterFactory = sessionsToAdapterFactory.get(getSession(anyEObject));
+        if (adapterFactory == null) {
+            adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+        }
+        return adapterFactory;
     }
 }

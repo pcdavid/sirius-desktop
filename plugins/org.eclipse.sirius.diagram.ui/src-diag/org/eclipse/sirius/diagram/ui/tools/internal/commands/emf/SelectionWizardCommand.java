@@ -93,7 +93,7 @@ public class SelectionWizardCommand extends AbstractSelectionWizardCommand {
         }
         final EObjectSelectionWizard wizard = new EObjectSelectionWizard(MessageTranslator.INSTANCE.getMessage(this.tool.getWindowTitle()),
                 MessageTranslator.INSTANCE.getMessage(this.tool.getMessage()), getImage(), input,
-                DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+                DiagramUIPlugin.getPlugin().createAdapterFactory());
         wizard.setMany(tool.isMultiple());
         final WizardDialog dlg = new WizardDialog(shell, wizard);
         final int result = dlg.open();

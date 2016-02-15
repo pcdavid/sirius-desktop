@@ -45,8 +45,8 @@ public class OpenPropertiesWizardAction extends AbstractExternalJavaAction {
                 VPDecoratorHelper helper = new VPDecoratorHelper(eObject);
                 if (helper.canAdapt()) {
                     TransactionalEditingDomain editingDomain = org.eclipse.emf.transaction.util.TransactionUtil.getEditingDomain(eObject);
-                    DomainPropertiesEditionContext propertiesEditionContext = new DomainPropertiesEditionContext(null, null, editingDomain, DiagramUIPlugin.getPlugin()
-                            .getItemProvidersAdapterFactory(), helper.createSemanticAdapterFromDSemanticDecorator().getEObject());
+                    DomainPropertiesEditionContext propertiesEditionContext = new DomainPropertiesEditionContext(null, null, editingDomain, DiagramUIPlugin.getPlugin().createAdapterFactory(),
+                            helper.createSemanticAdapterFromDSemanticDecorator().getEObject());
                     WizardEditingOperation wizardEditingCommand = new WizardEditingOperation(propertiesEditionContext);
                     wizardEditingCommand.execute(new NullProgressMonitor(), null);
                     propertiesEditionContext.dispose();

@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.business.api.helper.SelectionDescriptionHelper;
 import org.eclipse.sirius.business.api.logger.RuntimeLoggerManager;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreterSiriusVariables;
@@ -32,7 +33,6 @@ import org.eclipse.sirius.diagram.EObjectVariableValue;
 import org.eclipse.sirius.diagram.TypedVariableValue;
 import org.eclipse.sirius.diagram.VariableValue;
 import org.eclipse.sirius.diagram.description.filter.VariableFilter;
-import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
@@ -108,7 +108,7 @@ public final class FilterTools {
 
                 if (!var.isMultiple()) {
                     final EObject modelElement = uiCallback.askForEObject(MessageTranslator.INSTANCE.getMessage(var.getMessage()), input,
-                            DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+                            SessionManager.INSTANCE.getAdapterFactory(diagram));
 
                     final EObjectVariableValue newValue = DiagramFactory.eINSTANCE.createEObjectVariableValue();
                     newValue.setModelElement(modelElement);
@@ -118,7 +118,7 @@ public final class FilterTools {
                     }
                 } else {
                     EList<EObject> values = new BasicEList<EObject>();
-                    final Collection<EObject> modelElements = uiCallback.askForEObjects(var.getMessage(), input, DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+                    final Collection<EObject> modelElements = uiCallback.askForEObjects(var.getMessage(), input, SessionManager.INSTANCE.getAdapterFactory(diagram));
 
                     values.addAll(modelElements);
                     EList<VariableValue> variables = new BasicEList<VariableValue>();

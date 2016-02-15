@@ -380,7 +380,7 @@ public abstract class AbstractDTreePropertySection extends AbstractPropertySecti
             if (getPart() instanceof DTreeEditor) {
                 adapterFactory = ((DTreeEditor) getPart()).getAdapterFactory();
             } else {
-                adapterFactory = TreeUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+                adapterFactory = TreeUIPlugin.getPlugin().createAdapterFactory();
             }
         }
         return adapterFactory;

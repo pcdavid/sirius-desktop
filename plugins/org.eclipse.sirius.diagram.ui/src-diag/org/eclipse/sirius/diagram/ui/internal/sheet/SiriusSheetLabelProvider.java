@@ -20,6 +20,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.DecoratingLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.ui.business.api.views.properties.tabbed.LabelProviderProviderService;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
@@ -36,13 +37,14 @@ public class SiriusSheetLabelProvider extends DecoratingLabelProvider {
      * @was-generated
      */
     public SiriusSheetLabelProvider() {
-        super(new AdapterFactoryLabelProvider(DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory()), null);
+        super(new AdapterFactoryLabelProvider(DiagramUIPlugin.getPlugin().createAdapterFactory()), null);
         labelProviderProviderService = new LabelProviderProviderService();
     }
 
     /**
      * @was-generated NOT
      */
+    @Override
     public String getText(Object element) {
         String text = null;
         ILabelProvider firstProvidedLabelProvider = labelProviderProviderService.getFirstProvidedLabelProvider(element);
@@ -53,7 +55,7 @@ public class SiriusSheetLabelProvider extends DecoratingLabelProvider {
             // begin change YMO.
             if (selected instanceof DSemanticDecorator && ((DSemanticDecorator) selected).getTarget() != null) {
                 EObject eObject = ((DSemanticDecorator) selected).getTarget();
-                AdapterFactory adapterFactory = DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+                AdapterFactory adapterFactory = SessionManager.INSTANCE.getAdapterFactory((EObject) selected);
                 IItemLabelProvider itemLabelProvider = (IItemLabelProvider) adapterFactory.adapt(eObject, IItemLabelProvider.class);
                 text = itemLabelProvider.getText(eObject);
             } else {
@@ -66,6 +68,7 @@ public class SiriusSheetLabelProvider extends DecoratingLabelProvider {
     /**
      * @not-generated
      */
+    @Override
     public Image getImage(Object element) {
         Image image = null;
         ILabelProvider firstProvidedLabelProvider = labelProviderProviderService.getFirstProvidedLabelProvider(element);

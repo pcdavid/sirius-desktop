@@ -16,8 +16,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import junit.framework.TestCase;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EObject;
@@ -48,6 +46,8 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.uml2.uml.VisibilityKind;
 import org.junit.Assert;
+
+import junit.framework.TestCase;
 
 /**
  * Test case for {@link ExtendedPropertySource}.
@@ -111,7 +111,7 @@ public class ExtendedPropertySourceTestCase extends TestCase {
         // sets null.
         SiriusPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(this.model).eSet(this.model, ExtendedPropertySourceTestCase.EXTENDED_FEATURE_NAME, null);
 
-        ExtendedPropertySource propertySource = new ExtendedPropertySource(this.diagram, DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+        ExtendedPropertySource propertySource = new ExtendedPropertySource(this.diagram, DiagramUIPlugin.getPlugin().createAdapterFactory());
         for (IPropertyDescriptor descriptor : propertySource.getPropertyDescriptors()) {
             Object value = propertySource.getPropertyValue(descriptor.getId());
             Assert.assertEquals("The value should be the empty string", "", value);
@@ -147,7 +147,7 @@ public class ExtendedPropertySourceTestCase extends TestCase {
 
         CustomPropertyDescriptorExtender customPropertyDescriptorExtender = new CustomPropertyDescriptorExtender();
 
-        final ExtendedPropertySource propertySource = new ExtendedPropertySource(this.diagram, DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+        final ExtendedPropertySource propertySource = new ExtendedPropertySource(this.diagram, DiagramUIPlugin.getPlugin().createAdapterFactory());
         final String id = customPropertyDescriptorExtender.getExtension().getPropertyDescriptor(this.model).getId(this.model);
 
         propertySource.setPropertyValue(id, value);
@@ -192,7 +192,7 @@ public class ExtendedPropertySourceTestCase extends TestCase {
         // sets null.
         SiriusPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(this.model).eSet(this.model, ExtendedPropertySourceTestCase.EXTENDED_FEATURE_NAME, null);
 
-        ExtendedPropertySource propertySource = new ExtendedPropertySource(this.diagram, DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+        ExtendedPropertySource propertySource = new ExtendedPropertySource(this.diagram, DiagramUIPlugin.getPlugin().createAdapterFactory());
         for (IPropertyDescriptor descriptor : propertySource.getPropertyDescriptors()) {
             Object value = propertySource.getPropertyValue(descriptor.getId());
             Assert.assertEquals("The value should be the empty string", "", value);
@@ -239,7 +239,7 @@ public class ExtendedPropertySourceTestCase extends TestCase {
 
         //
         // Try to get extended descriptors
-        ExtendedPropertySource propertySource = new ExtendedPropertySource(this.diagram, DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+        ExtendedPropertySource propertySource = new ExtendedPropertySource(this.diagram, DiagramUIPlugin.getPlugin().createAdapterFactory());
         IPropertyDescriptor[] descriptors = propertySource.getPropertyDescriptors();
         Assert.assertEquals("Wrong number of descriptors", 1, descriptors.length);
         //
@@ -521,109 +521,135 @@ public class ExtendedPropertySourceTestCase extends TestCase {
      */
     public static class BasicMetaModelExtender extends AbstractMetamodelExtender {
 
+        @Override
         public EObject createInstance(String name) {
             return null;
         }
 
+        @Override
         public boolean eIsKnownType(String name) {
             return false;
         }
 
+        @Override
         public void dispose() {
         }
 
+        @Override
         public Object eAdd(EObject instance, String name, Object value) {
             return null;
         }
 
+        @Override
         public Object eClear(EObject instance, String name) {
             return null;
         }
 
+        @Override
         public EObject eContainer(EObject instance) {
             return null;
         }
 
+        @Override
         public String eContainingFeatureName(EObject objectToRemove) {
             return null;
         }
 
+        @Override
         public Iterator<EObject> eContents(EObject root) {
             return Collections.<EObject> emptyList().iterator();
         }
 
+        @Override
         public EObject eDelete(EObject objectToRemove, ECrossReferenceAdapter xref) {
             return null;
         }
 
+        @Override
         public EObject eDelete(EObject objectToRemove, ECrossReferenceAdapter xref, EReferencePredicate isReferenceToIgnorePredicate) {
             return null;
         }
-        
+
         @Override
         public Collection<EObject> eRemoveInverseCrossReferences(EObject eObject, ECrossReferenceAdapter xref, EReferencePredicate isReferencesToIgnorePredicate) {
             return Collections.emptyList();
         }
 
+        @Override
         public Object eGet(EObject instance, String name) {
             return null;
         }
 
+        @Override
         public boolean eInstanceOf(EObject instance, String typeName) {
             return false;
         }
 
+        @Override
         public Boolean eIsContainment(EObject instance, String featureName) {
             return Boolean.FALSE;
         }
 
+        @Override
         public Boolean eIsMany(EObject instance, String featureName) {
             return Boolean.FALSE;
         }
 
+        @Override
         public Object eRemove(EObject instance, String name, Object value) {
             return null;
         }
 
+        @Override
         public Object eSet(EObject instance, String name, Object value) {
             return null;
         }
 
+        @Override
         public boolean eValid(EObject object, String name) {
             return false;
         }
 
+        @Override
         public Collection<ExtensionFeatureDescription> getAllExtensionFeatureDescriptions(EObject target) {
             return Collections.emptyList();
         }
 
+        @Override
         public Iterator<String> getContributedAttributeNames(EObject instance) {
             return Collections.<String> emptyList().iterator();
         }
 
+        @Override
         public Iterator<String> getContributedReferenceNames(EObject instance) {
             return Collections.<String> emptyList().iterator();
         }
 
+        @Override
         public String getQualifiedName(EObject element, boolean useTypeWhenNoName) {
             return null;
         }
 
+        @Override
         public boolean hasExtension(EObject next) {
             return false;
         }
 
+        @Override
         public void init(ResourceSet set) {
         }
 
+        @Override
         public boolean isExtension(EObject next) {
             return false;
         }
 
+        @Override
         public boolean isExtension(EObject next, String name) {
             return false;
         }
 
+        @Override
         public boolean preventFromBrowsing(EObject root) {
             return false;
         }

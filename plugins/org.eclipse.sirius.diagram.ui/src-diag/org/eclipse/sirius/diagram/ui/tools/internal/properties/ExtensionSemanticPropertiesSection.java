@@ -49,6 +49,7 @@ public class ExtensionSemanticPropertiesSection extends AdvancedPropertySection 
      * 
      * @see org.eclipse.ui.views.properties.IPropertySourceProvider#getPropertySource(java.lang.Object)
      */
+    @Override
     public IPropertySource getPropertySource(final Object object) {
 
         IPropertySource propertySrc = null;
@@ -85,7 +86,7 @@ public class ExtensionSemanticPropertiesSection extends AdvancedPropertySection 
             if (part instanceof DDiagramEditor) {
                 adapterFactory = ((DDiagramEditor) part).getAdapterFactory();
             } else {
-                adapterFactory = DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+                adapterFactory = DiagramUIPlugin.getPlugin().createAdapterFactory();
             }
         }
         return adapterFactory;

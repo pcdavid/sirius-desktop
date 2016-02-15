@@ -98,7 +98,7 @@ public class PaneBasedSelectionWizardCommand extends AbstractSelectionWizardComm
         final EObjectPaneBasedSelectionWizard wizard = new EObjectPaneBasedSelectionWizard(MessageTranslator.INSTANCE.getMessage(this.tool.getWindowTitle()),
                 MessageTranslator.INSTANCE.getMessage(this.tool.getMessage()),
  getImage(), MessageTranslator.INSTANCE.getMessage(this.tool.getChoiceOfValuesMessage()),
-                MessageTranslator.INSTANCE.getMessage(this.tool.getSelectedValuesMessage()), DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+                MessageTranslator.INSTANCE.getMessage(this.tool.getSelectedValuesMessage()), DiagramUIPlugin.getPlugin().createAdapterFactory());
         wizard.init(input, preSelection);
         final WizardDialog dlg = new WizardDialog(shell, wizard);
         final int result = dlg.open();
@@ -222,7 +222,8 @@ public class PaneBasedSelectionWizardCommand extends AbstractSelectionWizardComm
      * @param input
      *            the TreeItemWrapper to complete
      */
-    private static void computeInput(final PaneBasedSelectionWizardDescription paneBasedSelectionWizardDescription, final EObject container, final IInterpreter interpreter, final TreeItemWrapper input) {
+    private static void computeInput(final PaneBasedSelectionWizardDescription paneBasedSelectionWizardDescription, final EObject container, final IInterpreter interpreter,
+            final TreeItemWrapper input) {
 
         final Collection<EObject> referencingENode = ImmutableSet.copyOf(RuntimeLoggerManager.INSTANCE.decorate(interpreter).evaluateCollection(container, paneBasedSelectionWizardDescription,
                 ToolPackage.eINSTANCE.getPaneBasedSelectionWizardDescription_CandidatesExpression()));

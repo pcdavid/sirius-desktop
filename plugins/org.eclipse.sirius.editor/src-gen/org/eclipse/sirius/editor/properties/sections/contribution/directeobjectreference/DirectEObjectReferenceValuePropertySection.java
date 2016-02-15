@@ -31,6 +31,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.componentization.ViewpointResourceHandler;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.internal.movida.Movida;
 import org.eclipse.sirius.common.tools.api.util.TreeItemWrapper;
 import org.eclipse.sirius.common.ui.tools.api.selection.EObjectSelectionWizard;
@@ -40,7 +41,6 @@ import org.eclipse.sirius.editor.editorPlugin.SiriusEditor;
 import org.eclipse.sirius.editor.properties.sections.common.AbstractComboPropertySection;
 import org.eclipse.sirius.ext.emf.AllContents;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -63,6 +63,7 @@ public class DirectEObjectReferenceValuePropertySection extends AbstractComboPro
     /**
      * @see org.eclipse.sirius.editor.properties.sections.AbstractComboPropertySection#getDefaultLabelText()
      */
+    @Override
     protected String getDefaultLabelText() {
         return "Value"; //$NON-NLS-1$
     }
@@ -70,6 +71,7 @@ public class DirectEObjectReferenceValuePropertySection extends AbstractComboPro
     /**
      * @see org.eclipse.sirius.editor.properties.sections.AbstractComboPropertySection#getLabelText()
      */
+    @Override
     protected String getLabelText() {
         String labelText;
         labelText = super.getLabelText() + "*:"; //$NON-NLS-1$
@@ -82,6 +84,7 @@ public class DirectEObjectReferenceValuePropertySection extends AbstractComboPro
     /**
      * @see org.eclipse.sirius.editor.properties.sections.AbstractComboPropertySection#getFeature()
      */
+    @Override
     protected EReference getFeature() {
         return ContributionPackage.eINSTANCE.getDirectEObjectReference_Value();
     }
@@ -89,6 +92,7 @@ public class DirectEObjectReferenceValuePropertySection extends AbstractComboPro
     /**
      * @see org.eclipse.sirius.editor.properties.sections.AbstractComboPropertySection#getFeatureValue(int)
      */
+    @Override
     protected Object getFeatureValue(int index) {
         return getFeatureValueAt(index);
     }
@@ -96,6 +100,7 @@ public class DirectEObjectReferenceValuePropertySection extends AbstractComboPro
     /**
      * @see org.eclipse.sirius.editor.properties.sections.AbstractComboPropertySection#isEqual(int)
      */
+    @Override
     protected boolean isEqual(int index) {
         boolean isEqual = false;
         if (getFeatureValueAt(index) == null)
@@ -126,6 +131,7 @@ public class DirectEObjectReferenceValuePropertySection extends AbstractComboPro
      * 
      * @return The list of available values for the feature.
      */
+    @Override
     protected List<?> getChoiceOfValues() {
         List<?> values = Collections.emptyList();
         List<IItemPropertyDescriptor> propertyDescriptors = getDescriptors();
@@ -156,6 +162,7 @@ public class DirectEObjectReferenceValuePropertySection extends AbstractComboPro
     /**
      * {@inheritDoc}
      */
+    @Override
     public void createControls(Composite parent, TabbedPropertySheetPage tabbedPropertySheetPage) {
         super.createControls(parent, tabbedPropertySheetPage);
         nameLabel.setFont(SiriusEditor.getFontRegistry().get("required"));
@@ -191,7 +198,7 @@ public class DirectEObjectReferenceValuePropertySection extends AbstractComboPro
                 if (eObject instanceof DirectEObjectReference) {
                     List<EObject> roots = Lists.newArrayList();
                     roots.addAll(new EObjectQuery(eObject).getAvailableViewpointsInResourceSet());
-                    AdapterFactory af = SiriusEditPlugin.getPlugin().getItemProvidersAdapterFactory();
+                    AdapterFactory af = SessionManager.INSTANCE.getAdapterFactory(eObject);
                     TreeItemWrapper wrapper = buildWrapper(roots);
                     EObjectSelectionWizard wizard = new EObjectSelectionWizard("Selection", "Please select an object to reference", null, wrapper, af);
                     wizard.setMany(Boolean.FALSE);

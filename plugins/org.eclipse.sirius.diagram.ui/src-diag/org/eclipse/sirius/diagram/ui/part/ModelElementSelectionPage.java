@@ -78,6 +78,7 @@ public class ModelElementSelectionPage extends WizardPage {
     /**
      * @was-generated
      */
+    @Override
     public void createControl(Composite parent) {
         initializeDialogUnits(parent);
 
@@ -97,14 +98,15 @@ public class ModelElementSelectionPage extends WizardPage {
         layoutData.heightHint = 300;
         layoutData.widthHint = 300;
         modelVewer.getTree().setLayoutData(layoutData);
-        modelVewer.setContentProvider(new AdapterFactoryContentProvider(DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory()));
-        modelVewer.setLabelProvider(new AdapterFactoryLabelProvider(DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory()));
+        modelVewer.setContentProvider(new AdapterFactoryContentProvider(DiagramUIPlugin.getPlugin().createAdapterFactory()));
+        modelVewer.setLabelProvider(new AdapterFactoryLabelProvider(DiagramUIPlugin.getPlugin().createAdapterFactory()));
         if (selectedModelElement != null) {
             modelVewer.setInput(selectedModelElement.eResource());
             modelVewer.setSelection(new StructuredSelection(selectedModelElement));
         }
         modelVewer.addSelectionChangedListener(new ISelectionChangedListener() {
 
+            @Override
             public void selectionChanged(SelectionChangedEvent event) {
                 ModelElementSelectionPage.this.updateSelection((IStructuredSelection) event.getSelection());
             }

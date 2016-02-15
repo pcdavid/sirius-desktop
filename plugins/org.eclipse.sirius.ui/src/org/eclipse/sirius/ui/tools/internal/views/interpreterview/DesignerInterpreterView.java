@@ -24,6 +24,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -61,7 +62,6 @@ import org.eclipse.sirius.ui.tools.internal.views.common.navigator.adapters.Mode
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.sirius.viewpoint.provider.Messages;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.DND;
@@ -183,7 +183,7 @@ public class DesignerInterpreterView extends ViewPart implements InterpreterView
 
     ITreeContentProvider getContentProvider() {
         if (contentProvider == null) {
-            contentProvider = new VariableContentProvider(SiriusEditPlugin.getPlugin().getItemProvidersAdapterFactory());
+            contentProvider = new VariableContentProvider(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
         }
         return contentProvider;
     }
@@ -201,7 +201,7 @@ public class DesignerInterpreterView extends ViewPart implements InterpreterView
         top = new Composite(parent, SWT.NONE);
         top.setLayout(gridLayout);
 
-        labelProvider = new AdapterFactoryLabelProvider(SiriusEditPlugin.getPlugin().getItemProvidersAdapterFactory());
+        labelProvider = new AdapterFactoryLabelProvider(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
 
         createIntepreterSection();
         createVariablesSection();
@@ -242,6 +242,7 @@ public class DesignerInterpreterView extends ViewPart implements InterpreterView
         unSetVariableButton.dispose();
         variablesTree.dispose();
         labelProvider.dispose();
+        contentProvider.dispose();
     }
 
     /**

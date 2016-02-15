@@ -12,8 +12,6 @@ package org.eclipse.sirius.table.metamodel.table.provider;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
@@ -26,19 +24,11 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.sirius.viewpoint.description.audit.provider.AuditItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.provider.DescriptionItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.tool.provider.ToolItemProviderAdapterFactory;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
-import org.eclipse.sirius.viewpoint.provider.ViewpointItemProviderAdapterFactory;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -114,8 +104,6 @@ public final class TableUIPlugin extends EMFPlugin {
      */
     public static class Implementation extends EclipsePlugin {
 
-        private ComposedAdapterFactory adapterFactory;
-
         /**
          * Creates an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
@@ -130,38 +118,10 @@ public final class TableUIPlugin extends EMFPlugin {
         }
 
         /**
-         * @not-generated : recreate adapter factory if destroyed..
-         */
-        public AdapterFactory getItemProvidersAdapterFactory() {
-            if (adapterFactory == null) {
-                adapterFactory = createAdapterFactory();
-            }
-            return adapterFactory;
-        }
-
-        /**
          * @not-generated
          */
         public ComposedAdapterFactory createAdapterFactory() {
-            List<AdapterFactory> factories = new ArrayList<AdapterFactory>();
-            factories.add(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
-            fillItemProviderFactories(factories);
-            return new ComposedAdapterFactory(factories);
-        }
-
-        /**
-         * @not-generated
-         */
-        protected void fillItemProviderFactories(List<AdapterFactory> factories) {
-            factories.add(new ViewpointItemProviderAdapterFactory());
-            factories.add(new DescriptionItemProviderAdapterFactory());
-            factories.add(new ToolItemProviderAdapterFactory());
-            factories.add(new AuditItemProviderAdapterFactory());
-            factories.add(new EcoreItemProviderAdapterFactory());
-            factories.add(new ResourceItemProviderAdapterFactory());
-            factories.add(new ReflectiveItemProviderAdapterFactory());
-            factories.add(new org.eclipse.sirius.table.metamodel.table.description.provider.DescriptionItemProviderAdapterFactory());
-            factories.add(new TableItemProviderAdapterFactory());
+            return new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
         }
 
         /**

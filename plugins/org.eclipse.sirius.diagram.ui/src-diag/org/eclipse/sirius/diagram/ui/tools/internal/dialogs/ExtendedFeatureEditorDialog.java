@@ -43,6 +43,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ExtensionFeatureDescription;
@@ -130,7 +131,7 @@ public class ExtendedFeatureEditorDialog extends Dialog {
                 ImageDescriptor descriptor = null;
                 if (element instanceof EObject) {
                     final EObject target = (EObject) element;
-                    final IItemLabelProvider myLabelProvider = (IItemLabelProvider) DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory().adapt(target, IItemLabelProvider.class);
+                    final IItemLabelProvider myLabelProvider = (IItemLabelProvider) SessionManager.INSTANCE.getAdapterFactory(target).adapt(target, IItemLabelProvider.class);
                     descriptor = ExtendedImageRegistry.getInstance().getImageDescriptor(myLabelProvider.getImage(target));
 
                 }
@@ -484,6 +485,7 @@ public class ExtendedFeatureEditorDialog extends Dialog {
     private void setTableViewerListener(final TableViewer choiceTableViewer, final TableViewer featureTableViewer, final Button addButton, final Button removeButton) {
         if (choiceTableViewer != null) {
             choiceTableViewer.addDoubleClickListener(new IDoubleClickListener() {
+                @Override
                 public void doubleClick(final DoubleClickEvent event) {
                     if (addButton.isEnabled()) {
                         addButton.notifyListeners(SWT.Selection, null);
@@ -492,6 +494,7 @@ public class ExtendedFeatureEditorDialog extends Dialog {
             });
 
             featureTableViewer.addDoubleClickListener(new IDoubleClickListener() {
+                @Override
                 public void doubleClick(final DoubleClickEvent event) {
                     if (removeButton.isEnabled()) {
                         removeButton.notifyListeners(SWT.Selection, null);

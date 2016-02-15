@@ -11,7 +11,6 @@
 package org.eclipse.sirius.diagram.ui.tools.internal.menu;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -28,12 +27,12 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.NoteEditPart;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.ui.SiriusTransPlugin;
 import org.eclipse.sirius.common.ui.tools.api.editor.IEObjectNavigable;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.ui.business.internal.navigation.MappingDefinitionFinder;
 import org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditor;
-import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.diagram.ui.provider.Messages;
 import org.eclipse.sirius.ui.tools.api.image.ImagesPath;
 import org.eclipse.ui.IActionBars;
@@ -115,7 +114,7 @@ public class SpecificationMenuContribution implements IContributionItemProvider 
                 final IFile modelFile = WorkspaceSynchronizer.getFile(resource);
 
                 ImageDescriptor imageDescriptor = SiriusTransPlugin.getBundledImageDescriptor(ImagesPath.LINK_TO_VIEWPOINT_IMG);
-                final IItemLabelProvider labelProvider = (IItemLabelProvider) getAdapterFactory().adapt(description, IItemLabelProvider.class);
+                final IItemLabelProvider labelProvider = (IItemLabelProvider) SessionManager.INSTANCE.getAdapterFactory(designerObj).adapt(description, IItemLabelProvider.class);
                 if (labelProvider != null) {
                     imageDescriptor = ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(description));
                 }
@@ -207,9 +206,4 @@ public class SpecificationMenuContribution implements IContributionItemProvider 
         // Nothing to contribute
 
     }
-
-    private AdapterFactory getAdapterFactory() {
-        return DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory();
-    }
-
 }

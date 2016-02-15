@@ -17,8 +17,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.ui.tools.api.properties.SiriusExtensiblePropertySource;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
@@ -49,11 +49,13 @@ public class SemanticPropertySection extends AdvancedPropertySection implements 
         if (selectedObject instanceof IAdaptable) {
             selectedObject = ((IAdaptable) selectedObject).getAdapter(EObject.class);
         }
-        AdapterFactory af = SiriusEditPlugin.getPlugin().getItemProvidersAdapterFactory();
-        if (af != null && (isSemanticEObject(selectedObject) || object instanceof PropertyValueWrapper)) {
-            IItemPropertySource ips = (IItemPropertySource) af.adapt(selectedObject, IItemPropertySource.class);
-            if (ips != null) {
-                propSrc = new SiriusExtensiblePropertySource(selectedObject, ips);
+        if (selectedObject instanceof EObject) {
+            AdapterFactory af = SessionManager.INSTANCE.getAdapterFactory((EObject) object);
+            if (af != null && (isSemanticEObject(selectedObject) || object instanceof PropertyValueWrapper)) {
+                IItemPropertySource ips = (IItemPropertySource) af.adapt(selectedObject, IItemPropertySource.class);
+                if (ips != null) {
+                    propSrc = new SiriusExtensiblePropertySource(selectedObject, ips);
+                }
             }
         }
         return propSrc;

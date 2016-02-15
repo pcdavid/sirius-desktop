@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008-2015 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2008, 2016 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,6 +13,7 @@ package org.eclipse.sirius.ui.business.api.session.analysis;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -23,7 +24,6 @@ import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.provider.Messages;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
@@ -57,7 +57,7 @@ public class SmartDialogAnalysisSelector implements DAnalysisSelector {
      */
     private DAnalysis selectSmartlyAnalysis(final Collection<DAnalysis> allAnalysis) {
 
-        final ILabelProvider provider = new AdapterFactoryLabelProvider(SiriusEditPlugin.getPlugin().getItemProvidersAdapterFactory()) {
+        final ILabelProvider provider = new AdapterFactoryLabelProvider(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE)) {
             private IDecoratorManager decoratorManager = PlatformUI.getWorkbench().getDecoratorManager();
 
             @Override
@@ -101,11 +101,15 @@ public class SmartDialogAnalysisSelector implements DAnalysisSelector {
                 }
             }
         };
-        /* synch execution as the user need to choose before we can get further */
+        /*
+         * synch execution as the user need to choose before we can get further
+         */
         EclipseUIUtil.displaySyncExec(runnable);
         if (runnable.getResult() instanceof DAnalysis) {
             return (DAnalysis) runnable.getResult();
         }
+        provider.dispose();
+
         return (DAnalysis) allAnalysis.toArray()[0];
     }
 }

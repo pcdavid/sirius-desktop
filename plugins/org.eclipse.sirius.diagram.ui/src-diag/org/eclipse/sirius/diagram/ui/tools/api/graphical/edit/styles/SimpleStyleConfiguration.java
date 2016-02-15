@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.IBorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.resource.FileProvider;
 import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.diagram.BorderedStyle;
@@ -149,7 +150,7 @@ public class SimpleStyleConfiguration implements StyleConfiguration {
                 if (useCustomIcon(vpElement, editPart)) {
                     descriptor = getCustomIconDescriptor(vpElement, editPart);
                 } else if (target != null) {
-                    final IItemLabelProvider labelProvider = (IItemLabelProvider) DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory().adapt(target, IItemLabelProvider.class);
+                    final IItemLabelProvider labelProvider = (IItemLabelProvider) SessionManager.INSTANCE.getAdapterFactory(target).adapt(target, IItemLabelProvider.class);
                     if (labelProvider != null) {
                         descriptor = ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(target));
                     }

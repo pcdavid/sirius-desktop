@@ -292,7 +292,7 @@ public class AbstractRefreshWithCustomizedStyleOnCompleteExampleTest extends Abs
         editor.reveal(swtBotGefEditPart.part());
         swtBotGefEditPart.select();
         SWTBotSiriusHelper.selectPropertyTabItem(STYLE_TAB_NAME);
-        AdapterFactory adapterFactory = DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+        AdapterFactory adapterFactory = DiagramUIPlugin.getPlugin().createAdapterFactory();
         IItemPropertySource itemPropertySource = (IItemPropertySource) adapterFactory.adapt(style, IItemPropertySource.class);
         IItemPropertyDescriptor propertyDescriptor = itemPropertySource.getPropertyDescriptor(style, feature.getName());
         if (propertyDescriptor != null) {

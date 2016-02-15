@@ -12,47 +12,34 @@
 package org.eclipse.sirius.diagram.ui.provider;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
-import org.eclipse.emf.edit.provider.INotifyChangedListener;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
 import org.eclipse.jface.viewers.IDecoration;
-import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.sirius.diagram.description.concern.provider.ConcernItemProviderAdapterFactory;
-import org.eclipse.sirius.diagram.description.filter.provider.FilterItemProviderAdapterFactory;
-import org.eclipse.sirius.diagram.provider.DiagramItemProviderAdapterFactory;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.ui.business.internal.image.ImageSelectorDescriptorRegistryListener;
 import org.eclipse.sirius.diagram.ui.business.internal.image.refresh.WorkspaceImageFigureRefresher;
 import org.eclipse.sirius.diagram.ui.internal.refresh.listeners.WorkspaceFileResourceChangeListener;
 import org.eclipse.sirius.diagram.ui.tools.internal.layout.data.extension.LayoutDataManagerRegistryListener;
 import org.eclipse.sirius.diagram.ui.tools.internal.resource.CustomSiriusDocumentProvider;
 import org.eclipse.sirius.diagram.ui.tools.internal.resource.ResourceMissingDocumentProvider;
-import org.eclipse.sirius.viewpoint.description.audit.provider.AuditItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.validation.provider.ValidationItemProviderAdapterFactory;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
-import org.eclipse.sirius.viewpoint.provider.ViewpointItemProviderAdapterFactory;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -130,10 +117,6 @@ public final class DiagramUIPlugin extends EMFPlugin {
      */
     public static class Implementation extends EclipseUIPlugin {
 
-        private ComposedAdapterFactory adapterFactory;
-
-        private ILabelProvider labelProvider;
-
         private Map<ImageWithDimensionDescriptor, Image> descriptorsToImages;
 
         private ResourceMissingDocumentProvider ressourceMissingDocumentProvider;
@@ -164,7 +147,6 @@ public final class DiagramUIPlugin extends EMFPlugin {
         public void start(BundleContext context) throws Exception {
             super.start(context);
             PreferencesHint.registerPreferenceStore(DiagramUIPlugin.DIAGRAM_PREFERENCES_HINT, getPreferenceStore());
-            adapterFactory = createAdapterFactory();
             descriptorsToImages = new HashMap<ImageWithDimensionDescriptor, Image>();
             ressourceMissingDocumentProvider = new ResourceMissingDocumentProvider();
 
@@ -183,19 +165,6 @@ public final class DiagramUIPlugin extends EMFPlugin {
          */
         @Override
         public void stop(BundleContext context) throws Exception {
-            try {
-                disposeLabelProvider();
-
-                adapterFactory.dispose();
-                adapterFactory = null;
-            } catch (NullPointerException e) {
-                // can occur when using CDO (if the view is
-                // closed when transactions have been closed)
-            } catch (IllegalStateException e) {
-                // can occur when using CDO (if the view is
-                // closed when transactions have been closed)
-            }
-
             layoutDataManagerRegistryListener.dispose();
             layoutDataManagerRegistryListener = null;
 
@@ -221,20 +190,13 @@ public final class DiagramUIPlugin extends EMFPlugin {
             super.stop(context);
         }
 
-        protected void disposeLabelProvider() {
-            if (labelProvider instanceof INotifyChangedListener) {
-                adapterFactory.removeListener((INotifyChangedListener) labelProvider);
-            }
-        }
-
         /**
-         * @was-generated NOT use THE mighty factory
+         * Return a new adapter factory.
+         *
+         * @return A new adapter factory
          */
-        protected ComposedAdapterFactory createAdapterFactory() {
-            List<AdapterFactory> factories = new ArrayList<AdapterFactory>();
-            factories.add(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
-            fillItemProviderFactories(factories);
-            return new ComposedAdapterFactory(factories);
+        public ComposedAdapterFactory createAdapterFactory() {
+            return new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
         }
 
         /**
@@ -246,66 +208,11 @@ public final class DiagramUIPlugin extends EMFPlugin {
             return createAdapterFactory();
         }
 
-        protected ILabelProvider createLabelProvider() {
-            if (labelProvider == null) {
-                labelProvider = new AdapterFactoryLabelProvider(getItemProvidersAdapterFactory());
-            }
-            return labelProvider;
-        }
-
         /**
          * @was-generated
          */
-        protected void fillItemProviderFactories(List<AdapterFactory> factories) {
-            factories.add(new ViewpointItemProviderAdapterFactory());
-            factories.add(new DiagramItemProviderAdapterFactory());
-
-            factories.add(new org.eclipse.sirius.viewpoint.description.provider.DescriptionItemProviderAdapterFactory());
-            factories.add(new org.eclipse.sirius.diagram.description.provider.DescriptionItemProviderAdapterFactory());
-
-            factories.add(new org.eclipse.sirius.viewpoint.description.style.provider.StyleItemProviderAdapterFactory());
-            factories.add(new org.eclipse.sirius.diagram.description.style.provider.StyleItemProviderAdapterFactory());
-
-            factories.add(new org.eclipse.sirius.viewpoint.description.tool.provider.ToolItemProviderAdapterFactory());
-            factories.add(new org.eclipse.sirius.diagram.description.tool.provider.ToolItemProviderAdapterFactory());
-
-            factories.add(new AuditItemProviderAdapterFactory());
-            factories.add(new ConcernItemProviderAdapterFactory());
-            factories.add(new FilterItemProviderAdapterFactory());
-            factories.add(new ValidationItemProviderAdapterFactory());
-
-            factories.add(new EcoreItemProviderAdapterFactory());
-            factories.add(new ResourceItemProviderAdapterFactory());
-            factories.add(new ReflectiveItemProviderAdapterFactory());
-        }
-
-        /**
-         * @not-generated : recreate adapter factory if destroyed..
-         */
-        public AdapterFactory getItemProvidersAdapterFactory() {
-            if (adapterFactory == null) {
-                adapterFactory = createAdapterFactory();
-            }
-            return adapterFactory;
-        }
-
-        /**
-         * Get the default label provider.
-         *
-         * @return the label provider single instance
-         */
-        public ILabelProvider getLabelProvider() {
-            if (labelProvider == null) {
-                createLabelProvider();
-            }
-            return labelProvider;
-        }
-
-        /**
-         * @was-generated
-         */
-        public ImageDescriptor getItemImageDescriptor(Object item) {
-            IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.adapt(item, IItemLabelProvider.class);
+        public ImageDescriptor getItemImageDescriptor(EObject item) {
+            IItemLabelProvider labelProvider = (IItemLabelProvider) SessionManager.INSTANCE.getAdapterFactory(item).adapt(item, IItemLabelProvider.class);
             if (labelProvider != null) {
                 return ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(item));
             }

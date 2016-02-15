@@ -15,6 +15,8 @@ import java.util.List;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -91,6 +93,8 @@ public class LabelProviderProviderTests extends AbstractSiriusSwtBotGefTestCase 
 
     private Image defaultImage;
 
+    private ILabelProvider labelProvider;
+
     /**
      * Save extension to avoid side effect of other plugin because this pur unit
      * test is executed as JUnit Plugin test
@@ -101,10 +105,12 @@ public class LabelProviderProviderTests extends AbstractSiriusSwtBotGefTestCase 
     protected void onSetUpBeforeClosingWelcomePage() throws Exception {
         super.onSetUpBeforeClosingWelcomePage();
 
+        labelProvider = new AdapterFactoryLabelProvider(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
+
         defaultImage = UIThreadRunnable.syncExec(new Result<Image>() {
             @Override
             public Image run() {
-                return DiagramUIPlugin.getPlugin().getLabelProvider().getImage(EcorePackage.eINSTANCE);
+                return labelProvider.getImage(EcorePackage.eINSTANCE);
             }
         });
 

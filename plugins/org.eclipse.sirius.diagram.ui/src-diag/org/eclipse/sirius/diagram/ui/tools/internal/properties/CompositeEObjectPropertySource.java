@@ -75,7 +75,7 @@ public class CompositeEObjectPropertySource extends AbstractCompositeEObjectProp
         if (part instanceof DDiagramEditor) {
             adapterFactory = ((DDiagramEditor) part).getAdapterFactory();
         } else {
-            adapterFactory = DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+            adapterFactory = DiagramUIPlugin.getPlugin().createAdapterFactory();
         }
         return adapterFactory;
     }

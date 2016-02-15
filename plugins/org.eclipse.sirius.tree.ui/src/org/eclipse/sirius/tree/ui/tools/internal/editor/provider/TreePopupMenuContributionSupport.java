@@ -24,13 +24,11 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.resource.ImageDescriptor;
-
-import com.google.common.collect.Iterators;
-
-import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
-import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.business.api.logger.RuntimeLoggerManager;
 import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
+import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
+import org.eclipse.sirius.common.tools.api.util.StringUtil;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.MetaClassNotFoundException;
 import org.eclipse.sirius.tools.api.ui.ExternalJavaActionProvider;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.eclipse.sirius.tree.DTreeItem;
@@ -46,11 +44,13 @@ import org.eclipse.sirius.viewpoint.description.tool.ExternalJavaActionCall;
 import org.eclipse.sirius.viewpoint.description.tool.MenuItemDescription;
 import org.eclipse.sirius.viewpoint.description.tool.OperationAction;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
-import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.MetaClassNotFoundException;
+
+import com.google.common.collect.Iterators;
 
 /**
  * A Class that will populate a {@link DTreeItem}'s contextual menu using all
- * the {@link org.eclipse.sirius.viewpoint.description.tool.PopupMenu}s defined with its associate
+ * the {@link org.eclipse.sirius.viewpoint.description.tool.PopupMenu}s defined
+ * with its associate
  * {@link org.eclipse.sirius.tree.description.TreeItemMapping}.
  * 
  * @author <a href="mailto:alex.lagarde@obeo.fr">Alex Lagarde</a>
@@ -307,7 +307,7 @@ public final class TreePopupMenuContributionSupport {
         }
 
         if (created != null) {
-            final IItemLabelProvider labelProvider = (IItemLabelProvider) TreeUIPlugin.getPlugin().getItemProvidersAdapterFactory().adapt(created, IItemLabelProvider.class);
+            final IItemLabelProvider labelProvider = (IItemLabelProvider) TreeUIPlugin.getPlugin().createAdapterFactory().adapt(created, IItemLabelProvider.class);
             if (labelProvider != null) {
                 ImageDescriptor semanticDescriptor = ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(created));
                 if (semanticDescriptor != null) {

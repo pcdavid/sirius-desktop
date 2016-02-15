@@ -160,6 +160,7 @@ public class SiriusModelingAssistantProvider extends ModelingAssistantProvider {
     /**
      * @was-generated NOT : remove all Types.
      */
+    @Override
     public List<?> getTypesForPopupBar(IAdaptable host) {
         // LGO : "editPart = null" had been added to remove all types. putting
         // this
@@ -169,22 +170,27 @@ public class SiriusModelingAssistantProvider extends ModelingAssistantProvider {
         return Collections.EMPTY_LIST;
     }
 
+    @Override
     public List<?> getRelTypesOnSource(IAdaptable source) {
         return Collections.EMPTY_LIST;
     }
 
+    @Override
     public List<?> getRelTypesOnTarget(IAdaptable target) {
         return Collections.EMPTY_LIST;
     }
 
+    @Override
     public List<?> getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
         return Collections.EMPTY_LIST;
     }
 
+    @Override
     public List<?> getTypesForSource(IAdaptable target, IElementType relationshipType) {
         return Collections.EMPTY_LIST;
     }
 
+    @Override
     public List<?> getTypesForTarget(IAdaptable source, IElementType relationshipType) {
         return Collections.EMPTY_LIST;
     }
@@ -192,6 +198,7 @@ public class SiriusModelingAssistantProvider extends ModelingAssistantProvider {
     /**
      * @was-generated
      */
+    @Override
     public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
         return selectExistingElement(target, getTypesForSource(target, relationshipType));
     }
@@ -199,6 +206,7 @@ public class SiriusModelingAssistantProvider extends ModelingAssistantProvider {
     /**
      * @was-generated
      */
+    @Override
     public EObject selectExistingElementForTarget(IAdaptable source, IElementType relationshipType) {
         return selectExistingElement(source, getTypesForTarget(source, relationshipType));
     }
@@ -241,7 +249,7 @@ public class SiriusModelingAssistantProvider extends ModelingAssistantProvider {
      */
     protected EObject selectElement(EObject[] elements) {
         Shell shell = Display.getCurrent().getActiveShell();
-        ILabelProvider labelProvider = new AdapterFactoryLabelProvider(DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
+        ILabelProvider labelProvider = new AdapterFactoryLabelProvider(DiagramUIPlugin.getPlugin().createAdapterFactory());
         ElementListSelectionDialog dialog = new ElementListSelectionDialog(shell, labelProvider);
         dialog.setMessage(Messages.SiriusModelingAssistantProviderMessage);
         dialog.setTitle(Messages.SiriusModelingAssistantProviderTitle);
@@ -251,6 +259,7 @@ public class SiriusModelingAssistantProvider extends ModelingAssistantProvider {
         if (dialog.open() == Window.OK) {
             selected = (EObject) dialog.getFirstResult();
         }
+        labelProvider.dispose();
         return selected;
     }
 }

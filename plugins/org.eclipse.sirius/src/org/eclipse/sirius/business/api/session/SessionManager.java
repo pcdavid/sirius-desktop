@@ -13,6 +13,7 @@ package org.eclipse.sirius.business.api.session;
 import java.util.Collection;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -141,5 +142,15 @@ public interface SessionManager {
      * @since 0.9.0
      */
     Session getExistingSession(URI sessionResourceURI);
+
+    /**
+     * Get the AdapterFactory which life cycle is linked to the Session of
+     * anyEObject.
+     * 
+     * @param anyEObject
+     *            the EObject
+     * @return the AdapterFactory
+     */
+    AdapterFactory getAdapterFactory(EObject anyEObject);
 
 }

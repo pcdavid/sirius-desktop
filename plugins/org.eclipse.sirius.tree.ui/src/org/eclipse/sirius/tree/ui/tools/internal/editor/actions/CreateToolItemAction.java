@@ -84,7 +84,7 @@ public class CreateToolItemAction extends AbstractToolItemAction {
         }
 
         if (created != null) {
-            final IItemLabelProvider labelProvider = (IItemLabelProvider) TreeUIPlugin.getPlugin().getItemProvidersAdapterFactory().adapt(created, IItemLabelProvider.class);
+            final IItemLabelProvider labelProvider = (IItemLabelProvider) TreeUIPlugin.getPlugin().createAdapterFactory().adapt(created, IItemLabelProvider.class);
             if (labelProvider != null) {
                 ImageDescriptor semanticDescriptor = ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(created));
                 if (semanticDescriptor != null) {

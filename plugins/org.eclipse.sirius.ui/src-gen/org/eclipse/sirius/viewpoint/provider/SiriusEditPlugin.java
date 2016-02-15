@@ -12,7 +12,6 @@
 package org.eclipse.sirius.viewpoint.provider;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -29,22 +28,19 @@ import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.sirius.business.api.preferences.SiriusPreferencesKeys;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.util.EclipseUtil;
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
 import org.eclipse.sirius.tools.api.preferences.DCorePreferences;
@@ -59,11 +55,6 @@ import org.eclipse.sirius.ui.tools.internal.actions.analysis.IAddModelDependency
 import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.resourcelistener.ModelingProjectResourceListenerRegistry;
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.tab.ModelExplorerTabRegistryListener;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.description.audit.provider.AuditItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.provider.DescriptionItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.style.provider.StyleItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.tool.provider.ToolItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.description.validation.provider.ValidationItemProviderAdapterFactory;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
@@ -422,8 +413,8 @@ public final class SiriusEditPlugin extends EMFPlugin {
          *            the object item
          * @return an image descriptor.
          */
-        public ImageDescriptor getItemImageDescriptor(final Object item) {
-            IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.adapt(item, IItemLabelProvider.class);
+        public ImageDescriptor getItemImageDescriptor(final EObject item) {
+            IItemLabelProvider labelProvider = (IItemLabelProvider) SessionManager.INSTANCE.getAdapterFactory(item).adapt(item, IItemLabelProvider.class);
             if (labelProvider != null) {
                 return ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(item));
             }
@@ -472,29 +463,7 @@ public final class SiriusEditPlugin extends EMFPlugin {
          * @return the created adapter factories
          */
         protected ComposedAdapterFactory createAdapterFactory() {
-            List<ComposeableAdapterFactory> factories = new ArrayList<ComposeableAdapterFactory>();
-            factories.add(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
-            fillItemProviderFactories(factories);
-            return new ComposedAdapterFactory(factories);
-        }
-
-        protected void fillItemProviderFactories(List<ComposeableAdapterFactory> factories) {
-            factories.add(new ViewpointItemProviderAdapterFactory());
-            factories.add(new DescriptionItemProviderAdapterFactory());
-            factories.add(new StyleItemProviderAdapterFactory());
-            factories.add(new ToolItemProviderAdapterFactory());
-            factories.add(new ValidationItemProviderAdapterFactory());
-            factories.add(new AuditItemProviderAdapterFactory());
-            factories.add(new EcoreItemProviderAdapterFactory());
-            factories.add(new ResourceItemProviderAdapterFactory());
-            factories.add(new ReflectiveItemProviderAdapterFactory());
-        }
-
-        public AdapterFactory getItemProvidersAdapterFactory() {
-            if (adapterFactory == null) {
-                adapterFactory = createAdapterFactory();
-            }
-            return adapterFactory;
+            return new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
         }
 
         /**

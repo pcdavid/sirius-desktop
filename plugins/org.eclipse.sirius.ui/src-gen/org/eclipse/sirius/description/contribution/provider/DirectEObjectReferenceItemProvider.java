@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -26,6 +27,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.description.contribution.ContributionPackage;
 import org.eclipse.sirius.description.contribution.DirectEObjectReference;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
@@ -37,8 +39,8 @@ import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
  * 
  * @generated
  */
-public class DirectEObjectReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-        IItemPropertySource {
+public class DirectEObjectReferenceItemProvider extends ItemProviderAdapter
+        implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -72,11 +74,11 @@ public class DirectEObjectReferenceItemProvider extends ItemProviderAdapter impl
      * @generated
      */
     protected void addValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_DirectEObjectReference_value_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", "_UI_DirectEObjectReference_value_feature", "_UI_DirectEObjectReference_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ContributionPackage.Literals.DIRECT_EOBJECT_REFERENCE__VALUE, true, false, true, null, getString("_UI_GeneralPropertyCategory"), //$NON-NLS-1$
-                null));
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(), getString("_UI_DirectEObjectReference_value_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", "_UI_DirectEObjectReference_value_feature", "_UI_DirectEObjectReference_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ContributionPackage.Literals.DIRECT_EOBJECT_REFERENCE__VALUE, true, false, true, null, getString("_UI_GeneralPropertyCategory"), //$NON-NLS-1$
+                        null));
     }
 
     /**
@@ -109,7 +111,7 @@ public class DirectEObjectReferenceItemProvider extends ItemProviderAdapter impl
             if (ref.getValue() == null) {
                 result += " [unset]"; //$NON-NLS-1$
             } else {
-                AdapterFactory ipaf = SiriusEditPlugin.getPlugin().getItemProvidersAdapterFactory();
+                AdapterFactory ipaf = SessionManager.INSTANCE.getAdapterFactory((EObject) object);
                 result += " to: " + ((IItemLabelProvider) ipaf.adapt(ref.getValue(), IItemLabelProvider.class)).getText(ref.getValue()); //$NON-NLS-1$
                 result += " (" + ref.getValue().eClass().getName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
             }

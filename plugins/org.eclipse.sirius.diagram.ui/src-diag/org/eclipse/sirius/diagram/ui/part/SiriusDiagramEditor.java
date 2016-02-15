@@ -31,6 +31,7 @@ import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
@@ -116,7 +117,9 @@ public class SiriusDiagramEditor extends DiagramDocumentEditor implements IGotoM
             }
         }
         if (type == AdapterFactory.class) {
-            return DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+            // return
+            // DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+            return SessionManager.INSTANCE.getAdapterFactory(getDiagram());
         }
         return super.getAdapter(type);
     }

@@ -48,7 +48,7 @@ public class OutlineLabelProvider extends LabelProvider implements IFontProvider
      * @param adapterFactory
      */
     public OutlineLabelProvider() {
-        this.factory = DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+        this.factory = DiagramUIPlugin.getPlugin().createAdapterFactory();
     }
 
     /**
@@ -170,6 +170,7 @@ public class OutlineLabelProvider extends LabelProvider implements IFontProvider
      * 
      * @see org.eclipse.jface.viewers.IFontProvider#getFont(java.lang.Object)
      */
+    @Override
     public Font getFont(final Object element) {
         Font result = JFaceResources.getDefaultFont();
         if (element instanceof DDiagramElement) {

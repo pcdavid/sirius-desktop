@@ -351,7 +351,7 @@ public abstract class AbstractDTablePropertySection extends AbstractPropertySect
             if (getPart() instanceof DTableEditor) {
                 adapterFactory = ((DTableEditor) getPart()).getAdapterFactory();
             } else {
-                adapterFactory = TableUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+                adapterFactory = TableUIPlugin.getPlugin().createAdapterFactory();
             }
         }
         return adapterFactory;

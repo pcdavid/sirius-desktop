@@ -184,7 +184,7 @@ public class DTreeViewerManager extends AbstractDTableViewerManager {
 
         // Wrap the LabelProvider in a DecoratingLabelProvider
         ILabelDecorator decorator = PlatformUI.getWorkbench().getDecoratorManager().getLabelDecorator();
-        AdapterFactory adapterFactory = TreeUIPlugin.getPlugin().getItemProvidersAdapterFactory();
+        AdapterFactory adapterFactory = TreeUIPlugin.getPlugin().createAdapterFactory();
         DTreeDecoratingLabelProvider labelProvider = new DTreeDecoratingLabelProvider(adapterFactory, decorator);
         treeViewer.setLabelProvider(labelProvider);
 

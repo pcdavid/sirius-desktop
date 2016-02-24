@@ -275,6 +275,21 @@
                   %constraint.metaModels.message
                </message>
             </constraint>
+            <constraint
+                  class="org.eclipse.sirius.tools.internal.validation.description.constraints.ExistingDomainClassConstraint"
+                  id="org.eclipse.sirius.tools.internal.validation.description.constraints.DomainClassConstraint"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="%constraint.domainClass.name"
+                  severity="ERROR"
+                  statusCode="1">
+               <description>
+                  %constraint.domainClass.description         </description>
+               <message>
+                  %constraint.domainClass.message
+               </message>
+            </constraint>
          </constraints>
       </constraintProvider>
    </extension>

@@ -33,37 +33,6 @@ import org.eclipse.sirius.viewpoint.description.RepresentationExtensionDescripti
 public abstract class AbstractConstraint extends AbstractModelConstraint {
 
     /**
-     * Return <code>true</code> if the specified object is contained in a
-     * Viewpoint that knows the MM to use.
-     * 
-     * @param instance
-     *            the instance.
-     * @return <code>true</code> if the specified object is contained in a
-     *         Viewpoint that knows the MM to use.
-     */
-    protected boolean isElementContainedInAKnownMetamodel(final EObject instance) {
-        boolean aware = false;
-        final EObject desc = getParentDescription(instance);
-        if (desc instanceof RepresentationDescription) {
-            aware = ((RepresentationDescription) desc).getMetamodel() != null;
-        } else if (desc instanceof RepresentationExtensionDescription) {
-            aware = ((RepresentationExtensionDescription) desc).getMetamodel() != null;
-        }
-        return aware;
-    }
-
-    /**
-     * Return the parent description of different dialects if known.
-     * 
-     * @param instance
-     *            the instance.
-     * @return the parent description (or null if not known)
-     */
-    protected EObject getParentDescription(EObject instance) {
-        return null;
-    }
-
-    /**
      * Return the representation description of different dialects if known.
      * 
      * @param instance

@@ -252,6 +252,12 @@ public final class Messages {
     public static String ExecuteToolOperationTask_sessionNotFound;
 
     @TranslatableMessage
+    public static String ExistingDomainClassConstraint_badDomainClassPattern;
+
+    @TranslatableMessage
+    public static String ExistingDomainClassConstraint_classNotFoundInMetaModels;
+
+    @TranslatableMessage
     public static String ExternalJavaActionDescriptor_actionCreationErrorMsg;
 
     @TranslatableMessage

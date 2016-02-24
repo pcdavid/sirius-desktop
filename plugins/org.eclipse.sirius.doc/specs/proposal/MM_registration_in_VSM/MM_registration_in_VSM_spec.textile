@@ -1,0 +1,146 @@
+h1. Sirius Evolution Specification: Make metamodel registration in VSMs mandatory
+
+h2(#Preamble). Preamble
+
+_Summary_: Make metamodel registration in VSMs mandatory (or at least highly encouraged).
+
+|_. Version |_. Status |_. Date        |_. Authors |_. Changes |
+| v0.1        | DRAFT    | 2016-02-02 | lfasani    | Initial version. |
+
+
+_Relevant tickets_ :
+* "**Main ticket** Bug 481849 - Make metamodel registration in VSMs mandatory":https://bugs.eclipse.org/bugs/show_bug.cgi?id=481849
+* "Bug 487999 - How to help specifier to have or get the right meta-model for his odesign":https://bugs.eclipse.org/bugs/show_bug.cgi?id=487999
+* "Bug 488299 - Make Sirius validation based on declared meta-model for every interpreter ":https://bugs.eclipse.org/bugs/show_bug.cgi?id=488299
+* "Bug 488094 - Make Sirius completion based on registered meta-model for every interpreter":https://bugs.eclipse.org/bugs/show_bug.cgi?id=488094
+* "Bug 488000 - Add completion shortcut and quick fix to help specifier add his Meta-model":https://bugs.eclipse.org/bugs/show_bug.cgi?id=488000
+* "Bug 493330 - Warn specifiers if any RepresentationDescription in their VSM lacks explicit metamodel setting":https://bugs.eclipse.org/bugs/show_bug.cgi?id=493330
+* "Bug 493331 - Add support for selecting metamodels from the Target Platform when configuring RepresentationDescription ":https://bugs.eclipse.org/bugs/show_bug.cgi?id=493331 
+
+h2. Introduction
+
+It is currently possible for specifiers not to register Meta-model on RepresentationDescription in VSM.
+It is also possible to declare the meta-models as dependency of the VSP.
+
+At validation, completion and runtime, Sirius do its best to find the EPackage of the EClass corresponding to EClass string, defined in the VSM, in domain class and interpreted expression field. The logic that Sirius uses can be complex and lead to issue.
+For many reasons, which are not detailed here, Sirius may have some bugs if the VSP don't have the meta-models as dependencies.
+
+Moreover there is a lack of coherence between validation, completion and runtime depending on which kind of interpreter we use. 
+For example 
+* for validation, feature interpreter uses registered MM but AQL uses registered MM OR MM in dependency of the VSP.
+* a interpreted expression can be not validated but is interpreted at runtime
+
+Finally, if we could rely on a explicit meta-models perimeter that the specifier defines, then we could have far more relevant completion proposals.
+
+As a conclusion, Sirius could have more coherent behavior and be more reliable if it could rely on the fact that meta-models are defined as VSP dependencies and are registered on RepresentationDesription when needed.
+
+This specification describes how to achieve that.
+
+
+h2. Detailed Specification
+
+Technically, the specifier should work on an odesign.
+* which meta-models are set on RepresentationDescription 
+* which meta-models are set as dependency of the VSP
+
+This evolution could be split in different steps:
+* validation and MM selection scope
+* completion
+* UI to help specifier select his MM
+
+h3. Validation
+
+*RepresentationDescription metamodels*
+The validation on odesign should provides an error in the following cases:
+* if there is no registered meta-models on RepresentationDescription
+* if registered meta-models are not among VSP dependencies and its transitive dependencies. This rule is only if the odesign is owned by a VSP. (We consider that a VSP is a plugin which contains an extension to org.eclipse.sirius.componentization)
+* when the RepresentationDescription does not register the MM used for :
+** an interpreted expression when it contains a reference to a MM element, such as an EClass or a Litteral 
+** a non null Domain Class
+
+h3(#MM_in_RepDesc). Available Meta-models of RepresentationDescription
+
+When selecting a meta-model for a RepresentationDescription, the only available ones should be those in the scope of the odesign.
+* If the odesign is *owned by a VSP*, the available MM are those accessible in the *classPath of the VSP*.
+* If not, the available MM are those available in **deployed plug-ins** and **opened projects**.
+
+The meta-models defined as ecore file are not candidate any more. As a consequence, in the meta-models RepresentationDescription propertyTab, the "Add from filesystem" button is removed.
+
+h3. Completion
+
+*DomainClass*
+The completion should display only classes from registered meta-models.
+
+*Interpreted Expression*
+The completion should display only classes from registered meta-models.
+
+*What about Sirius meta-models?*
+The Sirius MM are automatically considered as registered for validation, completion and runtime. Two proposals to do that:
+* Sirius MM are automatically and explicitly registered at RepresentationDescription creation. Validation, completion and runtime are based on explicitly registered MM. We could let or not the possibility to the specifier to removed that MM.
+* Sirius MM are implicitly used for validation, completion and run-time. They are not displayed as registered MM.
+
+h3. Help specifier have/get the right meta-models
+
+*VSP dependencies*
+The "Create VSP" wizard has an new page to allow user choosing the meta-models. This page allows "Add from registry" and "Add from workspace" capabilities.
+The added meta-models are automatically set as dependency in the VSP manifest.
+The UI is the same as current meta-models propertyTab without "select from File" button.
+
+*RepresentationDescription*
+As indicated above, the available MM are those in "§Available Meta-models of RepresentationDescription":#MM_in_RepDesc.
+but, if the odesign belongs to an VSP and if the MM has not been set as VSP dependency, in both cases "Add from Registry" and "Add from workspace", it is possible to tick a "Display all MM" check box to select among all available MM for VSP.
+Once selected, the MM is automatically added as dependency of the VSP.
+
+When creating a RepresentationDescription, one of the first mandatory steps to do should be to set the meta-models.
+To help, a dialog box is displayed to allow user choosing the meta-models. The dialog box content is the same as new the meta-models propertyTab.
+
+*Quick Fix*
+A quick fix on validation error about "can't find the needed MM" display a dialog box to select accordingly meta-models for VSP dependencies or RepresentationDescription registered.
+
+*Completion*
+When using completion, if the provided choices list is empty, a "Register new MM" choice is displayed to activate UI that allow RepresentationDescription registered MM.
+
+h3. Make the MM registration mandatory for run time
+
+In a further Sirius release, at sirius execution, the only known MM in the context of a representation are those registered on the corresponding RepresentationDescription.
+An exception should be raised as soon as sirius attempts to find a Domain or interpret an expression with an unknown context. 
+
+h2. Bugzilla perimeter
+
+This spec is pushed with "Bug 481849 - Make metamodel registration in VSMs mandatory":https://bugs.eclipse.org/bugs/show_bug.cgi?id=481849 commit but covers all "Relevants tickets in Preamble":#Preamble 
+Refer to the each bugzilla to know the ticket perimeter.
+
+h2. Backward Compatibility and Migration Paths
+
+h3. Metamodel Changes
+
+This evolution does not change the metamodel.
+  
+h3. API Changes
+
+No API changes so far.
+
+h3. User Interface Changes
+
+New UI to select MM for VSP or for RepresentationDescription
+
+h3. Documentation Changes
+
+The documentation about MM selection is updated.
+
+h2. Tests and Non-regression strategy
+
+* All validation rules tests for
+** RepresentationDescription MM
+** Domain Class
+** Interpreted expression
+* Completion for 
+** Domain Class
+** Interpreted expression
+* Quick fix test
+* update swtBot test
+
+
+h2. Implementation choices and tradeoffs
+
+

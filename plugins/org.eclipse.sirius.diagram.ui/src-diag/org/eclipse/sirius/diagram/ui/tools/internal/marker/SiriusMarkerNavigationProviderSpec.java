@@ -111,6 +111,11 @@ public class SiriusMarkerNavigationProviderSpec extends SiriusMarkerNavigationPr
             } else {
                 session = getOrOpenTargetSession(sessionResourceUri);
 
+                // TODO update markerdiagram from the session's resourceset if
+                // it is different from the default editor resoruce set.. to be
+                // sure that the diagram instance we want to open belongs to the
+                // current session resoruce set
+
                 // Open the corresponding editor
                 SiriusDiagramEditor openedEditor = null;
                 if (session != null) {

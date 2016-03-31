@@ -224,6 +224,9 @@ public class DiagramDialectUIServices implements DialectUIServices {
 
     private Set<Viewpoint> activateNeededViewpoints(Session session, DDiagram dDiagram, IProgressMonitor monitor) {
         Set<Viewpoint> neededViewpoints = DialectManager.INSTANCE.getRequiredViewpoints(dDiagram);
+        // TODO on V9.0.x
+        // neededViewpoints.add(SiriusResourceHelper.getCorrespondingViewpoint(session,
+        // viewpoint));
         Set<Viewpoint> selectedViewpoints = new LinkedHashSet<Viewpoint>();
         for (Viewpoint viewpoint : session.getSelectedViewpoints(false)) {
             selectedViewpoints.add(SiriusResourceHelper.getCorrespondingViewpoint(session, viewpoint));

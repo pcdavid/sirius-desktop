@@ -45,6 +45,8 @@ import org.eclipse.gmf.runtime.draw2d.ui.mapmode.MapModeUtil;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.diagram.DiagramPlugin;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
@@ -87,7 +89,7 @@ public class SiriusValidationDecoratorProvider extends AbstractProvider implemen
      */
     @Override
     public void createDecorators(IDecoratorTarget decoratorTarget) {
-        EditPart editPart = (EditPart) decoratorTarget.getAdapter(EditPart.class);
+        EditPart editPart = decoratorTarget.getAdapter(EditPart.class);
         if (editPart instanceof GraphicalEditPart || editPart instanceof AbstractConnectionEditPart) {
             Object model = editPart.getModel();
             if ((model instanceof View)) {
@@ -115,7 +117,7 @@ public class SiriusValidationDecoratorProvider extends AbstractProvider implemen
             return false;
         }
         IDecoratorTarget decoratorTarget = ((CreateDecoratorsOperation) operation).getDecoratorTarget();
-        View view = (View) decoratorTarget.getAdapter(View.class);
+        View view = decoratorTarget.getAdapter(View.class);
         return view != null && DDiagramEditPart.MODEL_ID.equals(SiriusVisualIDRegistry.getModelID(view));
     }
 
@@ -212,10 +214,32 @@ public class SiriusValidationDecoratorProvider extends AbstractProvider implemen
             }
             int severity = IMarker.SEVERITY_INFO;
             IMarker foundMarker = null;
-            IResource resource = WorkspaceSynchronizer.getFile(viewResource);
+
+            // TODO: directly retrieve the main Session resource
+            // (session.getSessionResource()) as we know we put the marker on
+            // it.
+            // There is one decorator for each view, we might have to improve the marker research in a second step
+
+            IResource resource = WorkspaceSynchronizer.getFile(viewResource);//TODO from the session.getSessionResource()
+           
             if (resource == null || !resource.exists()) {
+
+                // If there is no resource, it could simply indicates that the
+                // decorated marker is not in the marked resource
+                // try to retrieve the main resource of the current session
+                // TODO Do it in a cleaner way : see previous TODO
+                for (Session session : SessionManager.INSTANCE.getSessions()) {
+                    if (session.getTransactionalEditingDomain().getResourceSet() == viewResource.getResourceSet()) {
+                        resource = WorkspaceSynchronizer.getFile(session.getSessionResource());
+                    }
+                }
+                if (resource == null || !resource.exists()) {
+                    return;
+                }
+
                 return;
             }
+
             IMarker[] markers = null;
             try {
                 markers = resource.findMarkers(MARKER_TYPE, true, IResource.DEPTH_INFINITE);

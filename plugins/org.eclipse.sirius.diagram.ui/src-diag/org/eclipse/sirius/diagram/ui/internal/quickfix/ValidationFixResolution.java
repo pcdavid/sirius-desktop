@@ -80,6 +80,10 @@ public class ValidationFixResolution implements IMarkerResolution {
 
     private void tryToOpenEditor(IResource airdFile, IMarker marker) throws PartInitException {
         IEditorPart editor = IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(), (IFile) airdFile);
+        // TODO Here we should be sure to not opened the file editor or to
+        // handle it
+        // We should also handle the diagram which are not stored in the main
+        // session resource but in referenced analysis or shared aird.
         if (editor instanceof IGotoMarker) {
             ((IGotoMarker) editor).gotoMarker(marker);
             EObject fixTarget = getFixTarget(editor, marker, airdFile);
@@ -101,7 +105,7 @@ public class ValidationFixResolution implements IMarkerResolution {
         String elementID = marker.getAttribute(org.eclipse.gmf.runtime.common.ui.resources.IMarker.ELEMENT_ID, null);
         URI airdEMFResourceURI = URI.createPlatformResourceURI(airdFile.getFullPath().toString(), true);
         airdEMFResourceURI = airdEMFResourceURI.appendFragment(elementID);
-        ResourceSet set = ((EditingDomain) editor.getAdapter(EditingDomain.class)).getResourceSet();
+        ResourceSet set = editor.getAdapter(EditingDomain.class).getResourceSet();
         EObject markerTarget = set.getEObject(airdEMFResourceURI, false);
         if (markerTarget instanceof View) {
             markerTarget = ((View) markerTarget).getElement();
@@ -124,7 +128,7 @@ public class ValidationFixResolution implements IMarkerResolution {
     }
 
     private void executeFix(IEditorPart editor, EObject fixTarget) {
-        TransactionalEditingDomain domain = (TransactionalEditingDomain) editor.getAdapter(TransactionalEditingDomain.class);
+        TransactionalEditingDomain domain = editor.getAdapter(TransactionalEditingDomain.class);
         IDiagramCommandFactory commandFactory = getDiagramCommandFactory(editor, domain);
 
         if (commandFactory != null && fixTarget != null) {

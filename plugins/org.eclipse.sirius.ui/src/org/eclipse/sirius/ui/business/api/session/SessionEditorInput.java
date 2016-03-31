@@ -281,11 +281,15 @@ public class SessionEditorInput extends URIEditorInput {
      * @since 0.9.0
      */
     public static SessionEditorInput create(final URI sessionResourceURI) {
-        Session session;
-        try {
-            session = SessionFactory.INSTANCE.createSession(sessionResourceURI, new NullProgressMonitor());
-        } catch (CoreException e) {
-            return null;
+        Session session = SessionManager.INSTANCE.getExistingSession(sessionResourceURI);
+        if (session == null) {
+            // TODO see if here we should not properly create and open the
+            // session (see SessionManager.INSTANCE.getSession())
+            try {
+                session = SessionFactory.INSTANCE.createSession(sessionResourceURI, new NullProgressMonitor());
+            } catch (CoreException e) {
+                return null;
+            }
         }
         return new SessionEditorInput(sessionResourceURI, Messages.SessionEditorInput_defaultEditorName, session);
     }

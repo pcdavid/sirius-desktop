@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 Obeo.
+ * Copyright (c) 2015, 2016 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -54,8 +54,7 @@ public class ExpressionTrimmer {
             if (expression.startsWith(AQLConstants.AQL_PREFIX)) {
                 expression = expression.substring(AQLConstants.AQL_PREFIX.length());
                 removedFromStart += AQLConstants.AQL_PREFIX.length();
-            }
-            if (expression.startsWith(ACCELEO_EXPRESSION_PREFIX)) {
+            } else if (expression.startsWith(ACCELEO_EXPRESSION_PREFIX)) {
                 expression = expression.substring(ACCELEO_EXPRESSION_PREFIX.length());
                 removedFromStart += ACCELEO_EXPRESSION_PREFIX.length();
             }

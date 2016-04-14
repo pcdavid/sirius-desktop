@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010 THALES GLOBAL SERVICES.
+ * Copyright (c) 2010, 2016 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -118,10 +118,16 @@ public class ToolFilterDescriptionListener extends DemultiplexingListener {
 
     private static NotificationFilter getFilter(IInterpreter interpreter, final DRepresentation representation, ToolFilterDescription filter) {
         final Collection<EObject> elementsToListen = ToolFilterDescriptionListener.elementsToListen(interpreter, representation, filter.getElementsToListen());
-        NotificationFilter notificationFilter = NotificationFilter.NOT_TOUCH;
-        for (final EObject eObject : elementsToListen) {
-            notificationFilter = notificationFilter.and(NotificationFilter.createNotifierFilter(eObject));
-        }
+        NotificationFilter notificationFilter = new NotificationFilter.Custom() {
+            @Override
+            public boolean matches(Notification notification) {
+                if (!notification.isTouch()) {
+                    return elementsToListen.contains(notification.getNotifier());
+                }
+                return false;
+            }
+        };
+
         return notificationFilter;
     }
 

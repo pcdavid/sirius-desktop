@@ -187,7 +187,7 @@ public class CopyLayoutAction extends AbstractCopyPasteLayoutAction {
          * @param domain
          *            the editing domain on which this command will be executed
          * @param dDiagram
-         *            the {@link DDiagram} on which layout will be pasted
+         *            the {@link DDiagram} from which the layout will be copied
          * @param editPartToStore
          *            the edit part to store
          */

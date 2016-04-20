@@ -72,6 +72,8 @@ import org.eclipse.sirius.diagram.ui.internal.refresh.GMFHelper;
 import org.eclipse.sirius.diagram.ui.internal.refresh.borderednode.CanonicalDBorderItemLocator;
 import org.eclipse.sirius.diagram.ui.provider.Messages;
 import org.eclipse.sirius.diagram.ui.tools.api.graphical.edit.styles.IBorderItemOffsets;
+import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.sirius.ext.base.Options;
 import org.eclipse.sirius.ext.draw2d.figure.FigureUtilities;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
@@ -124,14 +126,24 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
     public void applyLayout(final IGraphicalEditPart rootEditPart) {
         final EObject semanticElement = rootEditPart.resolveSemanticElement();
         final View toStoreView = (View) rootEditPart.getModel();
+        applyLayout(semanticElement, toStoreView, Options.newSome(rootEditPart.getRoot().getViewer()));
+    }
+
+    @Override
+    public void applyLayout(View rootView) {
+        applyLayout(rootView.getElement(), rootView, Options.<EditPartViewer> newNone());
+
+    }
+
+    private void applyLayout(EObject semanticElement, View toStoreView, Option<EditPartViewer> partViewer) {
         if (toStoreView instanceof Edge) {
-            // TODOLRE : Manage the edge as root ?
+            // TODO LRE : Manage the edge as root ?
         } else if (toStoreView instanceof Diagram && semanticElement instanceof DDiagram) {
-            applyLayout((DDiagram) semanticElement, (Diagram) toStoreView, rootEditPart.getRoot().getViewer());
+            applyLayout((DDiagram) semanticElement, (Diagram) toStoreView, partViewer);
             centerEdgesEnds(toStoreView);
         } else if (toStoreView instanceof Node) {
             if (semanticElement instanceof DDiagramElement && semanticElement instanceof DSemanticDecorator) {
-                applyLayout((DSemanticDecorator) semanticElement, (Node) toStoreView, rootEditPart.getRoot().getViewer(), null);
+                applyLayout((DSemanticDecorator) semanticElement, (Node) toStoreView, partViewer, null);
             }
             centerEdgesEnds(toStoreView);
         }
@@ -157,7 +169,7 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
      * @param editPartViewer
      *            The viewer responsible for the current editparts lifecycle.
      */
-    private void applyLayout(final DDiagram diagram, final Diagram toStoreView, final EditPartViewer editPartViewer) {
+    private void applyLayout(final DDiagram diagram, final Diagram toStoreView, final Option<EditPartViewer> editPartViewer) {
         // We don't apply layout on diagram but only on its node children (the
         // edge is applied during source node).
         for (final AbstractDNode node : Iterables.filter(diagram.getOwnedDiagramElements(), AbstractDNode.class)) {
@@ -170,13 +182,12 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
 
     /**
      * @param sourceNode
-     * @param editPartViewer
      */
-    private void applyLayoutToOutgoingEdge(final EdgeTarget sourceNode, final EditPartViewer editPartViewer) {
+    private void applyLayoutToOutgoingEdge(final EdgeTarget sourceNode) {
         for (final DEdge edge : sourceNode.getOutgoingEdges()) {
             final Edge gmfEdge = SiriusGMFHelper.getGmfEdge(edge);
             if (gmfEdge != null) {
-                applyLayout(edge, gmfEdge, editPartViewer);
+                applyLayout(edge, gmfEdge);
             }
         }
     }
@@ -184,9 +195,8 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
     /**
      * @param edge
      * @param gmfEdge
-     * @param editPartViewer
      */
-    private void applyLayout(final DEdge edge, final Edge gmfEdge, final EditPartViewer editPartViewer) {
+    private void applyLayout(final DEdge edge, final Edge gmfEdge) {
         final EdgeLayoutData layoutData = (EdgeLayoutData) getLayoutData(createKey(edge));
         if (layoutData != null) {
 
@@ -290,7 +300,7 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
      *            The viewer responsible for the current editparts lifecycle.
      * @parentLayoutData the layout of the parent of <code>toRestoreView<code>
      */
-    private void applyLayout(final DSemanticDecorator semanticDecorator, final Node toRestoreView, final EditPartViewer editPartViewer, final NodeLayoutData parentLayoutData) {
+    private void applyLayout(final DSemanticDecorator semanticDecorator, final Node toRestoreView, final Option<EditPartViewer> editPartViewer, final NodeLayoutData parentLayoutData) {
         LayoutDataKey key = createKey(semanticDecorator);
         NodeLayoutData layoutData = (NodeLayoutData) getLayoutData(key);
 
@@ -315,10 +325,14 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
 
         if (layoutData != null) {
             final Bounds bounds = NotationFactory.eINSTANCE.createBounds();
-            final IGraphicalEditPart graphicalEditPart = (IGraphicalEditPart) editPartViewer.getEditPartRegistry().get(toRestoreView);
+            IGraphicalEditPart graphicalEditPart = null;
+            if (editPartViewer.some()) {
+                graphicalEditPart = (IGraphicalEditPart) editPartViewer.get().getEditPartRegistry().get(toRestoreView);
+            }
             Point locationToApply;
             boolean isCollapsed = false;
-            if (graphicalEditPart instanceof AbstractDiagramBorderNodeEditPart) {
+            NodeQuery nodeQuery = new NodeQuery(toRestoreView);
+            if ((graphicalEditPart == null && nodeQuery.isBorderedNode()) || graphicalEditPart instanceof AbstractDiagramBorderNodeEditPart) {
                 // Specific treatment for border node
                 // Compute absolute location
                 locationToApply = LayoutDataHelper.INSTANCE.getAbsoluteLocation(layoutData);
@@ -339,17 +353,32 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
                 final Rectangle rect = new Rectangle(locationToApply.getX(), locationToApply.getY(), layoutData.getWidth(), layoutData.getHeight());
                 final org.eclipse.draw2d.geometry.Point realLocation = locator.getValidLocation(rect, toRestoreView, Lists.newArrayList(toRestoreView));
                 // Compute the new relative position to the parent
-                final org.eclipse.draw2d.geometry.Point parentAbsoluteLocation = ((IGraphicalEditPart) graphicalEditPart.getParent()).getFigure().getBounds().getTopLeft().getCopy();
-                FigureUtilities.translateToAbsoluteByIgnoringScrollbar(((IGraphicalEditPart) graphicalEditPart.getParent()).getFigure(), parentAbsoluteLocation);
+                org.eclipse.draw2d.geometry.Point parentAbsoluteLocation = new org.eclipse.draw2d.geometry.Point(0, 0);
+                if (graphicalEditPart != null) {
+                    parentAbsoluteLocation = ((IGraphicalEditPart) graphicalEditPart.getParent()).getFigure().getBounds().getTopLeft().getCopy();
+                    FigureUtilities.translateToAbsoluteByIgnoringScrollbar(((IGraphicalEditPart) graphicalEditPart.getParent()).getFigure(), parentAbsoluteLocation);
+                } else {
+                    parentAbsoluteLocation = GMFHelper.getAbsoluteBounds(parentNode).getLocation().getCopy();
+                }
                 locationToApply.setX(realLocation.x);
                 locationToApply.setY(realLocation.y);
                 locationToApply = LayoutDataHelper.INSTANCE.getTranslated(locationToApply, parentAbsoluteLocation.negate());
             } else {
-                locationToApply = LayoutDataHelper.INSTANCE.getRelativeLocation(layoutData, graphicalEditPart);
+                if (graphicalEditPart != null) {
+                    locationToApply = LayoutDataHelper.INSTANCE.getRelativeLocation(layoutData, graphicalEditPart);
 
-                // Apply the location to the figure to, to correctly compute
-                // the relative location of the children
-                graphicalEditPart.getFigure().setLocation(new org.eclipse.draw2d.geometry.Point(locationToApply.getX(), locationToApply.getY()));
+                    // Apply the location to the figure to, to correctly compute
+                    // the relative location of the children
+                    graphicalEditPart.getFigure().setLocation(new org.eclipse.draw2d.geometry.Point(locationToApply.getX(), locationToApply.getY()));
+                } else {
+                    locationToApply = LayoutDataHelper.INSTANCE.getAbsoluteLocation(layoutData);
+                    EObject parent = toRestoreView.eContainer();
+                    if (parent instanceof Node) {
+                        org.eclipse.draw2d.geometry.Point parentAbsoluteLocation = GMFHelper.getAbsoluteBounds((Node) parent).getLocation().getCopy();
+
+                        locationToApply = LayoutDataHelper.INSTANCE.getTranslated(locationToApply, parentAbsoluteLocation.negate());
+                    }
+                }
             }
             bounds.setX(locationToApply.getX());
             bounds.setY(locationToApply.getY());
@@ -374,7 +403,7 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
         }
         // Deal with the outgoing edges
         if (semanticDecorator instanceof EdgeTarget) {
-            applyLayoutToOutgoingEdge((EdgeTarget) semanticDecorator, editPartViewer);
+            applyLayoutToOutgoingEdge((EdgeTarget) semanticDecorator);
         }
     }
 
@@ -402,7 +431,7 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
      * @param editPartViewer
      *            The viewer responsible for the current editparts lifecycle.
      */
-    private void applyLayoutToNodeChildren(final DNode parentNode, final EditPartViewer editPartViewer, final NodeLayoutData layoutData) {
+    private void applyLayoutToNodeChildren(final DNode parentNode, final Option<EditPartViewer> editPartViewer, final NodeLayoutData layoutData) {
         // Restore Bordered nodes
         applyLayoutForBorderedNodes(parentNode.getOwnedBorderedNodes(), editPartViewer, layoutData);
         // Restore label
@@ -418,7 +447,7 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
      * @param editPartViewer
      *            The viewer responsible for the current editparts lifecycle.
      */
-    private void applyLayoutToNodeContainerChildren(final DNodeContainer container, final EditPartViewer editPartViewer, final NodeLayoutData layoutData) {
+    private void applyLayoutToNodeContainerChildren(final DNodeContainer container, final Option<EditPartViewer> editPartViewer, final NodeLayoutData layoutData) {
         // Restore children
         for (final DDiagramElement child : container.getOwnedDiagramElements()) {
             if (child instanceof AbstractDNode) {
@@ -446,7 +475,7 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
      * @param parentLayoutData
      *            The layoutData of the parent of the borderedNodes
      */
-    private void applyLayoutForBorderedNodes(EList<DNode> borderedNodes, EditPartViewer editPartViewer, NodeLayoutData parentLayoutData) {
+    private void applyLayoutForBorderedNodes(EList<DNode> borderedNodes, Option<EditPartViewer> editPartViewer, NodeLayoutData parentLayoutData) {
         HashMap<Node, NodeLayoutData> nodesWithLayoutDataToApply = Maps.newHashMap();
         HashMap<Node, DSemanticDecorator> nodesWithCoresspondingDSemanticDecorator = Maps.newHashMap();
         // Search each bordered nodes that have layoutData to apply
@@ -503,7 +532,7 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
      * @param portsNodesToIgnore
      *            The list of bordered nodes to ignore in the conflict detection
      */
-    private void applyLayoutForBorderedNode(final DSemanticDecorator semanticDecorator, final Node toRestoreView, final EditPartViewer editPartViewer, final NodeLayoutData layoutData,
+    private void applyLayoutForBorderedNode(final DSemanticDecorator semanticDecorator, final Node toRestoreView, final Option<EditPartViewer> editPartViewer, final NodeLayoutData layoutData,
             final Set<Node> portsNodesToIgnore) {
         final Bounds bounds = NotationFactory.eINSTANCE.createBounds();
         Point locationToApply;
@@ -512,11 +541,13 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
             return;
         }
         Node parentNode = (Node) toRestoreView.eContainer();
-
-        Object parentGraphicalEditPart = editPartViewer.getEditPartRegistry().get(parentNode);
+        Object parentGraphicalEditPart = null;
+        if (editPartViewer.some()) {
+            parentGraphicalEditPart = editPartViewer.get().getEditPartRegistry().get(parentNode);
+        }
         NodeQuery nodeQuery = new NodeQuery(toRestoreView);
 
-        if (nodeQuery.isBorderedNode() && parentGraphicalEditPart instanceof IGraphicalEditPart) {
+        if (nodeQuery.isBorderedNode() && (parentGraphicalEditPart instanceof IGraphicalEditPart || parentGraphicalEditPart == null)) {
             // Specific treatment for border node
             // Compute absolute location
             locationToApply = LayoutDataHelper.INSTANCE.getAbsoluteLocation(layoutData);
@@ -539,7 +570,11 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
             // location so we need to translate BorderedNode absolute location
             // from Draw2D to GMF.
 
-            Point delta = getGMFDraw2DDelta(parentNode, (IGraphicalEditPart) parentGraphicalEditPart);
+            Point delta = LayoutdataFactory.eINSTANCE.createPoint();
+
+            if (parentGraphicalEditPart != null) {
+                delta = getGMFDraw2DDelta(parentNode, (IGraphicalEditPart) parentGraphicalEditPart);
+            }
             final Rectangle rect = new Rectangle(locationToApply.getX() - delta.getX(), locationToApply.getY() - delta.getY(), layoutData.getWidth(), layoutData.getHeight());
 
             final org.eclipse.draw2d.geometry.Point realLocation = locator.getValidLocation(rect, toRestoreView, portsNodesToIgnore);
@@ -551,14 +586,19 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
             locationToApply = LayoutDataHelper.INSTANCE.getTranslated(locationToApply, parentAbsoluteLocation.negate());
 
         } else {
-            Object graphicalEditPart = editPartViewer.getEditPartRegistry().get(toRestoreView);
+            Object graphicalEditPart = null;
+            if (editPartViewer.some()) {
+                graphicalEditPart = editPartViewer.get().getEditPartRegistry().get(toRestoreView);
+            }
             if (graphicalEditPart instanceof IGraphicalEditPart) {
                 locationToApply = LayoutDataHelper.INSTANCE.getRelativeLocation(layoutData, (IGraphicalEditPart) graphicalEditPart);
                 // Apply the location to the figure to, to correctly compute
                 // the relative location of the children
                 ((GraphicalEditPart) graphicalEditPart).getFigure().setLocation(new org.eclipse.draw2d.geometry.Point(locationToApply.getX(), locationToApply.getY()));
             } else {
-                locationToApply = LayoutdataFactory.eINSTANCE.createPoint();
+                locationToApply = LayoutDataHelper.INSTANCE.getAbsoluteLocation(layoutData);
+                org.eclipse.draw2d.geometry.Point parentAbsoluteLocation = GMFHelper.getAbsoluteBounds(parentNode).getLocation().getCopy();
+                locationToApply = LayoutDataHelper.INSTANCE.getTranslated(locationToApply, parentAbsoluteLocation.negate());
             }
         }
         bounds.setX(locationToApply.getX());
@@ -584,7 +624,7 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
             logWarnMessage(semanticDecorator);
         }
         if (semanticDecorator instanceof EdgeTarget) {
-            applyLayoutToOutgoingEdge((EdgeTarget) semanticDecorator, editPartViewer);
+            applyLayoutToOutgoingEdge((EdgeTarget) semanticDecorator);
         }
     }
 
@@ -610,7 +650,7 @@ public abstract class AbstractSiriusLayoutDataManager implements SiriusLayoutDat
      * @param editPartViewer
      *            The viewer responsible for the current editparts lifecycle.
      */
-    private void applyLayoutToNodeListChildren(final DNodeList nodeList, final EditPartViewer editPartViewer, final NodeLayoutData layoutData) {
+    private void applyLayoutToNodeListChildren(final DNodeList nodeList, final Option<EditPartViewer> editPartViewer, final NodeLayoutData layoutData) {
         // Restore Bordered nodes
         applyLayoutForBorderedNodes(nodeList.getOwnedBorderedNodes(), editPartViewer, layoutData);
 

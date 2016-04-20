@@ -11,6 +11,7 @@
 package org.eclipse.sirius.diagram.ui.tools.internal.commands.emf;
 
 import java.util.Collection;
+import java.util.Set;
 
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
@@ -18,8 +19,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.CopyToClipboardCommand;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.ui.provider.Messages;
+import org.eclipse.sirius.diagram.ui.tools.api.layout.SiriusLayoutDataManager;
 import org.eclipse.sirius.diagram.ui.tools.internal.clipboard.SiriusClipboardManager;
+import org.eclipse.sirius.diagram.ui.tools.internal.layout.data.extension.LayoutDataManagerRegistry;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
 import com.google.common.collect.Iterables;
@@ -47,6 +53,8 @@ public class CopyToSiriusClipboardCommand extends RecordingCommand implements Ab
 
     private Command copyCommand;
 
+    private Set<IGraphicalEditPart> selectedEditParts;
+
     /**
      * Creates a new {@link CopyToSiriusClipboardCommand}.
      *
@@ -59,12 +67,16 @@ public class CopyToSiriusClipboardCommand extends RecordingCommand implements Ab
      *            the elements to copy.
      * @param semanticElements
      *            the semantic elements to copy.
+     * @param graphicalEditParts
+     *            the copied edit parts.
      */
-    public CopyToSiriusClipboardCommand(final TransactionalEditingDomain domain, final Collection<DSemanticDecorator> dElements, Collection<EObject> semanticElements) {
+    public CopyToSiriusClipboardCommand(final TransactionalEditingDomain domain, final Collection<DSemanticDecorator> dElements, Collection<EObject> semanticElements,
+            Set<IGraphicalEditPart> graphicalEditParts) {
         super(domain, Messages.CopyToSiriusClipboardCommand_label);
         this.domain = domain;
         this.dElementsToCopy.addAll(dElements);
         this.elementsToCopy.addAll(semanticElements);
+        this.selectedEditParts = graphicalEditParts;
     }
 
     /**
@@ -97,7 +109,23 @@ public class CopyToSiriusClipboardCommand extends RecordingCommand implements Ab
         } else {
             domain.setClipboard(null);
         }
-
+        DDiagram dDiagram = null;
+        DSemanticDecorator firstDecorator = dElementsToCopy.iterator().next();
+        if (firstDecorator instanceof DDiagram) {
+            dDiagram = (DDiagram) firstDecorator;
+        } else if (firstDecorator instanceof DDiagramElement) {
+            dDiagram = ((DDiagramElement) firstDecorator).getParentDiagram();
+        }
+        if (dDiagram != null) {
+            for (SiriusLayoutDataManager layoutDataManager : LayoutDataManagerRegistry.getAllSiriusLayoutDataManagers()) {
+                layoutDataManager.clearLayoutData();
+            }
+            for (IGraphicalEditPart graphicalEditPart : selectedEditParts) {
+                for (SiriusLayoutDataManager layoutDataManager : LayoutDataManagerRegistry.getSiriusLayoutDataManagers(dDiagram)) {
+                    layoutDataManager.storeLayoutData(graphicalEditPart);
+                }
+            }
+        }
         // Hook domain clipboard.
         SiriusClipboardManager.getInstance().setSiriusClipboard(domain);
     }

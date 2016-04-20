@@ -76,6 +76,8 @@ import org.eclipse.sirius.viewpoint.description.tool.PasteDescription;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchPart;
 
+import com.google.common.base.Predicates;
+import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
 
@@ -236,6 +238,7 @@ public class SiriusClipboardGlobalActionHandler extends ImageSupportGlobalAction
         Session session = getSession(diagramPart);
         if (session != null) {
             TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
+            Set<IGraphicalEditPart> graphicalEditParts = getGraphicalEditParts(cntxt);
             Set<DSemanticDecorator> dSelection = extractDSelection(cntxt);
             Set<EObject> semanticSelection = extractSemanticSelection(dSelection);
 
@@ -245,7 +248,7 @@ public class SiriusClipboardGlobalActionHandler extends ImageSupportGlobalAction
             if (gmfCommand != null) {
                 cmd = new CompositeTransactionalCommand(domain, gmfCommand.getLabel());
                 cmd.compose(gmfCommand);
-                cmd.compose(new GMFCommandWrapper(domain, new CopyToSiriusClipboardCommand(domain, dSelection, semanticSelection)));
+                cmd.compose(new GMFCommandWrapper(domain, new CopyToSiriusClipboardCommand(domain, dSelection, semanticSelection, graphicalEditParts)));
             }
             return cmd;
         }
@@ -484,7 +487,9 @@ public class SiriusClipboardGlobalActionHandler extends ImageSupportGlobalAction
             if (bestTool == null) {
                 bestTool = pasteTool;
             } else {
-                SiriusPlugin.getDefault().warning(MessageFormat.format(Messages.SiriusClipboardGlobalActionHandler_severalFoundPasteToolError, pasteTarget.getTarget(), bestTool.getName(), pasteTool.getName()), new RuntimeException());
+                SiriusPlugin.getDefault().warning(
+                        MessageFormat.format(Messages.SiriusClipboardGlobalActionHandler_severalFoundPasteToolError, pasteTarget.getTarget(), bestTool.getName(), pasteTool.getName()),
+                        new RuntimeException());
             }
         }
 
@@ -508,14 +513,21 @@ public class SiriusClipboardGlobalActionHandler extends ImageSupportGlobalAction
         return selectedSemanticElements;
     }
 
+    @SuppressWarnings("unchecked")
+    private Set<IGraphicalEditPart> getGraphicalEditParts(IGlobalActionContext cntxt) {
+        Set<IGraphicalEditPart> selection = new LinkedHashSet<IGraphicalEditPart>();
+        if (cntxt.getSelection() instanceof IStructuredSelection) {
+            selection.addAll(Collections2.filter(((IStructuredSelection) cntxt.getSelection()).toList(), Predicates.instanceOf(IGraphicalEditPart.class)));
+        }
+        return selection;
+    }
+
     private Set<DSemanticDecorator> extractDSelection(IGlobalActionContext cntxt) {
         Set<DSemanticDecorator> dSelection = new LinkedHashSet<DSemanticDecorator>();
-        if (cntxt.getSelection() instanceof IStructuredSelection) {
-            for (IGraphicalEditPart ideep : Iterables.filter(((IStructuredSelection) cntxt.getSelection()).toList(), IGraphicalEditPart.class)) {
-                Object model = ideep.getModel();
-                if (model instanceof View && ((View) model).getElement() instanceof DSemanticDecorator) {
-                    dSelection.add((DSemanticDecorator) ((View) model).getElement());
-                }
+        for (IGraphicalEditPart ideep : getGraphicalEditParts(cntxt)) {
+            Object model = ideep.getModel();
+            if (model instanceof View && ((View) model).getElement() instanceof DSemanticDecorator) {
+                dSelection.add((DSemanticDecorator) ((View) model).getElement());
             }
         }
         return dSelection;

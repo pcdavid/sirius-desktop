@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.sirius.diagram.ui.tools.internal.layout.semantic;
 
+import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.diagram.ui.tools.api.layout.LayoutDataKey;
@@ -33,7 +34,11 @@ public abstract class AbstractSemanticLayoutDataKey implements LayoutDataKey, Co
      *            The element the create the key.
      */
     public AbstractSemanticLayoutDataKey(final EObject semanticElement) {
-        this.semanticElementURIFragment = EcoreUtil.getURI(semanticElement).fragment();
+        if (semanticElement instanceof ENamedElement) {
+            this.semanticElementURIFragment = ((ENamedElement) semanticElement).getName();
+        } else {
+            this.semanticElementURIFragment = EcoreUtil.getURI(semanticElement).fragment();
+        }
     }
 
     /**
@@ -87,6 +92,7 @@ public abstract class AbstractSemanticLayoutDataKey implements LayoutDataKey, Co
     /**
      * {@inheritDoc}
      */
+    @Override
     public String getId() {
         return getSemanticElementURIFragment();
     }
@@ -94,6 +100,7 @@ public abstract class AbstractSemanticLayoutDataKey implements LayoutDataKey, Co
     /**
      * {@inheritDoc}
      */
+    @Override
     public int compareTo(final AbstractSemanticLayoutDataKey o) {
         return getId().compareTo(o.getId());
     }

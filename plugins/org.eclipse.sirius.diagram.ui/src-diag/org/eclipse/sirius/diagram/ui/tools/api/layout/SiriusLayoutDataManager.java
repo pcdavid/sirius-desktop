@@ -11,6 +11,7 @@
 package org.eclipse.sirius.diagram.ui.tools.api.layout;
 
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.diagram.layoutdata.AbstractLayoutData;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
@@ -69,6 +70,15 @@ public interface SiriusLayoutDataManager {
      *            stored layout
      */
     void applyLayout(IGraphicalEditPart rootEditPart);
+
+    /**
+     * Apply the current layout data to the rootView.
+     * 
+     * @param rootView
+     *            the root GMF view from which we would try to apply the current
+     *            stored layout
+     */
+    void applyLayout(View rootView);
 
     /**
      * Check if the manager contains data.

@@ -53,6 +53,7 @@ import org.eclipse.sirius.diagram.ui.internal.refresh.AbstractCanonicalSynchroni
 import org.eclipse.sirius.diagram.ui.part.SiriusDiagramUpdater;
 import org.eclipse.sirius.diagram.ui.part.SiriusLinkDescriptor;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
+import org.eclipse.sirius.diagram.ui.tools.internal.layout.data.extension.LayoutDataManagerRegistry;
 import org.eclipse.sirius.ext.base.Options;
 import org.eclipse.sirius.viewpoint.description.AnnotationEntry;
 
@@ -179,6 +180,11 @@ public class DDiagramCanonicalSynchronizer extends AbstractCanonicalSynchronizer
         if (!createdViewsToLayout.isEmpty() && storeViews2Arrange) {
             SiriusLayoutDataManager.INSTANCE.addCreatedViewsToLayout(gmfDiagram, Sets.newLinkedHashSet(createdViewsToLayout));
             removeAlreadyArrangeMarker(filteredCreatedViewsToLayout);
+        }
+        List<org.eclipse.sirius.diagram.ui.tools.api.layout.SiriusLayoutDataManager> layoutDataManagers = LayoutDataManagerRegistry.getSiriusLayoutDataManagers(null);
+
+        if (!layoutDataManagers.isEmpty()) {
+            layoutDataManagers.get(0).applyLayout(gmfDiagram);
         }
     }
 

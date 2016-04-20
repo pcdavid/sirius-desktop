@@ -46,7 +46,7 @@ import com.google.common.collect.Maps;
  * @author mporhel
  * 
  */
-public class SampleManager extends AbstractSiriusLayoutDataManager implements SiriusLayoutDataManager {
+public class SampleManager extends AbstractSiriusLayoutDataManager {
 
     /**
      * {@link EAnnotation} source of {@link EAnnotation} simulating
@@ -66,6 +66,7 @@ public class SampleManager extends AbstractSiriusLayoutDataManager implements Si
     /**
      * {@inheritDoc}
      */
+    @Override
     public AbstractLayoutData getLayoutData(LayoutDataKey key) {
         if (key instanceof AbstractSampleLayouDataKey && validateKey((AbstractSampleLayouDataKey) key)) {
             return getLinkedLayoutData((AbstractSampleLayouDataKey) key);
@@ -108,6 +109,7 @@ public class SampleManager extends AbstractSiriusLayoutDataManager implements Si
     /**
      * {@inheritDoc}
      */
+    @Override
     public LayoutDataKey createKey(DSemanticDecorator semanticDecorator) {
         LayoutDataKey result = null;
         final EObject realSemanticElement = semanticDecorator.getTarget();
@@ -123,6 +125,7 @@ public class SampleManager extends AbstractSiriusLayoutDataManager implements Si
     /**
      * {@inheritDoc}
      */
+    @Override
     public void addLayoutData(LayoutDataKey key, AbstractLayoutData layoutData) {
         if (key instanceof AbstractSampleLayouDataKey && validateKey((AbstractSampleLayouDataKey) key)) {
             layoutDataMap.put((AbstractSampleLayouDataKey) key, layoutData);
@@ -132,6 +135,7 @@ public class SampleManager extends AbstractSiriusLayoutDataManager implements Si
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean containsData() {
         return !layoutDataMap.isEmpty();
     }
@@ -139,6 +143,7 @@ public class SampleManager extends AbstractSiriusLayoutDataManager implements Si
     /**
      * {@inheritDoc}
      */
+    @Override
     public void clearLayoutData() {
         layoutDataMap.clear();
     }
@@ -166,10 +171,12 @@ public class SampleManager extends AbstractSiriusLayoutDataManager implements Si
      */
     private class SampleSessionManagerListener implements SessionManagerListener {
 
+        @Override
         public void notifyRemoveSession(Session removedSession) {
             cleanCache();
         }
 
+        @Override
         public void notify(Session updated, int notification) {
             switch (notification) {
             case SessionListener.CLOSED:
@@ -186,14 +193,17 @@ public class SampleManager extends AbstractSiriusLayoutDataManager implements Si
             }
         }
 
+        @Override
         public void notifyAddSession(Session newSession) {
             // Nothing to do
         }
 
+        @Override
         public void viewpointSelected(Viewpoint selectedSirius) {
             // Nothing to do
         }
 
+        @Override
         public void viewpointDeselected(Viewpoint deselectedSirius) {
             // Nothing to do
 

@@ -76,6 +76,7 @@ import org.eclipse.sirius.common.tools.api.util.ECrossReferenceAdapterWithUnprox
 import org.eclipse.sirius.common.tools.api.util.EqualityHelper;
 import org.eclipse.sirius.common.tools.api.util.SiriusCrossReferenceAdapter;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.EcoreMetamodelDescriptor;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.MetamodelDescriptor;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
 import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
@@ -624,14 +625,18 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
             return;
         }
         final Collection<EPackage> collectedMetamodels = collectMetamodels(newResource.getAllContents());
+        final Collection<MetamodelDescriptor> descriptors = Lists.<MetamodelDescriptor> newArrayList();
+        for (final EPackage package1 : collectedMetamodels) {
+            descriptors.add(new EcoreMetamodelDescriptor(package1));
+        }
+
         final ModelAccessor accessor = getModelAccessor();
         if (accessor != null) {
-            final Collection<EcoreMetamodelDescriptor> descriptors = new ArrayList<EcoreMetamodelDescriptor>();
-            for (final EPackage package1 : collectedMetamodels) {
-                descriptors.add(new EcoreMetamodelDescriptor(package1));
-            }
             accessor.activateMetamodels(descriptors);
         }
+
+        // Register Meta-model on the session interpreter
+        getInterpreter().activateMetamodels(descriptors);
     }
 
     private Collection<EPackage> collectMetamodels(final TreeIterator<EObject> allContents) {
@@ -1174,6 +1179,13 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
             }
 
             DViewOperations.on(this).updateSelectedViewpointsData(new SubProgressMonitor(monitor, 10));
+
+            // Register MM in Interpreter and ModelAccessor
+            Iterable<Resource> semanticResources = Iterables.concat(getSemanticResources(), getControlledResources());
+            for (Resource resource : semanticResources) {
+                notifyNewMetamodels(resource);
+            }
+
             initLocalTriggers();
 
             super.setOpen(true);

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component:Component xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:component="http://www.eclipse.org/sirius/sample/component" name="c0">
+  <children name="c1"/>
+</component:Component>

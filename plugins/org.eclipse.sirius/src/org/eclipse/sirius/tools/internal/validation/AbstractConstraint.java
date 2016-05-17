@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2009 THALES GLOBAL SERVICES.
+ * Copyright (c) 2007, 2016 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.sirius.tools.internal.validation;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -18,7 +19,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
+import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.sirius.business.api.query.ResourceQuery;
+import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.RepresentationExtensionDescription;
 
@@ -57,6 +60,24 @@ public abstract class AbstractConstraint extends AbstractModelConstraint {
      * @return the parent description (or null if not known)
      */
     protected EObject getParentDescription(EObject instance) {
+        return null;
+    }
+
+    /**
+     * Return the representation description of different dialects if known.
+     * 
+     * @param instance
+     *            the instance.
+     * @return the parent description (or null if not known)
+     */
+    protected IdentifiedElement getRepresentationDescription(EObject instance) {
+        EObject container = instance;
+        while (container != null) {
+            if (container instanceof RepresentationDescription || container instanceof RepresentationExtensionDescription) {
+                return (IdentifiedElement) container;
+            }
+            container = container.eContainer();
+        }
         return null;
     }
 
@@ -109,5 +130,26 @@ public abstract class AbstractConstraint extends AbstractModelConstraint {
             }
         }
         return result;
+    }
+
+    /**
+     * Create a single status from none to many statuses.
+     * 
+     * @param ctx
+     *            the validation context
+     * @param statuses
+     *            the statuses
+     * @return the composite status
+     */
+    protected IStatus getCompositeStatus(IValidationContext ctx, Collection<IStatus> statuses) {
+        IStatus returnStatus = null;
+        if (statuses.isEmpty()) {
+            returnStatus = ctx.createSuccessStatus();
+        } else if (statuses.size() == 1) {
+            returnStatus = statuses.iterator().next();
+        } else {
+            returnStatus = ConstraintStatus.createMultiStatus(ctx, statuses);
+        }
+        return returnStatus;
     }
 }

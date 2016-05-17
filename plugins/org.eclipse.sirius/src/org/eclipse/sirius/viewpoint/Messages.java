@@ -450,6 +450,9 @@ public final class Messages {
     public static String RenameRepresentationCommand_label;
 
     @TranslatableMessage
+    public static String RepresentationDescriptionMetaModelsConstraint_metaModelRequiredAsVSPDependency;
+
+    @TranslatableMessage
     public static String RepresentationDescriptionMetaModelsConstraint_noMetaModel;
 
     @TranslatableMessage

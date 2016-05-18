@@ -33,7 +33,9 @@ import org.eclipse.sirius.diagram.ui.provider.Messages;
 import org.eclipse.sirius.diagram.ui.tools.internal.commands.emf.EMFCommandFactoryUI;
 import org.eclipse.sirius.diagram.ui.tools.internal.resource.NavigationMarkerConstants;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
+import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
+import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.description.validation.ValidationFix;
@@ -110,17 +112,10 @@ public class ValidationFixResolution implements IMarkerResolution {
                     } else {
                         currentSession = existingSession;
 
-                        // The current editor is on the current session.
+                        // The current editor is on the temporary session
+                        // created by the IDE.openEditor().
                         offscreenValidation = true;
                     }
-                }
-            }
-
-            if (!offscreenValidation) {
-                TransactionalEditingDomain editorDomain = (TransactionalEditingDomain) editor.getAdapter(TransactionalEditingDomain.class);
-                if (editorDomain != currentSession.getTransactionalEditingDomain()) {
-                    // The current editor is on the current session.
-                    offscreenValidation = true;
                 }
             }
 
@@ -129,6 +124,28 @@ public class ValidationFixResolution implements IMarkerResolution {
                 EObject fixTarget = getFixTarget(markedView);
                 if (fixTarget != null) {
                     Diagram diagram = markedView.getDiagram();
+
+                    IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(currentSession);
+                    if (uiSession != null && uiSession.isOpen()) {
+                        DDiagram rep = (DDiagram) diagram.getElement();
+                        DialectEditor editor2 = uiSession.getEditor(rep);
+                        if (editor2 != null) {
+                            editor = editor2;
+                            // The editor opened from gotoMarker has been opened
+                            // on the correct session, no need to go on the
+                            // offscreen validation.
+                            offscreenValidation = false;
+                        }
+                    }
+
+                    if (!offscreenValidation) {
+                        TransactionalEditingDomain editorDomain = (TransactionalEditingDomain) editor.getAdapter(TransactionalEditingDomain.class);
+                        if (editorDomain != currentSession.getTransactionalEditingDomain()) {
+                            // The current editor is on the current session.
+                            offscreenValidation = true;
+                        }
+                    }
+
                     executeFix(editor, (DDiagram) diagram.getElement(), fixTarget, currentSession.getTransactionalEditingDomain(), offscreenValidation);
                     revalidate(editor, diagram, offscreenValidation);
                 }

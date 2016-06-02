@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.sirius.business.api.migration.AbstractRepresentationsFileMigrationParticipant;
+import org.eclipse.sirius.business.api.query.DViewQuery;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.ui.business.api.query.DDiagramGraphicalQuery;
 import org.eclipse.sirius.ext.base.Option;
@@ -45,6 +46,7 @@ public class DiagramRepresentationsFileMigrationParticipant extends AbstractRepr
     /**
      * {@inheritDoc}
      */
+    @Override
     public void postLoad(DAnalysis dAnalysis, Version loadedVersion) {
         super.postLoad(dAnalysis, loadedVersion);
         if (loadedVersion.compareTo(DiagramRepresentationsFileMigrationParticipantV650.MIGRATION_VERSION) < 0) {
@@ -102,6 +104,7 @@ public class DiagramRepresentationsFileMigrationParticipant extends AbstractRepr
      * 
      * @see org.eclipse.sirius.business.api.migration.IMigrationParticipant#getMigrationVersion()
      */
+    @Override
     public Version getMigrationVersion() {
         return MIGRATION_VERSION;
     }
@@ -117,7 +120,7 @@ public class DiagramRepresentationsFileMigrationParticipant extends AbstractRepr
         List<Diagram> diagrams = new ArrayList<Diagram>();
 
         for (DView view : dAnalysis.getOwnedViews()) {
-            for (DRepresentation representation : view.getOwnedRepresentations()) {
+            for (DRepresentation representation : new DViewQuery(view).getLoadedRepresentations()) {
                 if (representation instanceof DDiagram) {
                     DDiagramGraphicalQuery query = new DDiagramGraphicalQuery((DDiagram) representation);
                     Option<Diagram> option = query.getAssociatedGMFDiagram();

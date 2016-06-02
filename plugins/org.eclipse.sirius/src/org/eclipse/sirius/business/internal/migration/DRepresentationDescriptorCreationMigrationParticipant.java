@@ -10,9 +10,10 @@
  *******************************************************************************/
 package org.eclipse.sirius.business.internal.migration;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.sirius.business.api.migration.AbstractRepresentationsFileMigrationParticipant;
 import org.eclipse.sirius.business.internal.query.DRepresentationDescriptorInternalHelper;
-import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.DView;
@@ -29,22 +30,23 @@ public class DRepresentationDescriptorCreationMigrationParticipant extends Abstr
      */
     public static final Version MIGRATION_VERSION = new Version("11.1.0.201606300900"); //$NON-NLS-1$
 
+    /**
+     * The name of the feature DView.ownedRepresentations which has been
+     * deleted.
+     */
+    public static final String DVIEW_OWNED_REPRESENTATIONS_UNKNOWN_FEATURE = "ownedRepresentations"; //$NON-NLS-1$
+
     @Override
     public Version getMigrationVersion() {
         return MIGRATION_VERSION;
     }
 
     @Override
-    protected void postLoad(DAnalysis dAnalysis, Version loadedVersion) {
-
-        super.postLoad(dAnalysis, loadedVersion);
-
-        if (loadedVersion.compareTo(MIGRATION_VERSION) < 0) {
-            for (DView view : dAnalysis.getOwnedViews()) {
-                for (DRepresentation rep : view.getOwnedRepresentations()) {
-                    DRepresentationDescriptor descriptor = DRepresentationDescriptorInternalHelper.createDescriptor(rep);
-                    view.getOwnedRepresentationDescriptors().add(descriptor);
-                }
+    protected void handleFeature(EObject owner, EStructuralFeature unkownFeature, Object valueOfUnknownFeature) {
+        if (DVIEW_OWNED_REPRESENTATIONS_UNKNOWN_FEATURE.equals(unkownFeature.getName())) {
+            if (valueOfUnknownFeature instanceof DRepresentation && owner instanceof DView) {
+                DRepresentationDescriptor descriptor = DRepresentationDescriptorInternalHelper.createDescriptor((DRepresentation) valueOfUnknownFeature);
+                ((DView) owner).getOwnedRepresentationDescriptors().add(descriptor);
             }
         }
     }

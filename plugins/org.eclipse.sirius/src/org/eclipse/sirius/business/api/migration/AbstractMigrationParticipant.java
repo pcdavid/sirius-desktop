@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2012, 2016 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,7 @@
 package org.eclipse.sirius.business.api.migration;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
@@ -25,6 +26,8 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
 import org.osgi.framework.Version;
 import org.xml.sax.Attributes;
+
+import com.google.common.collect.Lists;
 
 /**
  * Abstract {@link IMigrationParticipant} implementation providing:
@@ -136,9 +139,17 @@ public abstract class AbstractMigrationParticipant implements IMigrationParticip
      */
     private void handleUnknownFeatures(final EObject owner, final FeatureMap featureMap) {
         final Iterator<FeatureMap.Entry> iter = featureMap.iterator();
+        List<FeatureMap.Entry> entryList = Lists.newArrayList();
         while (iter.hasNext()) {
-            final FeatureMap.Entry entry = iter.next();
-            handleFeature(owner, entry.getEStructuralFeature(), entry.getValue());
+            entryList.add(iter.next());
+        }
+        // Don't call handleFeature when iterating the FeatureMap
+        // Indeed, the handleFeature allows to set the value of the unknown
+        // feature in
+        // another feature. Doing this the FeatureMap is updated and may raise
+        // concurrency if the Feature is being iterated.
+        for (FeatureMap.Entry currentEntry : entryList) {
+            handleFeature(owner, currentEntry.getEStructuralFeature(), currentEntry.getValue());
         }
     }
 

@@ -114,6 +114,7 @@ import org.eclipse.sirius.tests.unit.diagram.migration.CorruptedViewsMigrationTe
 import org.eclipse.sirius.tests.unit.diagram.migration.DDiagramSetRemovalMigrationTest;
 import org.eclipse.sirius.tests.unit.diagram.migration.DRepDescriptorCreationMigrationTest;
 import org.eclipse.sirius.tests.unit.diagram.migration.DRepresentationContainerRemovalMigrationTest;
+import org.eclipse.sirius.tests.unit.diagram.migration.DRepresentationMoveToRootObjectsMigrationTest;
 import org.eclipse.sirius.tests.unit.diagram.migration.DiagramSplitMigrationTest;
 import org.eclipse.sirius.tests.unit.diagram.migration.FontFormatMigrationTest;
 import org.eclipse.sirius.tests.unit.diagram.migration.FontStyleForDNodeListElementMigrationTest;
@@ -219,6 +220,7 @@ public class AllCommonPluginTests extends TestCase {
         suite.addTestSuite(VariableMigrationTest.class);
         suite.addTestSuite(DRepresentationContainerRemovalMigrationTest.class);
         suite.addTestSuite(DRepDescriptorCreationMigrationTest.class);
+        suite.addTestSuite(DRepresentationMoveToRootObjectsMigrationTest.class);
 
         suite.addTest(new JUnit4TestAdapter(CommonPreferencesTest.class));
         suite.addTest(new JUnit4TestAdapter(GroupingContentProviderTest.class));

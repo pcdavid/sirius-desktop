@@ -12,19 +12,40 @@ package org.eclipse.sirius.ui.debug;
 
 import java.util.List;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
+import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.jface.wizard.IWizard;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.GraphicalFilter;
+import org.eclipse.sirius.diagram.ui.business.internal.operation.ShiftDirectBorderedNodesOperation;
+import org.eclipse.sirius.diagram.ui.internal.edit.commands.DistributeCommand;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNode4EditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerEditPart;
+import org.eclipse.sirius.diagram.ui.tools.internal.actions.distribute.DistributeAction;
+import org.eclipse.sirius.diagram.ui.tools.internal.edit.command.CommandFactory;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.Decoration;
 import org.eclipse.sirius.viewpoint.Style;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.wizards.IWizardDescriptor;
 
 import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 
 /**
  * Show the hierarchy of edit parts for the selection
@@ -33,6 +54,8 @@ import com.google.common.collect.Iterables;
  *
  */
 final class ShowEditPartsHierarchy implements Runnable {
+    int OFFSET = 10;
+
     /** Sirius debug view */
     private final SiriusDebugView view;
 
@@ -43,13 +66,63 @@ final class ShowEditPartsHierarchy implements Runnable {
         this.view = view;
     }
 
+    @SuppressWarnings("restriction")
     @Override
     public void run() {
+        // openWizard("fr.obeo.dsl.viewpoint.collab.ui.sharedprojectwizard");
         if (view.selection instanceof EditPart) {
             EditPart part = (EditPart) view.selection;
-            StringBuilder sb = new StringBuilder();
-            showEditParts(part, 0, sb);
-            view.setText(sb.toString());
+
+            if (part instanceof DNodeContainerEditPart) {
+                DNodeContainerEditPart dncep = (DNodeContainerEditPart) part;
+                List<DNode4EditPart> list = Lists.newArrayList(Iterables.filter(dncep.getChildren(), DNode4EditPart.class));
+                DNode4EditPart first = list.get(0);
+                DNode4EditPart last = list.get(0);
+                for (DNode4EditPart dn4ep : Iterables.filter(dncep.getChildren(), DNode4EditPart.class)) {
+                    if (dn4ep.getFigure().getBounds().getCopy().x() < first.getFigure().getBounds().getCopy().x()) {
+                        first = dn4ep;
+                    }
+                    if (dn4ep.getFigure().getBounds().getRight().getCopy().x() > last.getFigure().getBounds().getRight().getCopy().x()) {
+                        last = dn4ep;
+                    }
+                }
+                int delta1 = dncep.getFigure().getBounds().getCopy().x() - first.getFigure().getBounds().getCopy().x() + OFFSET;
+                first.getFigure().getBounds().translate(delta1, 0);
+                int delta2 = dncep.getFigure().getBounds().getRight().getCopy().x() - last.getFigure().getBounds().getRight().getCopy().x() - OFFSET;
+                last.getFigure().getBounds().translate(delta2, 0);
+                EObject semanticElement = ((DRepresentationElement) ((View) dncep.getModel()).getElement()).getTarget();
+                Session session = SessionManager.INSTANCE.getSession(semanticElement);
+                TransactionalEditingDomain ted = session.getTransactionalEditingDomain();
+                CompositeTransactionalCommand ctc = new CompositeTransactionalCommand(ted, "Distribute border nodes");
+                ctc.compose(CommandFactory.createICommand(ted, new ShiftDirectBorderedNodesOperation(Lists.newArrayList((Node) first.getModel()), new Dimension(delta1, 0))));
+                ctc.compose(CommandFactory.createICommand(ted, new ShiftDirectBorderedNodesOperation(Lists.newArrayList((Node) last.getModel()), new Dimension(delta2, 0))));
+                ctc.compose(new DistributeCommand(ted, Lists.newArrayList(Iterables.filter(list, IGraphicalEditPart.class)), DistributeAction.GAPS_HORIZONTALLY));
+                dncep.getDiagramEditDomain().getDiagramCommandStack().execute(new ICommandProxy(ctc));
+            }
+        }
+    }
+
+    public void openWizard(String id) {
+        // First see if this is a "new wizard".
+        IWizardDescriptor descriptor = PlatformUI.getWorkbench().getNewWizardRegistry().findWizard(id);
+        // If not check if it is an "import wizard".
+        if (descriptor == null) {
+            descriptor = PlatformUI.getWorkbench().getImportWizardRegistry().findWizard(id);
+        }
+        // Or maybe an export wizard
+        if (descriptor == null) {
+            descriptor = PlatformUI.getWorkbench().getExportWizardRegistry().findWizard(id);
+        }
+        try {
+            // Then if we have a wizard, open it.
+            if (descriptor != null) {
+                IWizard wizard = descriptor.createWizard();
+                WizardDialog wd = new WizardDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(), wizard);
+                wd.setTitle(wizard.getWindowTitle());
+                wd.open();
+            }
+        } catch (CoreException e) {
+            e.printStackTrace();
         }
     }
 

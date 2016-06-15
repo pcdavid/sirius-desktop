@@ -291,7 +291,7 @@ public class DistributeAction extends DiagramAction {
             selection = ToolUtilities.getSelectionWithoutDependants(selection);
             // Remove the connections
             selection = Lists.newArrayList(Iterables.filter(selection, Predicates.not(Predicates.instanceOf(ConnectionEditPart.class))));
-            if (selection.size() < 3) {
+            if (selection.size() < 3 && !canDistributeBorderNodes(selection)) {
                 selection = Collections.EMPTY_LIST;
             } else {
                 EditPart parent = ((EditPart) selection.get(0)).getParent();
@@ -330,6 +330,14 @@ public class DistributeAction extends DiagramAction {
             }
         }
         return selection;
+    }
+
+    private boolean canDistributeBorderNodes(List<?> selection) {
+        if (selection.size() == 1) {
+            // TODO test number of nodes by sides
+            return true;
+        }
+        return false;
     }
 
     private boolean isHorizontalAxisAuthorizedForBorderNode(int side) {

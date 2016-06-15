@@ -38,6 +38,7 @@ import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramNameEditPart;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramNodeEditPart;
 import org.eclipse.sirius.diagram.ui.graphical.edit.policies.SiriusContainerDropPolicy;
+import org.eclipse.sirius.diagram.ui.graphical.edit.policies.SiriusDecorationEditPolicy;
 import org.eclipse.sirius.diagram.ui.graphical.edit.policies.SpecificBorderItemSelectionEditPolicy;
 import org.eclipse.sirius.diagram.ui.internal.edit.policies.DNodeItemSemanticEditPolicy;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
@@ -133,6 +134,7 @@ public class DNodeEditPart extends AbstractDiagramNodeEditPart {
          * remove the connection items display
          */
         removeEditPolicy(EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+        installEditPolicy(EditPolicyRoles.DECORATION_ROLE, new SiriusDecorationEditPolicy());
     }
 
     /**

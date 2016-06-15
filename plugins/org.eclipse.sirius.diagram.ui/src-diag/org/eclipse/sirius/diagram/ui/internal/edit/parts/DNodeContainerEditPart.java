@@ -13,9 +13,11 @@ package org.eclipse.sirius.diagram.ui.internal.edit.parts;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramContainerEditPart;
 import org.eclipse.sirius.diagram.ui.graphical.edit.policies.ContainerCreationEditPolicy;
+import org.eclipse.sirius.diagram.ui.graphical.edit.policies.SiriusDecorationEditPolicy;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
 
 /**
@@ -42,6 +44,7 @@ public class DNodeContainerEditPart extends AbstractDiagramContainerEditPart {
 
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicy.CONTAINER_ROLE, new ContainerCreationEditPolicy());
+        installEditPolicy(EditPolicyRoles.DECORATION_ROLE, new SiriusDecorationEditPolicy());
     }
 
     /**

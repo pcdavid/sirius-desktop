@@ -16,7 +16,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.sirius.business.internal.session.danalysis.DanglingRefRemovalTrigger;
+import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.DView;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
@@ -43,7 +45,8 @@ public class DialectEditorCloserFilter extends NotificationFilter.Custom {
 
     @Override
     public boolean matches(Notification notification) {
-        return isTargetUnset(notification) || isRepresentationDeletion(notification) || isTargetDetachment(notification);
+        boolean matches = isTargetUnset(notification) || isRepresentationDeletion(notification) || isTargetDetachment(notification);
+        return matches;
     }
 
     private boolean isTargetUnset(Notification notification) {
@@ -86,8 +89,11 @@ public class DialectEditorCloserFilter extends NotificationFilter.Custom {
     private boolean isTargetDetachment(Notification notification) {
         boolean detachedTarget = false;
         if (DanglingRefRemovalTrigger.IS_DETACHMENT.apply(notification)) {
-            EObject target = dRepDescriptor.getTarget();
-            detachedTarget = isInOldValue(notification, target) && target.eContainer() == null;
+            DRepresentation representation = dRepDescriptor.getRepresentation();
+            if (representation instanceof DSemanticDecorator) {
+                EObject target = ((DSemanticDecorator) dRepDescriptor.getRepresentation()).getTarget();
+                detachedTarget = isInOldValue(notification, target) && target.eContainer() == null;
+            }
         }
 
         return detachedTarget;

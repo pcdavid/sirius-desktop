@@ -20,7 +20,6 @@ import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.FeatureNotFoundException;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.MetaClassNotFoundException;
 import org.eclipse.sirius.ext.emf.EReferencePredicate;
-import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.Messages;
 
 /**
@@ -91,15 +90,10 @@ public class DeleteEObjectTask extends AbstractCommandTask {
 
         // Case 1.1: the element to delete is a semantic decorator
         // => we should delete all references to this element
-        if (objectToDelete instanceof DSemanticDecorator) {
-            session = SessionManager.INSTANCE.getSession(((DSemanticDecorator) objectToDelete).getTarget());
-        } else {
-            // Here we have a semantic element
-            // Case 1.2 : references to this element should be deleted
-            // => we should delete all references to this element except
-            // from DSemanticDecorators
-            session = SessionManager.INSTANCE.getSession(objectToDelete);
-        }
+        // Case 1.2 : we have a semantic element
+        // => we should delete all references to this element except
+        // from DSemanticDecorators
+        session = SessionManager.INSTANCE.getSession(objectToDelete);
 
         // Step 2 : perform delete
         ECrossReferenceAdapter semanticCrossReferencer = null;

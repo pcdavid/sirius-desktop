@@ -225,9 +225,9 @@ public class SessionManagerImpl extends SessionManagerEObjectImpl implements Ses
     }
 
     @Override
-    public Session getSession(final Resource semanticResource) {
+    public Session getSession(final Resource candidateResource) {
         Session found = null;
-        Option<SessionTransientAttachment> attachment = SessionTransientAttachment.getSessionTransientAttachement(semanticResource);
+        Option<SessionTransientAttachment> attachment = SessionTransientAttachment.getSessionTransientAttachement(candidateResource);
 
         if (attachment.some()) {
             found = attachment.get().getSession();
@@ -235,10 +235,8 @@ public class SessionManagerImpl extends SessionManagerEObjectImpl implements Ses
         if (found == null) {
             for (Iterator<? extends Session> sessionsIter = doGetSessions().iterator(); sessionsIter.hasNext() && found == null; /* */) {
                 Session sess = sessionsIter.next();
-                Collection<Resource> semanticResources = new ArrayList<Resource>(sess.getSemanticResources());
-                if (semanticResources.contains(semanticResource)) {
-                    found = sess;
-                } else if (sess instanceof DAnalysisSessionEObject && ((DAnalysisSessionEObject) sess).getControlledResources().contains(semanticResource)) {
+                Collection<Resource> resources = new ArrayList<Resource>(sess.getTransactionalEditingDomain().getResourceSet().getResources());
+                if (resources.contains(candidateResource)) {
                     found = sess;
                 }
             }

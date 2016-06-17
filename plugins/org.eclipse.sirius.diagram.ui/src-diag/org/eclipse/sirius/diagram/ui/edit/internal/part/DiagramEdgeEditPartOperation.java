@@ -320,7 +320,7 @@ public final class DiagramEdgeEditPartOperation {
     public static void refreshLineStyle(final IDiagramEdgeEditPart self) {
         final EObject semanticElement = self.resolveSemanticElement();
         PolylineConnectionEx polylineConnectionFigure = self.getPolylineConnectionFigure();
-        
+
         if (semanticElement instanceof DEdge && polylineConnectionFigure != null) {
             final DEdge edge = (DEdge) semanticElement;
             if (edge.getOwnedStyle() != null) {
@@ -337,7 +337,7 @@ public final class DiagramEdgeEditPartOperation {
             }
         }
     }
-    
+
     /**
      * Return the computed line width.
      * 

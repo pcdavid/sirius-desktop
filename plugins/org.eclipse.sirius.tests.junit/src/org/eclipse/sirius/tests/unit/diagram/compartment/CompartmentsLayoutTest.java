@@ -674,17 +674,14 @@ public class CompartmentsLayoutTest extends SiriusDiagramTestCase implements ICo
 
         // Delta of 5 pixels because there are 5 lines (with potential 1 delta
         // pixel)
-        // 1 is removed to the INITIAL_VERTICAL_CENTER_CLASS_BOUNDS.height as
-        // this region is now the first one. This is because of bug 496742 that
-        // will be fixed later.
         Rectangle centerClassBounds = checkBounds(CENTER_CLASS_NAME, new Rectangle(0, 0, -1, -1),
-                new Rectangle(0, 0, INITIAL_VERTICAL_CENTER_CLASS_BOUNDS.width, INITIAL_VERTICAL_CENTER_CLASS_BOUNDS.height - 1), 0, 5);
-        heightDeltas += centerClassBounds.height - INITIAL_VERTICAL_CENTER_CLASS_BOUNDS.height - 1;
+                new Rectangle(0, 0, INITIAL_VERTICAL_CENTER_CLASS_BOUNDS.width, INITIAL_VERTICAL_CENTER_CLASS_BOUNDS.height), 0, 5);
+        heightDeltas += centerClassBounds.height - INITIAL_VERTICAL_CENTER_CLASS_BOUNDS.height;
         // Delta of 5 pixels because there are 5 lines (with potential 1 delta
         // pixel)
-        Rectangle leftClassBounds = checkBounds(LEFT_CLASS_NAME, new Rectangle(0, centerClassBounds.y + centerClassBounds.height + 1, -1, -1),
+        Rectangle leftClassBounds = checkBounds(LEFT_CLASS_NAME, new Rectangle(0, centerClassBounds.y + centerClassBounds.height, -1, -1),
                 INITIAL_VERTICAL_LEFT_CLASS_BOUNDS.getTranslated(0, centerClassBounds.height).getResized(0, 1), 0, 5);
-        heightDeltas += leftClassBounds.height - INITIAL_VERTICAL_LEFT_CLASS_BOUNDS.height + 1;
+        heightDeltas += leftClassBounds.height - INITIAL_VERTICAL_LEFT_CLASS_BOUNDS.height;
         // Delta of 2 pixels because there are 2 lines (with potential 1 delta
         // pixel)
         Rectangle rightClassBounds = checkBounds(RIGHT_CLASS_NAME, new Rectangle(0, leftClassBounds.y + leftClassBounds.height, -1, -1),
@@ -749,18 +746,18 @@ public class CompartmentsLayoutTest extends SiriusDiagramTestCase implements ICo
         heightDeltas += centerClassBounds.height - INITIAL_VERTICAL_CENTER_CLASS_BOUNDS.height;
         // Delta of 2 pixels because there are 2 lines (with potential 1 delta
         // pixel)
-        Rectangle rightClassBounds = checkBounds(RIGHT_CLASS_NAME, new Rectangle(0, centerClassBounds.y + centerClassBounds.height + 1, -1, -1),
+        Rectangle rightClassBounds = checkBounds(RIGHT_CLASS_NAME, new Rectangle(0, centerClassBounds.y + centerClassBounds.height, -1, -1),
                 INITIAL_VERTICAL_RIGHT_CLASS_BOUNDS.getTranslated(0, heightDeltas - INITIAL_VERTICAL_LEFT_CLASS_BOUNDS.height), 0, 2);
         heightDeltas += rightClassBounds.height - INITIAL_VERTICAL_RIGHT_CLASS_BOUNDS.height;
-        Rectangle leftPkgBounds = checkBounds(LEFT_PKG_NAME, new Rectangle(0, rightClassBounds.y + rightClassBounds.height + 1, -1, -1),
+        Rectangle leftPkgBounds = checkBounds(LEFT_PKG_NAME, new Rectangle(0, rightClassBounds.y + rightClassBounds.height, -1, -1),
                 INITIAL_VERTICAL_LEFT_PKG_BOUNDS.getTranslated(0, heightDeltas - INITIAL_VERTICAL_LEFT_CLASS_BOUNDS.height));
         heightDeltas += leftPkgBounds.height - INITIAL_VERTICAL_LEFT_PKG_BOUNDS.height;
         // Delta of 1 pixel because there is 1 line (with potential 1 delta
         // pixel)
-        Rectangle centerPkgBounds = checkBounds(CENTER_PKG_NAME, new Rectangle(0, leftPkgBounds.y + leftPkgBounds.height + 1, -1, -1),
+        Rectangle centerPkgBounds = checkBounds(CENTER_PKG_NAME, new Rectangle(0, leftPkgBounds.y + leftPkgBounds.height, -1, -1),
                 INITIAL_VERTICAL_CENTER_PKG_BOUNDS.getTranslated(0, heightDeltas - INITIAL_VERTICAL_LEFT_CLASS_BOUNDS.height), 0, 1);
         heightDeltas += centerPkgBounds.height - INITIAL_VERTICAL_CENTER_PKG_BOUNDS.height;
-        Rectangle rightPkgBounds = checkBounds(RIGHT_PKG_NAME, new Rectangle(0, centerPkgBounds.y + centerPkgBounds.height + 1, -1, -1),
+        Rectangle rightPkgBounds = checkBounds(RIGHT_PKG_NAME, new Rectangle(0, centerPkgBounds.y + centerPkgBounds.height, -1, -1),
                 INITIAL_VERTICAL_RIGHT_PKG_BOUNDS.getTranslated(0, heightDeltas - INITIAL_VERTICAL_LEFT_CLASS_BOUNDS.height));
         heightDeltas += rightPkgBounds.height - INITIAL_VERTICAL_RIGHT_PKG_BOUNDS.height;
         Rectangle firstRegionBounds = checkBounds(FIRST_REGION_CONTAINER_NAME, new Rectangle(64, 16, -1, -1), new Rectangle(64, 16, 141, -1));

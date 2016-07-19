@@ -639,8 +639,8 @@ public class DDiagramSynchronizer {
      * @param edgeToMappingBasedDecoration
      *            an empty map
      */
-    public void computeDecorations(final Map<DiagramElementMapping, Collection<EdgeTarget>> mappingsToEdgeTargets,
-            final Map<String, Collection<SemanticBasedDecoration>> edgeToSemanticBasedDecoration, final Map<EdgeMapping, Collection<MappingBasedDecoration>> edgeToMappingBasedDecoration) {
+    public void computeDecorations(final Map<DiagramElementMapping, Collection<EdgeTarget>> mappingsToEdgeTargets, final Map<String, Collection<SemanticBasedDecoration>> edgeToSemanticBasedDecoration,
+            final Map<EdgeMapping, Collection<MappingBasedDecoration>> edgeToMappingBasedDecoration) {
         final List<Layer> activatedLayers = diagram.getActivatedLayers();
 
         for (final Layer layer : activatedLayers) {
@@ -846,6 +846,9 @@ public class DDiagramSynchronizer {
     }
 
     private void refreshMappingsInContainerMapping(final Map<DiagramElementMapping, Collection<EdgeTarget>> mappingsToEdgeTargets, final DDiagramElementContainer newNode, IProgressMonitor monitor) {
+        // TODO the can edit instance has already been checked for ketp nodes,
+        // and might have no sense for added ones (the cancreateIn have been
+        // called on the container)
         if (this.accessor.getPermissionAuthority().canEditInstance(newNode)) {
             try {
                 monitor.beginTask(Messages.DDiagramSynchronizer_refreshContainerChildsMsg, 1);
@@ -947,7 +950,7 @@ public class DDiagramSynchronizer {
      */
     private void refreshBorderNodeMapping(final Map<DiagramElementMapping, Collection<EdgeTarget>> mappingsToAbstractNodes, final AbstractDNode newNode,
             final Set<AbstractDNodeCandidate> semanticFilter, IProgressMonitor monitor) {
-        if (newNode instanceof DragAndDropTarget && this.accessor.getPermissionAuthority().canEditInstance(newNode)) {
+        if (newNode instanceof DragAndDropTarget) {
             final DragAndDropTarget newNodeDDT = (DragAndDropTarget) newNode;
             List<NodeMapping> borderedNodeMappings = diagramMappingsManager.getBorderedNodeMappings(newNode);
             try {
@@ -972,7 +975,9 @@ public class DDiagramSynchronizer {
 
                     /* Now try to create bordered nodes from the created nodes. */
                     for (final AbstractDNode bNewNode : Iterables.filter(addedBorderNodes, AbstractDNode.class)) {
-                        refreshBorderNodeMapping(mappingsToAbstractNodes, bNewNode, semanticFilter, new SubProgressMonitor(monitor, 1));
+                        if (this.accessor.getPermissionAuthority().canEditInstance(bNewNode)) {
+                            refreshBorderNodeMapping(mappingsToAbstractNodes, bNewNode, semanticFilter, new SubProgressMonitor(monitor, 1));
+                        }
                     }
                     monitor.worked(1);
                 }
@@ -1010,6 +1015,8 @@ public class DDiagramSynchronizer {
             Iterable<AbstractDNodeCandidate> allElements = status.getAllElements();
             monitor.beginTask("", Iterables.size(allElements)); //$NON-NLS-1$
 
+            // TODO see if we can call the canCreateIn only once but only if
+            // there are elements to add.
             final boolean createContents = this.accessor.getPermissionAuthority().canCreateIn(viewContainer) && new DiagramElementMappingQuery(mapping).isSynchronizedAndCreateElement(diagram);
             final RefreshOrderHelper refreshOrderHelper = new RefreshOrderHelper(viewContainer, mapping);
             int mappingBeginIndex = refreshOrderHelper.getMappingBeginIndex();
@@ -1337,20 +1344,17 @@ public class DDiagramSynchronizer {
     private void refreshEdgeMapping(DiagramMappingsManager mappingManager, final Map<DiagramElementMapping, Collection<EdgeTarget>> mappingsToEdgeTargets, final EdgeMapping mapping,
             final Map<EdgeMapping, Collection<MappingBasedDecoration>> edgeToMappingBasedDecoration, final Map<String, Collection<SemanticBasedDecoration>> edgeToSemanticBasedDecoration,
             IProgressMonitor monitor) {
-        if (this.accessor.getPermissionAuthority().canEditInstance(this.diagram)) {
-            final SetIntersection<DEdgeCandidate> status = createEdgeCandidates(mappingsToEdgeTargets, mapping, edgeToMappingBasedDecoration, edgeToSemanticBasedDecoration);
-
-            if (new DiagramElementMappingQuery(mapping).isSynchronizedAndCreateElement(diagram)) {
-                try {
-                    Collection<DEdgeCandidate> newElements = status.getNewElements();
-                    monitor.beginTask(Messages.DDiagramSynchronizer_refreshEdgeMsg, newElements.size());
-                    for (final DEdgeCandidate candidate : newElements) {
-                        edgesDones.add(this.sync.createNewEdge(mappingManager, candidate, mappingsToEdgeTargets, edgeToMappingBasedDecoration, edgeToSemanticBasedDecoration));
-                        monitor.worked(1);
-                    }
-                } finally {
-                    monitor.done();
+        final SetIntersection<DEdgeCandidate> status = createEdgeCandidates(mappingsToEdgeTargets, mapping, edgeToMappingBasedDecoration, edgeToSemanticBasedDecoration);
+        if (new DiagramElementMappingQuery(mapping).isSynchronizedAndCreateElement(diagram)) {
+            try {
+                Collection<DEdgeCandidate> newElements = status.getNewElements();
+                monitor.beginTask(Messages.DDiagramSynchronizer_refreshEdgeMsg, newElements.size());
+                for (final DEdgeCandidate candidate : newElements) {
+                    edgesDones.add(this.sync.createNewEdge(mappingManager, candidate, mappingsToEdgeTargets, edgeToMappingBasedDecoration, edgeToSemanticBasedDecoration));
+                    monitor.worked(1);
                 }
+            } finally {
+                monitor.done();
             }
         }
     }

@@ -493,6 +493,7 @@ public class DDiagramElementSynchronizer {
      *            node to be refreshed.
      */
     public void refresh(final DDiagramElement dde) {
+        // TODO: give the ability to check only once for the whole refresh
         if (accessor.getPermissionAuthority().canEditInstance(dde)) {
             if (dde instanceof DNode) {
                 refresh((DNode) dde);

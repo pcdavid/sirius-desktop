@@ -98,6 +98,7 @@ import org.eclipse.sirius.viewpoint.description.style.TooltipStyleDescription;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
+import com.google.common.collect.Maps;
 
 /**
  * This class is able to synchronize diagram elements and styles.
@@ -115,6 +116,8 @@ public class DDiagramElementSynchronizer {
     private final StyleHelper styleHelper;
 
     private final MappingHelper mappingHelper;
+
+    private Map<EObject, Boolean> safeTargetCache = Maps.newHashMap();
 
     /**
      * Create a new synchronizer for the given diagram.
@@ -537,7 +540,7 @@ public class DDiagramElementSynchronizer {
         ContainerMapping containerMapping = container.getActualMapping();
         if (cContainer != null) {
             ContainerStyleDescription containerStyleDescription = null;
-            if (AbstractSynchronizerHelper.isTargetDying(container) && AbstractSynchronizerHelper.isTargetDying(cContainer)) {
+            if (hasSafeTarget(container) && hasSafeTarget(cContainer)) {
                 containerStyleDescription = (ContainerStyleDescription) this.mappingHelper.getBestStyleDescription(containerMapping, container.getTarget(), container, cContainer.getTarget(), diagram);
             }
             if (containerStyleDescription != null) {
@@ -574,7 +577,7 @@ public class DDiagramElementSynchronizer {
         if (container != null) {
             NodeStyleDescription nodeStyleDescription = null;
             NodeMapping nodeMapping = newNode.getActualMapping();
-            if (AbstractSynchronizerHelper.isTargetDying(newNode) && AbstractSynchronizerHelper.isTargetDying(container)) {
+            if (hasSafeTarget(newNode) && hasSafeTarget(container)) {
                 nodeStyleDescription = (NodeStyleDescription) this.mappingHelper.getBestStyleDescription(nodeMapping, newNode.getTarget(), newNode, container.getTarget(), diagram);
             }
             if (nodeStyleDescription != null) {
@@ -647,7 +650,7 @@ public class DDiagramElementSynchronizer {
         this.interpreter.setVariable(IInterpreterSiriusVariables.VIEW, node);
 
         StyleDescription bestStyleDescription = null;
-        if (AbstractSynchronizerHelper.isTargetDying(node)) {
+        if (hasSafeTarget(node)) {
             bestStyleDescription = this.mappingHelper.getBestStyleDescription(mapping, node.getTarget(), node, containerVariable, diagram);
         }
         Style style = node.getStyle();
@@ -677,6 +680,30 @@ public class DDiagramElementSynchronizer {
                 this.interpreter.unSetVariable(IInterpreterSiriusVariables.CONTAINER);
             }
         }
+    }
+
+    /**
+     * Check if the target of this decorator is not null and is in a eResource.
+     * 
+     * @param decorator
+     *            The decorator to check
+     * @return true if the target is OK, false otherwise.
+     */
+    private boolean hasSafeTarget(DSemanticDecorator semDec) {
+        // EObject target = semDec.getTarget();
+        // return target != null && (target.eContainer() != null ||
+        // target.eResource() != null);
+        EObject target = semDec.getTarget();
+        if (target != null) {
+            Boolean b = safeTargetCache.get(target);
+            if (b == null) {
+                b = target.eContainer() != null || target.eResource() != null;
+                safeTargetCache.put(target, b);
+            }
+            return b;
+        }
+        return false;
+
     }
 
     private boolean isCustomizedWorkspaceImageWorkspacePath(Style style) {

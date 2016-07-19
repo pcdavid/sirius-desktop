@@ -574,7 +574,7 @@ public class DDiagramElementSynchronizer {
         if (container != null) {
             NodeStyleDescription nodeStyleDescription = null;
             NodeMapping nodeMapping = newNode.getActualMapping();
-            if (AbstractSynchronizerHelper.isTargetDying(newNode)) {
+            if (AbstractSynchronizerHelper.isTargetDying(newNode) && AbstractSynchronizerHelper.isTargetDying(container)) {
                 nodeStyleDescription = (NodeStyleDescription) this.mappingHelper.getBestStyleDescription(nodeMapping, newNode.getTarget(), newNode, container.getTarget(), diagram);
             }
             if (nodeStyleDescription != null) {

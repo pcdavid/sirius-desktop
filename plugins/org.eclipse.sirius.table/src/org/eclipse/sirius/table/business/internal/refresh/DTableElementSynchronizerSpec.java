@@ -114,6 +114,9 @@ public class DTableElementSynchronizerSpec extends DTableElementSynchronizerImpl
      */
     @Override
     public void refresh(final DLine line) {
+        // TODO See if this might removed or cached as we have just checked it
+        // in DTableSynchronizerImpl.refreshLineMapping. Also check others
+        // callers.
         if (accessor.getPermissionAuthority().canEditInstance(line)) {
             final LineMapping mapping = line.getOriginMapping();
             if (!StringUtil.isEmpty(mapping.getHeaderLabelExpression())) {
@@ -153,6 +156,7 @@ public class DTableElementSynchronizerSpec extends DTableElementSynchronizerImpl
      */
     @Override
     public void refresh(final DCell cell) {
+        // TODO check here too
         if (accessor.getPermissionAuthority().canEditInstance(cell)) {
             if (refreshTarget(cell)) {
                 if (refreshLabel(cell)) {

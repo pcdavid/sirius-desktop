@@ -87,6 +87,7 @@ public class DTreeElementSynchronizerSpec extends DTreeElementSynchronizerImpl {
      *            mapping used to retrieve the semantic elements.
      */
     public void refreshSemanticElements(final DTreeElement treeElement, final TreeMapping mapping) {
+        // TODO check this
         if (modelAccessor.getPermissionAuthority().canEditInstance(treeElement)) {
             if (mapping.getSemanticElements() != null && !StringUtil.isEmpty(mapping.getSemanticElements())) {
 
@@ -149,6 +150,7 @@ public class DTreeElementSynchronizerSpec extends DTreeElementSynchronizerImpl {
      */
     @Override
     public void refresh(final DTreeItem treeItem) {
+        // TODO check this
         if (modelAccessor.getPermissionAuthority().canEditInstance(treeItem)) {
             refreshStyle(treeItem);
             refreshSemanticElements(treeItem);

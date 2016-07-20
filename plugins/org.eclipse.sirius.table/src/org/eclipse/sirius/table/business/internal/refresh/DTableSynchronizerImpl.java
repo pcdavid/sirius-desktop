@@ -422,6 +422,7 @@ public class DTableSynchronizerImpl implements DTableSynchronizer {
     private int refreshElementColumnMapping(final ElementColumnMapping mapping, final Map<TableMapping, Collection<DTableElement>> mappingToElements, final int previousCurrentIndex,
             ECrossReferenceAdapter xref) {
         int currentIndex = previousCurrentIndex;
+        // TODO: see if this check has already been done in callers
         if (accessor.getPermissionAuthority().canEditInstance(table)) {
             final SetIntersection<DTargetColumnCandidate> status = computeCurrentStatus(mapping, xref);
             final Collection<DTableElement> elementsToKeep = new ArrayList<DTableElement>();
@@ -447,10 +448,12 @@ public class DTableSynchronizerImpl implements DTableSynchronizer {
                     sync.refreshSemanticElements(targetColumnCandidate.getOriginalElement(), targetColumnCandidate.getMapping());
                     final DTable parentTable = targetColumnCandidate.getOriginalElement().getTable();
                     if (parentTable.getColumns().size() >= currentIndex) {
+                        // TODO check this
                         if (accessor.getPermissionAuthority().canEditInstance(parentTable) && !targetColumnCandidate.getOriginalElement().equals(parentTable.getColumns().get(currentIndex))) {
                             parentTable.getColumns().move(currentIndex, targetColumnCandidate.getOriginalElement());
                         }
                     } else {
+                        // TODO check this
                         if (accessor.getPermissionAuthority().canEditInstance(parentTable)) {
                             parentTable.getColumns().move(parentTable.getColumns().size() - 1, targetColumnCandidate.getOriginalElement());
                         }
@@ -470,6 +473,8 @@ public class DTableSynchronizerImpl implements DTableSynchronizer {
         // Remove column with no target (target == null). This case can happen
         // when the dangling references are removed during the delete of the
         // semantic element.
+
+        // TODO: check if the authority check is needed
         if (this.accessor.getPermissionAuthority().canEditInstance(table)) {
             /*
              * let's analyze the existing columns.
@@ -603,47 +608,54 @@ public class DTableSynchronizerImpl implements DTableSynchronizer {
         final SetIntersection<DLineCandidate> status = computeCurrentStatus(container, mapping, xref);
         final Collection<DLine> possibleContainers = new ArrayList<DLine>();
         final Collection<DTableElement> elementsToKeep = new ArrayList<DTableElement>();
-        // Remove old elements
+
         if (this.accessor.getPermissionAuthority().canEditInstance(container)) {
+            // Remove old elements
             for (final DLineCandidate toDelete : status.getRemovedElements()) {
                 if (toDelete.getOriginalElement() != null) {
                     doDeleteLine(toDelete.getOriginalElement(), xref);
                 }
             }
-        }
-        // Treat existing elements and new elements in the order of the result
-        // of the expression
-        for (final DLineCandidate lineCandidate : status.getAllElements()) {
-            if (lineCandidate.getOriginalElement() == null) {
-                if (this.accessor.getPermissionAuthority().canEditInstance(container)) {
+
+            // Treat existing elements and new elements in the order of the
+            // result
+            // of the expression
+            for (final DLineCandidate lineCandidate : status.getAllElements()) {
+                if (lineCandidate.getOriginalElement() == null) {
                     final DLine newL = createNewLine(lineCandidate.getMapping(), lineCandidate.getSemantic());
                     container.getLines().add(currentIndex, newL);
                     sync.refresh(newL);
                     sync.refreshSemanticElements(newL, lineCandidate.getMapping());
                     possibleContainers.add(newL);
                     elementsToKeep.add(newL);
-                }
-            } else {
-                if (accessor.getPermissionAuthority().canEditInstance(lineCandidate.getOriginalElement())) {
-                    sync.refresh(lineCandidate.getOriginalElement());
-                    sync.refreshSemanticElements(lineCandidate.getOriginalElement(), lineCandidate.getMapping());
-                    // Move the line to the end to keep order
-                    final LineContainer lineContainer = (LineContainer) lineCandidate.getOriginalElement().eContainer();
-                    if (lineContainer.getLines().size() >= currentIndex) {
-                        if (accessor.getPermissionAuthority().canEditInstance(lineContainer) && !lineCandidate.getOriginalElement().equals(lineContainer.getLines().get(currentIndex))) {
-                            lineContainer.getLines().move(currentIndex, lineCandidate.getOriginalElement());
+                } else {
+                    if (accessor.getPermissionAuthority().canEditInstance(lineCandidate.getOriginalElement())) {
+                        sync.refresh(lineCandidate.getOriginalElement());
+                        sync.refreshSemanticElements(lineCandidate.getOriginalElement(), lineCandidate.getMapping());
+                        // Move the line to the end to keep order
+                        final LineContainer lineContainer = (LineContainer) lineCandidate.getOriginalElement().eContainer();
+                        if (lineContainer.getLines().size() >= currentIndex) {
+                            // TODO check if lineContainer can be different from
+                            // container: there might be no need to recheck the
+                            // permission authority
+                            if (accessor.getPermissionAuthority().canEditInstance(lineContainer) && !lineCandidate.getOriginalElement().equals(lineContainer.getLines().get(currentIndex))) {
+                                lineContainer.getLines().move(currentIndex, lineCandidate.getOriginalElement());
+                            }
+                        } else {
+                            // TODO check if lineContainer can be different from
+                            // container: there might be no need to recheck the
+                            // permission authority
+                            if (accessor.getPermissionAuthority().canEditInstance(lineContainer)) {
+                                lineContainer.getLines().move(lineContainer.getLines().size() - 1, lineCandidate.getOriginalElement());
+                            }
                         }
-                    } else {
-                        if (accessor.getPermissionAuthority().canEditInstance(lineContainer)) {
-                            lineContainer.getLines().move(lineContainer.getLines().size() - 1, lineCandidate.getOriginalElement());
-                        }
+                        // Add this line to the possible containers list
+                        possibleContainers.add(lineCandidate.getOriginalElement());
                     }
-                    // Add this line to the possible containers list
-                    possibleContainers.add(lineCandidate.getOriginalElement());
+                    elementsToKeep.add(lineCandidate.getOriginalElement());
                 }
-                elementsToKeep.add(lineCandidate.getOriginalElement());
+                currentIndex++;
             }
-            currentIndex++;
         }
         putOrAdd(mappingToElements, mapping, elementsToKeep);
         for (final DLine newContainer : possibleContainers) {
@@ -811,6 +823,7 @@ public class DTableSynchronizerImpl implements DTableSynchronizer {
             final DCell cell = toUpdate.getOriginalElement();
 
             if (cell != null) {
+                // TODO check this
                 if (accessor.getPermissionAuthority().canEditInstance(cell)) {
                     if (cell.getTarget() != toUpdate.getSemantic()) {
                         cell.setTarget(toUpdate.getSemantic());

@@ -1086,6 +1086,9 @@ public class DDiagramSynchronizer {
 
             this.sync.refresh(keptNode);
             monitor.worked(1);
+
+            // This might be a doublon call of sync.refreshStyle , see
+            // sync.refresh (but semantic elements refreshed before this one).
             this.sync.refreshStyle(keptNode, nodeMapping);
             monitor.worked(1);
 

@@ -1522,6 +1522,7 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeDiagramPreference(String preferenceKey, Integer newValue) {
+        checkPreferenceNotYetInitialized(oldValueDiagramPreferences, preferenceKey, newValue);
         assertNoDiagramUIPreferenceChangedinDiagramCoreStore(preferenceKey);
 
         int oldValue = Platform.getPreferencesService().getInt(DiagramPlugin.ID, preferenceKey, 0, null);
@@ -1545,6 +1546,7 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeDiagramPreference(String preferenceKey, Boolean newValue) {
+        checkPreferenceNotYetInitialized(oldValueDiagramPreferences, preferenceKey, newValue);
         assertNoDiagramUIPreferenceChangedinDiagramCoreStore(preferenceKey);
 
         boolean oldValue = Platform.getPreferencesService().getBoolean(DiagramPlugin.ID, preferenceKey, false, null);
@@ -1600,6 +1602,7 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeDiagramUIPreference(String preferenceKey, Integer newValue) {
+        checkPreferenceNotYetInitialized(oldValueDiagramUiPreferences, preferenceKey, newValue);
         assertNoDiagramCorePreferenceChangedinDiagramUIStore(preferenceKey);
 
         final IPreferenceStore prefs = DiagramUIPlugin.getPlugin().getPreferenceStore();
@@ -1618,6 +1621,7 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeDiagramUIPreference(String preferenceKey, Boolean newValue) {
+        checkPreferenceNotYetInitialized(oldPlatformUIPreferences, preferenceKey, newValue);
         assertNoDiagramCorePreferenceChangedinDiagramUIStore(preferenceKey);
 
         final IPreferenceStore prefs = DiagramUIPlugin.getPlugin().getPreferenceStore();
@@ -1666,9 +1670,16 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changePlatformUIPreference(String preferenceKey, Boolean newValue) {
+        checkPreferenceNotYetInitialized(oldPlatformUIPreferences, preferenceKey, newValue);
         IPreferenceStore platformUIPrefs = PlatformUI.getPreferenceStore();
         oldPlatformUIPreferences.put(preferenceKey, platformUIPrefs.getBoolean(preferenceKey));
         platformUIPrefs.setValue(preferenceKey, newValue);
+    }
+
+    private void checkPreferenceNotYetInitialized(HashMap<String, Object> valuePreferences, String preferenceKey, Object value) {
+        if (valuePreferences.containsKey(preferenceKey)) {
+            fail("The preference " + preferenceKey + " has been initialized twice. Old Value: " + valuePreferences.get(preferenceKey) + " new: " + value);
+        }
     }
 
     /**
@@ -1682,6 +1693,7 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeSiriusPreference(String preferenceKey, Boolean newValue) {
+        checkPreferenceNotYetInitialized(oldValueSiriusPreferences, preferenceKey, newValue);
         boolean oldValue = Platform.getPreferencesService().getBoolean(SiriusPlugin.ID, preferenceKey, false, null);
         oldValueSiriusPreferences.put(preferenceKey, oldValue);
 
@@ -1703,6 +1715,7 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeSiriusUIPreference(String preferenceKey, Boolean newValue) {
+        checkPreferenceNotYetInitialized(oldValueSiriusUIPreferences, preferenceKey, newValue);
         assertNoSiriusCorePreferenceChangedinSiriusUIStore(preferenceKey);
 
         IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
@@ -1890,22 +1903,27 @@ public abstract class SiriusTestCase extends TestCase {
         for (String key : oldValueDiagramPreferences.keySet()) {
             resetDiagramPreference(key, diagamCorePreferences);
         }
+        oldValueDiagramPreferences.clear();
         IPreferenceStore diagramUIPreferences = DiagramUIPlugin.getPlugin().getPreferenceStore();
         for (String key : oldValueDiagramUiPreferences.keySet()) {
             resetDiagramUiPreference(key, diagramUIPreferences);
         }
+        oldValueDiagramUiPreferences.clear();
         IEclipsePreferences corePreferences = InstanceScope.INSTANCE.getNode(SiriusPlugin.ID);
         for (Entry<String, Object> pref : oldValueSiriusPreferences.entrySet()) {
             corePreferences.putBoolean(pref.getKey(), (Boolean) pref.getValue());
         }
+        oldValueSiriusPreferences.clear();
         IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
         for (Entry<String, Object> pref : oldValueSiriusUIPreferences.entrySet()) {
             viewpointUIPrefs.setValue(pref.getKey(), (Boolean) pref.getValue());
         }
+        oldValueSiriusUIPreferences.clear();
         IPreferenceStore platformUIPrefs = PlatformUI.getPreferenceStore();
         for (Entry<String, Object> pref : oldPlatformUIPreferences.entrySet()) {
             platformUIPrefs.setValue(pref.getKey(), (Boolean) pref.getValue());
         }
+        oldPlatformUIPreferences.clear();
 
         crossRefDetector.assertNoCrossReferenceAdapterFound();
         checkLogs();

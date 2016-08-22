@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -662,6 +663,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
      *            The new value.
      */
     protected void changeDiagramPreference(String preferenceKey, Boolean newValue) {
+        checkPreferenceNotYetInitialized(oldValueDiagramPreferences, preferenceKey, newValue);
         assertNoDiagramUIPreferenceChangedinDiagramCoreStore(preferenceKey);
 
         boolean oldValue = Platform.getPreferencesService().getBoolean(DiagramPlugin.ID, preferenceKey, false, null);
@@ -716,6 +718,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
      *            The new value.
      */
     protected void changeDiagramUIPreference(final String preferenceKey, final Boolean newValue) {
+        checkPreferenceNotYetInitialized(oldValueDiagramUIPreferences, preferenceKey, newValue);
         assertNoDiagramCorePreferenceChangedinDiagramUIStore(preferenceKey);
 
         final IPreferenceStore prefs = DiagramUIPlugin.getPlugin().getPreferenceStore();
@@ -806,6 +809,12 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
         }
     }
 
+    private void checkPreferenceNotYetInitialized(Map<String, Object> valuePreferences, String preferenceKey, Object newValue) {
+        if (valuePreferences.containsKey(preferenceKey)) {
+            fail("The preference " + preferenceKey + " has been initialized twice. Old Value: " + valuePreferences.get(preferenceKey) + " new: " + newValue);
+        }
+    }
+
     /**
      * Change a boolean preference and store the old value. It will be
      * automatically reset during tear down.
@@ -818,6 +827,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
      *            The new value.
      */
     protected void changeSiriusPreference(String preferenceKey, Boolean newValue) {
+        checkPreferenceNotYetInitialized(oldValueSiriusPreferences, preferenceKey, newValue);
         boolean oldValue = Platform.getPreferencesService().getBoolean(SiriusPlugin.ID, preferenceKey, false, null);
         oldValueSiriusPreferences.put(preferenceKey, oldValue);
 
@@ -840,6 +850,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
      *            The new value.
      */
     protected void changeSiriusUIPreference(String preferenceKey, Boolean newValue) {
+        checkPreferenceNotYetInitialized(oldValueSiriusUIPreferences, preferenceKey, newValue);
         assertNoSiriusCorePreferenceChangedinSiriusUIStore(preferenceKey);
 
         IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
@@ -1769,11 +1780,13 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
         for (String key : oldValueDiagramPreferences.keySet()) {
             resetDiagramPreference(key, diagamCorePreferences);
         }
+        oldValueDiagramPreferences.clear();
 
         IPreferenceStore diagramUIPreferences = DiagramUIPlugin.getPlugin().getPreferenceStore();
         for (String key : oldValueDiagramUIPreferences.keySet()) {
             resetDiagramUIPreference(key, diagramUIPreferences);
         }
+        oldValueDiagramUIPreferences.clear();
         boolean currentUiPreference = diagramUIPreferences.getBoolean(SiriusDiagramUiPreferencesKeys.PREF_OLD_UI.name());
         if (currentUiPreference) {
             System.out.println("This test has not reset the oldUiPreference : " + this.getClass().getName() + " (it is currently true).");
@@ -1783,16 +1796,19 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
         for (Entry<String, Object> pref : oldPlatformUIPreferences.entrySet()) {
             platformUIPrefs.setValue(pref.getKey(), (Boolean) pref.getValue());
         }
+        oldPlatformUIPreferences.clear();
 
         IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
         for (Entry<String, Object> pref : oldValueSiriusUIPreferences.entrySet()) {
             viewpointUIPrefs.setValue(pref.getKey(), (Boolean) pref.getValue());
         }
+        oldValueSiriusUIPreferences.clear();
 
         IEclipsePreferences corePreferences = InstanceScope.INSTANCE.getNode(SiriusPlugin.ID);
         for (Entry<String, Object> pref : oldValueSiriusPreferences.entrySet()) {
             corePreferences.putBoolean(pref.getKey(), (Boolean) pref.getValue());
         }
+        oldValueSiriusPreferences.clear();
     }
 
     /**

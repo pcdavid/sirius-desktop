@@ -17,10 +17,16 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.viewers.IBasicPropertyConstants;
+import org.eclipse.sirius.ui.tools.api.views.common.item.RepresentationDescriptionItem;
+import org.eclipse.sirius.ui.tools.internal.views.common.item.RepresentationItemImpl;
+import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.provider.Messages;
 import org.eclipse.ui.navigator.CommonNavigator;
 import org.eclipse.ui.navigator.CommonViewer;
 import org.eclipse.ui.progress.UIJob;
+
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 
 /**
  * A {@link UIJob} to refresh the image of the label in a
@@ -75,6 +81,19 @@ public class RefreshLabelImageJob extends UIJob {
                 view.getCommonViewer().refresh();
             } else {
                 CommonViewer commonViewer = view.getCommonViewer();
+
+                Iterable<DRepresentationDescriptor> repDescs = Iterables.filter(elementsToRefresh, DRepresentationDescriptor.class);
+                Object[] expandedElements = commonViewer.getExpandedElements();
+                if (!Iterables.isEmpty(repDescs) && expandedElements != null) {
+                    for (RepresentationDescriptionItem item : Iterables.filter(Lists.newArrayList(expandedElements), RepresentationDescriptionItem.class)) {
+                        for (RepresentationItemImpl repItem : Iterables.filter(item.getChildren(), RepresentationItemImpl.class)) {
+                            if (Iterables.contains(repDescs, repItem.getWrappedObject())) {
+                                elementsToRefresh.add(repItem);
+                            }
+                        }
+                    }
+                }
+
                 commonViewer.update(elementsToRefresh.toArray(), refreshProperties);
             }
         }

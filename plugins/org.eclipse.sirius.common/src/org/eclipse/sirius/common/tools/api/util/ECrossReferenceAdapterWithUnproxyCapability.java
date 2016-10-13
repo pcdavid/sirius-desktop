@@ -40,7 +40,7 @@ public class ECrossReferenceAdapterWithUnproxyCapability extends SiriusCrossRefe
      * 
      * @author <a href="mailto:laurent.redor@obeo.fr">Laurent Redor</a>
      */
-    private class LocalInverseCrossReferencer extends InverseCrossReferencer {
+    protected class LocalInverseCrossReferencer extends InverseCrossReferencer {
         private static final long serialVersionUID = 1L;
 
         @Override
@@ -54,7 +54,7 @@ public class ECrossReferenceAdapterWithUnproxyCapability extends SiriusCrossRefe
          * used if the resolve() method returns true. In this case, we must
          * iterate on all crossReferences to retrieve corresponding proxies.
          * 
-         * @return
+         * @return true if the proxyMap is null.
          */
         public boolean isNullMapProxy() {
             return proxyMap == null;

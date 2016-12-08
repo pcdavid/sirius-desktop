@@ -19,14 +19,13 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.WidgetConditionalStyle;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Widget Conditional Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Widget
+ * Conditional Style</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.WidgetConditionalStyleImpl#getPreconditionExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.WidgetConditionalStyleImpl#getPreconditionExpression
  * <em>Precondition Expression</em>}</li>
  * </ul>
  *

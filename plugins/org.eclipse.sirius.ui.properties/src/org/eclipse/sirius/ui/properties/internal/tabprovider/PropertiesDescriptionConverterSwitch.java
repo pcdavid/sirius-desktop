@@ -23,6 +23,9 @@ import org.eclipse.sirius.properties.CustomExpression;
 import org.eclipse.sirius.properties.CustomOperation;
 import org.eclipse.sirius.properties.CustomWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CustomWidgetStyle;
+import org.eclipse.sirius.properties.DateDescription;
+import org.eclipse.sirius.properties.DateWidgetConditionalStyle;
+import org.eclipse.sirius.properties.DateWidgetStyle;
 import org.eclipse.sirius.properties.DynamicMappingFor;
 import org.eclipse.sirius.properties.DynamicMappingIf;
 import org.eclipse.sirius.properties.FillLayoutDescription;
@@ -271,5 +274,20 @@ public class PropertiesDescriptionConverterSwitch extends PropertiesSwitch<IDesc
     @Override
     public IDescriptionConverter caseCustomWidgetConditionalStyle(CustomWidgetConditionalStyle object) {
         return new DefaultDescriptionConverter<>(CustomWidgetConditionalStyle.class, EefPackage.Literals.EEF_CUSTOM_WIDGET_CONDITIONAL_STYLE);
+    }
+    
+    @Override
+    public IDescriptionConverter caseDateDescription(DateDescription object) {
+        return new DateDescriptionConverter();
+    }
+    
+    @Override
+    public IDescriptionConverter caseDateWidgetStyle(DateWidgetStyle object) {
+        return new DefaultStyleDescriptionConverter<>(DateWidgetStyle.class, EefPackage.Literals.EEF_DATE_STYLE);
+    }
+    
+    @Override
+    public IDescriptionConverter caseDateWidgetConditionalStyle(DateWidgetConditionalStyle object) {
+        return new DefaultDescriptionConverter<>(DateWidgetConditionalStyle.class, EefPackage.Literals.EEF_DATE_CONDITIONAL_STYLE);
     }
 }

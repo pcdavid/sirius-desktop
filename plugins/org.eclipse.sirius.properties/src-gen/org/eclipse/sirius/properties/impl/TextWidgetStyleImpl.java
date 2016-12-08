@@ -25,26 +25,21 @@ import org.eclipse.sirius.viewpoint.FontFormat;
 import org.eclipse.sirius.viewpoint.description.ColorDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Text Widget Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Text
+ * Widget Style</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.TextWidgetStyleImpl#getFontNameExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.TextWidgetStyleImpl#getFontNameExpression
  * <em>Font Name Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.TextWidgetStyleImpl#getFontSizeExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.TextWidgetStyleImpl#getFontSizeExpression
  * <em>Font Size Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.TextWidgetStyleImpl#getBackgroundColor
+ * <li>{@link org.eclipse.sirius.properties.impl.TextWidgetStyleImpl#getBackgroundColor
  * <em>Background Color</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.TextWidgetStyleImpl#getForegroundColor
+ * <li>{@link org.eclipse.sirius.properties.impl.TextWidgetStyleImpl#getForegroundColor
  * <em>Foreground Color</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.TextWidgetStyleImpl#getFontFormat
+ * <li>{@link org.eclipse.sirius.properties.impl.TextWidgetStyleImpl#getFontFormat
  * <em>Font Format</em>}</li>
  * </ul>
  *
@@ -52,9 +47,9 @@ import org.eclipse.sirius.viewpoint.description.ColorDescription;
  */
 public class TextWidgetStyleImpl extends WidgetStyleImpl implements TextWidgetStyle {
     /**
-     * The default value of the '{@link #getFontNameExpression()
-     * <em>Font Name Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFontNameExpression() <em>Font Name
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontNameExpression()
      * @generated
@@ -63,9 +58,9 @@ public class TextWidgetStyleImpl extends WidgetStyleImpl implements TextWidgetSt
     protected static final String FONT_NAME_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFontNameExpression()
-     * <em>Font Name Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFontNameExpression() <em>Font Name
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontNameExpression()
      * @generated
@@ -74,9 +69,9 @@ public class TextWidgetStyleImpl extends WidgetStyleImpl implements TextWidgetSt
     protected String fontNameExpression = TextWidgetStyleImpl.FONT_NAME_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getFontSizeExpression()
-     * <em>Font Size Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFontSizeExpression() <em>Font Size
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontSizeExpression()
      * @generated
@@ -85,9 +80,9 @@ public class TextWidgetStyleImpl extends WidgetStyleImpl implements TextWidgetSt
     protected static final String FONT_SIZE_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFontSizeExpression()
-     * <em>Font Size Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFontSizeExpression() <em>Font Size
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontSizeExpression()
      * @generated
@@ -96,9 +91,8 @@ public class TextWidgetStyleImpl extends WidgetStyleImpl implements TextWidgetSt
     protected String fontSizeExpression = TextWidgetStyleImpl.FONT_SIZE_EXPRESSION_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getBackgroundColor()
-     * <em>Background Color</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getBackgroundColor() <em>Background
+     * Color</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getBackgroundColor()
      * @generated
@@ -107,9 +101,8 @@ public class TextWidgetStyleImpl extends WidgetStyleImpl implements TextWidgetSt
     protected ColorDescription backgroundColor;
 
     /**
-     * The cached value of the '{@link #getForegroundColor()
-     * <em>Foreground Color</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getForegroundColor() <em>Foreground
+     * Color</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getForegroundColor()
      * @generated

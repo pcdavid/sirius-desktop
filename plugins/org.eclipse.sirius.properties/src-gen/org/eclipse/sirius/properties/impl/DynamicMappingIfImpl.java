@@ -28,8 +28,7 @@ import org.eclipse.sirius.properties.WidgetDescription;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.DynamicMappingIfImpl#getPredicateExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.DynamicMappingIfImpl#getPredicateExpression
  * <em>Predicate Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.DynamicMappingIfImpl#getWidget
  * <em>Widget</em>}</li>
@@ -39,9 +38,9 @@ import org.eclipse.sirius.properties.WidgetDescription;
  */
 public class DynamicMappingIfImpl extends MinimalEObjectImpl.Container implements DynamicMappingIf {
     /**
-     * The default value of the '{@link #getPredicateExpression()
-     * <em>Predicate Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getPredicateExpression() <em>Predicate
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getPredicateExpression()
      * @generated
@@ -50,9 +49,9 @@ public class DynamicMappingIfImpl extends MinimalEObjectImpl.Container implement
     protected static final String PREDICATE_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPredicateExpression()
-     * <em>Predicate Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getPredicateExpression() <em>Predicate
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getPredicateExpression()
      * @generated

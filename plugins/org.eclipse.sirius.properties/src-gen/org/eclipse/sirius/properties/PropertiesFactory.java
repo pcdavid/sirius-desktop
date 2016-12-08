@@ -75,11 +75,11 @@ public interface PropertiesFactory extends EFactory {
     GroupDescription createGroupDescription();
 
     /**
-     * Returns a new object of class '<em>Group Validation Set Description</em>
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Group Validation Set
+     * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Group Validation Set Description</em>
-     *         '.
+     * @return a new object of class '<em>Group Validation Set
+     *         Description</em>'.
      * @generated
      */
     GroupValidationSetDescription createGroupValidationSetDescription();
@@ -247,6 +247,15 @@ public interface PropertiesFactory extends EFactory {
     HyperlinkDescription createHyperlinkDescription();
 
     /**
+     * Returns a new object of class '<em>Date Description</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Date Description</em>'.
+     * @generated
+     */
+    DateDescription createDateDescription();
+
+    /**
      * Returns a new object of class '<em>Widget Style</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -337,6 +346,15 @@ public interface PropertiesFactory extends EFactory {
     HyperlinkWidgetStyle createHyperlinkWidgetStyle();
 
     /**
+     * Returns a new object of class '<em>Date Widget Style</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Date Widget Style</em>'.
+     * @generated
+     */
+    DateWidgetStyle createDateWidgetStyle();
+
+    /**
      * Returns a new object of class '<em>Group Style</em>'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -364,11 +382,11 @@ public interface PropertiesFactory extends EFactory {
     LabelWidgetConditionalStyle createLabelWidgetConditionalStyle();
 
     /**
-     * Returns a new object of class '<em>Checkbox Widget Conditional Style</em>
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Checkbox Widget Conditional
+     * Style</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Checkbox Widget Conditional Style</em>
-     *         '.
+     * @return a new object of class '<em>Checkbox Widget Conditional
+     *         Style</em>'.
      * @generated
      */
     CheckboxWidgetConditionalStyle createCheckboxWidgetConditionalStyle();
@@ -419,6 +437,15 @@ public interface PropertiesFactory extends EFactory {
     ListWidgetConditionalStyle createListWidgetConditionalStyle();
 
     /**
+     * Returns a new object of class '<em>Date Widget Conditional Style</em>'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Date Widget Conditional Style</em>'.
+     * @generated
+     */
+    DateWidgetConditionalStyle createDateWidgetConditionalStyle();
+
+    /**
      * Returns a new object of class '<em>Widget Action</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -428,12 +455,11 @@ public interface PropertiesFactory extends EFactory {
     WidgetAction createWidgetAction();
 
     /**
-     * Returns a new object of class '
-     * <em>Hyperlink Widget Conditional Style</em>'. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Returns a new object of class '<em>Hyperlink Widget Conditional
+     * Style</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '
-     *         <em>Hyperlink Widget Conditional Style</em>'.
+     * @return a new object of class '<em>Hyperlink Widget Conditional
+     *         Style</em>'.
      * @generated
      */
     HyperlinkWidgetConditionalStyle createHyperlinkWidgetConditionalStyle();

@@ -208,7 +208,6 @@ public class EditSupportSpec extends EditSupportImpl {
         needsTextWidget = needsTextWidget || JAVA_LANG_LONG.equals(eStructuralFeature.getEType().getInstanceTypeName());
         needsTextWidget = needsTextWidget || FLOAT.equals(eStructuralFeature.getEType().getInstanceTypeName());
         needsTextWidget = needsTextWidget || JAVA_LANG_FLOAT.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || JAVA_UTIL_DATE.equals(eStructuralFeature.getEType().getInstanceTypeName());
 
         return needsTextWidget && !eStructuralFeature.isMany();
     }
@@ -223,6 +222,15 @@ public class EditSupportSpec extends EditSupportImpl {
         return needsCheckboxWidget && !eStructuralFeature.isMany();
     }
 
+    @Override
+    public boolean needsDateWidget(EStructuralFeature eStructuralFeature) {
+        boolean needsDateWidget = false;
+
+        needsDateWidget = needsDateWidget || JAVA_UTIL_DATE.equals(eStructuralFeature.getEType().getInstanceTypeName());
+
+        return needsDateWidget && !eStructuralFeature.isMany();
+    }
+    
     @Override
     public EList<EStructuralFeature> getEStructuralFeatures() {
         EList<EStructuralFeature> visibleFeatures = new BasicEList<>();

@@ -63,7 +63,7 @@ public class ListWidgetConditionalStyleItemProvider extends WidgetConditionalSty
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in
      * {@link #createCommand}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -77,7 +77,7 @@ public class ListWidgetConditionalStyleItemProvider extends WidgetConditionalSty
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -92,7 +92,7 @@ public class ListWidgetConditionalStyleItemProvider extends WidgetConditionalSty
     /**
      * This returns ListWidgetConditionalStyle.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -118,7 +118,7 @@ public class ListWidgetConditionalStyleItemProvider extends WidgetConditionalSty
      * update any cached children and by creating a viewer notification, which
      * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

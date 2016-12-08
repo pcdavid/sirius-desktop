@@ -12,8 +12,8 @@
 package org.eclipse.sirius.properties;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Widget Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Widget
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -23,8 +23,7 @@ package org.eclipse.sirius.properties;
  * <em>Label Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.WidgetDescription#getHelpExpression
  * <em>Help Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.WidgetDescription#getIsEnabledExpression
+ * <li>{@link org.eclipse.sirius.properties.WidgetDescription#getIsEnabledExpression
  * <em>Is Enabled Expression</em>}</li>
  * </ul>
  *
@@ -45,15 +44,14 @@ public interface WidgetDescription extends ControlDescription {
      * @return the value of the '<em>Label Expression</em>' attribute.
      * @see #setLabelExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getWidgetDescription_LabelExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getLabelExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.WidgetDescription#getLabelExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.WidgetDescription#getLabelExpression
      * <em>Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -76,15 +74,14 @@ public interface WidgetDescription extends ControlDescription {
      * @return the value of the '<em>Help Expression</em>' attribute.
      * @see #setHelpExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getWidgetDescription_HelpExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getHelpExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.WidgetDescription#getHelpExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.WidgetDescription#getHelpExpression
      * <em>Help Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -107,15 +104,14 @@ public interface WidgetDescription extends ControlDescription {
      * @return the value of the '<em>Is Enabled Expression</em>' attribute.
      * @see #setIsEnabledExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getWidgetDescription_IsEnabledExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getIsEnabledExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.WidgetDescription#getIsEnabledExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.WidgetDescription#getIsEnabledExpression
      * <em>Is Enabled Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

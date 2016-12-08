@@ -16,6 +16,11 @@
       <genEnumLiterals ecoreEnumLiteral="properties.ecore#//FILL_LAYOUT_ORIENTATION/VERTICAL"/>
       <genEnumLiterals ecoreEnumLiteral="properties.ecore#//FILL_LAYOUT_ORIENTATION/HORIZONTAL"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="properties.ecore#//DateStyle">
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//DateStyle/CALENDAR"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//DateStyle/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//DateStyle/TIME"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="properties.ecore#//ToggleStyle">
       <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ToggleStyle/TWISTIE"/>
       <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ToggleStyle/TREE_NODE"/>
@@ -170,6 +175,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//HyperlinkDescription/conditionalStyles"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//HyperlinkDescription/actions"/>
     </genClasses>
+    <genClasses ecoreClass="properties.ecore#//DateDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DateDescription/valueExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DateDescription/display"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//DateDescription/initialOperation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//DateDescription/style"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//DateDescription/conditionalStyles"/>
+    </genClasses>
     <genClasses ecoreClass="properties.ecore#//WidgetStyle">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//WidgetStyle/labelFontNameExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//WidgetStyle/labelFontSizeExpression"/>
@@ -203,6 +215,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference properties.ecore#//HyperlinkWidgetStyle/backgroundColor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//HyperlinkWidgetStyle/fontFormat"/>
     </genClasses>
+    <genClasses ecoreClass="properties.ecore#//DateWidgetStyle"/>
     <genClasses ecoreClass="properties.ecore#//GroupStyle">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference properties.ecore#//GroupStyle/backgroundColor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference properties.ecore#//GroupStyle/foregroundColor"/>
@@ -238,6 +251,9 @@
     </genClasses>
     <genClasses ecoreClass="properties.ecore#//ListWidgetConditionalStyle">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//ListWidgetConditionalStyle/style"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//DateWidgetConditionalStyle">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//DateWidgetConditionalStyle/style"/>
     </genClasses>
     <genClasses ecoreClass="properties.ecore#//WidgetAction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//WidgetAction/labelExpression"/>
@@ -275,6 +291,9 @@
       </genOperations>
       <genOperations ecoreOperation="properties.ecore#//EditSupport/needsCheckboxWidget">
         <genParameters ecoreParameter="properties.ecore#//EditSupport/needsCheckboxWidget/eStructuralFeature"/>
+      </genOperations>
+      <genOperations ecoreOperation="properties.ecore#//EditSupport/needsDateWidget">
+        <genParameters ecoreParameter="properties.ecore#//EditSupport/needsDateWidget/eStructuralFeature"/>
       </genOperations>
     </genClasses>
   </genPackages>

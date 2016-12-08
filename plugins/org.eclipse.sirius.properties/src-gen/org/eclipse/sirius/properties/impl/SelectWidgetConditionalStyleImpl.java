@@ -21,14 +21,13 @@ import org.eclipse.sirius.properties.SelectWidgetConditionalStyle;
 import org.eclipse.sirius.properties.SelectWidgetStyle;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Select Widget Conditional Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Select
+ * Widget Conditional Style</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.SelectWidgetConditionalStyleImpl#getStyle
+ * <li>{@link org.eclipse.sirius.properties.impl.SelectWidgetConditionalStyleImpl#getStyle
  * <em>Style</em>}</li>
  * </ul>
  *

@@ -284,6 +284,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//WidgetAction" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DateDescription" eSuperTypes="#//WidgetDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueExpression" eType="ecore:EDataType ../../org.eclipse.sirius/model/viewpoint.ecore#//description/InterpretedExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="display" eType="#//DateStyle"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialOperation" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.sirius/model/viewpoint.ecore#//description/tool/InitialOperation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//DateWidgetStyle"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionalStyles" upperBound="-1"
+        eType="#//DateWidgetConditionalStyle" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DateStyle">
+    <eLiterals name="CALENDAR"/>
+    <eLiterals name="DATE" value="1"/>
+    <eLiterals name="TIME" value="2"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WidgetStyle">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelFontNameExpression"
         eType="ecore:EDataType ../../org.eclipse.sirius/model/viewpoint.ecore#//description/InterpretedExpression"/>
@@ -323,6 +339,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontFormat" upperBound="4"
         eType="ecore:EEnum ../../org.eclipse.sirius/model/viewpoint.ecore#//FontFormat"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DateWidgetStyle" eSuperTypes="#//WidgetStyle"/>
   <eClassifiers xsi:type="ecore:EClass" name="GroupStyle">
     <eStructuralFeatures xsi:type="ecore:EReference" name="backgroundColor" eType="ecore:EClass ../../org.eclipse.sirius/model/viewpoint.ecore#//description/ColorDescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="foregroundColor" eType="ecore:EClass ../../org.eclipse.sirius/model/viewpoint.ecore#//description/ColorDescription"/>
@@ -378,6 +395,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//ListWidgetStyle"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DateWidgetConditionalStyle" eSuperTypes="#//WidgetConditionalStyle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//DateWidgetStyle"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WidgetAction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelExpression" eType="ecore:EDataType ../../org.eclipse.sirius/model/viewpoint.ecore#//description/InterpretedExpression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initialOperation" lowerBound="1"
@@ -421,6 +442,9 @@
       <eParameters name="eStructuralFeature" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
     </eOperations>
     <eOperations name="needsCheckboxWidget" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="eStructuralFeature" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+    </eOperations>
+    <eOperations name="needsDateWidget" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="eStructuralFeature" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
     </eOperations>
   </eClassifiers>

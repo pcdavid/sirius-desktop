@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Group Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Group
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -28,11 +28,9 @@ import org.eclipse.emf.ecore.EObject;
  * <em>Label Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.GroupDescription#getDomainClass
  * <em>Domain Class</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.GroupDescription#getSemanticCandidateExpression
+ * <li>{@link org.eclipse.sirius.properties.GroupDescription#getSemanticCandidateExpression
  * <em>Semantic Candidate Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.GroupDescription#getPreconditionExpression
+ * <li>{@link org.eclipse.sirius.properties.GroupDescription#getPreconditionExpression
  * <em>Precondition Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.GroupDescription#getControls
  * <em>Controls</em>}</li>
@@ -40,8 +38,7 @@ import org.eclipse.emf.ecore.EObject;
  * <em>Validation Set</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.GroupDescription#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.GroupDescription#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.GroupDescription#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -68,8 +65,8 @@ public interface GroupDescription extends EObject {
     String getIdentifier();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.GroupDescription#getIdentifier
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.GroupDescription#getIdentifier
      * <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -92,15 +89,14 @@ public interface GroupDescription extends EObject {
      * @return the value of the '<em>Label Expression</em>' attribute.
      * @see #setLabelExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getGroupDescription_LabelExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getLabelExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.GroupDescription#getLabelExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.GroupDescription#getLabelExpression
      * <em>Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -129,8 +125,8 @@ public interface GroupDescription extends EObject {
     String getDomainClass();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.GroupDescription#getDomainClass
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.GroupDescription#getDomainClass
      * <em>Domain Class</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -154,15 +150,14 @@ public interface GroupDescription extends EObject {
      *         attribute.
      * @see #setSemanticCandidateExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getGroupDescription_SemanticCandidateExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getSemanticCandidateExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.GroupDescription#getSemanticCandidateExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.GroupDescription#getSemanticCandidateExpression
      * <em>Semantic Candidate Expression</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -186,15 +181,14 @@ public interface GroupDescription extends EObject {
      * @return the value of the '<em>Precondition Expression</em>' attribute.
      * @see #setPreconditionExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getGroupDescription_PreconditionExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getPreconditionExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.GroupDescription#getPreconditionExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.GroupDescription#getPreconditionExpression
      * <em>Precondition Expression</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -242,8 +236,8 @@ public interface GroupDescription extends EObject {
     GroupValidationSetDescription getValidationSet();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.GroupDescription#getValidationSet
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.GroupDescription#getValidationSet
      * <em>Validation Set</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -273,8 +267,8 @@ public interface GroupDescription extends EObject {
     GroupStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.GroupDescription#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.GroupDescription#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

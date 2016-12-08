@@ -28,31 +28,25 @@ import org.eclipse.sirius.properties.RadioWidgetStyle;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Radio Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Radio
+ * Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getValueExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getValueExpression
  * <em>Value Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getInitialOperation
  * <em>Initial Operation</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getCandidatesExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getCandidatesExpression
  * <em>Candidates Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getCandidateDisplayExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getCandidateDisplayExpression
  * <em>Candidate Display Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getNumberOfColumns
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getNumberOfColumns
  * <em>Number Of Columns</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -60,9 +54,9 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  */
 public class RadioDescriptionImpl extends WidgetDescriptionImpl implements RadioDescription {
     /**
-     * The default value of the '{@link #getValueExpression()
-     * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getValueExpression() <em>Value
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getValueExpression()
      * @generated
@@ -71,9 +65,9 @@ public class RadioDescriptionImpl extends WidgetDescriptionImpl implements Radio
     protected static final String VALUE_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getValueExpression()
-     * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getValueExpression() <em>Value
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getValueExpression()
      * @generated
@@ -82,9 +76,9 @@ public class RadioDescriptionImpl extends WidgetDescriptionImpl implements Radio
     protected String valueExpression = RadioDescriptionImpl.VALUE_EXPRESSION_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getInitialOperation()
-     * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getInitialOperation() <em>Initial
+     * Operation</em>}' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getInitialOperation()
      * @generated
@@ -104,9 +98,9 @@ public class RadioDescriptionImpl extends WidgetDescriptionImpl implements Radio
     protected static final String CANDIDATES_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getCandidatesExpression()
-     * <em>Candidates Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getCandidatesExpression() <em>Candidates
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getCandidatesExpression()
      * @generated
@@ -147,9 +141,8 @@ public class RadioDescriptionImpl extends WidgetDescriptionImpl implements Radio
     protected RadioWidgetStyle style;
 
     /**
-     * The default value of the '{@link #getNumberOfColumns()
-     * <em>Number Of Columns</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getNumberOfColumns() <em>Number Of
+     * Columns</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getNumberOfColumns()
      * @generated
@@ -158,9 +151,8 @@ public class RadioDescriptionImpl extends WidgetDescriptionImpl implements Radio
     protected static final int NUMBER_OF_COLUMNS_EDEFAULT = -1;
 
     /**
-     * The cached value of the '{@link #getNumberOfColumns()
-     * <em>Number Of Columns</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getNumberOfColumns() <em>Number Of
+     * Columns</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getNumberOfColumns()
      * @generated
@@ -169,9 +161,9 @@ public class RadioDescriptionImpl extends WidgetDescriptionImpl implements Radio
     protected int numberOfColumns = RadioDescriptionImpl.NUMBER_OF_COLUMNS_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getConditionalStyles()
-     * <em>Conditional Styles</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getConditionalStyles() <em>Conditional
+     * Styles</em>}' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getConditionalStyles()
      * @generated

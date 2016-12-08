@@ -29,6 +29,10 @@ import org.eclipse.sirius.properties.CustomExpression;
 import org.eclipse.sirius.properties.CustomOperation;
 import org.eclipse.sirius.properties.CustomWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CustomWidgetStyle;
+import org.eclipse.sirius.properties.DateDescription;
+import org.eclipse.sirius.properties.DateStyle;
+import org.eclipse.sirius.properties.DateWidgetConditionalStyle;
+import org.eclipse.sirius.properties.DateWidgetStyle;
 import org.eclipse.sirius.properties.DynamicMappingFor;
 import org.eclipse.sirius.properties.DynamicMappingIf;
 import org.eclipse.sirius.properties.EditSupport;
@@ -161,6 +165,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createCustomOperation();
         case PropertiesPackage.HYPERLINK_DESCRIPTION:
             return createHyperlinkDescription();
+        case PropertiesPackage.DATE_DESCRIPTION:
+            return createDateDescription();
         case PropertiesPackage.WIDGET_STYLE:
             return createWidgetStyle();
         case PropertiesPackage.TEXT_WIDGET_STYLE:
@@ -181,6 +187,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createListWidgetStyle();
         case PropertiesPackage.HYPERLINK_WIDGET_STYLE:
             return createHyperlinkWidgetStyle();
+        case PropertiesPackage.DATE_WIDGET_STYLE:
+            return createDateWidgetStyle();
         case PropertiesPackage.GROUP_STYLE:
             return createGroupStyle();
         case PropertiesPackage.TEXT_WIDGET_CONDITIONAL_STYLE:
@@ -199,6 +207,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createCustomWidgetConditionalStyle();
         case PropertiesPackage.LIST_WIDGET_CONDITIONAL_STYLE:
             return createListWidgetConditionalStyle();
+        case PropertiesPackage.DATE_WIDGET_CONDITIONAL_STYLE:
+            return createDateWidgetConditionalStyle();
         case PropertiesPackage.WIDGET_ACTION:
             return createWidgetAction();
         case PropertiesPackage.HYPERLINK_WIDGET_CONDITIONAL_STYLE:
@@ -222,6 +232,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
         switch (eDataType.getClassifierID()) {
         case PropertiesPackage.FILL_LAYOUT_ORIENTATION:
             return createFILL_LAYOUT_ORIENTATIONFromString(eDataType, initialValue);
+        case PropertiesPackage.DATE_STYLE:
+            return createDateStyleFromString(eDataType, initialValue);
         case PropertiesPackage.TOGGLE_STYLE:
             return createToggleStyleFromString(eDataType, initialValue);
         case PropertiesPackage.TITLE_BAR_STYLE:
@@ -241,6 +253,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
         switch (eDataType.getClassifierID()) {
         case PropertiesPackage.FILL_LAYOUT_ORIENTATION:
             return convertFILL_LAYOUT_ORIENTATIONToString(eDataType, instanceValue);
+        case PropertiesPackage.DATE_STYLE:
+            return convertDateStyleToString(eDataType, instanceValue);
         case PropertiesPackage.TOGGLE_STYLE:
             return convertToggleStyleToString(eDataType, instanceValue);
         case PropertiesPackage.TITLE_BAR_STYLE:
@@ -520,6 +534,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public DateDescription createDateDescription() {
+        DateDescriptionImpl dateDescription = new DateDescriptionImpl();
+        return dateDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public WidgetStyle createWidgetStyle() {
         WidgetStyleImpl widgetStyle = new WidgetStyleImpl();
         return widgetStyle;
@@ -630,6 +655,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public DateWidgetStyle createDateWidgetStyle() {
+        DateWidgetStyleImpl dateWidgetStyle = new DateWidgetStyleImpl();
+        return dateWidgetStyle;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public GroupStyle createGroupStyle() {
         GroupStyleImpl groupStyle = new GroupStyleImpl();
         return groupStyle;
@@ -729,6 +765,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public DateWidgetConditionalStyle createDateWidgetConditionalStyle() {
+        DateWidgetConditionalStyleImpl dateWidgetConditionalStyle = new DateWidgetConditionalStyleImpl();
+        return dateWidgetConditionalStyle;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public WidgetAction createWidgetAction() {
         WidgetActionImpl widgetAction = new WidgetActionImpl();
         return widgetAction;
@@ -786,6 +833,28 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     public String convertFILL_LAYOUT_ORIENTATIONToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public DateStyle createDateStyleFromString(EDataType eDataType, String initialValue) {
+        DateStyle result = DateStyle.get(initialValue);
+        if (result == null) {
+            throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        }
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public String convertDateStyleToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 

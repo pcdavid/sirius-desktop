@@ -32,6 +32,10 @@ import org.eclipse.sirius.properties.CustomExpression;
 import org.eclipse.sirius.properties.CustomOperation;
 import org.eclipse.sirius.properties.CustomWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CustomWidgetStyle;
+import org.eclipse.sirius.properties.DateDescription;
+import org.eclipse.sirius.properties.DateStyle;
+import org.eclipse.sirius.properties.DateWidgetConditionalStyle;
+import org.eclipse.sirius.properties.DateWidgetStyle;
 import org.eclipse.sirius.properties.DynamicMappingFor;
 import org.eclipse.sirius.properties.DynamicMappingIf;
 import org.eclipse.sirius.properties.EditSupport;
@@ -280,6 +284,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      *
      * @generated
      */
+    private EClass dateDescriptionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EClass widgetStyleEClass = null;
 
     /**
@@ -399,6 +410,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      *
      * @generated
      */
+    private EClass dateWidgetConditionalStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EClass widgetActionEClass = null;
 
     /**
@@ -441,6 +459,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      *
      * @generated
      */
+    private EClass dateWidgetStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EClass groupStyleEClass = null;
 
     /**
@@ -449,6 +474,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     private EEnum filL_LAYOUT_ORIENTATIONEEnum = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EEnum dateStyleEEnum = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1709,6 +1741,66 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
+    public EClass getDateDescription() {
+        return dateDescriptionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getDateDescription_ValueExpression() {
+        return (EAttribute) dateDescriptionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getDateDescription_Display() {
+        return (EAttribute) dateDescriptionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getDateDescription_InitialOperation() {
+        return (EReference) dateDescriptionEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getDateDescription_Style() {
+        return (EReference) dateDescriptionEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getDateDescription_ConditionalStyles() {
+        return (EReference) dateDescriptionEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getWidgetStyle() {
         return widgetStyleEClass;
     }
@@ -2119,6 +2211,26 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
+    public EClass getDateWidgetConditionalStyle() {
+        return dateWidgetConditionalStyleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getDateWidgetConditionalStyle_Style() {
+        return (EReference) dateWidgetConditionalStyleEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getWidgetAction() {
         return widgetActionEClass;
     }
@@ -2259,6 +2371,16 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
+    public EClass getDateWidgetStyle() {
+        return dateWidgetStyleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getGroupStyle() {
         return groupStyleEClass;
     }
@@ -2341,6 +2463,16 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
     @Override
     public EEnum getFILL_LAYOUT_ORIENTATION() {
         return filL_LAYOUT_ORIENTATIONEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EEnum getDateStyle() {
+        return dateStyleEEnum;
     }
 
     /**
@@ -2538,6 +2670,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEReference(hyperlinkDescriptionEClass, PropertiesPackage.HYPERLINK_DESCRIPTION__CONDITIONAL_STYLES);
         createEReference(hyperlinkDescriptionEClass, PropertiesPackage.HYPERLINK_DESCRIPTION__ACTIONS);
 
+        dateDescriptionEClass = createEClass(PropertiesPackage.DATE_DESCRIPTION);
+        createEAttribute(dateDescriptionEClass, PropertiesPackage.DATE_DESCRIPTION__VALUE_EXPRESSION);
+        createEAttribute(dateDescriptionEClass, PropertiesPackage.DATE_DESCRIPTION__DISPLAY);
+        createEReference(dateDescriptionEClass, PropertiesPackage.DATE_DESCRIPTION__INITIAL_OPERATION);
+        createEReference(dateDescriptionEClass, PropertiesPackage.DATE_DESCRIPTION__STYLE);
+        createEReference(dateDescriptionEClass, PropertiesPackage.DATE_DESCRIPTION__CONDITIONAL_STYLES);
+
         widgetStyleEClass = createEClass(PropertiesPackage.WIDGET_STYLE);
         createEAttribute(widgetStyleEClass, PropertiesPackage.WIDGET_STYLE__LABEL_FONT_NAME_EXPRESSION);
         createEAttribute(widgetStyleEClass, PropertiesPackage.WIDGET_STYLE__LABEL_FONT_SIZE_EXPRESSION);
@@ -2577,6 +2716,8 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEReference(hyperlinkWidgetStyleEClass, PropertiesPackage.HYPERLINK_WIDGET_STYLE__BACKGROUND_COLOR);
         createEAttribute(hyperlinkWidgetStyleEClass, PropertiesPackage.HYPERLINK_WIDGET_STYLE__FONT_FORMAT);
 
+        dateWidgetStyleEClass = createEClass(PropertiesPackage.DATE_WIDGET_STYLE);
+
         groupStyleEClass = createEClass(PropertiesPackage.GROUP_STYLE);
         createEReference(groupStyleEClass, PropertiesPackage.GROUP_STYLE__BACKGROUND_COLOR);
         createEReference(groupStyleEClass, PropertiesPackage.GROUP_STYLE__FOREGROUND_COLOR);
@@ -2613,6 +2754,9 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         listWidgetConditionalStyleEClass = createEClass(PropertiesPackage.LIST_WIDGET_CONDITIONAL_STYLE);
         createEReference(listWidgetConditionalStyleEClass, PropertiesPackage.LIST_WIDGET_CONDITIONAL_STYLE__STYLE);
 
+        dateWidgetConditionalStyleEClass = createEClass(PropertiesPackage.DATE_WIDGET_CONDITIONAL_STYLE);
+        createEReference(dateWidgetConditionalStyleEClass, PropertiesPackage.DATE_WIDGET_CONDITIONAL_STYLE__STYLE);
+
         widgetActionEClass = createEClass(PropertiesPackage.WIDGET_ACTION);
         createEAttribute(widgetActionEClass, PropertiesPackage.WIDGET_ACTION__LABEL_EXPRESSION);
         createEReference(widgetActionEClass, PropertiesPackage.WIDGET_ACTION__INITIAL_OPERATION);
@@ -2627,6 +2771,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
 
         // Create enums
         filL_LAYOUT_ORIENTATIONEEnum = createEEnum(PropertiesPackage.FILL_LAYOUT_ORIENTATION);
+        dateStyleEEnum = createEEnum(PropertiesPackage.DATE_STYLE);
         toggleStyleEEnum = createEEnum(PropertiesPackage.TOGGLE_STYLE);
         titleBarStyleEEnum = createEEnum(PropertiesPackage.TITLE_BAR_STYLE);
     }
@@ -2685,6 +2830,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         listDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         customDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         hyperlinkDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
+        dateDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         textWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         labelWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         checkboxWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
@@ -2694,6 +2840,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         customWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         listWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         hyperlinkWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
+        dateWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         textWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         labelWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         checkboxWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
@@ -2702,6 +2849,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         selectWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         customWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         listWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
+        dateWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         hyperlinkWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         groupConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
 
@@ -3008,6 +3156,21 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
                 EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
                 EPackageImpl.IS_ORDERED);
 
+        initEClass(dateDescriptionEClass, DateDescription.class, "DateDescription", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+        initEAttribute(getDateDescription_ValueExpression(), theDescriptionPackage.getInterpretedExpression(), "valueExpression", null, 0, 1, DateDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEAttribute(getDateDescription_Display(), this.getDateStyle(), "display", null, 0, 1, DateDescription.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, //$NON-NLS-1$
+                EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getDateDescription_InitialOperation(), theToolPackage.getInitialOperation(), null, "initialOperation", null, 1, 1, DateDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getDateDescription_Style(), this.getDateWidgetStyle(), null, "style", null, 0, 1, DateDescription.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, //$NON-NLS-1$
+                EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEReference(getDateDescription_ConditionalStyles(), this.getDateWidgetConditionalStyle(), null, "conditionalStyles", null, 0, -1, DateDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
         initEClass(widgetStyleEClass, WidgetStyle.class, "WidgetStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getWidgetStyle_LabelFontNameExpression(), theDescriptionPackage.getInterpretedExpression(), "labelFontNameExpression", null, 0, 1, WidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
@@ -3074,6 +3237,8 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
                 EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
         initEAttribute(getHyperlinkWidgetStyle_FontFormat(), theViewpointPackage.getFontFormat(), "fontFormat", null, 0, 4, HyperlinkWidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
+        initEClass(dateWidgetStyleEClass, DateWidgetStyle.class, "DateWidgetStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
         initEClass(groupStyleEClass, GroupStyle.class, "GroupStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEReference(getGroupStyle_BackgroundColor(), theDescriptionPackage.getColorDescription(), null, "backgroundColor", null, 0, 1, GroupStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
@@ -3147,6 +3312,12 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
                 !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
 
+        initEClass(dateWidgetConditionalStyleEClass, DateWidgetConditionalStyle.class, "DateWidgetConditionalStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
+                EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getDateWidgetConditionalStyle_Style(), this.getDateWidgetStyle(), null, "style", null, 0, 1, DateWidgetConditionalStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
         initEClass(widgetActionEClass, WidgetAction.class, "WidgetAction", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getWidgetAction_LabelExpression(), theDescriptionPackage.getInterpretedExpression(), "labelExpression", null, 0, 1, WidgetAction.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
@@ -3197,10 +3368,18 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         op = addEOperation(editSupportEClass, theEcorePackage.getEBoolean(), "needsCheckboxWidget", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
         addEParameter(op, theEcorePackage.getEStructuralFeature(), "eStructuralFeature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
 
+        op = addEOperation(editSupportEClass, ecorePackage.getEBoolean(), "needsDateWidget", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+        addEParameter(op, theEcorePackage.getEStructuralFeature(), "eStructuralFeature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+
         // Initialize enums and add enum literals
         initEEnum(filL_LAYOUT_ORIENTATIONEEnum, org.eclipse.sirius.properties.FILL_LAYOUT_ORIENTATION.class, "FILL_LAYOUT_ORIENTATION"); //$NON-NLS-1$
         addEEnumLiteral(filL_LAYOUT_ORIENTATIONEEnum, org.eclipse.sirius.properties.FILL_LAYOUT_ORIENTATION.VERTICAL);
         addEEnumLiteral(filL_LAYOUT_ORIENTATIONEEnum, org.eclipse.sirius.properties.FILL_LAYOUT_ORIENTATION.HORIZONTAL);
+
+        initEEnum(dateStyleEEnum, DateStyle.class, "DateStyle"); //$NON-NLS-1$
+        addEEnumLiteral(dateStyleEEnum, DateStyle.CALENDAR);
+        addEEnumLiteral(dateStyleEEnum, DateStyle.DATE);
+        addEEnumLiteral(dateStyleEEnum, DateStyle.TIME);
 
         initEEnum(toggleStyleEEnum, ToggleStyle.class, "ToggleStyle"); //$NON-NLS-1$
         addEEnumLiteral(toggleStyleEEnum, ToggleStyle.TWISTIE);

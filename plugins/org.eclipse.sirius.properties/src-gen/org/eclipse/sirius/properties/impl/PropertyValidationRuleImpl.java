@@ -28,8 +28,7 @@ import org.eclipse.sirius.viewpoint.description.validation.impl.ValidationRuleIm
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.PropertyValidationRuleImpl#getTargets
+ * <li>{@link org.eclipse.sirius.properties.impl.PropertyValidationRuleImpl#getTargets
  * <em>Targets</em>}</li>
  * </ul>
  *

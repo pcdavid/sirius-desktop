@@ -366,6 +366,23 @@ public interface PropertiesFactory extends EFactory {
     HyperlinkOverrideDescription createHyperlinkOverrideDescription();
 
     /**
+     * Returns a new object of class '<em>Spinner Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Spinner Description</em>'.
+     * @generated
+     */
+    SpinnerDescription createSpinnerDescription();
+
+    /**
+     * Returns a new object of class '<em>Spinner Override Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @return a new object of class '<em>Spinner Override Description</em>'.
+     * @generated
+     */
+    SpinnerOverrideDescription createSpinnerOverrideDescription();
+
+    /**
      * Returns a new object of class '<em>Widget Style</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return a new object of class '<em>Widget Style</em>'.
@@ -444,6 +461,14 @@ public interface PropertiesFactory extends EFactory {
      * @generated
      */
     HyperlinkWidgetStyle createHyperlinkWidgetStyle();
+
+    /**
+     * Returns a new object of class '<em>Spinner Widget Style</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Spinner Widget Style</em>'.
+     * @generated
+     */
+    SpinnerWidgetStyle createSpinnerWidgetStyle();
 
     /**
      * Returns a new object of class '<em>Group Style</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -541,6 +566,15 @@ public interface PropertiesFactory extends EFactory {
      * @generated
      */
     HyperlinkWidgetConditionalStyle createHyperlinkWidgetConditionalStyle();
+
+    /**
+     * Returns a new object of class '<em>Spinner Widget Conditional Style</em>'. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @return a new object of class '<em>Spinner Widget Conditional Style</em>'.
+     * @generated
+     */
+    SpinnerWidgetConditionalStyle createSpinnerWidgetConditionalStyle();
 
     /**
      * Returns a new object of class '<em>Group Conditional Style</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->

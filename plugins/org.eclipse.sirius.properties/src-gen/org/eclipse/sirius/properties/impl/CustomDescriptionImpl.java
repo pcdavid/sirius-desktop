@@ -37,21 +37,20 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getLabelExpression <em>Label Expression</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getLabelExpression <em>Label
+ * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getHelpExpression <em>Help Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getIsEnabledExpression <em>Is Enabled
  * Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getCustomExpressions <em>Custom Expressions</em>}
- * </li>
- * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getCustomOperations <em>Custom Operations</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getCustomExpressions <em>Custom
+ * Expressions</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getCustomOperations <em>Custom
+ * Operations</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getStyle <em>Style</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getConditionalStyles <em>Conditional Styles</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getConditionalStyles <em>Conditional
+ * Styles</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getExtends <em>Extends</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getFilterConditionalStylesFromExtendedCustomExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getFilterConditionalStylesFromExtendedCustomExpression
  * <em>Filter Conditional Styles From Extended Custom Expression</em>}</li>
  * </ul>
  *
@@ -169,9 +168,8 @@ public class CustomDescriptionImpl extends WidgetDescriptionImpl implements Cust
     protected CustomDescription extends_;
 
     /**
-     * The default value of the '{@link #getFilterConditionalStylesFromExtendedCustomExpression()
-     * <em>Filter Conditional Styles From Extended Custom Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFilterConditionalStylesFromExtendedCustomExpression() <em>Filter Conditional
+     * Styles From Extended Custom Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromExtendedCustomExpression()
      * @generated
@@ -180,9 +178,8 @@ public class CustomDescriptionImpl extends WidgetDescriptionImpl implements Cust
     protected static final String FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CUSTOM_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFilterConditionalStylesFromExtendedCustomExpression()
-     * <em>Filter Conditional Styles From Extended Custom Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFilterConditionalStylesFromExtendedCustomExpression() <em>Filter Conditional
+     * Styles From Extended Custom Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromExtendedCustomExpression()
      * @generated

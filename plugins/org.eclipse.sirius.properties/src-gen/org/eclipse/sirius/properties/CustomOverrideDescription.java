@@ -20,8 +20,7 @@ package org.eclipse.sirius.properties;
  * </p>
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.CustomOverrideDescription#getOverrides <em>Overrides</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.CustomOverrideDescription#getFilterConditionalStylesFromOverriddenCustomExpression
+ * <li>{@link org.eclipse.sirius.properties.CustomOverrideDescription#getFilterConditionalStylesFromOverriddenCustomExpression
  * <em>Filter Conditional Styles From Overridden Custom Expression</em>}</li>
  * </ul>
  *
@@ -75,8 +74,8 @@ public interface CustomOverrideDescription extends AbstractCustomDescription, Ab
     String getFilterConditionalStylesFromOverriddenCustomExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.CustomOverrideDescription#getFilterConditionalStylesFromOverriddenCustomExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.CustomOverrideDescription#getFilterConditionalStylesFromOverriddenCustomExpression
      * <em>Filter Conditional Styles From Overridden Custom Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

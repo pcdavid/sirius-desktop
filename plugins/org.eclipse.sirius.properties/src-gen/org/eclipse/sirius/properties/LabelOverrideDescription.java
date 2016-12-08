@@ -20,8 +20,7 @@ package org.eclipse.sirius.properties;
  * </p>
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.LabelOverrideDescription#getOverrides <em>Overrides</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.LabelOverrideDescription#getFilterConditionalStylesFromOverriddenLabelExpression
+ * <li>{@link org.eclipse.sirius.properties.LabelOverrideDescription#getFilterConditionalStylesFromOverriddenLabelExpression
  * <em>Filter Conditional Styles From Overridden Label Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.LabelOverrideDescription#getFilterActionsFromOverriddenLabelExpression
  * <em>Filter Actions From Overridden Label Expression</em>}</li>
@@ -77,8 +76,8 @@ public interface LabelOverrideDescription extends AbstractLabelDescription, Abst
     String getFilterConditionalStylesFromOverriddenLabelExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.LabelOverrideDescription#getFilterConditionalStylesFromOverriddenLabelExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.LabelOverrideDescription#getFilterConditionalStylesFromOverriddenLabelExpression
      * <em>Filter Conditional Styles From Overridden Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -107,8 +106,8 @@ public interface LabelOverrideDescription extends AbstractLabelDescription, Abst
     String getFilterActionsFromOverriddenLabelExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.LabelOverrideDescription#getFilterActionsFromOverriddenLabelExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.LabelOverrideDescription#getFilterActionsFromOverriddenLabelExpression
      * <em>Filter Actions From Overridden Label Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *

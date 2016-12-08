@@ -193,6 +193,8 @@ public class AbstractDynamicMappingIfDescriptionItemProvider extends IdentifiedE
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET, PropertiesFactory.eINSTANCE.createCustomDescription()));
 
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET, PropertiesFactory.eINSTANCE.createHyperlinkDescription()));
+
+        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET, PropertiesFactory.eINSTANCE.createSpinnerDescription()));
     }
 
 }

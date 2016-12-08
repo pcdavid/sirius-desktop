@@ -12,7 +12,7 @@
 package org.eclipse.sirius.properties;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object ' <em><b>Dynamic Mapping For Override
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Dynamic Mapping For Override
  * Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
@@ -20,8 +20,7 @@ package org.eclipse.sirius.properties;
  * </p>
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.DynamicMappingForOverrideDescription#getOverrides <em>Overrides</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.DynamicMappingForOverrideDescription#getFilterIfsFromOverriddenDynamicMappingForExpression
+ * <li>{@link org.eclipse.sirius.properties.DynamicMappingForOverrideDescription#getFilterIfsFromOverriddenDynamicMappingForExpression
  * <em>Filter Ifs From Overridden Dynamic Mapping For Expression</em>}</li>
  * </ul>
  *
@@ -75,8 +74,8 @@ public interface DynamicMappingForOverrideDescription extends AbstractDynamicMap
     String getFilterIfsFromOverriddenDynamicMappingForExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.DynamicMappingForOverrideDescription#getFilterIfsFromOverriddenDynamicMappingForExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.DynamicMappingForOverrideDescription#getFilterIfsFromOverriddenDynamicMappingForExpression
      * <em>Filter Ifs From Overridden Dynamic Mapping For Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

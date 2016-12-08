@@ -1039,6 +1039,52 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.sirius.properties.SpinnerDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected SpinnerDescriptionItemProvider spinnerDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.sirius.properties.SpinnerDescription}. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Adapter createSpinnerDescriptionAdapter() {
+        if (spinnerDescriptionItemProvider == null) {
+            spinnerDescriptionItemProvider = new SpinnerDescriptionItemProvider(this);
+        }
+
+        return spinnerDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.sirius.properties.SpinnerOverrideDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected SpinnerOverrideDescriptionItemProvider spinnerOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.sirius.properties.SpinnerOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Adapter createSpinnerOverrideDescriptionAdapter() {
+        if (spinnerOverrideDescriptionItemProvider == null) {
+            spinnerOverrideDescriptionItemProvider = new SpinnerOverrideDescriptionItemProvider(this);
+        }
+
+        return spinnerOverrideDescriptionItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link org.eclipse.sirius.properties.WidgetStyle} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -1266,6 +1312,29 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
 
         return hyperlinkWidgetStyleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.sirius.properties.SpinnerWidgetStyle}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected SpinnerWidgetStyleItemProvider spinnerWidgetStyleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.sirius.properties.SpinnerWidgetStyle}. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Adapter createSpinnerWidgetStyleAdapter() {
+        if (spinnerWidgetStyleItemProvider == null) {
+            spinnerWidgetStyleItemProvider = new SpinnerWidgetStyleItemProvider(this);
+        }
+
+        return spinnerWidgetStyleItemProvider;
     }
 
     /**
@@ -1526,6 +1595,30 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
 
         return hyperlinkWidgetConditionalStyleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.SpinnerWidgetConditionalStyle} instances. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     */
+    protected SpinnerWidgetConditionalStyleItemProvider spinnerWidgetConditionalStyleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.sirius.properties.SpinnerWidgetConditionalStyle}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createSpinnerWidgetConditionalStyleAdapter() {
+        if (spinnerWidgetConditionalStyleItemProvider == null) {
+            spinnerWidgetConditionalStyleItemProvider = new SpinnerWidgetConditionalStyleItemProvider(this);
+        }
+
+        return spinnerWidgetConditionalStyleItemProvider;
     }
 
     /**
@@ -1892,6 +1985,12 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         if (hyperlinkOverrideDescriptionItemProvider != null) {
             hyperlinkOverrideDescriptionItemProvider.dispose();
         }
+        if (spinnerDescriptionItemProvider != null) {
+            spinnerDescriptionItemProvider.dispose();
+        }
+        if (spinnerOverrideDescriptionItemProvider != null) {
+            spinnerOverrideDescriptionItemProvider.dispose();
+        }
         if (widgetStyleItemProvider != null) {
             widgetStyleItemProvider.dispose();
         }
@@ -1921,6 +2020,9 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
         if (hyperlinkWidgetStyleItemProvider != null) {
             hyperlinkWidgetStyleItemProvider.dispose();
+        }
+        if (spinnerWidgetStyleItemProvider != null) {
+            spinnerWidgetStyleItemProvider.dispose();
         }
         if (groupStyleItemProvider != null) {
             groupStyleItemProvider.dispose();
@@ -1954,6 +2056,9 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
         if (hyperlinkWidgetConditionalStyleItemProvider != null) {
             hyperlinkWidgetConditionalStyleItemProvider.dispose();
+        }
+        if (spinnerWidgetConditionalStyleItemProvider != null) {
+            spinnerWidgetConditionalStyleItemProvider.dispose();
         }
         if (groupConditionalStyleItemProvider != null) {
             groupConditionalStyleItemProvider.dispose();

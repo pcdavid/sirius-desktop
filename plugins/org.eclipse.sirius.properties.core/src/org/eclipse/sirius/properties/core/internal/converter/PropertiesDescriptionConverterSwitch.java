@@ -49,6 +49,9 @@ import org.eclipse.sirius.properties.RadioWidgetStyle;
 import org.eclipse.sirius.properties.SelectDescription;
 import org.eclipse.sirius.properties.SelectWidgetConditionalStyle;
 import org.eclipse.sirius.properties.SelectWidgetStyle;
+import org.eclipse.sirius.properties.SpinnerDescription;
+import org.eclipse.sirius.properties.SpinnerWidgetConditionalStyle;
+import org.eclipse.sirius.properties.SpinnerWidgetStyle;
 import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.TextDescription;
 import org.eclipse.sirius.properties.TextWidgetConditionalStyle;
@@ -61,8 +64,7 @@ import org.eclipse.sirius.properties.core.api.IDescriptionConverter;
 import org.eclipse.sirius.properties.util.PropertiesSwitch;
 
 /**
- * This switch is used to retrieve the proper {@link IDescriptionConverter} for
- * each class of the properties meta-model.
+ * This switch is used to retrieve the proper {@link IDescriptionConverter} for each class of the properties meta-model.
  * 
  * @author sbegaudeau
  */
@@ -279,4 +281,22 @@ public class PropertiesDescriptionConverterSwitch extends PropertiesSwitch<Optio
     public Optional<IDescriptionConverter> caseCustomWidgetConditionalStyle(CustomWidgetConditionalStyle object) {
         return Optional.of(new DefaultDescriptionConverter<>(CustomWidgetConditionalStyle.class, EefPackage.Literals.EEF_CUSTOM_WIDGET_CONDITIONAL_STYLE));
     }
+
+    @Override
+    public Optional<IDescriptionConverter> caseSpinnerDescription(SpinnerDescription object) {
+        return Optional.of(new DefaultDescriptionWithInitialOperationConverter<>(SpinnerDescription.class, EefPackage.Literals.EEF_SPINNER_DESCRIPTION,
+                EefPackage.Literals.EEF_SPINNER_DESCRIPTION__EDIT_EXPRESSION));
+
+    }
+
+    @Override
+    public Optional<IDescriptionConverter> caseSpinnerWidgetStyle(SpinnerWidgetStyle object) {
+        return Optional.of(new DefaultStyleDescriptionConverter<>(SpinnerWidgetStyle.class, EefPackage.Literals.EEF_SPINNER_STYLE));
+    }
+
+    @Override
+    public Optional<IDescriptionConverter> caseSpinnerWidgetConditionalStyle(SpinnerWidgetConditionalStyle object) {
+        return Optional.of(new DefaultDescriptionConverter<>(SpinnerWidgetConditionalStyle.class, EefPackage.Literals.EEF_SPINNER_CONDITIONAL_STYLE));
+    }
+
 }

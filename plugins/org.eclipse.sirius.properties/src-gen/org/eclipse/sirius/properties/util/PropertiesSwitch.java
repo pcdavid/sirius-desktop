@@ -30,6 +30,7 @@ import org.eclipse.sirius.properties.AbstractOverrideDescription;
 import org.eclipse.sirius.properties.AbstractPageDescription;
 import org.eclipse.sirius.properties.AbstractRadioDescription;
 import org.eclipse.sirius.properties.AbstractSelectDescription;
+import org.eclipse.sirius.properties.AbstractSpinnerDescription;
 import org.eclipse.sirius.properties.AbstractTextAreaDescription;
 import org.eclipse.sirius.properties.AbstractTextDescription;
 import org.eclipse.sirius.properties.AbstractWidgetDescription;
@@ -92,6 +93,10 @@ import org.eclipse.sirius.properties.SelectDescription;
 import org.eclipse.sirius.properties.SelectOverrideDescription;
 import org.eclipse.sirius.properties.SelectWidgetConditionalStyle;
 import org.eclipse.sirius.properties.SelectWidgetStyle;
+import org.eclipse.sirius.properties.SpinnerDescription;
+import org.eclipse.sirius.properties.SpinnerOverrideDescription;
+import org.eclipse.sirius.properties.SpinnerWidgetConditionalStyle;
+import org.eclipse.sirius.properties.SpinnerWidgetStyle;
 import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.TextAreaOverrideDescription;
 import org.eclipse.sirius.properties.TextDescription;
@@ -1397,6 +1402,87 @@ public class PropertiesSwitch<T> {
             }
             return result;
         }
+        case PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION: {
+            AbstractSpinnerDescription abstractSpinnerDescription = (AbstractSpinnerDescription) theEObject;
+            T result = caseAbstractSpinnerDescription(abstractSpinnerDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractSpinnerDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(abstractSpinnerDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractSpinnerDescription);
+            }
+            if (result == null) {
+                result = caseIdentifiedElement(abstractSpinnerDescription);
+            }
+            if (result == null) {
+                result = caseDocumentedElement(abstractSpinnerDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.SPINNER_DESCRIPTION: {
+            SpinnerDescription spinnerDescription = (SpinnerDescription) theEObject;
+            T result = caseSpinnerDescription(spinnerDescription);
+            if (result == null) {
+                result = caseWidgetDescription(spinnerDescription);
+            }
+            if (result == null) {
+                result = caseAbstractSpinnerDescription(spinnerDescription);
+            }
+            if (result == null) {
+                result = caseControlDescription(spinnerDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(spinnerDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(spinnerDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(spinnerDescription);
+            }
+            if (result == null) {
+                result = caseIdentifiedElement(spinnerDescription);
+            }
+            if (result == null) {
+                result = caseDocumentedElement(spinnerDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.SPINNER_OVERRIDE_DESCRIPTION: {
+            SpinnerOverrideDescription spinnerOverrideDescription = (SpinnerOverrideDescription) theEObject;
+            T result = caseSpinnerOverrideDescription(spinnerOverrideDescription);
+            if (result == null) {
+                result = caseAbstractSpinnerDescription(spinnerOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(spinnerOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(spinnerOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(spinnerOverrideDescription);
+            }
+            if (result == null) {
+                result = caseIdentifiedElement(spinnerOverrideDescription);
+            }
+            if (result == null) {
+                result = caseDocumentedElement(spinnerOverrideDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
         case PropertiesPackage.WIDGET_STYLE: {
             WidgetStyle widgetStyle = (WidgetStyle) theEObject;
             T result = caseWidgetStyle(widgetStyle);
@@ -1498,6 +1584,17 @@ public class PropertiesSwitch<T> {
             T result = caseHyperlinkWidgetStyle(hyperlinkWidgetStyle);
             if (result == null) {
                 result = caseWidgetStyle(hyperlinkWidgetStyle);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.SPINNER_WIDGET_STYLE: {
+            SpinnerWidgetStyle spinnerWidgetStyle = (SpinnerWidgetStyle) theEObject;
+            T result = caseSpinnerWidgetStyle(spinnerWidgetStyle);
+            if (result == null) {
+                result = caseWidgetStyle(spinnerWidgetStyle);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -1621,6 +1718,17 @@ public class PropertiesSwitch<T> {
             T result = caseHyperlinkWidgetConditionalStyle(hyperlinkWidgetConditionalStyle);
             if (result == null) {
                 result = caseWidgetConditionalStyle(hyperlinkWidgetConditionalStyle);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.SPINNER_WIDGET_CONDITIONAL_STYLE: {
+            SpinnerWidgetConditionalStyle spinnerWidgetConditionalStyle = (SpinnerWidgetConditionalStyle) theEObject;
+            T result = caseSpinnerWidgetConditionalStyle(spinnerWidgetConditionalStyle);
+            if (result == null) {
+                result = caseWidgetConditionalStyle(spinnerWidgetConditionalStyle);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -2236,14 +2344,14 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Abstract Dynamic Mapping For Description</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping For
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Abstract Dynamic Mapping For Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping For
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -2267,14 +2375,14 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Dynamic Mapping For Override Description</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Dynamic Mapping For Override
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Dynamic Mapping For Override Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dynamic Mapping For Override
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -2283,14 +2391,14 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping If Description</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will terminate the
-     * switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping If
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping If Description</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping If
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -2314,14 +2422,14 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Dynamic Mapping If Override Description</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will terminate the
-     * switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Dynamic Mapping If Override
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Dynamic Mapping If Override Description</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '<em>Dynamic Mapping If Override
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -2600,6 +2708,51 @@ public class PropertiesSwitch<T> {
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Spinner Description</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Spinner Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractSpinnerDescription(AbstractSpinnerDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Spinner Description</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Spinner Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSpinnerDescription(SpinnerDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Spinner Override Description</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Spinner Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSpinnerOverrideDescription(SpinnerOverrideDescription object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Widget Style</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
      *
@@ -2745,6 +2898,21 @@ public class PropertiesSwitch<T> {
      * @generated
      */
     public T caseHyperlinkWidgetStyle(HyperlinkWidgetStyle object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Spinner Widget Style</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Spinner Widget Style</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSpinnerWidgetStyle(SpinnerWidgetStyle object) {
         return null;
     }
 
@@ -2923,6 +3091,21 @@ public class PropertiesSwitch<T> {
      * @generated
      */
     public T caseHyperlinkWidgetConditionalStyle(HyperlinkWidgetConditionalStyle object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Spinner Widget Conditional Style</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Spinner Widget Conditional Style</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSpinnerWidgetConditionalStyle(SpinnerWidgetConditionalStyle object) {
         return null;
     }
 

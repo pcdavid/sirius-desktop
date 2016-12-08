@@ -22,20 +22,15 @@ import org.eclipse.sirius.properties.AbstractWidgetDescription;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getReferenceNameExpression
+ * <li>{@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getReferenceNameExpression
  * <em>Reference Name Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getReferenceOwnerExpression
+ * <li>{@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getReferenceOwnerExpression
  * <em>Reference Owner Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getStyle
+ * <li>{@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getExtends
+ * <li>{@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getExtends
  * <em>Extends</em>}</li>
  * </ul>
  *
@@ -61,8 +56,8 @@ public interface AbstractExtReferenceDescription extends AbstractWidgetDescripti
     String getReferenceNameExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getReferenceNameExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getReferenceNameExpression
      * <em>Reference Name Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -89,8 +84,8 @@ public interface AbstractExtReferenceDescription extends AbstractWidgetDescripti
     String getReferenceOwnerExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getReferenceOwnerExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getReferenceOwnerExpression
      * <em>Reference Owner Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -117,8 +112,8 @@ public interface AbstractExtReferenceDescription extends AbstractWidgetDescripti
     ExtReferenceWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -131,8 +126,8 @@ public interface AbstractExtReferenceDescription extends AbstractWidgetDescripti
     /**
      * Returns the value of the '<em><b>Conditional Styles</b></em>' containment reference list. The list contents are
      * of type
-     * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.ExtReferenceWidgetConditionalStyle}
-     * . <!-- begin-user-doc -->
+     * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.ExtReferenceWidgetConditionalStyle}.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Conditional Styles</em>' containment reference list isn't clear, there really should
      * be more of a description here...
@@ -163,8 +158,8 @@ public interface AbstractExtReferenceDescription extends AbstractWidgetDescripti
     ExtReferenceDescription getExtends();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getExtends
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.AbstractExtReferenceDescription#getExtends
      * <em>Extends</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value

@@ -209,6 +209,10 @@ public class CategoryItemProvider extends IdentifiedElementItemProvider implemen
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.CATEGORY__OVERRIDES, PropertiesFactory.eINSTANCE.createCustomOverrideDescription()));
 
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.CATEGORY__OVERRIDES, PropertiesFactory.eINSTANCE.createHyperlinkOverrideDescription()));
+
+        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.CATEGORY__OVERRIDES, PropertiesFactory.eINSTANCE.createSpinnerDescription()));
+
+        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.CATEGORY__OVERRIDES, PropertiesFactory.eINSTANCE.createSpinnerOverrideDescription()));
     }
 
 }

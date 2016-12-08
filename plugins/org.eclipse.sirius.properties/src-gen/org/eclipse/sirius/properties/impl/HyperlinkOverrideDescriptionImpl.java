@@ -27,11 +27,9 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * </p>
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkOverrideDescriptionImpl#getOverrides <em>Overrides</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkOverrideDescriptionImpl#getFilterConditionalStylesFromOverriddenHyperlinkExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkOverrideDescriptionImpl#getFilterConditionalStylesFromOverriddenHyperlinkExpression
  * <em>Filter Conditional Styles From Overridden Hyperlink Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkOverrideDescriptionImpl#getFilterActionsFromOverriddenHyperlinkExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkOverrideDescriptionImpl#getFilterActionsFromOverriddenHyperlinkExpression
  * <em>Filter Actions From Overridden Hyperlink Expression</em>}</li>
  * </ul>
  *
@@ -49,8 +47,8 @@ public class HyperlinkOverrideDescriptionImpl extends AbstractHyperlinkDescripti
     protected HyperlinkDescription overrides;
 
     /**
-     * The default value of the '{@link #getFilterConditionalStylesFromOverriddenHyperlinkExpression()
-     * <em>Filter Conditional Styles From Overridden Hyperlink Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+     * The default value of the '{@link #getFilterConditionalStylesFromOverriddenHyperlinkExpression() <em>Filter
+     * Conditional Styles From Overridden Hyperlink Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromOverriddenHyperlinkExpression()
@@ -60,8 +58,8 @@ public class HyperlinkOverrideDescriptionImpl extends AbstractHyperlinkDescripti
     protected static final String FILTER_CONDITIONAL_STYLES_FROM_OVERRIDDEN_HYPERLINK_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFilterConditionalStylesFromOverriddenHyperlinkExpression()
-     * <em>Filter Conditional Styles From Overridden Hyperlink Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+     * The cached value of the '{@link #getFilterConditionalStylesFromOverriddenHyperlinkExpression() <em>Filter
+     * Conditional Styles From Overridden Hyperlink Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromOverriddenHyperlinkExpression()
@@ -71,9 +69,8 @@ public class HyperlinkOverrideDescriptionImpl extends AbstractHyperlinkDescripti
     protected String filterConditionalStylesFromOverriddenHyperlinkExpression = HyperlinkOverrideDescriptionImpl.FILTER_CONDITIONAL_STYLES_FROM_OVERRIDDEN_HYPERLINK_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getFilterActionsFromOverriddenHyperlinkExpression()
-     * <em>Filter Actions From Overridden Hyperlink Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFilterActionsFromOverriddenHyperlinkExpression() <em>Filter Actions From
+     * Overridden Hyperlink Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterActionsFromOverriddenHyperlinkExpression()
      * @generated
@@ -82,9 +79,8 @@ public class HyperlinkOverrideDescriptionImpl extends AbstractHyperlinkDescripti
     protected static final String FILTER_ACTIONS_FROM_OVERRIDDEN_HYPERLINK_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFilterActionsFromOverriddenHyperlinkExpression()
-     * <em>Filter Actions From Overridden Hyperlink Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFilterActionsFromOverriddenHyperlinkExpression() <em>Filter Actions From
+     * Overridden Hyperlink Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterActionsFromOverriddenHyperlinkExpression()
      * @generated

@@ -20,14 +20,14 @@ import org.eclipse.sirius.properties.DynamicMappingIfOverrideDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Dynamic Mapping If Override
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Dynamic Mapping If Override
  * Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.impl.DynamicMappingIfOverrideDescriptionImpl#getOverrides <em>Overrides</em>
- * }</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.DynamicMappingIfOverrideDescriptionImpl#getOverrides
+ * <em>Overrides</em>}</li>
  * </ul>
  *
  * @generated

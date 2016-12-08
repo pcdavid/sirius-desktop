@@ -23,7 +23,7 @@ import org.eclipse.sirius.properties.WidgetDescription;
 import org.eclipse.sirius.viewpoint.description.impl.IdentifiedElementImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Abstract Dynamic Mapping If
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Abstract Dynamic Mapping If
  * Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -32,8 +32,8 @@ import org.eclipse.sirius.viewpoint.description.impl.IdentifiedElementImpl;
  * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingIfDescriptionImpl#getPredicateExpression
  * <em>Predicate Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingIfDescriptionImpl#getWidget <em>Widget</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingIfDescriptionImpl#getExtends <em>Extends</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingIfDescriptionImpl#getExtends
+ * <em>Extends</em>}</li>
  * </ul>
  *
  * @generated

@@ -41,20 +41,19 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getIsEnabledExpression <em>Is Enabled
  * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getValueExpression <em>Value Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getInitialOperation <em>Initial Operation</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getInitialOperation <em>Initial
+ * Operation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getCandidatesExpression <em>Candidates
  * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getCandidateDisplayExpression <em>Candidate
  * Display Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getStyle <em>Style</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getNumberOfColumns <em>Number Of Columns</em>}
- * </li>
- * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getConditionalStyles <em>Conditional Styles</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getNumberOfColumns <em>Number Of
+ * Columns</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getConditionalStyles <em>Conditional
+ * Styles</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getExtends <em>Extends</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getFilterConditionalStylesFromExtendedRadioExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioDescriptionImpl#getFilterConditionalStylesFromExtendedRadioExpression
  * <em>Filter Conditional Styles From Extended Radio Expression</em>}</li>
  * </ul>
  *
@@ -242,9 +241,8 @@ public class RadioDescriptionImpl extends WidgetDescriptionImpl implements Radio
     protected RadioDescription extends_;
 
     /**
-     * The default value of the '{@link #getFilterConditionalStylesFromExtendedRadioExpression()
-     * <em>Filter Conditional Styles From Extended Radio Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFilterConditionalStylesFromExtendedRadioExpression() <em>Filter Conditional
+     * Styles From Extended Radio Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromExtendedRadioExpression()
      * @generated
@@ -253,9 +251,8 @@ public class RadioDescriptionImpl extends WidgetDescriptionImpl implements Radio
     protected static final String FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_RADIO_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFilterConditionalStylesFromExtendedRadioExpression()
-     * <em>Filter Conditional Styles From Extended Radio Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFilterConditionalStylesFromExtendedRadioExpression() <em>Filter Conditional
+     * Styles From Extended Radio Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromExtendedRadioExpression()
      * @generated

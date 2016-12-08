@@ -20,8 +20,7 @@ package org.eclipse.sirius.properties;
  * </p>
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.ListOverrideDescription#getOverrides <em>Overrides</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.ListOverrideDescription#getFilterConditionalStylesFromOverriddenListExpression
+ * <li>{@link org.eclipse.sirius.properties.ListOverrideDescription#getFilterConditionalStylesFromOverriddenListExpression
  * <em>Filter Conditional Styles From Overridden List Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.ListOverrideDescription#getFilterActionsFromOverriddenListExpression
  * <em>Filter Actions From Overridden List Expression</em>}</li>
@@ -77,8 +76,8 @@ public interface ListOverrideDescription extends AbstractListDescription, Abstra
     String getFilterConditionalStylesFromOverriddenListExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ListOverrideDescription#getFilterConditionalStylesFromOverriddenListExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ListOverrideDescription#getFilterConditionalStylesFromOverriddenListExpression
      * <em>Filter Conditional Styles From Overridden List Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -107,8 +106,8 @@ public interface ListOverrideDescription extends AbstractListDescription, Abstra
     String getFilterActionsFromOverriddenListExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ListOverrideDescription#getFilterActionsFromOverriddenListExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ListOverrideDescription#getFilterActionsFromOverriddenListExpression
      * <em>Filter Actions From Overridden List Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *

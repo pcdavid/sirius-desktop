@@ -76,6 +76,10 @@ import org.eclipse.sirius.properties.SelectDescription;
 import org.eclipse.sirius.properties.SelectOverrideDescription;
 import org.eclipse.sirius.properties.SelectWidgetConditionalStyle;
 import org.eclipse.sirius.properties.SelectWidgetStyle;
+import org.eclipse.sirius.properties.SpinnerDescription;
+import org.eclipse.sirius.properties.SpinnerOverrideDescription;
+import org.eclipse.sirius.properties.SpinnerWidgetConditionalStyle;
+import org.eclipse.sirius.properties.SpinnerWidgetStyle;
 import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.TextAreaOverrideDescription;
 import org.eclipse.sirius.properties.TextDescription;
@@ -209,6 +213,10 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createHyperlinkDescription();
         case PropertiesPackage.HYPERLINK_OVERRIDE_DESCRIPTION:
             return createHyperlinkOverrideDescription();
+        case PropertiesPackage.SPINNER_DESCRIPTION:
+            return createSpinnerDescription();
+        case PropertiesPackage.SPINNER_OVERRIDE_DESCRIPTION:
+            return createSpinnerOverrideDescription();
         case PropertiesPackage.WIDGET_STYLE:
             return createWidgetStyle();
         case PropertiesPackage.TEXT_WIDGET_STYLE:
@@ -229,6 +237,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createListWidgetStyle();
         case PropertiesPackage.HYPERLINK_WIDGET_STYLE:
             return createHyperlinkWidgetStyle();
+        case PropertiesPackage.SPINNER_WIDGET_STYLE:
+            return createSpinnerWidgetStyle();
         case PropertiesPackage.GROUP_STYLE:
             return createGroupStyle();
         case PropertiesPackage.TEXT_WIDGET_CONDITIONAL_STYLE:
@@ -251,6 +261,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createWidgetAction();
         case PropertiesPackage.HYPERLINK_WIDGET_CONDITIONAL_STYLE:
             return createHyperlinkWidgetConditionalStyle();
+        case PropertiesPackage.SPINNER_WIDGET_CONDITIONAL_STYLE:
+            return createSpinnerWidgetConditionalStyle();
         case PropertiesPackage.GROUP_CONDITIONAL_STYLE:
             return createGroupConditionalStyle();
         case PropertiesPackage.DIALOG_MODEL_OPERATION:
@@ -750,6 +762,28 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public SpinnerDescription createSpinnerDescription() {
+        SpinnerDescriptionImpl spinnerDescription = new SpinnerDescriptionImpl();
+        return spinnerDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public SpinnerOverrideDescription createSpinnerOverrideDescription() {
+        SpinnerOverrideDescriptionImpl spinnerOverrideDescription = new SpinnerOverrideDescriptionImpl();
+        return spinnerOverrideDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public WidgetStyle createWidgetStyle() {
         WidgetStyleImpl widgetStyle = new WidgetStyleImpl();
         return widgetStyle;
@@ -852,6 +886,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public HyperlinkWidgetStyle createHyperlinkWidgetStyle() {
         HyperlinkWidgetStyleImpl hyperlinkWidgetStyle = new HyperlinkWidgetStyleImpl();
         return hyperlinkWidgetStyle;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public SpinnerWidgetStyle createSpinnerWidgetStyle() {
+        SpinnerWidgetStyleImpl spinnerWidgetStyle = new SpinnerWidgetStyleImpl();
+        return spinnerWidgetStyle;
     }
 
     /**
@@ -973,6 +1018,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public HyperlinkWidgetConditionalStyle createHyperlinkWidgetConditionalStyle() {
         HyperlinkWidgetConditionalStyleImpl hyperlinkWidgetConditionalStyle = new HyperlinkWidgetConditionalStyleImpl();
         return hyperlinkWidgetConditionalStyle;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public SpinnerWidgetConditionalStyle createSpinnerWidgetConditionalStyle() {
+        SpinnerWidgetConditionalStyleImpl spinnerWidgetConditionalStyle = new SpinnerWidgetConditionalStyleImpl();
+        return spinnerWidgetConditionalStyle;
     }
 
     /**

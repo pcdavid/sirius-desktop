@@ -42,17 +42,16 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getIsEnabledExpression <em>Is Enabled
  * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getValueExpression <em>Value Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getDisplayExpression <em>Display Expression</em>}
- * </li>
- * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getOnClickOperation <em>On Click Operation</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getDisplayExpression <em>Display
+ * Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getOnClickOperation <em>On Click
+ * Operation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getActions <em>Actions</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getStyle <em>Style</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getConditionalStyles <em>Conditional Styles</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getConditionalStyles <em>Conditional
+ * Styles</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getExtends <em>Extends</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getFilterConditionalStylesFromExtendedListExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getFilterConditionalStylesFromExtendedListExpression
  * <em>Filter Conditional Styles From Extended List Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ListDescriptionImpl#getFilterActionsFromExtendedListExpression
  * <em>Filter Actions From Extended List Expression</em>}</li>
@@ -212,9 +211,8 @@ public class ListDescriptionImpl extends WidgetDescriptionImpl implements ListDe
     protected ListDescription extends_;
 
     /**
-     * The default value of the '{@link #getFilterConditionalStylesFromExtendedListExpression()
-     * <em>Filter Conditional Styles From Extended List Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFilterConditionalStylesFromExtendedListExpression() <em>Filter Conditional
+     * Styles From Extended List Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromExtendedListExpression()
      * @generated
@@ -223,9 +221,8 @@ public class ListDescriptionImpl extends WidgetDescriptionImpl implements ListDe
     protected static final String FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_LIST_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFilterConditionalStylesFromExtendedListExpression()
-     * <em>Filter Conditional Styles From Extended List Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFilterConditionalStylesFromExtendedListExpression() <em>Filter Conditional
+     * Styles From Extended List Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromExtendedListExpression()
      * @generated
@@ -234,8 +231,8 @@ public class ListDescriptionImpl extends WidgetDescriptionImpl implements ListDe
     protected String filterConditionalStylesFromExtendedListExpression = ListDescriptionImpl.FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_LIST_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getFilterActionsFromExtendedListExpression()
-     * <em>Filter Actions From Extended List Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getFilterActionsFromExtendedListExpression() <em>Filter Actions From Extended
+     * List Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterActionsFromExtendedListExpression()
      * @generated
@@ -244,8 +241,8 @@ public class ListDescriptionImpl extends WidgetDescriptionImpl implements ListDe
     protected static final String FILTER_ACTIONS_FROM_EXTENDED_LIST_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFilterActionsFromExtendedListExpression()
-     * <em>Filter Actions From Extended List Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getFilterActionsFromExtendedListExpression() <em>Filter Actions From Extended
+     * List Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterActionsFromExtendedListExpression()
      * @generated

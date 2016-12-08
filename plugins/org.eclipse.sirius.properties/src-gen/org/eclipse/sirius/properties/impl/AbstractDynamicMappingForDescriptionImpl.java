@@ -27,23 +27,22 @@ import org.eclipse.sirius.properties.DynamicMappingIfDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Abstract Dynamic Mapping For
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Abstract Dynamic Mapping For
  * Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingForDescriptionImpl#getIterator <em>Iterator</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingForDescriptionImpl#getIterator
+ * <em>Iterator</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingForDescriptionImpl#getIterableExpression
  * <em>Iterable Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingForDescriptionImpl#isForceRefresh
- * <em>Force Refresh</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingForDescriptionImpl#isForceRefresh <em>Force
+ * Refresh</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingForDescriptionImpl#getIfs <em>Ifs</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingForDescriptionImpl#getExtends <em>Extends</em>}
- * </li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingForDescriptionImpl#getFilterIfsFromExtendedDynamicMappingForExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingForDescriptionImpl#getExtends
+ * <em>Extends</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.AbstractDynamicMappingForDescriptionImpl#getFilterIfsFromExtendedDynamicMappingForExpression
  * <em>Filter Ifs From Extended Dynamic Mapping For Expression</em>}</li>
  * </ul>
  *
@@ -131,9 +130,8 @@ public abstract class AbstractDynamicMappingForDescriptionImpl extends AbstractC
     protected DynamicMappingForDescription extends_;
 
     /**
-     * The default value of the '{@link #getFilterIfsFromExtendedDynamicMappingForExpression()
-     * <em>Filter Ifs From Extended Dynamic Mapping For Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFilterIfsFromExtendedDynamicMappingForExpression() <em>Filter Ifs From
+     * Extended Dynamic Mapping For Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterIfsFromExtendedDynamicMappingForExpression()
      * @generated
@@ -142,9 +140,8 @@ public abstract class AbstractDynamicMappingForDescriptionImpl extends AbstractC
     protected static final String FILTER_IFS_FROM_EXTENDED_DYNAMIC_MAPPING_FOR_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFilterIfsFromExtendedDynamicMappingForExpression()
-     * <em>Filter Ifs From Extended Dynamic Mapping For Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFilterIfsFromExtendedDynamicMappingForExpression() <em>Filter Ifs From
+     * Extended Dynamic Mapping For Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterIfsFromExtendedDynamicMappingForExpression()
      * @generated

@@ -22,19 +22,18 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getValueExpression <em>Value Expression</em>}
- * </li>
- * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getDisplayExpression
- * <em>Display Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getInitialOperation <em>Initial Operation</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getValueExpression <em>Value
+ * Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getDisplayExpression <em>Display
+ * Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getInitialOperation <em>Initial
+ * Operation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getStyle <em>Style</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getConditionalStyles
- * <em>Conditional Styles</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getConditionalStyles <em>Conditional
+ * Styles</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getActions <em>Actions</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getExtends <em>Extends</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getFilterConditionalStylesFromExtendedHyperlinkExpression
+ * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getFilterConditionalStylesFromExtendedHyperlinkExpression
  * <em>Filter Conditional Styles From Extended Hyperlink Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getFilterActionsFromExtendedHyperlinkExpression
  * <em>Filter Actions From Extended Hyperlink Expression</em>}</li>
@@ -143,8 +142,8 @@ public interface AbstractHyperlinkDescription extends AbstractWidgetDescription 
     HyperlinkWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getStyle <em>Style</em>}
-     * ' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the '{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getStyle
+     * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Style</em>' containment reference.
@@ -230,8 +229,8 @@ public interface AbstractHyperlinkDescription extends AbstractWidgetDescription 
     String getFilterConditionalStylesFromExtendedHyperlinkExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getFilterConditionalStylesFromExtendedHyperlinkExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getFilterConditionalStylesFromExtendedHyperlinkExpression
      * <em>Filter Conditional Styles From Extended Hyperlink Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -261,8 +260,8 @@ public interface AbstractHyperlinkDescription extends AbstractWidgetDescription 
     String getFilterActionsFromExtendedHyperlinkExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getFilterActionsFromExtendedHyperlinkExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.AbstractHyperlinkDescription#getFilterActionsFromExtendedHyperlinkExpression
      * <em>Filter Actions From Extended Hyperlink Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *

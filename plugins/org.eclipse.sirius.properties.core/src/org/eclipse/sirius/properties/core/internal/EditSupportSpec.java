@@ -193,18 +193,8 @@ public class EditSupportSpec extends EditSupportImpl {
         boolean needsTextWidget = false;
 
         needsTextWidget = needsTextWidget || JAVA_LANG_STRING.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || INT.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || JAVA_LANG_INTEGER.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || DOUBLE.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || JAVA_LANG_DOUBLE.equals(eStructuralFeature.getEType().getInstanceTypeName());
         needsTextWidget = needsTextWidget || CHAR.equals(eStructuralFeature.getEType().getInstanceTypeName());
         needsTextWidget = needsTextWidget || JAVA_LANG_CHARACTER.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || SHORT.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || JAVA_LANG_SHORT.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || LONG.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || JAVA_LANG_LONG.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || FLOAT.equals(eStructuralFeature.getEType().getInstanceTypeName());
-        needsTextWidget = needsTextWidget || JAVA_LANG_FLOAT.equals(eStructuralFeature.getEType().getInstanceTypeName());
         needsTextWidget = needsTextWidget || JAVA_UTIL_DATE.equals(eStructuralFeature.getEType().getInstanceTypeName());
 
         return needsTextWidget && !eStructuralFeature.isMany();
@@ -219,7 +209,133 @@ public class EditSupportSpec extends EditSupportImpl {
 
         return needsCheckboxWidget && !eStructuralFeature.isMany();
     }
+    
+    @Override
+    public boolean needsSpinnerWidget(EStructuralFeature eStructuralFeature) {
+        boolean needsSpinnerWidget = false;
 
+        needsSpinnerWidget = needsSpinnerWidget || INT.equals(eStructuralFeature.getEType().getInstanceTypeName());
+        needsSpinnerWidget = needsSpinnerWidget || JAVA_LANG_INTEGER.equals(eStructuralFeature.getEType().getInstanceTypeName());
+        needsSpinnerWidget = needsSpinnerWidget || FLOAT.equals(eStructuralFeature.getEType().getInstanceTypeName());
+        needsSpinnerWidget = needsSpinnerWidget || JAVA_LANG_FLOAT.equals(eStructuralFeature.getEType().getInstanceTypeName());
+        needsSpinnerWidget = needsSpinnerWidget || DOUBLE.equals(eStructuralFeature.getEType().getInstanceTypeName());
+        needsSpinnerWidget = needsSpinnerWidget || JAVA_LANG_DOUBLE.equals(eStructuralFeature.getEType().getInstanceTypeName());
+        needsSpinnerWidget = needsSpinnerWidget || LONG.equals(eStructuralFeature.getEType().getInstanceTypeName());
+        needsSpinnerWidget = needsSpinnerWidget || JAVA_LANG_LONG.equals(eStructuralFeature.getEType().getInstanceTypeName());
+        needsSpinnerWidget = needsSpinnerWidget || SHORT.equals(eStructuralFeature.getEType().getInstanceTypeName());
+        needsSpinnerWidget = needsSpinnerWidget || JAVA_LANG_SHORT.equals(eStructuralFeature.getEType().getInstanceTypeName());
+        
+        return needsSpinnerWidget && !eStructuralFeature.isMany();
+    }
+
+    @Override
+    public Object getSpinnerMinValue(EStructuralFeature eStructuralFeature) {
+        Object minValue = null;
+        switch (eStructuralFeature.getEType().getInstanceTypeName()) {
+            case INT: 
+            case JAVA_LANG_INTEGER:
+                minValue = Integer.MIN_VALUE;
+                break;
+            case FLOAT:
+            case JAVA_LANG_FLOAT:
+                minValue = Float.MIN_VALUE;
+                break;
+            case DOUBLE:
+            case JAVA_LANG_DOUBLE:
+                minValue = Double.MIN_VALUE;
+                break;
+            case LONG:
+            case JAVA_LANG_LONG:
+                minValue = Long.MIN_VALUE;
+                break;
+            case SHORT:
+            case JAVA_LANG_SHORT:
+            default:
+                minValue = Short.MIN_VALUE;
+                break;
+        }
+        return minValue;
+    }
+    
+    @Override
+    public Object getSpinnerMaxValue(EStructuralFeature eStructuralFeature) {
+        Object maxValue = null;
+        switch (eStructuralFeature.getEType().getInstanceTypeName()) {
+            case INT: 
+            case JAVA_LANG_INTEGER:
+                maxValue = Integer.MAX_VALUE;
+                break;
+            case FLOAT:
+            case JAVA_LANG_FLOAT:
+                maxValue = Float.MAX_VALUE;
+                break;
+            case DOUBLE:
+            case JAVA_LANG_DOUBLE:
+                maxValue = Double.MAX_VALUE;
+                break;
+            case LONG:
+            case JAVA_LANG_LONG:
+                maxValue = Long.MAX_VALUE;
+                break;
+            case SHORT:
+            case JAVA_LANG_SHORT:
+            default:
+                maxValue = Short.MAX_VALUE;
+                break;
+        }
+        return maxValue;
+    }
+    
+    @Override
+    public int getSpinnerDigits(EStructuralFeature eStructuralFeature) {
+        int digits;
+        switch (eStructuralFeature.getEType().getInstanceTypeName()) {
+            case INT: 
+            case JAVA_LANG_INTEGER:
+            case LONG:
+            case JAVA_LANG_LONG:
+            case SHORT:
+            case JAVA_LANG_SHORT:
+                digits = 0;
+                break;
+            case FLOAT:
+            case JAVA_LANG_FLOAT:
+            case DOUBLE:
+            case JAVA_LANG_DOUBLE:
+                digits = 2;
+                break;
+            default:
+                digits = 0;
+                break;
+        }
+        return digits;
+    }
+    
+    @Override
+    public int getSpinnerIncrement(EStructuralFeature eStructuralFeature) {
+        int increment;
+        switch (eStructuralFeature.getEType().getInstanceTypeName()) {
+            case INT: 
+            case JAVA_LANG_INTEGER:
+            case LONG:
+            case JAVA_LANG_LONG:
+            case SHORT:
+            case JAVA_LANG_SHORT:
+                increment = 1;
+                break;
+            case FLOAT:
+            case JAVA_LANG_FLOAT:
+            case DOUBLE:
+            case JAVA_LANG_DOUBLE:
+                increment = 100;
+                break;
+            default:
+                increment = 1;
+                break;
+        }
+        return increment;
+    }
+    
     @Override
     public EList<EStructuralFeature> getEStructuralFeatures() {
         EList<EStructuralFeature> visibleFeatures = new BasicEList<>();

@@ -36,21 +36,20 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getLabelExpression <em>Label Expression</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getLabelExpression <em>Label
+ * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getHelpExpression <em>Help Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getIsEnabledExpression <em>Is Enabled
  * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getButtonLabelExpression <em>Button Label
  * Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getInitialOperation <em>Initial Operation</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getInitialOperation <em>Initial
+ * Operation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getStyle <em>Style</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getConditionalStyles <em>Conditional Styles</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getConditionalStyles <em>Conditional
+ * Styles</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getExtends <em>Extends</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getFilterConditionalStylesFromExtendedButtonExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getFilterConditionalStylesFromExtendedButtonExpression
  * <em>Filter Conditional Styles From Extended Button Expression</em>}</li>
  * </ul>
  *
@@ -178,9 +177,8 @@ public class ButtonDescriptionImpl extends WidgetDescriptionImpl implements Butt
     protected ButtonDescription extends_;
 
     /**
-     * The default value of the '{@link #getFilterConditionalStylesFromExtendedButtonExpression()
-     * <em>Filter Conditional Styles From Extended Button Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFilterConditionalStylesFromExtendedButtonExpression() <em>Filter Conditional
+     * Styles From Extended Button Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromExtendedButtonExpression()
      * @generated
@@ -189,9 +187,8 @@ public class ButtonDescriptionImpl extends WidgetDescriptionImpl implements Butt
     protected static final String FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_BUTTON_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFilterConditionalStylesFromExtendedButtonExpression()
-     * <em>Filter Conditional Styles From Extended Button Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFilterConditionalStylesFromExtendedButtonExpression() <em>Filter Conditional
+     * Styles From Extended Button Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromExtendedButtonExpression()
      * @generated

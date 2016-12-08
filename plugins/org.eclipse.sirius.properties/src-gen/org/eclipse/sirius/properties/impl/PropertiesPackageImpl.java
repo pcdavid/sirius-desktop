@@ -34,6 +34,7 @@ import org.eclipse.sirius.properties.AbstractOverrideDescription;
 import org.eclipse.sirius.properties.AbstractPageDescription;
 import org.eclipse.sirius.properties.AbstractRadioDescription;
 import org.eclipse.sirius.properties.AbstractSelectDescription;
+import org.eclipse.sirius.properties.AbstractSpinnerDescription;
 import org.eclipse.sirius.properties.AbstractTextAreaDescription;
 import org.eclipse.sirius.properties.AbstractTextDescription;
 import org.eclipse.sirius.properties.AbstractWidgetDescription;
@@ -97,6 +98,10 @@ import org.eclipse.sirius.properties.SelectDescription;
 import org.eclipse.sirius.properties.SelectOverrideDescription;
 import org.eclipse.sirius.properties.SelectWidgetConditionalStyle;
 import org.eclipse.sirius.properties.SelectWidgetStyle;
+import org.eclipse.sirius.properties.SpinnerDescription;
+import org.eclipse.sirius.properties.SpinnerOverrideDescription;
+import org.eclipse.sirius.properties.SpinnerWidgetConditionalStyle;
+import org.eclipse.sirius.properties.SpinnerWidgetStyle;
 import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.TextAreaOverrideDescription;
 import org.eclipse.sirius.properties.TextDescription;
@@ -554,6 +559,27 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      *
      * @generated
      */
+    private EClass abstractSpinnerDescriptionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass spinnerDescriptionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass spinnerOverrideDescriptionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EClass widgetStyleEClass = null;
 
     /**
@@ -618,6 +644,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     private EClass hyperlinkWidgetStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass spinnerWidgetStyleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -702,6 +735,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     private EClass hyperlinkWidgetConditionalStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass spinnerWidgetConditionalStyleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -3050,6 +3090,156 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
+    public EClass getAbstractSpinnerDescription() {
+        return abstractSpinnerDescriptionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getAbstractSpinnerDescription_ValueExpression() {
+        return (EAttribute) abstractSpinnerDescriptionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getAbstractSpinnerDescription_DigitsExpression() {
+        return (EAttribute) abstractSpinnerDescriptionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getAbstractSpinnerDescription_IncrementExpression() {
+        return (EAttribute) abstractSpinnerDescriptionEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getAbstractSpinnerDescription_MinExpression() {
+        return (EAttribute) abstractSpinnerDescriptionEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getAbstractSpinnerDescription_MaxExpression() {
+        return (EAttribute) abstractSpinnerDescriptionEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getAbstractSpinnerDescription_InitialOperation() {
+        return (EReference) abstractSpinnerDescriptionEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getAbstractSpinnerDescription_Style() {
+        return (EReference) abstractSpinnerDescriptionEClass.getEStructuralFeatures().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getAbstractSpinnerDescription_ConditionalStyles() {
+        return (EReference) abstractSpinnerDescriptionEClass.getEStructuralFeatures().get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getAbstractSpinnerDescription_Extends() {
+        return (EReference) abstractSpinnerDescriptionEClass.getEStructuralFeatures().get(8);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getAbstractSpinnerDescription_FilterConditionalStylesFromExtendedSpinnerExpression() {
+        return (EAttribute) abstractSpinnerDescriptionEClass.getEStructuralFeatures().get(9);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getSpinnerDescription() {
+        return spinnerDescriptionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getSpinnerOverrideDescription() {
+        return spinnerOverrideDescriptionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getSpinnerOverrideDescription_Overrides() {
+        return (EReference) spinnerOverrideDescriptionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getSpinnerOverrideDescription_FilterConditionalStylesFromOverriddenSpinnerExpression() {
+        return (EAttribute) spinnerOverrideDescriptionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getWidgetStyle() {
         return widgetStyleEClass;
     }
@@ -3332,6 +3522,56 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
     @Override
     public EAttribute getHyperlinkWidgetStyle_FontFormat() {
         return (EAttribute) hyperlinkWidgetStyleEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getSpinnerWidgetStyle() {
+        return spinnerWidgetStyleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getSpinnerWidgetStyle_FontNameExpression() {
+        return (EAttribute) spinnerWidgetStyleEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getSpinnerWidgetStyle_FontSizeExpression() {
+        return (EAttribute) spinnerWidgetStyleEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getSpinnerWidgetStyle_BackgroundColor() {
+        return (EReference) spinnerWidgetStyleEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getSpinnerWidgetStyle_ForegroundColor() {
+        return (EReference) spinnerWidgetStyleEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3642,6 +3882,26 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
     @Override
     public EReference getHyperlinkWidgetConditionalStyle_Style() {
         return (EReference) hyperlinkWidgetConditionalStyleEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getSpinnerWidgetConditionalStyle() {
+        return spinnerWidgetConditionalStyleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getSpinnerWidgetConditionalStyle_Style() {
+        return (EReference) spinnerWidgetConditionalStyleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -4217,6 +4477,24 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEAttribute(hyperlinkOverrideDescriptionEClass, PropertiesPackage.HYPERLINK_OVERRIDE_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_OVERRIDDEN_HYPERLINK_EXPRESSION);
         createEAttribute(hyperlinkOverrideDescriptionEClass, PropertiesPackage.HYPERLINK_OVERRIDE_DESCRIPTION__FILTER_ACTIONS_FROM_OVERRIDDEN_HYPERLINK_EXPRESSION);
 
+        abstractSpinnerDescriptionEClass = createEClass(PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION);
+        createEAttribute(abstractSpinnerDescriptionEClass, PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION__VALUE_EXPRESSION);
+        createEAttribute(abstractSpinnerDescriptionEClass, PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION__DIGITS_EXPRESSION);
+        createEAttribute(abstractSpinnerDescriptionEClass, PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION__INCREMENT_EXPRESSION);
+        createEAttribute(abstractSpinnerDescriptionEClass, PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION__MIN_EXPRESSION);
+        createEAttribute(abstractSpinnerDescriptionEClass, PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION__MAX_EXPRESSION);
+        createEReference(abstractSpinnerDescriptionEClass, PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION__INITIAL_OPERATION);
+        createEReference(abstractSpinnerDescriptionEClass, PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION__STYLE);
+        createEReference(abstractSpinnerDescriptionEClass, PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION__CONDITIONAL_STYLES);
+        createEReference(abstractSpinnerDescriptionEClass, PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION__EXTENDS);
+        createEAttribute(abstractSpinnerDescriptionEClass, PropertiesPackage.ABSTRACT_SPINNER_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_SPINNER_EXPRESSION);
+
+        spinnerDescriptionEClass = createEClass(PropertiesPackage.SPINNER_DESCRIPTION);
+
+        spinnerOverrideDescriptionEClass = createEClass(PropertiesPackage.SPINNER_OVERRIDE_DESCRIPTION);
+        createEReference(spinnerOverrideDescriptionEClass, PropertiesPackage.SPINNER_OVERRIDE_DESCRIPTION__OVERRIDES);
+        createEAttribute(spinnerOverrideDescriptionEClass, PropertiesPackage.SPINNER_OVERRIDE_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_OVERRIDDEN_SPINNER_EXPRESSION);
+
         widgetStyleEClass = createEClass(PropertiesPackage.WIDGET_STYLE);
         createEAttribute(widgetStyleEClass, PropertiesPackage.WIDGET_STYLE__LABEL_FONT_NAME_EXPRESSION);
         createEAttribute(widgetStyleEClass, PropertiesPackage.WIDGET_STYLE__LABEL_FONT_SIZE_EXPRESSION);
@@ -4255,6 +4533,12 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEAttribute(hyperlinkWidgetStyleEClass, PropertiesPackage.HYPERLINK_WIDGET_STYLE__FONT_SIZE_EXPRESSION);
         createEReference(hyperlinkWidgetStyleEClass, PropertiesPackage.HYPERLINK_WIDGET_STYLE__BACKGROUND_COLOR);
         createEAttribute(hyperlinkWidgetStyleEClass, PropertiesPackage.HYPERLINK_WIDGET_STYLE__FONT_FORMAT);
+
+        spinnerWidgetStyleEClass = createEClass(PropertiesPackage.SPINNER_WIDGET_STYLE);
+        createEAttribute(spinnerWidgetStyleEClass, PropertiesPackage.SPINNER_WIDGET_STYLE__FONT_NAME_EXPRESSION);
+        createEAttribute(spinnerWidgetStyleEClass, PropertiesPackage.SPINNER_WIDGET_STYLE__FONT_SIZE_EXPRESSION);
+        createEReference(spinnerWidgetStyleEClass, PropertiesPackage.SPINNER_WIDGET_STYLE__BACKGROUND_COLOR);
+        createEReference(spinnerWidgetStyleEClass, PropertiesPackage.SPINNER_WIDGET_STYLE__FOREGROUND_COLOR);
 
         groupStyleEClass = createEClass(PropertiesPackage.GROUP_STYLE);
         createEReference(groupStyleEClass, PropertiesPackage.GROUP_STYLE__BACKGROUND_COLOR);
@@ -4298,6 +4582,9 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
 
         hyperlinkWidgetConditionalStyleEClass = createEClass(PropertiesPackage.HYPERLINK_WIDGET_CONDITIONAL_STYLE);
         createEReference(hyperlinkWidgetConditionalStyleEClass, PropertiesPackage.HYPERLINK_WIDGET_CONDITIONAL_STYLE__STYLE);
+
+        spinnerWidgetConditionalStyleEClass = createEClass(PropertiesPackage.SPINNER_WIDGET_CONDITIONAL_STYLE);
+        createEReference(spinnerWidgetConditionalStyleEClass, PropertiesPackage.SPINNER_WIDGET_CONDITIONAL_STYLE__STYLE);
 
         groupConditionalStyleEClass = createEClass(PropertiesPackage.GROUP_CONDITIONAL_STYLE);
         createEReference(groupConditionalStyleEClass, PropertiesPackage.GROUP_CONDITIONAL_STYLE__STYLE);
@@ -4460,6 +4747,12 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         hyperlinkDescriptionEClass.getESuperTypes().add(this.getAbstractHyperlinkDescription());
         hyperlinkOverrideDescriptionEClass.getESuperTypes().add(this.getAbstractHyperlinkDescription());
         hyperlinkOverrideDescriptionEClass.getESuperTypes().add(this.getAbstractOverrideDescription());
+        abstractSpinnerDescriptionEClass.getESuperTypes().add(this.getAbstractWidgetDescription());
+        abstractSpinnerDescriptionEClass.getESuperTypes().add(this.getAbstractOverrideDescription());
+        spinnerDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
+        spinnerDescriptionEClass.getESuperTypes().add(this.getAbstractSpinnerDescription());
+        spinnerOverrideDescriptionEClass.getESuperTypes().add(this.getAbstractSpinnerDescription());
+        spinnerOverrideDescriptionEClass.getESuperTypes().add(this.getAbstractOverrideDescription());
         textWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         labelWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         checkboxWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
@@ -4469,6 +4762,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         customWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         listWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         hyperlinkWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
+        spinnerWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         textWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         labelWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         checkboxWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
@@ -4478,6 +4772,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         customWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         listWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         hyperlinkWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
+        spinnerWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         groupConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         dialogModelOperationEClass.getESuperTypes().add(theToolPackage.getModelOperation());
         wizardModelOperationEClass.getESuperTypes().add(theToolPackage.getModelOperation());
@@ -5143,6 +5438,51 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
                 "filterActionsFromOverriddenHyperlinkExpression", null, 0, 1, HyperlinkOverrideDescription.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, //$NON-NLS-1$
                 !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
 
+        initEClass(abstractSpinnerDescriptionEClass, AbstractSpinnerDescription.class, "AbstractSpinnerDescription", EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
+                EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getAbstractSpinnerDescription_ValueExpression(), theDescriptionPackage.getInterpretedExpression(), "valueExpression", null, 0, 1, AbstractSpinnerDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEAttribute(getAbstractSpinnerDescription_DigitsExpression(), theDescriptionPackage.getInterpretedExpression(), "digitsExpression", "0", 0, 1, AbstractSpinnerDescription.class, //$NON-NLS-1$//$NON-NLS-2$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEAttribute(getAbstractSpinnerDescription_IncrementExpression(), theDescriptionPackage.getInterpretedExpression(), "incrementExpression", "1", 0, 1, AbstractSpinnerDescription.class, //$NON-NLS-1$//$NON-NLS-2$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEAttribute(getAbstractSpinnerDescription_MinExpression(), theDescriptionPackage.getInterpretedExpression(), "minExpression", null, 0, 1, AbstractSpinnerDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEAttribute(getAbstractSpinnerDescription_MaxExpression(), theDescriptionPackage.getInterpretedExpression(), "maxExpression", null, 0, 1, AbstractSpinnerDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEReference(getAbstractSpinnerDescription_InitialOperation(), theToolPackage.getInitialOperation(), null, "initialOperation", null, 1, 1, AbstractSpinnerDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE,
+                EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getAbstractSpinnerDescription_Style(), this.getSpinnerWidgetStyle(), null, "style", null, 0, 1, AbstractSpinnerDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getAbstractSpinnerDescription_ConditionalStyles(), this.getSpinnerWidgetConditionalStyle(), null, "conditionalStyles", null, 0, -1, AbstractSpinnerDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE,
+                EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getAbstractSpinnerDescription_Extends(), this.getSpinnerDescription(), null, "extends", null, 0, 1, AbstractSpinnerDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_COMPOSITE, EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEAttribute(getAbstractSpinnerDescription_FilterConditionalStylesFromExtendedSpinnerExpression(), theDescriptionPackage.getInterpretedExpression(),
+                "filterConditionalStylesFromExtendedSpinnerExpression", null, 0, 1, AbstractSpinnerDescription.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, //$NON-NLS-1$
+                !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
+        initEClass(spinnerDescriptionEClass, SpinnerDescription.class, "SpinnerDescription", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+        initEClass(spinnerOverrideDescriptionEClass, SpinnerOverrideDescription.class, "SpinnerOverrideDescription", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
+                EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getSpinnerOverrideDescription_Overrides(), this.getSpinnerDescription(), null, "overrides", null, 0, 1, SpinnerOverrideDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_COMPOSITE, EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        getSpinnerOverrideDescription_Overrides().getEKeys().add(theDescriptionPackage.getIdentifiedElement_Name());
+        initEAttribute(getSpinnerOverrideDescription_FilterConditionalStylesFromOverriddenSpinnerExpression(), theDescriptionPackage.getInterpretedExpression(),
+                "filterConditionalStylesFromOverriddenSpinnerExpression", null, 0, 1, SpinnerOverrideDescription.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, //$NON-NLS-1$
+                EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
         initEClass(widgetStyleEClass, WidgetStyle.class, "WidgetStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getWidgetStyle_LabelFontNameExpression(), theDescriptionPackage.getInterpretedExpression(), "labelFontNameExpression", null, 0, 1, WidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
@@ -5209,6 +5549,20 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
                 EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
         initEAttribute(getHyperlinkWidgetStyle_FontFormat(), theViewpointPackage.getFontFormat(), "fontFormat", null, 0, 4, HyperlinkWidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
+        initEClass(spinnerWidgetStyleEClass, SpinnerWidgetStyle.class, "SpinnerWidgetStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+        initEAttribute(getSpinnerWidgetStyle_FontNameExpression(), theDescriptionPackage.getInterpretedExpression(), "fontNameExpression", null, 0, 1, SpinnerWidgetStyle.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEAttribute(getSpinnerWidgetStyle_FontSizeExpression(), theDescriptionPackage.getInterpretedExpression(), "fontSizeExpression", null, 0, 1, SpinnerWidgetStyle.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEReference(getSpinnerWidgetStyle_BackgroundColor(), theDescriptionPackage.getColorDescription(), null, "backgroundColor", null, 0, 1, SpinnerWidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_COMPOSITE, EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getSpinnerWidgetStyle_ForegroundColor(), theDescriptionPackage.getColorDescription(), null, "foregroundColor", null, 0, 1, SpinnerWidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_COMPOSITE, EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
 
         initEClass(groupStyleEClass, GroupStyle.class, "GroupStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEReference(getGroupStyle_BackgroundColor(), theDescriptionPackage.getColorDescription(), null, "backgroundColor", null, 0, 1, GroupStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
@@ -5292,6 +5646,12 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         initEClass(hyperlinkWidgetConditionalStyleEClass, HyperlinkWidgetConditionalStyle.class, "HyperlinkWidgetConditionalStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
                 EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
         initEReference(getHyperlinkWidgetConditionalStyle_Style(), this.getHyperlinkWidgetStyle(), null, "style", null, 0, 1, HyperlinkWidgetConditionalStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
+        initEClass(spinnerWidgetConditionalStyleEClass, SpinnerWidgetConditionalStyle.class, "SpinnerWidgetConditionalStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
+                EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getSpinnerWidgetConditionalStyle_Style(), this.getSpinnerWidgetStyle(), null, "style", null, 0, 1, SpinnerWidgetConditionalStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
                 !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
 
@@ -5383,6 +5743,21 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
 
         op = addEOperation(editSupportEClass, theEcorePackage.getEBoolean(), "needsCheckboxWidget", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
         addEParameter(op, theEcorePackage.getEStructuralFeature(), "eStructuralFeature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+
+        op = addEOperation(editSupportEClass, theEcorePackage.getEBoolean(), "needsSpinnerWidget", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+        addEParameter(op, theEcorePackage.getEStructuralFeature(), "eStructuralFeature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+
+        op = addEOperation(editSupportEClass, ecorePackage.getEJavaObject(), "getSpinnerMinValue", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+        addEParameter(op, theEcorePackage.getEStructuralFeature(), "feature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+
+        op = addEOperation(editSupportEClass, ecorePackage.getEJavaObject(), "getSpinnerMaxValue", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+        addEParameter(op, theEcorePackage.getEStructuralFeature(), "feature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+
+        op = addEOperation(editSupportEClass, ecorePackage.getEInt(), "getSpinnerDigits", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+        addEParameter(op, theEcorePackage.getEStructuralFeature(), "feature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+
+        op = addEOperation(editSupportEClass, ecorePackage.getEInt(), "getSpinnerIncrement", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+        addEParameter(op, theEcorePackage.getEStructuralFeature(), "feature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum(filL_LAYOUT_ORIENTATIONEEnum, org.eclipse.sirius.properties.FILL_LAYOUT_ORIENTATION.class, "FILL_LAYOUT_ORIENTATION"); //$NON-NLS-1$

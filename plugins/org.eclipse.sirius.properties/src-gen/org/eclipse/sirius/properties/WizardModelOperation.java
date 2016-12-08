@@ -23,13 +23,13 @@ import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.WizardModelOperation#getWindowTitleExpression
- * <em>Window Title Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.WizardModelOperation#getWindowTitleExpression <em>Window Title
+ * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.WizardModelOperation#getTitleExpression <em>Title Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.WizardModelOperation#getDescriptionExpression
- * <em>Description Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.WizardModelOperation#getIsPageCompleteExpression
- * <em>Is Page Complete Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.WizardModelOperation#getDescriptionExpression <em>Description
+ * Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.WizardModelOperation#getIsPageCompleteExpression <em>Is Page Complete
+ * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.WizardModelOperation#getPages <em>Pages</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.WizardModelOperation#getGroups <em>Groups</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.WizardModelOperation#getInitialOperation <em>Initial Operation</em>}</li>
@@ -84,8 +84,8 @@ public interface WizardModelOperation extends ModelOperation {
     String getTitleExpression();
 
     /**
-     * Sets the value of the '{@link org.eclipse.sirius.properties.WizardModelOperation#getTitleExpression
-     * <em>Title Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the '{@link org.eclipse.sirius.properties.WizardModelOperation#getTitleExpression <em>Title
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Title Expression</em>' attribute.
@@ -194,8 +194,8 @@ public interface WizardModelOperation extends ModelOperation {
     InitialOperation getInitialOperation();
 
     /**
-     * Sets the value of the '{@link org.eclipse.sirius.properties.WizardModelOperation#getInitialOperation
-     * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the '{@link org.eclipse.sirius.properties.WizardModelOperation#getInitialOperation <em>Initial
+     * Operation</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Initial Operation</em>' containment reference.

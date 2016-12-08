@@ -112,4 +112,44 @@ public interface EditSupport extends EObject {
      */
     boolean needsCheckboxWidget(EStructuralFeature eStructuralFeature);
 
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @model eStructuralFeatureRequired="true"
+     * @generated
+     */
+    boolean needsSpinnerWidget(EStructuralFeature eStructuralFeature);
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @model featureRequired="true"
+     * @generated
+     */
+    Object getSpinnerMinValue(EStructuralFeature feature);
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @model featureRequired="true"
+     * @generated
+     */
+    Object getSpinnerMaxValue(EStructuralFeature feature);
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @model featureRequired="true"
+     * @generated
+     */
+    int getSpinnerDigits(EStructuralFeature feature);
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @model featureRequired="true"
+     * @generated
+     */
+    int getSpinnerIncrement(EStructuralFeature feature);
+
 } // EditSupport

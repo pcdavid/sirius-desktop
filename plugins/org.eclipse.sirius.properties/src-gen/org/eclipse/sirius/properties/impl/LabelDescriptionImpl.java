@@ -41,15 +41,14 @@ import org.eclipse.sirius.properties.WidgetAction;
  * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getIsEnabledExpression <em>Is Enabled
  * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getValueExpression <em>Value Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getDisplayExpression <em>Display Expression</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getDisplayExpression <em>Display
+ * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getStyle <em>Style</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getConditionalStyles <em>Conditional Styles</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getConditionalStyles <em>Conditional
+ * Styles</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getActions <em>Actions</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getExtends <em>Extends</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getFilterConditionalStylesFromExtendedLabelExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getFilterConditionalStylesFromExtendedLabelExpression
  * <em>Filter Conditional Styles From Extended Label Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.LabelDescriptionImpl#getFilterActionsFromExtendedLabelExpression
  * <em>Filter Actions From Extended Label Expression</em>}</li>
@@ -199,9 +198,8 @@ public class LabelDescriptionImpl extends WidgetDescriptionImpl implements Label
     protected LabelDescription extends_;
 
     /**
-     * The default value of the '{@link #getFilterConditionalStylesFromExtendedLabelExpression()
-     * <em>Filter Conditional Styles From Extended Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFilterConditionalStylesFromExtendedLabelExpression() <em>Filter Conditional
+     * Styles From Extended Label Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromExtendedLabelExpression()
      * @generated
@@ -210,9 +208,8 @@ public class LabelDescriptionImpl extends WidgetDescriptionImpl implements Label
     protected static final String FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_LABEL_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFilterConditionalStylesFromExtendedLabelExpression()
-     * <em>Filter Conditional Styles From Extended Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFilterConditionalStylesFromExtendedLabelExpression() <em>Filter Conditional
+     * Styles From Extended Label Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterConditionalStylesFromExtendedLabelExpression()
      * @generated
@@ -221,8 +218,8 @@ public class LabelDescriptionImpl extends WidgetDescriptionImpl implements Label
     protected String filterConditionalStylesFromExtendedLabelExpression = LabelDescriptionImpl.FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_LABEL_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getFilterActionsFromExtendedLabelExpression()
-     * <em>Filter Actions From Extended Label Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getFilterActionsFromExtendedLabelExpression() <em>Filter Actions From Extended
+     * Label Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterActionsFromExtendedLabelExpression()
      * @generated
@@ -231,8 +228,8 @@ public class LabelDescriptionImpl extends WidgetDescriptionImpl implements Label
     protected static final String FILTER_ACTIONS_FROM_EXTENDED_LABEL_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFilterActionsFromExtendedLabelExpression()
-     * <em>Filter Actions From Extended Label Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getFilterActionsFromExtendedLabelExpression() <em>Filter Actions From Extended
+     * Label Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getFilterActionsFromExtendedLabelExpression()
      * @generated

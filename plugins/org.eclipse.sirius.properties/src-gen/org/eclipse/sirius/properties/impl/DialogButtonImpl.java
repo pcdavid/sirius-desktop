@@ -28,14 +28,14 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * </p>
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.impl.DialogButtonImpl#getLabelExpression <em>Label Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.DialogButtonImpl#getIsEnabledExpression <em>Is Enabled Expression</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.impl.DialogButtonImpl#getIsEnabledExpression <em>Is Enabled
+ * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.DialogButtonImpl#getInitialOperation <em>Initial Operation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.DialogButtonImpl#isDefault <em>Default</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.DialogButtonImpl#isCloseDialogOnClick <em>Close Dialog On Click</em>}
- * </li>
- * <li>{@link org.eclipse.sirius.properties.impl.DialogButtonImpl#isRollbackChangesOnClose
- * <em>Rollback Changes On Close</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.DialogButtonImpl#isCloseDialogOnClick <em>Close Dialog On
+ * Click</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.DialogButtonImpl#isRollbackChangesOnClose <em>Rollback Changes On
+ * Close</em>}</li>
  * </ul>
  *
  * @generated

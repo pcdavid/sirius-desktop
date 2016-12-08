@@ -14,15 +14,15 @@ package org.eclipse.sirius.properties;
 import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Abstract Dynamic Mapping If Description</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Abstract Dynamic Mapping If
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription#getPredicateExpression
- * <em>Predicate Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription#getPredicateExpression <em>Predicate
+ * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription#getWidget <em>Widget</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription#getExtends <em>Extends</em>}</li>
  * </ul>
@@ -49,9 +49,9 @@ public interface AbstractDynamicMappingIfDescription extends IdentifiedElement {
     String getPredicateExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription#getPredicateExpression
-     * <em>Predicate Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription#getPredicateExpression <em>Predicate
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Predicate Expression</em>' attribute.

@@ -48,6 +48,9 @@ import org.eclipse.sirius.properties.LabelWidgetStyle;
 import org.eclipse.sirius.properties.ListDescription;
 import org.eclipse.sirius.properties.ListWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ListWidgetStyle;
+import org.eclipse.sirius.properties.MultiTextDescription;
+import org.eclipse.sirius.properties.MultiTextWidgetConditionalStyle;
+import org.eclipse.sirius.properties.MultiTextWidgetStyle;
 import org.eclipse.sirius.properties.OperationDescription;
 import org.eclipse.sirius.properties.PageDescription;
 import org.eclipse.sirius.properties.PageValidationSetDescription;
@@ -133,6 +136,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createGridLayoutDescription();
         case PropertiesPackage.TEXT_DESCRIPTION:
             return createTextDescription();
+        case PropertiesPackage.MULTI_TEXT_DESCRIPTION:
+            return createMultiTextDescription();
         case PropertiesPackage.BUTTON_DESCRIPTION:
             return createButtonDescription();
         case PropertiesPackage.LABEL_DESCRIPTION:
@@ -165,6 +170,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createWidgetStyle();
         case PropertiesPackage.TEXT_WIDGET_STYLE:
             return createTextWidgetStyle();
+        case PropertiesPackage.MULTI_TEXT_WIDGET_STYLE:
+            return createMultiTextWidgetStyle();
         case PropertiesPackage.LABEL_WIDGET_STYLE:
             return createLabelWidgetStyle();
         case PropertiesPackage.CHECKBOX_WIDGET_STYLE:
@@ -185,6 +192,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createGroupStyle();
         case PropertiesPackage.TEXT_WIDGET_CONDITIONAL_STYLE:
             return createTextWidgetConditionalStyle();
+        case PropertiesPackage.MULTI_TEXT_WIDGET_CONDITIONAL_STYLE:
+            return createMultiTextWidgetConditionalStyle();
         case PropertiesPackage.LABEL_WIDGET_CONDITIONAL_STYLE:
             return createLabelWidgetConditionalStyle();
         case PropertiesPackage.CHECKBOX_WIDGET_CONDITIONAL_STYLE:
@@ -358,6 +367,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public TextDescription createTextDescription() {
         TextDescriptionImpl textDescription = new TextDescriptionImpl();
         return textDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public MultiTextDescription createMultiTextDescription() {
+        MultiTextDescriptionImpl multiTextDescription = new MultiTextDescriptionImpl();
+        return multiTextDescription;
     }
 
     /**
@@ -542,6 +562,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public MultiTextWidgetStyle createMultiTextWidgetStyle() {
+        MultiTextWidgetStyleImpl multiTextWidgetStyle = new MultiTextWidgetStyleImpl();
+        return multiTextWidgetStyle;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public LabelWidgetStyle createLabelWidgetStyle() {
         LabelWidgetStyleImpl labelWidgetStyle = new LabelWidgetStyleImpl();
         return labelWidgetStyle;
@@ -644,6 +675,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public TextWidgetConditionalStyle createTextWidgetConditionalStyle() {
         TextWidgetConditionalStyleImpl textWidgetConditionalStyle = new TextWidgetConditionalStyleImpl();
         return textWidgetConditionalStyle;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public MultiTextWidgetConditionalStyle createMultiTextWidgetConditionalStyle() {
+        MultiTextWidgetConditionalStyleImpl multiTextWidgetConditionalStyle = new MultiTextWidgetConditionalStyleImpl();
+        return multiTextWidgetConditionalStyle;
     }
 
     /**

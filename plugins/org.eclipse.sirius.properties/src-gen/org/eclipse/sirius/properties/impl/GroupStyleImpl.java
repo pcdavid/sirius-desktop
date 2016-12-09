@@ -23,30 +23,25 @@ import org.eclipse.sirius.properties.ToggleStyle;
 import org.eclipse.sirius.viewpoint.description.ColorDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Group Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Group
+ * Style</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupStyleImpl#getBackgroundColor
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupStyleImpl#getBackgroundColor
  * <em>Background Color</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupStyleImpl#getForegroundColor
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupStyleImpl#getForegroundColor
  * <em>Foreground Color</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupStyleImpl#getFontNameExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupStyleImpl#getFontNameExpression
  * <em>Font Name Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupStyleImpl#getFontSizeExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupStyleImpl#getFontSizeExpression
  * <em>Font Size Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.GroupStyleImpl#getBarStyle
  * <em>Bar Style</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.GroupStyleImpl#getToggleStyle
  * <em>Toggle Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupStyleImpl#isExpandedByDefault
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupStyleImpl#isExpandedByDefault
  * <em>Expanded By Default</em>}</li>
  * </ul>
  *
@@ -54,9 +49,8 @@ import org.eclipse.sirius.viewpoint.description.ColorDescription;
  */
 public class GroupStyleImpl extends MinimalEObjectImpl.Container implements GroupStyle {
     /**
-     * The cached value of the '{@link #getBackgroundColor()
-     * <em>Background Color</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getBackgroundColor() <em>Background
+     * Color</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getBackgroundColor()
      * @generated
@@ -65,9 +59,8 @@ public class GroupStyleImpl extends MinimalEObjectImpl.Container implements Grou
     protected ColorDescription backgroundColor;
 
     /**
-     * The cached value of the '{@link #getForegroundColor()
-     * <em>Foreground Color</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getForegroundColor() <em>Foreground
+     * Color</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getForegroundColor()
      * @generated
@@ -76,9 +69,9 @@ public class GroupStyleImpl extends MinimalEObjectImpl.Container implements Grou
     protected ColorDescription foregroundColor;
 
     /**
-     * The default value of the '{@link #getFontNameExpression()
-     * <em>Font Name Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFontNameExpression() <em>Font Name
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontNameExpression()
      * @generated
@@ -87,9 +80,9 @@ public class GroupStyleImpl extends MinimalEObjectImpl.Container implements Grou
     protected static final String FONT_NAME_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFontNameExpression()
-     * <em>Font Name Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFontNameExpression() <em>Font Name
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontNameExpression()
      * @generated
@@ -98,9 +91,9 @@ public class GroupStyleImpl extends MinimalEObjectImpl.Container implements Grou
     protected String fontNameExpression = GroupStyleImpl.FONT_NAME_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getFontSizeExpression()
-     * <em>Font Size Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFontSizeExpression() <em>Font Size
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontSizeExpression()
      * @generated
@@ -109,9 +102,9 @@ public class GroupStyleImpl extends MinimalEObjectImpl.Container implements Grou
     protected static final String FONT_SIZE_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFontSizeExpression()
-     * <em>Font Size Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFontSizeExpression() <em>Font Size
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontSizeExpression()
      * @generated
@@ -140,8 +133,8 @@ public class GroupStyleImpl extends MinimalEObjectImpl.Container implements Grou
     protected TitleBarStyle barStyle = GroupStyleImpl.BAR_STYLE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getToggleStyle() <em>Toggle Style</em>}
-     * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getToggleStyle() <em>Toggle
+     * Style</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getToggleStyle()
      * @generated
@@ -160,9 +153,8 @@ public class GroupStyleImpl extends MinimalEObjectImpl.Container implements Grou
     protected ToggleStyle toggleStyle = GroupStyleImpl.TOGGLE_STYLE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isExpandedByDefault()
-     * <em>Expanded By Default</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #isExpandedByDefault() <em>Expanded By
+     * Default</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #isExpandedByDefault()
      * @generated
@@ -171,9 +163,8 @@ public class GroupStyleImpl extends MinimalEObjectImpl.Container implements Grou
     protected static final boolean EXPANDED_BY_DEFAULT_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isExpandedByDefault()
-     * <em>Expanded By Default</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #isExpandedByDefault() <em>Expanded By
+     * Default</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #isExpandedByDefault()
      * @generated

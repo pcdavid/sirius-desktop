@@ -212,6 +212,15 @@ public class EditSupportSpec extends EditSupportImpl {
 
         return needsTextWidget && !eStructuralFeature.isMany();
     }
+    
+    @Override
+    public boolean needsMultiTextWidget(EStructuralFeature eStructuralFeature) {
+        boolean needsMultiTextWidget = false;
+
+        needsMultiTextWidget = needsMultiTextWidget || JAVA_LANG_STRING.equals(eStructuralFeature.getEType().getInstanceTypeName());
+
+        return needsMultiTextWidget && eStructuralFeature.isMany();
+    }
 
     @Override
     public boolean needsCheckboxWidget(EStructuralFeature eStructuralFeature) {

@@ -18,14 +18,13 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.TextAreaDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Text Area Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Text
+ * Area Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.TextAreaDescriptionImpl#getLineCount
+ * <li>{@link org.eclipse.sirius.properties.impl.TextAreaDescriptionImpl#getLineCount
  * <em>Line Count</em>}</li>
  * </ul>
  *

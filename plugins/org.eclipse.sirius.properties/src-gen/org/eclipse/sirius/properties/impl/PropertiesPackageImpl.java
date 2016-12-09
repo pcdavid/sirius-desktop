@@ -51,6 +51,9 @@ import org.eclipse.sirius.properties.LayoutDescription;
 import org.eclipse.sirius.properties.ListDescription;
 import org.eclipse.sirius.properties.ListWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ListWidgetStyle;
+import org.eclipse.sirius.properties.MultiTextDescription;
+import org.eclipse.sirius.properties.MultiTextWidgetConditionalStyle;
+import org.eclipse.sirius.properties.MultiTextWidgetStyle;
 import org.eclipse.sirius.properties.OperationDescription;
 import org.eclipse.sirius.properties.PageDescription;
 import org.eclipse.sirius.properties.PageValidationSetDescription;
@@ -182,6 +185,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      *
      * @generated
      */
+    private EClass multiTextDescriptionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EClass buttonDescriptionEClass = null;
 
     /**
@@ -294,6 +304,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      *
      * @generated
      */
+    private EClass multiTextWidgetStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EClass labelWidgetStyleEClass = null;
 
     /**
@@ -344,6 +361,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     private EClass textWidgetConditionalStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass multiTextWidgetConditionalStyleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1031,6 +1055,66 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
     @Override
     public EReference getTextDescription_ConditionalStyles() {
         return (EReference) textDescriptionEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getMultiTextDescription() {
+        return multiTextDescriptionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getMultiTextDescription_AttributeOwnerExpression() {
+        return (EAttribute) multiTextDescriptionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getMultiTextDescription_AttributeNameExpression() {
+        return (EAttribute) multiTextDescriptionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getMultiTextDescription_InitialOperation() {
+        return (EReference) multiTextDescriptionEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getMultiTextDescription_Style() {
+        return (EReference) multiTextDescriptionEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getMultiTextDescription_ConditionalStyles() {
+        return (EReference) multiTextDescriptionEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -1829,6 +1913,66 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
+    public EClass getMultiTextWidgetStyle() {
+        return multiTextWidgetStyleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getMultiTextWidgetStyle_FontNameExpression() {
+        return (EAttribute) multiTextWidgetStyleEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getMultiTextWidgetStyle_FontSizeExpression() {
+        return (EAttribute) multiTextWidgetStyleEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getMultiTextWidgetStyle_BackgroundColor() {
+        return (EReference) multiTextWidgetStyleEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getMultiTextWidgetStyle_ForegroundColor() {
+        return (EReference) multiTextWidgetStyleEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getMultiTextWidgetStyle_FontFormat() {
+        return (EAttribute) multiTextWidgetStyleEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getLabelWidgetStyle() {
         return labelWidgetStyleEClass;
     }
@@ -1971,6 +2115,26 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
     @Override
     public EReference getTextWidgetConditionalStyle_Style() {
         return (EReference) textWidgetConditionalStyleEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getMultiTextWidgetConditionalStyle() {
+        return multiTextWidgetConditionalStyleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getMultiTextWidgetConditionalStyle_Style() {
+        return (EReference) multiTextWidgetConditionalStyleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -2457,6 +2621,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEReference(textDescriptionEClass, PropertiesPackage.TEXT_DESCRIPTION__STYLE);
         createEReference(textDescriptionEClass, PropertiesPackage.TEXT_DESCRIPTION__CONDITIONAL_STYLES);
 
+        multiTextDescriptionEClass = createEClass(PropertiesPackage.MULTI_TEXT_DESCRIPTION);
+        createEAttribute(multiTextDescriptionEClass, PropertiesPackage.MULTI_TEXT_DESCRIPTION__ATTRIBUTE_OWNER_EXPRESSION);
+        createEAttribute(multiTextDescriptionEClass, PropertiesPackage.MULTI_TEXT_DESCRIPTION__ATTRIBUTE_NAME_EXPRESSION);
+        createEReference(multiTextDescriptionEClass, PropertiesPackage.MULTI_TEXT_DESCRIPTION__INITIAL_OPERATION);
+        createEReference(multiTextDescriptionEClass, PropertiesPackage.MULTI_TEXT_DESCRIPTION__STYLE);
+        createEReference(multiTextDescriptionEClass, PropertiesPackage.MULTI_TEXT_DESCRIPTION__CONDITIONAL_STYLES);
+
         buttonDescriptionEClass = createEClass(PropertiesPackage.BUTTON_DESCRIPTION);
         createEAttribute(buttonDescriptionEClass, PropertiesPackage.BUTTON_DESCRIPTION__BUTTON_LABEL_EXPRESSION);
         createEReference(buttonDescriptionEClass, PropertiesPackage.BUTTON_DESCRIPTION__INITIAL_OPERATION);
@@ -2552,6 +2723,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEReference(textWidgetStyleEClass, PropertiesPackage.TEXT_WIDGET_STYLE__FOREGROUND_COLOR);
         createEAttribute(textWidgetStyleEClass, PropertiesPackage.TEXT_WIDGET_STYLE__FONT_FORMAT);
 
+        multiTextWidgetStyleEClass = createEClass(PropertiesPackage.MULTI_TEXT_WIDGET_STYLE);
+        createEAttribute(multiTextWidgetStyleEClass, PropertiesPackage.MULTI_TEXT_WIDGET_STYLE__FONT_NAME_EXPRESSION);
+        createEAttribute(multiTextWidgetStyleEClass, PropertiesPackage.MULTI_TEXT_WIDGET_STYLE__FONT_SIZE_EXPRESSION);
+        createEReference(multiTextWidgetStyleEClass, PropertiesPackage.MULTI_TEXT_WIDGET_STYLE__BACKGROUND_COLOR);
+        createEReference(multiTextWidgetStyleEClass, PropertiesPackage.MULTI_TEXT_WIDGET_STYLE__FOREGROUND_COLOR);
+        createEAttribute(multiTextWidgetStyleEClass, PropertiesPackage.MULTI_TEXT_WIDGET_STYLE__FONT_FORMAT);
+
         labelWidgetStyleEClass = createEClass(PropertiesPackage.LABEL_WIDGET_STYLE);
         createEAttribute(labelWidgetStyleEClass, PropertiesPackage.LABEL_WIDGET_STYLE__FONT_NAME_EXPRESSION);
         createEAttribute(labelWidgetStyleEClass, PropertiesPackage.LABEL_WIDGET_STYLE__FONT_SIZE_EXPRESSION);
@@ -2591,6 +2769,9 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
 
         textWidgetConditionalStyleEClass = createEClass(PropertiesPackage.TEXT_WIDGET_CONDITIONAL_STYLE);
         createEReference(textWidgetConditionalStyleEClass, PropertiesPackage.TEXT_WIDGET_CONDITIONAL_STYLE__STYLE);
+
+        multiTextWidgetConditionalStyleEClass = createEClass(PropertiesPackage.MULTI_TEXT_WIDGET_CONDITIONAL_STYLE);
+        createEReference(multiTextWidgetConditionalStyleEClass, PropertiesPackage.MULTI_TEXT_WIDGET_CONDITIONAL_STYLE__STYLE);
 
         labelWidgetConditionalStyleEClass = createEClass(PropertiesPackage.LABEL_WIDGET_CONDITIONAL_STYLE);
         createEReference(labelWidgetConditionalStyleEClass, PropertiesPackage.LABEL_WIDGET_CONDITIONAL_STYLE__STYLE);
@@ -2675,6 +2856,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         gridLayoutDescriptionEClass.getESuperTypes().add(this.getLayoutDescription());
         widgetDescriptionEClass.getESuperTypes().add(this.getControlDescription());
         textDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
+        multiTextDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         buttonDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         labelDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         checkboxDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
@@ -2686,6 +2868,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         customDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         hyperlinkDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         textWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
+        multiTextWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         labelWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         checkboxWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         radioWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
@@ -2695,6 +2878,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         listWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         hyperlinkWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         textWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
+        multiTextWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         labelWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         checkboxWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         radioWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
@@ -2833,6 +3017,23 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         initEReference(getTextDescription_ConditionalStyles(), this.getTextWidgetConditionalStyle(), null, "conditionalStyles", null, 0, -1, TextDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
                 !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
+        initEClass(multiTextDescriptionEClass, MultiTextDescription.class, "MultiTextDescription", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+        initEAttribute(getMultiTextDescription_AttributeOwnerExpression(), theDescriptionPackage.getInterpretedExpression(), "attributeOwnerExpression", null, 0, 1, MultiTextDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEAttribute(getMultiTextDescription_AttributeNameExpression(), theDescriptionPackage.getInterpretedExpression(), "attributeNameExpression", null, 0, 1, MultiTextDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEReference(getMultiTextDescription_InitialOperation(), theToolPackage.getInitialOperation(), null, "initialOperation", null, 1, 1, MultiTextDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getMultiTextDescription_Style(), this.getMultiTextWidgetStyle(), null, "style", null, 0, 1, MultiTextDescription.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, //$NON-NLS-1$
+                EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEReference(getMultiTextDescription_ConditionalStyles(), this.getMultiTextWidgetConditionalStyle(), null, "conditionalStyles", null, 0, -1, MultiTextDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE,
+                EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
 
         initEClass(buttonDescriptionEClass, ButtonDescription.class, "ButtonDescription", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getButtonDescription_ButtonLabelExpression(), theDescriptionPackage.getInterpretedExpression(), "buttonLabelExpression", null, 0, 1, ButtonDescription.class, //$NON-NLS-1$
@@ -3036,6 +3237,22 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         initEAttribute(getTextWidgetStyle_FontFormat(), theViewpointPackage.getFontFormat(), "fontFormat", null, 0, 4, TextWidgetStyle.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, //$NON-NLS-1$
                 EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
 
+        initEClass(multiTextWidgetStyleEClass, MultiTextWidgetStyle.class, "MultiTextWidgetStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+        initEAttribute(getMultiTextWidgetStyle_FontNameExpression(), theDescriptionPackage.getInterpretedExpression(), "fontNameExpression", null, 0, 1, MultiTextWidgetStyle.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEAttribute(getMultiTextWidgetStyle_FontSizeExpression(), theDescriptionPackage.getInterpretedExpression(), "fontSizeExpression", null, 0, 1, MultiTextWidgetStyle.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEReference(getMultiTextWidgetStyle_BackgroundColor(), theDescriptionPackage.getColorDescription(), null, "backgroundColor", null, 0, 1, MultiTextWidgetStyle.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_COMPOSITE, EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE,
+                EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getMultiTextWidgetStyle_ForegroundColor(), theDescriptionPackage.getColorDescription(), null, "foregroundColor", null, 0, 1, MultiTextWidgetStyle.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_COMPOSITE, EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE,
+                EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEAttribute(getMultiTextWidgetStyle_FontFormat(), theViewpointPackage.getFontFormat(), "fontFormat", null, 0, 4, MultiTextWidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
         initEClass(labelWidgetStyleEClass, LabelWidgetStyle.class, "LabelWidgetStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getLabelWidgetStyle_FontNameExpression(), theDescriptionPackage.getInterpretedExpression(), "fontNameExpression", null, 0, 1, LabelWidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
@@ -3102,6 +3319,12 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         initEClass(textWidgetConditionalStyleEClass, TextWidgetConditionalStyle.class, "TextWidgetConditionalStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
                 EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
         initEReference(getTextWidgetConditionalStyle_Style(), this.getTextWidgetStyle(), null, "style", null, 0, 1, TextWidgetConditionalStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
+        initEClass(multiTextWidgetConditionalStyleEClass, MultiTextWidgetConditionalStyle.class, "MultiTextWidgetConditionalStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
+                EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getMultiTextWidgetConditionalStyle_Style(), this.getMultiTextWidgetStyle(), null, "style", null, 0, 1, MultiTextWidgetConditionalStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
                 !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
 
@@ -3195,6 +3418,9 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         addEParameter(op, theEcorePackage.getEStructuralFeature(), "eStructuralFeature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
 
         op = addEOperation(editSupportEClass, theEcorePackage.getEBoolean(), "needsCheckboxWidget", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+        addEParameter(op, theEcorePackage.getEStructuralFeature(), "eStructuralFeature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
+
+        op = addEOperation(editSupportEClass, theEcorePackage.getEBoolean(), "needsMultiTextWidget", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
         addEParameter(op, theEcorePackage.getEStructuralFeature(), "eStructuralFeature", 1, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
 
         // Initialize enums and add enum literals

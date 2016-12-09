@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Edit Support</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Edit
+ * Support</b></em>'. <!-- end-user-doc -->
  *
  *
  * @see org.eclipse.sirius.properties.PropertiesPackage#getEditSupport()
@@ -112,5 +112,13 @@ public interface EditSupport extends EObject {
      * @generated
      */
     boolean needsCheckboxWidget(EStructuralFeature eStructuralFeature);
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @model eStructuralFeatureRequired="true"
+     * @generated
+     */
+    boolean needsMultiTextWidget(EStructuralFeature eStructuralFeature);
 
 } // EditSupport

@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Radio Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Radio
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> Represents a radio button in the user interface.
  * <!-- end-model-doc -->
@@ -29,18 +29,15 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * <em>Value Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.RadioDescription#getInitialOperation
  * <em>Initial Operation</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.RadioDescription#getCandidatesExpression
+ * <li>{@link org.eclipse.sirius.properties.RadioDescription#getCandidatesExpression
  * <em>Candidates Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.RadioDescription#getCandidateDisplayExpression
+ * <li>{@link org.eclipse.sirius.properties.RadioDescription#getCandidateDisplayExpression
  * <em>Candidate Display Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.RadioDescription#getStyle
  * <em>Style</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.RadioDescription#getNumberOfColumns
  * <em>Number Of Columns</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.RadioDescription#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.RadioDescription#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -64,8 +61,8 @@ public interface RadioDescription extends WidgetDescription {
     String getValueExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.RadioDescription#getValueExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.RadioDescription#getValueExpression
      * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -92,8 +89,8 @@ public interface RadioDescription extends WidgetDescription {
     InitialOperation getInitialOperation();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.RadioDescription#getInitialOperation
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.RadioDescription#getInitialOperation
      * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -121,8 +118,8 @@ public interface RadioDescription extends WidgetDescription {
     String getCandidatesExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.RadioDescription#getCandidatesExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.RadioDescription#getCandidatesExpression
      * <em>Candidates Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -151,8 +148,8 @@ public interface RadioDescription extends WidgetDescription {
     String getCandidateDisplayExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.RadioDescription#getCandidateDisplayExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.RadioDescription#getCandidateDisplayExpression
      * <em>Candidate Display Expression</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -182,8 +179,8 @@ public interface RadioDescription extends WidgetDescription {
     RadioWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.RadioDescription#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.RadioDescription#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -209,8 +206,8 @@ public interface RadioDescription extends WidgetDescription {
     int getNumberOfColumns();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.RadioDescription#getNumberOfColumns
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.RadioDescription#getNumberOfColumns
      * <em>Number Of Columns</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

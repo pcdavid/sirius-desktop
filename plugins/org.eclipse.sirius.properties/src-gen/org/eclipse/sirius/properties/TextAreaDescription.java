@@ -12,8 +12,8 @@
 package org.eclipse.sirius.properties;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Text Area Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Text
+ * Area Description</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> Represents a text area in the user interface. <!--
  * end-model-doc -->
@@ -49,8 +49,8 @@ public interface TextAreaDescription extends TextDescription {
     int getLineCount();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.TextAreaDescription#getLineCount
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.TextAreaDescription#getLineCount
      * <em>Line Count</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

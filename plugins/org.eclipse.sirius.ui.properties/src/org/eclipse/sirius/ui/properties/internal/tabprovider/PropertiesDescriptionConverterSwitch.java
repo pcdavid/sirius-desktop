@@ -39,6 +39,9 @@ import org.eclipse.sirius.properties.LabelWidgetStyle;
 import org.eclipse.sirius.properties.ListDescription;
 import org.eclipse.sirius.properties.ListWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ListWidgetStyle;
+import org.eclipse.sirius.properties.MultiTextDescription;
+import org.eclipse.sirius.properties.MultiTextWidgetConditionalStyle;
+import org.eclipse.sirius.properties.MultiTextWidgetStyle;
 import org.eclipse.sirius.properties.PageDescription;
 import org.eclipse.sirius.properties.PropertyValidationRule;
 import org.eclipse.sirius.properties.RadioDescription;
@@ -271,5 +274,20 @@ public class PropertiesDescriptionConverterSwitch extends PropertiesSwitch<IDesc
     @Override
     public IDescriptionConverter caseCustomWidgetConditionalStyle(CustomWidgetConditionalStyle object) {
         return new DefaultDescriptionConverter<>(CustomWidgetConditionalStyle.class, EefPackage.Literals.EEF_CUSTOM_WIDGET_CONDITIONAL_STYLE);
+    }
+    
+    @Override
+    public IDescriptionConverter caseMultiTextDescription(MultiTextDescription object) {
+        return new MultiTextDescriptionConverter();
+    }
+    
+    @Override
+    public IDescriptionConverter caseMultiTextWidgetStyle(MultiTextWidgetStyle object) {
+        return new DefaultDescriptionConverter<>(MultiTextWidgetStyle.class, EefPackage.Literals.EEF_MULTI_TEXT_STYLE);
+    }
+    
+    @Override
+    public IDescriptionConverter caseMultiTextWidgetConditionalStyle(MultiTextWidgetConditionalStyle object) {
+        return new DefaultDescriptionConverter<>(MultiTextWidgetConditionalStyle.class, EefPackage.Literals.EEF_MULTI_TEXT_CONDITIONAL_STYLE);
     }
 }

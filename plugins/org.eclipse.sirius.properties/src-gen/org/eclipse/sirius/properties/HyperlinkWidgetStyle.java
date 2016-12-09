@@ -23,14 +23,11 @@ import org.eclipse.sirius.viewpoint.description.ColorDescription;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getFontNameExpression
+ * <li>{@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getFontNameExpression
  * <em>Font Name Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getFontSizeExpression
+ * <li>{@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getFontSizeExpression
  * <em>Font Size Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getBackgroundColor
+ * <li>{@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getBackgroundColor
  * <em>Background Color</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getFontFormat
  * <em>Font Format</em>}</li>
@@ -53,15 +50,14 @@ public interface HyperlinkWidgetStyle extends WidgetStyle {
      * @return the value of the '<em>Font Name Expression</em>' attribute.
      * @see #setFontNameExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getHyperlinkWidgetStyle_FontNameExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getFontNameExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getFontNameExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getFontNameExpression
      * <em>Font Name Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -85,15 +81,14 @@ public interface HyperlinkWidgetStyle extends WidgetStyle {
      * @return the value of the '<em>Font Size Expression</em>' attribute.
      * @see #setFontSizeExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getHyperlinkWidgetStyle_FontSizeExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getFontSizeExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getFontSizeExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getFontSizeExpression
      * <em>Font Size Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -123,8 +118,8 @@ public interface HyperlinkWidgetStyle extends WidgetStyle {
     ColorDescription getBackgroundColor();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getBackgroundColor
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.HyperlinkWidgetStyle#getBackgroundColor
      * <em>Background Color</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

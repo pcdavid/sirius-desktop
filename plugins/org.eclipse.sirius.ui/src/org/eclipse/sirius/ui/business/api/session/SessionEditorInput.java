@@ -280,7 +280,10 @@ public class SessionEditorInput extends URIEditorInput {
     public static SessionEditorInput create(final URI sessionResourceURI) {
         Session session;
         try {
-            session = SessionFactory.INSTANCE.createSession(sessionResourceURI, new NullProgressMonitor());
+            session = SessionManager.INSTANCE.getExistingSession(sessionResourceURI);
+            if (session == null) {
+                session = SessionFactory.INSTANCE.createSession(sessionResourceURI, new NullProgressMonitor());
+            }
         } catch (CoreException e) {
             return null;
         }

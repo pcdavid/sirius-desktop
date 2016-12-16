@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sirius.editor.properties.ext.widgets.nebula;singleton:=true
+Bundle-Version: 5.0.0.qualifier
+Require-Bundle: org.eclipse.ui.views.properties.tabbed;bundle-version="[3.5.0,4.0.0)",
+ org.eclipse.sirius.editor;bundle-version="5.0.0",
+ org.eclipse.sirius.properties.ext.widgets.nebula;bundle-version="5.0.0",
+ org.eclipse.sirius.properties.ext.widgets.nebula.edit;bundle-version="5.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipse.sirius.editor.properties.ext.widgets.nebula.internal;version="5.0.0";x-internal:=true

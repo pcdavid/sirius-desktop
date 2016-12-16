@@ -367,10 +367,14 @@
         <module>../../plugins/org.eclipse.sirius.properties.edit</module>
         <module>../../plugins/org.eclipse.sirius.properties.ext.widgets.reference</module>
         <module>../../plugins/org.eclipse.sirius.properties.ext.widgets.reference.edit</module>
+        <module>../../plugins/org.eclipse.sirius.properties.ext.widgets.nebula</module>
+        <module>../../plugins/org.eclipse.sirius.properties.ext.widgets.nebula.edit</module>
         <module>../../plugins/org.eclipse.sirius.editor.properties</module>
         <module>../../plugins/org.eclipse.sirius.editor.properties.ext.widgets.reference</module>
+        <module>../../plugins/org.eclipse.sirius.editor.properties.ext.widgets.nebula</module>
         <module>../../plugins/org.eclipse.sirius.ui.properties</module>
         <module>../../plugins/org.eclipse.sirius.ui.properties.ext.widgets.reference</module>
+        <module>../../plugins/org.eclipse.sirius.ui.properties.ext.widgets.nebula</module>
         <module>../../plugins/org.eclipse.sirius.sample.properties</module>
         <module>../../plugins/org.eclipse.sirius.sample.properties.checkbox</module>
         <module>../../plugins/org.eclipse.sirius.sample.properties.radio</module>

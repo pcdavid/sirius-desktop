@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2016 Obeo.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;   Obeo - initial API and implementation&#xA;"
+    modelDirectory="/org.eclipse.sirius.properties.ext.widgets.nebula/src-gen" editDirectory="/org.eclipse.sirius.properties.ext.widgets.nebula.edit/src-gen"
+    editorDirectory="/org.eclipse.sirius.properties.ext.widgets.nebula.editor/src-gen"
+    modelPluginID="org.eclipse.sirius.properties.ext.widgets.nebula" modelName="Properties-ext-widgets-nebula"
+    modelPluginClass="" editPluginClass="org.eclipse.sirius.properties.ext.widgets.nebula.propertiesextwidgetsnebula.provider.PropertiesextwidgetsnebulaEditPlugin"
+    editorPluginClass="org.eclipse.sirius.properties.ext.widgets.nebula.propertiesextwidgetsnebula.presentation.PropertiesextwidgetsnebulaEditorPlugin"
+    nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" testsDirectory="/org.eclipse.sirius.properties.ext.widgets.nebula.tests/src-gen"
+    testSuiteClass="org.eclipse.sirius.properties.ext.widgets.nebula.propertiesextwidgetsnebula.tests.PropertiesextwidgetsnebulaAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.sirius.properties/model/properties.genmodel#//properties ../../org.eclipse.sirius/model/viewpoint.genmodel#//viewpoint"
+    importOrganizing="true" styleProviders="true" cleanup="true">
+  <foreignModel>properties-ext-widgets-nebula.ecore</foreignModel>
+  <genPackages prefix="PropertiesExtWidgetsNebula" basePackage="org.eclipse.sirius.properties.ext.widgets.nebula"
+      disposableProviderFactory="true" extensibleProviderFactory="true" childCreationExtenders="true"
+      ecorePackage="properties-ext-widgets-nebula.ecore#/">
+    <genClasses ecoreClass="properties-ext-widgets-nebula.ecore#//ExtNebulaRichTextDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties-ext-widgets-nebula.ecore#//ExtNebulaRichTextDescription/valueExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties-ext-widgets-nebula.ecore#//ExtNebulaRichTextDescription/initialOperation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties-ext-widgets-nebula.ecore#//ExtNebulaRichTextDescription/style"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties-ext-widgets-nebula.ecore#//ExtNebulaRichTextDescription/conditionalStyles"/>
+    </genClasses>
+    <genClasses ecoreClass="properties-ext-widgets-nebula.ecore#//ExtNebulaRichTextWidgetStyle"/>
+    <genClasses ecoreClass="properties-ext-widgets-nebula.ecore#//ExtNebulaRichTextWidgetConditionalStyle">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties-ext-widgets-nebula.ecore#//ExtNebulaRichTextWidgetConditionalStyle/style"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

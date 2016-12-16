@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.eclipse.sirius.editor.editorPlugin.SiriusEditorContributor">
+         <propertySection
+               afterSection="properties.section.extNebulaRichTextDescription.valueExpression"
+               class="org.eclipse.sirius.editor.properties.ext.widgets.nebula.internal.ExtNebulaRichTextDescriptionValueExpressionPropertySection"
+               filter="org.eclipse.sirius.editor.properties.ext.widgets.nebula.internal.ExtNebulaRichTextDescriptionValueExpressionFilter"
+               id="properties.section.extNebulaRichTextDescription.valueExpression"
+               tab="viewpoint.tab.general">
+            <input
+                  type="org.eclipse.sirius.properties.ext.widgets.nebula.propertiesextwidgetsnebula.ExtNebulaRichTextDescription">
+            </input>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+</plugin>

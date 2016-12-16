@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.sirius.ui.properties.descriptionConverter">
+      <descriptor
+            class="org.eclipse.sirius.ui.properties.ext.widgets.nebula.internal.ExtNebulaRichTextDescriptionConverter"
+            description="%nebulaRichTextDescriptionConverter.Description"
+            id="org.eclipse.sirius.ui.properties.ext.widgets.nebula.richtext.descriptionConverter"
+            label="%nebulaRichTextDescriptionConverter.Label">
+      </descriptor>
+      <descriptor
+            class="org.eclipse.sirius.ui.properties.ext.widgets.nebula.internal.ExtNebulaRichTextDescriptionStyleConverter"
+            description="%nebulaRichTextDescriptionStyleConverter.Description"
+            id="org.eclipse.sirius.ui.properties.ext.widgets.nebula.richtext.descriptionStyleConverter"
+            label="%referenceDescriptionStyleConverter.Label">
+      </descriptor>
+      <descriptor
+            class="org.eclipse.sirius.ui.properties.ext.widgets.nebula.internal.ExtNebulaRichTextDescriptionConditionalStyleConverter"
+            description="%nebulaRichTextDescriptionConditionalStyleConverter.Description"
+            id="org.eclipse.sirius.ui.properties.ext.widgets.nebula.richtext.descriptionConditionalStyleConverter"
+            label="%nebulaRichTextDescriptionConditionalStyleConverter.Label">
+      </descriptor>
+   </extension>
+
+</plugin>

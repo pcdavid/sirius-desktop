@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="propertiesextwidgetsnebula" nsURI="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/nebula"
+    nsPrefix="properties-ext-widgets-nebula">
+  <eClassifiers xsi:type="ecore:EClass" name="ExtNebulaRichTextDescription" eSuperTypes="../../org.eclipse.sirius.properties/model/properties.ecore#//WidgetDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueExpression" eType="ecore:EDataType ../../org.eclipse.sirius/model/viewpoint.ecore#//description/InterpretedExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialOperation" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.sirius/model/viewpoint.ecore#//description/tool/InitialOperation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//ExtNebulaRichTextWidgetStyle"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionalStyles" upperBound="-1"
+        eType="#//ExtNebulaRichTextWidgetConditionalStyle" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtNebulaRichTextWidgetStyle" eSuperTypes="../../org.eclipse.sirius.properties/model/properties.ecore#//WidgetStyle"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtNebulaRichTextWidgetConditionalStyle"
+      eSuperTypes="../../org.eclipse.sirius.properties/model/properties.ecore#//WidgetConditionalStyle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//ExtNebulaRichTextWidgetStyle"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

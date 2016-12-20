@@ -16,18 +16,16 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.sirius.viewpoint.description.Extension;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>View Extension Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>View
+ * Extension Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.ViewExtensionDescription#getIdentifier
+ * <li>{@link org.eclipse.sirius.properties.ViewExtensionDescription#getIdentifier
  * <em>Identifier</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.ViewExtensionDescription#getMetamodels
+ * <li>{@link org.eclipse.sirius.properties.ViewExtensionDescription#getMetamodels
  * <em>Metamodels</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.ViewExtensionDescription#getPages
  * <em>Pages</em>}</li>
@@ -58,8 +56,8 @@ public interface ViewExtensionDescription extends Extension {
     String getIdentifier();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ViewExtensionDescription#getIdentifier
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ViewExtensionDescription#getIdentifier
      * <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

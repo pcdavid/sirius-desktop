@@ -55,7 +55,7 @@ public class RadioWidgetStyleItemProvider extends WidgetStyleItemProvider {
     /**
      * This returns RadioWidgetStyle.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -81,7 +81,7 @@ public class RadioWidgetStyleItemProvider extends WidgetStyleItemProvider {
      * update any cached children and by creating a viewer notification, which
      * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

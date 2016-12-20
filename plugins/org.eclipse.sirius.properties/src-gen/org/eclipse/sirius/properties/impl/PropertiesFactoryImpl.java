@@ -42,6 +42,9 @@ import org.eclipse.sirius.properties.GroupValidationSetDescription;
 import org.eclipse.sirius.properties.HyperlinkDescription;
 import org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle;
 import org.eclipse.sirius.properties.HyperlinkWidgetStyle;
+import org.eclipse.sirius.properties.ImageViewerDescription;
+import org.eclipse.sirius.properties.ImageViewerWidgetConditionalStyle;
+import org.eclipse.sirius.properties.ImageViewerWidgetStyle;
 import org.eclipse.sirius.properties.LabelDescription;
 import org.eclipse.sirius.properties.LabelWidgetConditionalStyle;
 import org.eclipse.sirius.properties.LabelWidgetStyle;
@@ -161,6 +164,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createCustomOperation();
         case PropertiesPackage.HYPERLINK_DESCRIPTION:
             return createHyperlinkDescription();
+        case PropertiesPackage.IMAGE_VIEWER_DESCRIPTION:
+            return createImageViewerDescription();
         case PropertiesPackage.WIDGET_STYLE:
             return createWidgetStyle();
         case PropertiesPackage.TEXT_WIDGET_STYLE:
@@ -181,6 +186,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createListWidgetStyle();
         case PropertiesPackage.HYPERLINK_WIDGET_STYLE:
             return createHyperlinkWidgetStyle();
+        case PropertiesPackage.IMAGE_VIEWER_WIDGET_STYLE:
+            return createImageViewerWidgetStyle();
         case PropertiesPackage.GROUP_STYLE:
             return createGroupStyle();
         case PropertiesPackage.TEXT_WIDGET_CONDITIONAL_STYLE:
@@ -203,6 +210,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createWidgetAction();
         case PropertiesPackage.HYPERLINK_WIDGET_CONDITIONAL_STYLE:
             return createHyperlinkWidgetConditionalStyle();
+        case PropertiesPackage.IMAGE_VIEWER_WIDGET_CONDITIONAL_STYLE:
+            return createImageViewerWidgetConditionalStyle();
         case PropertiesPackage.GROUP_CONDITIONAL_STYLE:
             return createGroupConditionalStyle();
         case PropertiesPackage.EDIT_SUPPORT:
@@ -520,6 +529,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public ImageViewerDescription createImageViewerDescription() {
+        ImageViewerDescriptionImpl imageViewerDescription = new ImageViewerDescriptionImpl();
+        return imageViewerDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public WidgetStyle createWidgetStyle() {
         WidgetStyleImpl widgetStyle = new WidgetStyleImpl();
         return widgetStyle;
@@ -622,6 +642,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public HyperlinkWidgetStyle createHyperlinkWidgetStyle() {
         HyperlinkWidgetStyleImpl hyperlinkWidgetStyle = new HyperlinkWidgetStyleImpl();
         return hyperlinkWidgetStyle;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ImageViewerWidgetStyle createImageViewerWidgetStyle() {
+        ImageViewerWidgetStyleImpl imageViewerWidgetStyle = new ImageViewerWidgetStyleImpl();
+        return imageViewerWidgetStyle;
     }
 
     /**
@@ -743,6 +774,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public HyperlinkWidgetConditionalStyle createHyperlinkWidgetConditionalStyle() {
         HyperlinkWidgetConditionalStyleImpl hyperlinkWidgetConditionalStyle = new HyperlinkWidgetConditionalStyleImpl();
         return hyperlinkWidgetConditionalStyle;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ImageViewerWidgetConditionalStyle createImageViewerWidgetConditionalStyle() {
+        ImageViewerWidgetConditionalStyleImpl imageViewerWidgetConditionalStyle = new ImageViewerWidgetConditionalStyleImpl();
+        return imageViewerWidgetConditionalStyle;
     }
 
     /**

@@ -14,8 +14,8 @@ package org.eclipse.sirius.properties;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Label Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Label
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -23,13 +23,11 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.LabelDescription#getValueExpression
  * <em>Value Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.LabelDescription#getDisplayExpression
+ * <li>{@link org.eclipse.sirius.properties.LabelDescription#getDisplayExpression
  * <em>Display Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.LabelDescription#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.LabelDescription#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.LabelDescription#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.LabelDescription#getActions
  * <em>Actions</em>}</li>
@@ -52,15 +50,14 @@ public interface LabelDescription extends WidgetDescription {
      * @return the value of the '<em>Value Expression</em>' attribute.
      * @see #setValueExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getLabelDescription_ValueExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getValueExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.LabelDescription#getValueExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.LabelDescription#getValueExpression
      * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -83,15 +80,14 @@ public interface LabelDescription extends WidgetDescription {
      * @return the value of the '<em>Display Expression</em>' attribute.
      * @see #setDisplayExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getLabelDescription_DisplayExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getDisplayExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.LabelDescription#getDisplayExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.LabelDescription#getDisplayExpression
      * <em>Display Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -120,8 +116,8 @@ public interface LabelDescription extends WidgetDescription {
     LabelWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.LabelDescription#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.LabelDescription#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

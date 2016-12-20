@@ -31,17 +31,13 @@ import org.eclipse.sirius.viewpoint.description.ColorDescription;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkWidgetStyleImpl#getFontNameExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkWidgetStyleImpl#getFontNameExpression
  * <em>Font Name Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkWidgetStyleImpl#getFontSizeExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkWidgetStyleImpl#getFontSizeExpression
  * <em>Font Size Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkWidgetStyleImpl#getBackgroundColor
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkWidgetStyleImpl#getBackgroundColor
  * <em>Background Color</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkWidgetStyleImpl#getFontFormat
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkWidgetStyleImpl#getFontFormat
  * <em>Font Format</em>}</li>
  * </ul>
  *
@@ -49,9 +45,9 @@ import org.eclipse.sirius.viewpoint.description.ColorDescription;
  */
 public class HyperlinkWidgetStyleImpl extends WidgetStyleImpl implements HyperlinkWidgetStyle {
     /**
-     * The default value of the '{@link #getFontNameExpression()
-     * <em>Font Name Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFontNameExpression() <em>Font Name
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontNameExpression()
      * @generated
@@ -60,9 +56,9 @@ public class HyperlinkWidgetStyleImpl extends WidgetStyleImpl implements Hyperli
     protected static final String FONT_NAME_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFontNameExpression()
-     * <em>Font Name Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFontNameExpression() <em>Font Name
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontNameExpression()
      * @generated
@@ -71,9 +67,9 @@ public class HyperlinkWidgetStyleImpl extends WidgetStyleImpl implements Hyperli
     protected String fontNameExpression = HyperlinkWidgetStyleImpl.FONT_NAME_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getFontSizeExpression()
-     * <em>Font Size Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getFontSizeExpression() <em>Font Size
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontSizeExpression()
      * @generated
@@ -82,9 +78,9 @@ public class HyperlinkWidgetStyleImpl extends WidgetStyleImpl implements Hyperli
     protected static final String FONT_SIZE_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFontSizeExpression()
-     * <em>Font Size Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getFontSizeExpression() <em>Font Size
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getFontSizeExpression()
      * @generated
@@ -93,9 +89,8 @@ public class HyperlinkWidgetStyleImpl extends WidgetStyleImpl implements Hyperli
     protected String fontSizeExpression = HyperlinkWidgetStyleImpl.FONT_SIZE_EXPRESSION_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getBackgroundColor()
-     * <em>Background Color</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getBackgroundColor() <em>Background
+     * Color</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getBackgroundColor()
      * @generated

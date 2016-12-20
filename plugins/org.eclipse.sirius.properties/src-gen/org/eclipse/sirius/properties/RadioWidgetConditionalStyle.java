@@ -12,8 +12,8 @@
 package org.eclipse.sirius.properties;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Radio Widget Conditional Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Radio
+ * Widget Conditional Style</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -46,8 +46,8 @@ public interface RadioWidgetConditionalStyle extends WidgetConditionalStyle {
     RadioWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.RadioWidgetConditionalStyle#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.RadioWidgetConditionalStyle#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

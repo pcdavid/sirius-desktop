@@ -19,17 +19,15 @@ import org.eclipse.sirius.properties.CustomExpression;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Custom Expression</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Custom
+ * Expression</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CustomExpressionImpl#getIdentifier
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomExpressionImpl#getIdentifier
  * <em>Identifier</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CustomExpressionImpl#getCustomExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomExpressionImpl#getCustomExpression
  * <em>Custom Expression</em>}</li>
  * </ul>
  *
@@ -57,9 +55,9 @@ public class CustomExpressionImpl extends MinimalEObjectImpl.Container implement
     protected String identifier = CustomExpressionImpl.IDENTIFIER_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getCustomExpression()
-     * <em>Custom Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getCustomExpression() <em>Custom
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getCustomExpression()
      * @generated
@@ -68,9 +66,9 @@ public class CustomExpressionImpl extends MinimalEObjectImpl.Container implement
     protected static final String CUSTOM_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getCustomExpression()
-     * <em>Custom Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getCustomExpression() <em>Custom
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getCustomExpression()
      * @generated

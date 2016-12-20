@@ -28,22 +28,19 @@ import org.eclipse.sirius.properties.TextWidgetStyle;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Text Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Text
+ * Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.TextDescriptionImpl#getValueExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.TextDescriptionImpl#getValueExpression
  * <em>Value Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.TextDescriptionImpl#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.impl.TextDescriptionImpl#getInitialOperation
  * <em>Initial Operation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.TextDescriptionImpl#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.TextDescriptionImpl#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.impl.TextDescriptionImpl#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -51,9 +48,9 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  */
 public class TextDescriptionImpl extends WidgetDescriptionImpl implements TextDescription {
     /**
-     * The default value of the '{@link #getValueExpression()
-     * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getValueExpression() <em>Value
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getValueExpression()
      * @generated
@@ -62,9 +59,9 @@ public class TextDescriptionImpl extends WidgetDescriptionImpl implements TextDe
     protected static final String VALUE_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getValueExpression()
-     * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getValueExpression() <em>Value
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getValueExpression()
      * @generated
@@ -73,9 +70,9 @@ public class TextDescriptionImpl extends WidgetDescriptionImpl implements TextDe
     protected String valueExpression = TextDescriptionImpl.VALUE_EXPRESSION_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getInitialOperation()
-     * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getInitialOperation() <em>Initial
+     * Operation</em>}' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getInitialOperation()
      * @generated
@@ -94,9 +91,9 @@ public class TextDescriptionImpl extends WidgetDescriptionImpl implements TextDe
     protected TextWidgetStyle style;
 
     /**
-     * The cached value of the '{@link #getConditionalStyles()
-     * <em>Conditional Styles</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getConditionalStyles() <em>Conditional
+     * Styles</em>}' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getConditionalStyles()
      * @generated

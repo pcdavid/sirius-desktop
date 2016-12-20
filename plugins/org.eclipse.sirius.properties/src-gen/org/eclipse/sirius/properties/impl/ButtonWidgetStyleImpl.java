@@ -16,8 +16,8 @@ import org.eclipse.sirius.properties.ButtonWidgetStyle;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Button Widget Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Button
+ * Widget Style</b></em>'. <!-- end-user-doc -->
  *
  * @generated
  */

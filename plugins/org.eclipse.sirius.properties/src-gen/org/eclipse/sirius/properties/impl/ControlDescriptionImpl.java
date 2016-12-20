@@ -25,8 +25,7 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ControlDescriptionImpl#getIdentifier
+ * <li>{@link org.eclipse.sirius.properties.impl.ControlDescriptionImpl#getIdentifier
  * <em>Identifier</em>}</li>
  * </ul>
  *

@@ -30,37 +30,29 @@ import org.eclipse.sirius.properties.GroupValidationSetDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Group Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Group
+ * Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getIdentifier
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getIdentifier
  * <em>Identifier</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getLabelExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getLabelExpression
  * <em>Label Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getDomainClass
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getDomainClass
  * <em>Domain Class</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getSemanticCandidateExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getSemanticCandidateExpression
  * <em>Semantic Candidate Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getPreconditionExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getPreconditionExpression
  * <em>Precondition Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getControls
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getControls
  * <em>Controls</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getValidationSet
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getValidationSet
  * <em>Validation Set</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupDescriptionImpl#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -88,9 +80,9 @@ public class GroupDescriptionImpl extends MinimalEObjectImpl.Container implement
     protected String identifier = GroupDescriptionImpl.IDENTIFIER_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getLabelExpression()
-     * <em>Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getLabelExpression() <em>Label
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getLabelExpression()
      * @generated
@@ -99,9 +91,9 @@ public class GroupDescriptionImpl extends MinimalEObjectImpl.Container implement
     protected static final String LABEL_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getLabelExpression()
-     * <em>Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getLabelExpression() <em>Label
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getLabelExpression()
      * @generated
@@ -110,8 +102,8 @@ public class GroupDescriptionImpl extends MinimalEObjectImpl.Container implement
     protected String labelExpression = GroupDescriptionImpl.LABEL_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getDomainClass() <em>Domain Class</em>}
-     * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getDomainClass() <em>Domain
+     * Class</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getDomainClass()
      * @generated
@@ -184,9 +176,9 @@ public class GroupDescriptionImpl extends MinimalEObjectImpl.Container implement
     protected EList<ControlDescription> controls;
 
     /**
-     * The cached value of the '{@link #getValidationSet()
-     * <em>Validation Set</em>}' containment reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The cached value of the '{@link #getValidationSet() <em>Validation
+     * Set</em>}' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getValidationSet()
      * @generated
@@ -205,9 +197,9 @@ public class GroupDescriptionImpl extends MinimalEObjectImpl.Container implement
     protected GroupStyle style;
 
     /**
-     * The cached value of the '{@link #getConditionalStyles()
-     * <em>Conditional Styles</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getConditionalStyles() <em>Conditional
+     * Styles</em>}' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getConditionalStyles()
      * @generated

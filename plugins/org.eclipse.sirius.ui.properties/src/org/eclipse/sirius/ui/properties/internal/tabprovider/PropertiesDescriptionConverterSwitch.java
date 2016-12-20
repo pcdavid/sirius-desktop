@@ -33,6 +33,9 @@ import org.eclipse.sirius.properties.GroupStyle;
 import org.eclipse.sirius.properties.HyperlinkDescription;
 import org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle;
 import org.eclipse.sirius.properties.HyperlinkWidgetStyle;
+import org.eclipse.sirius.properties.ImageViewerDescription;
+import org.eclipse.sirius.properties.ImageViewerWidgetConditionalStyle;
+import org.eclipse.sirius.properties.ImageViewerWidgetStyle;
 import org.eclipse.sirius.properties.LabelDescription;
 import org.eclipse.sirius.properties.LabelWidgetConditionalStyle;
 import org.eclipse.sirius.properties.LabelWidgetStyle;
@@ -271,5 +274,20 @@ public class PropertiesDescriptionConverterSwitch extends PropertiesSwitch<IDesc
     @Override
     public IDescriptionConverter caseCustomWidgetConditionalStyle(CustomWidgetConditionalStyle object) {
         return new DefaultDescriptionConverter<>(CustomWidgetConditionalStyle.class, EefPackage.Literals.EEF_CUSTOM_WIDGET_CONDITIONAL_STYLE);
+    }
+    
+    @Override
+    public IDescriptionConverter caseImageViewerDescription(ImageViewerDescription object) {
+        return new ImageViewerDescriptionConverter();
+    }
+    
+    @Override
+    public IDescriptionConverter caseImageViewerWidgetStyle(ImageViewerWidgetStyle object) {
+        return new DefaultDescriptionConverter<>(ImageViewerWidgetStyle.class, EefPackage.Literals.EEF_IMAGE_VIEWER_STYLE);
+    }
+    
+    @Override
+    public IDescriptionConverter caseImageViewerWidgetConditionalStyle(ImageViewerWidgetConditionalStyle object) {
+        return new DefaultDescriptionConverter<>(ImageViewerWidgetConditionalStyle.class, EefPackage.Literals.EEF_IMAGE_VIEWER_CONDITIONAL_STYLE);
     }
 }

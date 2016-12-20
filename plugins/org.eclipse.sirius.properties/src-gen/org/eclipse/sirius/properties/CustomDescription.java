@@ -14,23 +14,20 @@ package org.eclipse.sirius.properties;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Custom Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Custom
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.CustomDescription#getCustomExpressions
+ * <li>{@link org.eclipse.sirius.properties.CustomDescription#getCustomExpressions
  * <em>Custom Expressions</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.CustomDescription#getCustomOperations
+ * <li>{@link org.eclipse.sirius.properties.CustomDescription#getCustomOperations
  * <em>Custom Operations</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.CustomDescription#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.CustomDescription#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.CustomDescription#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -95,8 +92,8 @@ public interface CustomDescription extends WidgetDescription {
     CustomWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.CustomDescription#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.CustomDescription#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

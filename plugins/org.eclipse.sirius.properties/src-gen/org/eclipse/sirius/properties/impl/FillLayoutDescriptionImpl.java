@@ -19,14 +19,13 @@ import org.eclipse.sirius.properties.FillLayoutDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Fill Layout Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Fill
+ * Layout Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.FillLayoutDescriptionImpl#getOrientation
+ * <li>{@link org.eclipse.sirius.properties.impl.FillLayoutDescriptionImpl#getOrientation
  * <em>Orientation</em>}</li>
  * </ul>
  *

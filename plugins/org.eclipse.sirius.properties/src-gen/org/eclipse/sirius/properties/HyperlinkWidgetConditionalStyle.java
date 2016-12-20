@@ -19,8 +19,7 @@ package org.eclipse.sirius.properties;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle#getStyle
+ * <li>{@link org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle#getStyle
  * <em>Style</em>}</li>
  * </ul>
  *
@@ -47,8 +46,8 @@ public interface HyperlinkWidgetConditionalStyle extends WidgetConditionalStyle 
     HyperlinkWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

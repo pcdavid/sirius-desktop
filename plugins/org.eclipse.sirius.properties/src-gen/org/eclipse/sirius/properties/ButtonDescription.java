@@ -15,23 +15,20 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Button Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Button
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.ButtonDescription#getButtonLabelExpression
+ * <li>{@link org.eclipse.sirius.properties.ButtonDescription#getButtonLabelExpression
  * <em>Button Label Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.ButtonDescription#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.ButtonDescription#getInitialOperation
  * <em>Initial Operation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.ButtonDescription#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.ButtonDescription#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.ButtonDescription#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -52,15 +49,14 @@ public interface ButtonDescription extends WidgetDescription {
      * @return the value of the '<em>Button Label Expression</em>' attribute.
      * @see #setButtonLabelExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getButtonDescription_ButtonLabelExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getButtonLabelExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ButtonDescription#getButtonLabelExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ButtonDescription#getButtonLabelExpression
      * <em>Button Label Expression</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -91,8 +87,8 @@ public interface ButtonDescription extends WidgetDescription {
     InitialOperation getInitialOperation();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ButtonDescription#getInitialOperation
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ButtonDescription#getInitialOperation
      * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -122,8 +118,8 @@ public interface ButtonDescription extends WidgetDescription {
     ButtonWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ButtonDescription#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ButtonDescription#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

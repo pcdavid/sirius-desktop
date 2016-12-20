@@ -22,16 +22,13 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.CheckboxDescription#getValueExpression
+ * <li>{@link org.eclipse.sirius.properties.CheckboxDescription#getValueExpression
  * <em>Value Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.CheckboxDescription#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.CheckboxDescription#getInitialOperation
  * <em>Initial Operation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.CheckboxDescription#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.CheckboxDescription#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.CheckboxDescription#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -52,15 +49,14 @@ public interface CheckboxDescription extends WidgetDescription {
      * @return the value of the '<em>Value Expression</em>' attribute.
      * @see #setValueExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getCheckboxDescription_ValueExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getValueExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.CheckboxDescription#getValueExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.CheckboxDescription#getValueExpression
      * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -90,8 +86,8 @@ public interface CheckboxDescription extends WidgetDescription {
     InitialOperation getInitialOperation();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.CheckboxDescription#getInitialOperation
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.CheckboxDescription#getInitialOperation
      * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -121,8 +117,8 @@ public interface CheckboxDescription extends WidgetDescription {
     CheckboxWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.CheckboxDescription#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.CheckboxDescription#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

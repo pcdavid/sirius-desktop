@@ -14,15 +14,14 @@ package org.eclipse.sirius.properties;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Dynamic Mapping If</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Dynamic
+ * Mapping If</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.DynamicMappingIf#getPredicateExpression
+ * <li>{@link org.eclipse.sirius.properties.DynamicMappingIf#getPredicateExpression
  * <em>Predicate Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.DynamicMappingIf#getWidget
  * <em>Widget</em>}</li>
@@ -45,16 +44,15 @@ public interface DynamicMappingIf extends EObject {
      * @return the value of the '<em>Predicate Expression</em>' attribute.
      * @see #setPredicateExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getDynamicMappingIf_PredicateExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      *        required="true"
      * @generated
      */
     String getPredicateExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.DynamicMappingIf#getPredicateExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.DynamicMappingIf#getPredicateExpression
      * <em>Predicate Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -84,8 +82,8 @@ public interface DynamicMappingIf extends EObject {
     WidgetDescription getWidget();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.DynamicMappingIf#getWidget
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.DynamicMappingIf#getWidget
      * <em>Widget</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

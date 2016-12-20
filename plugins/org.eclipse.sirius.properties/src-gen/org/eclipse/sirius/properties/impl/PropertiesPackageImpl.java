@@ -44,6 +44,9 @@ import org.eclipse.sirius.properties.GroupValidationSetDescription;
 import org.eclipse.sirius.properties.HyperlinkDescription;
 import org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle;
 import org.eclipse.sirius.properties.HyperlinkWidgetStyle;
+import org.eclipse.sirius.properties.ImageViewerDescription;
+import org.eclipse.sirius.properties.ImageViewerWidgetConditionalStyle;
+import org.eclipse.sirius.properties.ImageViewerWidgetStyle;
 import org.eclipse.sirius.properties.LabelDescription;
 import org.eclipse.sirius.properties.LabelWidgetConditionalStyle;
 import org.eclipse.sirius.properties.LabelWidgetStyle;
@@ -280,6 +283,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      *
      * @generated
      */
+    private EClass imageViewerDescriptionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EClass widgetStyleEClass = null;
 
     /**
@@ -413,6 +423,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      *
      * @generated
      */
+    private EClass imageViewerWidgetConditionalStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EClass groupConditionalStyleEClass = null;
 
     /**
@@ -435,6 +452,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     private EClass hyperlinkWidgetStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass imageViewerWidgetStyleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1709,6 +1733,56 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
+    public EClass getImageViewerDescription() {
+        return imageViewerDescriptionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getImageViewerDescription_PathExpression() {
+        return (EAttribute) imageViewerDescriptionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getImageViewerDescription_InitialOperation() {
+        return (EReference) imageViewerDescriptionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getImageViewerDescription_Style() {
+        return (EReference) imageViewerDescriptionEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getImageViewerDescription_ConditionalStyles() {
+        return (EReference) imageViewerDescriptionEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getWidgetStyle() {
         return widgetStyleEClass;
     }
@@ -2169,6 +2243,26 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
+    public EClass getImageViewerWidgetConditionalStyle() {
+        return imageViewerWidgetConditionalStyleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getImageViewerWidgetConditionalStyle_Style() {
+        return (EReference) imageViewerWidgetConditionalStyleEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getGroupConditionalStyle() {
         return groupConditionalStyleEClass;
     }
@@ -2251,6 +2345,16 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
     @Override
     public EAttribute getHyperlinkWidgetStyle_FontFormat() {
         return (EAttribute) hyperlinkWidgetStyleEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getImageViewerWidgetStyle() {
+        return imageViewerWidgetStyleEClass;
     }
 
     /**
@@ -2538,6 +2642,12 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEReference(hyperlinkDescriptionEClass, PropertiesPackage.HYPERLINK_DESCRIPTION__CONDITIONAL_STYLES);
         createEReference(hyperlinkDescriptionEClass, PropertiesPackage.HYPERLINK_DESCRIPTION__ACTIONS);
 
+        imageViewerDescriptionEClass = createEClass(PropertiesPackage.IMAGE_VIEWER_DESCRIPTION);
+        createEAttribute(imageViewerDescriptionEClass, PropertiesPackage.IMAGE_VIEWER_DESCRIPTION__PATH_EXPRESSION);
+        createEReference(imageViewerDescriptionEClass, PropertiesPackage.IMAGE_VIEWER_DESCRIPTION__INITIAL_OPERATION);
+        createEReference(imageViewerDescriptionEClass, PropertiesPackage.IMAGE_VIEWER_DESCRIPTION__STYLE);
+        createEReference(imageViewerDescriptionEClass, PropertiesPackage.IMAGE_VIEWER_DESCRIPTION__CONDITIONAL_STYLES);
+
         widgetStyleEClass = createEClass(PropertiesPackage.WIDGET_STYLE);
         createEAttribute(widgetStyleEClass, PropertiesPackage.WIDGET_STYLE__LABEL_FONT_NAME_EXPRESSION);
         createEAttribute(widgetStyleEClass, PropertiesPackage.WIDGET_STYLE__LABEL_FONT_SIZE_EXPRESSION);
@@ -2576,6 +2686,8 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEAttribute(hyperlinkWidgetStyleEClass, PropertiesPackage.HYPERLINK_WIDGET_STYLE__FONT_SIZE_EXPRESSION);
         createEReference(hyperlinkWidgetStyleEClass, PropertiesPackage.HYPERLINK_WIDGET_STYLE__BACKGROUND_COLOR);
         createEAttribute(hyperlinkWidgetStyleEClass, PropertiesPackage.HYPERLINK_WIDGET_STYLE__FONT_FORMAT);
+
+        imageViewerWidgetStyleEClass = createEClass(PropertiesPackage.IMAGE_VIEWER_WIDGET_STYLE);
 
         groupStyleEClass = createEClass(PropertiesPackage.GROUP_STYLE);
         createEReference(groupStyleEClass, PropertiesPackage.GROUP_STYLE__BACKGROUND_COLOR);
@@ -2619,6 +2731,9 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
 
         hyperlinkWidgetConditionalStyleEClass = createEClass(PropertiesPackage.HYPERLINK_WIDGET_CONDITIONAL_STYLE);
         createEReference(hyperlinkWidgetConditionalStyleEClass, PropertiesPackage.HYPERLINK_WIDGET_CONDITIONAL_STYLE__STYLE);
+
+        imageViewerWidgetConditionalStyleEClass = createEClass(PropertiesPackage.IMAGE_VIEWER_WIDGET_CONDITIONAL_STYLE);
+        createEReference(imageViewerWidgetConditionalStyleEClass, PropertiesPackage.IMAGE_VIEWER_WIDGET_CONDITIONAL_STYLE__STYLE);
 
         groupConditionalStyleEClass = createEClass(PropertiesPackage.GROUP_CONDITIONAL_STYLE);
         createEReference(groupConditionalStyleEClass, PropertiesPackage.GROUP_CONDITIONAL_STYLE__STYLE);
@@ -2685,6 +2800,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         listDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         customDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         hyperlinkDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
+        imageViewerDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         textWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         labelWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         checkboxWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
@@ -2694,6 +2810,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         customWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         listWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         hyperlinkWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
+        imageViewerWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         textWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         labelWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         checkboxWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
@@ -2703,6 +2820,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         customWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         listWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         hyperlinkWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
+        imageViewerWidgetConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
         groupConditionalStyleEClass.getESuperTypes().add(this.getWidgetConditionalStyle());
 
         // Initialize classes and features; add operations and parameters
@@ -3008,6 +3126,21 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
                 EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
                 EPackageImpl.IS_ORDERED);
 
+        initEClass(imageViewerDescriptionEClass, ImageViewerDescription.class, "ImageViewerDescription", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
+                EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getImageViewerDescription_PathExpression(), theDescriptionPackage.getInterpretedExpression(), "pathExpression", null, 0, 1, ImageViewerDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
+        initEReference(getImageViewerDescription_InitialOperation(), theToolPackage.getInitialOperation(), null, "initialOperation", null, 1, 1, ImageViewerDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE,
+                EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getImageViewerDescription_Style(), this.getImageViewerWidgetStyle(), null, "style", null, 0, 1, ImageViewerDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getImageViewerDescription_ConditionalStyles(), this.getImageViewerWidgetConditionalStyle(), null, "conditionalStyles", null, 0, -1, ImageViewerDescription.class, //$NON-NLS-1$
+                !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE,
+                EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
         initEClass(widgetStyleEClass, WidgetStyle.class, "WidgetStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getWidgetStyle_LabelFontNameExpression(), theDescriptionPackage.getInterpretedExpression(), "labelFontNameExpression", null, 0, 1, WidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
@@ -3074,6 +3207,9 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
                 EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
         initEAttribute(getHyperlinkWidgetStyle_FontFormat(), theViewpointPackage.getFontFormat(), "fontFormat", null, 0, 4, HyperlinkWidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
+        initEClass(imageViewerWidgetStyleEClass, ImageViewerWidgetStyle.class, "ImageViewerWidgetStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
+                EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(groupStyleEClass, GroupStyle.class, "GroupStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEReference(getGroupStyle_BackgroundColor(), theDescriptionPackage.getColorDescription(), null, "backgroundColor", null, 0, 1, GroupStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
@@ -3157,6 +3293,12 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         initEClass(hyperlinkWidgetConditionalStyleEClass, HyperlinkWidgetConditionalStyle.class, "HyperlinkWidgetConditionalStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
                 EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
         initEReference(getHyperlinkWidgetConditionalStyle_Style(), this.getHyperlinkWidgetStyle(), null, "style", null, 0, 1, HyperlinkWidgetConditionalStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
+                !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
+        initEClass(imageViewerWidgetConditionalStyleEClass, ImageViewerWidgetConditionalStyle.class, "ImageViewerWidgetConditionalStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
+                EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getImageViewerWidgetConditionalStyle_Style(), this.getImageViewerWidgetStyle(), null, "style", null, 0, 1, ImageViewerWidgetConditionalStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
                 !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
 

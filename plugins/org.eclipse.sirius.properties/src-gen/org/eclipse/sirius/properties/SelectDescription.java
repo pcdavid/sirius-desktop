@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Select Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Select
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> Represents a collection of candidates used to edit a
  * single or multi-valued property. <!-- end-model-doc -->
@@ -27,19 +27,15 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.SelectDescription#getValueExpression
  * <em>Value Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.SelectDescription#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.SelectDescription#getInitialOperation
  * <em>Initial Operation</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.SelectDescription#getCandidatesExpression
+ * <li>{@link org.eclipse.sirius.properties.SelectDescription#getCandidatesExpression
  * <em>Candidates Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.SelectDescription#getCandidateDisplayExpression
+ * <li>{@link org.eclipse.sirius.properties.SelectDescription#getCandidateDisplayExpression
  * <em>Candidate Display Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.SelectDescription#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.SelectDescription#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.SelectDescription#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -63,8 +59,8 @@ public interface SelectDescription extends WidgetDescription {
     String getValueExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.SelectDescription#getValueExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.SelectDescription#getValueExpression
      * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -91,8 +87,8 @@ public interface SelectDescription extends WidgetDescription {
     InitialOperation getInitialOperation();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.SelectDescription#getInitialOperation
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.SelectDescription#getInitialOperation
      * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -120,8 +116,8 @@ public interface SelectDescription extends WidgetDescription {
     String getCandidatesExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.SelectDescription#getCandidatesExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.SelectDescription#getCandidatesExpression
      * <em>Candidates Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -150,8 +146,8 @@ public interface SelectDescription extends WidgetDescription {
     String getCandidateDisplayExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.SelectDescription#getCandidateDisplayExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.SelectDescription#getCandidateDisplayExpression
      * <em>Candidate Display Expression</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -181,8 +177,8 @@ public interface SelectDescription extends WidgetDescription {
     SelectWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.SelectDescription#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.SelectDescription#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

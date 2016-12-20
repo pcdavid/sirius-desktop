@@ -32,11 +32,9 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.DynamicMappingForImpl#getIterator
+ * <li>{@link org.eclipse.sirius.properties.impl.DynamicMappingForImpl#getIterator
  * <em>Iterator</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.DynamicMappingForImpl#getIterableExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.DynamicMappingForImpl#getIterableExpression
  * <em>Iterable Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.DynamicMappingForImpl#getIfs
  * <em>Ifs</em>}</li>
@@ -66,9 +64,9 @@ public class DynamicMappingForImpl extends ControlDescriptionImpl implements Dyn
     protected String iterator = DynamicMappingForImpl.ITERATOR_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getIterableExpression()
-     * <em>Iterable Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getIterableExpression() <em>Iterable
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getIterableExpression()
      * @generated
@@ -77,9 +75,9 @@ public class DynamicMappingForImpl extends ControlDescriptionImpl implements Dyn
     protected static final String ITERABLE_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getIterableExpression()
-     * <em>Iterable Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getIterableExpression() <em>Iterable
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getIterableExpression()
      * @generated

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="org.eclipse.sirius.tests.rotatable.Activator"
+               id="org.eclipse.sirius.tests.rotatable"
+	       name="rotatable">
+    </component>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.rotatableimage">
+     <image
+           id="org.eclipse.sirius.tests.rotatable.fourSVGImages"
+           north="/org.eclipse.sirius.tests.rotatable/images/north.svg"
+           south="/org.eclipse.sirius.tests.rotatable/images/south.svg"
+           east="/org.eclipse.sirius.tests.rotatable/images/east.svg"
+           west="/org.eclipse.sirius.tests.rotatable/images/west.svg">
+     </image>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.rotatableimage">
+     <image
+           id="org.eclipse.sirius.tests.rotatable.oneSVGImage"
+           north="/org.eclipse.sirius.tests.rotatable/images/north.svg">
+     </image>
+  </extension>
+    <extension
+        point="org.eclipse.sirius.rotatableimage">
+     <image
+           id="org.eclipse.sirius.tests.rotatable.twoSVGImages"
+           north="/org.eclipse.sirius.tests.rotatable/images/north.svg"
+           south="/org.eclipse.sirius.tests.rotatable/images/south.svg">
+     </image>
+  </extension>
+    <extension
+        point="org.eclipse.sirius.rotatableimage">
+     <image
+           id="org.eclipse.sirius.tests.rotatable.fourPNGImages"
+           north="/org.eclipse.sirius.tests.rotatable/images/north.png"
+           south="/org.eclipse.sirius.tests.rotatable/images/south.png"
+           east="/org.eclipse.sirius.tests.rotatable/images/east.png"
+           west="/org.eclipse.sirius.tests.rotatable/images/west.png">
+     </image>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.rotatableimage">
+     <image
+           id="org.eclipse.sirius.tests.rotatable.onePNGImage"
+           north="/org.eclipse.sirius.tests.rotatable/images/north.png">
+     </image>
+  </extension>
+    <extension
+        point="org.eclipse.sirius.rotatableimage">
+     <image
+           id="org.eclipse.sirius.tests.rotatable.twoPNGImages"
+           north="/org.eclipse.sirius.tests.rotatable/images/north.png"
+           south="/org.eclipse.sirius.tests.rotatable/images/south.png">
+     </image>
+  </extension>
+</plugin>

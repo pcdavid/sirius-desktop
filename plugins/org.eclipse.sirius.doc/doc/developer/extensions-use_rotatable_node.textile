@@ -1,0 +1,51 @@
+h1. Sirius - Use rotatable node style
+
+h2. Goals
+
+Sirius provides a way to "define custom styles":extensions-provide_custom_style.html. This extension point allows to use an existing custom style provided by Sirius to enable rotatable images for node mappings.
+Two ways:
+# with one image (top) : take this image for north side and rotate it (90° for east/right side, 180° for south/bottom side, 270° for west/left side)
+# with 4 images : display the right image on each side (top at north, right at east, bottom at south and right at west)
+
+h2. Specify a rotatable style in the VSM
+
+The rotatable style is available only for node and bordered node mappings.
+On a node mapping, the specifier creates a @New Style -> Custom Style@.
+The **Id** field is required and must be filled. This identifier is used to find the corresponding custom style extension point.
+
+h2. Define a rotatable image extension
+
+Then the specifier must define the rotatable image style, this is done thanks to the @org.eclipse.sirius.rotatableImage@.
+In this extension, there are two required fields:
+* The **id** of the extension is required as it will be used to identify the rotatable node in the VSM. It corresponds to the custom style id of the node style defined in the VSM.
+* The **north** image path. This image is used when the node is in the north of its container border or linked edge. If the specifier does not define the other image paths, this image is rotated to be used for the undefined sides. The path must begin by the name of the plug-in as the image can be defined in a different plug-in:@/pluginName/folders/imageNameWithExtension@. The image can be either SVG or non SVG file.
+
+There a 3 optional parameters in this extension point.
+* **south** image path, this image is used when the node is in the south of its container border or linked edge.
+* **west** image path, this image is used when the node is in the west of its container border or linked edge.
+* **east** image path, this image is used when the node is in the east of its container border or linked edge.
+
+h2. Example
+
+The following example defines a new rotatable image style using four different images.
+
+In the VSM a container with a bordered node is defined, the style of the bordered node use the rotatable style.
+The custom style _Id_ field is set to @org.eclipse.sirius.tests.rotatable.image@.
+!./images/style/rotatableStyle.png! 
+
+Then in the plugin.xml file, the @org.eclipse.sirius.rotatableimage@ extension point is defined as following:
+
+pre.. 
+  <extension
+        point="org.eclipse.sirius.rotatableimage">
+     <image
+           id="org.eclipse.sirius.tests.rotatable.image"
+           north="/org.eclipse.sirius.tests.rotatable/images/north.svg"
+           south="/org.eclipse.sirius.tests.rotatable/images/south.svg"
+           east="/org.eclipse.sirius.tests.rotatable/images/east.svg"
+           west="/org.eclipse.sirius.tests.rotatable/images/west.svg">
+     </image>
+  </extension>
+  
+p. The image _id_ parameter must contain the same value than the one defined in the VSM : @org.eclipse.sirius.tests.rotatable.image@.
+The @images@ folder contains the four different images.

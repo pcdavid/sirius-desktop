@@ -329,6 +329,7 @@
         <module>../../plugins/org.eclipse.sirius.ext.gmf.runtime</module>
         <module>../../plugins/org.eclipse.sirius.ext.jface</module>
         <module>../../plugins/org.eclipse.sirius.ext.swt</module>
+        <module>../../plugins/org.eclipse.sirius.ext.ui.rotatableimage</module>
         <module>../../plugins/org.eclipse.sirius.common.acceleo.aql.ide</module>
         <module>../../plugins/org.eclipse.sirius.common.acceleo.mtl.ide</module>
         <module>../../plugins/org.eclipse.sirius.common.ui</module>

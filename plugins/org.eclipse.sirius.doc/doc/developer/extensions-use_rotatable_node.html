@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>extensions-use_rotatable_node</title>
+		<link type="text/css" rel="stylesheet" href="../resources/bootstrap.css"/>
+		<link type="text/css" rel="stylesheet" href="../resources/custom.css"/>
+	</head>
+	<body>
+		<h1 id="SiriusUserotatablenodestyle">Sirius &#8211; Use rotatable node style</h1>
+		<h2 id="Goals">Goals</h2>
+		<p>Sirius provides a way to 
+			<a href="extensions-provide_custom_style.html">define custom styles</a>. This extension point allows to use an existing custom style provided by Sirius to enable rotatable images for node mappings.
+			<br/>Two ways:
+		</p>
+		<ol>
+			<li>with one image (top) : take this image for north side and rotate it (90° for east/right side, 180° for south/bottom side, 270° for west/left side)</li>
+			<li>with 4 images : display the right image on each side (top at north, right at east, bottom at south and right at west)</li>
+		</ol>
+		<h2 id="SpecifyarotatablestyleintheVSM">Specify a rotatable style in the VSM</h2>
+		<p>The rotatable style is available only for node and bordered node mappings.
+			<br/>On a node mapping, the specifier creates a 
+			<code>New Style -&gt; Custom Style</code>.
+			<br/>The 
+			<b>Id</b> field is required and must be filled. This identifier is used to find the corresponding custom style extension point.
+		</p>
+		<h2 id="Definearotatableimageextension">Define a rotatable image extension</h2>
+		<p>Then the specifier must define the rotatable image style, this is done thanks to the 
+			<code>org.eclipse.sirius.rotatableImage</code>.
+			<br/>In this extension, there are two required fields:
+		</p>
+		<ul>
+			<li>The 
+				<b>id</b> of the extension is required as it will be used to identify the rotatable node in the VSM. It corresponds to the custom style id of the node style defined in the VSM.
+			</li>
+			<li>The 
+				<b>north</b> image path. This image is used when the node is in the north of its container border or linked edge. If the specifier does not define the other image paths, this image is rotated to be used for the undefined sides. The path must begin by the name of the plug-in as the image can be defined in a different plug-in:
+				<code>/pluginName/folders/imageNameWithExtension</code>. The image can be either SVG or non SVG file.
+			</li>
+		</ul>
+		<p>There a 3 optional parameters in this extension point.</p>
+		<ul>
+			<li>
+				<b>south</b> image path, this image is used when the node is in the south of its container border or linked edge.
+			</li>
+			<li>
+				<b>west</b> image path, this image is used when the node is in the west of its container border or linked edge.
+			</li>
+			<li>
+				<b>east</b> image path, this image is used when the node is in the east of its container border or linked edge.
+			</li>
+		</ul>
+		<h2 id="Example">Example</h2>
+		<p>The following example defines a new rotatable image style using four different images.</p>
+		<p>In the VSM a container with a bordered node is defined, the style of the bordered node use the rotatable style.
+			<br/>The custom style 
+			<em>Id</em> field is set to 
+			<code>org.eclipse.sirius.tests.rotatable.image</code>.
+			<br/>
+			<img border="0" src="./images/style/rotatableStyle.png"/> 
+		</p>
+		<p>Then in the plugin.xml file, the 
+			<code>org.eclipse.sirius.rotatableimage</code> extension point is defined as following:
+		</p>
+		<pre>  &lt;extension
+        point="org.eclipse.sirius.rotatableimage"&gt;
+     &lt;image
+           id="org.eclipse.sirius.tests.rotatable.image"
+           north="/org.eclipse.sirius.tests.rotatable/images/north.svg"
+           south="/org.eclipse.sirius.tests.rotatable/images/south.svg"
+           east="/org.eclipse.sirius.tests.rotatable/images/east.svg"
+           west="/org.eclipse.sirius.tests.rotatable/images/west.svg"&gt;
+     &lt;/image&gt;
+  &lt;/extension&gt;
+  
+</pre>
+		<p>The image 
+			<em>id</em> parameter must contain the same value than the one defined in the VSM : 
+			<code>org.eclipse.sirius.tests.rotatable.image</code>.
+			<br/>The 
+			<code>images</code> folder contains the four different images.
+		</p>
+	</body>
+</html>

@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_UncJMN8cEea55K9rsWbZ4A" selectedViews="_YhVy8N8cEea55K9rsWbZ4A" version="11.1.0.201608251200">
+    <semanticResources>MyTest.ecore</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_YhVy8N8cEea55K9rsWbZ4A">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_Zj6qQN8cEea55K9rsWbZ4A" name="new BorderNodeRotatableStyle" representation="_Zj6qQd8cEea55K9rsWbZ4A">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyle']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_a_7_gN8gEeaCp9nwRtTXHg" name="new BorderNodeRotatableStyleOneImage" representation="_bABfEN8gEeaCp9nwRtTXHg">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneImage']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_bp3GQN8gEeaCp9nwRtTXHg" name="new BorderNodeRotatableStyleTwoImages" representation="_bp3tUN8gEeaCp9nwRtTXHg">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoImages']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_cPAasN8gEeaCp9nwRtTXHg" name="new BorderNodeRotatableStyleFourImages" representation="_cPBBwN8gEeaCp9nwRtTXHg">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourImages']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_E_L0MOGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleOneSVGImage" representation="_E_QssOGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneSVGImage']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_GiFxYOGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleTwoSVGImages" representation="_GiFxYeGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoSVGImages']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_HqT9sOGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleFourSVGImages" representation="_HqVy4OGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourSVGImages']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_IuYp0OGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleOnePNGImage" representation="_IuYp0eGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOnePNGImage']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_KFZgEOGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleTwoPNGImages" representation="_KFlGQOGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoPNGImages']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_LH77IOGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleFourPNGImages" representation="_LH8iMOGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourPNGImages']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_MiRLIOGIEeanDo9ocMKZtw" name="new NodeRotatableStyleFourPNGImages" representation="_MiRLIeGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_ODAlIOGIEeanDo9ocMKZtw" name="new NodeRotatableStyleTwoPNGImages" representation="_ODEPgOGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_O1gZEOGIEeanDo9ocMKZtw" name="new NodeRotatableStyleOnePNGImage" representation="_O1gZEeGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_P2f8AOGIEeanDo9ocMKZtw" name="new NodeRotatableStyleFourSVGImages" representation="_P2f8AeGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_TfXgIOGIEeanDo9ocMKZtw" name="new NodeRotatableStyleTwoSVGImages" representation="_TfYHMOGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_UUo7QOGIEeanDo9ocMKZtw" name="new NodeRotatableStyleOneSVGImage" representation="_UUo7QeGIEeanDo9ocMKZtw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']"/>
+        <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_Zj6qQd8cEea55K9rsWbZ4A" name="new BorderNodeRotatableStyle">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Zj7RUN8cEea55K9rsWbZ4A" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_Zj7RUd8cEea55K9rsWbZ4A"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_ZkM-IN8cEea55K9rsWbZ4A" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_ZkM-Id8cEea55K9rsWbZ4A" type="Sirius" element="_Zj6qQd8cEea55K9rsWbZ4A" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_ZkR2oN8cEea55K9rsWbZ4A" type="2002" element="_Zj7RUt8cEea55K9rsWbZ4A">
+          <children xmi:type="notation:Node" xmi:id="_ZkYkUN8cEea55K9rsWbZ4A" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_ZkZycN8cEea55K9rsWbZ4A" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_ZkZycd8cEea55K9rsWbZ4A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_ZkZyct8cEea55K9rsWbZ4A"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ZkbAkN8cEea55K9rsWbZ4A" type="3012" element="_Zj7RU98cEea55K9rsWbZ4A">
+            <children xmi:type="notation:Node" xmi:id="_ZkcOsN8cEea55K9rsWbZ4A" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_ZkcOsd8cEea55K9rsWbZ4A" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Zki8YN8cEea55K9rsWbZ4A" type="3014" element="_Zj7RVN8cEea55K9rsWbZ4A">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_Zki8Yd8cEea55K9rsWbZ4A" fontName="Noto Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Zki8Yt8cEea55K9rsWbZ4A"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_ZkbAkd8cEea55K9rsWbZ4A" fontName="Noto Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZkbAkt8cEea55K9rsWbZ4A" x="-22" y="20" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_ZkR2od8cEea55K9rsWbZ4A" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZkR2ot8cEea55K9rsWbZ4A" x="415" y="165"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_ZkM-It8cEea55K9rsWbZ4A"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_Zj7RUt8cEea55K9rsWbZ4A" name="A">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_Zj7RU98cEea55K9rsWbZ4A" name="C" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_Zj7RVN8cEea55K9rsWbZ4A" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.interface.image">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyle']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyle']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_Zj7RVd8cEea55K9rsWbZ4A" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyle']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyle']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyle']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_Zj7RVt8cEea55K9rsWbZ4A"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyle']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_bABfEN8gEeaCp9nwRtTXHg" name="new BorderNodeRotatableStyleOneImage">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_bABfEd8gEeaCp9nwRtTXHg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_bABfEt8gEeaCp9nwRtTXHg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_bAMeMN8gEeaCp9nwRtTXHg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_bAMeMd8gEeaCp9nwRtTXHg" type="Sirius" element="_bABfEN8gEeaCp9nwRtTXHg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_bARWsN8gEeaCp9nwRtTXHg" type="2002" element="_bABfE98gEeaCp9nwRtTXHg">
+          <children xmi:type="notation:Node" xmi:id="_bAmt4N8gEeaCp9nwRtTXHg" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_bAn8AN8gEeaCp9nwRtTXHg" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_bAn8Ad8gEeaCp9nwRtTXHg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_bAn8At8gEeaCp9nwRtTXHg"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_bApxMN8gEeaCp9nwRtTXHg" type="3012" element="_bABfFN8gEeaCp9nwRtTXHg">
+            <children xmi:type="notation:Node" xmi:id="_bArmYN8gEeaCp9nwRtTXHg" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_bArmYd8gEeaCp9nwRtTXHg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_bAziMN8gEeaCp9nwRtTXHg" type="3014" element="_bABfFd8gEeaCp9nwRtTXHg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_bAziMd8gEeaCp9nwRtTXHg" fontName="Noto Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bAziMt8gEeaCp9nwRtTXHg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_bApxMd8gEeaCp9nwRtTXHg" fontName="Noto Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bApxMt8gEeaCp9nwRtTXHg" x="140" y="30" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_bARWsd8gEeaCp9nwRtTXHg" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bARWst8gEeaCp9nwRtTXHg" x="270" y="125"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_bAMeMt8gEeaCp9nwRtTXHg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_bABfE98gEeaCp9nwRtTXHg" name="A">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_bABfFN8gEeaCp9nwRtTXHg" name="C" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_bABfFd8gEeaCp9nwRtTXHg" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.oneImage">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneImage']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneImage']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_bABfFt8gEeaCp9nwRtTXHg" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneImage']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneImage']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneImage']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_bABfF98gEeaCp9nwRtTXHg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneImage']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_bp3tUN8gEeaCp9nwRtTXHg" name="new BorderNodeRotatableStyleTwoImages">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_bp3tUd8gEeaCp9nwRtTXHg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_bp3tUt8gEeaCp9nwRtTXHg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_bp4UYN8gEeaCp9nwRtTXHg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_bp4UYd8gEeaCp9nwRtTXHg" type="Sirius" element="_bp3tUN8gEeaCp9nwRtTXHg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_bp4UY98gEeaCp9nwRtTXHg" type="2002" element="_bp3tU98gEeaCp9nwRtTXHg">
+          <children xmi:type="notation:Node" xmi:id="_bp5igN8gEeaCp9nwRtTXHg" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_bp5igd8gEeaCp9nwRtTXHg" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_bp5igt8gEeaCp9nwRtTXHg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_bp5ig98gEeaCp9nwRtTXHg"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_bp6JkN8gEeaCp9nwRtTXHg" type="3012" element="_bp3tVN8gEeaCp9nwRtTXHg">
+            <children xmi:type="notation:Node" xmi:id="_bp6Jk98gEeaCp9nwRtTXHg" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_bp6JlN8gEeaCp9nwRtTXHg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_bp7XsN8gEeaCp9nwRtTXHg" type="3014" element="_bp3tVd8gEeaCp9nwRtTXHg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_bp7Xsd8gEeaCp9nwRtTXHg" fontName="Noto Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bp7Xst8gEeaCp9nwRtTXHg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_bp6Jkd8gEeaCp9nwRtTXHg" fontName="Noto Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bp6Jkt8gEeaCp9nwRtTXHg" x="140" y="10" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_bp4UZN8gEeaCp9nwRtTXHg" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bp4UZd8gEeaCp9nwRtTXHg" x="245" y="140"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_bp4UYt8gEeaCp9nwRtTXHg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_bp3tU98gEeaCp9nwRtTXHg" name="A">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_bp3tVN8gEeaCp9nwRtTXHg" name="C" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_bp3tVd8gEeaCp9nwRtTXHg" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.twoImages">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_bp3tVt8gEeaCp9nwRtTXHg" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoImages']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoImages']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoImages']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_bp3tV98gEeaCp9nwRtTXHg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoImages']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_cPBBwN8gEeaCp9nwRtTXHg" name="new BorderNodeRotatableStyleFourImages">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_cPBBwd8gEeaCp9nwRtTXHg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_cPBBwt8gEeaCp9nwRtTXHg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_cPBByN8gEeaCp9nwRtTXHg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_cPBByd8gEeaCp9nwRtTXHg" type="Sirius" element="_cPBBwN8gEeaCp9nwRtTXHg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_cPBBy98gEeaCp9nwRtTXHg" type="2002" element="_cPBBw98gEeaCp9nwRtTXHg">
+          <children xmi:type="notation:Node" xmi:id="_cPBo0d8gEeaCp9nwRtTXHg" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_cPCP4N8gEeaCp9nwRtTXHg" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_cPCP4d8gEeaCp9nwRtTXHg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_cPCP4t8gEeaCp9nwRtTXHg"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_cPCP498gEeaCp9nwRtTXHg" type="3012" element="_cPBBxN8gEeaCp9nwRtTXHg">
+            <children xmi:type="notation:Node" xmi:id="_cPC28N8gEeaCp9nwRtTXHg" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_cPC28d8gEeaCp9nwRtTXHg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_cPDeAN8gEeaCp9nwRtTXHg" type="3014" element="_cPBBxd8gEeaCp9nwRtTXHg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_cPDeAd8gEeaCp9nwRtTXHg" fontName="Noto Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cPDeAt8gEeaCp9nwRtTXHg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_cPCP5N8gEeaCp9nwRtTXHg" fontName="Noto Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cPCP5d8gEeaCp9nwRtTXHg" x="50" y="-22" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_cPBBzN8gEeaCp9nwRtTXHg" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cPBo0N8gEeaCp9nwRtTXHg" x="235" y="70"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_cPBByt8gEeaCp9nwRtTXHg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_cPBBw98gEeaCp9nwRtTXHg" name="A">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_cPBBxN8gEeaCp9nwRtTXHg" name="C" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_cPBBxd8gEeaCp9nwRtTXHg" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.fourImages">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_cPBBxt8gEeaCp9nwRtTXHg" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourImages']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourImages']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourImages']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_cPBBx98gEeaCp9nwRtTXHg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourImages']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_E_QssOGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleOneSVGImage">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_E_QsseGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_E_QssuGIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_FAifEOGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_FAifEeGIEeanDo9ocMKZtw" type="Sirius" element="_E_QssOGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_FBC1YOGIEeanDo9ocMKZtw" type="2002" element="_E_Qss-GIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_FCPvQOGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_FCV14OGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_FCV14eGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_FCV14uGIEeanDo9ocMKZtw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_FCrNEOGIEeanDo9ocMKZtw" type="3012" element="_E_QstOGIEeanDo9ocMKZtw">
+            <children xmi:type="notation:Node" xmi:id="_FCsbMOGIEeanDo9ocMKZtw" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_FCsbMeGIEeanDo9ocMKZtw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_FDJuMOGIEeanDo9ocMKZtw" type="3014" element="_E_QsteGIEeanDo9ocMKZtw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_FDJuMeGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FDJuMuGIEeanDo9ocMKZtw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_FCrNEeGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FCrNEuGIEeanDo9ocMKZtw" x="-22" y="15" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_FBC1YeGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FBC1YuGIEeanDo9ocMKZtw" x="325" y="190"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_FAifEuGIEeanDo9ocMKZtw"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_E_Qss-GIEeanDo9ocMKZtw" name="A">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_E_QstOGIEeanDo9ocMKZtw" name="C" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_E_QsteGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.oneSVGImage">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneSVGImage']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneSVGImage']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_E_QstuGIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneSVGImage']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneSVGImage']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneSVGImage']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_E_Qst-GIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOneSVGImage']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_GiFxYeGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleTwoSVGImages">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_GiFxYuGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_GiGYcOGIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_GiGYduGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_GiGYd-GIEeanDo9ocMKZtw" type="Sirius" element="_GiFxYeGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_GiG_gOGIEeanDo9ocMKZtw" type="2002" element="_GiGYceGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_GiHmkOGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_GiHmkeGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_GiHmkuGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_GiHmk-GIEeanDo9ocMKZtw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_GiHmlOGIEeanDo9ocMKZtw" type="3012" element="_GiGYcuGIEeanDo9ocMKZtw">
+            <children xmi:type="notation:Node" xmi:id="_GiQwgOGIEeanDo9ocMKZtw" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_GiQwgeGIEeanDo9ocMKZtw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_GiYFQOGIEeanDo9ocMKZtw" type="3014" element="_GiGYc-GIEeanDo9ocMKZtw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_GiYFQeGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GiYFQuGIEeanDo9ocMKZtw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_GiHmleGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GiHmluGIEeanDo9ocMKZtw" y="-22" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_GiG_geGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GiG_guGIEeanDo9ocMKZtw" x="215" y="170"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_GiGYeOGIEeanDo9ocMKZtw"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_GiGYceGIEeanDo9ocMKZtw" name="A">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_GiGYcuGIEeanDo9ocMKZtw" name="C" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_GiGYc-GIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.twoSVGImages">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoSVGImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoSVGImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_GiGYdOGIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoSVGImages']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoSVGImages']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoSVGImages']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_GiGYdeGIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoSVGImages']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_HqVy4OGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleFourSVGImages">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_HqVy4eGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_HqVy4uGIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_HqWZ8OGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_HqWZ8eGIEeanDo9ocMKZtw" type="Sirius" element="_HqVy4OGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_HqWZ8-GIEeanDo9ocMKZtw" type="2002" element="_HqVy4-GIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_HqY2MOGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_HqeVwOGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_HqeVweGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_HqeVwuGIEeanDo9ocMKZtw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Hqe80OGIEeanDo9ocMKZtw" type="3012" element="_HqVy5OGIEeanDo9ocMKZtw">
+            <children xmi:type="notation:Node" xmi:id="_HquNYOGIEeanDo9ocMKZtw" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_HquNYeGIEeanDo9ocMKZtw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Hqu0cOGIEeanDo9ocMKZtw" type="3014" element="_HqVy5eGIEeanDo9ocMKZtw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_Hqu0ceGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hqu0cuGIEeanDo9ocMKZtw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Hqe80eGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hqe80uGIEeanDo9ocMKZtw" x="65" y="60" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HqWZ9OGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HqWZ9eGIEeanDo9ocMKZtw" x="165" y="65"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_HqWZ8uGIEeanDo9ocMKZtw"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_HqVy4-GIEeanDo9ocMKZtw" name="A">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_HqVy5OGIEeanDo9ocMKZtw" name="C" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_HqVy5eGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.fourSVGImages">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourSVGImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourSVGImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_HqVy5uGIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourSVGImages']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourSVGImages']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourSVGImages']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_HqVy5-GIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourSVGImages']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_IuYp0eGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleOnePNGImage">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_IuYp0uGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_IuYp0-GIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_IuZQ4OGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_IuZQ4eGIEeanDo9ocMKZtw" type="Sirius" element="_IuYp0eGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_IuZQ4-GIEeanDo9ocMKZtw" type="2002" element="_IuYp1OGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_IuZ38OGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_IuafAOGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_IuafAeGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_IuafAuGIEeanDo9ocMKZtw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_IuewcOGIEeanDo9ocMKZtw" type="3012" element="_IuYp1eGIEeanDo9ocMKZtw">
+            <children xmi:type="notation:Node" xmi:id="_IugloOGIEeanDo9ocMKZtw" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_IugloeGIEeanDo9ocMKZtw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_IunTUOGIEeanDo9ocMKZtw" type="3014" element="_IuYp1uGIEeanDo9ocMKZtw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_IunTUeGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IunTUuGIEeanDo9ocMKZtw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_IuewceGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IuewcuGIEeanDo9ocMKZtw" x="-22" y="20" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_IuZQ5OGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IuZQ5eGIEeanDo9ocMKZtw" x="295" y="155"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_IuZQ4uGIEeanDo9ocMKZtw"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_IuYp1OGIEeanDo9ocMKZtw" name="A">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_IuYp1eGIEeanDo9ocMKZtw" name="C" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_IuYp1uGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.onePNGImage">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOnePNGImage']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOnePNGImage']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_IuYp1-GIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOnePNGImage']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOnePNGImage']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOnePNGImage']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_IuYp2OGIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleOnePNGImage']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_KFlGQOGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleTwoPNGImages">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_KFlGQeGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_KFlGQuGIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_KFltUOGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_KFltUeGIEeanDo9ocMKZtw" type="Sirius" element="_KFlGQOGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_KFltU-GIEeanDo9ocMKZtw" type="2002" element="_KFlGQ-GIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_KFmUYOGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_KFmUYeGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_KFmUYuGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_KFmUY-GIEeanDo9ocMKZtw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_KFm7cOGIEeanDo9ocMKZtw" type="3012" element="_KFlGROGIEeanDo9ocMKZtw">
+            <children xmi:type="notation:Node" xmi:id="_KFoJkOGIEeanDo9ocMKZtw" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_KFoJkeGIEeanDo9ocMKZtw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_KFpXsOGIEeanDo9ocMKZtw" type="3014" element="_KFlGReGIEeanDo9ocMKZtw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_KFpXseGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KFpXsuGIEeanDo9ocMKZtw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_KFm7ceGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KFm7cuGIEeanDo9ocMKZtw" x="140" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_KFltVOGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KFltVeGIEeanDo9ocMKZtw" x="215" y="175"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_KFltUuGIEeanDo9ocMKZtw"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_KFlGQ-GIEeanDo9ocMKZtw" name="A">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_KFlGROGIEeanDo9ocMKZtw" name="C" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_KFlGReGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.twoPNGImages">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoPNGImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoPNGImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_KFlGRuGIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoPNGImages']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoPNGImages']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoPNGImages']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_KFlGR-GIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleTwoPNGImages']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_LH8iMOGIEeanDo9ocMKZtw" name="new BorderNodeRotatableStyleFourPNGImages">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_LH8iMeGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_LH8iMuGIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_LH8iOOGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_LH8iOeGIEeanDo9ocMKZtw" type="Sirius" element="_LH8iMOGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_LH8iO-GIEeanDo9ocMKZtw" type="2002" element="_LH8iM-GIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_LH9JQOGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_LH9wUOGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_LH9wUeGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_LH9wUuGIEeanDo9ocMKZtw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_LH9wU-GIEeanDo9ocMKZtw" type="3012" element="_LH8iNOGIEeanDo9ocMKZtw">
+            <children xmi:type="notation:Node" xmi:id="_LH9wVuGIEeanDo9ocMKZtw" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_LH9wV-GIEeanDo9ocMKZtw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_LH-XYOGIEeanDo9ocMKZtw" type="3014" element="_LH8iNeGIEeanDo9ocMKZtw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_LH-XYeGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LH-XYuGIEeanDo9ocMKZtw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_LH9wVOGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LH9wVeGIEeanDo9ocMKZtw" x="-22" y="20" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_LH8iPOGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LH8iPeGIEeanDo9ocMKZtw" x="195" y="105"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_LH8iOuGIEeanDo9ocMKZtw"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_LH8iM-GIEeanDo9ocMKZtw" name="A">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_LH8iNOGIEeanDo9ocMKZtw" name="C" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_LH8iNeGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.fourPNGImages">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourPNGImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourPNGImages']/@defaultLayer/@containerMappings[name='Class']/@borderedNodeMappings[name='Interface']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_LH8iNuGIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourPNGImages']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourPNGImages']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourPNGImages']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_LH8iN-GIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='BorderNodeRotatableStyleFourPNGImages']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_MiRLIeGIEeanDo9ocMKZtw" name="new NodeRotatableStyleFourPNGImages">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_MiRLIuGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_MiRLI-GIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_MiSZQOGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_MiSZQeGIEeanDo9ocMKZtw" type="Sirius" element="_MiRLIeGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_MiVckOGIEeanDo9ocMKZtw" type="2001" element="_MiRLJOGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_MiWDoOGIEeanDo9ocMKZtw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_MiWDoeGIEeanDo9ocMKZtw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_MiXRxOGIEeanDo9ocMKZtw" type="3014" element="_MiRLJeGIEeanDo9ocMKZtw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_MiXRxeGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MiXRxuGIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_MiVckeGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MiVckuGIEeanDo9ocMKZtw" x="80" y="10" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_MiWqsOGIEeanDo9ocMKZtw" type="2002" element="_MiRLJuGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_MiXRwOGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_MiXRweGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_MiXRwuGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_MiXRw-GIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_MiWqseGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MiWqsuGIEeanDo9ocMKZtw" x="1" y="90"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_MiSZQuGIEeanDo9ocMKZtw"/>
+        <edges xmi:type="notation:Edge" xmi:id="_MilUMOGIEeanDo9ocMKZtw" type="4001" element="_MiRLKOGIEeanDo9ocMKZtw" source="_MiWqsOGIEeanDo9ocMKZtw" target="_MiVckOGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_MinJYOGIEeanDo9ocMKZtw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MinJYeGIEeanDo9ocMKZtw" x="-80"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_MinwcOGIEeanDo9ocMKZtw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MinwceGIEeanDo9ocMKZtw" x="49" y="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_MioXgOGIEeanDo9ocMKZtw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MioXgeGIEeanDo9ocMKZtw" x="89" y="-2"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_MilUMeGIEeanDo9ocMKZtw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_MilUMuGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MilUM-GIEeanDo9ocMKZtw" points="[-74, 21, -94, 86]$[5, -52, -15, 13]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Miz9sOGIEeanDo9ocMKZtw" id="(0.5,0.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_MiRLJOGIEeanDo9ocMKZtw" name="C" incomingEdges="_MiRLKOGIEeanDo9ocMKZtw" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_MiRLJeGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.fourPNGImages">
+        <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']/@defaultLayer/@nodeMappings[name='Interface']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']/@defaultLayer/@nodeMappings[name='Interface']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_MiRLJuGIEeanDo9ocMKZtw" name="A" outgoingEdges="_MiRLKOGIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_MiRLJ-GIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_MiRLKOGIEeanDo9ocMKZtw" sourceNode="_MiRLJuGIEeanDo9ocMKZtw" targetNode="_MiRLJOGIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_MiRLKeGIEeanDo9ocMKZtw" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']/@defaultLayer/@edgeMappings[name='Supertype']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_MiRLKuGIEeanDo9ocMKZtw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']/@defaultLayer/@edgeMappings[name='Supertype']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_MiRLK-GIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_ODEPgOGIEeanDo9ocMKZtw" name="new NodeRotatableStyleTwoPNGImages">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_ODEPgeGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_ODEPguGIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_ODHS0OGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_ODHS0eGIEeanDo9ocMKZtw" type="Sirius" element="_ODEPgOGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_ODHS0-GIEeanDo9ocMKZtw" type="2001" element="_ODEPg-GIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_ODMyYOGIEeanDo9ocMKZtw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ODMyYeGIEeanDo9ocMKZtw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ODUuMOGIEeanDo9ocMKZtw" type="3014" element="_ODEPhOGIEeanDo9ocMKZtw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_ODUuMeGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ODUuMuGIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_ODHS1OGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ODHS1eGIEeanDo9ocMKZtw" x="40" y="15" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ODS5AOGIEeanDo9ocMKZtw" type="2002" element="_ODGrwOGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_ODTgEOGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_ODTgEeGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_ODTgEuGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_ODTgE-GIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_ODS5AeGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ODS5AuGIEeanDo9ocMKZtw" x="1" y="90"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_ODHS0uGIEeanDo9ocMKZtw"/>
+        <edges xmi:type="notation:Edge" xmi:id="_ODV8UOGIEeanDo9ocMKZtw" type="4001" element="_ODGrwuGIEeanDo9ocMKZtw" source="_ODS5AOGIEeanDo9ocMKZtw" target="_ODHS0-GIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_ODWjYOGIEeanDo9ocMKZtw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ODWjYeGIEeanDo9ocMKZtw" x="-8"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ODWjYuGIEeanDo9ocMKZtw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ODWjY-GIEeanDo9ocMKZtw" x="8" y="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ODWjZOGIEeanDo9ocMKZtw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ODWjZeGIEeanDo9ocMKZtw" x="10" y="-1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ODV8UeGIEeanDo9ocMKZtw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ODV8UuGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ODV8U-GIEeanDo9ocMKZtw" points="[-14, 68, 6, 128]$[-20, -45, 0, 15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ODXKcOGIEeanDo9ocMKZtw" id="(0.5,0.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_ODEPg-GIEeanDo9ocMKZtw" name="C" incomingEdges="_ODGrwuGIEeanDo9ocMKZtw" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_ODEPhOGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.twoPNGImages">
+        <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']/@defaultLayer/@nodeMappings[name='Interface']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']/@defaultLayer/@nodeMappings[name='Interface']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_ODGrwOGIEeanDo9ocMKZtw" name="A" outgoingEdges="_ODGrwuGIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_ODGrweGIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_ODGrwuGIEeanDo9ocMKZtw" sourceNode="_ODGrwOGIEeanDo9ocMKZtw" targetNode="_ODEPg-GIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_ODGrw-GIEeanDo9ocMKZtw" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']/@defaultLayer/@edgeMappings[name='Supertype']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_ODGrxOGIEeanDo9ocMKZtw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']/@defaultLayer/@edgeMappings[name='Supertype']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_ODGrxeGIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_O1gZEeGIEeanDo9ocMKZtw" name="new NodeRotatableStyleOnePNGImage">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_O1gZEuGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_O1gZE-GIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_O1gZHOGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_O1gZHeGIEeanDo9ocMKZtw" type="Sirius" element="_O1gZEeGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_O1hAIOGIEeanDo9ocMKZtw" type="2001" element="_O1gZFOGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_O1hAI-GIEeanDo9ocMKZtw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_O1hAJOGIEeanDo9ocMKZtw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_O1iOQOGIEeanDo9ocMKZtw" type="3014" element="_O1gZFeGIEeanDo9ocMKZtw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_O1iOQeGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1iOQuGIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_O1hAIeGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1hAIuGIEeanDo9ocMKZtw" x="-190" y="100" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_O1hnMOGIEeanDo9ocMKZtw" type="2002" element="_O1gZFuGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_O1hnM-GIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_O1hnNOGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_O1hnNeGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_O1hnNuGIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_O1hnMeGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1hnMuGIEeanDo9ocMKZtw" x="1" y="90"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_O1gZHuGIEeanDo9ocMKZtw"/>
+        <edges xmi:type="notation:Edge" xmi:id="_O1jcYOGIEeanDo9ocMKZtw" type="4001" element="_O1gZGOGIEeanDo9ocMKZtw" source="_O1hnMOGIEeanDo9ocMKZtw" target="_O1hAIOGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_O1kqgOGIEeanDo9ocMKZtw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1kqgeGIEeanDo9ocMKZtw" x="-19" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_O1lRkOGIEeanDo9ocMKZtw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1lRkeGIEeanDo9ocMKZtw" x="32" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_O1l4oOGIEeanDo9ocMKZtw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1l4oeGIEeanDo9ocMKZtw" x="27"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_O1jcYeGIEeanDo9ocMKZtw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_O1jcYuGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_O1jcY-GIEeanDo9ocMKZtw" points="[0, 68, 250, 43]$[-235, 27, 15, 2]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_O1l4ouGIEeanDo9ocMKZtw" id="(0.5,0.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_O1gZFOGIEeanDo9ocMKZtw" name="C" incomingEdges="_O1gZGOGIEeanDo9ocMKZtw" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_O1gZFeGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.onePNGImage">
+        <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']/@defaultLayer/@nodeMappings[name='Interface']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']/@defaultLayer/@nodeMappings[name='Interface']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_O1gZFuGIEeanDo9ocMKZtw" name="A" outgoingEdges="_O1gZGOGIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_O1gZF-GIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_O1gZGOGIEeanDo9ocMKZtw" sourceNode="_O1gZFuGIEeanDo9ocMKZtw" targetNode="_O1gZFOGIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_O1gZGeGIEeanDo9ocMKZtw" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']/@defaultLayer/@edgeMappings[name='Supertype']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_O1gZGuGIEeanDo9ocMKZtw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']/@defaultLayer/@edgeMappings[name='Supertype']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_O1gZG-GIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_P2f8AeGIEeanDo9ocMKZtw" name="new NodeRotatableStyleFourSVGImages">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_P2f8AuGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_P2gjEOGIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_P2gjGeGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_P2gjGuGIEeanDo9ocMKZtw" type="Sirius" element="_P2f8AeGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_P2hKIOGIEeanDo9ocMKZtw" type="2001" element="_P2gjEeGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_P2iYQOGIEeanDo9ocMKZtw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_P2iYQeGIEeanDo9ocMKZtw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_P2i_VOGIEeanDo9ocMKZtw" type="3014" element="_P2gjEuGIEeanDo9ocMKZtw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_P2i_VeGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P2i_VuGIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_P2hKIeGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P2hKIuGIEeanDo9ocMKZtw" x="25" y="215" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_P2iYQuGIEeanDo9ocMKZtw" type="2002" element="_P2gjE-GIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_P2i_UOGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_P2i_UeGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_P2i_UuGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_P2i_U-GIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_P2iYQ-GIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P2iYROGIEeanDo9ocMKZtw" x="1" y="90"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_P2gjG-GIEeanDo9ocMKZtw"/>
+        <edges xmi:type="notation:Edge" xmi:id="_P2jmYOGIEeanDo9ocMKZtw" type="4001" element="_P2gjFeGIEeanDo9ocMKZtw" source="_P2iYQuGIEeanDo9ocMKZtw" target="_P2hKIOGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_P2jmZOGIEeanDo9ocMKZtw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P2jmZeGIEeanDo9ocMKZtw" x="-26" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_P2jmZuGIEeanDo9ocMKZtw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P2jmZ-GIEeanDo9ocMKZtw" x="44" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_P2jmaOGIEeanDo9ocMKZtw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P2jmaeGIEeanDo9ocMKZtw" x="14" y="1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_P2jmYeGIEeanDo9ocMKZtw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_P2jmYuGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P2jmY-GIEeanDo9ocMKZtw" points="[74, 19, 109, -121]$[-22, 125, 13, -15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P2kNcOGIEeanDo9ocMKZtw" id="(0.5,0.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_P2gjEeGIEeanDo9ocMKZtw" name="C" incomingEdges="_P2gjFeGIEeanDo9ocMKZtw" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_P2gjEuGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.fourSVGImages">
+        <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']/@defaultLayer/@nodeMappings[name='Interface']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']/@defaultLayer/@nodeMappings[name='Interface']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_P2gjE-GIEeanDo9ocMKZtw" name="A" outgoingEdges="_P2gjFeGIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_P2gjFOGIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_P2gjFeGIEeanDo9ocMKZtw" sourceNode="_P2gjE-GIEeanDo9ocMKZtw" targetNode="_P2gjEeGIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_P2gjFuGIEeanDo9ocMKZtw" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']/@defaultLayer/@edgeMappings[name='Supertype']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_P2gjF-GIEeanDo9ocMKZtw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']/@defaultLayer/@edgeMappings[name='Supertype']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_P2gjGOGIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_TfYHMOGIEeanDo9ocMKZtw" name="new NodeRotatableStyleTwoSVGImages">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_TfYHMeGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_TfYHMuGIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_TfZ8YOGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_TfZ8YeGIEeanDo9ocMKZtw" type="Sirius" element="_TfYHMOGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_TfZ8Y-GIEeanDo9ocMKZtw" type="2001" element="_TfYHM-GIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_TfbKgOGIEeanDo9ocMKZtw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_TfbKgeGIEeanDo9ocMKZtw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_TfeN0OGIEeanDo9ocMKZtw" type="3014" element="_TfYHNOGIEeanDo9ocMKZtw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_TfeN0eGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TfeN0uGIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_TfZ8ZOGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TfZ8ZeGIEeanDo9ocMKZtw" x="70" y="245" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_TfbxkOGIEeanDo9ocMKZtw" type="2002" element="_TfYHNeGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_TfdmwOGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_TfdmweGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_TfdmwuGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_Tfdmw-GIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_TfbxkeGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TfbxkuGIEeanDo9ocMKZtw" x="1" y="90"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_TfZ8YuGIEeanDo9ocMKZtw"/>
+        <edges xmi:type="notation:Edge" xmi:id="_TfhRIOGIEeanDo9ocMKZtw" type="4001" element="_TfYHN-GIEeanDo9ocMKZtw" source="_TfbxkOGIEeanDo9ocMKZtw" target="_TfZ8Y-GIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_Tfh4MOGIEeanDo9ocMKZtw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tfh4MeGIEeanDo9ocMKZtw" x="-12" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Tfh4MuGIEeanDo9ocMKZtw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tfh4M-GIEeanDo9ocMKZtw" x="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Tfh4NOGIEeanDo9ocMKZtw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tfh4NeGIEeanDo9ocMKZtw" x="4"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_TfhRIeGIEeanDo9ocMKZtw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_TfhRIuGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TfhRI-GIEeanDo9ocMKZtw" points="[74, 18, 64, -152]$[16, 155, 6, -15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TfifQOGIEeanDo9ocMKZtw" id="(0.5,0.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_TfYHM-GIEeanDo9ocMKZtw" name="C" incomingEdges="_TfYHN-GIEeanDo9ocMKZtw" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_TfYHNOGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.twoSVGImages">
+        <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']/@defaultLayer/@nodeMappings[name='Interface']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']/@defaultLayer/@nodeMappings[name='Interface']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_TfYHNeGIEeanDo9ocMKZtw" name="A" outgoingEdges="_TfYHN-GIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_TfYHNuGIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_TfYHN-GIEeanDo9ocMKZtw" sourceNode="_TfYHNeGIEeanDo9ocMKZtw" targetNode="_TfYHM-GIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TfYHOOGIEeanDo9ocMKZtw" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']/@defaultLayer/@edgeMappings[name='Supertype']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TfYHOeGIEeanDo9ocMKZtw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']/@defaultLayer/@edgeMappings[name='Supertype']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_TfYHOuGIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_UUo7QeGIEeanDo9ocMKZtw" name="new NodeRotatableStyleOneSVGImage">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_UUo7QuGIEeanDo9ocMKZtw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_UUo7Q-GIEeanDo9ocMKZtw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_UUqwcOGIEeanDo9ocMKZtw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_UUqwceGIEeanDo9ocMKZtw" type="Sirius" element="_UUo7QeGIEeanDo9ocMKZtw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_UUrXgOGIEeanDo9ocMKZtw" type="2001" element="_UUo7ROGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_UUtMsOGIEeanDo9ocMKZtw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_UUtMseGIEeanDo9ocMKZtw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_UUua0OGIEeanDo9ocMKZtw" type="3014" element="_UUo7ReGIEeanDo9ocMKZtw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_UUua0eGIEeanDo9ocMKZtw" fontName="Noto Sans"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UUua0uGIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_UUrXgeGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UUrXguGIEeanDo9ocMKZtw" x="-155" y="120" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_UUtMsuGIEeanDo9ocMKZtw" type="2002" element="_UUo7RuGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_UUtzwOGIEeanDo9ocMKZtw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_UUtzweGIEeanDo9ocMKZtw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_UUtzwuGIEeanDo9ocMKZtw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_UUtzw-GIEeanDo9ocMKZtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_UUtMs-GIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UUtMtOGIEeanDo9ocMKZtw" x="1" y="90"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_UUqwcuGIEeanDo9ocMKZtw"/>
+        <edges xmi:type="notation:Edge" xmi:id="_UUvB4OGIEeanDo9ocMKZtw" type="4001" element="_UUo7SOGIEeanDo9ocMKZtw" source="_UUtMsuGIEeanDo9ocMKZtw" target="_UUrXgOGIEeanDo9ocMKZtw">
+          <children xmi:type="notation:Node" xmi:id="_UUwQAOGIEeanDo9ocMKZtw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UUwQAeGIEeanDo9ocMKZtw" x="-13"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_UUw3EOGIEeanDo9ocMKZtw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UUw3EeGIEeanDo9ocMKZtw" x="18" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_UUw3EuGIEeanDo9ocMKZtw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UUw3E-GIEeanDo9ocMKZtw" x="14"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_UUvB4eGIEeanDo9ocMKZtw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_UUvB4uGIEeanDo9ocMKZtw" fontName="Noto Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UUvB4-GIEeanDo9ocMKZtw" points="[-5, 68, 210, 23]$[-200, 46, 15, 1]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UUxeIOGIEeanDo9ocMKZtw" id="(0.5,0.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_UUo7ROGIEeanDo9ocMKZtw" name="C" incomingEdges="_UUo7SOGIEeanDo9ocMKZtw" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//C"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_UUo7ReGIEeanDo9ocMKZtw" showIcon="false" labelPosition="node" id="org.eclipse.sirius.tests.rotatable.oneSVGImage">
+        <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']/@defaultLayer/@nodeMappings[name='Interface']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']/@defaultLayer/@nodeMappings[name='Interface']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_UUo7RuGIEeanDo9ocMKZtw" name="A" outgoingEdges="_UUo7SOGIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_UUo7R-GIEeanDo9ocMKZtw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']/@defaultLayer/@containerMappings[name='Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']/@defaultLayer/@containerMappings[name='Class']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_UUo7SOGIEeanDo9ocMKZtw" sourceNode="_UUo7RuGIEeanDo9ocMKZtw" targetNode="_UUo7ROGIEeanDo9ocMKZtw">
+      <target xmi:type="ecore:EClass" href="MyTest.ecore#//A"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_UUo7SeGIEeanDo9ocMKZtw" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']/@defaultLayer/@edgeMappings[name='Supertype']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_UUo7SuGIEeanDo9ocMKZtw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']/@defaultLayer/@edgeMappings[name='Supertype']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_UUo7S-GIEeanDo9ocMKZtw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.rotatable/description/rotatable.odesign#//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="MyTest.ecore#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="rotatable" version="11.1.1.201610211630">
+  <ownedViewpoints name="Rotatable">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BorderNodeRotatableStyleOneSVGImage" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <borderedNodeMappings name="Interface" semanticCandidatesExpression="aql:self.eSuperTypes" domainClass="ecore.EClass">
+            <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.oneSVGImage">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BorderNodeRotatableStyleTwoSVGImages" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <borderedNodeMappings name="Interface" semanticCandidatesExpression="aql:self.eSuperTypes" domainClass="ecore.EClass">
+            <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.twoSVGImages">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BorderNodeRotatableStyleFourSVGImages" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <borderedNodeMappings name="Interface" semanticCandidatesExpression="aql:self.eSuperTypes" domainClass="ecore.EClass">
+            <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.fourSVGImages">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BorderNodeRotatableStyleOnePNGImage" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <borderedNodeMappings name="Interface" semanticCandidatesExpression="aql:self.eSuperTypes" domainClass="ecore.EClass">
+            <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.onePNGImage">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BorderNodeRotatableStyleTwoPNGImages" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <borderedNodeMappings name="Interface" semanticCandidatesExpression="aql:self.eSuperTypes" domainClass="ecore.EClass">
+            <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.twoPNGImages">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BorderNodeRotatableStyleFourPNGImages" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <borderedNodeMappings name="Interface" semanticCandidatesExpression="aql:self.eSuperTypes" domainClass="ecore.EClass">
+            <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.fourPNGImages">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="NodeRotatableStyleFourPNGImages" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Interface" semanticCandidatesExpression="aql:self.eContents()->select(c|c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.fourPNGImages">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Supertype" sourceMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']/@defaultLayer/@containerMappings[name='Class']" targetMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourPNGImages']/@defaultLayer/@nodeMappings[name='Interface']" targetFinderExpression="aql:self.eSuperTypes">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="NodeRotatableStyleTwoPNGImages" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Interface" semanticCandidatesExpression="aql:self.eContents()->select(c|c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.twoPNGImages">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Supertype" sourceMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']/@defaultLayer/@containerMappings[name='Class']" targetMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoPNGImages']/@defaultLayer/@nodeMappings[name='Interface']" targetFinderExpression="aql:self.eSuperTypes">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="NodeRotatableStyleOnePNGImage" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Interface" semanticCandidatesExpression="aql:self.eContents()->select(c|c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.onePNGImage">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Supertype" sourceMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']/@defaultLayer/@containerMappings[name='Class']" targetMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOnePNGImage']/@defaultLayer/@nodeMappings[name='Interface']" targetFinderExpression="aql:self.eSuperTypes">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="NodeRotatableStyleFourSVGImages" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Interface" semanticCandidatesExpression="aql:self.eContents()->select(c|c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.fourSVGImages">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Supertype" sourceMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']/@defaultLayer/@containerMappings[name='Class']" targetMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleFourSVGImages']/@defaultLayer/@nodeMappings[name='Interface']" targetFinderExpression="aql:self.eSuperTypes">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="NodeRotatableStyleTwoSVGImages" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Interface" semanticCandidatesExpression="aql:self.eContents()->select(c|c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.twoSVGImages">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Supertype" sourceMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']/@defaultLayer/@containerMappings[name='Class']" targetMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleTwoSVGImages']/@defaultLayer/@nodeMappings[name='Interface']" targetFinderExpression="aql:self.eSuperTypes">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="NodeRotatableStyleOneSVGImage" initialisation="true" domainClass="ecore.EPackage" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Interface" semanticCandidatesExpression="aql:self.eContents()->select(c|c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:CustomStyleDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" id="org.eclipse.sirius.tests.rotatable.oneSVGImage">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Supertype" sourceMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']/@defaultLayer/@containerMappings[name='Class']" targetMapping="//@ownedViewpoints[name='Rotatable']/@ownedRepresentations[name='NodeRotatableStyleOneSVGImage']/@defaultLayer/@nodeMappings[name='Interface']" targetFinderExpression="aql:self.eSuperTypes">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Class" semanticCandidatesExpression="aql:self.eContents()->select(c|not c.interface)" domainClass="ecore.EClass">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.tests.rotatable.Services"/>
+  </ownedViewpoints>
+</description:Group>

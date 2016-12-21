@@ -176,6 +176,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//ImageViewerDescription/style"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//ImageViewerDescription/conditionalStyles"/>
     </genClasses>
+    <genClasses ecoreClass="properties.ecore#//ImagePickerDescription"/>
     <genClasses ecoreClass="properties.ecore#//WidgetStyle">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//WidgetStyle/labelFontNameExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//WidgetStyle/labelFontSizeExpression"/>

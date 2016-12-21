@@ -186,8 +186,8 @@ public interface GroupStyle extends EObject {
     TitleBarStyle getBarStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.GroupStyle#getBarStyle <em>Bar
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.GroupStyle#getBarStyle <em>Bar
      * Style</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value

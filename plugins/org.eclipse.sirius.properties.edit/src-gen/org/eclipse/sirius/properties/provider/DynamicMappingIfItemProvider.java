@@ -193,6 +193,8 @@ public class DynamicMappingIfItemProvider extends ItemProviderAdapter
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.DYNAMIC_MAPPING_IF__WIDGET, PropertiesFactory.eINSTANCE.createHyperlinkDescription()));
 
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.DYNAMIC_MAPPING_IF__WIDGET, PropertiesFactory.eINSTANCE.createImageViewerDescription()));
+
+        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.DYNAMIC_MAPPING_IF__WIDGET, PropertiesFactory.eINSTANCE.createImagePickerDescription()));
     }
 
     /**

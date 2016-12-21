@@ -34,7 +34,7 @@ public class ImageViewerWidgetConditionalStyleItemProvider extends WidgetConditi
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ImageViewerWidgetConditionalStyleItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class ImageViewerWidgetConditionalStyleItemProvider extends WidgetConditi
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -103,7 +103,7 @@ public class ImageViewerWidgetConditionalStyleItemProvider extends WidgetConditi
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -137,7 +137,7 @@ public class ImageViewerWidgetConditionalStyleItemProvider extends WidgetConditi
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

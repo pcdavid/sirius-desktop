@@ -40,6 +40,7 @@ import org.eclipse.sirius.properties.GroupValidationSetDescription;
 import org.eclipse.sirius.properties.HyperlinkDescription;
 import org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle;
 import org.eclipse.sirius.properties.HyperlinkWidgetStyle;
+import org.eclipse.sirius.properties.ImagePickerDescription;
 import org.eclipse.sirius.properties.ImageViewerDescription;
 import org.eclipse.sirius.properties.ImageViewerWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ImageViewerWidgetStyle;
@@ -267,6 +268,11 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseImageViewerDescription(ImageViewerDescription object) {
             return createImageViewerDescriptionAdapter();
+        }
+
+        @Override
+        public Adapter caseImagePickerDescription(ImagePickerDescription object) {
+            return createImagePickerDescriptionAdapter();
         }
 
         @Override
@@ -879,6 +885,22 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createImageViewerDescriptionAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.properties.ImagePickerDescription <em>Image
+     * Picker Description</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's
+     * useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.eclipse.sirius.properties.ImagePickerDescription
+     * @generated
+     */
+    public Adapter createImagePickerDescriptionAdapter() {
         return null;
     }
 

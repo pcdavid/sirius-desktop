@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.properties.ImageViewerDescription;
+import org.eclipse.sirius.properties.ImageViewerWidgetConditionalStyle;
 import org.eclipse.sirius.properties.PropertiesFactory;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
@@ -30,14 +31,14 @@ import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.ImageViewerDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ImageViewerDescriptionItemProvider extends WidgetDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ImageViewerDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -47,7 +48,7 @@ public class ImageViewerDescriptionItemProvider extends WidgetDescriptionItemPro
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -63,7 +64,7 @@ public class ImageViewerDescriptionItemProvider extends WidgetDescriptionItemPro
     /**
      * This adds a property descriptor for the Path Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addPathExpressionPropertyDescriptor(Object object) {
@@ -122,7 +123,7 @@ public class ImageViewerDescriptionItemProvider extends WidgetDescriptionItemPro
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -161,8 +162,8 @@ public class ImageViewerDescriptionItemProvider extends WidgetDescriptionItemPro
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     @Override
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -172,7 +173,9 @@ public class ImageViewerDescriptionItemProvider extends WidgetDescriptionItemPro
 
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.IMAGE_VIEWER_DESCRIPTION__STYLE, PropertiesFactory.eINSTANCE.createImageViewerWidgetStyle()));
 
-        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.IMAGE_VIEWER_DESCRIPTION__CONDITIONAL_STYLES, PropertiesFactory.eINSTANCE.createImageViewerWidgetConditionalStyle()));
+        ImageViewerWidgetConditionalStyle conditionalStyle = PropertiesFactory.eINSTANCE.createImageViewerWidgetConditionalStyle();
+        conditionalStyle.setStyle(PropertiesFactory.eINSTANCE.createImageViewerWidgetStyle());
+        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.IMAGE_VIEWER_DESCRIPTION__CONDITIONAL_STYLES, conditionalStyle));
     }
 
 }

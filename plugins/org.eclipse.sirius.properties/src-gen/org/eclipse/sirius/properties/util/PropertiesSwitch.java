@@ -40,6 +40,7 @@ import org.eclipse.sirius.properties.GroupValidationSetDescription;
 import org.eclipse.sirius.properties.HyperlinkDescription;
 import org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle;
 import org.eclipse.sirius.properties.HyperlinkWidgetStyle;
+import org.eclipse.sirius.properties.ImagePickerDescription;
 import org.eclipse.sirius.properties.ImageViewerDescription;
 import org.eclipse.sirius.properties.ImageViewerWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ImageViewerWidgetStyle;
@@ -458,6 +459,23 @@ public class PropertiesSwitch<T> {
             }
             if (result == null) {
                 result = caseControlDescription(imageViewerDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.IMAGE_PICKER_DESCRIPTION: {
+            ImagePickerDescription imagePickerDescription = (ImagePickerDescription) theEObject;
+            T result = caseImagePickerDescription(imagePickerDescription);
+            if (result == null) {
+                result = caseImageViewerDescription(imagePickerDescription);
+            }
+            if (result == null) {
+                result = caseWidgetDescription(imagePickerDescription);
+            }
+            if (result == null) {
+                result = caseControlDescription(imagePickerDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -1213,6 +1231,23 @@ public class PropertiesSwitch<T> {
      * @generated
      */
     public T caseImageViewerDescription(ImageViewerDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Image Picker Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Image Picker Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseImagePickerDescription(ImagePickerDescription object) {
         return null;
     }
 

@@ -17,30 +17,30 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.sirius.properties.ImageViewerWidgetStyle;
+import org.eclipse.sirius.properties.ImagePickerDescription;
 
 /**
  * This is the item provider adapter for a
- * {@link org.eclipse.sirius.properties.ImageViewerWidgetStyle} object. <!--
+ * {@link org.eclipse.sirius.properties.ImagePickerDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
-public class ImageViewerWidgetStyleItemProvider extends WidgetStyleItemProvider {
+public class ImagePickerDescriptionItemProvider extends ImageViewerDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
-    public ImageViewerWidgetStyleItemProvider(AdapterFactory adapterFactory) {
+    public ImagePickerDescriptionItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -53,26 +53,26 @@ public class ImageViewerWidgetStyleItemProvider extends WidgetStyleItemProvider 
     }
 
     /**
-     * This returns ImageViewerWidgetStyle.gif. <!-- begin-user-doc --> <!--
+     * This returns ImagePickerDescription.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
      * @generated
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ImageViewerWidgetStyle")); //$NON-NLS-1$
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/ImagePickerDescription")); //$NON-NLS-1$
     }
 
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated NOT
      */
     @Override
     public String getText(Object object) {
-        String label = ((ImageViewerWidgetStyle) object).getLabelFontNameExpression();
-        return label == null || label.length() == 0 ? getString("_UI_ImageViewerWidgetStyle_type") : //$NON-NLS-1$
+        String label = ((ImagePickerDescription) object).getLabelExpression();
+        return label == null || label.length() == 0 ? getString("_UI_ImagePickerDescription_type") : //$NON-NLS-1$
                 label;
     }
 
@@ -94,7 +94,7 @@ public class ImageViewerWidgetStyleItemProvider extends WidgetStyleItemProvider 
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

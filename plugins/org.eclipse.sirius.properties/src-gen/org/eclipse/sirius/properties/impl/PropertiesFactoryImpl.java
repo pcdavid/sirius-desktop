@@ -42,6 +42,7 @@ import org.eclipse.sirius.properties.GroupValidationSetDescription;
 import org.eclipse.sirius.properties.HyperlinkDescription;
 import org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle;
 import org.eclipse.sirius.properties.HyperlinkWidgetStyle;
+import org.eclipse.sirius.properties.ImagePickerDescription;
 import org.eclipse.sirius.properties.ImageViewerDescription;
 import org.eclipse.sirius.properties.ImageViewerWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ImageViewerWidgetStyle;
@@ -166,6 +167,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createHyperlinkDescription();
         case PropertiesPackage.IMAGE_VIEWER_DESCRIPTION:
             return createImageViewerDescription();
+        case PropertiesPackage.IMAGE_PICKER_DESCRIPTION:
+            return createImagePickerDescription();
         case PropertiesPackage.WIDGET_STYLE:
             return createWidgetStyle();
         case PropertiesPackage.TEXT_WIDGET_STYLE:
@@ -532,6 +535,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public ImageViewerDescription createImageViewerDescription() {
         ImageViewerDescriptionImpl imageViewerDescription = new ImageViewerDescriptionImpl();
         return imageViewerDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ImagePickerDescription createImagePickerDescription() {
+        ImagePickerDescriptionImpl imagePickerDescription = new ImagePickerDescriptionImpl();
+        return imagePickerDescription;
     }
 
     /**

@@ -18,6 +18,7 @@ import org.eclipse.eef.EEFImageViewerDescription;
 import org.eclipse.eef.EEFImageViewerStyle;
 import org.eclipse.eef.EefFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.properties.ImagePickerDescription;
 import org.eclipse.sirius.properties.ImageViewerDescription;
 import org.eclipse.sirius.ui.properties.api.AbstractDescriptionConverter;
 import org.eclipse.sirius.ui.properties.api.DescriptionCache;
@@ -48,6 +49,10 @@ public class ImageViewerDescriptionConverter extends AbstractDescriptionConverte
             eefImageViewerDescription.setIsEnabledExpression(imageViewerDescription.getIsEnabledExpression());
 
             eefImageViewerDescription.setPathExpression(imageViewerDescription.getPathExpression());
+
+            if (description instanceof ImagePickerDescription) {
+                eefImageViewerDescription.setWithPicker(true);
+            }
 
             InitialOperation initialOperation = imageViewerDescription.getInitialOperation();
             eefImageViewerDescription.setEditExpression(this.getExpressionForOperation(initialOperation));

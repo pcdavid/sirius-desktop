@@ -725,7 +725,7 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
      * This creates an adapter for a
      * {@link org.eclipse.sirius.properties.ImageViewerDescription}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -735,6 +735,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
 
         return imageViewerDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.ImagePickerDescription} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected ImagePickerDescriptionItemProvider imagePickerDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.ImagePickerDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Adapter createImagePickerDescriptionAdapter() {
+        if (imagePickerDescriptionItemProvider == null) {
+            imagePickerDescriptionItemProvider = new ImagePickerDescriptionItemProvider(this);
+        }
+
+        return imagePickerDescriptionItemProvider;
     }
 
     /**
@@ -1000,7 +1025,7 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
      * This creates an adapter for a
      * {@link org.eclipse.sirius.properties.ImageViewerWidgetStyle}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1569,6 +1594,9 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
         if (imageViewerDescriptionItemProvider != null) {
             imageViewerDescriptionItemProvider.dispose();
+        }
+        if (imagePickerDescriptionItemProvider != null) {
+            imagePickerDescriptionItemProvider.dispose();
         }
         if (widgetStyleItemProvider != null) {
             widgetStyleItemProvider.dispose();

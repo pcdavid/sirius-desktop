@@ -256,6 +256,15 @@ public interface PropertiesFactory extends EFactory {
     ImageViewerDescription createImageViewerDescription();
 
     /**
+     * Returns a new object of class '<em>Image Picker Description</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Image Picker Description</em>'.
+     * @generated
+     */
+    ImagePickerDescription createImagePickerDescription();
+
+    /**
      * Returns a new object of class '<em>Widget Style</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *

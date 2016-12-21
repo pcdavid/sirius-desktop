@@ -44,6 +44,7 @@ import org.eclipse.sirius.properties.GroupValidationSetDescription;
 import org.eclipse.sirius.properties.HyperlinkDescription;
 import org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle;
 import org.eclipse.sirius.properties.HyperlinkWidgetStyle;
+import org.eclipse.sirius.properties.ImagePickerDescription;
 import org.eclipse.sirius.properties.ImageViewerDescription;
 import org.eclipse.sirius.properties.ImageViewerWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ImageViewerWidgetStyle;
@@ -284,6 +285,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     private EClass imageViewerDescriptionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass imagePickerDescriptionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1783,6 +1791,16 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
+    public EClass getImagePickerDescription() {
+        return imagePickerDescriptionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getWidgetStyle() {
         return widgetStyleEClass;
     }
@@ -2648,6 +2666,8 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEReference(imageViewerDescriptionEClass, PropertiesPackage.IMAGE_VIEWER_DESCRIPTION__STYLE);
         createEReference(imageViewerDescriptionEClass, PropertiesPackage.IMAGE_VIEWER_DESCRIPTION__CONDITIONAL_STYLES);
 
+        imagePickerDescriptionEClass = createEClass(PropertiesPackage.IMAGE_PICKER_DESCRIPTION);
+
         widgetStyleEClass = createEClass(PropertiesPackage.WIDGET_STYLE);
         createEAttribute(widgetStyleEClass, PropertiesPackage.WIDGET_STYLE__LABEL_FONT_NAME_EXPRESSION);
         createEAttribute(widgetStyleEClass, PropertiesPackage.WIDGET_STYLE__LABEL_FONT_SIZE_EXPRESSION);
@@ -2801,6 +2821,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         customDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         hyperlinkDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
         imageViewerDescriptionEClass.getESuperTypes().add(this.getWidgetDescription());
+        imagePickerDescriptionEClass.getESuperTypes().add(this.getImageViewerDescription());
         textWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         labelWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
         checkboxWidgetStyleEClass.getESuperTypes().add(this.getWidgetStyle());
@@ -3140,6 +3161,9 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         initEReference(getImageViewerDescription_ConditionalStyles(), this.getImageViewerWidgetConditionalStyle(), null, "conditionalStyles", null, 0, -1, ImageViewerDescription.class, //$NON-NLS-1$
                 !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE,
                 EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+
+        initEClass(imagePickerDescriptionEClass, ImagePickerDescription.class, "ImagePickerDescription", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
+                EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(widgetStyleEClass, WidgetStyle.class, "WidgetStyle", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getWidgetStyle_LabelFontNameExpression(), theDescriptionPackage.getInterpretedExpression(), "labelFontNameExpression", null, 0, 1, WidgetStyle.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$

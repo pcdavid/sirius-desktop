@@ -25,14 +25,13 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.viewpoint.description.validation.SemanticValidationRule;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Page Validation Set Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Page
+ * Validation Set Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.PageValidationSetDescriptionImpl#getSemanticValidationRules
+ * <li>{@link org.eclipse.sirius.properties.impl.PageValidationSetDescriptionImpl#getSemanticValidationRules
  * <em>Semantic Validation Rules</em>}</li>
  * </ul>
  *

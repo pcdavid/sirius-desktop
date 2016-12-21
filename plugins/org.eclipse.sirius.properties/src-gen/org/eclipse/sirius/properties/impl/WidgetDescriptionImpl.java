@@ -18,20 +18,17 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.WidgetDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Widget Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Widget
+ * Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.WidgetDescriptionImpl#getLabelExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.WidgetDescriptionImpl#getLabelExpression
  * <em>Label Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.WidgetDescriptionImpl#getHelpExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.WidgetDescriptionImpl#getHelpExpression
  * <em>Help Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.WidgetDescriptionImpl#getIsEnabledExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.WidgetDescriptionImpl#getIsEnabledExpression
  * <em>Is Enabled Expression</em>}</li>
  * </ul>
  *
@@ -39,9 +36,9 @@ import org.eclipse.sirius.properties.WidgetDescription;
  */
 public abstract class WidgetDescriptionImpl extends ControlDescriptionImpl implements WidgetDescription {
     /**
-     * The default value of the '{@link #getLabelExpression()
-     * <em>Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getLabelExpression() <em>Label
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getLabelExpression()
      * @generated
@@ -50,9 +47,9 @@ public abstract class WidgetDescriptionImpl extends ControlDescriptionImpl imple
     protected static final String LABEL_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getLabelExpression()
-     * <em>Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getLabelExpression() <em>Label
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getLabelExpression()
      * @generated
@@ -61,9 +58,9 @@ public abstract class WidgetDescriptionImpl extends ControlDescriptionImpl imple
     protected String labelExpression = WidgetDescriptionImpl.LABEL_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getHelpExpression()
-     * <em>Help Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getHelpExpression() <em>Help
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getHelpExpression()
      * @generated
@@ -72,9 +69,9 @@ public abstract class WidgetDescriptionImpl extends ControlDescriptionImpl imple
     protected static final String HELP_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getHelpExpression()
-     * <em>Help Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getHelpExpression() <em>Help
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getHelpExpression()
      * @generated
@@ -83,9 +80,9 @@ public abstract class WidgetDescriptionImpl extends ControlDescriptionImpl imple
     protected String helpExpression = WidgetDescriptionImpl.HELP_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getIsEnabledExpression()
-     * <em>Is Enabled Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getIsEnabledExpression() <em>Is Enabled
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getIsEnabledExpression()
      * @generated
@@ -94,9 +91,9 @@ public abstract class WidgetDescriptionImpl extends ControlDescriptionImpl imple
     protected static final String IS_ENABLED_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getIsEnabledExpression()
-     * <em>Is Enabled Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getIsEnabledExpression() <em>Is Enabled
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getIsEnabledExpression()
      * @generated

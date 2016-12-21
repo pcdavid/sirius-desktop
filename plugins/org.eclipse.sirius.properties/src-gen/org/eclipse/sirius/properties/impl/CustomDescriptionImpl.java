@@ -29,22 +29,19 @@ import org.eclipse.sirius.properties.CustomWidgetStyle;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Custom Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Custom
+ * Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getCustomExpressions
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getCustomExpressions
  * <em>Custom Expressions</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getCustomOperations
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getCustomOperations
  * <em>Custom Operations</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomDescriptionImpl#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -52,9 +49,9 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  */
 public class CustomDescriptionImpl extends WidgetDescriptionImpl implements CustomDescription {
     /**
-     * The cached value of the '{@link #getCustomExpressions()
-     * <em>Custom Expressions</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getCustomExpressions() <em>Custom
+     * Expressions</em>}' containment reference list. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      *
      * @see #getCustomExpressions()
      * @generated
@@ -63,9 +60,9 @@ public class CustomDescriptionImpl extends WidgetDescriptionImpl implements Cust
     protected EList<CustomExpression> customExpressions;
 
     /**
-     * The cached value of the '{@link #getCustomOperations()
-     * <em>Custom Operations</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getCustomOperations() <em>Custom
+     * Operations</em>}' containment reference list. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      *
      * @see #getCustomOperations()
      * @generated
@@ -84,9 +81,9 @@ public class CustomDescriptionImpl extends WidgetDescriptionImpl implements Cust
     protected CustomWidgetStyle style;
 
     /**
-     * The cached value of the '{@link #getConditionalStyles()
-     * <em>Conditional Styles</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getConditionalStyles() <em>Conditional
+     * Styles</em>}' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getConditionalStyles()
      * @generated

@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Custom Operation</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Custom
+ * Operation</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -51,8 +51,8 @@ public interface CustomOperation extends EObject {
     String getIdentifier();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.CustomOperation#getIdentifier
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.CustomOperation#getIdentifier
      * <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -82,8 +82,8 @@ public interface CustomOperation extends EObject {
     InitialOperation getInitialOperation();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.CustomOperation#getInitialOperation
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.CustomOperation#getInitialOperation
      * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *

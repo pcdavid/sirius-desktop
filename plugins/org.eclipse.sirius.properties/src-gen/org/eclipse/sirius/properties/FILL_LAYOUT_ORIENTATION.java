@@ -86,9 +86,9 @@ public enum FILL_LAYOUT_ORIENTATION implements Enumerator {
     private static final FILL_LAYOUT_ORIENTATION[] VALUES_ARRAY = new FILL_LAYOUT_ORIENTATION[] { VERTICAL, HORIZONTAL, };
 
     /**
-     * A public read-only list of all the '
-     * <em><b>FILL LAYOUT ORIENTATION</b></em>' enumerators. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+     * A public read-only list of all the '<em><b>FILL LAYOUT
+     * ORIENTATION</b></em>' enumerators. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @generated
      */

@@ -26,17 +26,15 @@ import org.eclipse.sirius.properties.PropertyValidationRule;
 import org.eclipse.sirius.viewpoint.description.validation.SemanticValidationRule;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Group Validation Set Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Group
+ * Validation Set Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupValidationSetDescriptionImpl#getSemanticValidationRules
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupValidationSetDescriptionImpl#getSemanticValidationRules
  * <em>Semantic Validation Rules</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupValidationSetDescriptionImpl#getPropertyValidationRules
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupValidationSetDescriptionImpl#getPropertyValidationRules
  * <em>Property Validation Rules</em>}</li>
  * </ul>
  *

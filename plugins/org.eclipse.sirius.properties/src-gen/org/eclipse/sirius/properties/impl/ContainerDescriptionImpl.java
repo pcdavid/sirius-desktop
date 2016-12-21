@@ -33,11 +33,9 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ContainerDescriptionImpl#getControls
+ * <li>{@link org.eclipse.sirius.properties.impl.ContainerDescriptionImpl#getControls
  * <em>Controls</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ContainerDescriptionImpl#getLayout
+ * <li>{@link org.eclipse.sirius.properties.impl.ContainerDescriptionImpl#getLayout
  * <em>Layout</em>}</li>
  * </ul>
  *

@@ -33,6 +33,9 @@ import org.eclipse.sirius.properties.DynamicMappingFor;
 import org.eclipse.sirius.properties.DynamicMappingIf;
 import org.eclipse.sirius.properties.EditSupport;
 import org.eclipse.sirius.properties.FILL_LAYOUT_ORIENTATION;
+import org.eclipse.sirius.properties.FilePickerDescription;
+import org.eclipse.sirius.properties.FilePickerWidgetConditionalStyle;
+import org.eclipse.sirius.properties.FilePickerWidgetStyle;
 import org.eclipse.sirius.properties.FillLayoutDescription;
 import org.eclipse.sirius.properties.GridLayoutDescription;
 import org.eclipse.sirius.properties.GroupConditionalStyle;
@@ -161,6 +164,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createCustomOperation();
         case PropertiesPackage.HYPERLINK_DESCRIPTION:
             return createHyperlinkDescription();
+        case PropertiesPackage.FILE_PICKER_DESCRIPTION:
+            return createFilePickerDescription();
         case PropertiesPackage.WIDGET_STYLE:
             return createWidgetStyle();
         case PropertiesPackage.TEXT_WIDGET_STYLE:
@@ -181,6 +186,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createListWidgetStyle();
         case PropertiesPackage.HYPERLINK_WIDGET_STYLE:
             return createHyperlinkWidgetStyle();
+        case PropertiesPackage.FILE_PICKER_WIDGET_STYLE:
+            return createFilePickerWidgetStyle();
         case PropertiesPackage.GROUP_STYLE:
             return createGroupStyle();
         case PropertiesPackage.TEXT_WIDGET_CONDITIONAL_STYLE:
@@ -203,6 +210,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createWidgetAction();
         case PropertiesPackage.HYPERLINK_WIDGET_CONDITIONAL_STYLE:
             return createHyperlinkWidgetConditionalStyle();
+        case PropertiesPackage.FILE_PICKER_WIDGET_CONDITIONAL_STYLE:
+            return createFilePickerWidgetConditionalStyle();
         case PropertiesPackage.GROUP_CONDITIONAL_STYLE:
             return createGroupConditionalStyle();
         case PropertiesPackage.EDIT_SUPPORT:
@@ -520,6 +529,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public FilePickerDescription createFilePickerDescription() {
+        FilePickerDescriptionImpl filePickerDescription = new FilePickerDescriptionImpl();
+        return filePickerDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public WidgetStyle createWidgetStyle() {
         WidgetStyleImpl widgetStyle = new WidgetStyleImpl();
         return widgetStyle;
@@ -622,6 +642,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public HyperlinkWidgetStyle createHyperlinkWidgetStyle() {
         HyperlinkWidgetStyleImpl hyperlinkWidgetStyle = new HyperlinkWidgetStyleImpl();
         return hyperlinkWidgetStyle;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public FilePickerWidgetStyle createFilePickerWidgetStyle() {
+        FilePickerWidgetStyleImpl filePickerWidgetStyle = new FilePickerWidgetStyleImpl();
+        return filePickerWidgetStyle;
     }
 
     /**
@@ -743,6 +774,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public HyperlinkWidgetConditionalStyle createHyperlinkWidgetConditionalStyle() {
         HyperlinkWidgetConditionalStyleImpl hyperlinkWidgetConditionalStyle = new HyperlinkWidgetConditionalStyleImpl();
         return hyperlinkWidgetConditionalStyle;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public FilePickerWidgetConditionalStyle createFilePickerWidgetConditionalStyle() {
+        FilePickerWidgetConditionalStyleImpl filePickerWidgetConditionalStyle = new FilePickerWidgetConditionalStyleImpl();
+        return filePickerWidgetConditionalStyle;
     }
 
     /**

@@ -12,18 +12,16 @@
 package org.eclipse.sirius.properties;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Grid Layout Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Grid
+ * Layout Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.GridLayoutDescription#getNumberOfColumns
+ * <li>{@link org.eclipse.sirius.properties.GridLayoutDescription#getNumberOfColumns
  * <em>Number Of Columns</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.GridLayoutDescription#isMakeColumnsWithEqualWidth
+ * <li>{@link org.eclipse.sirius.properties.GridLayoutDescription#isMakeColumnsWithEqualWidth
  * <em>Make Columns With Equal Width</em>}</li>
  * </ul>
  *
@@ -50,8 +48,8 @@ public interface GridLayoutDescription extends LayoutDescription {
     int getNumberOfColumns();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.GridLayoutDescription#getNumberOfColumns
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.GridLayoutDescription#getNumberOfColumns
      * <em>Number Of Columns</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -81,8 +79,8 @@ public interface GridLayoutDescription extends LayoutDescription {
     boolean isMakeColumnsWithEqualWidth();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.GridLayoutDescription#isMakeColumnsWithEqualWidth
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.GridLayoutDescription#isMakeColumnsWithEqualWidth
      * <em>Make Columns With Equal Width</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *

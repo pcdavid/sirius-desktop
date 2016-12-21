@@ -35,23 +35,17 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getValueExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getValueExpression
  * <em>Value Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getDisplayExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getDisplayExpression
  * <em>Display Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getInitialOperation
  * <em>Initial Operation</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getStyle
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getActions
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkDescriptionImpl#getActions
  * <em>Actions</em>}</li>
  * </ul>
  *
@@ -59,9 +53,9 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  */
 public class HyperlinkDescriptionImpl extends WidgetDescriptionImpl implements HyperlinkDescription {
     /**
-     * The default value of the '{@link #getValueExpression()
-     * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getValueExpression() <em>Value
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getValueExpression()
      * @generated
@@ -70,9 +64,9 @@ public class HyperlinkDescriptionImpl extends WidgetDescriptionImpl implements H
     protected static final String VALUE_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getValueExpression()
-     * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getValueExpression() <em>Value
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getValueExpression()
      * @generated
@@ -81,9 +75,9 @@ public class HyperlinkDescriptionImpl extends WidgetDescriptionImpl implements H
     protected String valueExpression = HyperlinkDescriptionImpl.VALUE_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getDisplayExpression()
-     * <em>Display Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getDisplayExpression() <em>Display
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getDisplayExpression()
      * @generated
@@ -92,9 +86,9 @@ public class HyperlinkDescriptionImpl extends WidgetDescriptionImpl implements H
     protected static final String DISPLAY_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getDisplayExpression()
-     * <em>Display Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getDisplayExpression() <em>Display
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getDisplayExpression()
      * @generated
@@ -103,9 +97,9 @@ public class HyperlinkDescriptionImpl extends WidgetDescriptionImpl implements H
     protected String displayExpression = HyperlinkDescriptionImpl.DISPLAY_EXPRESSION_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getInitialOperation()
-     * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getInitialOperation() <em>Initial
+     * Operation</em>}' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getInitialOperation()
      * @generated
@@ -124,9 +118,9 @@ public class HyperlinkDescriptionImpl extends WidgetDescriptionImpl implements H
     protected HyperlinkWidgetStyle style;
 
     /**
-     * The cached value of the '{@link #getConditionalStyles()
-     * <em>Conditional Styles</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getConditionalStyles() <em>Conditional
+     * Styles</em>}' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getConditionalStyles()
      * @generated

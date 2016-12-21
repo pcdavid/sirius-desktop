@@ -31,6 +31,9 @@ import org.eclipse.sirius.properties.CustomWidgetStyle;
 import org.eclipse.sirius.properties.DynamicMappingFor;
 import org.eclipse.sirius.properties.DynamicMappingIf;
 import org.eclipse.sirius.properties.EditSupport;
+import org.eclipse.sirius.properties.FilePickerDescription;
+import org.eclipse.sirius.properties.FilePickerWidgetConditionalStyle;
+import org.eclipse.sirius.properties.FilePickerWidgetStyle;
 import org.eclipse.sirius.properties.FillLayoutDescription;
 import org.eclipse.sirius.properties.GridLayoutDescription;
 import org.eclipse.sirius.properties.GroupConditionalStyle;
@@ -447,6 +450,20 @@ public class PropertiesSwitch<T> {
             }
             return result;
         }
+        case PropertiesPackage.FILE_PICKER_DESCRIPTION: {
+            FilePickerDescription filePickerDescription = (FilePickerDescription) theEObject;
+            T result = caseFilePickerDescription(filePickerDescription);
+            if (result == null) {
+                result = caseWidgetDescription(filePickerDescription);
+            }
+            if (result == null) {
+                result = caseControlDescription(filePickerDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
         case PropertiesPackage.WIDGET_STYLE: {
             WidgetStyle widgetStyle = (WidgetStyle) theEObject;
             T result = caseWidgetStyle(widgetStyle);
@@ -548,6 +565,17 @@ public class PropertiesSwitch<T> {
             T result = caseHyperlinkWidgetStyle(hyperlinkWidgetStyle);
             if (result == null) {
                 result = caseWidgetStyle(hyperlinkWidgetStyle);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.FILE_PICKER_WIDGET_STYLE: {
+            FilePickerWidgetStyle filePickerWidgetStyle = (FilePickerWidgetStyle) theEObject;
+            T result = caseFilePickerWidgetStyle(filePickerWidgetStyle);
+            if (result == null) {
+                result = caseWidgetStyle(filePickerWidgetStyle);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -677,6 +705,17 @@ public class PropertiesSwitch<T> {
             }
             return result;
         }
+        case PropertiesPackage.FILE_PICKER_WIDGET_CONDITIONAL_STYLE: {
+            FilePickerWidgetConditionalStyle filePickerWidgetConditionalStyle = (FilePickerWidgetConditionalStyle) theEObject;
+            T result = caseFilePickerWidgetConditionalStyle(filePickerWidgetConditionalStyle);
+            if (result == null) {
+                result = caseWidgetConditionalStyle(filePickerWidgetConditionalStyle);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
         case PropertiesPackage.GROUP_CONDITIONAL_STYLE: {
             GroupConditionalStyle groupConditionalStyle = (GroupConditionalStyle) theEObject;
             T result = caseGroupConditionalStyle(groupConditionalStyle);
@@ -702,15 +741,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>View Extension Description</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>View
+     * Extension Description</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>View Extension Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>View
+     *         Extension Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -719,15 +758,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Page Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
+     * Returns the result of interpreting the object as an instance of '<em>Page
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Page Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Page
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -736,15 +775,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Page Validation Set Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of '<em>Page
+     * Validation Set Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Page Validation Set Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Page
+     *         Validation Set Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -753,15 +792,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Property Validation Rule</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Property Validation Rule</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Property Validation Rule</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Property Validation Rule</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -770,15 +809,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Group Description</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Group Description</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Group Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Group Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -787,15 +826,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Group Validation Set Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Group Validation Set Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Group Validation Set Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Group Validation Set Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -804,15 +843,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Control Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Control Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Control Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Control Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -821,15 +860,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Container Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Container Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Container Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Container Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -838,15 +877,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Layout Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Layout Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Layout Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Layout Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -855,15 +894,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Fill Layout Description</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Fill
+     * Layout Description</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Fill Layout Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Fill
+     *         Layout Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -872,15 +911,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Grid Layout Description</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Grid
+     * Layout Description</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Grid Layout Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Grid
+     *         Layout Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -889,15 +928,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -906,15 +945,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Text Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
+     * Returns the result of interpreting the object as an instance of '<em>Text
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Text Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Text
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -923,15 +962,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Button Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Button Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Button Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Button Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -940,15 +979,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Label Description</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Label Description</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Label Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Label Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -957,15 +996,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Checkbox Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Checkbox Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Checkbox Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Checkbox Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -974,15 +1013,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Select Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Select Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Select Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Select Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -991,15 +1030,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Dynamic Mapping For</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Dynamic Mapping For</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Dynamic Mapping For</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Dynamic Mapping For</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1008,15 +1047,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Dynamic Mapping If</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Dynamic Mapping If</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Dynamic Mapping If</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Dynamic Mapping If</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1025,15 +1064,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Text Area Description</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Text
+     * Area Description</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Text Area Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Text
+     *         Area Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1042,15 +1081,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Radio Description</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Radio Description</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Radio Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Radio Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1059,15 +1098,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>List Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
+     * Returns the result of interpreting the object as an instance of '<em>List
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>List Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>List
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1076,15 +1115,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Operation Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Operation Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Operation Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Operation Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1093,15 +1132,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Custom Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Custom Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1110,15 +1149,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Custom Expression</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Expression</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Custom Expression</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Expression</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1127,15 +1166,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Custom Operation</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Operation</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Custom Operation</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Operation</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1144,15 +1183,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Hyperlink Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Hyperlink Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Hyperlink Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Hyperlink Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1161,15 +1200,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Style</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of '<em>File
+     * Picker Description</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>File
+     *         Picker Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFilePickerDescription(FilePickerDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Style</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1178,15 +1234,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Text Widget Style</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
+     * Returns the result of interpreting the object as an instance of '<em>Text
+     * Widget Style</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Text Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Text
+     *         Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1195,15 +1251,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Label Widget Style</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Label Widget Style</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Label Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Label Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1212,15 +1268,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Checkbox Widget Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Checkbox Widget Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Checkbox Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Checkbox Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1229,15 +1285,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Radio Widget Style</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Radio Widget Style</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Radio Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Radio Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1246,15 +1302,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Button Widget Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Button Widget Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Button Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Button Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1263,15 +1319,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Select Widget Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Select Widget Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Select Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Select Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1280,15 +1336,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Custom Widget Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Widget Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Custom Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1297,15 +1353,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>List Widget Style</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
+     * Returns the result of interpreting the object as an instance of '<em>List
+     * Widget Style</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>List Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>List
+     *         Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1314,15 +1370,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Hyperlink Widget Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Hyperlink Widget Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Hyperlink Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Hyperlink Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1331,15 +1387,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Group Style</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of '<em>File
+     * Picker Widget Style</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Group Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>File
+     *         Picker Widget Style</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFilePickerWidgetStyle(FilePickerWidgetStyle object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Group Style</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Group Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1348,15 +1421,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1365,15 +1438,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Text Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of '<em>Text
+     * Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Text Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Text
+     *         Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1382,15 +1455,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Label Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Label Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Label Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Label Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1399,15 +1472,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Checkbox Widget Conditional Style</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Checkbox Widget Conditional Style</em>'. <!-- begin-user-doc -->
+     * This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Checkbox Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Checkbox Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1416,15 +1489,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Radio Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Radio Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Radio Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Radio Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1433,15 +1506,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Button Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Button Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Button Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Button Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1450,15 +1523,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Select Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Select Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Select Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Select Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1467,15 +1540,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Custom Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Custom Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1484,15 +1557,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>List Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of '<em>List
+     * Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>List Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>List
+     *         Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1501,15 +1574,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Action</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Action</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Action</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1518,15 +1591,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Hyperlink Widget Conditional Style</em>'. <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Hyperlink Widget Conditional Style</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Hyperlink Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Hyperlink Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1535,15 +1608,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Group Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of '<em>File
+     * Picker Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Group Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>File
+     *         Picker Widget Conditional Style</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFilePickerWidgetConditionalStyle(FilePickerWidgetConditionalStyle object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Group Conditional Style</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Group Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1552,15 +1642,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Edit Support</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Edit
+     * Support</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc
+     * -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Edit Support</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Edit
+     *         Support</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1569,15 +1659,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Extension</em>'. <!-- begin-user-doc --> This implementation returns
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Extension</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Extension</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Extension</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1586,15 +1676,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Identified Element</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Identified Element</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Identified Element</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Identified Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1620,15 +1710,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
+     * Returns the result of interpreting the object as an instance of
+     * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch, but this is
      * the last case anyway. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>EObject</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */

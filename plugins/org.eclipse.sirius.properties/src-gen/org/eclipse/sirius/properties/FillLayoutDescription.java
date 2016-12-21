@@ -12,8 +12,8 @@
 package org.eclipse.sirius.properties;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Fill Layout Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Fill
+ * Layout Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -49,8 +49,8 @@ public interface FillLayoutDescription extends LayoutDescription {
     FILL_LAYOUT_ORIENTATION getOrientation();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.FillLayoutDescription#getOrientation
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.FillLayoutDescription#getOrientation
      * <em>Orientation</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

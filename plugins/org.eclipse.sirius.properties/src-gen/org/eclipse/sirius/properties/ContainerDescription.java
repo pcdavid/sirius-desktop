@@ -68,8 +68,8 @@ public interface ContainerDescription extends ControlDescription {
     LayoutDescription getLayout();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ContainerDescription#getLayout
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ContainerDescription#getLayout
      * <em>Layout</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

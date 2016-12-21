@@ -16,18 +16,16 @@ import org.eclipse.sirius.viewpoint.FontFormat;
 import org.eclipse.sirius.viewpoint.description.ColorDescription;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Label Widget Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Label
+ * Widget Style</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.LabelWidgetStyle#getFontNameExpression
+ * <li>{@link org.eclipse.sirius.properties.LabelWidgetStyle#getFontNameExpression
  * <em>Font Name Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.LabelWidgetStyle#getFontSizeExpression
+ * <li>{@link org.eclipse.sirius.properties.LabelWidgetStyle#getFontSizeExpression
  * <em>Font Size Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.LabelWidgetStyle#getBackgroundColor
  * <em>Background Color</em>}</li>
@@ -54,15 +52,14 @@ public interface LabelWidgetStyle extends WidgetStyle {
      * @return the value of the '<em>Font Name Expression</em>' attribute.
      * @see #setFontNameExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getLabelWidgetStyle_FontNameExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getFontNameExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.LabelWidgetStyle#getFontNameExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.LabelWidgetStyle#getFontNameExpression
      * <em>Font Name Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -86,15 +83,14 @@ public interface LabelWidgetStyle extends WidgetStyle {
      * @return the value of the '<em>Font Size Expression</em>' attribute.
      * @see #setFontSizeExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getLabelWidgetStyle_FontSizeExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getFontSizeExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.LabelWidgetStyle#getFontSizeExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.LabelWidgetStyle#getFontSizeExpression
      * <em>Font Size Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -124,8 +120,8 @@ public interface LabelWidgetStyle extends WidgetStyle {
     ColorDescription getBackgroundColor();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.LabelWidgetStyle#getBackgroundColor
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.LabelWidgetStyle#getBackgroundColor
      * <em>Background Color</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -154,8 +150,8 @@ public interface LabelWidgetStyle extends WidgetStyle {
     ColorDescription getForegroundColor();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.LabelWidgetStyle#getForegroundColor
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.LabelWidgetStyle#getForegroundColor
      * <em>Foreground Color</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

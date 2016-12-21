@@ -25,6 +25,9 @@ import org.eclipse.sirius.properties.CustomWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CustomWidgetStyle;
 import org.eclipse.sirius.properties.DynamicMappingFor;
 import org.eclipse.sirius.properties.DynamicMappingIf;
+import org.eclipse.sirius.properties.FilePickerDescription;
+import org.eclipse.sirius.properties.FilePickerWidgetConditionalStyle;
+import org.eclipse.sirius.properties.FilePickerWidgetStyle;
 import org.eclipse.sirius.properties.FillLayoutDescription;
 import org.eclipse.sirius.properties.GridLayoutDescription;
 import org.eclipse.sirius.properties.GroupConditionalStyle;
@@ -271,5 +274,20 @@ public class PropertiesDescriptionConverterSwitch extends PropertiesSwitch<IDesc
     @Override
     public IDescriptionConverter caseCustomWidgetConditionalStyle(CustomWidgetConditionalStyle object) {
         return new DefaultDescriptionConverter<>(CustomWidgetConditionalStyle.class, EefPackage.Literals.EEF_CUSTOM_WIDGET_CONDITIONAL_STYLE);
+    }
+    
+    @Override
+    public IDescriptionConverter caseFilePickerDescription(FilePickerDescription object) {
+        return new FilePickerDescriptionConverter();
+    }
+    
+    @Override
+    public IDescriptionConverter caseFilePickerWidgetStyle(FilePickerWidgetStyle object) {
+        return new DefaultStyleDescriptionConverter<>(FilePickerWidgetStyle.class, EefPackage.Literals.EEF_FILE_PICKER_STYLE);
+    }
+    
+    @Override
+    public IDescriptionConverter caseFilePickerWidgetConditionalStyle(FilePickerWidgetConditionalStyle object) {
+        return new DefaultStyleDescriptionConverter<>(FilePickerWidgetConditionalStyle.class, EefPackage.Literals.EEF_FILE_PICKER_CONDITIONAL_STYLE);
     }
 }

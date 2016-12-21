@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2009 THALES GLOBAL SERVICES.
+ * Copyright (c) 2008, 2016 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *    Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.sirius.diagram.ui.tools.internal.providers.decorators;
+package org.eclipse.sirius.diagram.ui.tools.internal.decoration;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
@@ -17,21 +17,21 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.CreateDecoratorsOpe
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorProvider;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
+import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramNameEditPart;
 
 /**
- * This decorator is installed on SiriusElements edit parts. It display an
- * icon when the element is in disableEditMode (and another where it is also
- * invalid).
+ * This decorator is installed on SiriusElements edit parts. It display an icon
+ * when the element provides detail diagrams.
  * 
- * @author <a href="mailto:laurent.redor@obeo.fr">Laurent Redor</a>
+ * @author mPorhel
  * 
  */
-public class EditModeDecoratorProvider extends AbstractProvider implements IDecoratorProvider {
+public class DescribedDecoratorProvider extends AbstractProvider implements IDecoratorProvider {
 
     /**
      * KEY for descriptors map.
      */
-    public static final String KEY = "editModeDecorator"; //$NON-NLS-1$
+    public static final String KEY = "describedDecorator"; //$NON-NLS-1$
 
     /**
      * 
@@ -39,6 +39,7 @@ public class EditModeDecoratorProvider extends AbstractProvider implements IDeco
      * 
      * @see org.eclipse.gmf.runtime.common.core.service.IProvider#provides(org.eclipse.gmf.runtime.common.core.service.IOperation)
      */
+    @Override
     public boolean provides(final IOperation operation) {
         if (!(operation instanceof CreateDecoratorsOperation)) {
             return false;
@@ -46,10 +47,10 @@ public class EditModeDecoratorProvider extends AbstractProvider implements IDeco
         boolean provide = false;
         final IDecoratorTarget decoratorTarget = ((CreateDecoratorsOperation) operation).getDecoratorTarget();
         final EditPart editPart = decoratorTarget.getAdapter(EditPart.class);
-        if (editPart instanceof IDiagramElementEditPart) {
+        if (editPart instanceof IDiagramElementEditPart && !(editPart instanceof IDiagramNameEditPart)) {
             provide = true;
         }
-        return provide;
+        return false;
     }
 
     /**
@@ -58,10 +59,11 @@ public class EditModeDecoratorProvider extends AbstractProvider implements IDeco
      * 
      * @see org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorProvider#createDecorators(org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget)
      */
+    @Override
     public void createDecorators(final IDecoratorTarget decoratorTarget) {
         final EditPart editPart = decoratorTarget.getAdapter(EditPart.class);
         if (editPart instanceof IDiagramElementEditPart) {
-            decoratorTarget.installDecorator(KEY, new EditModeDecorator(decoratorTarget));
+            decoratorTarget.installDecorator(KEY, new DescribedDecorator(decoratorTarget));
         }
     }
 }

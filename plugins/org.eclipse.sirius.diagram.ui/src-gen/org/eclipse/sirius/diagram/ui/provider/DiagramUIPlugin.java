@@ -46,6 +46,11 @@ import org.eclipse.sirius.diagram.provider.DiagramItemProviderAdapterFactory;
 import org.eclipse.sirius.diagram.ui.business.internal.image.ImageSelectorDescriptorRegistryListener;
 import org.eclipse.sirius.diagram.ui.business.internal.image.refresh.WorkspaceImageFigureRefresher;
 import org.eclipse.sirius.diagram.ui.internal.refresh.listeners.WorkspaceFileResourceChangeListener;
+import org.eclipse.sirius.diagram.ui.tools.api.decoration.SiriusDecorationProviderRegistry;
+import org.eclipse.sirius.diagram.ui.tools.internal.decoration.DescribedDecorationDescriptorProvider;
+import org.eclipse.sirius.diagram.ui.tools.internal.decoration.EditModeDecorationDescriptorProvider;
+import org.eclipse.sirius.diagram.ui.tools.internal.decoration.SubDiagramDecorationDescriptorProvider;
+import org.eclipse.sirius.diagram.ui.tools.internal.decoration.ValidationDecorationDescriptorProvider;
 import org.eclipse.sirius.diagram.ui.tools.internal.format.data.extension.FormatDataManagerRegistryListener;
 import org.eclipse.sirius.diagram.ui.tools.internal.layout.data.extension.LayoutDataManagerRegistryListener;
 import org.eclipse.sirius.diagram.ui.tools.internal.resource.CustomSiriusDocumentProvider;
@@ -176,6 +181,19 @@ public final class DiagramUIPlugin extends EMFPlugin {
 
             layoutDataManagerRegistryListener = new LayoutDataManagerRegistryListener();
             layoutDataManagerRegistryListener.init();
+
+            registerDecorationProviders();
+        }
+
+        private void registerDecorationProviders() {
+            SiriusDecorationProviderRegistry.INSTANCE.addSiriusDecorationDescriptorProvider(new DescribedDecorationDescriptorProvider());
+            SiriusDecorationProviderRegistry.INSTANCE.addSiriusDecorationDescriptorProvider(new EditModeDecorationDescriptorProvider());
+            SiriusDecorationProviderRegistry.INSTANCE.addSiriusDecorationDescriptorProvider(new SubDiagramDecorationDescriptorProvider());
+            SiriusDecorationProviderRegistry.INSTANCE.addSiriusDecorationDescriptorProvider(new ValidationDecorationDescriptorProvider());
+        }
+
+        private void unRegisterDecorationProviders() {
+            SiriusDecorationProviderRegistry.INSTANCE.clear();
         }
 
         /**
@@ -221,6 +239,9 @@ public final class DiagramUIPlugin extends EMFPlugin {
             this.ressourceMissingDocumentProvider.dispose();
 
             WorkspaceFileResourceChangeListener.getInstance().dispose();
+
+            unRegisterDecorationProviders();
+
             super.stop(context);
         }
 

@@ -8,7 +8,7 @@
  * Contributors:
  *    Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.sirius.diagram.ui.tools.internal.providers.decorators;
+package org.eclipse.sirius.diagram.ui.tools.internal.decoration;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
@@ -16,7 +16,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget.Di
 import org.eclipse.gmf.runtime.draw2d.ui.mapmode.MapModeUtil;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
-import org.eclipse.sirius.diagram.ui.tools.api.decorators.AbstractSiriusDecorator;
+import org.eclipse.sirius.diagram.ui.tools.api.decoration.AbstractSiriusDecorator;
 import org.eclipse.sirius.diagram.ui.tools.api.figure.WorkspaceImageFigure;
 import org.eclipse.sirius.viewpoint.Decoration;
 import org.eclipse.sirius.viewpoint.description.DecorationDescription;

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *    Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.sirius.editor.properties;
+package org.eclipse.sirius.editor.properties.internal;
 
 import org.eclipse.sirius.ext.base.I18N;
 import org.eclipse.sirius.ext.base.I18N.TranslatableMessage;
@@ -28,9 +28,30 @@ public final class Messages {
     @TranslatableMessage
     public static String ImportingDefaultPropertiesViewDescriptionCommand_text;
 
+    @TranslatableMessage
+    public static String CreateWidgetForAllFeaturesCommand_text;
+
+    @TranslatableMessage
+    public static String CreateWidgetFromDomainClassMenuBuilder_label;
+
+    @TranslatableMessage
+    public static String DefaultMonolineTextDescriptionFactory_widgetLabel;
+
+    @TranslatableMessage
+    public static String DefaultMultilineTextDescriptionFactory_widgetLabel;
+
+    @TranslatableMessage
+    public static String DefaultBooleanDescriptionFactory_widgetLabel;
+
+    @TranslatableMessage
+    public static String DefaultEnumerationDescriptionFactory_widgetLabel;
+
+    @TranslatableMessage
+    public static String DefaultMultivaluedEAttributeDescriptionFactory_widgetLabel;
+
     // CHECKSTYLE:ON
 
     private Messages() {
-        // Prevents instanciation.
+        // Prevents instantiation.
     }
 }

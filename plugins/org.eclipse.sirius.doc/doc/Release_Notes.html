@@ -111,6 +111,7 @@
 		<h3 id="SpecifierVisibleChanges">Specifier-Visible Changes</h3>
 		<ul>
 			<li><span class="label label-info">Modified</span> The tab used to configure the metamodels used by the Properties view description is now using the same interface as the metamodels tab used to configure the representations.</li>
+			<li><span class="label label-success">Added</span> It is now possible to create one or multiple pre-configured widget(s) in a group if its domain class and if the meta-models of the properties view containing it have been specified.</li>
 		</ul>
 		<h3 id="DeveloperVisibleChanges">Developer-Visible Changes</h3>
 		<h4 id="Changesinorg.eclipse.sirius.tests.junit.support">Changes in 
@@ -132,6 +133,10 @@
 				<code>RepresentationDescriptionMetamodelPropertySectionSpec</code> has been transfered to an abstract class independent of 
 				<code>RepresentationDescription</code> named 
 				<code>AbstractMetamodelPropertySectionSpec</code>. Those classes are now used for the edition of the metamodels of both the Properties view description and the various representations.
+			</li>
+			<li><span class="label label-info">Modified</span> The content of the package 
+				<code>org.eclipse.sirius.editor.properties</code> was exposed as an API without any reason, it has now been moved to the private package 
+				<code>org.eclipse.sirius.editor.properties.internal</code>
 			</li>
 		</ul>
 		<h4 id="Changesinorg.eclipse.sirius.ui.properties">Changes in 

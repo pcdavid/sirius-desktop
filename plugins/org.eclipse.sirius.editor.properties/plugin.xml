@@ -328,7 +328,7 @@
                id="properties.section.dynamicMappingIf.PredicateExpression"
                filter="org.eclipse.sirius.properties.editor.properties.filters.properties.dynamicmappingif.DynamicMappingIfPredicateExpressionFilter"
                 tab="viewpoint.tab.general">
-        <input type="org.eclipse.sirius.properties.DynamicMappingIf"/>
+        <input type="org.eclipse.sirius.properties.DynamicMappingIfDescription"/>
       </propertySection>
   	  <propertySection
                class="org.eclipse.sirius.properties.editor.properties.sections.properties.dynamicmappingfor.DynamicMappingForIterableExpressionPropertySection"
@@ -336,14 +336,14 @@
                filter="org.eclipse.sirius.properties.editor.properties.filters.properties.dynamicmappingfor.DynamicMappingForIterableExpressionFilter"
                afterSection="properties.section.dynamicMappingFor.Iterator"
                 tab="viewpoint.tab.general">
-        <input type="org.eclipse.sirius.properties.DynamicMappingFor"/>
+        <input type="org.eclipse.sirius.properties.DynamicMappingForDescription"/>
       </propertySection>
   	  <propertySection
                class="org.eclipse.sirius.properties.editor.properties.sections.properties.dynamicmappingfor.DynamicMappingForIteratorPropertySection"
                id="properties.section.dynamicMappingFor.Iterator"
                filter="org.eclipse.sirius.properties.editor.properties.filters.properties.dynamicmappingfor.DynamicMappingForIteratorFilter"
                 tab="viewpoint.tab.general">
-        <input type="org.eclipse.sirius.properties.DynamicMappingFor"/>
+        <input type="org.eclipse.sirius.properties.DynamicMappingForDescription"/>
       </propertySection>
   	  <propertySection
                class="org.eclipse.sirius.properties.editor.properties.sections.properties.selectdescription.SelectDescriptionCandidateDisplayExpressionPropertySection"
@@ -578,11 +578,12 @@
     </propertyTabs>
   </extension>
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
-      <extender uri="http://www.eclipse.org/sirius/description/1.1.0" class="org.eclipse.sirius.editor.properties.DefaultRulesCreationExtender"/>
+      <extender uri="http://www.eclipse.org/sirius/description/1.1.0" class="org.eclipse.sirius.editor.properties.internal.DefaultRulesCreationExtender"/>
    </extension>  
   <extension point="org.eclipse.sirius.editor.menuBuilder">
      <builder class="org.eclipse.sirius.editor.properties.tools.internal.menu.WidgetsMenuBuilder" />
      <builder class="org.eclipse.sirius.editor.properties.tools.internal.menu.StyleMenuBuilder" />
+     <builder class="org.eclipse.sirius.editor.properties.tools.internal.menu.CreateWidgetFromDomainClassMenuBuilder" />
      <builder class="org.eclipse.sirius.editor.properties.tools.internal.menu.LayoutMenuBuilder" />
   </extension>
 </plugin>    

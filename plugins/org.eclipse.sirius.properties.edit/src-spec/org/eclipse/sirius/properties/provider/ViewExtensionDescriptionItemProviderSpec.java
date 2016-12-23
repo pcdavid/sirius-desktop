@@ -14,8 +14,7 @@ package org.eclipse.sirius.properties.provider;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.sirius.properties.GroupDescription;
-import org.eclipse.sirius.properties.PageDescription;
+import org.eclipse.sirius.properties.Category;
 import org.eclipse.sirius.properties.PropertiesFactory;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.ViewExtensionDescription;
@@ -46,14 +45,8 @@ public class ViewExtensionDescriptionItemProviderSpec extends ViewExtensionDescr
 
     @Override
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        PageDescription page = PropertiesFactory.eINSTANCE.createPageDescription();
-        page.setLabelExpression("Page"); //$NON-NLS-1$
-        page.setSemanticCandidateExpression(ViewExtensionDescriptionItemProvider.DEFAULT_SEMANTIC_CANDIDATES_EXPRESSION);
-        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION__PAGES, page));
-
-        GroupDescription group = PropertiesFactory.eINSTANCE.createGroupDescription();
-        group.setLabelExpression("Group"); //$NON-NLS-1$
-        group.setSemanticCandidateExpression(ViewExtensionDescriptionItemProvider.DEFAULT_SEMANTIC_CANDIDATES_EXPRESSION);
-        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION__GROUPS, group));
+        Category category = PropertiesFactory.eINSTANCE.createCategory();
+        category.setIdentifier("Category"); //$NON-NLS-1$
+        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION__CATEGORIES, category));
     }
 }

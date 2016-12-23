@@ -115,8 +115,7 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
     public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION__PAGES);
-            childrenFeatures.add(PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION__GROUPS);
+            childrenFeatures.add(PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION__CATEGORIES);
         }
         return childrenFeatures;
     }
@@ -175,8 +174,7 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__PAGES:
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__GROUPS:
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__CATEGORIES:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -194,9 +192,7 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION__PAGES, PropertiesFactory.eINSTANCE.createPageDescription()));
-
-        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION__GROUPS, PropertiesFactory.eINSTANCE.createGroupDescription()));
+        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION__CATEGORIES, PropertiesFactory.eINSTANCE.createCategory()));
     }
 
     /**

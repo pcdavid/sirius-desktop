@@ -18,50 +18,66 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.sirius.properties.ButtonDescription;
+import org.eclipse.sirius.properties.ButtonOverrideDescription;
 import org.eclipse.sirius.properties.ButtonWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ButtonWidgetStyle;
+import org.eclipse.sirius.properties.Category;
 import org.eclipse.sirius.properties.CheckboxDescription;
+import org.eclipse.sirius.properties.CheckboxOverrideDescription;
 import org.eclipse.sirius.properties.CheckboxWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CheckboxWidgetStyle;
 import org.eclipse.sirius.properties.ContainerDescription;
+import org.eclipse.sirius.properties.ContainerOverrideDescription;
 import org.eclipse.sirius.properties.CustomDescription;
 import org.eclipse.sirius.properties.CustomExpression;
 import org.eclipse.sirius.properties.CustomOperation;
+import org.eclipse.sirius.properties.CustomOverrideDescription;
 import org.eclipse.sirius.properties.CustomWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CustomWidgetStyle;
-import org.eclipse.sirius.properties.DynamicMappingFor;
-import org.eclipse.sirius.properties.DynamicMappingIf;
+import org.eclipse.sirius.properties.DynamicMappingForDescription;
+import org.eclipse.sirius.properties.DynamicMappingForOverrideDescription;
+import org.eclipse.sirius.properties.DynamicMappingIfDescription;
+import org.eclipse.sirius.properties.DynamicMappingIfOverrideDescription;
 import org.eclipse.sirius.properties.EditSupport;
 import org.eclipse.sirius.properties.FILL_LAYOUT_ORIENTATION;
 import org.eclipse.sirius.properties.FillLayoutDescription;
 import org.eclipse.sirius.properties.GridLayoutDescription;
 import org.eclipse.sirius.properties.GroupConditionalStyle;
 import org.eclipse.sirius.properties.GroupDescription;
+import org.eclipse.sirius.properties.GroupOverrideDescription;
 import org.eclipse.sirius.properties.GroupStyle;
 import org.eclipse.sirius.properties.GroupValidationSetDescription;
 import org.eclipse.sirius.properties.HyperlinkDescription;
+import org.eclipse.sirius.properties.HyperlinkOverrideDescription;
 import org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle;
 import org.eclipse.sirius.properties.HyperlinkWidgetStyle;
 import org.eclipse.sirius.properties.LabelDescription;
+import org.eclipse.sirius.properties.LabelOverrideDescription;
 import org.eclipse.sirius.properties.LabelWidgetConditionalStyle;
 import org.eclipse.sirius.properties.LabelWidgetStyle;
 import org.eclipse.sirius.properties.ListDescription;
+import org.eclipse.sirius.properties.ListOverrideDescription;
 import org.eclipse.sirius.properties.ListWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ListWidgetStyle;
 import org.eclipse.sirius.properties.OperationDescription;
 import org.eclipse.sirius.properties.PageDescription;
+import org.eclipse.sirius.properties.PageOverrideDescription;
 import org.eclipse.sirius.properties.PageValidationSetDescription;
 import org.eclipse.sirius.properties.PropertiesFactory;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.PropertyValidationRule;
 import org.eclipse.sirius.properties.RadioDescription;
+import org.eclipse.sirius.properties.RadioOverrideDescription;
 import org.eclipse.sirius.properties.RadioWidgetConditionalStyle;
 import org.eclipse.sirius.properties.RadioWidgetStyle;
 import org.eclipse.sirius.properties.SelectDescription;
+import org.eclipse.sirius.properties.SelectOverrideDescription;
 import org.eclipse.sirius.properties.SelectWidgetConditionalStyle;
 import org.eclipse.sirius.properties.SelectWidgetStyle;
 import org.eclipse.sirius.properties.TextAreaDescription;
+import org.eclipse.sirius.properties.TextAreaOverrideDescription;
 import org.eclipse.sirius.properties.TextDescription;
+import org.eclipse.sirius.properties.TextOverrideDescription;
 import org.eclipse.sirius.properties.TextWidgetConditionalStyle;
 import org.eclipse.sirius.properties.TextWidgetStyle;
 import org.eclipse.sirius.properties.TitleBarStyle;
@@ -115,52 +131,84 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
         switch (eClass.getClassifierID()) {
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION:
             return createViewExtensionDescription();
+        case PropertiesPackage.CATEGORY:
+            return createCategory();
         case PropertiesPackage.PAGE_DESCRIPTION:
             return createPageDescription();
+        case PropertiesPackage.PAGE_OVERRIDE_DESCRIPTION:
+            return createPageOverrideDescription();
         case PropertiesPackage.PAGE_VALIDATION_SET_DESCRIPTION:
             return createPageValidationSetDescription();
         case PropertiesPackage.PROPERTY_VALIDATION_RULE:
             return createPropertyValidationRule();
         case PropertiesPackage.GROUP_DESCRIPTION:
             return createGroupDescription();
+        case PropertiesPackage.GROUP_OVERRIDE_DESCRIPTION:
+            return createGroupOverrideDescription();
         case PropertiesPackage.GROUP_VALIDATION_SET_DESCRIPTION:
             return createGroupValidationSetDescription();
         case PropertiesPackage.CONTAINER_DESCRIPTION:
             return createContainerDescription();
+        case PropertiesPackage.CONTAINER_OVERRIDE_DESCRIPTION:
+            return createContainerOverrideDescription();
         case PropertiesPackage.FILL_LAYOUT_DESCRIPTION:
             return createFillLayoutDescription();
         case PropertiesPackage.GRID_LAYOUT_DESCRIPTION:
             return createGridLayoutDescription();
         case PropertiesPackage.TEXT_DESCRIPTION:
             return createTextDescription();
+        case PropertiesPackage.TEXT_OVERRIDE_DESCRIPTION:
+            return createTextOverrideDescription();
         case PropertiesPackage.BUTTON_DESCRIPTION:
             return createButtonDescription();
+        case PropertiesPackage.BUTTON_OVERRIDE_DESCRIPTION:
+            return createButtonOverrideDescription();
         case PropertiesPackage.LABEL_DESCRIPTION:
             return createLabelDescription();
+        case PropertiesPackage.LABEL_OVERRIDE_DESCRIPTION:
+            return createLabelOverrideDescription();
         case PropertiesPackage.CHECKBOX_DESCRIPTION:
             return createCheckboxDescription();
+        case PropertiesPackage.CHECKBOX_OVERRIDE_DESCRIPTION:
+            return createCheckboxOverrideDescription();
         case PropertiesPackage.SELECT_DESCRIPTION:
             return createSelectDescription();
-        case PropertiesPackage.DYNAMIC_MAPPING_FOR:
-            return createDynamicMappingFor();
-        case PropertiesPackage.DYNAMIC_MAPPING_IF:
-            return createDynamicMappingIf();
+        case PropertiesPackage.SELECT_OVERRIDE_DESCRIPTION:
+            return createSelectOverrideDescription();
+        case PropertiesPackage.DYNAMIC_MAPPING_FOR_DESCRIPTION:
+            return createDynamicMappingForDescription();
+        case PropertiesPackage.DYNAMIC_MAPPING_FOR_OVERRIDE_DESCRIPTION:
+            return createDynamicMappingForOverrideDescription();
+        case PropertiesPackage.DYNAMIC_MAPPING_IF_DESCRIPTION:
+            return createDynamicMappingIfDescription();
+        case PropertiesPackage.DYNAMIC_MAPPING_IF_OVERRIDE_DESCRIPTION:
+            return createDynamicMappingIfOverrideDescription();
         case PropertiesPackage.TEXT_AREA_DESCRIPTION:
             return createTextAreaDescription();
+        case PropertiesPackage.TEXT_AREA_OVERRIDE_DESCRIPTION:
+            return createTextAreaOverrideDescription();
         case PropertiesPackage.RADIO_DESCRIPTION:
             return createRadioDescription();
+        case PropertiesPackage.RADIO_OVERRIDE_DESCRIPTION:
+            return createRadioOverrideDescription();
         case PropertiesPackage.LIST_DESCRIPTION:
             return createListDescription();
+        case PropertiesPackage.LIST_OVERRIDE_DESCRIPTION:
+            return createListOverrideDescription();
         case PropertiesPackage.OPERATION_DESCRIPTION:
             return createOperationDescription();
         case PropertiesPackage.CUSTOM_DESCRIPTION:
             return createCustomDescription();
+        case PropertiesPackage.CUSTOM_OVERRIDE_DESCRIPTION:
+            return createCustomOverrideDescription();
         case PropertiesPackage.CUSTOM_EXPRESSION:
             return createCustomExpression();
         case PropertiesPackage.CUSTOM_OPERATION:
             return createCustomOperation();
         case PropertiesPackage.HYPERLINK_DESCRIPTION:
             return createHyperlinkDescription();
+        case PropertiesPackage.HYPERLINK_OVERRIDE_DESCRIPTION:
+            return createHyperlinkOverrideDescription();
         case PropertiesPackage.WIDGET_STYLE:
             return createWidgetStyle();
         case PropertiesPackage.TEXT_WIDGET_STYLE:
@@ -267,9 +315,31 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public Category createCategory() {
+        CategoryImpl category = new CategoryImpl();
+        return category;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public PageDescription createPageDescription() {
         PageDescriptionImpl pageDescription = new PageDescriptionImpl();
         return pageDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public PageOverrideDescription createPageOverrideDescription() {
+        PageOverrideDescriptionImpl pageOverrideDescription = new PageOverrideDescriptionImpl();
+        return pageOverrideDescription;
     }
 
     /**
@@ -311,6 +381,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public GroupOverrideDescription createGroupOverrideDescription() {
+        GroupOverrideDescriptionImpl groupOverrideDescription = new GroupOverrideDescriptionImpl();
+        return groupOverrideDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public GroupValidationSetDescription createGroupValidationSetDescription() {
         GroupValidationSetDescriptionImpl groupValidationSetDescription = new GroupValidationSetDescriptionImpl();
         return groupValidationSetDescription;
@@ -325,6 +406,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public ContainerDescription createContainerDescription() {
         ContainerDescriptionImpl containerDescription = new ContainerDescriptionImpl();
         return containerDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ContainerOverrideDescription createContainerOverrideDescription() {
+        ContainerOverrideDescriptionImpl containerOverrideDescription = new ContainerOverrideDescriptionImpl();
+        return containerOverrideDescription;
     }
 
     /**
@@ -366,9 +458,31 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public TextOverrideDescription createTextOverrideDescription() {
+        TextOverrideDescriptionImpl textOverrideDescription = new TextOverrideDescriptionImpl();
+        return textOverrideDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public ButtonDescription createButtonDescription() {
         ButtonDescriptionImpl buttonDescription = new ButtonDescriptionImpl();
         return buttonDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ButtonOverrideDescription createButtonOverrideDescription() {
+        ButtonOverrideDescriptionImpl buttonOverrideDescription = new ButtonOverrideDescriptionImpl();
+        return buttonOverrideDescription;
     }
 
     /**
@@ -388,9 +502,31 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public LabelOverrideDescription createLabelOverrideDescription() {
+        LabelOverrideDescriptionImpl labelOverrideDescription = new LabelOverrideDescriptionImpl();
+        return labelOverrideDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public CheckboxDescription createCheckboxDescription() {
         CheckboxDescriptionImpl checkboxDescription = new CheckboxDescriptionImpl();
         return checkboxDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public CheckboxOverrideDescription createCheckboxOverrideDescription() {
+        CheckboxOverrideDescriptionImpl checkboxOverrideDescription = new CheckboxOverrideDescriptionImpl();
+        return checkboxOverrideDescription;
     }
 
     /**
@@ -410,9 +546,9 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
-    public DynamicMappingFor createDynamicMappingFor() {
-        DynamicMappingForImpl dynamicMappingFor = new DynamicMappingForImpl();
-        return dynamicMappingFor;
+    public SelectOverrideDescription createSelectOverrideDescription() {
+        SelectOverrideDescriptionImpl selectOverrideDescription = new SelectOverrideDescriptionImpl();
+        return selectOverrideDescription;
     }
 
     /**
@@ -421,9 +557,42 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
-    public DynamicMappingIf createDynamicMappingIf() {
-        DynamicMappingIfImpl dynamicMappingIf = new DynamicMappingIfImpl();
-        return dynamicMappingIf;
+    public DynamicMappingForDescription createDynamicMappingForDescription() {
+        DynamicMappingForDescriptionImpl dynamicMappingForDescription = new DynamicMappingForDescriptionImpl();
+        return dynamicMappingForDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public DynamicMappingForOverrideDescription createDynamicMappingForOverrideDescription() {
+        DynamicMappingForOverrideDescriptionImpl dynamicMappingForOverrideDescription = new DynamicMappingForOverrideDescriptionImpl();
+        return dynamicMappingForOverrideDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public DynamicMappingIfDescription createDynamicMappingIfDescription() {
+        DynamicMappingIfDescriptionImpl dynamicMappingIfDescription = new DynamicMappingIfDescriptionImpl();
+        return dynamicMappingIfDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public DynamicMappingIfOverrideDescription createDynamicMappingIfOverrideDescription() {
+        DynamicMappingIfOverrideDescriptionImpl dynamicMappingIfOverrideDescription = new DynamicMappingIfOverrideDescriptionImpl();
+        return dynamicMappingIfOverrideDescription;
     }
 
     /**
@@ -443,6 +612,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public TextAreaOverrideDescription createTextAreaOverrideDescription() {
+        TextAreaOverrideDescriptionImpl textAreaOverrideDescription = new TextAreaOverrideDescriptionImpl();
+        return textAreaOverrideDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public RadioDescription createRadioDescription() {
         RadioDescriptionImpl radioDescription = new RadioDescriptionImpl();
         return radioDescription;
@@ -454,9 +634,31 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
      * @generated
      */
     @Override
+    public RadioOverrideDescription createRadioOverrideDescription() {
+        RadioOverrideDescriptionImpl radioOverrideDescription = new RadioOverrideDescriptionImpl();
+        return radioOverrideDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public ListDescription createListDescription() {
         ListDescriptionImpl listDescription = new ListDescriptionImpl();
         return listDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ListOverrideDescription createListOverrideDescription() {
+        ListOverrideDescriptionImpl listOverrideDescription = new ListOverrideDescriptionImpl();
+        return listOverrideDescription;
     }
 
     /**
@@ -479,6 +681,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public CustomDescription createCustomDescription() {
         CustomDescriptionImpl customDescription = new CustomDescriptionImpl();
         return customDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public CustomOverrideDescription createCustomOverrideDescription() {
+        CustomOverrideDescriptionImpl customOverrideDescription = new CustomOverrideDescriptionImpl();
+        return customOverrideDescription;
     }
 
     /**
@@ -512,6 +725,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public HyperlinkDescription createHyperlinkDescription() {
         HyperlinkDescriptionImpl hyperlinkDescription = new HyperlinkDescriptionImpl();
         return hyperlinkDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public HyperlinkOverrideDescription createHyperlinkOverrideDescription() {
+        HyperlinkOverrideDescriptionImpl hyperlinkOverrideDescription = new HyperlinkOverrideDescriptionImpl();
+        return hyperlinkOverrideDescription;
     }
 
     /**

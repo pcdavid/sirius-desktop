@@ -27,7 +27,7 @@ public class GroupDescriptionIdentifierFilter extends ViewpointPropertyFilter {
      */
     @Override
     protected EStructuralFeature getFeature() {
-        return PropertiesPackage.eINSTANCE.getGroupDescription_Identifier();
+        return PropertiesPackage.eINSTANCE.getAbstractGroupDescription_Identifier();
     }
 
     /**

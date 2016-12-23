@@ -16,23 +16,19 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.sirius.viewpoint.description.Extension;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>View Extension Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>View
+ * Extension Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.ViewExtensionDescription#getIdentifier
+ * <li>{@link org.eclipse.sirius.properties.ViewExtensionDescription#getIdentifier
  * <em>Identifier</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.ViewExtensionDescription#getMetamodels
+ * <li>{@link org.eclipse.sirius.properties.ViewExtensionDescription#getMetamodels
  * <em>Metamodels</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.ViewExtensionDescription#getPages
- * <em>Pages</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.ViewExtensionDescription#getGroups
- * <em>Groups</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.ViewExtensionDescription#getCategories
+ * <em>Categories</em>}</li>
  * </ul>
  *
  * @see org.eclipse.sirius.properties.PropertiesPackage#getViewExtensionDescription()
@@ -58,8 +54,8 @@ public interface ViewExtensionDescription extends Extension {
     String getIdentifier();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ViewExtensionDescription#getIdentifier
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ViewExtensionDescription#getIdentifier
      * <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -88,39 +84,21 @@ public interface ViewExtensionDescription extends Extension {
     EList<EPackage> getMetamodels();
 
     /**
-     * Returns the value of the '<em><b>Pages</b></em>' containment reference
-     * list. The list contents are of type
-     * {@link org.eclipse.sirius.properties.PageDescription}. <!--
-     * begin-user-doc -->
+     * Returns the value of the '<em><b>Categories</b></em>' containment
+     * reference list. The list contents are of type
+     * {@link org.eclipse.sirius.properties.Category}. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Pages</em>' containment reference list isn't
-     * clear, there really should be more of a description here...
+     * If the meaning of the '<em>Categories</em>' containment reference list
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '<em>Pages</em>' containment reference list.
-     * @see org.eclipse.sirius.properties.PropertiesPackage#getViewExtensionDescription_Pages()
+     * @return the value of the '<em>Categories</em>' containment reference
+     *         list.
+     * @see org.eclipse.sirius.properties.PropertiesPackage#getViewExtensionDescription_Categories()
      * @model containment="true"
      * @generated
      */
-    EList<PageDescription> getPages();
-
-    /**
-     * Returns the value of the '<em><b>Groups</b></em>' containment reference
-     * list. The list contents are of type
-     * {@link org.eclipse.sirius.properties.GroupDescription}. <!--
-     * begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Groups</em>' containment reference list isn't
-     * clear, there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     *
-     * @return the value of the '<em>Groups</em>' containment reference list.
-     * @see org.eclipse.sirius.properties.PropertiesPackage#getViewExtensionDescription_Groups()
-     * @model containment="true"
-     * @generated
-     */
-    EList<GroupDescription> getGroups();
+    EList<Category> getCategories();
 
 } // ViewExtensionDescription

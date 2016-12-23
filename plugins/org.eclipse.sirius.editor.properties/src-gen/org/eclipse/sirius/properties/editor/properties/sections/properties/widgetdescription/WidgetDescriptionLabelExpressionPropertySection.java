@@ -55,7 +55,7 @@ public class WidgetDescriptionLabelExpressionPropertySection extends AbstractTex
      */
     @Override
     public EAttribute getFeature() {
-        return PropertiesPackage.eINSTANCE.getWidgetDescription_LabelExpression();
+        return PropertiesPackage.eINSTANCE.getAbstractWidgetDescription_LabelExpression();
     }
 
     /**

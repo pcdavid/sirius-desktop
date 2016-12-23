@@ -55,7 +55,7 @@ public class WidgetDescriptionIsEnabledExpressionPropertySection extends Abstrac
      */
     @Override
     public EAttribute getFeature() {
-        return PropertiesPackage.eINSTANCE.getWidgetDescription_IsEnabledExpression();
+        return PropertiesPackage.eINSTANCE.getAbstractWidgetDescription_IsEnabledExpression();
     }
 
     /**

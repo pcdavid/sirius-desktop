@@ -14,8 +14,8 @@ package org.eclipse.sirius.properties;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Custom Expression</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Custom
+ * Expression</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -50,8 +50,8 @@ public interface CustomExpression extends EObject {
     String getIdentifier();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.CustomExpression#getIdentifier
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.CustomExpression#getIdentifier
      * <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -74,15 +74,14 @@ public interface CustomExpression extends EObject {
      * @return the value of the '<em>Custom Expression</em>' attribute.
      * @see #setCustomExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getCustomExpression_CustomExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getCustomExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.CustomExpression#getCustomExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.CustomExpression#getCustomExpression
      * <em>Custom Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

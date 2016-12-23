@@ -12,6 +12,7 @@ package org.eclipse.sirius.tests.ui.properties.internal.converters;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.eef.EEFViewDescription;
@@ -37,6 +38,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.sirius.properties.Category;
+import org.eclipse.sirius.properties.PageDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.ViewExtensionDescription;
 import org.eclipse.sirius.properties.core.api.SiriusInputDescriptor;
@@ -88,8 +91,12 @@ public class ConverterTests {
      */
     private EObject convert(EObject eObject) {
         if (eObject instanceof ViewExtensionDescription) {
+            List<PageDescription> pages = new ArrayList<>();
             ViewExtensionDescription viewExtensionDescription = (ViewExtensionDescription) eObject;
-            ViewDescriptionConverter converter = new ViewDescriptionConverter(viewExtensionDescription.getPages());
+            for (Category category : viewExtensionDescription.getCategories()) {
+                pages.addAll(category.getPages());
+            }
+            ViewDescriptionConverter converter = new ViewDescriptionConverter(pages);
             SiriusInputDescriptor input = new SiriusInputDescriptor(EcoreFactory.eINSTANCE.createEObject());
             EEFViewDescription eefViewDescription = converter.convert(input);
 

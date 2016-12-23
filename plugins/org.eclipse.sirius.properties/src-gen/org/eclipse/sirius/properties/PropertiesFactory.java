@@ -39,6 +39,15 @@ public interface PropertiesFactory extends EFactory {
     ViewExtensionDescription createViewExtensionDescription();
 
     /**
+     * Returns a new object of class '<em>Category</em>'. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Category</em>'.
+     * @generated
+     */
+    Category createCategory();
+
+    /**
      * Returns a new object of class '<em>Page Description</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -46,6 +55,15 @@ public interface PropertiesFactory extends EFactory {
      * @generated
      */
     PageDescription createPageDescription();
+
+    /**
+     * Returns a new object of class '<em>Page Override Description</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Page Override Description</em>'.
+     * @generated
+     */
+    PageOverrideDescription createPageOverrideDescription();
 
     /**
      * Returns a new object of class '<em>Page Validation Set Description</em>'.
@@ -75,11 +93,20 @@ public interface PropertiesFactory extends EFactory {
     GroupDescription createGroupDescription();
 
     /**
-     * Returns a new object of class '<em>Group Validation Set Description</em>
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Group Override Description</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Group Validation Set Description</em>
-     *         '.
+     * @return a new object of class '<em>Group Override Description</em>'.
+     * @generated
+     */
+    GroupOverrideDescription createGroupOverrideDescription();
+
+    /**
+     * Returns a new object of class '<em>Group Validation Set
+     * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Group Validation Set
+     *         Description</em>'.
      * @generated
      */
     GroupValidationSetDescription createGroupValidationSetDescription();
@@ -92,6 +119,15 @@ public interface PropertiesFactory extends EFactory {
      * @generated
      */
     ContainerDescription createContainerDescription();
+
+    /**
+     * Returns a new object of class '<em>Container Override Description</em>'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Container Override Description</em>'.
+     * @generated
+     */
+    ContainerOverrideDescription createContainerOverrideDescription();
 
     /**
      * Returns a new object of class '<em>Fill Layout Description</em>'. <!--
@@ -121,6 +157,15 @@ public interface PropertiesFactory extends EFactory {
     TextDescription createTextDescription();
 
     /**
+     * Returns a new object of class '<em>Text Override Description</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Text Override Description</em>'.
+     * @generated
+     */
+    TextOverrideDescription createTextOverrideDescription();
+
+    /**
      * Returns a new object of class '<em>Button Description</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -128,6 +173,15 @@ public interface PropertiesFactory extends EFactory {
      * @generated
      */
     ButtonDescription createButtonDescription();
+
+    /**
+     * Returns a new object of class '<em>Button Override Description</em>'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Button Override Description</em>'.
+     * @generated
+     */
+    ButtonOverrideDescription createButtonOverrideDescription();
 
     /**
      * Returns a new object of class '<em>Label Description</em>'. <!--
@@ -139,6 +193,15 @@ public interface PropertiesFactory extends EFactory {
     LabelDescription createLabelDescription();
 
     /**
+     * Returns a new object of class '<em>Label Override Description</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Label Override Description</em>'.
+     * @generated
+     */
+    LabelOverrideDescription createLabelOverrideDescription();
+
+    /**
      * Returns a new object of class '<em>Checkbox Description</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -146,6 +209,15 @@ public interface PropertiesFactory extends EFactory {
      * @generated
      */
     CheckboxDescription createCheckboxDescription();
+
+    /**
+     * Returns a new object of class '<em>Checkbox Override Description</em>'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Checkbox Override Description</em>'.
+     * @generated
+     */
+    CheckboxOverrideDescription createCheckboxOverrideDescription();
 
     /**
      * Returns a new object of class '<em>Select Description</em>'. <!--
@@ -157,22 +229,51 @@ public interface PropertiesFactory extends EFactory {
     SelectDescription createSelectDescription();
 
     /**
-     * Returns a new object of class '<em>Dynamic Mapping For</em>'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Select Override Description</em>'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Dynamic Mapping For</em>'.
+     * @return a new object of class '<em>Select Override Description</em>'.
      * @generated
      */
-    DynamicMappingFor createDynamicMappingFor();
+    SelectOverrideDescription createSelectOverrideDescription();
 
     /**
-     * Returns a new object of class '<em>Dynamic Mapping If</em>'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Dynamic Mapping For Description</em>'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Dynamic Mapping If</em>'.
+     * @return a new object of class '<em>Dynamic Mapping For Description</em>'.
      * @generated
      */
-    DynamicMappingIf createDynamicMappingIf();
+    DynamicMappingForDescription createDynamicMappingForDescription();
+
+    /**
+     * Returns a new object of class '<em>Dynamic Mapping For Override
+     * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Dynamic Mapping For Override
+     *         Description</em>'.
+     * @generated
+     */
+    DynamicMappingForOverrideDescription createDynamicMappingForOverrideDescription();
+
+    /**
+     * Returns a new object of class '<em>Dynamic Mapping If Description</em>'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Dynamic Mapping If Description</em>'.
+     * @generated
+     */
+    DynamicMappingIfDescription createDynamicMappingIfDescription();
+
+    /**
+     * Returns a new object of class '<em>Dynamic Mapping If Override
+     * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Dynamic Mapping If Override
+     *         Description</em>'.
+     * @generated
+     */
+    DynamicMappingIfOverrideDescription createDynamicMappingIfOverrideDescription();
 
     /**
      * Returns a new object of class '<em>Text Area Description</em>'. <!--
@@ -184,6 +285,15 @@ public interface PropertiesFactory extends EFactory {
     TextAreaDescription createTextAreaDescription();
 
     /**
+     * Returns a new object of class '<em>Text Area Override Description</em>'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Text Area Override Description</em>'.
+     * @generated
+     */
+    TextAreaOverrideDescription createTextAreaOverrideDescription();
+
+    /**
      * Returns a new object of class '<em>Radio Description</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -193,6 +303,15 @@ public interface PropertiesFactory extends EFactory {
     RadioDescription createRadioDescription();
 
     /**
+     * Returns a new object of class '<em>Radio Override Description</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Radio Override Description</em>'.
+     * @generated
+     */
+    RadioOverrideDescription createRadioOverrideDescription();
+
+    /**
      * Returns a new object of class '<em>List Description</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -200,6 +319,15 @@ public interface PropertiesFactory extends EFactory {
      * @generated
      */
     ListDescription createListDescription();
+
+    /**
+     * Returns a new object of class '<em>List Override Description</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>List Override Description</em>'.
+     * @generated
+     */
+    ListOverrideDescription createListOverrideDescription();
 
     /**
      * Returns a new object of class '<em>Operation Description</em>'. <!--
@@ -218,6 +346,15 @@ public interface PropertiesFactory extends EFactory {
      * @generated
      */
     CustomDescription createCustomDescription();
+
+    /**
+     * Returns a new object of class '<em>Custom Override Description</em>'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Custom Override Description</em>'.
+     * @generated
+     */
+    CustomOverrideDescription createCustomOverrideDescription();
 
     /**
      * Returns a new object of class '<em>Custom Expression</em>'. <!--
@@ -245,6 +382,15 @@ public interface PropertiesFactory extends EFactory {
      * @generated
      */
     HyperlinkDescription createHyperlinkDescription();
+
+    /**
+     * Returns a new object of class '<em>Hyperlink Override Description</em>'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Hyperlink Override Description</em>'.
+     * @generated
+     */
+    HyperlinkOverrideDescription createHyperlinkOverrideDescription();
 
     /**
      * Returns a new object of class '<em>Widget Style</em>'. <!--
@@ -364,11 +510,11 @@ public interface PropertiesFactory extends EFactory {
     LabelWidgetConditionalStyle createLabelWidgetConditionalStyle();
 
     /**
-     * Returns a new object of class '<em>Checkbox Widget Conditional Style</em>
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Checkbox Widget Conditional
+     * Style</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Checkbox Widget Conditional Style</em>
-     *         '.
+     * @return a new object of class '<em>Checkbox Widget Conditional
+     *         Style</em>'.
      * @generated
      */
     CheckboxWidgetConditionalStyle createCheckboxWidgetConditionalStyle();
@@ -428,12 +574,11 @@ public interface PropertiesFactory extends EFactory {
     WidgetAction createWidgetAction();
 
     /**
-     * Returns a new object of class '
-     * <em>Hyperlink Widget Conditional Style</em>'. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Returns a new object of class '<em>Hyperlink Widget Conditional
+     * Style</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '
-     *         <em>Hyperlink Widget Conditional Style</em>'.
+     * @return a new object of class '<em>Hyperlink Widget Conditional
+     *         Style</em>'.
      * @generated
      */
     HyperlinkWidgetConditionalStyle createHyperlinkWidgetConditionalStyle();

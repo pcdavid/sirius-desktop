@@ -22,17 +22,15 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Custom Operation</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Custom
+ * Operation</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CustomOperationImpl#getIdentifier
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomOperationImpl#getIdentifier
  * <em>Identifier</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CustomOperationImpl#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomOperationImpl#getInitialOperation
  * <em>Initial Operation</em>}</li>
  * </ul>
  *
@@ -60,9 +58,9 @@ public class CustomOperationImpl extends MinimalEObjectImpl.Container implements
     protected String identifier = CustomOperationImpl.IDENTIFIER_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getInitialOperation()
-     * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getInitialOperation() <em>Initial
+     * Operation</em>}' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getInitialOperation()
      * @generated

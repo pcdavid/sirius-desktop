@@ -15,51 +15,85 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.properties.AbstractButtonDescription;
+import org.eclipse.sirius.properties.AbstractCheckboxDescription;
+import org.eclipse.sirius.properties.AbstractContainerDescription;
+import org.eclipse.sirius.properties.AbstractControlDescription;
+import org.eclipse.sirius.properties.AbstractCustomDescription;
+import org.eclipse.sirius.properties.AbstractDynamicMappingForDescription;
+import org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription;
+import org.eclipse.sirius.properties.AbstractGroupDescription;
+import org.eclipse.sirius.properties.AbstractHyperlinkDescription;
+import org.eclipse.sirius.properties.AbstractLabelDescription;
+import org.eclipse.sirius.properties.AbstractListDescription;
+import org.eclipse.sirius.properties.AbstractOverrideDescription;
+import org.eclipse.sirius.properties.AbstractPageDescription;
+import org.eclipse.sirius.properties.AbstractRadioDescription;
+import org.eclipse.sirius.properties.AbstractSelectDescription;
+import org.eclipse.sirius.properties.AbstractTextAreaDescription;
+import org.eclipse.sirius.properties.AbstractTextDescription;
+import org.eclipse.sirius.properties.AbstractWidgetDescription;
 import org.eclipse.sirius.properties.ButtonDescription;
+import org.eclipse.sirius.properties.ButtonOverrideDescription;
 import org.eclipse.sirius.properties.ButtonWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ButtonWidgetStyle;
+import org.eclipse.sirius.properties.Category;
 import org.eclipse.sirius.properties.CheckboxDescription;
+import org.eclipse.sirius.properties.CheckboxOverrideDescription;
 import org.eclipse.sirius.properties.CheckboxWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CheckboxWidgetStyle;
 import org.eclipse.sirius.properties.ContainerDescription;
+import org.eclipse.sirius.properties.ContainerOverrideDescription;
 import org.eclipse.sirius.properties.ControlDescription;
 import org.eclipse.sirius.properties.CustomDescription;
 import org.eclipse.sirius.properties.CustomExpression;
 import org.eclipse.sirius.properties.CustomOperation;
+import org.eclipse.sirius.properties.CustomOverrideDescription;
 import org.eclipse.sirius.properties.CustomWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CustomWidgetStyle;
-import org.eclipse.sirius.properties.DynamicMappingFor;
-import org.eclipse.sirius.properties.DynamicMappingIf;
+import org.eclipse.sirius.properties.DynamicMappingForDescription;
+import org.eclipse.sirius.properties.DynamicMappingForOverrideDescription;
+import org.eclipse.sirius.properties.DynamicMappingIfDescription;
+import org.eclipse.sirius.properties.DynamicMappingIfOverrideDescription;
 import org.eclipse.sirius.properties.EditSupport;
 import org.eclipse.sirius.properties.FillLayoutDescription;
 import org.eclipse.sirius.properties.GridLayoutDescription;
 import org.eclipse.sirius.properties.GroupConditionalStyle;
 import org.eclipse.sirius.properties.GroupDescription;
+import org.eclipse.sirius.properties.GroupOverrideDescription;
 import org.eclipse.sirius.properties.GroupStyle;
 import org.eclipse.sirius.properties.GroupValidationSetDescription;
 import org.eclipse.sirius.properties.HyperlinkDescription;
+import org.eclipse.sirius.properties.HyperlinkOverrideDescription;
 import org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle;
 import org.eclipse.sirius.properties.HyperlinkWidgetStyle;
 import org.eclipse.sirius.properties.LabelDescription;
+import org.eclipse.sirius.properties.LabelOverrideDescription;
 import org.eclipse.sirius.properties.LabelWidgetConditionalStyle;
 import org.eclipse.sirius.properties.LabelWidgetStyle;
 import org.eclipse.sirius.properties.LayoutDescription;
 import org.eclipse.sirius.properties.ListDescription;
+import org.eclipse.sirius.properties.ListOverrideDescription;
 import org.eclipse.sirius.properties.ListWidgetConditionalStyle;
 import org.eclipse.sirius.properties.ListWidgetStyle;
 import org.eclipse.sirius.properties.OperationDescription;
 import org.eclipse.sirius.properties.PageDescription;
+import org.eclipse.sirius.properties.PageOverrideDescription;
 import org.eclipse.sirius.properties.PageValidationSetDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.PropertyValidationRule;
 import org.eclipse.sirius.properties.RadioDescription;
+import org.eclipse.sirius.properties.RadioOverrideDescription;
 import org.eclipse.sirius.properties.RadioWidgetConditionalStyle;
 import org.eclipse.sirius.properties.RadioWidgetStyle;
 import org.eclipse.sirius.properties.SelectDescription;
+import org.eclipse.sirius.properties.SelectOverrideDescription;
 import org.eclipse.sirius.properties.SelectWidgetConditionalStyle;
 import org.eclipse.sirius.properties.SelectWidgetStyle;
 import org.eclipse.sirius.properties.TextAreaDescription;
+import org.eclipse.sirius.properties.TextAreaOverrideDescription;
 import org.eclipse.sirius.properties.TextDescription;
+import org.eclipse.sirius.properties.TextOverrideDescription;
 import org.eclipse.sirius.properties.TextWidgetConditionalStyle;
 import org.eclipse.sirius.properties.TextWidgetStyle;
 import org.eclipse.sirius.properties.ViewExtensionDescription;
@@ -155,9 +189,50 @@ public class PropertiesSwitch<T> {
             }
             return result;
         }
+        case PropertiesPackage.CATEGORY: {
+            Category category = (Category) theEObject;
+            T result = caseCategory(category);
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_OVERRIDE_DESCRIPTION: {
+            AbstractOverrideDescription abstractOverrideDescription = (AbstractOverrideDescription) theEObject;
+            T result = caseAbstractOverrideDescription(abstractOverrideDescription);
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION: {
+            AbstractPageDescription abstractPageDescription = (AbstractPageDescription) theEObject;
+            T result = caseAbstractPageDescription(abstractPageDescription);
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
         case PropertiesPackage.PAGE_DESCRIPTION: {
             PageDescription pageDescription = (PageDescription) theEObject;
             T result = casePageDescription(pageDescription);
+            if (result == null) {
+                result = caseAbstractPageDescription(pageDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.PAGE_OVERRIDE_DESCRIPTION: {
+            PageOverrideDescription pageOverrideDescription = (PageOverrideDescription) theEObject;
+            T result = casePageOverrideDescription(pageOverrideDescription);
+            if (result == null) {
+                result = caseAbstractPageDescription(pageOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(pageOverrideDescription);
+            }
             if (result == null) {
                 result = defaultCase(theEObject);
             }
@@ -185,9 +260,34 @@ public class PropertiesSwitch<T> {
             }
             return result;
         }
+        case PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION: {
+            AbstractGroupDescription abstractGroupDescription = (AbstractGroupDescription) theEObject;
+            T result = caseAbstractGroupDescription(abstractGroupDescription);
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
         case PropertiesPackage.GROUP_DESCRIPTION: {
             GroupDescription groupDescription = (GroupDescription) theEObject;
             T result = caseGroupDescription(groupDescription);
+            if (result == null) {
+                result = caseAbstractGroupDescription(groupDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.GROUP_OVERRIDE_DESCRIPTION: {
+            GroupOverrideDescription groupOverrideDescription = (GroupOverrideDescription) theEObject;
+            T result = caseGroupOverrideDescription(groupOverrideDescription);
+            if (result == null) {
+                result = caseAbstractGroupDescription(groupOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(groupOverrideDescription);
+            }
             if (result == null) {
                 result = defaultCase(theEObject);
             }
@@ -201,9 +301,31 @@ public class PropertiesSwitch<T> {
             }
             return result;
         }
+        case PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION: {
+            AbstractControlDescription abstractControlDescription = (AbstractControlDescription) theEObject;
+            T result = caseAbstractControlDescription(abstractControlDescription);
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
         case PropertiesPackage.CONTROL_DESCRIPTION: {
             ControlDescription controlDescription = (ControlDescription) theEObject;
             T result = caseControlDescription(controlDescription);
+            if (result == null) {
+                result = caseAbstractControlDescription(controlDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION: {
+            AbstractContainerDescription abstractContainerDescription = (AbstractContainerDescription) theEObject;
+            T result = caseAbstractContainerDescription(abstractContainerDescription);
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractContainerDescription);
+            }
             if (result == null) {
                 result = defaultCase(theEObject);
             }
@@ -214,6 +336,29 @@ public class PropertiesSwitch<T> {
             T result = caseContainerDescription(containerDescription);
             if (result == null) {
                 result = caseControlDescription(containerDescription);
+            }
+            if (result == null) {
+                result = caseAbstractContainerDescription(containerDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(containerDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.CONTAINER_OVERRIDE_DESCRIPTION: {
+            ContainerOverrideDescription containerOverrideDescription = (ContainerOverrideDescription) theEObject;
+            T result = caseContainerOverrideDescription(containerOverrideDescription);
+            if (result == null) {
+                result = caseAbstractContainerDescription(containerOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(containerOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(containerOverrideDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -250,11 +395,39 @@ public class PropertiesSwitch<T> {
             }
             return result;
         }
+        case PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION: {
+            AbstractWidgetDescription abstractWidgetDescription = (AbstractWidgetDescription) theEObject;
+            T result = caseAbstractWidgetDescription(abstractWidgetDescription);
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractWidgetDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
         case PropertiesPackage.WIDGET_DESCRIPTION: {
             WidgetDescription widgetDescription = (WidgetDescription) theEObject;
             T result = caseWidgetDescription(widgetDescription);
             if (result == null) {
                 result = caseControlDescription(widgetDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(widgetDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_TEXT_DESCRIPTION: {
+            AbstractTextDescription abstractTextDescription = (AbstractTextDescription) theEObject;
+            T result = caseAbstractTextDescription(abstractTextDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractTextDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractTextDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -265,10 +438,53 @@ public class PropertiesSwitch<T> {
             TextDescription textDescription = (TextDescription) theEObject;
             T result = caseTextDescription(textDescription);
             if (result == null) {
+                result = caseAbstractTextDescription(textDescription);
+            }
+            if (result == null) {
                 result = caseWidgetDescription(textDescription);
             }
             if (result == null) {
+                result = caseAbstractWidgetDescription(textDescription);
+            }
+            if (result == null) {
                 result = caseControlDescription(textDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(textDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.TEXT_OVERRIDE_DESCRIPTION: {
+            TextOverrideDescription textOverrideDescription = (TextOverrideDescription) theEObject;
+            T result = caseTextOverrideDescription(textOverrideDescription);
+            if (result == null) {
+                result = caseAbstractTextDescription(textOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(textOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(textOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(textOverrideDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_BUTTON_DESCRIPTION: {
+            AbstractButtonDescription abstractButtonDescription = (AbstractButtonDescription) theEObject;
+            T result = caseAbstractButtonDescription(abstractButtonDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractButtonDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractButtonDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -282,7 +498,50 @@ public class PropertiesSwitch<T> {
                 result = caseWidgetDescription(buttonDescription);
             }
             if (result == null) {
+                result = caseAbstractButtonDescription(buttonDescription);
+            }
+            if (result == null) {
                 result = caseControlDescription(buttonDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(buttonDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(buttonDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.BUTTON_OVERRIDE_DESCRIPTION: {
+            ButtonOverrideDescription buttonOverrideDescription = (ButtonOverrideDescription) theEObject;
+            T result = caseButtonOverrideDescription(buttonOverrideDescription);
+            if (result == null) {
+                result = caseAbstractButtonDescription(buttonOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(buttonOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(buttonOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(buttonOverrideDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_LABEL_DESCRIPTION: {
+            AbstractLabelDescription abstractLabelDescription = (AbstractLabelDescription) theEObject;
+            T result = caseAbstractLabelDescription(abstractLabelDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractLabelDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractLabelDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -296,7 +555,50 @@ public class PropertiesSwitch<T> {
                 result = caseWidgetDescription(labelDescription);
             }
             if (result == null) {
+                result = caseAbstractLabelDescription(labelDescription);
+            }
+            if (result == null) {
                 result = caseControlDescription(labelDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(labelDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(labelDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.LABEL_OVERRIDE_DESCRIPTION: {
+            LabelOverrideDescription labelOverrideDescription = (LabelOverrideDescription) theEObject;
+            T result = caseLabelOverrideDescription(labelOverrideDescription);
+            if (result == null) {
+                result = caseAbstractLabelDescription(labelOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(labelOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(labelOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(labelOverrideDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION: {
+            AbstractCheckboxDescription abstractCheckboxDescription = (AbstractCheckboxDescription) theEObject;
+            T result = caseAbstractCheckboxDescription(abstractCheckboxDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractCheckboxDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractCheckboxDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -310,7 +612,50 @@ public class PropertiesSwitch<T> {
                 result = caseWidgetDescription(checkboxDescription);
             }
             if (result == null) {
+                result = caseAbstractCheckboxDescription(checkboxDescription);
+            }
+            if (result == null) {
                 result = caseControlDescription(checkboxDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(checkboxDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(checkboxDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.CHECKBOX_OVERRIDE_DESCRIPTION: {
+            CheckboxOverrideDescription checkboxOverrideDescription = (CheckboxOverrideDescription) theEObject;
+            T result = caseCheckboxOverrideDescription(checkboxOverrideDescription);
+            if (result == null) {
+                result = caseAbstractCheckboxDescription(checkboxOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(checkboxOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(checkboxOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(checkboxOverrideDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_SELECT_DESCRIPTION: {
+            AbstractSelectDescription abstractSelectDescription = (AbstractSelectDescription) theEObject;
+            T result = caseAbstractSelectDescription(abstractSelectDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractSelectDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractSelectDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -324,27 +669,129 @@ public class PropertiesSwitch<T> {
                 result = caseWidgetDescription(selectDescription);
             }
             if (result == null) {
+                result = caseAbstractSelectDescription(selectDescription);
+            }
+            if (result == null) {
                 result = caseControlDescription(selectDescription);
             }
             if (result == null) {
-                result = defaultCase(theEObject);
+                result = caseAbstractWidgetDescription(selectDescription);
             }
-            return result;
-        }
-        case PropertiesPackage.DYNAMIC_MAPPING_FOR: {
-            DynamicMappingFor dynamicMappingFor = (DynamicMappingFor) theEObject;
-            T result = caseDynamicMappingFor(dynamicMappingFor);
             if (result == null) {
-                result = caseControlDescription(dynamicMappingFor);
+                result = caseAbstractControlDescription(selectDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
             }
             return result;
         }
-        case PropertiesPackage.DYNAMIC_MAPPING_IF: {
-            DynamicMappingIf dynamicMappingIf = (DynamicMappingIf) theEObject;
-            T result = caseDynamicMappingIf(dynamicMappingIf);
+        case PropertiesPackage.SELECT_OVERRIDE_DESCRIPTION: {
+            SelectOverrideDescription selectOverrideDescription = (SelectOverrideDescription) theEObject;
+            T result = caseSelectOverrideDescription(selectOverrideDescription);
+            if (result == null) {
+                result = caseAbstractSelectDescription(selectOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(selectOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(selectOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(selectOverrideDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_FOR_DESCRIPTION: {
+            AbstractDynamicMappingForDescription abstractDynamicMappingForDescription = (AbstractDynamicMappingForDescription) theEObject;
+            T result = caseAbstractDynamicMappingForDescription(abstractDynamicMappingForDescription);
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractDynamicMappingForDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.DYNAMIC_MAPPING_FOR_DESCRIPTION: {
+            DynamicMappingForDescription dynamicMappingForDescription = (DynamicMappingForDescription) theEObject;
+            T result = caseDynamicMappingForDescription(dynamicMappingForDescription);
+            if (result == null) {
+                result = caseControlDescription(dynamicMappingForDescription);
+            }
+            if (result == null) {
+                result = caseAbstractDynamicMappingForDescription(dynamicMappingForDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(dynamicMappingForDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.DYNAMIC_MAPPING_FOR_OVERRIDE_DESCRIPTION: {
+            DynamicMappingForOverrideDescription dynamicMappingForOverrideDescription = (DynamicMappingForOverrideDescription) theEObject;
+            T result = caseDynamicMappingForOverrideDescription(dynamicMappingForOverrideDescription);
+            if (result == null) {
+                result = caseAbstractDynamicMappingForDescription(dynamicMappingForOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(dynamicMappingForOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(dynamicMappingForOverrideDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION: {
+            AbstractDynamicMappingIfDescription abstractDynamicMappingIfDescription = (AbstractDynamicMappingIfDescription) theEObject;
+            T result = caseAbstractDynamicMappingIfDescription(abstractDynamicMappingIfDescription);
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.DYNAMIC_MAPPING_IF_DESCRIPTION: {
+            DynamicMappingIfDescription dynamicMappingIfDescription = (DynamicMappingIfDescription) theEObject;
+            T result = caseDynamicMappingIfDescription(dynamicMappingIfDescription);
+            if (result == null) {
+                result = caseAbstractDynamicMappingIfDescription(dynamicMappingIfDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.DYNAMIC_MAPPING_IF_OVERRIDE_DESCRIPTION: {
+            DynamicMappingIfOverrideDescription dynamicMappingIfOverrideDescription = (DynamicMappingIfOverrideDescription) theEObject;
+            T result = caseDynamicMappingIfOverrideDescription(dynamicMappingIfOverrideDescription);
+            if (result == null) {
+                result = caseAbstractDynamicMappingIfDescription(dynamicMappingIfOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(dynamicMappingIfOverrideDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_TEXT_AREA_DESCRIPTION: {
+            AbstractTextAreaDescription abstractTextAreaDescription = (AbstractTextAreaDescription) theEObject;
+            T result = caseAbstractTextAreaDescription(abstractTextAreaDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractTextAreaDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractTextAreaDescription);
+            }
             if (result == null) {
                 result = defaultCase(theEObject);
             }
@@ -354,13 +801,53 @@ public class PropertiesSwitch<T> {
             TextAreaDescription textAreaDescription = (TextAreaDescription) theEObject;
             T result = caseTextAreaDescription(textAreaDescription);
             if (result == null) {
-                result = caseTextDescription(textAreaDescription);
+                result = caseAbstractTextAreaDescription(textAreaDescription);
             }
             if (result == null) {
                 result = caseWidgetDescription(textAreaDescription);
             }
             if (result == null) {
+                result = caseAbstractWidgetDescription(textAreaDescription);
+            }
+            if (result == null) {
                 result = caseControlDescription(textAreaDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(textAreaDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.TEXT_AREA_OVERRIDE_DESCRIPTION: {
+            TextAreaOverrideDescription textAreaOverrideDescription = (TextAreaOverrideDescription) theEObject;
+            T result = caseTextAreaOverrideDescription(textAreaOverrideDescription);
+            if (result == null) {
+                result = caseAbstractTextAreaDescription(textAreaOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(textAreaOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(textAreaOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(textAreaOverrideDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_RADIO_DESCRIPTION: {
+            AbstractRadioDescription abstractRadioDescription = (AbstractRadioDescription) theEObject;
+            T result = caseAbstractRadioDescription(abstractRadioDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractRadioDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractRadioDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -374,7 +861,50 @@ public class PropertiesSwitch<T> {
                 result = caseWidgetDescription(radioDescription);
             }
             if (result == null) {
+                result = caseAbstractRadioDescription(radioDescription);
+            }
+            if (result == null) {
                 result = caseControlDescription(radioDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(radioDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(radioDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.RADIO_OVERRIDE_DESCRIPTION: {
+            RadioOverrideDescription radioOverrideDescription = (RadioOverrideDescription) theEObject;
+            T result = caseRadioOverrideDescription(radioOverrideDescription);
+            if (result == null) {
+                result = caseAbstractRadioDescription(radioOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(radioOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(radioOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(radioOverrideDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.ABSTRACT_LIST_DESCRIPTION: {
+            AbstractListDescription abstractListDescription = (AbstractListDescription) theEObject;
+            T result = caseAbstractListDescription(abstractListDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractListDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractListDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -388,7 +918,36 @@ public class PropertiesSwitch<T> {
                 result = caseWidgetDescription(listDescription);
             }
             if (result == null) {
+                result = caseAbstractListDescription(listDescription);
+            }
+            if (result == null) {
                 result = caseControlDescription(listDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(listDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(listDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.LIST_OVERRIDE_DESCRIPTION: {
+            ListOverrideDescription listOverrideDescription = (ListOverrideDescription) theEObject;
+            T result = caseListOverrideDescription(listOverrideDescription);
+            if (result == null) {
+                result = caseAbstractListDescription(listOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(listOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(listOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(listOverrideDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -403,6 +962,20 @@ public class PropertiesSwitch<T> {
             }
             return result;
         }
+        case PropertiesPackage.ABSTRACT_CUSTOM_DESCRIPTION: {
+            AbstractCustomDescription abstractCustomDescription = (AbstractCustomDescription) theEObject;
+            T result = caseAbstractCustomDescription(abstractCustomDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractCustomDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractCustomDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
         case PropertiesPackage.CUSTOM_DESCRIPTION: {
             CustomDescription customDescription = (CustomDescription) theEObject;
             T result = caseCustomDescription(customDescription);
@@ -410,7 +983,36 @@ public class PropertiesSwitch<T> {
                 result = caseWidgetDescription(customDescription);
             }
             if (result == null) {
+                result = caseAbstractCustomDescription(customDescription);
+            }
+            if (result == null) {
                 result = caseControlDescription(customDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(customDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(customDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.CUSTOM_OVERRIDE_DESCRIPTION: {
+            CustomOverrideDescription customOverrideDescription = (CustomOverrideDescription) theEObject;
+            T result = caseCustomOverrideDescription(customOverrideDescription);
+            if (result == null) {
+                result = caseAbstractCustomDescription(customOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(customOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(customOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(customOverrideDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -433,6 +1035,20 @@ public class PropertiesSwitch<T> {
             }
             return result;
         }
+        case PropertiesPackage.ABSTRACT_HYPERLINK_DESCRIPTION: {
+            AbstractHyperlinkDescription abstractHyperlinkDescription = (AbstractHyperlinkDescription) theEObject;
+            T result = caseAbstractHyperlinkDescription(abstractHyperlinkDescription);
+            if (result == null) {
+                result = caseAbstractWidgetDescription(abstractHyperlinkDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(abstractHyperlinkDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
         case PropertiesPackage.HYPERLINK_DESCRIPTION: {
             HyperlinkDescription hyperlinkDescription = (HyperlinkDescription) theEObject;
             T result = caseHyperlinkDescription(hyperlinkDescription);
@@ -440,7 +1056,36 @@ public class PropertiesSwitch<T> {
                 result = caseWidgetDescription(hyperlinkDescription);
             }
             if (result == null) {
+                result = caseAbstractHyperlinkDescription(hyperlinkDescription);
+            }
+            if (result == null) {
                 result = caseControlDescription(hyperlinkDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(hyperlinkDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(hyperlinkDescription);
+            }
+            if (result == null) {
+                result = defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PropertiesPackage.HYPERLINK_OVERRIDE_DESCRIPTION: {
+            HyperlinkOverrideDescription hyperlinkOverrideDescription = (HyperlinkOverrideDescription) theEObject;
+            T result = caseHyperlinkOverrideDescription(hyperlinkOverrideDescription);
+            if (result == null) {
+                result = caseAbstractHyperlinkDescription(hyperlinkOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractOverrideDescription(hyperlinkOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractWidgetDescription(hyperlinkOverrideDescription);
+            }
+            if (result == null) {
+                result = caseAbstractControlDescription(hyperlinkOverrideDescription);
             }
             if (result == null) {
                 result = defaultCase(theEObject);
@@ -702,15 +1347,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>View Extension Description</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>View
+     * Extension Description</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>View Extension Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>View
+     *         Extension Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -719,15 +1364,66 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Page Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Category</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Page Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Category</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCategory(Category object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Override Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractOverrideDescription(AbstractOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Page Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Page Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractPageDescription(AbstractPageDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Page
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Page
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -736,15 +1432,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Page Validation Set Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of '<em>Page
+     * Override Description</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Page
+     *         Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePageOverrideDescription(PageOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Page
+     * Validation Set Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Page Validation Set Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Page
+     *         Validation Set Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -753,15 +1466,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Property Validation Rule</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Property Validation Rule</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Property Validation Rule</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Property Validation Rule</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -770,15 +1483,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Group Description</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Group Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Group Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractGroupDescription(AbstractGroupDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Group Description</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Group Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Group Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -787,15 +1517,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Group Validation Set Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Group Override Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Group Validation Set Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Group Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGroupOverrideDescription(GroupOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Group Validation Set Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Group Validation Set Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -804,15 +1551,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Control Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Control Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Control Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Control Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractControlDescription(AbstractControlDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Control Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Control Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -821,15 +1585,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Container Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Container Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Container Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Container Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractContainerDescription(AbstractContainerDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Container Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Container Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -838,15 +1619,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Layout Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Container Override Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Layout Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Container Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseContainerOverrideDescription(ContainerOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Layout Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Layout Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -855,15 +1653,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Fill Layout Description</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Fill
+     * Layout Description</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Fill Layout Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Fill
+     *         Layout Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -872,15 +1670,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Grid Layout Description</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Grid
+     * Layout Description</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Grid Layout Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Grid
+     *         Layout Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -889,15 +1687,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Widget Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Widget Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractWidgetDescription(AbstractWidgetDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -906,15 +1721,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Text Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Text Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Text Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractTextDescription(AbstractTextDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Text
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Text Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Text
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -923,15 +1755,49 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Button Description</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of '<em>Text
+     * Override Description</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Button Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Text
+     *         Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTextOverrideDescription(TextOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Button Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Button Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractButtonDescription(AbstractButtonDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Button Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Button Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -940,15 +1806,49 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Label Description</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Button Override Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Button Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseButtonOverrideDescription(ButtonOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Label Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Label Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractLabelDescription(AbstractLabelDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Label Description</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Label Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Label Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -957,15 +1857,49 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Checkbox Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Label Override Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Checkbox Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Label Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseLabelOverrideDescription(LabelOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Checkbox Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Checkbox Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractCheckboxDescription(AbstractCheckboxDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Checkbox Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Checkbox Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -974,15 +1908,49 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Select Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Checkbox Override Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Select Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Checkbox Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCheckboxOverrideDescription(CheckboxOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Select Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Select Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractSelectDescription(AbstractSelectDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Select Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Select Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -991,49 +1959,151 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Dynamic Mapping For</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Select Override Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Dynamic Mapping For</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Select Override Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDynamicMappingFor(DynamicMappingFor object) {
+    public T caseSelectOverrideDescription(SelectOverrideDescription object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Dynamic Mapping If</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Dynamic Mapping For Description</em>'. <!-- begin-user-doc
+     * --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Dynamic Mapping For Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractDynamicMappingForDescription(AbstractDynamicMappingForDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Dynamic Mapping For Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Dynamic Mapping For Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDynamicMappingForDescription(DynamicMappingForDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Dynamic Mapping For Override Description</em>'. <!-- begin-user-doc
+     * --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Dynamic Mapping For Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDynamicMappingForOverrideDescription(DynamicMappingForOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Dynamic Mapping If Description</em>'. <!-- begin-user-doc
+     * --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Dynamic Mapping If Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractDynamicMappingIfDescription(AbstractDynamicMappingIfDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Dynamic Mapping If Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Dynamic Mapping If Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDynamicMappingIfDescription(DynamicMappingIfDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Dynamic Mapping If Override Description</em>'. <!-- begin-user-doc
+     * --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Dynamic Mapping If Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDynamicMappingIfOverrideDescription(DynamicMappingIfOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Text Area Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Text Area Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractTextAreaDescription(AbstractTextAreaDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Text
+     * Area Description</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Dynamic Mapping If</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseDynamicMappingIf(DynamicMappingIf object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Text Area Description</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
-     *
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Text Area Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Text
+     *         Area Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1042,15 +2112,49 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Radio Description</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of '<em>Text
+     * Area Override Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Text
+     *         Area Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTextAreaOverrideDescription(TextAreaOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Radio Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Radio Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractRadioDescription(AbstractRadioDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Radio Description</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Radio Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Radio Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1059,15 +2163,49 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>List Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Radio Override Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Radio Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseRadioOverrideDescription(RadioOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract List Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract List Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractListDescription(AbstractListDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>List
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>List Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>List
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1076,15 +2214,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Operation Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of '<em>List
+     * Override Description</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>List
+     *         Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseListOverrideDescription(ListOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Operation Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Operation Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Operation Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1093,15 +2248,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Custom Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Custom Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Custom Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Custom Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractCustomDescription(AbstractCustomDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1110,15 +2282,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Custom Expression</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Override Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCustomOverrideDescription(CustomOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Expression</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Custom Expression</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Expression</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1127,15 +2316,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Custom Operation</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Operation</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Custom Operation</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Operation</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1144,15 +2333,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Hyperlink Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Hyperlink Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Hyperlink Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Hyperlink Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractHyperlinkDescription(AbstractHyperlinkDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Hyperlink Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Hyperlink Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1161,15 +2367,32 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Style</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Hyperlink Override Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Hyperlink Override Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseHyperlinkOverrideDescription(HyperlinkOverrideDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Style</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1178,15 +2401,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Text Widget Style</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
+     * Returns the result of interpreting the object as an instance of '<em>Text
+     * Widget Style</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Text Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Text
+     *         Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1195,15 +2418,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Label Widget Style</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Label Widget Style</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Label Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Label Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1212,15 +2435,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Checkbox Widget Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Checkbox Widget Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Checkbox Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Checkbox Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1229,15 +2452,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Radio Widget Style</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Radio Widget Style</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Radio Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Radio Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1246,15 +2469,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Button Widget Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Button Widget Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Button Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Button Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1263,15 +2486,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Select Widget Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Select Widget Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Select Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Select Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1280,15 +2503,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Custom Widget Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Widget Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Custom Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1297,15 +2520,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>List Widget Style</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
+     * Returns the result of interpreting the object as an instance of '<em>List
+     * Widget Style</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>List Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>List
+     *         Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1314,15 +2537,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Hyperlink Widget Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Hyperlink Widget Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Hyperlink Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Hyperlink Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1331,15 +2554,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Group Style</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Group Style</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Group Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Group Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1348,15 +2571,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1365,15 +2588,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Text Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of '<em>Text
+     * Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Text Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Text
+     *         Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1382,15 +2605,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Label Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Label Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Label Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Label Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1399,15 +2622,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Checkbox Widget Conditional Style</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Checkbox Widget Conditional Style</em>'. <!-- begin-user-doc -->
+     * This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Checkbox Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Checkbox Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1416,15 +2639,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Radio Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Radio Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Radio Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Radio Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1433,15 +2656,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Button Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Button Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Button Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Button Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1450,15 +2673,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Select Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Select Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Select Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Select Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1467,15 +2690,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Custom Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Custom Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Custom Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Custom Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1484,15 +2707,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>List Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of '<em>List
+     * Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>List Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>List
+     *         Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1501,15 +2724,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Action</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Action</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Action</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1518,15 +2741,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Hyperlink Widget Conditional Style</em>'. <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Hyperlink Widget Conditional Style</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Hyperlink Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Hyperlink Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1535,15 +2758,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Group Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Group Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Group Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Group Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1552,15 +2775,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Edit Support</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Edit
+     * Support</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc
+     * -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Edit Support</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Edit
+     *         Support</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1569,15 +2792,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Extension</em>'. <!-- begin-user-doc --> This implementation returns
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Extension</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Extension</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Extension</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1586,15 +2809,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Identified Element</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Identified Element</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Identified Element</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Identified Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1620,15 +2843,15 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
+     * Returns the result of interpreting the object as an instance of
+     * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch, but this is
      * the last case anyway. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>EObject</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */

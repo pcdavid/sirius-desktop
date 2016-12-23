@@ -24,30 +24,23 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.sirius.properties.GroupDescription;
-import org.eclipse.sirius.properties.PageDescription;
+import org.eclipse.sirius.properties.Category;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.ViewExtensionDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>View Extension Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>View
+ * Extension Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getIdentifier
+ * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getIdentifier
  * <em>Identifier</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getMetamodels
+ * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getMetamodels
  * <em>Metamodels</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getPages
- * <em>Pages</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getGroups
- * <em>Groups</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getCategories
+ * <em>Categories</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,24 +77,14 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
     protected EList<EPackage> metamodels;
 
     /**
-     * The cached value of the '{@link #getPages() <em>Pages</em>}' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getPages()
-     * @generated
-     * @ordered
-     */
-    protected EList<PageDescription> pages;
-
-    /**
-     * The cached value of the '{@link #getGroups() <em>Groups</em>}'
+     * The cached value of the '{@link #getCategories() <em>Categories</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getGroups()
+     * @see #getCategories()
      * @generated
      * @ordered
      */
-    protected EList<GroupDescription> groups;
+    protected EList<Category> categories;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -165,24 +148,11 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
      * @generated
      */
     @Override
-    public EList<PageDescription> getPages() {
-        if (pages == null) {
-            pages = new EObjectContainmentEList<PageDescription>(PageDescription.class, this, PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__PAGES);
+    public EList<Category> getCategories() {
+        if (categories == null) {
+            categories = new EObjectContainmentEList<Category>(Category.class, this, PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__CATEGORIES);
         }
-        return pages;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EList<GroupDescription> getGroups() {
-        if (groups == null) {
-            groups = new EObjectContainmentEList<GroupDescription>(GroupDescription.class, this, PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__GROUPS);
-        }
-        return groups;
+        return categories;
     }
 
     /**
@@ -193,10 +163,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__PAGES:
-            return ((InternalEList<?>) getPages()).basicRemove(otherEnd, msgs);
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__GROUPS:
-            return ((InternalEList<?>) getGroups()).basicRemove(otherEnd, msgs);
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__CATEGORIES:
+            return ((InternalEList<?>) getCategories()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -213,10 +181,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
             return getIdentifier();
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__METAMODELS:
             return getMetamodels();
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__PAGES:
-            return getPages();
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__GROUPS:
-            return getGroups();
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__CATEGORIES:
+            return getCategories();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -237,13 +203,9 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
             getMetamodels().clear();
             getMetamodels().addAll((Collection<? extends EPackage>) newValue);
             return;
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__PAGES:
-            getPages().clear();
-            getPages().addAll((Collection<? extends PageDescription>) newValue);
-            return;
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__GROUPS:
-            getGroups().clear();
-            getGroups().addAll((Collection<? extends GroupDescription>) newValue);
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__CATEGORIES:
+            getCategories().clear();
+            getCategories().addAll((Collection<? extends Category>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -263,11 +225,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__METAMODELS:
             getMetamodels().clear();
             return;
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__PAGES:
-            getPages().clear();
-            return;
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__GROUPS:
-            getGroups().clear();
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__CATEGORIES:
+            getCategories().clear();
             return;
         }
         super.eUnset(featureID);
@@ -285,10 +244,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
             return ViewExtensionDescriptionImpl.IDENTIFIER_EDEFAULT == null ? identifier != null : !ViewExtensionDescriptionImpl.IDENTIFIER_EDEFAULT.equals(identifier);
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__METAMODELS:
             return metamodels != null && !metamodels.isEmpty();
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__PAGES:
-            return pages != null && !pages.isEmpty();
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__GROUPS:
-            return groups != null && !groups.isEmpty();
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__CATEGORIES:
+            return categories != null && !categories.isEmpty();
         }
         return super.eIsSet(featureID);
     }

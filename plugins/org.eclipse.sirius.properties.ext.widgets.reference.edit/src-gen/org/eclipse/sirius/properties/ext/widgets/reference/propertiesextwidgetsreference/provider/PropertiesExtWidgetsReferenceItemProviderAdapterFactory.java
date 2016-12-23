@@ -37,7 +37,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.sirius.properties.ContainerDescription;
-import org.eclipse.sirius.properties.DynamicMappingIf;
+import org.eclipse.sirius.properties.DynamicMappingIfDescription;
 import org.eclipse.sirius.properties.GroupDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgetsreference.PropertiesExtWidgetsReferenceFactory;
@@ -374,7 +374,8 @@ public class PropertiesExtWidgetsReferenceItemProviderAdapterFactory extends Pro
              */
             @Override
             public Object caseGroupDescription(GroupDescription object) {
-                newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.GROUP_DESCRIPTION__CONTROLS, PropertiesExtWidgetsReferenceFactory.eINSTANCE.createExtReferenceDescription()));
+                newChildDescriptors
+                        .add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_GROUP_DESCRIPTION__CONTROLS, PropertiesExtWidgetsReferenceFactory.eINSTANCE.createExtReferenceDescription()));
 
                 return null;
             }
@@ -387,7 +388,7 @@ public class PropertiesExtWidgetsReferenceItemProviderAdapterFactory extends Pro
             @Override
             public Object caseContainerDescription(ContainerDescription object) {
                 newChildDescriptors
-                        .add(createChildParameter(PropertiesPackage.Literals.CONTAINER_DESCRIPTION__CONTROLS, PropertiesExtWidgetsReferenceFactory.eINSTANCE.createExtReferenceDescription()));
+                        .add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_CONTAINER_DESCRIPTION__CONTROLS, PropertiesExtWidgetsReferenceFactory.eINSTANCE.createExtReferenceDescription()));
 
                 return null;
             }
@@ -398,8 +399,9 @@ public class PropertiesExtWidgetsReferenceItemProviderAdapterFactory extends Pro
              * @generated
              */
             @Override
-            public Object caseDynamicMappingIf(DynamicMappingIf object) {
-                newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.DYNAMIC_MAPPING_IF__WIDGET, PropertiesExtWidgetsReferenceFactory.eINSTANCE.createExtReferenceDescription()));
+            public Object caseDynamicMappingIfDescription(DynamicMappingIfDescription object) {
+                newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET,
+                        PropertiesExtWidgetsReferenceFactory.eINSTANCE.createExtReferenceDescription()));
 
                 return null;
             }

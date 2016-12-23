@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.sirius.properties.AbstractCheckboxDescription;
+import org.eclipse.sirius.properties.AbstractWidgetDescription;
 import org.eclipse.sirius.properties.CheckboxDescription;
 import org.eclipse.sirius.properties.CheckboxWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CheckboxWidgetStyle;
@@ -34,27 +36,99 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getValueExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getLabelExpression
+ * <em>Label Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getHelpExpression
+ * <em>Help Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getIsEnabledExpression
+ * <em>Is Enabled Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getValueExpression
  * <em>Value Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getInitialOperation
  * <em>Initial Operation</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getStyle
+ * <li>{@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getExtends
+ * <em>Extends</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.CheckboxDescriptionImpl#getFilterConditionalStylesFromExtendedCheckboxExpression
+ * <em>Filter Conditional Styles From Extended Checkbox Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements CheckboxDescription {
     /**
-     * The default value of the '{@link #getValueExpression()
-     * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getLabelExpression() <em>Label
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see #getLabelExpression()
+     * @generated
+     * @ordered
+     */
+    protected static final String LABEL_EXPRESSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getLabelExpression() <em>Label
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see #getLabelExpression()
+     * @generated
+     * @ordered
+     */
+    protected String labelExpression = CheckboxDescriptionImpl.LABEL_EXPRESSION_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getHelpExpression() <em>Help
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see #getHelpExpression()
+     * @generated
+     * @ordered
+     */
+    protected static final String HELP_EXPRESSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getHelpExpression() <em>Help
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see #getHelpExpression()
+     * @generated
+     * @ordered
+     */
+    protected String helpExpression = CheckboxDescriptionImpl.HELP_EXPRESSION_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getIsEnabledExpression() <em>Is Enabled
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see #getIsEnabledExpression()
+     * @generated
+     * @ordered
+     */
+    protected static final String IS_ENABLED_EXPRESSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getIsEnabledExpression() <em>Is Enabled
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see #getIsEnabledExpression()
+     * @generated
+     * @ordered
+     */
+    protected String isEnabledExpression = CheckboxDescriptionImpl.IS_ENABLED_EXPRESSION_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getValueExpression() <em>Value
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getValueExpression()
      * @generated
@@ -63,9 +137,9 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
     protected static final String VALUE_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getValueExpression()
-     * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getValueExpression() <em>Value
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getValueExpression()
      * @generated
@@ -74,9 +148,9 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
     protected String valueExpression = CheckboxDescriptionImpl.VALUE_EXPRESSION_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getInitialOperation()
-     * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getInitialOperation() <em>Initial
+     * Operation</em>}' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getInitialOperation()
      * @generated
@@ -95,15 +169,49 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
     protected CheckboxWidgetStyle style;
 
     /**
-     * The cached value of the '{@link #getConditionalStyles()
-     * <em>Conditional Styles</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getConditionalStyles() <em>Conditional
+     * Styles</em>}' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getConditionalStyles()
      * @generated
      * @ordered
      */
     protected EList<CheckboxWidgetConditionalStyle> conditionalStyles;
+
+    /**
+     * The cached value of the '{@link #getExtends() <em>Extends</em>}'
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getExtends()
+     * @generated
+     * @ordered
+     */
+    protected CheckboxDescription extends_;
+
+    /**
+     * The default value of the
+     * '{@link #getFilterConditionalStylesFromExtendedCheckboxExpression()
+     * <em>Filter Conditional Styles From Extended Checkbox Expression</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getFilterConditionalStylesFromExtendedCheckboxExpression()
+     * @generated
+     * @ordered
+     */
+    protected static final String FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the
+     * '{@link #getFilterConditionalStylesFromExtendedCheckboxExpression()
+     * <em>Filter Conditional Styles From Extended Checkbox Expression</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getFilterConditionalStylesFromExtendedCheckboxExpression()
+     * @generated
+     * @ordered
+     */
+    protected String filterConditionalStylesFromExtendedCheckboxExpression = CheckboxDescriptionImpl.FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION_EDEFAULT;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -122,6 +230,78 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
     @Override
     protected EClass eStaticClass() {
         return PropertiesPackage.Literals.CHECKBOX_DESCRIPTION;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public String getLabelExpression() {
+        return labelExpression;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setLabelExpression(String newLabelExpression) {
+        String oldLabelExpression = labelExpression;
+        labelExpression = newLabelExpression;
+        if (eNotificationRequired()) {
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.CHECKBOX_DESCRIPTION__LABEL_EXPRESSION, oldLabelExpression, labelExpression));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public String getHelpExpression() {
+        return helpExpression;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setHelpExpression(String newHelpExpression) {
+        String oldHelpExpression = helpExpression;
+        helpExpression = newHelpExpression;
+        if (eNotificationRequired()) {
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.CHECKBOX_DESCRIPTION__HELP_EXPRESSION, oldHelpExpression, helpExpression));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public String getIsEnabledExpression() {
+        return isEnabledExpression;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setIsEnabledExpression(String newIsEnabledExpression) {
+        String oldIsEnabledExpression = isEnabledExpression;
+        isEnabledExpression = newIsEnabledExpression;
+        if (eNotificationRequired()) {
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.CHECKBOX_DESCRIPTION__IS_ENABLED_EXPRESSION, oldIsEnabledExpression, isEnabledExpression));
+        }
     }
 
     /**
@@ -273,6 +453,73 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
      * @generated
      */
     @Override
+    public CheckboxDescription getExtends() {
+        if (extends_ != null && extends_.eIsProxy()) {
+            InternalEObject oldExtends = (InternalEObject) extends_;
+            extends_ = (CheckboxDescription) eResolveProxy(oldExtends);
+            if (extends_ != oldExtends) {
+                if (eNotificationRequired()) {
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, PropertiesPackage.CHECKBOX_DESCRIPTION__EXTENDS, oldExtends, extends_));
+                }
+            }
+        }
+        return extends_;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public CheckboxDescription basicGetExtends() {
+        return extends_;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setExtends(CheckboxDescription newExtends) {
+        CheckboxDescription oldExtends = extends_;
+        extends_ = newExtends;
+        if (eNotificationRequired()) {
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.CHECKBOX_DESCRIPTION__EXTENDS, oldExtends, extends_));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public String getFilterConditionalStylesFromExtendedCheckboxExpression() {
+        return filterConditionalStylesFromExtendedCheckboxExpression;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setFilterConditionalStylesFromExtendedCheckboxExpression(String newFilterConditionalStylesFromExtendedCheckboxExpression) {
+        String oldFilterConditionalStylesFromExtendedCheckboxExpression = filterConditionalStylesFromExtendedCheckboxExpression;
+        filterConditionalStylesFromExtendedCheckboxExpression = newFilterConditionalStylesFromExtendedCheckboxExpression;
+        if (eNotificationRequired()) {
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.CHECKBOX_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION,
+                    oldFilterConditionalStylesFromExtendedCheckboxExpression, filterConditionalStylesFromExtendedCheckboxExpression));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case PropertiesPackage.CHECKBOX_DESCRIPTION__INITIAL_OPERATION:
@@ -293,6 +540,12 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__LABEL_EXPRESSION:
+            return getLabelExpression();
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__HELP_EXPRESSION:
+            return getHelpExpression();
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__IS_ENABLED_EXPRESSION:
+            return getIsEnabledExpression();
         case PropertiesPackage.CHECKBOX_DESCRIPTION__VALUE_EXPRESSION:
             return getValueExpression();
         case PropertiesPackage.CHECKBOX_DESCRIPTION__INITIAL_OPERATION:
@@ -301,6 +554,13 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
             return getStyle();
         case PropertiesPackage.CHECKBOX_DESCRIPTION__CONDITIONAL_STYLES:
             return getConditionalStyles();
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__EXTENDS:
+            if (resolve) {
+                return getExtends();
+            }
+            return basicGetExtends();
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION:
+            return getFilterConditionalStylesFromExtendedCheckboxExpression();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -314,6 +574,15 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__LABEL_EXPRESSION:
+            setLabelExpression((String) newValue);
+            return;
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__HELP_EXPRESSION:
+            setHelpExpression((String) newValue);
+            return;
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__IS_ENABLED_EXPRESSION:
+            setIsEnabledExpression((String) newValue);
+            return;
         case PropertiesPackage.CHECKBOX_DESCRIPTION__VALUE_EXPRESSION:
             setValueExpression((String) newValue);
             return;
@@ -327,6 +596,12 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
             getConditionalStyles().clear();
             getConditionalStyles().addAll((Collection<? extends CheckboxWidgetConditionalStyle>) newValue);
             return;
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__EXTENDS:
+            setExtends((CheckboxDescription) newValue);
+            return;
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION:
+            setFilterConditionalStylesFromExtendedCheckboxExpression((String) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
@@ -339,6 +614,15 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__LABEL_EXPRESSION:
+            setLabelExpression(CheckboxDescriptionImpl.LABEL_EXPRESSION_EDEFAULT);
+            return;
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__HELP_EXPRESSION:
+            setHelpExpression(CheckboxDescriptionImpl.HELP_EXPRESSION_EDEFAULT);
+            return;
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__IS_ENABLED_EXPRESSION:
+            setIsEnabledExpression(CheckboxDescriptionImpl.IS_ENABLED_EXPRESSION_EDEFAULT);
+            return;
         case PropertiesPackage.CHECKBOX_DESCRIPTION__VALUE_EXPRESSION:
             setValueExpression(CheckboxDescriptionImpl.VALUE_EXPRESSION_EDEFAULT);
             return;
@@ -350,6 +634,12 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
             return;
         case PropertiesPackage.CHECKBOX_DESCRIPTION__CONDITIONAL_STYLES:
             getConditionalStyles().clear();
+            return;
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__EXTENDS:
+            setExtends((CheckboxDescription) null);
+            return;
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION:
+            setFilterConditionalStylesFromExtendedCheckboxExpression(CheckboxDescriptionImpl.FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -363,6 +653,12 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__LABEL_EXPRESSION:
+            return CheckboxDescriptionImpl.LABEL_EXPRESSION_EDEFAULT == null ? labelExpression != null : !CheckboxDescriptionImpl.LABEL_EXPRESSION_EDEFAULT.equals(labelExpression);
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__HELP_EXPRESSION:
+            return CheckboxDescriptionImpl.HELP_EXPRESSION_EDEFAULT == null ? helpExpression != null : !CheckboxDescriptionImpl.HELP_EXPRESSION_EDEFAULT.equals(helpExpression);
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__IS_ENABLED_EXPRESSION:
+            return CheckboxDescriptionImpl.IS_ENABLED_EXPRESSION_EDEFAULT == null ? isEnabledExpression != null : !CheckboxDescriptionImpl.IS_ENABLED_EXPRESSION_EDEFAULT.equals(isEnabledExpression);
         case PropertiesPackage.CHECKBOX_DESCRIPTION__VALUE_EXPRESSION:
             return CheckboxDescriptionImpl.VALUE_EXPRESSION_EDEFAULT == null ? valueExpression != null : !CheckboxDescriptionImpl.VALUE_EXPRESSION_EDEFAULT.equals(valueExpression);
         case PropertiesPackage.CHECKBOX_DESCRIPTION__INITIAL_OPERATION:
@@ -371,8 +667,93 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
             return style != null;
         case PropertiesPackage.CHECKBOX_DESCRIPTION__CONDITIONAL_STYLES:
             return conditionalStyles != null && !conditionalStyles.isEmpty();
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__EXTENDS:
+            return extends_ != null;
+        case PropertiesPackage.CHECKBOX_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION:
+            return CheckboxDescriptionImpl.FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION_EDEFAULT == null ? filterConditionalStylesFromExtendedCheckboxExpression != null
+                    : !CheckboxDescriptionImpl.FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION_EDEFAULT.equals(filterConditionalStylesFromExtendedCheckboxExpression);
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+        if (baseClass == AbstractWidgetDescription.class) {
+            switch (derivedFeatureID) {
+            case PropertiesPackage.CHECKBOX_DESCRIPTION__LABEL_EXPRESSION:
+                return PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL_EXPRESSION;
+            case PropertiesPackage.CHECKBOX_DESCRIPTION__HELP_EXPRESSION:
+                return PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__HELP_EXPRESSION;
+            case PropertiesPackage.CHECKBOX_DESCRIPTION__IS_ENABLED_EXPRESSION:
+                return PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IS_ENABLED_EXPRESSION;
+            default:
+                return -1;
+            }
+        }
+        if (baseClass == AbstractCheckboxDescription.class) {
+            switch (derivedFeatureID) {
+            case PropertiesPackage.CHECKBOX_DESCRIPTION__VALUE_EXPRESSION:
+                return PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__VALUE_EXPRESSION;
+            case PropertiesPackage.CHECKBOX_DESCRIPTION__INITIAL_OPERATION:
+                return PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__INITIAL_OPERATION;
+            case PropertiesPackage.CHECKBOX_DESCRIPTION__STYLE:
+                return PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__STYLE;
+            case PropertiesPackage.CHECKBOX_DESCRIPTION__CONDITIONAL_STYLES:
+                return PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__CONDITIONAL_STYLES;
+            case PropertiesPackage.CHECKBOX_DESCRIPTION__EXTENDS:
+                return PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__EXTENDS;
+            case PropertiesPackage.CHECKBOX_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION:
+                return PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+        if (baseClass == AbstractWidgetDescription.class) {
+            switch (baseFeatureID) {
+            case PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL_EXPRESSION:
+                return PropertiesPackage.CHECKBOX_DESCRIPTION__LABEL_EXPRESSION;
+            case PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__HELP_EXPRESSION:
+                return PropertiesPackage.CHECKBOX_DESCRIPTION__HELP_EXPRESSION;
+            case PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IS_ENABLED_EXPRESSION:
+                return PropertiesPackage.CHECKBOX_DESCRIPTION__IS_ENABLED_EXPRESSION;
+            default:
+                return -1;
+            }
+        }
+        if (baseClass == AbstractCheckboxDescription.class) {
+            switch (baseFeatureID) {
+            case PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__VALUE_EXPRESSION:
+                return PropertiesPackage.CHECKBOX_DESCRIPTION__VALUE_EXPRESSION;
+            case PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__INITIAL_OPERATION:
+                return PropertiesPackage.CHECKBOX_DESCRIPTION__INITIAL_OPERATION;
+            case PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__STYLE:
+                return PropertiesPackage.CHECKBOX_DESCRIPTION__STYLE;
+            case PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__CONDITIONAL_STYLES:
+                return PropertiesPackage.CHECKBOX_DESCRIPTION__CONDITIONAL_STYLES;
+            case PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__EXTENDS:
+                return PropertiesPackage.CHECKBOX_DESCRIPTION__EXTENDS;
+            case PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION:
+                return PropertiesPackage.CHECKBOX_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_CHECKBOX_EXPRESSION;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
     }
 
     /**
@@ -387,8 +768,16 @@ public class CheckboxDescriptionImpl extends WidgetDescriptionImpl implements Ch
         }
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (valueExpression: "); //$NON-NLS-1$
+        result.append(" (labelExpression: "); //$NON-NLS-1$
+        result.append(labelExpression);
+        result.append(", helpExpression: "); //$NON-NLS-1$
+        result.append(helpExpression);
+        result.append(", isEnabledExpression: "); //$NON-NLS-1$
+        result.append(isEnabledExpression);
+        result.append(", valueExpression: "); //$NON-NLS-1$
         result.append(valueExpression);
+        result.append(", filterConditionalStylesFromExtendedCheckboxExpression: "); //$NON-NLS-1$
+        result.append(filterConditionalStylesFromExtendedCheckboxExpression);
         result.append(')');
         return result.toString();
     }

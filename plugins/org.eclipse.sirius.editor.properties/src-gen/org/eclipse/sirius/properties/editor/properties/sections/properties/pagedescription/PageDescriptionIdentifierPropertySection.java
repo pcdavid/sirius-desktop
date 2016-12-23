@@ -48,7 +48,7 @@ public class PageDescriptionIdentifierPropertySection extends AbstractTextProper
      */
     @Override
     public EAttribute getFeature() {
-        return PropertiesPackage.eINSTANCE.getPageDescription_Identifier();
+        return PropertiesPackage.eINSTANCE.getAbstractPageDescription_Identifier();
     }
 
     /**

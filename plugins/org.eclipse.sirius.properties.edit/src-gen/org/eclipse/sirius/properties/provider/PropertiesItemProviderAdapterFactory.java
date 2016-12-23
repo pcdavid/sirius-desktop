@@ -20,7 +20,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
@@ -41,10 +40,6 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.util.PropertiesAdapterFactory;
 import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
 import org.eclipse.sirius.viewpoint.description.Group;
-import org.eclipse.sirius.viewpoint.description.tool.ChangeContext;
-import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
-import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
-import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 import org.eclipse.sirius.viewpoint.description.util.DescriptionSwitch;
 import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
 import org.eclipse.sirius.viewpoint.description.validation.ValidationSet;
@@ -136,6 +131,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
 
     /**
      * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.Category} instances. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected CategoryItemProvider categoryItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.Category}. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Adapter createCategoryAdapter() {
+        if (categoryItemProvider == null) {
+            categoryItemProvider = new CategoryItemProvider(this);
+        }
+
+        return categoryItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
      * {@link org.eclipse.sirius.properties.PageDescription} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -157,6 +177,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
 
         return pageDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.PageOverrideDescription} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected PageOverrideDescriptionItemProvider pageOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.PageOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createPageOverrideDescriptionAdapter() {
+        if (pageOverrideDescriptionItemProvider == null) {
+            pageOverrideDescriptionItemProvider = new PageOverrideDescriptionItemProvider(this);
+        }
+
+        return pageOverrideDescriptionItemProvider;
     }
 
     /**
@@ -236,6 +281,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
 
     /**
      * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.GroupOverrideDescription} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected GroupOverrideDescriptionItemProvider groupOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.GroupOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createGroupOverrideDescriptionAdapter() {
+        if (groupOverrideDescriptionItemProvider == null) {
+            groupOverrideDescriptionItemProvider = new GroupOverrideDescriptionItemProvider(this);
+        }
+
+        return groupOverrideDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
      * {@link org.eclipse.sirius.properties.GroupValidationSetDescription}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -282,6 +352,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
 
         return containerDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.ContainerOverrideDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected ContainerOverrideDescriptionItemProvider containerOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.ContainerOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createContainerOverrideDescriptionAdapter() {
+        if (containerOverrideDescriptionItemProvider == null) {
+            containerOverrideDescriptionItemProvider = new ContainerOverrideDescriptionItemProvider(this);
+        }
+
+        return containerOverrideDescriptionItemProvider;
     }
 
     /**
@@ -361,6 +456,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
 
     /**
      * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.TextOverrideDescription} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected TextOverrideDescriptionItemProvider textOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.TextOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createTextOverrideDescriptionAdapter() {
+        if (textOverrideDescriptionItemProvider == null) {
+            textOverrideDescriptionItemProvider = new TextOverrideDescriptionItemProvider(this);
+        }
+
+        return textOverrideDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
      * {@link org.eclipse.sirius.properties.ButtonDescription} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -382,6 +502,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
 
         return buttonDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.ButtonOverrideDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected ButtonOverrideDescriptionItemProvider buttonOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.ButtonOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createButtonOverrideDescriptionAdapter() {
+        if (buttonOverrideDescriptionItemProvider == null) {
+            buttonOverrideDescriptionItemProvider = new ButtonOverrideDescriptionItemProvider(this);
+        }
+
+        return buttonOverrideDescriptionItemProvider;
     }
 
     /**
@@ -411,6 +556,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
 
     /**
      * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.LabelOverrideDescription} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected LabelOverrideDescriptionItemProvider labelOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.LabelOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createLabelOverrideDescriptionAdapter() {
+        if (labelOverrideDescriptionItemProvider == null) {
+            labelOverrideDescriptionItemProvider = new LabelOverrideDescriptionItemProvider(this);
+        }
+
+        return labelOverrideDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
      * {@link org.eclipse.sirius.properties.CheckboxDescription} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -432,6 +602,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
 
         return checkboxDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.CheckboxOverrideDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected CheckboxOverrideDescriptionItemProvider checkboxOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.CheckboxOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createCheckboxOverrideDescriptionAdapter() {
+        if (checkboxOverrideDescriptionItemProvider == null) {
+            checkboxOverrideDescriptionItemProvider = new CheckboxOverrideDescriptionItemProvider(this);
+        }
+
+        return checkboxOverrideDescriptionItemProvider;
     }
 
     /**
@@ -461,52 +656,127 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
 
     /**
      * This keeps track of the one adapter used for all
-     * {@link org.eclipse.sirius.properties.DynamicMappingFor} instances. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * {@link org.eclipse.sirius.properties.SelectOverrideDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected DynamicMappingForItemProvider dynamicMappingForItemProvider;
+    protected SelectOverrideDescriptionItemProvider selectOverrideDescriptionItemProvider;
 
     /**
      * This creates an adapter for a
-     * {@link org.eclipse.sirius.properties.DynamicMappingFor}. <!--
+     * {@link org.eclipse.sirius.properties.SelectOverrideDescription}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     @Override
-    public Adapter createDynamicMappingForAdapter() {
-        if (dynamicMappingForItemProvider == null) {
-            dynamicMappingForItemProvider = new DynamicMappingForItemProvider(this);
+    public Adapter createSelectOverrideDescriptionAdapter() {
+        if (selectOverrideDescriptionItemProvider == null) {
+            selectOverrideDescriptionItemProvider = new SelectOverrideDescriptionItemProvider(this);
         }
 
-        return dynamicMappingForItemProvider;
+        return selectOverrideDescriptionItemProvider;
     }
 
     /**
      * This keeps track of the one adapter used for all
-     * {@link org.eclipse.sirius.properties.DynamicMappingIf} instances. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * {@link org.eclipse.sirius.properties.DynamicMappingForDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected DynamicMappingIfItemProvider dynamicMappingIfItemProvider;
+    protected DynamicMappingForDescriptionItemProvider dynamicMappingForDescriptionItemProvider;
 
     /**
      * This creates an adapter for a
-     * {@link org.eclipse.sirius.properties.DynamicMappingIf}. <!--
+     * {@link org.eclipse.sirius.properties.DynamicMappingForDescription}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     @Override
-    public Adapter createDynamicMappingIfAdapter() {
-        if (dynamicMappingIfItemProvider == null) {
-            dynamicMappingIfItemProvider = new DynamicMappingIfItemProvider(this);
+    public Adapter createDynamicMappingForDescriptionAdapter() {
+        if (dynamicMappingForDescriptionItemProvider == null) {
+            dynamicMappingForDescriptionItemProvider = new DynamicMappingForDescriptionItemProvider(this);
         }
 
-        return dynamicMappingIfItemProvider;
+        return dynamicMappingForDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.DynamicMappingForOverrideDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected DynamicMappingForOverrideDescriptionItemProvider dynamicMappingForOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.DynamicMappingForOverrideDescription}.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Adapter createDynamicMappingForOverrideDescriptionAdapter() {
+        if (dynamicMappingForOverrideDescriptionItemProvider == null) {
+            dynamicMappingForOverrideDescriptionItemProvider = new DynamicMappingForOverrideDescriptionItemProvider(this);
+        }
+
+        return dynamicMappingForOverrideDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.DynamicMappingIfDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected DynamicMappingIfDescriptionItemProvider dynamicMappingIfDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.DynamicMappingIfDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createDynamicMappingIfDescriptionAdapter() {
+        if (dynamicMappingIfDescriptionItemProvider == null) {
+            dynamicMappingIfDescriptionItemProvider = new DynamicMappingIfDescriptionItemProvider(this);
+        }
+
+        return dynamicMappingIfDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.DynamicMappingIfOverrideDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected DynamicMappingIfOverrideDescriptionItemProvider dynamicMappingIfOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.DynamicMappingIfOverrideDescription}.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Adapter createDynamicMappingIfOverrideDescriptionAdapter() {
+        if (dynamicMappingIfOverrideDescriptionItemProvider == null) {
+            dynamicMappingIfOverrideDescriptionItemProvider = new DynamicMappingIfOverrideDescriptionItemProvider(this);
+        }
+
+        return dynamicMappingIfOverrideDescriptionItemProvider;
     }
 
     /**
@@ -536,6 +806,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
 
     /**
      * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.TextAreaOverrideDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected TextAreaOverrideDescriptionItemProvider textAreaOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.TextAreaOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createTextAreaOverrideDescriptionAdapter() {
+        if (textAreaOverrideDescriptionItemProvider == null) {
+            textAreaOverrideDescriptionItemProvider = new TextAreaOverrideDescriptionItemProvider(this);
+        }
+
+        return textAreaOverrideDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
      * {@link org.eclipse.sirius.properties.RadioDescription} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -561,6 +856,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
 
     /**
      * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.RadioOverrideDescription} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected RadioOverrideDescriptionItemProvider radioOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.RadioOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createRadioOverrideDescriptionAdapter() {
+        if (radioOverrideDescriptionItemProvider == null) {
+            radioOverrideDescriptionItemProvider = new RadioOverrideDescriptionItemProvider(this);
+        }
+
+        return radioOverrideDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
      * {@link org.eclipse.sirius.properties.ListDescription} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -582,6 +902,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
 
         return listDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.ListOverrideDescription} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected ListOverrideDescriptionItemProvider listOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.ListOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createListOverrideDescriptionAdapter() {
+        if (listOverrideDescriptionItemProvider == null) {
+            listOverrideDescriptionItemProvider = new ListOverrideDescriptionItemProvider(this);
+        }
+
+        return listOverrideDescriptionItemProvider;
     }
 
     /**
@@ -632,6 +977,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
 
         return customDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.CustomOverrideDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected CustomOverrideDescriptionItemProvider customOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.CustomOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createCustomOverrideDescriptionAdapter() {
+        if (customOverrideDescriptionItemProvider == null) {
+            customOverrideDescriptionItemProvider = new CustomOverrideDescriptionItemProvider(this);
+        }
+
+        return customOverrideDescriptionItemProvider;
     }
 
     /**
@@ -707,6 +1077,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
 
         return hyperlinkDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.HyperlinkOverrideDescription}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected HyperlinkOverrideDescriptionItemProvider hyperlinkOverrideDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.HyperlinkOverrideDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createHyperlinkOverrideDescriptionAdapter() {
+        if (hyperlinkOverrideDescriptionItemProvider == null) {
+            hyperlinkOverrideDescriptionItemProvider = new HyperlinkOverrideDescriptionItemProvider(this);
+        }
+
+        return hyperlinkOverrideDescriptionItemProvider;
     }
 
     /**
@@ -1420,8 +1815,14 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         if (viewExtensionDescriptionItemProvider != null) {
             viewExtensionDescriptionItemProvider.dispose();
         }
+        if (categoryItemProvider != null) {
+            categoryItemProvider.dispose();
+        }
         if (pageDescriptionItemProvider != null) {
             pageDescriptionItemProvider.dispose();
+        }
+        if (pageOverrideDescriptionItemProvider != null) {
+            pageOverrideDescriptionItemProvider.dispose();
         }
         if (pageValidationSetDescriptionItemProvider != null) {
             pageValidationSetDescriptionItemProvider.dispose();
@@ -1432,11 +1833,17 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         if (groupDescriptionItemProvider != null) {
             groupDescriptionItemProvider.dispose();
         }
+        if (groupOverrideDescriptionItemProvider != null) {
+            groupOverrideDescriptionItemProvider.dispose();
+        }
         if (groupValidationSetDescriptionItemProvider != null) {
             groupValidationSetDescriptionItemProvider.dispose();
         }
         if (containerDescriptionItemProvider != null) {
             containerDescriptionItemProvider.dispose();
+        }
+        if (containerOverrideDescriptionItemProvider != null) {
+            containerOverrideDescriptionItemProvider.dispose();
         }
         if (fillLayoutDescriptionItemProvider != null) {
             fillLayoutDescriptionItemProvider.dispose();
@@ -1447,38 +1854,71 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         if (textDescriptionItemProvider != null) {
             textDescriptionItemProvider.dispose();
         }
+        if (textOverrideDescriptionItemProvider != null) {
+            textOverrideDescriptionItemProvider.dispose();
+        }
         if (buttonDescriptionItemProvider != null) {
             buttonDescriptionItemProvider.dispose();
+        }
+        if (buttonOverrideDescriptionItemProvider != null) {
+            buttonOverrideDescriptionItemProvider.dispose();
         }
         if (labelDescriptionItemProvider != null) {
             labelDescriptionItemProvider.dispose();
         }
+        if (labelOverrideDescriptionItemProvider != null) {
+            labelOverrideDescriptionItemProvider.dispose();
+        }
         if (checkboxDescriptionItemProvider != null) {
             checkboxDescriptionItemProvider.dispose();
+        }
+        if (checkboxOverrideDescriptionItemProvider != null) {
+            checkboxOverrideDescriptionItemProvider.dispose();
         }
         if (selectDescriptionItemProvider != null) {
             selectDescriptionItemProvider.dispose();
         }
-        if (dynamicMappingForItemProvider != null) {
-            dynamicMappingForItemProvider.dispose();
+        if (selectOverrideDescriptionItemProvider != null) {
+            selectOverrideDescriptionItemProvider.dispose();
         }
-        if (dynamicMappingIfItemProvider != null) {
-            dynamicMappingIfItemProvider.dispose();
+        if (dynamicMappingForDescriptionItemProvider != null) {
+            dynamicMappingForDescriptionItemProvider.dispose();
+        }
+        if (dynamicMappingForOverrideDescriptionItemProvider != null) {
+            dynamicMappingForOverrideDescriptionItemProvider.dispose();
+        }
+        if (dynamicMappingIfDescriptionItemProvider != null) {
+            dynamicMappingIfDescriptionItemProvider.dispose();
+        }
+        if (dynamicMappingIfOverrideDescriptionItemProvider != null) {
+            dynamicMappingIfOverrideDescriptionItemProvider.dispose();
         }
         if (textAreaDescriptionItemProvider != null) {
             textAreaDescriptionItemProvider.dispose();
         }
+        if (textAreaOverrideDescriptionItemProvider != null) {
+            textAreaOverrideDescriptionItemProvider.dispose();
+        }
         if (radioDescriptionItemProvider != null) {
             radioDescriptionItemProvider.dispose();
         }
+        if (radioOverrideDescriptionItemProvider != null) {
+            radioOverrideDescriptionItemProvider.dispose();
+        }
         if (listDescriptionItemProvider != null) {
             listDescriptionItemProvider.dispose();
+        }
+        if (listOverrideDescriptionItemProvider != null) {
+            listOverrideDescriptionItemProvider.dispose();
         }
         if (operationDescriptionItemProvider != null) {
             operationDescriptionItemProvider.dispose();
         }
         if (customDescriptionItemProvider != null) {
             customDescriptionItemProvider.dispose();
+        }
+        if (customOverrideDescriptionItemProvider != null) {
+            customOverrideDescriptionItemProvider.dispose();
         }
         if (customExpressionItemProvider != null) {
             customExpressionItemProvider.dispose();
@@ -1488,6 +1928,9 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
         if (hyperlinkDescriptionItemProvider != null) {
             hyperlinkDescriptionItemProvider.dispose();
+        }
+        if (hyperlinkOverrideDescriptionItemProvider != null) {
+            hyperlinkOverrideDescriptionItemProvider.dispose();
         }
         if (widgetStyleItemProvider != null) {
             widgetStyleItemProvider.dispose();
@@ -1557,28 +2000,6 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
         if (editSupportItemProvider != null) {
             editSupportItemProvider.dispose();
-        }
-    }
-
-    /**
-     * Add default "Begin" operations with a no-op navigation to the specific
-     * element.
-     *
-     * @param child
-     *            a newly created child.
-     */
-    static void addNoopNavigationOperations(Object child) {
-        if (child instanceof EObject) {
-            EObject obj = (EObject) child;
-            for (EReference ref : obj.eClass().getEAllReferences()) {
-                if (ref.isContainment() && ref.getEReferenceType() == ToolPackage.Literals.INITIAL_OPERATION) {
-                    InitialOperation begin = ToolFactory.eINSTANCE.createInitialOperation();
-                    ChangeContext noop = ToolFactory.eINSTANCE.createChangeContext();
-                    noop.setBrowseExpression("var:self"); //$NON-NLS-1$
-                    begin.setFirstModelOperations(noop);
-                    obj.eSet(ref, begin);
-                }
-            }
         }
     }
 

@@ -48,7 +48,7 @@ public class GroupDescriptionIdentifierPropertySection extends AbstractTextPrope
      */
     @Override
     public EAttribute getFeature() {
-        return PropertiesPackage.eINSTANCE.getGroupDescription_Identifier();
+        return PropertiesPackage.eINSTANCE.getAbstractGroupDescription_Identifier();
     }
 
     /**

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.migration.AbstractVSMMigrationParticipant;
+import org.eclipse.sirius.properties.Category;
 import org.eclipse.sirius.properties.ContainerDescription;
 import org.eclipse.sirius.properties.ControlDescription;
 import org.eclipse.sirius.properties.GroupDescription;
@@ -122,10 +123,12 @@ public class ReferenceWidgetMigrationParticipant extends AbstractVSMMigrationPar
                 ViewExtensionDescription viewExtensionDescription = (ViewExtensionDescription) extension;
 
                 Set<GroupDescription> groups = new LinkedHashSet<>();
-                for (PageDescription pageDescription : viewExtensionDescription.getPages()) {
-                    groups.addAll(pageDescription.getGroups());
-                }
-                groups.addAll(viewExtensionDescription.getGroups());
+                for (Category category : viewExtensionDescription.getCategories()) {
+                    for (PageDescription pageDescription : category.getPages()) {
+                        groups.addAll(pageDescription.getGroups());
+                    }                    
+                    groups.addAll(category.getGroups());  
+                }              
 
                 for (GroupDescription groupDescription : groups) {
                     List<ControlDescription> controls = groupDescription.getControls();
@@ -213,17 +216,13 @@ public class ReferenceWidgetMigrationParticipant extends AbstractVSMMigrationPar
         hyperlink.setInitialOperation(listDescription.getOnClickOperation());
 
         ListWidgetStyle listWidgetStyle = listDescription.getStyle();
-        if (listWidgetStyle != null) {
-            hyperlink.setStyle(this.handleHyperlinkStyle(listWidgetStyle));
-        }
+        hyperlink.setStyle(this.handleHyperlinkStyle(listWidgetStyle));
 
         List<ListWidgetConditionalStyle> listConditionalStyles = listDescription.getConditionalStyles();
         for (ListWidgetConditionalStyle listWidgetConditionalStyle : listConditionalStyles) {
             HyperlinkWidgetConditionalStyle hyperlinkWidgetConditionalStyle = PropertiesFactory.eINSTANCE.createHyperlinkWidgetConditionalStyle();
             hyperlinkWidgetConditionalStyle.setPreconditionExpression(listWidgetConditionalStyle.getPreconditionExpression());
-            if (listWidgetConditionalStyle.getStyle() != null) {
-                hyperlinkWidgetConditionalStyle.setStyle(this.handleHyperlinkStyle(listWidgetConditionalStyle.getStyle()));
-            }
+            hyperlinkWidgetConditionalStyle.setStyle(this.handleHyperlinkStyle(listWidgetConditionalStyle.getStyle()));
             hyperlink.getConditionalStyles().add(hyperlinkWidgetConditionalStyle);
         }
         return hyperlink;

@@ -55,7 +55,7 @@ public class WidgetDescriptionHelpExpressionPropertySection extends AbstractText
      */
     @Override
     public EAttribute getFeature() {
-        return PropertiesPackage.eINSTANCE.getWidgetDescription_HelpExpression();
+        return PropertiesPackage.eINSTANCE.getAbstractWidgetDescription_HelpExpression();
     }
 
     /**

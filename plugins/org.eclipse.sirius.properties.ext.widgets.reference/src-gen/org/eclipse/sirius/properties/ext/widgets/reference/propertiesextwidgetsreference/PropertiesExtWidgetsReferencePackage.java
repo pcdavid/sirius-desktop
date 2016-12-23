@@ -91,7 +91,7 @@ public interface PropertiesExtWidgetsReferencePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EXT_REFERENCE_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.WIDGET_DESCRIPTION__LABEL_EXPRESSION;
+    int EXT_REFERENCE_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL_EXPRESSION;
 
     /**
      * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
@@ -100,7 +100,7 @@ public interface PropertiesExtWidgetsReferencePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EXT_REFERENCE_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.WIDGET_DESCRIPTION__HELP_EXPRESSION;
+    int EXT_REFERENCE_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__HELP_EXPRESSION;
 
     /**
      * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
@@ -109,7 +109,7 @@ public interface PropertiesExtWidgetsReferencePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EXT_REFERENCE_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.WIDGET_DESCRIPTION__IS_ENABLED_EXPRESSION;
+    int EXT_REFERENCE_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IS_ENABLED_EXPRESSION;
 
     /**
      * The feature id for the '<em><b>Reference Name Expression</b></em>'

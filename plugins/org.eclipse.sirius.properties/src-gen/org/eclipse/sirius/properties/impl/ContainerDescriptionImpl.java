@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.sirius.properties.AbstractContainerDescription;
 import org.eclipse.sirius.properties.ContainerDescription;
 import org.eclipse.sirius.properties.ControlDescription;
 import org.eclipse.sirius.properties.LayoutDescription;
@@ -33,12 +34,14 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ContainerDescriptionImpl#getControls
+ * <li>{@link org.eclipse.sirius.properties.impl.ContainerDescriptionImpl#getControls
  * <em>Controls</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ContainerDescriptionImpl#getLayout
+ * <li>{@link org.eclipse.sirius.properties.impl.ContainerDescriptionImpl#getLayout
  * <em>Layout</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ContainerDescriptionImpl#getExtends
+ * <em>Extends</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ContainerDescriptionImpl#getFilterControlsFromExtendedContainerExpression
+ * <em>Filter Controls From Extended Container Expression</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +66,40 @@ public class ContainerDescriptionImpl extends ControlDescriptionImpl implements 
      * @ordered
      */
     protected LayoutDescription layout;
+
+    /**
+     * The cached value of the '{@link #getExtends() <em>Extends</em>}'
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getExtends()
+     * @generated
+     * @ordered
+     */
+    protected ContainerDescription extends_;
+
+    /**
+     * The default value of the
+     * '{@link #getFilterControlsFromExtendedContainerExpression() <em>Filter
+     * Controls From Extended Container Expression</em>}' attribute. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getFilterControlsFromExtendedContainerExpression()
+     * @generated
+     * @ordered
+     */
+    protected static final String FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION_EDEFAULT = null;
+
+    /**
+     * The cached value of the
+     * '{@link #getFilterControlsFromExtendedContainerExpression() <em>Filter
+     * Controls From Extended Container Expression</em>}' attribute. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getFilterControlsFromExtendedContainerExpression()
+     * @generated
+     * @ordered
+     */
+    protected String filterControlsFromExtendedContainerExpression = ContainerDescriptionImpl.FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION_EDEFAULT;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -155,6 +192,73 @@ public class ContainerDescriptionImpl extends ControlDescriptionImpl implements 
      * @generated
      */
     @Override
+    public ContainerDescription getExtends() {
+        if (extends_ != null && extends_.eIsProxy()) {
+            InternalEObject oldExtends = (InternalEObject) extends_;
+            extends_ = (ContainerDescription) eResolveProxy(oldExtends);
+            if (extends_ != oldExtends) {
+                if (eNotificationRequired()) {
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, PropertiesPackage.CONTAINER_DESCRIPTION__EXTENDS, oldExtends, extends_));
+                }
+            }
+        }
+        return extends_;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public ContainerDescription basicGetExtends() {
+        return extends_;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setExtends(ContainerDescription newExtends) {
+        ContainerDescription oldExtends = extends_;
+        extends_ = newExtends;
+        if (eNotificationRequired()) {
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.CONTAINER_DESCRIPTION__EXTENDS, oldExtends, extends_));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public String getFilterControlsFromExtendedContainerExpression() {
+        return filterControlsFromExtendedContainerExpression;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setFilterControlsFromExtendedContainerExpression(String newFilterControlsFromExtendedContainerExpression) {
+        String oldFilterControlsFromExtendedContainerExpression = filterControlsFromExtendedContainerExpression;
+        filterControlsFromExtendedContainerExpression = newFilterControlsFromExtendedContainerExpression;
+        if (eNotificationRequired()) {
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.CONTAINER_DESCRIPTION__FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION,
+                    oldFilterControlsFromExtendedContainerExpression, filterControlsFromExtendedContainerExpression));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case PropertiesPackage.CONTAINER_DESCRIPTION__CONTROLS:
@@ -177,6 +281,13 @@ public class ContainerDescriptionImpl extends ControlDescriptionImpl implements 
             return getControls();
         case PropertiesPackage.CONTAINER_DESCRIPTION__LAYOUT:
             return getLayout();
+        case PropertiesPackage.CONTAINER_DESCRIPTION__EXTENDS:
+            if (resolve) {
+                return getExtends();
+            }
+            return basicGetExtends();
+        case PropertiesPackage.CONTAINER_DESCRIPTION__FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION:
+            return getFilterControlsFromExtendedContainerExpression();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -197,6 +308,12 @@ public class ContainerDescriptionImpl extends ControlDescriptionImpl implements 
         case PropertiesPackage.CONTAINER_DESCRIPTION__LAYOUT:
             setLayout((LayoutDescription) newValue);
             return;
+        case PropertiesPackage.CONTAINER_DESCRIPTION__EXTENDS:
+            setExtends((ContainerDescription) newValue);
+            return;
+        case PropertiesPackage.CONTAINER_DESCRIPTION__FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION:
+            setFilterControlsFromExtendedContainerExpression((String) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
@@ -215,6 +332,12 @@ public class ContainerDescriptionImpl extends ControlDescriptionImpl implements 
         case PropertiesPackage.CONTAINER_DESCRIPTION__LAYOUT:
             setLayout((LayoutDescription) null);
             return;
+        case PropertiesPackage.CONTAINER_DESCRIPTION__EXTENDS:
+            setExtends((ContainerDescription) null);
+            return;
+        case PropertiesPackage.CONTAINER_DESCRIPTION__FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION:
+            setFilterControlsFromExtendedContainerExpression(ContainerDescriptionImpl.FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION_EDEFAULT);
+            return;
         }
         super.eUnset(featureID);
     }
@@ -231,8 +354,79 @@ public class ContainerDescriptionImpl extends ControlDescriptionImpl implements 
             return controls != null && !controls.isEmpty();
         case PropertiesPackage.CONTAINER_DESCRIPTION__LAYOUT:
             return layout != null;
+        case PropertiesPackage.CONTAINER_DESCRIPTION__EXTENDS:
+            return extends_ != null;
+        case PropertiesPackage.CONTAINER_DESCRIPTION__FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION:
+            return ContainerDescriptionImpl.FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION_EDEFAULT == null ? filterControlsFromExtendedContainerExpression != null
+                    : !ContainerDescriptionImpl.FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION_EDEFAULT.equals(filterControlsFromExtendedContainerExpression);
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+        if (baseClass == AbstractContainerDescription.class) {
+            switch (derivedFeatureID) {
+            case PropertiesPackage.CONTAINER_DESCRIPTION__CONTROLS:
+                return PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__CONTROLS;
+            case PropertiesPackage.CONTAINER_DESCRIPTION__LAYOUT:
+                return PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__LAYOUT;
+            case PropertiesPackage.CONTAINER_DESCRIPTION__EXTENDS:
+                return PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__EXTENDS;
+            case PropertiesPackage.CONTAINER_DESCRIPTION__FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION:
+                return PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+        if (baseClass == AbstractContainerDescription.class) {
+            switch (baseFeatureID) {
+            case PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__CONTROLS:
+                return PropertiesPackage.CONTAINER_DESCRIPTION__CONTROLS;
+            case PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__LAYOUT:
+                return PropertiesPackage.CONTAINER_DESCRIPTION__LAYOUT;
+            case PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__EXTENDS:
+                return PropertiesPackage.CONTAINER_DESCRIPTION__EXTENDS;
+            case PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION:
+                return PropertiesPackage.CONTAINER_DESCRIPTION__FILTER_CONTROLS_FROM_EXTENDED_CONTAINER_EXPRESSION;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public String toString() {
+        if (eIsProxy()) {
+            return super.toString();
+        }
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (filterControlsFromExtendedContainerExpression: "); //$NON-NLS-1$
+        result.append(filterControlsFromExtendedContainerExpression);
+        result.append(')');
+        return result.toString();
     }
 
 } // ContainerDescriptionImpl

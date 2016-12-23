@@ -48,7 +48,7 @@ public class ControlDescriptionIdentifierPropertySection extends AbstractTextPro
      */
     @Override
     public EAttribute getFeature() {
-        return PropertiesPackage.eINSTANCE.getControlDescription_Identifier();
+        return PropertiesPackage.eINSTANCE.getAbstractControlDescription_Identifier();
     }
 
     /**

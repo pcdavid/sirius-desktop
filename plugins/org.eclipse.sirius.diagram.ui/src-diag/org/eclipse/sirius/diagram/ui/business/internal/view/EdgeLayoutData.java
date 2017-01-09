@@ -1,7 +1,17 @@
 /*******************************************************************************
+<<<<<<< HEAD
  * Copyright (c) 2009, 2017 THALES GLOBAL SERVICES.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
+||||||| parent of 532a948f4 (DRAFT [510097] Consider inverse order for edge layout data)
+ * Copyright (c) 2009, 2009 THALES GLOBAL SERVICES.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+=======
+ * Copyright (c) 2009, 2017 THALES GLOBAL SERVICES.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+>>>>>>> 532a948f4 (DRAFT [510097] Consider inverse order for edge layout data)
  * which accompanies this distribution, and is available at
  * https://www.eclipse.org/legal/epl-2.0/
  *
@@ -78,6 +88,8 @@ public class EdgeLayoutData extends AbstractEdgeLayoutData {
     private LayoutData edgeSourceLayoutData;
 
     private LayoutData edgeTargetLayoutData;
+
+    private boolean reverse;
 
     /**
      * A secondary edgeLayoutData that can replace the current if it must be used for edge created directly with
@@ -180,7 +192,11 @@ public class EdgeLayoutData extends AbstractEdgeLayoutData {
      * @return the sourceRefPoint
      */
     public Point getSourceRefPoint() {
-        return sourceRefPoint;
+        if (reverse) {
+            return targetRefPoint;
+        } else {
+            return sourceRefPoint;
+        }
     }
 
     /**
@@ -189,7 +205,11 @@ public class EdgeLayoutData extends AbstractEdgeLayoutData {
      * @return the targetRefPoint
      */
     public Point getTargetRefPoint() {
-        return targetRefPoint;
+        if (reverse) {
+            return sourceRefPoint;
+        } else {
+            return targetRefPoint;
+        }
     }
 
     /**
@@ -207,7 +227,11 @@ public class EdgeLayoutData extends AbstractEdgeLayoutData {
      * @return the sourceTerminal
      */
     public String getSourceTerminal() {
-        return sourceTerminal;
+        if (!reverse) {
+            return sourceTerminal;
+        } else {
+            return targetTerminal;
+        }
     }
 
     /**
@@ -216,7 +240,11 @@ public class EdgeLayoutData extends AbstractEdgeLayoutData {
      * @return the targetTerminal
      */
     public String getTargetTerminal() {
-        return targetTerminal;
+        if (!reverse) {
+            return targetTerminal;
+        } else {
+            return sourceTerminal;
+        }
     }
 
     /**
@@ -242,7 +270,11 @@ public class EdgeLayoutData extends AbstractEdgeLayoutData {
      * @return the source of the edge
      */
     public LayoutData getEdgeSourceLayoutData() {
-        return edgeSourceLayoutData;
+        if (!reverse) {
+            return edgeSourceLayoutData;
+        } else {
+            return edgeTargetLayoutData;
+        }
     }
 
     /**
@@ -251,7 +283,11 @@ public class EdgeLayoutData extends AbstractEdgeLayoutData {
      * @return the target of the edge.
      */
     public LayoutData getEdgeTargetLayoutData() {
-        return edgeTargetLayoutData;
+        if (!reverse) {
+            return edgeTargetLayoutData;
+        } else {
+            return edgeSourceLayoutData;
+        }
     }
 
     /**
@@ -355,5 +391,17 @@ public class EdgeLayoutData extends AbstractEdgeLayoutData {
             }
         }
         return result;
+    }
+
+    /**
+     * Reverse the source and the target order. This method must be called when
+     * this layout data has been detected as reversed (ie the order of the
+     * source and the target is the reverse of what is expected by the mapping.
+     * It can be the cased when the edge creation tool uses the target for the
+     * first click and the source for the last click). After this call, all the
+     * calls to get*Source* and get*Target* return the opposite data.
+     */
+    public void reverse() {
+        reverse = !reverse;
     }
 }

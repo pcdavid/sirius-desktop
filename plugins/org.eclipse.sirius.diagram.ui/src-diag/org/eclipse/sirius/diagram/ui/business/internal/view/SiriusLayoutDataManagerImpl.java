@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2021 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2009, 2022 THALES GLOBAL SERVICES and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -365,16 +365,30 @@ public final class SiriusLayoutDataManagerImpl implements SiriusLayoutDataManage
                     LayoutData edgeSourceLayoutData = edgeLayoutData.getEdgeSourceLayoutData();
                     LayoutData edgeTargetLayoutData = edgeLayoutData.getEdgeTargetLayoutData();
 
-                    if (edgeSource != null && edgeSourceLayoutData instanceof RootLayoutData) {
+                    boolean sourceChecks = edgeSource != null && edgeSourceLayoutData instanceof RootLayoutData;
+                    if (sourceChecks) {
                         RootLayoutData edgeSourceRootLayoutData = (RootLayoutData) edgeSourceLayoutData;
                         if ((ignoreConsumeState || !edgeSourceRootLayoutData.isConsume()) && edgeSource.equals(edgeSourceRootLayoutData.getTarget())) {
                             result = edgeLayoutData;
                             break;
                         }
                     }
-                    if (result == null && edgeTarget != null && edgeTargetLayoutData instanceof RootLayoutData) {
+                    boolean targetChecks = edgeTarget != null && edgeTargetLayoutData instanceof RootLayoutData;
+                    if (result == null && targetChecks) {
                         RootLayoutData edgeTargetRootLayoutData = (RootLayoutData) edgeTargetLayoutData;
                         if ((ignoreConsumeState || !edgeTargetRootLayoutData.isConsume()) && edgeTarget.equals(edgeTargetRootLayoutData.getTarget())) {
+                            result = edgeLayoutData;
+                            break;
+                        }
+                    }
+                    // Consider case of tool with inverse order of source and
+                    // target compare to the mapping order
+                    if (result == null && sourceChecks && targetChecks) {
+                        RootLayoutData edgeSourceRootLayoutData = (RootLayoutData) edgeSourceLayoutData;
+                        RootLayoutData edgeTargetRootLayoutData = (RootLayoutData) edgeTargetLayoutData;
+                        boolean consumeStates = !edgeSourceRootLayoutData.isConsume() && !edgeTargetRootLayoutData.isConsume();
+                        if ((ignoreConsumeState || consumeStates) && edgeSource.equals(edgeTargetRootLayoutData.getTarget()) && edgeTarget.equals(edgeSourceRootLayoutData.getTarget())) {
+                            edgeLayoutData.reverse();
                             result = edgeLayoutData;
                             break;
                         }
@@ -383,8 +397,10 @@ public final class SiriusLayoutDataManagerImpl implements SiriusLayoutDataManage
             }
         }
 
-        // Virtual consumption as this edge has no port.
-        if (result == null) {
+        if (result != null) {
+            result.setConsume(true);
+            // Virtual consumption of source and target if this edge has no
+            // port.
             final EdgeTarget sourceNode = edge.getSourceNode();
             if (sourceNode instanceof AbstractDNode) {
                 getData((AbstractDNode) sourceNode);
@@ -393,9 +409,6 @@ public final class SiriusLayoutDataManagerImpl implements SiriusLayoutDataManage
             if (targetNode instanceof AbstractDNode) {
                 getData((AbstractDNode) targetNode);
             }
-        }
-        if (result != null) {
-            result.setConsume(true);
         }
         return result;
 
@@ -500,6 +513,14 @@ public final class SiriusLayoutDataManagerImpl implements SiriusLayoutDataManage
                 // We consume edgeLayoutData only for its labelData so remove
                 // the consume status
                 data.setConsume(false);
+                LayoutData edgeSourceLayoutData = data.getEdgeSourceLayoutData();
+                if (edgeSourceLayoutData != null) {
+                    edgeSourceLayoutData.setConsume(false);
+                }
+                LayoutData edgeTargetLayoutData = data.getEdgeTargetLayoutData();
+                if (edgeTargetLayoutData != null) {
+                    edgeTargetLayoutData.setConsume(false);
+                }
             }
         }
         if (result != null) {

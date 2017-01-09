@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2021 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2011, 2022 THALES GLOBAL SERVICES and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -239,6 +239,7 @@ public class ConnectionsFactory {
                     Point firstClick = getFirstClick(sourceLayoutData, optionalSourceBounds);
 
                     if (optionalSourceBounds.some()) {
+                        sourceRefPoint = firstClick;
                         PrecisionPoint sourceRelativeLocation = BaseSlidableAnchor.getAnchorRelativeLocation(firstClick, optionalSourceBounds.get());
                         sourceTerminal = GMFNotationUtilities.getTerminalString(sourceRelativeLocation.preciseX(), sourceRelativeLocation.preciseY());
                     } else {
@@ -254,6 +255,7 @@ public class ConnectionsFactory {
                     Point secondClick = getSecondClick(targetLayoutData, optionaltargetBounds);
 
                     if (optionaltargetBounds.some()) {
+                        targetRefPoint = secondClick;
                         PrecisionPoint targetRelativeLocation = BaseSlidableAnchor.getAnchorRelativeLocation(secondClick, optionaltargetBounds.get());
                         targetTerminal = GMFNotationUtilities.getTerminalString(targetRelativeLocation.preciseX(), targetRelativeLocation.preciseY());
                     } else {
@@ -263,11 +265,16 @@ public class ConnectionsFactory {
                     // Computes pointList
                     PrecisionPoint sourceRelativeReference = SlidableAnchor.parseTerminalString(sourceTerminal);
                     SlidableAnchor sourceAnchor = new SlidableAnchor(source, sourceRelativeReference);
-                    sourceRefPoint = sourceAnchor.getLocation(sourceAnchor.getReferencePoint());
 
                     PrecisionPoint targetRelativeReference = SlidableAnchor.parseTerminalString(targetTerminal);
                     SlidableAnchor targetAnchor = new SlidableAnchor(target, targetRelativeReference);
-                    targetRefPoint = targetAnchor.getLocation(targetAnchor.getReferencePoint());
+                    
+                    if (sourceRefPoint == null) {
+                        sourceRefPoint = sourceAnchor.getLocation(targetAnchor.getReferencePoint());
+                    }
+                    if (targetRefPoint == null) {
+                        targetRefPoint = targetAnchor.getLocation(sourceAnchor.getReferencePoint());
+                    }
 
                     Optional<Point> srcConnectionBendpoint = GraphicalHelper.getIntersection(sourceRefPoint, targetRefPoint, optionalSourceBounds.get(), true);
                     Optional<Point> tgtConnectionBendpoint = GraphicalHelper.getIntersection(sourceRefPoint, targetRefPoint, optionaltargetBounds.get(), false);
@@ -448,8 +455,17 @@ public class ConnectionsFactory {
         return secondClick;
     }
 
+    /**
+     * Set the real connection anchors of the edge. And potentially recompute
+     * the reference points.
+     * 
+     * @param edge
+     *            Edge to set
+     */
     private void setConnectionAnchors(Edge edge) {
         EdgeQuery edgeQuery = new EdgeQuery(edge);
+        String initialSourceTerminal = sourceTerminal;
+        String initialTargetTerminal = targetTerminal;
         // Set connection anchors :
         if (edgeQuery.isEdgeOnTreeOnSourceSide()) {
             // Use sourceTerminal of other edges
@@ -468,6 +484,14 @@ public class ConnectionsFactory {
                 }
                 a.setId(sourceTerminal);
                 edge.setSourceAnchor(a);
+                if (!sourceTerminal.equals(initialSourceTerminal)) {
+                    // The set source terminal is not the initial one, replace
+                    // the sourceRefPoint for further computing
+                    Option<Rectangle> optionalSourceBounds = GMFHelper.getAbsoluteBounds(edge.getSource());
+                    if (optionalSourceBounds.some()) {
+                        sourceRefPoint = optionalSourceBounds.get().getTopLeft().translate(getAnchorRelativePoint(BaseSlidableAnchor.parseTerminalString(sourceTerminal), optionalSourceBounds.get()));
+                    }
+                }
             }
         }
         if (edgeQuery.isEdgeOnTreeOnTargetSide()) {
@@ -492,8 +516,19 @@ public class ConnectionsFactory {
                 }
                 a.setId(targetTerminal);
                 edge.setTargetAnchor(a);
+                if (!targetTerminal.equals(initialTargetTerminal)) {
+                    // The set target terminal is not the initial one, replace
+                    // the targetRefPoint for further computing
+                    Option<Rectangle> optionalTargetBounds = GMFHelper.getAbsoluteBounds(edge.getTarget());
+                    if (optionalTargetBounds.some()) {
+                        targetRefPoint = optionalTargetBounds.get().getTopLeft().translate(getAnchorRelativePoint(BaseSlidableAnchor.parseTerminalString(targetTerminal), optionalTargetBounds.get()));
+                    }
+                }
             }
-
         }
+    }
+
+    private Point getAnchorRelativePoint(PrecisionPoint currentAnchorPoint, Rectangle bounds) {
+        return new PrecisionPoint(bounds.width() * currentAnchorPoint.preciseX(), bounds.height() * currentAnchorPoint.preciseY());
     }
 }

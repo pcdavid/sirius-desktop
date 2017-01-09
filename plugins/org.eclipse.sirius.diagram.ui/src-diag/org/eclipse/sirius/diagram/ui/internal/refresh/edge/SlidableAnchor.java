@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2021 THALES GLOBAL SERVICES.
+ * Copyright (c) 2011, 2022 THALES GLOBAL SERVICES.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -81,11 +81,12 @@ public class SlidableAnchor {
      * @param owner
      *            <code>View</code> that this anchor is associated with.
      * @param relativeReference
-     *            the relative reference
+     *            the relative reference (corresponds to the terminal String,
+     *            example {0.5,0.5}).
      */
     public SlidableAnchor(View owner, PrecisionPoint relativeReference) {
         this.owner = owner;
-        this.relativeReference = relativeReference;
+        this.relativeReference = new PrecisionPoint(relativeReference.preciseX(), relativeReference.preciseY());
     }
 
     /**

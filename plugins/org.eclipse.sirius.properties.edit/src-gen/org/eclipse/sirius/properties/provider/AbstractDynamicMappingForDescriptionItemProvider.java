@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -36,7 +36,7 @@ public class AbstractDynamicMappingForDescriptionItemProvider extends AbstractCo
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractDynamicMappingForDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -46,7 +46,7 @@ public class AbstractDynamicMappingForDescriptionItemProvider extends AbstractCo
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -65,7 +65,7 @@ public class AbstractDynamicMappingForDescriptionItemProvider extends AbstractCo
     /**
      * This adds a property descriptor for the Iterator feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addIteratorPropertyDescriptor(Object object) {
@@ -78,7 +78,7 @@ public class AbstractDynamicMappingForDescriptionItemProvider extends AbstractCo
     /**
      * This adds a property descriptor for the Iterable Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addIterableExpressionPropertyDescriptor(Object object) {
@@ -91,7 +91,7 @@ public class AbstractDynamicMappingForDescriptionItemProvider extends AbstractCo
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -105,7 +105,7 @@ public class AbstractDynamicMappingForDescriptionItemProvider extends AbstractCo
      * This adds a property descriptor for the Filter Ifs From Extended Dynamic
      * Mapping For Expression feature. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     *
+     * 
      * @generated
      */
     protected void addFilterIfsFromExtendedDynamicMappingForExpressionPropertyDescriptor(Object object) {
@@ -158,7 +158,7 @@ public class AbstractDynamicMappingForDescriptionItemProvider extends AbstractCo
      */
     @Override
     public String getText(Object object) {
-        String label = ((AbstractDynamicMappingForDescription) object).getIdentifier();
+        String label = crop(((AbstractDynamicMappingForDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_AbstractDynamicMappingForDescription_type") : //$NON-NLS-1$
                 getString("_UI_AbstractDynamicMappingForDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -192,7 +192,7 @@ public class AbstractDynamicMappingForDescriptionItemProvider extends AbstractCo
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

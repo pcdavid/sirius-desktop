@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,14 +27,14 @@ import org.eclipse.sirius.properties.SelectOverrideDescription;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.SelectOverrideDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SelectOverrideDescriptionItemProvider extends AbstractSelectDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SelectOverrideDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class SelectOverrideDescriptionItemProvider extends AbstractSelectDescrip
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class SelectOverrideDescriptionItemProvider extends AbstractSelectDescrip
     /**
      * This adds a property descriptor for the Overrides feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addOverridesPropertyDescriptor(Object object) {
@@ -105,7 +105,7 @@ public class SelectOverrideDescriptionItemProvider extends AbstractSelectDescrip
      */
     @Override
     public String getText(Object object) {
-        String label = ((SelectOverrideDescription) object).getIdentifier();
+        String label = crop(((SelectOverrideDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_SelectOverrideDescription_type") : //$NON-NLS-1$
                 getString("_UI_SelectOverrideDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -134,7 +134,7 @@ public class SelectOverrideDescriptionItemProvider extends AbstractSelectDescrip
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

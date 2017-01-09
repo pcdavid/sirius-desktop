@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,7 +14,6 @@ package org.eclipse.sirius.properties.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.sirius.properties.AbstractControlDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
@@ -31,7 +30,7 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  *
  * @generated
  */
-public abstract class AbstractControlDescriptionImpl extends MinimalEObjectImpl.Container implements AbstractControlDescription {
+public abstract class AbstractControlDescriptionImpl extends DocumentedElementDescriptionImpl implements AbstractControlDescription {
     /**
      * The default value of the '{@link #getIdentifier() <em>Identifier</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->

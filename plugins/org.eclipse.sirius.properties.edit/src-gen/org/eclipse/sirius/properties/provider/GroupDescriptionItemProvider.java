@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,14 +23,14 @@ import org.eclipse.sirius.properties.GroupDescription;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.GroupDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class GroupDescriptionItemProvider extends AbstractGroupDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public GroupDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -40,7 +40,7 @@ public class GroupDescriptionItemProvider extends AbstractGroupDescriptionItemPr
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,7 +71,7 @@ public class GroupDescriptionItemProvider extends AbstractGroupDescriptionItemPr
      */
     @Override
     public String getText(Object object) {
-        String label = ((GroupDescription) object).getIdentifier();
+        String label = crop(((GroupDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_GroupDescription_type") : //$NON-NLS-1$
                 getString("_UI_GroupDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -94,7 +94,7 @@ public class GroupDescriptionItemProvider extends AbstractGroupDescriptionItemPr
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

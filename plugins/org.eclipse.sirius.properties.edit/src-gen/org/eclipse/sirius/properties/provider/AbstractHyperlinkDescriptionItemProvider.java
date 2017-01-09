@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -37,7 +37,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractHyperlinkDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -47,7 +47,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -67,7 +67,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
     /**
      * This adds a property descriptor for the Value Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addValueExpressionPropertyDescriptor(Object object) {
@@ -80,7 +80,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
     /**
      * This adds a property descriptor for the Display Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addDisplayExpressionPropertyDescriptor(Object object) {
@@ -93,7 +93,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -123,7 +123,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
      * This adds a property descriptor for the Filter Actions From Extended
      * Hyperlink Expression feature. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     *
+     * 
      * @generated
      */
     protected void addFilterActionsFromExtendedHyperlinkExpressionPropertyDescriptor(Object object) {
@@ -178,7 +178,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
      */
     @Override
     public String getText(Object object) {
-        String label = ((AbstractHyperlinkDescription) object).getIdentifier();
+        String label = crop(((AbstractHyperlinkDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_AbstractHyperlinkDescription_type") : //$NON-NLS-1$
                 getString("_UI_AbstractHyperlinkDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -216,7 +216,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

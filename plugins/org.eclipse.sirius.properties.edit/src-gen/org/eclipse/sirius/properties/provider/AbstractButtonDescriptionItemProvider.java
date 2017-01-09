@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,14 +30,14 @@ import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.AbstractButtonDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class AbstractButtonDescriptionItemProvider extends AbstractWidgetDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractButtonDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -47,7 +47,7 @@ public class AbstractButtonDescriptionItemProvider extends AbstractWidgetDescrip
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -78,7 +78,7 @@ public class AbstractButtonDescriptionItemProvider extends AbstractWidgetDescrip
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -146,7 +146,7 @@ public class AbstractButtonDescriptionItemProvider extends AbstractWidgetDescrip
      */
     @Override
     public String getText(Object object) {
-        String label = ((AbstractButtonDescription) object).getIdentifier();
+        String label = crop(((AbstractButtonDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_AbstractButtonDescription_type") : //$NON-NLS-1$
                 getString("_UI_AbstractButtonDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -181,7 +181,7 @@ public class AbstractButtonDescriptionItemProvider extends AbstractWidgetDescrip
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

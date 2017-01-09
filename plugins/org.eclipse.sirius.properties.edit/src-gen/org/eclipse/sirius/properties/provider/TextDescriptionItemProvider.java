@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,14 +23,14 @@ import org.eclipse.sirius.properties.TextDescription;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.TextDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class TextDescriptionItemProvider extends AbstractTextDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public TextDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -40,7 +40,7 @@ public class TextDescriptionItemProvider extends AbstractTextDescriptionItemProv
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,7 +71,7 @@ public class TextDescriptionItemProvider extends AbstractTextDescriptionItemProv
      */
     @Override
     public String getText(Object object) {
-        String label = ((TextDescription) object).getIdentifier();
+        String label = crop(((TextDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_TextDescription_type") : //$NON-NLS-1$
                 getString("_UI_TextDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -94,7 +94,7 @@ public class TextDescriptionItemProvider extends AbstractTextDescriptionItemProv
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

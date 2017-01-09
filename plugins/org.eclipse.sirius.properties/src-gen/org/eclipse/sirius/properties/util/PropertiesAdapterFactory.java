@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -51,6 +51,7 @@ import org.eclipse.sirius.properties.CustomOperation;
 import org.eclipse.sirius.properties.CustomOverrideDescription;
 import org.eclipse.sirius.properties.CustomWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CustomWidgetStyle;
+import org.eclipse.sirius.properties.DocumentedElementDescription;
 import org.eclipse.sirius.properties.DynamicMappingForDescription;
 import org.eclipse.sirius.properties.DynamicMappingForOverrideDescription;
 import org.eclipse.sirius.properties.DynamicMappingIfDescription;
@@ -168,6 +169,11 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseCategory(Category object) {
             return createCategoryAdapter();
+        }
+
+        @Override
+        public Adapter caseDocumentedElementDescription(DocumentedElementDescription object) {
+            return createDocumentedElementDescriptionAdapter();
         }
 
         @Override
@@ -648,6 +654,22 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createCategoryAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.properties.DocumentedElementDescription
+     * <em>Documented Element Description</em>}'. <!-- begin-user-doc --> This
+     * default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.eclipse.sirius.properties.DocumentedElementDescription
+     * @generated
+     */
+    public Adapter createDocumentedElementDescriptionAdapter() {
         return null;
     }
 
@@ -1971,8 +1993,8 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.sirius.viewpoint.description.Extension
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.viewpoint.description.Extension
      * <em>Extension</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a
      * case when inheritance will catch all the cases anyway. <!-- end-user-doc
@@ -2003,8 +2025,8 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.sirius.viewpoint.description.validation.ValidationRule
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.viewpoint.description.validation.ValidationRule
      * <em>Rule</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a
      * case when inheritance will catch all the cases anyway. <!-- end-user-doc

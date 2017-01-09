@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -29,14 +29,14 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.ContainerDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ContainerDescriptionItemProvider extends ControlDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ContainerDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -46,7 +46,7 @@ public class ContainerDescriptionItemProvider extends ControlDescriptionItemProv
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -63,7 +63,7 @@ public class ContainerDescriptionItemProvider extends ControlDescriptionItemProv
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -77,7 +77,7 @@ public class ContainerDescriptionItemProvider extends ControlDescriptionItemProv
      * This adds a property descriptor for the Filter Controls From Extended
      * Container Expression feature. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     *
+     * 
      * @generated
      */
     protected void addFilterControlsFromExtendedContainerExpressionPropertyDescriptor(Object object) {
@@ -141,7 +141,7 @@ public class ContainerDescriptionItemProvider extends ControlDescriptionItemProv
      */
     @Override
     public String getText(Object object) {
-        String label = ((ContainerDescription) object).getIdentifier();
+        String label = crop(((ContainerDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_ContainerDescription_type") : //$NON-NLS-1$
                 getString("_UI_ContainerDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -174,7 +174,7 @@ public class ContainerDescriptionItemProvider extends ControlDescriptionItemProv
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

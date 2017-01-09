@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,14 +30,14 @@ import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.ListDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ListDescriptionItemProvider extends WidgetDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ListDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -47,7 +47,7 @@ public class ListDescriptionItemProvider extends WidgetDescriptionItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,7 +70,7 @@ public class ListDescriptionItemProvider extends WidgetDescriptionItemProvider {
     /**
      * This adds a property descriptor for the Label Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addLabelExpressionPropertyDescriptor(Object object) {
@@ -83,7 +83,7 @@ public class ListDescriptionItemProvider extends WidgetDescriptionItemProvider {
     /**
      * This adds a property descriptor for the Help Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addHelpExpressionPropertyDescriptor(Object object) {
@@ -109,7 +109,7 @@ public class ListDescriptionItemProvider extends WidgetDescriptionItemProvider {
     /**
      * This adds a property descriptor for the Value Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addValueExpressionPropertyDescriptor(Object object) {
@@ -122,7 +122,7 @@ public class ListDescriptionItemProvider extends WidgetDescriptionItemProvider {
     /**
      * This adds a property descriptor for the Display Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addDisplayExpressionPropertyDescriptor(Object object) {
@@ -135,7 +135,7 @@ public class ListDescriptionItemProvider extends WidgetDescriptionItemProvider {
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -228,7 +228,7 @@ public class ListDescriptionItemProvider extends WidgetDescriptionItemProvider {
      */
     @Override
     public String getText(Object object) {
-        String label = ((ListDescription) object).getIdentifier();
+        String label = crop(((ListDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_ListDescription_type") : //$NON-NLS-1$
                 getString("_UI_ListDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -269,7 +269,7 @@ public class ListDescriptionItemProvider extends WidgetDescriptionItemProvider {
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

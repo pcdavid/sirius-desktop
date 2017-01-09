@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,7 +34,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ContainerOverrideDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
     /**
      * This adds a property descriptor for the Overrides feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addOverridesPropertyDescriptor(Object object) {
@@ -75,7 +75,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
      * This adds a property descriptor for the Filter Controls From Overridden
      * Container Expression feature. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     *
+     * 
      * @generated
      */
     protected void addFilterControlsFromOverriddenContainerExpressionPropertyDescriptor(Object object) {
@@ -105,7 +105,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
      */
     @Override
     public String getText(Object object) {
-        String label = ((ContainerOverrideDescription) object).getIdentifier();
+        String label = crop(((ContainerOverrideDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_ContainerOverrideDescription_type") : //$NON-NLS-1$
                 getString("_UI_ContainerOverrideDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -134,7 +134,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

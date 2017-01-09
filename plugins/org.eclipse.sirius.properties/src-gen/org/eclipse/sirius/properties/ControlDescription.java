@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,7 +12,7 @@
 package org.eclipse.sirius.properties;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object ' <em><b>Control
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Control
  * Description</b></em>'. <!-- end-user-doc -->
  *
  *
@@ -21,5 +21,4 @@ package org.eclipse.sirius.properties;
  * @generated
  */
 public interface ControlDescription extends AbstractControlDescription {
-
 } // ControlDescription

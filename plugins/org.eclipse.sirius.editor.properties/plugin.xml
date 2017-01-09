@@ -565,7 +565,15 @@
         <input type="org.eclipse.sirius.properties.ViewExtensionDescription"/>
       </propertySection>
   	<!-- Start of user code propertySections of org.eclipse.sirius.editor.editorPlugin.SiriusEditorContributor  -->
-  	
+  	<propertySection
+           class="org.eclipse.sirius.properties.editor.properties.sections.properties.documentedelementdescription.DocumentedElementDescriptionPropertySectionSpec"
+           filter="org.eclipse.sirius.properties.editor.properties.filters.properties.documentedelementdescription.DocumentedElementDescriptionDocumentationFilter"
+           id="properties.section.documentedElementDescription.Documentation"
+           tab="viewpoint.tab.documentation">
+        <input
+              type="org.eclipse.sirius.properties.DocumentedElementDescription">
+        </input>
+     </propertySection>
   	<!-- End of user code propertySections of org.eclipse.sirius.editor.editorPlugin.SiriusEditorContributor  -->
     </propertySections>
   </extension>

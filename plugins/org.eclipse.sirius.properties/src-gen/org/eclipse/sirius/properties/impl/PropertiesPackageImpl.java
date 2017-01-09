@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -55,6 +55,7 @@ import org.eclipse.sirius.properties.CustomOperation;
 import org.eclipse.sirius.properties.CustomOverrideDescription;
 import org.eclipse.sirius.properties.CustomWidgetConditionalStyle;
 import org.eclipse.sirius.properties.CustomWidgetStyle;
+import org.eclipse.sirius.properties.DocumentedElementDescription;
 import org.eclipse.sirius.properties.DynamicMappingForDescription;
 import org.eclipse.sirius.properties.DynamicMappingForOverrideDescription;
 import org.eclipse.sirius.properties.DynamicMappingIfDescription;
@@ -133,6 +134,13 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     private EClass categoryEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass documentedElementDescriptionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -608,6 +616,27 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      *
      * @generated
      */
+    private EClass listWidgetStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass hyperlinkWidgetStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass groupStyleEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EClass widgetConditionalStyleEClass = null;
 
     /**
@@ -693,27 +722,6 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     private EClass editSupportEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    private EClass listWidgetStyleEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    private EClass hyperlinkWidgetStyleEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    private EClass groupStyleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -894,6 +902,26 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
     @Override
     public EReference getCategory_Overrides() {
         return (EReference) categoryEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getDocumentedElementDescription() {
+        return documentedElementDescriptionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getDocumentedElementDescription_Documentation() {
+        return (EAttribute) documentedElementDescriptionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3332,6 +3360,146 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
+    public EClass getListWidgetStyle() {
+        return listWidgetStyleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getHyperlinkWidgetStyle() {
+        return hyperlinkWidgetStyleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getHyperlinkWidgetStyle_FontNameExpression() {
+        return (EAttribute) hyperlinkWidgetStyleEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getHyperlinkWidgetStyle_FontSizeExpression() {
+        return (EAttribute) hyperlinkWidgetStyleEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getHyperlinkWidgetStyle_BackgroundColor() {
+        return (EReference) hyperlinkWidgetStyleEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getHyperlinkWidgetStyle_FontFormat() {
+        return (EAttribute) hyperlinkWidgetStyleEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getGroupStyle() {
+        return groupStyleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getGroupStyle_BackgroundColor() {
+        return (EReference) groupStyleEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getGroupStyle_ForegroundColor() {
+        return (EReference) groupStyleEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getGroupStyle_FontNameExpression() {
+        return (EAttribute) groupStyleEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getGroupStyle_FontSizeExpression() {
+        return (EAttribute) groupStyleEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getGroupStyle_BarStyle() {
+        return (EAttribute) groupStyleEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getGroupStyle_ToggleStyle() {
+        return (EAttribute) groupStyleEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getGroupStyle_ExpandedByDefault() {
+        return (EAttribute) groupStyleEClass.getEStructuralFeatures().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getWidgetConditionalStyle() {
         return widgetConditionalStyleEClass;
     }
@@ -3592,146 +3760,6 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
-    public EClass getListWidgetStyle() {
-        return listWidgetStyleEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EClass getHyperlinkWidgetStyle() {
-        return hyperlinkWidgetStyleEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getHyperlinkWidgetStyle_FontNameExpression() {
-        return (EAttribute) hyperlinkWidgetStyleEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getHyperlinkWidgetStyle_FontSizeExpression() {
-        return (EAttribute) hyperlinkWidgetStyleEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getHyperlinkWidgetStyle_BackgroundColor() {
-        return (EReference) hyperlinkWidgetStyleEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getHyperlinkWidgetStyle_FontFormat() {
-        return (EAttribute) hyperlinkWidgetStyleEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EClass getGroupStyle() {
-        return groupStyleEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getGroupStyle_BackgroundColor() {
-        return (EReference) groupStyleEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getGroupStyle_ForegroundColor() {
-        return (EReference) groupStyleEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getGroupStyle_FontNameExpression() {
-        return (EAttribute) groupStyleEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getGroupStyle_FontSizeExpression() {
-        return (EAttribute) groupStyleEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getGroupStyle_BarStyle() {
-        return (EAttribute) groupStyleEClass.getEStructuralFeatures().get(4);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getGroupStyle_ToggleStyle() {
-        return (EAttribute) groupStyleEClass.getEStructuralFeatures().get(5);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getGroupStyle_ExpandedByDefault() {
-        return (EAttribute) groupStyleEClass.getEStructuralFeatures().get(6);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public EEnum getFILL_LAYOUT_ORIENTATION() {
         return filL_LAYOUT_ORIENTATIONEEnum;
     }
@@ -3797,6 +3825,9 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEReference(categoryEClass, PropertiesPackage.CATEGORY__PAGES);
         createEReference(categoryEClass, PropertiesPackage.CATEGORY__GROUPS);
         createEReference(categoryEClass, PropertiesPackage.CATEGORY__OVERRIDES);
+
+        documentedElementDescriptionEClass = createEClass(PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION);
+        createEAttribute(documentedElementDescriptionEClass, PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION__DOCUMENTATION);
 
         abstractOverrideDescriptionEClass = createEClass(PropertiesPackage.ABSTRACT_OVERRIDE_DESCRIPTION);
 
@@ -4208,13 +4239,18 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
 
         // Add supertypes to classes
         viewExtensionDescriptionEClass.getESuperTypes().add(theDescriptionPackage.getExtension());
+        viewExtensionDescriptionEClass.getESuperTypes().add(this.getDocumentedElementDescription());
+        categoryEClass.getESuperTypes().add(this.getDocumentedElementDescription());
+        abstractPageDescriptionEClass.getESuperTypes().add(this.getDocumentedElementDescription());
         pageDescriptionEClass.getESuperTypes().add(this.getAbstractPageDescription());
         pageOverrideDescriptionEClass.getESuperTypes().add(this.getAbstractPageDescription());
         pageOverrideDescriptionEClass.getESuperTypes().add(this.getAbstractOverrideDescription());
         propertyValidationRuleEClass.getESuperTypes().add(theValidationPackage.getValidationRule());
+        abstractGroupDescriptionEClass.getESuperTypes().add(this.getDocumentedElementDescription());
         groupDescriptionEClass.getESuperTypes().add(this.getAbstractGroupDescription());
         groupOverrideDescriptionEClass.getESuperTypes().add(this.getAbstractGroupDescription());
         groupOverrideDescriptionEClass.getESuperTypes().add(this.getAbstractOverrideDescription());
+        abstractControlDescriptionEClass.getESuperTypes().add(this.getDocumentedElementDescription());
         controlDescriptionEClass.getESuperTypes().add(this.getAbstractControlDescription());
         abstractContainerDescriptionEClass.getESuperTypes().add(this.getAbstractControlDescription());
         containerDescriptionEClass.getESuperTypes().add(this.getControlDescription());
@@ -4325,6 +4361,11 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         initEReference(getCategory_Overrides(), this.getAbstractOverrideDescription(), null, "overrides", null, 0, -1, Category.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, //$NON-NLS-1$
                 EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
                 EPackageImpl.IS_ORDERED);
+
+        initEClass(documentedElementDescriptionEClass, DocumentedElementDescription.class, "DocumentedElementDescription", EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
+                EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDocumentedElementDescription_Documentation(), theEcorePackage.getEString(), "documentation", "", 0, 1, DocumentedElementDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$//$NON-NLS-2$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
 
         initEClass(abstractOverrideDescriptionEClass, AbstractOverrideDescription.class, "AbstractOverrideDescription", EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
                 EPackageImpl.IS_GENERATED_INSTANCE_CLASS);

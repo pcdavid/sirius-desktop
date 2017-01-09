@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -37,7 +37,7 @@ public class AbstractCheckboxDescriptionItemProvider extends AbstractWidgetDescr
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractCheckboxDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -47,7 +47,7 @@ public class AbstractCheckboxDescriptionItemProvider extends AbstractWidgetDescr
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -65,7 +65,7 @@ public class AbstractCheckboxDescriptionItemProvider extends AbstractWidgetDescr
     /**
      * This adds a property descriptor for the Value Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addValueExpressionPropertyDescriptor(Object object) {
@@ -78,7 +78,7 @@ public class AbstractCheckboxDescriptionItemProvider extends AbstractWidgetDescr
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -147,7 +147,7 @@ public class AbstractCheckboxDescriptionItemProvider extends AbstractWidgetDescr
      */
     @Override
     public String getText(Object object) {
-        String label = ((AbstractCheckboxDescription) object).getIdentifier();
+        String label = crop(((AbstractCheckboxDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_AbstractCheckboxDescription_type") : //$NON-NLS-1$
                 getString("_UI_AbstractCheckboxDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -182,7 +182,7 @@ public class AbstractCheckboxDescriptionItemProvider extends AbstractWidgetDescr
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,7 +34,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public DynamicMappingForOverrideDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
     /**
      * This adds a property descriptor for the Overrides feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addOverridesPropertyDescriptor(Object object) {
@@ -90,7 +90,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
     /**
      * This returns DynamicMappingForOverrideDescription.gif. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -106,7 +106,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
      */
     @Override
     public String getText(Object object) {
-        String label = ((DynamicMappingForOverrideDescription) object).getIdentifier();
+        String label = crop(((DynamicMappingForOverrideDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_DynamicMappingForOverrideDescription_type") : //$NON-NLS-1$
                 getString("_UI_DynamicMappingForOverrideDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -135,7 +135,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

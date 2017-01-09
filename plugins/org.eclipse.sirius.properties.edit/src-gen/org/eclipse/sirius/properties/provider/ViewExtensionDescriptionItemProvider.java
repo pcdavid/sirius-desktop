@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -37,21 +37,15 @@ import org.eclipse.sirius.properties.ViewExtensionDescription;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.ViewExtensionDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
         implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
-     * The default expression to use as semanticCandidatesExpression for newly
-     * created elements.
-     */
-    public static final String DEFAULT_SEMANTIC_CANDIDATES_EXPRESSION = "var:self"; //$NON-NLS-1$
-
-    /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ViewExtensionDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -61,7 +55,7 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,6 +63,7 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
+            addDocumentationPropertyDescriptor(object);
             addIdentifierPropertyDescriptor(object);
             addMetamodelsPropertyDescriptor(object);
         }
@@ -76,9 +71,23 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
     }
 
     /**
+     * This adds a property descriptor for the Documentation feature. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected void addDocumentationPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+                getString("_UI_DocumentedElementDescription_documentation_feature"), //$NON-NLS-1$
+                getString("_UI_DocumentedElementDescription_documentation_description"), //$NON-NLS-1$
+                PropertiesPackage.Literals.DOCUMENTED_ELEMENT_DESCRIPTION__DOCUMENTATION, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_DocumentationPropertyCategory"), //$NON-NLS-1$
+                null));
+    }
+
+    /**
      * This adds a property descriptor for the Identifier feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addIdentifierPropertyDescriptor(Object object) {
@@ -91,7 +100,7 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
     /**
      * This adds a property descriptor for the Metamodels feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addMetamodelsPropertyDescriptor(Object object) {
@@ -153,7 +162,7 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        String label = ((ViewExtensionDescription) object).getIdentifier();
+        String label = crop(((ViewExtensionDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_ViewExtensionDescription_type") : //$NON-NLS-1$
                 getString("_UI_ViewExtensionDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -171,6 +180,7 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
         updateChildren(notification);
 
         switch (notification.getFeatureID(ViewExtensionDescription.class)) {
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION:
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
@@ -185,7 +195,7 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -198,7 +208,7 @@ public class ViewExtensionDescriptionItemProvider extends ItemProviderAdapter
     /**
      * Return the resource locator for this item provider's resources. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

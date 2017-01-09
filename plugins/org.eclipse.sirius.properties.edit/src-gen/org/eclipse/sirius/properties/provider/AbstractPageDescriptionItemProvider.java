@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,18 +16,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.properties.AbstractPageDescription;
 import org.eclipse.sirius.properties.PropertiesFactory;
@@ -37,15 +29,14 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.AbstractPageDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
-public class AbstractPageDescriptionItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AbstractPageDescriptionItemProvider extends DocumentedElementDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractPageDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -55,7 +46,7 @@ public class AbstractPageDescriptionItemProvider extends ItemProviderAdapter
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -79,7 +70,7 @@ public class AbstractPageDescriptionItemProvider extends ItemProviderAdapter
     /**
      * This adds a property descriptor for the Identifier feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addIdentifierPropertyDescriptor(Object object) {
@@ -92,7 +83,7 @@ public class AbstractPageDescriptionItemProvider extends ItemProviderAdapter
     /**
      * This adds a property descriptor for the Label Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addLabelExpressionPropertyDescriptor(Object object) {
@@ -105,7 +96,7 @@ public class AbstractPageDescriptionItemProvider extends ItemProviderAdapter
     /**
      * This adds a property descriptor for the Domain Class feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addDomainClassPropertyDescriptor(Object object) {
@@ -144,7 +135,7 @@ public class AbstractPageDescriptionItemProvider extends ItemProviderAdapter
     /**
      * This adds a property descriptor for the Groups feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addGroupsPropertyDescriptor(Object object) {
@@ -157,7 +148,7 @@ public class AbstractPageDescriptionItemProvider extends ItemProviderAdapter
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -236,7 +227,7 @@ public class AbstractPageDescriptionItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        String label = ((AbstractPageDescription) object).getIdentifier();
+        String label = crop(((AbstractPageDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_AbstractPageDescription_type") : //$NON-NLS-1$
                 getString("_UI_AbstractPageDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -274,7 +265,7 @@ public class AbstractPageDescriptionItemProvider extends ItemProviderAdapter
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -282,17 +273,6 @@ public class AbstractPageDescriptionItemProvider extends ItemProviderAdapter
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_PAGE_DESCRIPTION__VALIDATION_SET, PropertiesFactory.eINSTANCE.createPageValidationSetDescription()));
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
     }
 
 }

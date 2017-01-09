@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,14 +27,14 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.HyperlinkWidgetStyle} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class HyperlinkWidgetStyleItemProvider extends WidgetStyleItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public HyperlinkWidgetStyleItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class HyperlinkWidgetStyleItemProvider extends WidgetStyleItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class HyperlinkWidgetStyleItemProvider extends WidgetStyleItemProvider {
     /**
      * This adds a property descriptor for the Background Color feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addBackgroundColorPropertyDescriptor(Object object) {
@@ -102,7 +102,7 @@ public class HyperlinkWidgetStyleItemProvider extends WidgetStyleItemProvider {
     /**
      * This adds a property descriptor for the Font Format feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addFontFormatPropertyDescriptor(Object object) {
@@ -162,7 +162,7 @@ public class HyperlinkWidgetStyleItemProvider extends WidgetStyleItemProvider {
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

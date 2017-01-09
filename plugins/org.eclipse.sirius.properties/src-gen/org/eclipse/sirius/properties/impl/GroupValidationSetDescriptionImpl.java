@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -26,7 +26,7 @@ import org.eclipse.sirius.properties.PropertyValidationRule;
 import org.eclipse.sirius.viewpoint.description.validation.SemanticValidationRule;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Group
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Group
  * Validation Set Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:

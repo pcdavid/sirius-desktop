@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,14 +19,14 @@ import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 /**
  * This is the central singleton for the Properties edit plugin. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public final class PropertiesEditPlugin extends EMFPlugin {
     /**
      * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     *
+     * 
      * @generated
      */
     public static final PropertiesEditPlugin INSTANCE = new PropertiesEditPlugin();
@@ -34,7 +34,7 @@ public final class PropertiesEditPlugin extends EMFPlugin {
     /**
      * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     *
+     * 
      * @generated
      */
     private static Implementation plugin;
@@ -74,7 +74,7 @@ public final class PropertiesEditPlugin extends EMFPlugin {
     /**
      * The actual implementation of the Eclipse <b>Plugin</b>. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static class Implementation extends EclipsePlugin {

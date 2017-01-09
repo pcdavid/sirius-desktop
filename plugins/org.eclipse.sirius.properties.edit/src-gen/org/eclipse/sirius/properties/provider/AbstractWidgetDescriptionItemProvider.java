@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,14 +27,14 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.AbstractWidgetDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class AbstractWidgetDescriptionItemProvider extends AbstractControlDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractWidgetDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class AbstractWidgetDescriptionItemProvider extends AbstractControlDescri
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -62,7 +62,7 @@ public class AbstractWidgetDescriptionItemProvider extends AbstractControlDescri
     /**
      * This adds a property descriptor for the Label Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addLabelExpressionPropertyDescriptor(Object object) {
@@ -75,7 +75,7 @@ public class AbstractWidgetDescriptionItemProvider extends AbstractControlDescri
     /**
      * This adds a property descriptor for the Help Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addHelpExpressionPropertyDescriptor(Object object) {
@@ -106,7 +106,7 @@ public class AbstractWidgetDescriptionItemProvider extends AbstractControlDescri
      */
     @Override
     public String getText(Object object) {
-        String label = ((AbstractWidgetDescription) object).getIdentifier();
+        String label = crop(((AbstractWidgetDescription) object).getDocumentation());
         return label == null || label.length() == 0 ? getString("_UI_AbstractWidgetDescription_type") : //$NON-NLS-1$
                 getString("_UI_AbstractWidgetDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -137,7 +137,7 @@ public class AbstractWidgetDescriptionItemProvider extends AbstractControlDescri
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

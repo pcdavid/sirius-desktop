@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -25,16 +25,19 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.sirius.properties.Category;
+import org.eclipse.sirius.properties.DocumentedElementDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.ViewExtensionDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object ' <em><b>View
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>View
  * Extension Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
+ * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getDocumentation
+ * <em>Documentation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getIdentifier
  * <em>Identifier</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getMetamodels
@@ -46,6 +49,28 @@ import org.eclipse.sirius.properties.ViewExtensionDescription;
  * @generated
  */
 public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container implements ViewExtensionDescription {
+    /**
+     * The default value of the '{@link #getDocumentation()
+     * <em>Documentation</em>}' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see #getDocumentation()
+     * @generated
+     * @ordered
+     */
+    protected static final String DOCUMENTATION_EDEFAULT = ""; //$NON-NLS-1$
+
+    /**
+     * The cached value of the '{@link #getDocumentation()
+     * <em>Documentation</em>}' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see #getDocumentation()
+     * @generated
+     * @ordered
+     */
+    protected String documentation = ViewExtensionDescriptionImpl.DOCUMENTATION_EDEFAULT;
+
     /**
      * The default value of the '{@link #getIdentifier() <em>Identifier</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -103,6 +128,30 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
     @Override
     protected EClass eStaticClass() {
         return PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public String getDocumentation() {
+        return documentation;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setDocumentation(String newDocumentation) {
+        String oldDocumentation = documentation;
+        documentation = newDocumentation;
+        if (eNotificationRequired()) {
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION, oldDocumentation, documentation));
+        }
     }
 
     /**
@@ -177,6 +226,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION:
+            return getDocumentation();
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER:
             return getIdentifier();
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__METAMODELS:
@@ -196,6 +247,9 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION:
+            setDocumentation((String) newValue);
+            return;
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER:
             setIdentifier((String) newValue);
             return;
@@ -219,6 +273,9 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION:
+            setDocumentation(ViewExtensionDescriptionImpl.DOCUMENTATION_EDEFAULT);
+            return;
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER:
             setIdentifier(ViewExtensionDescriptionImpl.IDENTIFIER_EDEFAULT);
             return;
@@ -240,6 +297,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION:
+            return ViewExtensionDescriptionImpl.DOCUMENTATION_EDEFAULT == null ? documentation != null : !ViewExtensionDescriptionImpl.DOCUMENTATION_EDEFAULT.equals(documentation);
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER:
             return ViewExtensionDescriptionImpl.IDENTIFIER_EDEFAULT == null ? identifier != null : !ViewExtensionDescriptionImpl.IDENTIFIER_EDEFAULT.equals(identifier);
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__METAMODELS:
@@ -256,13 +315,51 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
      * @generated
      */
     @Override
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+        if (baseClass == DocumentedElementDescription.class) {
+            switch (derivedFeatureID) {
+            case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION:
+                return PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION__DOCUMENTATION;
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+        if (baseClass == DocumentedElementDescription.class) {
+            switch (baseFeatureID) {
+            case PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION__DOCUMENTATION:
+                return PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION;
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public String toString() {
         if (eIsProxy()) {
             return super.toString();
         }
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (identifier: "); //$NON-NLS-1$
+        result.append(" (documentation: "); //$NON-NLS-1$
+        result.append(documentation);
+        result.append(", identifier: "); //$NON-NLS-1$
         result.append(identifier);
         result.append(')');
         return result.toString();

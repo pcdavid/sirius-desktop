@@ -2,14 +2,14 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="properties" nsURI="http://www.eclipse.org/sirius/properties/1.0.0"
     nsPrefix="properties">
-  <eClassifiers xsi:type="ecore:EClass" name="ViewExtensionDescription" eSuperTypes="../../org.eclipse.sirius/model/viewpoint.ecore#//description/Extension">
+  <eClassifiers xsi:type="ecore:EClass" name="ViewExtensionDescription" eSuperTypes="../../org.eclipse.sirius/model/viewpoint.ecore#//description/Extension #//DocumentedElementDescription">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metamodels" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
         eType="#//Category" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Category">
+  <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//DocumentedElementDescription">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pages" upperBound="-1"
         eType="#//PageDescription" containment="true"/>
@@ -18,8 +18,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="overrides" upperBound="-1"
         eType="#//AbstractOverrideDescription" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentedElementDescription" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractOverrideDescription" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractPageDescription" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractPageDescription" abstract="true"
+      eSuperTypes="#//DocumentedElementDescription">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelExpression" eType="ecore:EDataType ../../org.eclipse.sirius/model/viewpoint.ecore#//description/InterpretedExpression"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="domainClass" eType="ecore:EDataType ../../org.eclipse.sirius/model/viewpoint.ecore#//description/TypeName"/>
@@ -54,7 +59,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
         eType="#//WidgetDescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractGroupDescription" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractGroupDescription" abstract="true"
+      eSuperTypes="#//DocumentedElementDescription">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelExpression" eType="ecore:EDataType ../../org.eclipse.sirius/model/viewpoint.ecore#//description/InterpretedExpression"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="domainClass" eType="ecore:EDataType ../../org.eclipse.sirius/model/viewpoint.ecore#//description/TypeName"/>
@@ -95,7 +101,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyValidationRules"
         upperBound="-1" eType="#//PropertyValidationRule" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractControlDescription" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractControlDescription" abstract="true"
+      eSuperTypes="#//DocumentedElementDescription">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlDescription" abstract="true"

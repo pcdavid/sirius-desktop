@@ -12,8 +12,8 @@
 package org.eclipse.sirius.properties;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>List Widget Conditional Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>List
+ * Widget Conditional Style</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -46,8 +46,8 @@ public interface ListWidgetConditionalStyle extends WidgetConditionalStyle {
     ListWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ListWidgetConditionalStyle#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ListWidgetConditionalStyle#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

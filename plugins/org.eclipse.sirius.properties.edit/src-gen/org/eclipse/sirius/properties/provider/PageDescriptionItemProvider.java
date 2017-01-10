@@ -166,6 +166,7 @@ public class PageDescriptionItemProvider extends ItemProviderAdapter
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(PropertiesPackage.Literals.PAGE_DESCRIPTION__VALIDATION_SET);
+            childrenFeatures.add(PropertiesPackage.Literals.PAGE_DESCRIPTION__ACTIONS);
         }
         return childrenFeatures;
     }
@@ -229,6 +230,7 @@ public class PageDescriptionItemProvider extends ItemProviderAdapter
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case PropertiesPackage.PAGE_DESCRIPTION__VALIDATION_SET:
+        case PropertiesPackage.PAGE_DESCRIPTION__ACTIONS:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -247,6 +249,8 @@ public class PageDescriptionItemProvider extends ItemProviderAdapter
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.PAGE_DESCRIPTION__VALIDATION_SET, PropertiesFactory.eINSTANCE.createPageValidationSetDescription()));
+
+        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.PAGE_DESCRIPTION__ACTIONS, PropertiesFactory.eINSTANCE.createToolbarAction()));
     }
 
     /**

@@ -20,39 +20,38 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.sirius.properties.GroupDescription;
 import org.eclipse.sirius.properties.PageDescription;
 import org.eclipse.sirius.properties.PageValidationSetDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
+import org.eclipse.sirius.properties.ToolbarAction;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Page Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Page
+ * Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getIdentifier
+ * <li>{@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getIdentifier
  * <em>Identifier</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getLabelExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getLabelExpression
  * <em>Label Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getDomainClass
+ * <li>{@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getDomainClass
  * <em>Domain Class</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getSemanticCandidateExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getSemanticCandidateExpression
  * <em>Semantic Candidate Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getPreconditionExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getPreconditionExpression
  * <em>Precondition Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getGroups
  * <em>Groups</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getValidationSet
+ * <li>{@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getValidationSet
  * <em>Validation Set</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.PageDescriptionImpl#getActions
+ * <em>Actions</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,9 +78,9 @@ public class PageDescriptionImpl extends MinimalEObjectImpl.Container implements
     protected String identifier = PageDescriptionImpl.IDENTIFIER_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getLabelExpression()
-     * <em>Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The default value of the '{@link #getLabelExpression() <em>Label
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getLabelExpression()
      * @generated
@@ -90,9 +89,9 @@ public class PageDescriptionImpl extends MinimalEObjectImpl.Container implements
     protected static final String LABEL_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getLabelExpression()
-     * <em>Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The cached value of the '{@link #getLabelExpression() <em>Label
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @see #getLabelExpression()
      * @generated
@@ -101,8 +100,8 @@ public class PageDescriptionImpl extends MinimalEObjectImpl.Container implements
     protected String labelExpression = PageDescriptionImpl.LABEL_EXPRESSION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getDomainClass() <em>Domain Class</em>}
-     * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getDomainClass() <em>Domain
+     * Class</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getDomainClass()
      * @generated
@@ -175,15 +174,25 @@ public class PageDescriptionImpl extends MinimalEObjectImpl.Container implements
     protected EList<GroupDescription> groups;
 
     /**
-     * The cached value of the '{@link #getValidationSet()
-     * <em>Validation Set</em>}' containment reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The cached value of the '{@link #getValidationSet() <em>Validation
+     * Set</em>}' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getValidationSet()
      * @generated
      * @ordered
      */
     protected PageValidationSetDescription validationSet;
+
+    /**
+     * The cached value of the '{@link #getActions() <em>Actions</em>}'
+     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getActions()
+     * @generated
+     * @ordered
+     */
+    protected EList<ToolbarAction> actions;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -396,10 +405,25 @@ public class PageDescriptionImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
+    public EList<ToolbarAction> getActions() {
+        if (actions == null) {
+            actions = new EObjectContainmentEList<ToolbarAction>(ToolbarAction.class, this, PropertiesPackage.PAGE_DESCRIPTION__ACTIONS);
+        }
+        return actions;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case PropertiesPackage.PAGE_DESCRIPTION__VALIDATION_SET:
             return basicSetValidationSet(null, msgs);
+        case PropertiesPackage.PAGE_DESCRIPTION__ACTIONS:
+            return ((InternalEList<?>) getActions()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -426,6 +450,8 @@ public class PageDescriptionImpl extends MinimalEObjectImpl.Container implements
             return getGroups();
         case PropertiesPackage.PAGE_DESCRIPTION__VALIDATION_SET:
             return getValidationSet();
+        case PropertiesPackage.PAGE_DESCRIPTION__ACTIONS:
+            return getActions();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -461,6 +487,10 @@ public class PageDescriptionImpl extends MinimalEObjectImpl.Container implements
         case PropertiesPackage.PAGE_DESCRIPTION__VALIDATION_SET:
             setValidationSet((PageValidationSetDescription) newValue);
             return;
+        case PropertiesPackage.PAGE_DESCRIPTION__ACTIONS:
+            getActions().clear();
+            getActions().addAll((Collection<? extends ToolbarAction>) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
@@ -494,6 +524,9 @@ public class PageDescriptionImpl extends MinimalEObjectImpl.Container implements
         case PropertiesPackage.PAGE_DESCRIPTION__VALIDATION_SET:
             setValidationSet((PageValidationSetDescription) null);
             return;
+        case PropertiesPackage.PAGE_DESCRIPTION__ACTIONS:
+            getActions().clear();
+            return;
         }
         super.eUnset(featureID);
     }
@@ -521,6 +554,8 @@ public class PageDescriptionImpl extends MinimalEObjectImpl.Container implements
             return groups != null && !groups.isEmpty();
         case PropertiesPackage.PAGE_DESCRIPTION__VALIDATION_SET:
             return validationSet != null;
+        case PropertiesPackage.PAGE_DESCRIPTION__ACTIONS:
+            return actions != null && !actions.isEmpty();
         }
         return super.eIsSet(featureID);
     }

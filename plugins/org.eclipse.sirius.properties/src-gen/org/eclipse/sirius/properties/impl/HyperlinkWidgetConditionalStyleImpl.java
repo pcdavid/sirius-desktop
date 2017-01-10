@@ -27,8 +27,7 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.HyperlinkWidgetConditionalStyleImpl#getStyle
+ * <li>{@link org.eclipse.sirius.properties.impl.HyperlinkWidgetConditionalStyleImpl#getStyle
  * <em>Style</em>}</li>
  * </ul>
  *

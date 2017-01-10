@@ -236,6 +236,31 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
 
     /**
      * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.properties.ToolbarAction} instances. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected ToolbarActionItemProvider toolbarActionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.eclipse.sirius.properties.ToolbarAction}. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Adapter createToolbarActionAdapter() {
+        if (toolbarActionItemProvider == null) {
+            toolbarActionItemProvider = new ToolbarActionItemProvider(this);
+        }
+
+        return toolbarActionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
      * {@link org.eclipse.sirius.properties.GroupValidationSetDescription}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -1431,6 +1456,9 @@ public class PropertiesItemProviderAdapterFactory extends PropertiesAdapterFacto
         }
         if (groupDescriptionItemProvider != null) {
             groupDescriptionItemProvider.dispose();
+        }
+        if (toolbarActionItemProvider != null) {
+            toolbarActionItemProvider.dispose();
         }
         if (groupValidationSetDescriptionItemProvider != null) {
             groupValidationSetDescriptionItemProvider.dispose();

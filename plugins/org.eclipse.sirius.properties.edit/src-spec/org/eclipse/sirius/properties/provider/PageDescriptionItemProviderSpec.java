@@ -12,6 +12,7 @@
 package org.eclipse.sirius.properties.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.sirius.properties.PageDescription;
 
 /**
@@ -36,5 +37,11 @@ public class PageDescriptionItemProviderSpec extends PageDescriptionItemProvider
         String label = ((PageDescription) object).getIdentifier();
         return label == null || label.length() == 0 ? getString("_UI_PageDescription_type") : //$NON-NLS-1$
                 label;
+    }
+    
+    @Override
+    protected CommandParameter createChildParameter(Object feature, Object child) {
+        PropertiesItemProviderAdapterFactory.addNoopNavigationOperations(child);
+        return super.createChildParameter(feature, child);
     }
 }

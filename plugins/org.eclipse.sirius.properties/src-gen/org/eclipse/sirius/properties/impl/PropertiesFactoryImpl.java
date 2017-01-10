@@ -66,6 +66,7 @@ import org.eclipse.sirius.properties.TextWidgetConditionalStyle;
 import org.eclipse.sirius.properties.TextWidgetStyle;
 import org.eclipse.sirius.properties.TitleBarStyle;
 import org.eclipse.sirius.properties.ToggleStyle;
+import org.eclipse.sirius.properties.ToolbarAction;
 import org.eclipse.sirius.properties.ViewExtensionDescription;
 import org.eclipse.sirius.properties.WidgetAction;
 import org.eclipse.sirius.properties.WidgetStyle;
@@ -123,6 +124,8 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
             return createPropertyValidationRule();
         case PropertiesPackage.GROUP_DESCRIPTION:
             return createGroupDescription();
+        case PropertiesPackage.TOOLBAR_ACTION:
+            return createToolbarAction();
         case PropertiesPackage.GROUP_VALIDATION_SET_DESCRIPTION:
             return createGroupValidationSetDescription();
         case PropertiesPackage.CONTAINER_DESCRIPTION:
@@ -303,6 +306,17 @@ public class PropertiesFactoryImpl extends EFactoryImpl implements PropertiesFac
     public GroupDescription createGroupDescription() {
         GroupDescriptionImpl groupDescription = new GroupDescriptionImpl();
         return groupDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ToolbarAction createToolbarAction() {
+        ToolbarActionImpl toolbarAction = new ToolbarActionImpl();
+        return toolbarAction;
     }
 
     /**

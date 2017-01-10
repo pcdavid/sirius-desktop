@@ -21,14 +21,13 @@ import org.eclipse.sirius.properties.RadioWidgetConditionalStyle;
 import org.eclipse.sirius.properties.RadioWidgetStyle;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Radio Widget Conditional Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Radio
+ * Widget Conditional Style</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.RadioWidgetConditionalStyleImpl#getStyle
+ * <li>{@link org.eclipse.sirius.properties.impl.RadioWidgetConditionalStyleImpl#getStyle
  * <em>Style</em>}</li>
  * </ul>
  *

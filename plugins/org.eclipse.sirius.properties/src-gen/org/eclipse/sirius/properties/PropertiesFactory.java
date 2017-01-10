@@ -75,11 +75,20 @@ public interface PropertiesFactory extends EFactory {
     GroupDescription createGroupDescription();
 
     /**
-     * Returns a new object of class '<em>Group Validation Set Description</em>
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Toolbar Action</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Group Validation Set Description</em>
-     *         '.
+     * @return a new object of class '<em>Toolbar Action</em>'.
+     * @generated
+     */
+    ToolbarAction createToolbarAction();
+
+    /**
+     * Returns a new object of class '<em>Group Validation Set
+     * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Group Validation Set
+     *         Description</em>'.
      * @generated
      */
     GroupValidationSetDescription createGroupValidationSetDescription();
@@ -364,11 +373,11 @@ public interface PropertiesFactory extends EFactory {
     LabelWidgetConditionalStyle createLabelWidgetConditionalStyle();
 
     /**
-     * Returns a new object of class '<em>Checkbox Widget Conditional Style</em>
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Checkbox Widget Conditional
+     * Style</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Checkbox Widget Conditional Style</em>
-     *         '.
+     * @return a new object of class '<em>Checkbox Widget Conditional
+     *         Style</em>'.
      * @generated
      */
     CheckboxWidgetConditionalStyle createCheckboxWidgetConditionalStyle();
@@ -428,12 +437,11 @@ public interface PropertiesFactory extends EFactory {
     WidgetAction createWidgetAction();
 
     /**
-     * Returns a new object of class '
-     * <em>Hyperlink Widget Conditional Style</em>'. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Returns a new object of class '<em>Hyperlink Widget Conditional
+     * Style</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '
-     *         <em>Hyperlink Widget Conditional Style</em>'.
+     * @return a new object of class '<em>Hyperlink Widget Conditional
+     *         Style</em>'.
      * @generated
      */
     HyperlinkWidgetConditionalStyle createHyperlinkWidgetConditionalStyle();

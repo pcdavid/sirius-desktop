@@ -21,14 +21,13 @@ import org.eclipse.sirius.properties.CustomWidgetStyle;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Custom Widget Conditional Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Custom
+ * Widget Conditional Style</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.CustomWidgetConditionalStyleImpl#getStyle
+ * <li>{@link org.eclipse.sirius.properties.impl.CustomWidgetConditionalStyleImpl#getStyle
  * <em>Style</em>}</li>
  * </ul>
  *

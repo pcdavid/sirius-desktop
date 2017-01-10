@@ -22,19 +22,15 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.HyperlinkDescription#getValueExpression
+ * <li>{@link org.eclipse.sirius.properties.HyperlinkDescription#getValueExpression
  * <em>Value Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.HyperlinkDescription#getDisplayExpression
+ * <li>{@link org.eclipse.sirius.properties.HyperlinkDescription#getDisplayExpression
  * <em>Display Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.HyperlinkDescription#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.HyperlinkDescription#getInitialOperation
  * <em>Initial Operation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.HyperlinkDescription#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.HyperlinkDescription#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.HyperlinkDescription#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.HyperlinkDescription#getActions
  * <em>Actions</em>}</li>
@@ -57,15 +53,14 @@ public interface HyperlinkDescription extends WidgetDescription {
      * @return the value of the '<em>Value Expression</em>' attribute.
      * @see #setValueExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getHyperlinkDescription_ValueExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getValueExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.HyperlinkDescription#getValueExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.HyperlinkDescription#getValueExpression
      * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -88,15 +83,14 @@ public interface HyperlinkDescription extends WidgetDescription {
      * @return the value of the '<em>Display Expression</em>' attribute.
      * @see #setDisplayExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getHyperlinkDescription_DisplayExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getDisplayExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.HyperlinkDescription#getDisplayExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.HyperlinkDescription#getDisplayExpression
      * <em>Display Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -126,8 +120,8 @@ public interface HyperlinkDescription extends WidgetDescription {
     InitialOperation getInitialOperation();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.HyperlinkDescription#getInitialOperation
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.HyperlinkDescription#getInitialOperation
      * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -157,8 +151,8 @@ public interface HyperlinkDescription extends WidgetDescription {
     HyperlinkWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.HyperlinkDescription#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.HyperlinkDescription#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

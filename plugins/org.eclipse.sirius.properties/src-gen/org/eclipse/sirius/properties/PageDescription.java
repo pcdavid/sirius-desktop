@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Page Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Page
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -28,16 +28,16 @@ import org.eclipse.emf.ecore.EObject;
  * <em>Label Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.PageDescription#getDomainClass
  * <em>Domain Class</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.PageDescription#getSemanticCandidateExpression
+ * <li>{@link org.eclipse.sirius.properties.PageDescription#getSemanticCandidateExpression
  * <em>Semantic Candidate Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.PageDescription#getPreconditionExpression
+ * <li>{@link org.eclipse.sirius.properties.PageDescription#getPreconditionExpression
  * <em>Precondition Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.PageDescription#getGroups
  * <em>Groups</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.PageDescription#getValidationSet
  * <em>Validation Set</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.PageDescription#getActions
+ * <em>Actions</em>}</li>
  * </ul>
  *
  * @see org.eclipse.sirius.properties.PropertiesPackage#getPageDescription()
@@ -63,8 +63,8 @@ public interface PageDescription extends EObject {
     String getIdentifier();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.PageDescription#getIdentifier
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.PageDescription#getIdentifier
      * <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -87,15 +87,14 @@ public interface PageDescription extends EObject {
      * @return the value of the '<em>Label Expression</em>' attribute.
      * @see #setLabelExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getPageDescription_LabelExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getLabelExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.PageDescription#getLabelExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.PageDescription#getLabelExpression
      * <em>Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -124,8 +123,8 @@ public interface PageDescription extends EObject {
     String getDomainClass();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.PageDescription#getDomainClass
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.PageDescription#getDomainClass
      * <em>Domain Class</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -149,15 +148,14 @@ public interface PageDescription extends EObject {
      *         attribute.
      * @see #setSemanticCandidateExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getPageDescription_SemanticCandidateExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getSemanticCandidateExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.PageDescription#getSemanticCandidateExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.PageDescription#getSemanticCandidateExpression
      * <em>Semantic Candidate Expression</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -181,15 +179,14 @@ public interface PageDescription extends EObject {
      * @return the value of the '<em>Precondition Expression</em>' attribute.
      * @see #setPreconditionExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getPageDescription_PreconditionExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getPreconditionExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.PageDescription#getPreconditionExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.PageDescription#getPreconditionExpression
      * <em>Precondition Expression</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -237,8 +234,8 @@ public interface PageDescription extends EObject {
     PageValidationSetDescription getValidationSet();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.PageDescription#getValidationSet
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.PageDescription#getValidationSet
      * <em>Validation Set</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -249,5 +246,23 @@ public interface PageDescription extends EObject {
      * @generated
      */
     void setValidationSet(PageValidationSetDescription value);
+
+    /**
+     * Returns the value of the '<em><b>Actions</b></em>' containment reference
+     * list. The list contents are of type
+     * {@link org.eclipse.sirius.properties.ToolbarAction}. <!-- begin-user-doc
+     * -->
+     * <p>
+     * If the meaning of the '<em>Actions</em>' containment reference list isn't
+     * clear, there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Actions</em>' containment reference list.
+     * @see org.eclipse.sirius.properties.PropertiesPackage#getPageDescription_Actions()
+     * @model containment="true"
+     * @generated
+     */
+    EList<ToolbarAction> getActions();
 
 } // PageDescription

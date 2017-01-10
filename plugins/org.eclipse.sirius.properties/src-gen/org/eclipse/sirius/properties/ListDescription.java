@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>List Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>List
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> Represents a list in the user interface. <!--
  * end-model-doc -->
@@ -59,8 +59,8 @@ public interface ListDescription extends WidgetDescription {
     String getValueExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ListDescription#getValueExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ListDescription#getValueExpression
      * <em>Value Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -86,8 +86,8 @@ public interface ListDescription extends WidgetDescription {
     String getDisplayExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ListDescription#getDisplayExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ListDescription#getDisplayExpression
      * <em>Display Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -114,8 +114,8 @@ public interface ListDescription extends WidgetDescription {
     InitialOperation getOnClickOperation();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ListDescription#getOnClickOperation
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ListDescription#getOnClickOperation
      * <em>On Click Operation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -163,8 +163,8 @@ public interface ListDescription extends WidgetDescription {
     ListWidgetStyle getStyle();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ListDescription#getStyle
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ListDescription#getStyle
      * <em>Style</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

@@ -156,6 +156,7 @@ public class GroupDescriptionItemProvider extends ItemProviderAdapter
             childrenFeatures.add(PropertiesPackage.Literals.GROUP_DESCRIPTION__VALIDATION_SET);
             childrenFeatures.add(PropertiesPackage.Literals.GROUP_DESCRIPTION__STYLE);
             childrenFeatures.add(PropertiesPackage.Literals.GROUP_DESCRIPTION__CONDITIONAL_STYLES);
+            childrenFeatures.add(PropertiesPackage.Literals.GROUP_DESCRIPTION__ACTIONS);
         }
         return childrenFeatures;
     }
@@ -222,6 +223,7 @@ public class GroupDescriptionItemProvider extends ItemProviderAdapter
         case PropertiesPackage.GROUP_DESCRIPTION__VALIDATION_SET:
         case PropertiesPackage.GROUP_DESCRIPTION__STYLE:
         case PropertiesPackage.GROUP_DESCRIPTION__CONDITIONAL_STYLES:
+        case PropertiesPackage.GROUP_DESCRIPTION__ACTIONS:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -274,6 +276,8 @@ public class GroupDescriptionItemProvider extends ItemProviderAdapter
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.GROUP_DESCRIPTION__STYLE, PropertiesFactory.eINSTANCE.createGroupStyle()));
 
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.GROUP_DESCRIPTION__CONDITIONAL_STYLES, PropertiesFactory.eINSTANCE.createGroupConditionalStyle()));
+
+        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.GROUP_DESCRIPTION__ACTIONS, PropertiesFactory.eINSTANCE.createToolbarAction()));
     }
 
     /**

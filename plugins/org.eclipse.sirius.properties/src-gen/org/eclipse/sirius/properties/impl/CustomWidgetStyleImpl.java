@@ -16,8 +16,8 @@ import org.eclipse.sirius.properties.CustomWidgetStyle;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Custom Widget Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Custom
+ * Widget Style</b></em>'. <!-- end-user-doc -->
  *
  * @generated
  */

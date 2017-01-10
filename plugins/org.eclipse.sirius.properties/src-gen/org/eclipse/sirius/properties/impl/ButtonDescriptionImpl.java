@@ -28,22 +28,19 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Button Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Button
+ * Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getButtonLabelExpression
+ * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getButtonLabelExpression
  * <em>Button Label Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getInitialOperation
  * <em>Initial Operation</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getStyle
  * <em>Style</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getConditionalStyles
+ * <li>{@link org.eclipse.sirius.properties.impl.ButtonDescriptionImpl#getConditionalStyles
  * <em>Conditional Styles</em>}</li>
  * </ul>
  *
@@ -51,9 +48,9 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  */
 public class ButtonDescriptionImpl extends WidgetDescriptionImpl implements ButtonDescription {
     /**
-     * The default value of the '{@link #getButtonLabelExpression()
-     * <em>Button Label Expression</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The default value of the '{@link #getButtonLabelExpression() <em>Button
+     * Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getButtonLabelExpression()
      * @generated
@@ -62,9 +59,9 @@ public class ButtonDescriptionImpl extends WidgetDescriptionImpl implements Butt
     protected static final String BUTTON_LABEL_EXPRESSION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getButtonLabelExpression()
-     * <em>Button Label Expression</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The cached value of the '{@link #getButtonLabelExpression() <em>Button
+     * Label Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getButtonLabelExpression()
      * @generated
@@ -73,9 +70,9 @@ public class ButtonDescriptionImpl extends WidgetDescriptionImpl implements Butt
     protected String buttonLabelExpression = ButtonDescriptionImpl.BUTTON_LABEL_EXPRESSION_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getInitialOperation()
-     * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getInitialOperation() <em>Initial
+     * Operation</em>}' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getInitialOperation()
      * @generated
@@ -94,9 +91,9 @@ public class ButtonDescriptionImpl extends WidgetDescriptionImpl implements Butt
     protected ButtonWidgetStyle style;
 
     /**
-     * The cached value of the '{@link #getConditionalStyles()
-     * <em>Conditional Styles</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getConditionalStyles() <em>Conditional
+     * Styles</em>}' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getConditionalStyles()
      * @generated

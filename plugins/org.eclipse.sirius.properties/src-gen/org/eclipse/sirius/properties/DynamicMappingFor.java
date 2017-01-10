@@ -14,8 +14,8 @@ package org.eclipse.sirius.properties;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Dynamic Mapping For</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Dynamic
+ * Mapping For</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -23,8 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.DynamicMappingFor#getIterator
  * <em>Iterator</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.DynamicMappingFor#getIterableExpression
+ * <li>{@link org.eclipse.sirius.properties.DynamicMappingFor#getIterableExpression
  * <em>Iterable Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.DynamicMappingFor#getIfs
  * <em>Ifs</em>}</li>
@@ -77,16 +76,15 @@ public interface DynamicMappingFor extends ControlDescription {
      * @return the value of the '<em>Iterable Expression</em>' attribute.
      * @see #setIterableExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getDynamicMappingFor_IterableExpression()
-     * @model dataType=
-     *        "org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      *        required="true"
      * @generated
      */
     String getIterableExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.DynamicMappingFor#getIterableExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.DynamicMappingFor#getIterableExpression
      * <em>Iterable Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

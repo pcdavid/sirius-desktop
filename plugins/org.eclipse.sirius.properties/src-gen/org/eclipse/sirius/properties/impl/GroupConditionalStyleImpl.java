@@ -21,14 +21,13 @@ import org.eclipse.sirius.properties.GroupStyle;
 import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Group Conditional Style</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Group
+ * Conditional Style</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.GroupConditionalStyleImpl#getStyle
+ * <li>{@link org.eclipse.sirius.properties.impl.GroupConditionalStyleImpl#getStyle
  * <em>Style</em>}</li>
  * </ul>
  *

@@ -27,6 +27,7 @@ import org.eclipse.sirius.properties.GroupStyle;
 import org.eclipse.sirius.properties.OperationDescription;
 import org.eclipse.sirius.properties.PageDescription;
 import org.eclipse.sirius.properties.PropertiesPackage;
+import org.eclipse.sirius.properties.ToolbarAction;
 import org.eclipse.sirius.properties.WidgetAction;
 import org.eclipse.sirius.properties.WidgetConditionalStyle;
 import org.eclipse.sirius.properties.WidgetDescription;
@@ -147,6 +148,11 @@ public class DomainClassSwitch extends PropertiesSwitch<Option<Collection<String
         return result;
     }
 
+    @Override
+    public Option<Collection<String>> caseToolbarAction(ToolbarAction object) {
+        return VSMNavigation.getDomainClassFromContainingGroup(object);
+    }
+    
     @Override
     public Option<Collection<String>> caseWidgetDescription(WidgetDescription object) {
         return VSMNavigation.getDomainClassFromContainingGroup(object);

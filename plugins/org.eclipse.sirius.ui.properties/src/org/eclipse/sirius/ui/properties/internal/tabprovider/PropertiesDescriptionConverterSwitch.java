@@ -51,6 +51,7 @@ import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.TextDescription;
 import org.eclipse.sirius.properties.TextWidgetConditionalStyle;
 import org.eclipse.sirius.properties.TextWidgetStyle;
+import org.eclipse.sirius.properties.ToolbarAction;
 import org.eclipse.sirius.properties.WidgetAction;
 import org.eclipse.sirius.properties.util.PropertiesSwitch;
 import org.eclipse.sirius.ui.properties.api.DefaultDescriptionConverter;
@@ -271,5 +272,10 @@ public class PropertiesDescriptionConverterSwitch extends PropertiesSwitch<IDesc
     @Override
     public IDescriptionConverter caseCustomWidgetConditionalStyle(CustomWidgetConditionalStyle object) {
         return new DefaultDescriptionConverter<>(CustomWidgetConditionalStyle.class, EefPackage.Literals.EEF_CUSTOM_WIDGET_CONDITIONAL_STYLE);
+    }
+    
+    @Override
+    public IDescriptionConverter caseToolbarAction(ToolbarAction object) {
+        return new DefaultDescriptionWithInitialOperationConverter<>(ToolbarAction.class, EefPackage.Literals.EEF_TOOLBAR_ACTION, EefPackage.Literals.EEF_TOOLBAR_ACTION__ACTION_EXPRESSION);
     }
 }

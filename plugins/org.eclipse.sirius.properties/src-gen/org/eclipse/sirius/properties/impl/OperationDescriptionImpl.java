@@ -28,8 +28,7 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.OperationDescriptionImpl#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.impl.OperationDescriptionImpl#getInitialOperation
  * <em>Initial Operation</em>}</li>
  * </ul>
  *
@@ -37,9 +36,9 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  */
 public class OperationDescriptionImpl extends MinimalEObjectImpl.Container implements OperationDescription {
     /**
-     * The cached value of the '{@link #getInitialOperation()
-     * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getInitialOperation() <em>Initial
+     * Operation</em>}' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @see #getInitialOperation()
      * @generated

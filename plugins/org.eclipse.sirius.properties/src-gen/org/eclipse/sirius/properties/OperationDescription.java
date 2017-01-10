@@ -22,8 +22,7 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.OperationDescription#getInitialOperation
+ * <li>{@link org.eclipse.sirius.properties.OperationDescription#getInitialOperation
  * <em>Initial Operation</em>}</li>
  * </ul>
  *
@@ -51,8 +50,8 @@ public interface OperationDescription extends EObject {
     InitialOperation getInitialOperation();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.OperationDescription#getInitialOperation
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.OperationDescription#getInitialOperation
      * <em>Initial Operation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *

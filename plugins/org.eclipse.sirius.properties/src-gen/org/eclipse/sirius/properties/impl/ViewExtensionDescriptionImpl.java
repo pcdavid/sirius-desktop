@@ -30,23 +30,19 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.ViewExtensionDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>View Extension Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>View
+ * Extension Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getIdentifier
+ * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getIdentifier
  * <em>Identifier</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getMetamodels
+ * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getMetamodels
  * <em>Metamodels</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getPages
+ * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getPages
  * <em>Pages</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getGroups
+ * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getGroups
  * <em>Groups</em>}</li>
  * </ul>
  *

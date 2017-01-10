@@ -14,8 +14,8 @@ package org.eclipse.sirius.properties;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Control Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Control
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -48,8 +48,8 @@ public interface ControlDescription extends EObject {
     String getIdentifier();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.ControlDescription#getIdentifier
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.ControlDescription#getIdentifier
      * <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

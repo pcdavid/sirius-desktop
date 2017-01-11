@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2004 IBM Corporation and others.
+ * Copyright (c) 2004, 2022 IBM Corporation and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -175,7 +175,7 @@ public class DForestRouter extends BendpointConnectionRouter implements Orthogon
 
                 trunk = treeRouter.getTrunkVertex();
                 final Dimension adjustedTrunk = accountForTrunkOverlap(trunk, conn);
-                if (!adjustedTrunk.equals(trunk)) {
+                if (adjustedTrunk != null && !adjustedTrunk.equals(trunk)) {
                     treeRouter.setTrunkVertex(adjustedTrunk);
                     treeRouter.invalidate(conn);
                 }

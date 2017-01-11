@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2004, 2021 IBM Corporation and others.
+ * Copyright (c) 2004, 2022 IBM Corporation and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -429,6 +429,16 @@ public class DTreeRouter extends BendpointConnectionRouter implements Orthogonal
         if (conn.getSourceAnchor() == null || conn.getSourceAnchor().getOwner() == null || conn.getTargetAnchor() == null || conn.getTargetAnchor().getOwner() == null) {
             super.route(conn);
             return;
+        } else {
+            // Consider this case as an intermediate case, source and target
+            // have not been layouted. So in this case we don't want to compute
+            // a trunkVertex that will be potentially wrong after layout.
+            Point sourceOrigin = conn.getSourceAnchor().getOwner().getBounds().getTopLeft();
+            Point targetOrigin = conn.getTargetAnchor().getOwner().getBounds().getTopLeft();
+            if (sourceOrigin.x() == 0 && sourceOrigin.y() == 0 && targetOrigin.x() == 0 && targetOrigin.y() == 0) {
+                super.route(conn);
+                return;
+            }
         }
 
         if (!connectionList.contains(conn)) {

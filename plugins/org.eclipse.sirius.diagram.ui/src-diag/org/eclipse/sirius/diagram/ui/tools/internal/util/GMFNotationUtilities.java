@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2016 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2012, 2022 THALES GLOBAL SERVICES and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -42,7 +42,7 @@ public final class GMFNotationUtilities {
     /**
      * The tolerance used for floating point "equality" comparisons.
      */
-    private static final double FP_TOLERANCE = 0.0000001;
+    private static final double FP_TOLERANCE = 0.01;
 
     /**
      * Default constructor.
@@ -286,8 +286,13 @@ public final class GMFNotationUtilities {
      *            The reference edge
      * @param edgeToModify
      *            Edge to modify
+     * @param brotherOnSourceSide
+     *            true if the edgeToModify is a brother on the source side,
+     *            false if it is on the target side
+     * @param edgePointList
+     *            the list of point of the <code>referenceEdge</code>
      */
-    public static void setBendpoints(Edge referenceEdge, Edge edgeToModify) {
+    public static void setBendpoints(Edge referenceEdge, Edge edgeToModify, boolean brotherOnSourceSide, PointList edgePointList) {
         String sourceTerminalString = getTerminalString(0.5d, 0.5d);
         if (edgeToModify.getSourceAnchor() instanceof IdentityAnchor) {
             sourceTerminalString = ((IdentityAnchor) edgeToModify.getSourceAnchor()).getId();
@@ -318,20 +323,23 @@ public final class GMFNotationUtilities {
             throw new UnsupportedOperationException(Messages.GMFNotationUtilities_edgeOnEdgeNotManaged);
         }
 
-        if (referenceEdge.getBendpoints() instanceof RelativeBendpoints) {
-            Object objectSecondRelativeBendpointOfMovedEdge = ((RelativeBendpoints) referenceEdge.getBendpoints()).getPoints().get(1);
-            if (objectSecondRelativeBendpointOfMovedEdge instanceof RelativeBendpoint) {
-                RelativeBendpoint secondRelativeBendpointOfMovedEdge = (RelativeBendpoint) objectSecondRelativeBendpointOfMovedEdge;
-                List<Object> brotherNewBendpoints = new ArrayList<>();
-                brotherNewBendpoints.add(new RelativeBendpoint(0, sourceBounds.y - sourceLocation.y, sourceLocation.x - targetLocation.x, sourceBounds.y - targetLocation.y));
-                brotherNewBendpoints.add(new RelativeBendpoint(0, targetLocation.y + secondRelativeBendpointOfMovedEdge.getTargetY() - sourceLocation.y, sourceLocation.x - targetLocation.x,
-                        secondRelativeBendpointOfMovedEdge.getTargetY()));
-                brotherNewBendpoints.add(new RelativeBendpoint(targetLocation.x - sourceLocation.x, targetLocation.y + secondRelativeBendpointOfMovedEdge.getTargetY() - sourceLocation.y, 0,
-                        secondRelativeBendpointOfMovedEdge.getTargetY()));
-                brotherNewBendpoints.add(
-                        new RelativeBendpoint(targetLocation.x - sourceLocation.x, targetBounds.y + targetBounds.width - sourceLocation.y, 0, targetBounds.y + targetBounds.width - targetLocation.y));
-                ((RelativeBendpoints) edgeToModify.getBendpoints()).setPoints(brotherNewBendpoints);
-            }
+        if (brotherOnSourceSide) {
+            Point secondPoint = edgePointList.getPoint(1);
+            List<Object> brotherNewBendpoints = new ArrayList<>();
+            brotherNewBendpoints.add(new RelativeBendpoint(0, sourceBounds.getBottom().y - sourceLocation.y, sourceLocation.x - targetLocation.x, sourceBounds.getBottom().y - targetLocation.y));
+            brotherNewBendpoints.add(new RelativeBendpoint(0, secondPoint.y() - sourceLocation.y(), sourceLocation.x - targetLocation.x, secondPoint.y() - targetLocation.y()));
+            brotherNewBendpoints.add(new RelativeBendpoint(targetLocation.x - sourceLocation.x, secondPoint.y() - sourceLocation.y(), 0, secondPoint.y() - targetLocation.y()));
+            brotherNewBendpoints.add(new RelativeBendpoint(targetLocation.x - sourceLocation.x, targetBounds.y - sourceLocation.y, 0, targetBounds.y - targetLocation.y));
+            ((RelativeBendpoints) edgeToModify.getBendpoints()).setPoints(brotherNewBendpoints);
+        } else {
+            // TODO to verify (at least manually)
+            Point beforeLastPoint = edgePointList.getPoint(edgePointList.size() - 2);
+            List<Object> brotherNewBendpoints = new ArrayList<>();
+            brotherNewBendpoints.add(new RelativeBendpoint(0, sourceBounds.getBottom().y - sourceLocation.y, sourceLocation.x - targetLocation.x, sourceBounds.getBottom().y - targetLocation.y));
+            brotherNewBendpoints.add(new RelativeBendpoint(0, beforeLastPoint.y() - sourceLocation.y(), sourceLocation.x - targetLocation.x, targetLocation.y() - beforeLastPoint.y()));
+            brotherNewBendpoints.add(new RelativeBendpoint(targetLocation.x - sourceLocation.x, beforeLastPoint.y() - sourceLocation.y(), 0, targetLocation.y() - beforeLastPoint.y()));
+            brotherNewBendpoints.add(new RelativeBendpoint(targetLocation.x - sourceLocation.x, targetBounds.y - sourceLocation.y, 0, targetBounds.y - targetLocation.y));
+            ((RelativeBendpoints) edgeToModify.getBendpoints()).setPoints(brotherNewBendpoints);
         }
     }
 
@@ -378,13 +386,15 @@ public final class GMFNotationUtilities {
     }
 
     /**
-     * Change the source or target anchor and the bendpoints of the brothers of <code>edge</code> according to this
-     * edge.
+     * Change the source or target anchor and the bendpoints of the brothers of
+     * <code>edge</code> according to this edge and its points.
      * 
      * @param edge
      *            The edge reference
+     * @param edgePointList
+     *            The list of points of this edge.
      */
-    public static void setBrothersAnchorAndBendpointsAccordingToEdge(Edge edge) {
+    public static void setBrothersAnchorAndBendpointsAccordingToEdge(Edge edge, PointList edgePointList) {
         EdgeQuery edgeQuery = new EdgeQuery(edge);
         boolean sourceSide = false;
         List<Edge> brothers;
@@ -399,10 +409,12 @@ public final class GMFNotationUtilities {
         for (Edge brother : brothers) {
             if (sourceSide) {
                 GMFNotationUtilities.setSourceAnchor(edge, brother);
+                GMFNotationUtilities.setBendpoints(edge, brother, true, edgePointList);
             } else {
                 GMFNotationUtilities.setTargetAnchor(edge, brother);
+                GMFNotationUtilities.setBendpoints(edge, brother, false, edgePointList);
+
             }
-            GMFNotationUtilities.setBendpoints(edge, brother);
         }
     }
 }

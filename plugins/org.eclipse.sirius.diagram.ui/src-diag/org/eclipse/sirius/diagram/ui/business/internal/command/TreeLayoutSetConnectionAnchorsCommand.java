@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2018 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2012, 2022 THALES GLOBAL SERVICES and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -36,8 +36,8 @@ import org.eclipse.sirius.diagram.ui.tools.internal.util.GMFNotationUtilities;
 import org.eclipse.sirius.ext.base.Option;
 
 /**
- * Controls the movement of source and target edge anchor. Use to move vertical
- * segment from left to right or from right to left. This command :
+ * Controls the movement of source and target edge anchor. Use to move vertical segment from left to right or from right
+ * to left. This command :
  * <UL>
  * <LI>Change the anchors as the overriden command,</LI>
  * <LI>Change bendpoints according to new anchor,</LI>
@@ -100,7 +100,8 @@ public class TreeLayoutSetConnectionAnchorsCommand extends SetConnectionAnchorsC
                 if (sourceBounds != null) {
                     PrecisionPoint sourceAnchorReference = edge.getSourceAnchor() instanceof IdentityAnchor ? BaseSlidableAnchor.parseTerminalString(((IdentityAnchor) edge.getSourceAnchor()).getId())
                             : new PrecisionPoint(0.5, 0.5);
-                    sourceRefPoint = new PrecisionPoint(sourceBounds.x + sourceBounds.width * sourceAnchorReference.preciseX(), sourceBounds.y + sourceBounds.height * sourceAnchorReference.preciseY());
+                    sourceRefPoint = new PrecisionPoint(sourceBounds.x + sourceBounds.width * sourceAnchorReference.preciseX(),
+                            sourceBounds.y + sourceBounds.height * sourceAnchorReference.preciseY());
                 }
             } else {
                 // Use the source ref point of the current figure
@@ -125,7 +126,8 @@ public class TreeLayoutSetConnectionAnchorsCommand extends SetConnectionAnchorsC
                 if (targetBounds != null) {
                     PrecisionPoint targetAnchorReference = edge.getTargetAnchor() instanceof IdentityAnchor ? BaseSlidableAnchor.parseTerminalString(((IdentityAnchor) edge.getTargetAnchor()).getId())
                             : new PrecisionPoint(0.5, 0.5);
-                    targetRefPoint = new PrecisionPoint(targetBounds.x + targetBounds.width * targetAnchorReference.preciseX(), targetBounds.y + targetBounds.height * targetAnchorReference.preciseY());
+                    targetRefPoint = new PrecisionPoint(targetBounds.x + targetBounds.width * targetAnchorReference.preciseX(),
+                            targetBounds.y + targetBounds.height * targetAnchorReference.preciseY());
                 }
             } else {
                 // Use the target ref point of the current figure
@@ -139,10 +141,10 @@ public class TreeLayoutSetConnectionAnchorsCommand extends SetConnectionAnchorsC
 
     @Override
     protected CommandResult doExecuteWithResult(IProgressMonitor progressMonitor, IAdaptable info) throws ExecutionException {
-        assert null != getEdgeAdaptor() : Messages.TreeLayoutSetConnectionAnchorsCommand_nullChildInSetConnectionAnchorsCommand;              
+        assert null != getEdgeAdaptor() : Messages.TreeLayoutSetConnectionAnchorsCommand_nullChildInSetConnectionAnchorsCommand;
 
         Edge edge = getEdgeAdaptor().getAdapter(Edge.class);
-        assert null != edge : Messages.TreeLayoutSetConnectionAnchorsCommand_nullEdgeInSetConnectionAnchorsCommand;     
+        assert null != edge : Messages.TreeLayoutSetConnectionAnchorsCommand_nullEdgeInSetConnectionAnchorsCommand;
 
         // Retrieve old source anchor corresponding before move source point
         IdentityAnchor oldSourceAnchor = null;
@@ -210,7 +212,7 @@ public class TreeLayoutSetConnectionAnchorsCommand extends SetConnectionAnchorsC
             GMFNotationUtilities.setGMFBendpoints(edge, connectionPointList, sourceRefPoint, targetRefPoint);
             // Change the source or target anchor and the bendpoints of the
             // brothers of edge> according to this edge
-            GMFNotationUtilities.setBrothersAnchorAndBendpointsAccordingToEdge(edge);
+            GMFNotationUtilities.setBrothersAnchorAndBendpointsAccordingToEdge(edge, connectionPointList);
         }
 
         return CommandResult.newOKCommandResult();

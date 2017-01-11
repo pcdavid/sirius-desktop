@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 THALES GLOBAL SERVICES.
+ * Copyright (c) 2012, 2022 THALES GLOBAL SERVICES.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -146,7 +146,7 @@ public class TreeLayoutSetConnectionBendpointsCommand extends SetConnectionBendp
                 GMFNotationUtilities.setGMFBendpoints(edge, getNewPointList(), sourceRefPoint, targetRefPoint);
                 // Changed the source or target anchor and the bendpoints of the
                 // brothers of the current edge.
-                GMFNotationUtilities.setBrothersAnchorAndBendpointsAccordingToEdge(edge);
+                GMFNotationUtilities.setBrothersAnchorAndBendpointsAccordingToEdge(edge, getNewPointList());
             } else {
                 Point sourceRefPoint = getSourceRefPoint();
                 Point targetRefPoint = getTargetRefPoint();
@@ -161,7 +161,7 @@ public class TreeLayoutSetConnectionBendpointsCommand extends SetConnectionBendp
                 GMFNotationUtilities.setGMFBendpoints(edge, getNewPointList(), sourceRefPoint, targetRefPoint);
                 // Changed the source or target anchor and the bendpoints of the
                 // brothers of the current edge.
-                GMFNotationUtilities.setBrothersAnchorAndBendpointsAccordingToEdge(edge);
+                GMFNotationUtilities.setBrothersAnchorAndBendpointsAccordingToEdge(edge, getNewPointList());
             }
         }
         return CommandResult.newOKCommandResult();

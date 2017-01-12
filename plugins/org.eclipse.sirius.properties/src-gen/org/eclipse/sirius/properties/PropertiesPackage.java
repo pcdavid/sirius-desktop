@@ -476,13 +476,22 @@ public interface PropertiesPackage extends EPackage {
     int TOOLBAR_ACTION__INITIAL_OPERATION = 2;
 
     /**
+     * The feature id for the '<em><b>Sub Actions</b></em>' containment
+     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int TOOLBAR_ACTION__SUB_ACTIONS = 3;
+
+    /**
      * The number of structural features of the '<em>Toolbar Action</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int TOOLBAR_ACTION_FEATURE_COUNT = 3;
+    int TOOLBAR_ACTION_FEATURE_COUNT = 4;
 
     /**
      * The meta object id for the
@@ -3772,6 +3781,19 @@ public interface PropertiesPackage extends EPackage {
     EReference getToolbarAction_InitialOperation();
 
     /**
+     * Returns the meta object for the containment reference list
+     * '{@link org.eclipse.sirius.properties.ToolbarAction#getSubActions <em>Sub
+     * Actions</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference list '<em>Sub
+     *         Actions</em>'.
+     * @see org.eclipse.sirius.properties.ToolbarAction#getSubActions()
+     * @see #getToolbarAction()
+     * @generated
+     */
+    EReference getToolbarAction_SubActions();
+
+    /**
      * Returns the meta object for class
      * '{@link org.eclipse.sirius.properties.GroupValidationSetDescription
      * <em>Group Validation Set Description</em>}'. <!-- begin-user-doc --> <!--
@@ -6053,6 +6075,15 @@ public interface PropertiesPackage extends EPackage {
          * @generated
          */
         EReference TOOLBAR_ACTION__INITIAL_OPERATION = PropertiesPackage.eINSTANCE.getToolbarAction_InitialOperation();
+
+        /**
+         * The meta object literal for the '<em><b>Sub Actions</b></em>'
+         * containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @generated
+         */
+        EReference TOOLBAR_ACTION__SUB_ACTIONS = PropertiesPackage.eINSTANCE.getToolbarAction_SubActions();
 
         /**
          * The meta object literal for the '

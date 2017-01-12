@@ -11,12 +11,17 @@
  */
 package org.eclipse.sirius.properties.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.ToolbarAction;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
@@ -34,6 +39,8 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * <em>Image Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ToolbarActionImpl#getInitialOperation
  * <em>Initial Operation</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ToolbarActionImpl#getSubActions
+ * <em>Sub Actions</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,6 +100,16 @@ public class ToolbarActionImpl extends MinimalEObjectImpl.Container implements T
      * @ordered
      */
     protected InitialOperation initialOperation;
+
+    /**
+     * The cached value of the '{@link #getSubActions() <em>Sub Actions</em>}'
+     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getSubActions()
+     * @generated
+     * @ordered
+     */
+    protected EList<ToolbarAction> subActions;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -220,10 +237,25 @@ public class ToolbarActionImpl extends MinimalEObjectImpl.Container implements T
      * @generated
      */
     @Override
+    public EList<ToolbarAction> getSubActions() {
+        if (subActions == null) {
+            subActions = new EObjectContainmentEList<ToolbarAction>(ToolbarAction.class, this, PropertiesPackage.TOOLBAR_ACTION__SUB_ACTIONS);
+        }
+        return subActions;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case PropertiesPackage.TOOLBAR_ACTION__INITIAL_OPERATION:
             return basicSetInitialOperation(null, msgs);
+        case PropertiesPackage.TOOLBAR_ACTION__SUB_ACTIONS:
+            return ((InternalEList<?>) getSubActions()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -242,6 +274,8 @@ public class ToolbarActionImpl extends MinimalEObjectImpl.Container implements T
             return getImageExpression();
         case PropertiesPackage.TOOLBAR_ACTION__INITIAL_OPERATION:
             return getInitialOperation();
+        case PropertiesPackage.TOOLBAR_ACTION__SUB_ACTIONS:
+            return getSubActions();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -251,6 +285,7 @@ public class ToolbarActionImpl extends MinimalEObjectImpl.Container implements T
      *
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
@@ -262,6 +297,10 @@ public class ToolbarActionImpl extends MinimalEObjectImpl.Container implements T
             return;
         case PropertiesPackage.TOOLBAR_ACTION__INITIAL_OPERATION:
             setInitialOperation((InitialOperation) newValue);
+            return;
+        case PropertiesPackage.TOOLBAR_ACTION__SUB_ACTIONS:
+            getSubActions().clear();
+            getSubActions().addAll((Collection<? extends ToolbarAction>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -284,6 +323,9 @@ public class ToolbarActionImpl extends MinimalEObjectImpl.Container implements T
         case PropertiesPackage.TOOLBAR_ACTION__INITIAL_OPERATION:
             setInitialOperation((InitialOperation) null);
             return;
+        case PropertiesPackage.TOOLBAR_ACTION__SUB_ACTIONS:
+            getSubActions().clear();
+            return;
         }
         super.eUnset(featureID);
     }
@@ -302,6 +344,8 @@ public class ToolbarActionImpl extends MinimalEObjectImpl.Container implements T
             return ToolbarActionImpl.IMAGE_EXPRESSION_EDEFAULT == null ? imageExpression != null : !ToolbarActionImpl.IMAGE_EXPRESSION_EDEFAULT.equals(imageExpression);
         case PropertiesPackage.TOOLBAR_ACTION__INITIAL_OPERATION:
             return initialOperation != null;
+        case PropertiesPackage.TOOLBAR_ACTION__SUB_ACTIONS:
+            return subActions != null && !subActions.isEmpty();
         }
         return super.eIsSet(featureID);
     }

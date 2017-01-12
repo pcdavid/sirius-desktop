@@ -11,6 +11,7 @@
  */
 package org.eclipse.sirius.properties;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
@@ -28,6 +29,8 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
  * <em>Image Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.ToolbarAction#getInitialOperation
  * <em>Initial Operation</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.ToolbarAction#getSubActions <em>Sub
+ * Actions</em>}</li>
  * </ul>
  *
  * @see org.eclipse.sirius.properties.PropertiesPackage#getToolbarAction()
@@ -126,5 +129,24 @@ public interface ToolbarAction extends EObject {
      * @generated
      */
     void setInitialOperation(InitialOperation value);
+
+    /**
+     * Returns the value of the '<em><b>Sub Actions</b></em>' containment
+     * reference list. The list contents are of type
+     * {@link org.eclipse.sirius.properties.ToolbarAction}. <!-- begin-user-doc
+     * -->
+     * <p>
+     * If the meaning of the '<em>Sub Actions</em>' containment reference list
+     * isn't clear, there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Sub Actions</em>' containment reference
+     *         list.
+     * @see org.eclipse.sirius.properties.PropertiesPackage#getToolbarAction_SubActions()
+     * @model containment="true"
+     * @generated
+     */
+    EList<ToolbarAction> getSubActions();
 
 } // ToolbarAction

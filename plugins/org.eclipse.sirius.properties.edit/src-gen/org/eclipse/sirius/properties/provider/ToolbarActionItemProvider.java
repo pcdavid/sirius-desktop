@@ -29,6 +29,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.sirius.properties.PropertiesFactory;
 import org.eclipse.sirius.properties.PropertiesPackage;
 import org.eclipse.sirius.properties.ToolbarAction;
 import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
@@ -110,6 +111,7 @@ public class ToolbarActionItemProvider extends ItemProviderAdapter
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
             childrenFeatures.add(PropertiesPackage.Literals.TOOLBAR_ACTION__INITIAL_OPERATION);
+            childrenFeatures.add(PropertiesPackage.Literals.TOOLBAR_ACTION__SUB_ACTIONS);
         }
         return childrenFeatures;
     }
@@ -170,6 +172,7 @@ public class ToolbarActionItemProvider extends ItemProviderAdapter
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case PropertiesPackage.TOOLBAR_ACTION__INITIAL_OPERATION:
+        case PropertiesPackage.TOOLBAR_ACTION__SUB_ACTIONS:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -188,6 +191,8 @@ public class ToolbarActionItemProvider extends ItemProviderAdapter
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.TOOLBAR_ACTION__INITIAL_OPERATION, ToolFactory.eINSTANCE.createInitialOperation()));
+
+        newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.TOOLBAR_ACTION__SUB_ACTIONS, PropertiesFactory.eINSTANCE.createToolbarAction()));
     }
 
     /**

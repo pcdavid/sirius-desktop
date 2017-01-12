@@ -877,6 +877,16 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
      * @generated
      */
     @Override
+    public EReference getToolbarAction_SubActions() {
+        return (EReference) toolbarActionEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getGroupValidationSetDescription() {
         return groupValidationSetDescriptionEClass;
     }
@@ -2500,6 +2510,7 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         createEAttribute(toolbarActionEClass, PropertiesPackage.TOOLBAR_ACTION__TOOLTIP_EXPRESSION);
         createEAttribute(toolbarActionEClass, PropertiesPackage.TOOLBAR_ACTION__IMAGE_EXPRESSION);
         createEReference(toolbarActionEClass, PropertiesPackage.TOOLBAR_ACTION__INITIAL_OPERATION);
+        createEReference(toolbarActionEClass, PropertiesPackage.TOOLBAR_ACTION__SUB_ACTIONS);
 
         groupValidationSetDescriptionEClass = createEClass(PropertiesPackage.GROUP_VALIDATION_SET_DESCRIPTION);
         createEReference(groupValidationSetDescriptionEClass, PropertiesPackage.GROUP_VALIDATION_SET_DESCRIPTION__SEMANTIC_VALIDATION_RULES);
@@ -2867,6 +2878,9 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
         initEReference(getToolbarAction_InitialOperation(), theToolPackage.getInitialOperation(), null, "initialOperation", null, 1, 1, ToolbarAction.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE,
                 !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEReference(getToolbarAction_SubActions(), this.getToolbarAction(), null, "subActions", null, 0, -1, ToolbarAction.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, //$NON-NLS-1$
+                EPackageImpl.IS_CHANGEABLE, EPackageImpl.IS_COMPOSITE, !EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
 
         initEClass(groupValidationSetDescriptionEClass, GroupValidationSetDescription.class, "GroupValidationSetDescription", !EPackageImpl.IS_ABSTRACT, !EPackageImpl.IS_INTERFACE, //$NON-NLS-1$
                 EPackageImpl.IS_GENERATED_INSTANCE_CLASS);

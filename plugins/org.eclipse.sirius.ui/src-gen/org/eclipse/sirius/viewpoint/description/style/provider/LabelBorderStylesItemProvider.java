@@ -25,11 +25,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.viewpoint.description.style.LabelBorderStyles;
 import org.eclipse.sirius.viewpoint.description.style.StyleFactory;
 import org.eclipse.sirius.viewpoint.description.style.StylePackage;
+import org.eclipse.sirius.viewpoint.provider.AbstractSiriusItemProvider;
 
 /**
  * This is the item provider adapter for a
@@ -38,7 +38,7 @@ import org.eclipse.sirius.viewpoint.description.style.StylePackage;
  *
  * @generated
  */
-public class LabelBorderStylesItemProvider extends ItemProviderAdapter
+public class LabelBorderStylesItemProvider extends AbstractSiriusItemProvider
         implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * This constructs an instance from a factory and a notifier. <!--

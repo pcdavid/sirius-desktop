@@ -25,7 +25,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.viewpoint.DAnalysisSessionEObject;
@@ -38,7 +37,7 @@ import org.eclipse.sirius.viewpoint.ViewpointPackage;
  *
  * @generated
  */
-public class DAnalysisSessionEObjectItemProvider extends ItemProviderAdapter
+public class DAnalysisSessionEObjectItemProvider extends AbstractSiriusItemProvider
         implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * This constructs an instance from a factory and a notifier. <!--

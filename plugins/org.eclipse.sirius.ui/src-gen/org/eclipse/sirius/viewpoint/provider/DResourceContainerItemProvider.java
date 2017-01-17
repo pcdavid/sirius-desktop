@@ -26,7 +26,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.viewpoint.DResourceContainer;
 import org.eclipse.sirius.viewpoint.ViewpointFactory;
@@ -39,7 +38,7 @@ import org.eclipse.sirius.viewpoint.ViewpointPackage;
  *
  * @generated
  */
-public class DResourceContainerItemProvider extends ItemProviderAdapter
+public class DResourceContainerItemProvider extends AbstractSiriusItemProvider
         implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * This constructs an instance from a factory and a notifier. <!--

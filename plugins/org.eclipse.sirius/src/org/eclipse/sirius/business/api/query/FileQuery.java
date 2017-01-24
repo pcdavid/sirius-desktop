@@ -80,4 +80,8 @@ public class FileQuery {
         return sessionResourceFactory;
     }
 
+    public boolean isRepFile() {
+        return SiriusUtil.REPRESENTATION_FILE_EXTENSION.equals(fileExtension);
+    }
+
 }

@@ -50,6 +50,9 @@ public final class SiriusUtil {
     /** The file extension for Designer modeler description files. */
     public static final String DESCRIPTION_MODEL_EXTENSION = "odesign"; //$NON-NLS-1$
 
+    /** The file extension for representation files. */
+    public static final String REPRESENTATION_FILE_EXTENSION = "repfile"; //$NON-NLS-1$
+
     /** The "environment:/" uri scheme. */
     public static final String ENVIRONMENT_URI_SCHEME = "environment"; //$NON-NLS-1$
 

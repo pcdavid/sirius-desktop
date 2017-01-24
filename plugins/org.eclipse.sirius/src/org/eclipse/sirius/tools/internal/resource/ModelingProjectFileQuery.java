@@ -70,11 +70,15 @@ public class ModelingProjectFileQuery {
      * @return <code>false</code> if the file should be ignored.
      */
     public boolean isPotentialSemanticResource() {
-        boolean fileToIgnore = isRepresentationsModel(file) || isVsmModel(file);
+        boolean fileToIgnore = isRepresentationsModel(file) || isVsmModel(file) || isRepFile(file);
         if (!fileToIgnore) {
             fileToIgnore = file.isDerived(IResource.CHECK_ANCESTORS) || file.getFullPath().toString().contains("/.svn/") || isRepairBackupFile(); //$NON-NLS-1$
         }
         return !fileToIgnore;
+    }
+
+    private boolean isRepFile(IFile aFile) {
+        return new FileQuery(aFile).isRepFile();
     }
 
     /*

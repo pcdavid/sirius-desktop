@@ -65,7 +65,7 @@ public class CreateWidgetFromDomainClassMenuBuilder extends AbstractMenuBuilder 
 
     @Override
     public int getPriority() {
-        return AbstractMenuBuilder.DOMAIN_CLASS_WIDGETS;
+        return AbstractMenuBuilder.DIAGRAM_ELEMENT;
     }
 
     @Override

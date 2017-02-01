@@ -49,6 +49,30 @@ public final class Messages {
     @TranslatableMessage
     public static String DefaultMultivaluedEAttributeDescriptionFactory_widgetLabel;
 
+    @TranslatableMessage
+    public static String StyleMenuBuilder_label;
+
+    @TranslatableMessage
+    public static String ConditionalStyleMenuBuilder_label;
+
+    @TranslatableMessage
+    public static String ContainerMenuBuilder_label;
+
+    @TranslatableMessage
+    public static String ValidationMenuBuilder_label;
+
+    @TranslatableMessage
+    public static String DynamicMappingForMenuBuilder_label;
+
+    @TranslatableMessage
+    public static String PageMenuBuilder_label;
+
+    @TranslatableMessage
+    public static String GroupMenuBuilder_label;
+
+    @TranslatableMessage
+    public static String CategoryMenuBuilder_label;
+
     // CHECKSTYLE:ON
 
     private Messages() {

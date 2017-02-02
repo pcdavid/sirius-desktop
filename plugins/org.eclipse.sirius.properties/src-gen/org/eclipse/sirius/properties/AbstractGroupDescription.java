@@ -96,6 +96,7 @@ public interface AbstractGroupDescription extends DocumentedElementDescription {
      * @see #setLabelExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getAbstractGroupDescription_LabelExpression()
      * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     *        required="true"
      * @generated
      */
     String getLabelExpression();

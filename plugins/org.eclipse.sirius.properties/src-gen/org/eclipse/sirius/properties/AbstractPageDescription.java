@@ -90,6 +90,7 @@ public interface AbstractPageDescription extends DocumentedElementDescription {
      * @see #setLabelExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getAbstractPageDescription_LabelExpression()
      * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
+     *        required="true"
      * @generated
      */
     String getLabelExpression();

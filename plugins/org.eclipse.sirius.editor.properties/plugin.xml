@@ -464,7 +464,7 @@
         <input type="org.eclipse.sirius.properties.GroupDescription"/>
       </propertySection>
       <propertySection
-               class="org.eclipse.sirius.properties.editor.properties.sections.properties.groupdescription.GroupDescriptionDomainClassPropertySection"
+               class="org.eclipse.sirius.properties.editor.properties.sections.properties.groupdescription.GroupDescriptionDomainClassPropertySectionSpec"
                id="properties.section.groupDescription.DomainClass"
                filter="org.eclipse.sirius.properties.editor.properties.filters.properties.groupdescription.GroupDescriptionDomainClassFilter"
                afterSection="properties.section.groupDescription.Label"
@@ -488,7 +488,7 @@
         <input type="org.eclipse.sirius.properties.GroupDescription"/>
       </propertySection>
   	  <propertySection
-               class="org.eclipse.sirius.properties.editor.properties.sections.properties.groupdescription.GroupDescriptionLabelExpressionPropertySection"
+               class="org.eclipse.sirius.properties.editor.properties.sections.properties.groupdescription.GroupDescriptionLabelExpressionPropertySectionSpec"
                id="properties.section.groupDescription.LabelExpression"
                filter="org.eclipse.sirius.properties.editor.properties.filters.properties.groupdescription.GroupDescriptionLabelExpressionFilter"
                afterSection="properties.section.groupDescription.PreconditionExpression"
@@ -510,7 +510,7 @@
         <input type="org.eclipse.sirius.properties.PageDescription"/>
       </propertySection>
   	  <propertySection
-               class="org.eclipse.sirius.properties.editor.properties.sections.properties.pagedescription.PageDescriptionDomainClassPropertySection"
+               class="org.eclipse.sirius.properties.editor.properties.sections.properties.pagedescription.PageDescriptionDomainClassPropertySectionSpec"
                id="properties.section.pageDescription.DomainClass"
                filter="org.eclipse.sirius.properties.editor.properties.filters.properties.pagedescription.PageDescriptionDomainClassFilter"
                afterSection="properties.section.pageDescription.Label"
@@ -534,7 +534,7 @@
         <input type="org.eclipse.sirius.properties.PageDescription"/>
       </propertySection>
   	  <propertySection
-               class="org.eclipse.sirius.properties.editor.properties.sections.properties.pagedescription.PageDescriptionLabelExpressionPropertySection"
+               class="org.eclipse.sirius.properties.editor.properties.sections.properties.pagedescription.PageDescriptionLabelExpressionPropertySectionSpec"
                id="properties.section.pageDescription.LabelExpression"
                filter="org.eclipse.sirius.properties.editor.properties.filters.properties.pagedescription.PageDescriptionLabelExpressionFilter"
                afterSection="properties.section.pageDescription.PreconditionExpression"

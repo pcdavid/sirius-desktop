@@ -70,7 +70,7 @@ public class AbstractGroupDescriptionItemProvider extends DocumentedElementDescr
     /**
      * This adds a property descriptor for the Label feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addLabelPropertyDescriptor(Object object) {

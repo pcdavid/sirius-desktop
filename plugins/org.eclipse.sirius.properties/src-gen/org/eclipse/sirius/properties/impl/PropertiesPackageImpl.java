@@ -4374,10 +4374,10 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
                 EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getAbstractPageDescription_Label(), ecorePackage.getEString(), "label", null, 0, 1, AbstractPageDescription.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, //$NON-NLS-1$
                 EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
-        initEAttribute(getAbstractPageDescription_LabelExpression(), theDescriptionPackage.getInterpretedExpression(), "labelExpression", null, 0, 1, AbstractPageDescription.class, //$NON-NLS-1$
+        initEAttribute(getAbstractPageDescription_LabelExpression(), theDescriptionPackage.getInterpretedExpression(), "labelExpression", null, 1, 1, AbstractPageDescription.class, //$NON-NLS-1$
                 !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
                 EPackageImpl.IS_ORDERED);
-        initEAttribute(getAbstractPageDescription_DomainClass(), theDescriptionPackage.getTypeName(), "domainClass", null, 0, 1, AbstractPageDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+        initEAttribute(getAbstractPageDescription_DomainClass(), theDescriptionPackage.getTypeName(), "domainClass", null, 1, 1, AbstractPageDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
         initEAttribute(getAbstractPageDescription_SemanticCandidateExpression(), theDescriptionPackage.getInterpretedExpression(), "semanticCandidateExpression", null, 0, 1, //$NON-NLS-1$
                 AbstractPageDescription.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID,
@@ -4431,10 +4431,10 @@ public class PropertiesPackageImpl extends EPackageImpl implements PropertiesPac
                 EPackageImpl.IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getAbstractGroupDescription_Label(), ecorePackage.getEString(), "label", null, 0, 1, AbstractGroupDescription.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, //$NON-NLS-1$
                 EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
-        initEAttribute(getAbstractGroupDescription_LabelExpression(), theDescriptionPackage.getInterpretedExpression(), "labelExpression", null, 0, 1, AbstractGroupDescription.class, //$NON-NLS-1$
+        initEAttribute(getAbstractGroupDescription_LabelExpression(), theDescriptionPackage.getInterpretedExpression(), "labelExpression", null, 1, 1, AbstractGroupDescription.class, //$NON-NLS-1$
                 !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
                 EPackageImpl.IS_ORDERED);
-        initEAttribute(getAbstractGroupDescription_DomainClass(), theDescriptionPackage.getTypeName(), "domainClass", null, 0, 1, AbstractGroupDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+        initEAttribute(getAbstractGroupDescription_DomainClass(), theDescriptionPackage.getTypeName(), "domainClass", null, 1, 1, AbstractGroupDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
                 !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
         initEAttribute(getAbstractGroupDescription_SemanticCandidateExpression(), theDescriptionPackage.getInterpretedExpression(), "semanticCandidateExpression", null, 0, 1, //$NON-NLS-1$
                 AbstractGroupDescription.class, !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID,

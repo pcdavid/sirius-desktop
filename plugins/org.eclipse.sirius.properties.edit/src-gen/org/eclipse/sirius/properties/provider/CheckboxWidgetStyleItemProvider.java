@@ -23,14 +23,14 @@ import org.eclipse.sirius.properties.CheckboxWidgetStyle;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.CheckboxWidgetStyle} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CheckboxWidgetStyleItemProvider extends WidgetStyleItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CheckboxWidgetStyleItemProvider(AdapterFactory adapterFactory) {
@@ -40,7 +40,7 @@ public class CheckboxWidgetStyleItemProvider extends WidgetStyleItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -94,7 +94,7 @@ public class CheckboxWidgetStyleItemProvider extends WidgetStyleItemProvider {
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

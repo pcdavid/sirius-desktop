@@ -34,8 +34,8 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.impl.CategoryImpl#getIdentifier
- * <em>Identifier</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.CategoryImpl#getLabel
+ * <em>Label</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.CategoryImpl#getPages
  * <em>Pages</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.CategoryImpl#getGroups
@@ -48,24 +48,24 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  */
 public class CategoryImpl extends DocumentedElementDescriptionImpl implements Category {
     /**
-     * The default value of the '{@link #getIdentifier() <em>Identifier</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getIdentifier()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected static final String IDENTIFIER_EDEFAULT = null;
+    protected static final String LABEL_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getIdentifier()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected String identifier = CategoryImpl.IDENTIFIER_EDEFAULT;
+    protected String label = CategoryImpl.LABEL_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getPages() <em>Pages</em>}' containment
@@ -122,8 +122,8 @@ public class CategoryImpl extends DocumentedElementDescriptionImpl implements Ca
      * @generated
      */
     @Override
-    public String getIdentifier() {
-        return identifier;
+    public String getLabel() {
+        return label;
     }
 
     /**
@@ -132,11 +132,11 @@ public class CategoryImpl extends DocumentedElementDescriptionImpl implements Ca
      * @generated
      */
     @Override
-    public void setIdentifier(String newIdentifier) {
-        String oldIdentifier = identifier;
-        identifier = newIdentifier;
+    public void setLabel(String newLabel) {
+        String oldLabel = label;
+        label = newLabel;
         if (eNotificationRequired()) {
-            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.CATEGORY__IDENTIFIER, oldIdentifier, identifier));
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.CATEGORY__LABEL, oldLabel, label));
         }
     }
 
@@ -205,8 +205,8 @@ public class CategoryImpl extends DocumentedElementDescriptionImpl implements Ca
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-        case PropertiesPackage.CATEGORY__IDENTIFIER:
-            return getIdentifier();
+        case PropertiesPackage.CATEGORY__LABEL:
+            return getLabel();
         case PropertiesPackage.CATEGORY__PAGES:
             return getPages();
         case PropertiesPackage.CATEGORY__GROUPS:
@@ -226,8 +226,8 @@ public class CategoryImpl extends DocumentedElementDescriptionImpl implements Ca
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-        case PropertiesPackage.CATEGORY__IDENTIFIER:
-            setIdentifier((String) newValue);
+        case PropertiesPackage.CATEGORY__LABEL:
+            setLabel((String) newValue);
             return;
         case PropertiesPackage.CATEGORY__PAGES:
             getPages().clear();
@@ -253,8 +253,8 @@ public class CategoryImpl extends DocumentedElementDescriptionImpl implements Ca
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-        case PropertiesPackage.CATEGORY__IDENTIFIER:
-            setIdentifier(CategoryImpl.IDENTIFIER_EDEFAULT);
+        case PropertiesPackage.CATEGORY__LABEL:
+            setLabel(CategoryImpl.LABEL_EDEFAULT);
             return;
         case PropertiesPackage.CATEGORY__PAGES:
             getPages().clear();
@@ -277,8 +277,8 @@ public class CategoryImpl extends DocumentedElementDescriptionImpl implements Ca
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-        case PropertiesPackage.CATEGORY__IDENTIFIER:
-            return CategoryImpl.IDENTIFIER_EDEFAULT == null ? identifier != null : !CategoryImpl.IDENTIFIER_EDEFAULT.equals(identifier);
+        case PropertiesPackage.CATEGORY__LABEL:
+            return CategoryImpl.LABEL_EDEFAULT == null ? label != null : !CategoryImpl.LABEL_EDEFAULT.equals(label);
         case PropertiesPackage.CATEGORY__PAGES:
             return pages != null && !pages.isEmpty();
         case PropertiesPackage.CATEGORY__GROUPS:
@@ -301,8 +301,8 @@ public class CategoryImpl extends DocumentedElementDescriptionImpl implements Ca
         }
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (identifier: "); //$NON-NLS-1$
-        result.append(identifier);
+        result.append(" (label: "); //$NON-NLS-1$
+        result.append(label);
         result.append(')');
         return result.toString();
     }

@@ -33,7 +33,7 @@ public class ControlDescriptionItemProviderSpec extends ControlDescriptionItemPr
 
     @Override
     public String getText(Object object) {
-        String label = ((ControlDescription) object).getIdentifier();
+        String label = ((ControlDescription) object).getLabel();
         return label == null || label.length() == 0 ? getString("_UI_ControlDescription_type") : //$NON-NLS-1$
                 label;
     }

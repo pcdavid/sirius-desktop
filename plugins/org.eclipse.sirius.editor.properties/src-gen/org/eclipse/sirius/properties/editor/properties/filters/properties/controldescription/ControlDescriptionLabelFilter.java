@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,7 @@
  * Contributors:
  *    Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.sirius.properties.editor.properties.filters.properties.viewextensiondescription;
+package org.eclipse.sirius.properties.editor.properties.filters.properties.controldescription;
 
 // Start of user code specific imports
 
@@ -18,16 +18,16 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 // End of user code specific imports
 
 /**
- * A filter for the identifier property section.
+ * A filter for the label property section.
  */
-public class ViewExtensionDescriptionIdentifierFilter extends ViewpointPropertyFilter {
+public class ControlDescriptionLabelFilter extends ViewpointPropertyFilter {
 
     /**
      * {@inheritDoc}
      */
     @Override
     protected EStructuralFeature getFeature() {
-        return PropertiesPackage.eINSTANCE.getViewExtensionDescription_Identifier();
+        return PropertiesPackage.eINSTANCE.getAbstractControlDescription_Label();
     }
 
     /**
@@ -35,7 +35,7 @@ public class ViewExtensionDescriptionIdentifierFilter extends ViewpointPropertyF
      */
     @Override
     protected boolean isRightInputType(Object arg0) {
-        return arg0 instanceof org.eclipse.sirius.properties.ViewExtensionDescription;
+        return arg0 instanceof org.eclipse.sirius.properties.AbstractControlDescription;
     }
 
     // Start of user code user methods

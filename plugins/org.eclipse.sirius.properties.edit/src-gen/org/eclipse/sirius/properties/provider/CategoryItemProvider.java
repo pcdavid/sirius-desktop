@@ -36,7 +36,7 @@ public class CategoryItemProvider extends DocumentedElementDescriptionItemProvid
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CategoryItemProvider(AdapterFactory adapterFactory) {
@@ -46,7 +46,7 @@ public class CategoryItemProvider extends DocumentedElementDescriptionItemProvid
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -54,22 +54,21 @@ public class CategoryItemProvider extends DocumentedElementDescriptionItemProvid
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addIdentifierPropertyDescriptor(object);
+            addLabelPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Identifier feature. <!--
+     * This adds a property descriptor for the Label feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      */
-    protected void addIdentifierPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(), getString("_UI_Category_identifier_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_Category_identifier_feature", "_UI_Category_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        PropertiesPackage.Literals.CATEGORY__IDENTIFIER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+    protected void addLabelPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(), getString("_UI_Category_label_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_Category_label_feature", "_UI_Category_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                PropertiesPackage.Literals.CATEGORY__LABEL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -143,7 +142,7 @@ public class CategoryItemProvider extends DocumentedElementDescriptionItemProvid
         updateChildren(notification);
 
         switch (notification.getFeatureID(Category.class)) {
-        case PropertiesPackage.CATEGORY__IDENTIFIER:
+        case PropertiesPackage.CATEGORY__LABEL:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case PropertiesPackage.CATEGORY__PAGES:
@@ -159,7 +158,7 @@ public class CategoryItemProvider extends DocumentedElementDescriptionItemProvid
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

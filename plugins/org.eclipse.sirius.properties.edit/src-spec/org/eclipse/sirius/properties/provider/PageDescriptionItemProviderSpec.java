@@ -34,7 +34,7 @@ public class PageDescriptionItemProviderSpec extends PageDescriptionItemProvider
 
     @Override
     public String getText(Object object) {
-        String label = ((PageDescription) object).getIdentifier();
+        String label = ((PageDescription) object).getLabel();
         return label == null || label.length() == 0 ? getString("_UI_PageDescription_type") : //$NON-NLS-1$
                 label;
     }

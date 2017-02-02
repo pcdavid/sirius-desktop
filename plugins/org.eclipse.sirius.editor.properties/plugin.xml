@@ -450,24 +450,24 @@
         <input type="org.eclipse.sirius.properties.FillLayoutDescription"/>
       </propertySection>
   	  <propertySection
-               class="org.eclipse.sirius.properties.editor.properties.sections.properties.controldescription.ControlDescriptionIdentifierPropertySection"
-               id="properties.section.controlDescription.Identifier"
-               filter="org.eclipse.sirius.properties.editor.properties.filters.properties.controldescription.ControlDescriptionIdentifierFilter"
-                tab="viewpoint.tab.advanced">
+               class="org.eclipse.sirius.properties.editor.properties.sections.properties.controldescription.ControlDescriptionLabelPropertySectionSpec"
+               id="properties.section.controlDescription.Label"
+               filter="org.eclipse.sirius.properties.editor.properties.filters.properties.controldescription.ControlDescriptionLabelFilter"
+                tab="viewpoint.tab.general">
         <input type="org.eclipse.sirius.properties.ControlDescription"/>
       </propertySection>
   	  <propertySection
-               class="org.eclipse.sirius.properties.editor.properties.sections.properties.groupdescription.GroupDescriptionIdentifierPropertySection"
-               id="properties.section.groupDescription.Identifier"
-               filter="org.eclipse.sirius.properties.editor.properties.filters.properties.groupdescription.GroupDescriptionIdentifierFilter"
-                tab="viewpoint.tab.advanced">
+               class="org.eclipse.sirius.properties.editor.properties.sections.properties.groupdescription.GroupDescriptionLabelPropertySectionSpec"
+               id="properties.section.groupDescription.Label"
+               filter="org.eclipse.sirius.properties.editor.properties.filters.properties.groupdescription.GroupDescriptionLabelFilter"
+                tab="viewpoint.tab.general">
         <input type="org.eclipse.sirius.properties.GroupDescription"/>
       </propertySection>
       <propertySection
                class="org.eclipse.sirius.properties.editor.properties.sections.properties.groupdescription.GroupDescriptionDomainClassPropertySection"
                id="properties.section.groupDescription.DomainClass"
                filter="org.eclipse.sirius.properties.editor.properties.filters.properties.groupdescription.GroupDescriptionDomainClassFilter"
-               afterSection="properties.section.groupDescription.Identifier"
+               afterSection="properties.section.groupDescription.Label"
                 tab="viewpoint.tab.general">
         <input type="org.eclipse.sirius.properties.GroupDescription"/>
       </propertySection>
@@ -503,17 +503,17 @@
         <input type="org.eclipse.sirius.properties.PropertyValidationRule"/>
       </propertySection>
   	  <propertySection
-               class="org.eclipse.sirius.properties.editor.properties.sections.properties.pagedescription.PageDescriptionIdentifierPropertySection"
-               id="properties.section.pageDescription.Identifier"
-               filter="org.eclipse.sirius.properties.editor.properties.filters.properties.pagedescription.PageDescriptionIdentifierFilter"
-                tab="viewpoint.tab.advanced">
+               class="org.eclipse.sirius.properties.editor.properties.sections.properties.pagedescription.PageDescriptionLabelPropertySectionSpec"
+               id="properties.section.pageDescription.Label"
+               filter="org.eclipse.sirius.properties.editor.properties.filters.properties.pagedescription.PageDescriptionLabelFilter"
+                tab="viewpoint.tab.general">
         <input type="org.eclipse.sirius.properties.PageDescription"/>
       </propertySection>
   	  <propertySection
                class="org.eclipse.sirius.properties.editor.properties.sections.properties.pagedescription.PageDescriptionDomainClassPropertySection"
                id="properties.section.pageDescription.DomainClass"
                filter="org.eclipse.sirius.properties.editor.properties.filters.properties.pagedescription.PageDescriptionDomainClassFilter"
-               afterSection="properties.section.pageDescription.Identifier"
+               afterSection="properties.section.pageDescription.Label"
                 tab="viewpoint.tab.general">
         <input type="org.eclipse.sirius.properties.PageDescription"/>
       </propertySection>
@@ -553,15 +553,14 @@
                class="org.eclipse.sirius.properties.editor.properties.sections.properties.viewextensiondescription.ViewExtensionDescriptionMetamodelsPropertySectionSpec"
                id="properties.section.viewExtensionDescription.Metamodels"
                filter="org.eclipse.sirius.properties.editor.properties.filters.properties.viewextensiondescription.ViewExtensionDescriptionMetamodelsFilter"
-               afterSection="properties.section.viewExtensionDescription.Identifier"
                 tab="viewpoint.tab.metamodels">
         <input type="org.eclipse.sirius.properties.ViewExtensionDescription"/>
       </propertySection>
   	  <propertySection
-               class="org.eclipse.sirius.properties.editor.properties.sections.properties.viewextensiondescription.ViewExtensionDescriptionIdentifierPropertySection"
-               id="properties.section.viewExtensionDescription.Identifier"
-               filter="org.eclipse.sirius.properties.editor.properties.filters.properties.viewextensiondescription.ViewExtensionDescriptionIdentifierFilter"
-                tab="viewpoint.tab.advanced">
+               class="org.eclipse.sirius.properties.editor.properties.sections.properties.viewextensiondescription.ViewExtensionDescriptionLabelPropertySectionSpec"
+               id="properties.section.viewExtensionDescription.Label"
+               filter="org.eclipse.sirius.properties.editor.properties.filters.properties.viewextensiondescription.ViewExtensionDescriptionLabelFilter"
+                tab="viewpoint.tab.general">
         <input type="org.eclipse.sirius.properties.ViewExtensionDescription"/>
       </propertySection>
   	<!-- Start of user code propertySections of org.eclipse.sirius.editor.editorPlugin.SiriusEditorContributor  -->

@@ -126,9 +126,9 @@ public class ReferenceWidgetMigrationParticipant extends AbstractVSMMigrationPar
                 for (Category category : viewExtensionDescription.getCategories()) {
                     for (PageDescription pageDescription : category.getPages()) {
                         groups.addAll(pageDescription.getGroups());
-                    }                    
-                    groups.addAll(category.getGroups());  
-                }              
+                    }
+                    groups.addAll(category.getGroups());
+                }
 
                 for (GroupDescription groupDescription : groups) {
                     List<ControlDescription> controls = groupDescription.getControls();
@@ -183,7 +183,7 @@ public class ReferenceWidgetMigrationParticipant extends AbstractVSMMigrationPar
      */
     private ListDescription handleList(ListDescription listDescription) {
         ListDescription list = PropertiesFactory.eINSTANCE.createListDescription();
-        list.setIdentifier(listDescription.getIdentifier());
+        list.setLabel(listDescription.getLabel());
         list.setHelpExpression(listDescription.getHelpExpression());
         list.setDisplayExpression(listDescription.getDisplayExpression());
         list.setIsEnabledExpression(listDescription.getIsEnabledExpression());
@@ -206,7 +206,7 @@ public class ReferenceWidgetMigrationParticipant extends AbstractVSMMigrationPar
      */
     private HyperlinkDescription handleHyperlink(ListDescription listDescription) {
         HyperlinkDescription hyperlink = PropertiesFactory.eINSTANCE.createHyperlinkDescription();
-        hyperlink.setIdentifier(listDescription.getIdentifier());
+        hyperlink.setLabel(listDescription.getLabel());
         hyperlink.setHelpExpression(listDescription.getHelpExpression());
         hyperlink.setDisplayExpression(listDescription.getDisplayExpression());
         hyperlink.setIsEnabledExpression(listDescription.getIsEnabledExpression());
@@ -254,7 +254,7 @@ public class ReferenceWidgetMigrationParticipant extends AbstractVSMMigrationPar
      */
     private LabelDescription handleLabel(ListDescription listDescription) {
         LabelDescription label = PropertiesFactory.eINSTANCE.createLabelDescription();
-        label.setIdentifier(listDescription.getIdentifier());
+        label.setLabel(listDescription.getLabel());
         label.setHelpExpression(listDescription.getHelpExpression());
         label.setDisplayExpression(listDescription.getDisplayExpression());
         label.setIsEnabledExpression(listDescription.getIsEnabledExpression());

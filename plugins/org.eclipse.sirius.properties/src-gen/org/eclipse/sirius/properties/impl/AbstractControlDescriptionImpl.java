@@ -24,32 +24,32 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.impl.AbstractControlDescriptionImpl#getIdentifier
- * <em>Identifier</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.AbstractControlDescriptionImpl#getLabel
+ * <em>Label</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class AbstractControlDescriptionImpl extends DocumentedElementDescriptionImpl implements AbstractControlDescription {
     /**
-     * The default value of the '{@link #getIdentifier() <em>Identifier</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getIdentifier()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected static final String IDENTIFIER_EDEFAULT = null;
+    protected static final String LABEL_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getIdentifier()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected String identifier = AbstractControlDescriptionImpl.IDENTIFIER_EDEFAULT;
+    protected String label = AbstractControlDescriptionImpl.LABEL_EDEFAULT;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -76,8 +76,8 @@ public abstract class AbstractControlDescriptionImpl extends DocumentedElementDe
      * @generated
      */
     @Override
-    public String getIdentifier() {
-        return identifier;
+    public String getLabel() {
+        return label;
     }
 
     /**
@@ -86,11 +86,11 @@ public abstract class AbstractControlDescriptionImpl extends DocumentedElementDe
      * @generated
      */
     @Override
-    public void setIdentifier(String newIdentifier) {
-        String oldIdentifier = identifier;
-        identifier = newIdentifier;
+    public void setLabel(String newLabel) {
+        String oldLabel = label;
+        label = newLabel;
         if (eNotificationRequired()) {
-            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER, oldIdentifier, identifier));
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__LABEL, oldLabel, label));
         }
     }
 
@@ -102,8 +102,8 @@ public abstract class AbstractControlDescriptionImpl extends DocumentedElementDe
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-        case PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER:
-            return getIdentifier();
+        case PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__LABEL:
+            return getLabel();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -116,8 +116,8 @@ public abstract class AbstractControlDescriptionImpl extends DocumentedElementDe
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-        case PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER:
-            setIdentifier((String) newValue);
+        case PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__LABEL:
+            setLabel((String) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -131,8 +131,8 @@ public abstract class AbstractControlDescriptionImpl extends DocumentedElementDe
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-        case PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER:
-            setIdentifier(AbstractControlDescriptionImpl.IDENTIFIER_EDEFAULT);
+        case PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__LABEL:
+            setLabel(AbstractControlDescriptionImpl.LABEL_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -146,8 +146,8 @@ public abstract class AbstractControlDescriptionImpl extends DocumentedElementDe
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-        case PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER:
-            return AbstractControlDescriptionImpl.IDENTIFIER_EDEFAULT == null ? identifier != null : !AbstractControlDescriptionImpl.IDENTIFIER_EDEFAULT.equals(identifier);
+        case PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__LABEL:
+            return AbstractControlDescriptionImpl.LABEL_EDEFAULT == null ? label != null : !AbstractControlDescriptionImpl.LABEL_EDEFAULT.equals(label);
         }
         return super.eIsSet(featureID);
     }
@@ -164,8 +164,8 @@ public abstract class AbstractControlDescriptionImpl extends DocumentedElementDe
         }
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (identifier: "); //$NON-NLS-1$
-        result.append(identifier);
+        result.append(" (label: "); //$NON-NLS-1$
+        result.append(label);
         result.append(')');
         return result.toString();
     }

@@ -39,7 +39,7 @@ public class CategoryItemProviderSpec extends CategoryItemProvider {
 
     @Override
     public String getText(Object object) {
-        String label = ((Category) object).getIdentifier();
+        String label = ((Category) object).getLabel();
         return label == null || label.length() == 0 ? getString("_UI_Category_type") : //$NON-NLS-1$
                 label;
     }

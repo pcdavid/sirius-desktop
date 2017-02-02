@@ -44,7 +44,7 @@ public class ViewExtensionDescriptionItemProviderSpec extends ViewExtensionDescr
 
     @Override
     public String getText(Object object) {
-        String label = ((ViewExtensionDescription) object).getIdentifier();
+        String label = ((ViewExtensionDescription) object).getLabel();
         return label == null || label.length() == 0 ? getString("_UI_ViewExtensionDescription_type") : //$NON-NLS-1$
                 label;
     }
@@ -52,7 +52,7 @@ public class ViewExtensionDescriptionItemProviderSpec extends ViewExtensionDescr
     @Override
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         Category category = PropertiesFactory.eINSTANCE.createCategory();
-        category.setIdentifier("Category"); //$NON-NLS-1$
+        category.setLabel("Category"); //$NON-NLS-1$
         newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.VIEW_EXTENSION_DESCRIPTION__CATEGORIES, category));
     }
 }

@@ -29,14 +29,14 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.AbstractGroupDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AbstractGroupDescriptionItemProvider extends DocumentedElementDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AbstractGroupDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -46,7 +46,7 @@ public class AbstractGroupDescriptionItemProvider extends DocumentedElementDescr
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -54,7 +54,7 @@ public class AbstractGroupDescriptionItemProvider extends DocumentedElementDescr
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addIdentifierPropertyDescriptor(object);
+            addLabelPropertyDescriptor(object);
             addLabelExpressionPropertyDescriptor(object);
             addDomainClassPropertyDescriptor(object);
             addSemanticCandidateExpressionPropertyDescriptor(object);
@@ -68,22 +68,22 @@ public class AbstractGroupDescriptionItemProvider extends DocumentedElementDescr
     }
 
     /**
-     * This adds a property descriptor for the Identifier feature. <!--
+     * This adds a property descriptor for the Label feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      */
-    protected void addIdentifierPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(
-                createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(), getString("_UI_AbstractGroupDescription_identifier_feature"), //$NON-NLS-1$
-                        getString("_UI_PropertyDescriptor_description", "_UI_AbstractGroupDescription_identifier_feature", "_UI_AbstractGroupDescription_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        PropertiesPackage.Literals.ABSTRACT_GROUP_DESCRIPTION__IDENTIFIER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+    protected void addLabelPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(), getString("_UI_AbstractGroupDescription_label_feature"), //$NON-NLS-1$
+                        getString("_UI_PropertyDescriptor_description", "_UI_AbstractGroupDescription_label_feature", "_UI_AbstractGroupDescription_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        PropertiesPackage.Literals.ABSTRACT_GROUP_DESCRIPTION__LABEL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
      * This adds a property descriptor for the Label Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addLabelExpressionPropertyDescriptor(Object object) {
@@ -96,7 +96,7 @@ public class AbstractGroupDescriptionItemProvider extends DocumentedElementDescr
     /**
      * This adds a property descriptor for the Domain Class feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addDomainClassPropertyDescriptor(Object object) {
@@ -135,7 +135,7 @@ public class AbstractGroupDescriptionItemProvider extends DocumentedElementDescr
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -250,7 +250,7 @@ public class AbstractGroupDescriptionItemProvider extends DocumentedElementDescr
         updateChildren(notification);
 
         switch (notification.getFeatureID(AbstractGroupDescription.class)) {
-        case PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__IDENTIFIER:
+        case PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__LABEL:
         case PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__LABEL_EXPRESSION:
         case PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__DOMAIN_CLASS:
         case PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__SEMANTIC_CANDIDATE_EXPRESSION:
@@ -274,7 +274,7 @@ public class AbstractGroupDescriptionItemProvider extends DocumentedElementDescr
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

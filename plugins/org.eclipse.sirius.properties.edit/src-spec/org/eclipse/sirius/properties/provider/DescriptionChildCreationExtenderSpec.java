@@ -56,17 +56,17 @@ public class DescriptionChildCreationExtenderSpec extends DescriptionChildCreati
         @Override
         public Object caseGroup(Group object) {
             ViewExtensionDescription ved = PropertiesFactory.eINSTANCE.createViewExtensionDescription();
-            ved.setIdentifier("Properties"); //$NON-NLS-1$
+            ved.setLabel("Properties"); //$NON-NLS-1$
             Category category = PropertiesFactory.eINSTANCE.createCategory();
-            category.setIdentifier(DEFAULT_IDENTIFIER);
+            category.setLabel(DEFAULT_IDENTIFIER);
             ved.getCategories().add(category);
             PageDescription page = PropertiesFactory.eINSTANCE.createPageDescription();
-            page.setIdentifier(DEFAULT_IDENTIFIER);
+            page.setLabel(DEFAULT_IDENTIFIER);
             page.setLabelExpression("Page"); //$NON-NLS-1$
             page.setSemanticCandidateExpression(ViewExtensionDescriptionItemProviderSpec.DEFAULT_SEMANTIC_CANDIDATES_EXPRESSION);
             category.getPages().add(page);
             GroupDescription group = PropertiesFactory.eINSTANCE.createGroupDescription();
-            group.setIdentifier(DEFAULT_IDENTIFIER);
+            group.setLabel(DEFAULT_IDENTIFIER);
             group.setLabelExpression("Group"); //$NON-NLS-1$
             group.setSemanticCandidateExpression(ViewExtensionDescriptionItemProviderSpec.DEFAULT_SEMANTIC_CANDIDATES_EXPRESSION);
             category.getGroups().add(group);

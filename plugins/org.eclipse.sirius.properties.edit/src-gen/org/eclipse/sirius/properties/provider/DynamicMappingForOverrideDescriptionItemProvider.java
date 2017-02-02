@@ -34,7 +34,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public DynamicMappingForOverrideDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
     /**
      * This adds a property descriptor for the Overrides feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addOverridesPropertyDescriptor(Object object) {
@@ -90,7 +90,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
     /**
      * This returns DynamicMappingForOverrideDescription.gif. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public class DynamicMappingForOverrideDescriptionItemProvider extends AbstractDy
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -30,14 +30,14 @@ import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.AbstractTextDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AbstractTextDescriptionItemProvider extends AbstractWidgetDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AbstractTextDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -47,7 +47,7 @@ public class AbstractTextDescriptionItemProvider extends AbstractWidgetDescripti
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -65,7 +65,7 @@ public class AbstractTextDescriptionItemProvider extends AbstractWidgetDescripti
     /**
      * This adds a property descriptor for the Value Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addValueExpressionPropertyDescriptor(Object object) {
@@ -78,7 +78,7 @@ public class AbstractTextDescriptionItemProvider extends AbstractWidgetDescripti
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -181,7 +181,7 @@ public class AbstractTextDescriptionItemProvider extends AbstractWidgetDescripti
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

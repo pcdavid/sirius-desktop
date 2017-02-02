@@ -34,7 +34,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ContainerOverrideDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
     /**
      * This adds a property descriptor for the Overrides feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addOverridesPropertyDescriptor(Object object) {
@@ -75,7 +75,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
      * This adds a property descriptor for the Filter Controls From Overridden
      * Container Expression feature. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     protected void addFilterControlsFromOverriddenContainerExpressionPropertyDescriptor(Object object) {
@@ -134,7 +134,7 @@ public class ContainerOverrideDescriptionItemProvider extends AbstractContainerD
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

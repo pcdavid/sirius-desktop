@@ -34,7 +34,7 @@ public class CheckboxOverrideDescriptionItemProvider extends AbstractCheckboxDes
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CheckboxOverrideDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class CheckboxOverrideDescriptionItemProvider extends AbstractCheckboxDes
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class CheckboxOverrideDescriptionItemProvider extends AbstractCheckboxDes
     /**
      * This adds a property descriptor for the Overrides feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addOverridesPropertyDescriptor(Object object) {
@@ -135,7 +135,7 @@ public class CheckboxOverrideDescriptionItemProvider extends AbstractCheckboxDes
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

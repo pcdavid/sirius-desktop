@@ -29,14 +29,14 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.AbstractCustomDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AbstractCustomDescriptionItemProvider extends AbstractWidgetDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AbstractCustomDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -46,7 +46,7 @@ public class AbstractCustomDescriptionItemProvider extends AbstractWidgetDescrip
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -63,7 +63,7 @@ public class AbstractCustomDescriptionItemProvider extends AbstractWidgetDescrip
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -167,7 +167,7 @@ public class AbstractCustomDescriptionItemProvider extends AbstractWidgetDescrip
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

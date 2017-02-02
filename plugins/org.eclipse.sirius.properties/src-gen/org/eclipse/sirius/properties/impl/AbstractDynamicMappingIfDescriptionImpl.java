@@ -76,24 +76,24 @@ public abstract class AbstractDynamicMappingIfDescriptionImpl extends MinimalEOb
     protected WidgetDescription widget;
 
     /**
-     * The default value of the '{@link #getIdentifier() <em>Identifier</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getIdentifier()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected static final String IDENTIFIER_EDEFAULT = null;
+    protected static final String LABEL_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getIdentifier()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected String identifier = AbstractDynamicMappingIfDescriptionImpl.IDENTIFIER_EDEFAULT;
+    protected String label = AbstractDynamicMappingIfDescriptionImpl.LABEL_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getExtends() <em>Extends</em>}'
@@ -207,8 +207,8 @@ public abstract class AbstractDynamicMappingIfDescriptionImpl extends MinimalEOb
      * @generated
      */
     @Override
-    public String getIdentifier() {
-        return identifier;
+    public String getLabel() {
+        return label;
     }
 
     /**
@@ -217,11 +217,11 @@ public abstract class AbstractDynamicMappingIfDescriptionImpl extends MinimalEOb
      * @generated
      */
     @Override
-    public void setIdentifier(String newIdentifier) {
-        String oldIdentifier = identifier;
-        identifier = newIdentifier;
+    public void setLabel(String newLabel) {
+        String oldLabel = label;
+        label = newLabel;
         if (eNotificationRequired()) {
-            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER, oldIdentifier, identifier));
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL, oldLabel, label));
         }
     }
 
@@ -293,8 +293,8 @@ public abstract class AbstractDynamicMappingIfDescriptionImpl extends MinimalEOb
             return getPredicateExpression();
         case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET:
             return getWidget();
-        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER:
-            return getIdentifier();
+        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL:
+            return getLabel();
         case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__EXTENDS:
             if (resolve) {
                 return getExtends();
@@ -318,8 +318,8 @@ public abstract class AbstractDynamicMappingIfDescriptionImpl extends MinimalEOb
         case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET:
             setWidget((WidgetDescription) newValue);
             return;
-        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER:
-            setIdentifier((String) newValue);
+        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL:
+            setLabel((String) newValue);
             return;
         case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__EXTENDS:
             setExtends((DynamicMappingIfDescription) newValue);
@@ -342,8 +342,8 @@ public abstract class AbstractDynamicMappingIfDescriptionImpl extends MinimalEOb
         case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET:
             setWidget((WidgetDescription) null);
             return;
-        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER:
-            setIdentifier(AbstractDynamicMappingIfDescriptionImpl.IDENTIFIER_EDEFAULT);
+        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL:
+            setLabel(AbstractDynamicMappingIfDescriptionImpl.LABEL_EDEFAULT);
             return;
         case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__EXTENDS:
             setExtends((DynamicMappingIfDescription) null);
@@ -365,8 +365,8 @@ public abstract class AbstractDynamicMappingIfDescriptionImpl extends MinimalEOb
                     : !AbstractDynamicMappingIfDescriptionImpl.PREDICATE_EXPRESSION_EDEFAULT.equals(predicateExpression);
         case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET:
             return widget != null;
-        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER:
-            return AbstractDynamicMappingIfDescriptionImpl.IDENTIFIER_EDEFAULT == null ? identifier != null : !AbstractDynamicMappingIfDescriptionImpl.IDENTIFIER_EDEFAULT.equals(identifier);
+        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL:
+            return AbstractDynamicMappingIfDescriptionImpl.LABEL_EDEFAULT == null ? label != null : !AbstractDynamicMappingIfDescriptionImpl.LABEL_EDEFAULT.equals(label);
         case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__EXTENDS:
             return extends_ != null;
         }
@@ -387,8 +387,8 @@ public abstract class AbstractDynamicMappingIfDescriptionImpl extends MinimalEOb
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (predicateExpression: "); //$NON-NLS-1$
         result.append(predicateExpression);
-        result.append(", identifier: "); //$NON-NLS-1$
-        result.append(identifier);
+        result.append(", label: "); //$NON-NLS-1$
+        result.append(label);
         result.append(')');
         return result.toString();
     }

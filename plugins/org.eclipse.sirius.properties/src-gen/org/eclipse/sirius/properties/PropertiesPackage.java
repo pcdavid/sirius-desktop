@@ -86,13 +86,13 @@ public interface PropertiesPackage extends EPackage {
     int VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION = DescriptionPackage.EXTENSION_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int VIEW_EXTENSION_DESCRIPTION__IDENTIFIER = DescriptionPackage.EXTENSION_FEATURE_COUNT + 1;
+    int VIEW_EXTENSION_DESCRIPTION__LABEL = DescriptionPackage.EXTENSION_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Metamodels</b></em>' reference list. <!--
@@ -172,13 +172,13 @@ public interface PropertiesPackage extends EPackage {
     int CATEGORY__DOCUMENTATION = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int CATEGORY__IDENTIFIER = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION_FEATURE_COUNT + 0;
+    int CATEGORY__LABEL = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Pages</b></em>' containment reference
@@ -259,13 +259,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_PAGE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_PAGE_DESCRIPTION__IDENTIFIER = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION_FEATURE_COUNT + 0;
+    int ABSTRACT_PAGE_DESCRIPTION__LABEL = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -380,13 +380,13 @@ public interface PropertiesPackage extends EPackage {
     int PAGE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PAGE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__IDENTIFIER;
+    int PAGE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -502,13 +502,13 @@ public interface PropertiesPackage extends EPackage {
     int PAGE_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PAGE_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__IDENTIFIER;
+    int PAGE_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -767,13 +767,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_GROUP_DESCRIPTION__DOCUMENTATION = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_GROUP_DESCRIPTION__IDENTIFIER = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION_FEATURE_COUNT + 0;
+    int ABSTRACT_GROUP_DESCRIPTION__LABEL = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -916,13 +916,13 @@ public interface PropertiesPackage extends EPackage {
     int GROUP_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int GROUP_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__IDENTIFIER;
+    int GROUP_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -1066,13 +1066,13 @@ public interface PropertiesPackage extends EPackage {
     int GROUP_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int GROUP_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__IDENTIFIER;
+    int GROUP_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_GROUP_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -1294,13 +1294,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_CONTROL_DESCRIPTION__DOCUMENTATION = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION_FEATURE_COUNT + 0;
+    int ABSTRACT_CONTROL_DESCRIPTION__LABEL = PropertiesPackage.DOCUMENTED_ELEMENT_DESCRIPTION_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Abstract Control
@@ -1333,13 +1333,13 @@ public interface PropertiesPackage extends EPackage {
     int CONTROL_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int CONTROL_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER;
+    int CONTROL_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__LABEL;
 
     /**
      * The number of structural features of the '<em>Control Description</em>'
@@ -1372,13 +1372,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_CONTAINER_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_CONTAINER_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_CONTAINER_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Controls</b></em>' containment reference
@@ -1448,13 +1448,13 @@ public interface PropertiesPackage extends EPackage {
     int CONTAINER_DESCRIPTION__DOCUMENTATION = PropertiesPackage.CONTROL_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int CONTAINER_DESCRIPTION__IDENTIFIER = PropertiesPackage.CONTROL_DESCRIPTION__IDENTIFIER;
+    int CONTAINER_DESCRIPTION__LABEL = PropertiesPackage.CONTROL_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Controls</b></em>' containment reference
@@ -1524,13 +1524,13 @@ public interface PropertiesPackage extends EPackage {
     int CONTAINER_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int CONTAINER_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__IDENTIFIER;
+    int CONTAINER_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_CONTAINER_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Controls</b></em>' containment reference
@@ -1709,13 +1709,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_WIDGET_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -1775,13 +1775,13 @@ public interface PropertiesPackage extends EPackage {
     int WIDGET_DESCRIPTION__DOCUMENTATION = PropertiesPackage.CONTROL_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int WIDGET_DESCRIPTION__IDENTIFIER = PropertiesPackage.CONTROL_DESCRIPTION__IDENTIFIER;
+    int WIDGET_DESCRIPTION__LABEL = PropertiesPackage.CONTROL_DESCRIPTION__LABEL;
 
     /**
      * The number of structural features of the '<em>Widget Description</em>'
@@ -1814,13 +1814,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_TEXT_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_TEXT_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_TEXT_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -1934,13 +1934,13 @@ public interface PropertiesPackage extends EPackage {
     int TEXT_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_TEXT_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int TEXT_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_TEXT_DESCRIPTION__IDENTIFIER;
+    int TEXT_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_TEXT_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -2055,13 +2055,13 @@ public interface PropertiesPackage extends EPackage {
     int TEXT_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_TEXT_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int TEXT_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_TEXT_DESCRIPTION__IDENTIFIER;
+    int TEXT_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_TEXT_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -2195,13 +2195,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_BUTTON_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_BUTTON_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_BUTTON_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -2316,13 +2316,13 @@ public interface PropertiesPackage extends EPackage {
     int BUTTON_DESCRIPTION__DOCUMENTATION = PropertiesPackage.WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int BUTTON_DESCRIPTION__IDENTIFIER = PropertiesPackage.WIDGET_DESCRIPTION__IDENTIFIER;
+    int BUTTON_DESCRIPTION__LABEL = PropertiesPackage.WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -2437,13 +2437,13 @@ public interface PropertiesPackage extends EPackage {
     int BUTTON_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_BUTTON_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int BUTTON_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_BUTTON_DESCRIPTION__IDENTIFIER;
+    int BUTTON_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_BUTTON_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -2577,13 +2577,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_LABEL_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_LABEL_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_LABEL_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -2716,13 +2716,13 @@ public interface PropertiesPackage extends EPackage {
     int LABEL_DESCRIPTION__DOCUMENTATION = PropertiesPackage.WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int LABEL_DESCRIPTION__IDENTIFIER = PropertiesPackage.WIDGET_DESCRIPTION__IDENTIFIER;
+    int LABEL_DESCRIPTION__LABEL = PropertiesPackage.WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -2856,13 +2856,13 @@ public interface PropertiesPackage extends EPackage {
     int LABEL_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_LABEL_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int LABEL_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_LABEL_DESCRIPTION__IDENTIFIER;
+    int LABEL_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_LABEL_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -3025,13 +3025,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_CHECKBOX_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_CHECKBOX_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_CHECKBOX_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -3146,13 +3146,13 @@ public interface PropertiesPackage extends EPackage {
     int CHECKBOX_DESCRIPTION__DOCUMENTATION = PropertiesPackage.WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int CHECKBOX_DESCRIPTION__IDENTIFIER = PropertiesPackage.WIDGET_DESCRIPTION__IDENTIFIER;
+    int CHECKBOX_DESCRIPTION__LABEL = PropertiesPackage.WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -3267,13 +3267,13 @@ public interface PropertiesPackage extends EPackage {
     int CHECKBOX_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int CHECKBOX_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__IDENTIFIER;
+    int CHECKBOX_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_CHECKBOX_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -3407,13 +3407,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_SELECT_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_SELECT_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_SELECT_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -3546,13 +3546,13 @@ public interface PropertiesPackage extends EPackage {
     int SELECT_DESCRIPTION__DOCUMENTATION = PropertiesPackage.WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int SELECT_DESCRIPTION__IDENTIFIER = PropertiesPackage.WIDGET_DESCRIPTION__IDENTIFIER;
+    int SELECT_DESCRIPTION__LABEL = PropertiesPackage.WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -3685,13 +3685,13 @@ public interface PropertiesPackage extends EPackage {
     int SELECT_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_SELECT_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int SELECT_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_SELECT_DESCRIPTION__IDENTIFIER;
+    int SELECT_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_SELECT_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -3843,13 +3843,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_DYNAMIC_MAPPING_FOR_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_DYNAMIC_MAPPING_FOR_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_DYNAMIC_MAPPING_FOR_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_CONTROL_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Iterator</b></em>' attribute. <!--
@@ -3929,13 +3929,13 @@ public interface PropertiesPackage extends EPackage {
     int DYNAMIC_MAPPING_FOR_DESCRIPTION__DOCUMENTATION = PropertiesPackage.CONTROL_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int DYNAMIC_MAPPING_FOR_DESCRIPTION__IDENTIFIER = PropertiesPackage.CONTROL_DESCRIPTION__IDENTIFIER;
+    int DYNAMIC_MAPPING_FOR_DESCRIPTION__LABEL = PropertiesPackage.CONTROL_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Iterator</b></em>' attribute. <!--
@@ -4014,13 +4014,13 @@ public interface PropertiesPackage extends EPackage {
     int DYNAMIC_MAPPING_FOR_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_FOR_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int DYNAMIC_MAPPING_FOR_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_FOR_DESCRIPTION__IDENTIFIER;
+    int DYNAMIC_MAPPING_FOR_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_FOR_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Iterator</b></em>' attribute. <!--
@@ -4128,13 +4128,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET = 1;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER = 2;
+    int ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL = 2;
 
     /**
      * The feature id for the '<em><b>Extends</b></em>' reference. <!--
@@ -4185,13 +4185,13 @@ public interface PropertiesPackage extends EPackage {
     int DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET = PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER;
+    int DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Extends</b></em>' reference. <!--
@@ -4242,13 +4242,13 @@ public interface PropertiesPackage extends EPackage {
     int DYNAMIC_MAPPING_IF_OVERRIDE_DESCRIPTION__WIDGET = PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int DYNAMIC_MAPPING_IF_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER;
+    int DYNAMIC_MAPPING_IF_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Extends</b></em>' reference. <!--
@@ -4299,13 +4299,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_TEXT_AREA_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_TEXT_AREA_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_TEXT_AREA_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -4429,13 +4429,13 @@ public interface PropertiesPackage extends EPackage {
     int TEXT_AREA_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_TEXT_AREA_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int TEXT_AREA_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_TEXT_AREA_DESCRIPTION__IDENTIFIER;
+    int TEXT_AREA_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_TEXT_AREA_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -4559,13 +4559,13 @@ public interface PropertiesPackage extends EPackage {
     int TEXT_AREA_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_TEXT_AREA_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int TEXT_AREA_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_TEXT_AREA_DESCRIPTION__IDENTIFIER;
+    int TEXT_AREA_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_TEXT_AREA_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -4708,13 +4708,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_RADIO_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_RADIO_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_RADIO_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -4855,13 +4855,13 @@ public interface PropertiesPackage extends EPackage {
     int RADIO_DESCRIPTION__DOCUMENTATION = PropertiesPackage.WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RADIO_DESCRIPTION__IDENTIFIER = PropertiesPackage.WIDGET_DESCRIPTION__IDENTIFIER;
+    int RADIO_DESCRIPTION__LABEL = PropertiesPackage.WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -5003,13 +5003,13 @@ public interface PropertiesPackage extends EPackage {
     int RADIO_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_RADIO_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RADIO_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_RADIO_DESCRIPTION__IDENTIFIER;
+    int RADIO_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_RADIO_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -5170,13 +5170,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_LIST_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_LIST_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_LIST_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -5318,13 +5318,13 @@ public interface PropertiesPackage extends EPackage {
     int LIST_DESCRIPTION__DOCUMENTATION = PropertiesPackage.WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int LIST_DESCRIPTION__IDENTIFIER = PropertiesPackage.WIDGET_DESCRIPTION__IDENTIFIER;
+    int LIST_DESCRIPTION__LABEL = PropertiesPackage.WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -5467,13 +5467,13 @@ public interface PropertiesPackage extends EPackage {
     int LIST_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_LIST_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int LIST_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_LIST_DESCRIPTION__IDENTIFIER;
+    int LIST_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_LIST_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -5675,13 +5675,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_CUSTOM_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_CUSTOM_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_CUSTOM_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -5796,13 +5796,13 @@ public interface PropertiesPackage extends EPackage {
     int CUSTOM_DESCRIPTION__DOCUMENTATION = PropertiesPackage.WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int CUSTOM_DESCRIPTION__IDENTIFIER = PropertiesPackage.WIDGET_DESCRIPTION__IDENTIFIER;
+    int CUSTOM_DESCRIPTION__LABEL = PropertiesPackage.WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -5917,13 +5917,13 @@ public interface PropertiesPackage extends EPackage {
     int CUSTOM_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_CUSTOM_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int CUSTOM_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_CUSTOM_DESCRIPTION__IDENTIFIER;
+    int CUSTOM_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_CUSTOM_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -6134,13 +6134,13 @@ public interface PropertiesPackage extends EPackage {
     int ABSTRACT_HYPERLINK_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ABSTRACT_HYPERLINK_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__IDENTIFIER;
+    int ABSTRACT_HYPERLINK_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -6283,13 +6283,13 @@ public interface PropertiesPackage extends EPackage {
     int HYPERLINK_DESCRIPTION__DOCUMENTATION = PropertiesPackage.WIDGET_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int HYPERLINK_DESCRIPTION__IDENTIFIER = PropertiesPackage.WIDGET_DESCRIPTION__IDENTIFIER;
+    int HYPERLINK_DESCRIPTION__LABEL = PropertiesPackage.WIDGET_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -6432,13 +6432,13 @@ public interface PropertiesPackage extends EPackage {
     int HYPERLINK_OVERRIDE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.ABSTRACT_HYPERLINK_DESCRIPTION__DOCUMENTATION;
 
     /**
-     * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+     * The feature id for the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int HYPERLINK_OVERRIDE_DESCRIPTION__IDENTIFIER = PropertiesPackage.ABSTRACT_HYPERLINK_DESCRIPTION__IDENTIFIER;
+    int HYPERLINK_OVERRIDE_DESCRIPTION__LABEL = PropertiesPackage.ABSTRACT_HYPERLINK_DESCRIPTION__LABEL;
 
     /**
      * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -7979,15 +7979,15 @@ public interface PropertiesPackage extends EPackage {
 
     /**
      * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.properties.ViewExtensionDescription#getIdentifier
-     * <em>Identifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * '{@link org.eclipse.sirius.properties.ViewExtensionDescription#getLabel
+     * <em>Label</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the attribute '<em>Identifier</em>'.
-     * @see org.eclipse.sirius.properties.ViewExtensionDescription#getIdentifier()
+     * @return the meta object for the attribute '<em>Label</em>'.
+     * @see org.eclipse.sirius.properties.ViewExtensionDescription#getLabel()
      * @see #getViewExtensionDescription()
      * @generated
      */
-    EAttribute getViewExtensionDescription_Identifier();
+    EAttribute getViewExtensionDescription_Label();
 
     /**
      * Returns the meta object for the reference list
@@ -8027,15 +8027,15 @@ public interface PropertiesPackage extends EPackage {
 
     /**
      * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.properties.Category#getIdentifier
-     * <em>Identifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * '{@link org.eclipse.sirius.properties.Category#getLabel <em>Label</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the attribute '<em>Identifier</em>'.
-     * @see org.eclipse.sirius.properties.Category#getIdentifier()
+     * @return the meta object for the attribute '<em>Label</em>'.
+     * @see org.eclipse.sirius.properties.Category#getLabel()
      * @see #getCategory()
      * @generated
      */
-    EAttribute getCategory_Identifier();
+    EAttribute getCategory_Label();
 
     /**
      * Returns the meta object for the containment reference list
@@ -8128,15 +8128,15 @@ public interface PropertiesPackage extends EPackage {
 
     /**
      * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.properties.AbstractPageDescription#getIdentifier
-     * <em>Identifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * '{@link org.eclipse.sirius.properties.AbstractPageDescription#getLabel
+     * <em>Label</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the attribute '<em>Identifier</em>'.
-     * @see org.eclipse.sirius.properties.AbstractPageDescription#getIdentifier()
+     * @return the meta object for the attribute '<em>Label</em>'.
+     * @see org.eclipse.sirius.properties.AbstractPageDescription#getLabel()
      * @see #getAbstractPageDescription()
      * @generated
      */
-    EAttribute getAbstractPageDescription_Identifier();
+    EAttribute getAbstractPageDescription_Label();
 
     /**
      * Returns the meta object for the attribute
@@ -8383,15 +8383,15 @@ public interface PropertiesPackage extends EPackage {
 
     /**
      * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getIdentifier
-     * <em>Identifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getLabel
+     * <em>Label</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the attribute '<em>Identifier</em>'.
-     * @see org.eclipse.sirius.properties.AbstractGroupDescription#getIdentifier()
+     * @return the meta object for the attribute '<em>Label</em>'.
+     * @see org.eclipse.sirius.properties.AbstractGroupDescription#getLabel()
      * @see #getAbstractGroupDescription()
      * @generated
      */
-    EAttribute getAbstractGroupDescription_Identifier();
+    EAttribute getAbstractGroupDescription_Label();
 
     /**
      * Returns the meta object for the attribute
@@ -8685,15 +8685,15 @@ public interface PropertiesPackage extends EPackage {
 
     /**
      * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.properties.AbstractControlDescription#getIdentifier
-     * <em>Identifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * '{@link org.eclipse.sirius.properties.AbstractControlDescription#getLabel
+     * <em>Label</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the attribute '<em>Identifier</em>'.
-     * @see org.eclipse.sirius.properties.AbstractControlDescription#getIdentifier()
+     * @return the meta object for the attribute '<em>Label</em>'.
+     * @see org.eclipse.sirius.properties.AbstractControlDescription#getLabel()
      * @see #getAbstractControlDescription()
      * @generated
      */
-    EAttribute getAbstractControlDescription_Identifier();
+    EAttribute getAbstractControlDescription_Label();
 
     /**
      * Returns the meta object for class
@@ -9895,15 +9895,15 @@ public interface PropertiesPackage extends EPackage {
 
     /**
      * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription#getIdentifier
-     * <em>Identifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * '{@link org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription#getLabel
+     * <em>Label</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the attribute '<em>Identifier</em>'.
-     * @see org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription#getIdentifier()
+     * @return the meta object for the attribute '<em>Label</em>'.
+     * @see org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription#getLabel()
      * @see #getAbstractDynamicMappingIfDescription()
      * @generated
      */
-    EAttribute getAbstractDynamicMappingIfDescription_Identifier();
+    EAttribute getAbstractDynamicMappingIfDescription_Label();
 
     /**
      * Returns the meta object for the reference
@@ -11777,12 +11777,12 @@ public interface PropertiesPackage extends EPackage {
         EClass VIEW_EXTENSION_DESCRIPTION = PropertiesPackage.eINSTANCE.getViewExtensionDescription();
 
         /**
-         * The meta object literal for the '<em><b>Identifier</b></em>'
-         * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Label</b></em>' attribute
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EAttribute VIEW_EXTENSION_DESCRIPTION__IDENTIFIER = PropertiesPackage.eINSTANCE.getViewExtensionDescription_Identifier();
+        EAttribute VIEW_EXTENSION_DESCRIPTION__LABEL = PropertiesPackage.eINSTANCE.getViewExtensionDescription_Label();
 
         /**
          * The meta object literal for the '<em><b>Metamodels</b></em>'
@@ -11814,12 +11814,12 @@ public interface PropertiesPackage extends EPackage {
         EClass CATEGORY = PropertiesPackage.eINSTANCE.getCategory();
 
         /**
-         * The meta object literal for the '<em><b>Identifier</b></em>'
-         * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Label</b></em>' attribute
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EAttribute CATEGORY__IDENTIFIER = PropertiesPackage.eINSTANCE.getCategory_Identifier();
+        EAttribute CATEGORY__LABEL = PropertiesPackage.eINSTANCE.getCategory_Label();
 
         /**
          * The meta object literal for the '<em><b>Pages</b></em>' containment
@@ -11891,12 +11891,12 @@ public interface PropertiesPackage extends EPackage {
         EClass ABSTRACT_PAGE_DESCRIPTION = PropertiesPackage.eINSTANCE.getAbstractPageDescription();
 
         /**
-         * The meta object literal for the '<em><b>Identifier</b></em>'
-         * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Label</b></em>' attribute
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EAttribute ABSTRACT_PAGE_DESCRIPTION__IDENTIFIER = PropertiesPackage.eINSTANCE.getAbstractPageDescription_Identifier();
+        EAttribute ABSTRACT_PAGE_DESCRIPTION__LABEL = PropertiesPackage.eINSTANCE.getAbstractPageDescription_Label();
 
         /**
          * The meta object literal for the '<em><b>Label Expression</b></em>'
@@ -12081,12 +12081,12 @@ public interface PropertiesPackage extends EPackage {
         EClass ABSTRACT_GROUP_DESCRIPTION = PropertiesPackage.eINSTANCE.getAbstractGroupDescription();
 
         /**
-         * The meta object literal for the '<em><b>Identifier</b></em>'
-         * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Label</b></em>' attribute
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EAttribute ABSTRACT_GROUP_DESCRIPTION__IDENTIFIER = PropertiesPackage.eINSTANCE.getAbstractGroupDescription_Identifier();
+        EAttribute ABSTRACT_GROUP_DESCRIPTION__LABEL = PropertiesPackage.eINSTANCE.getAbstractGroupDescription_Label();
 
         /**
          * The meta object literal for the '<em><b>Label Expression</b></em>'
@@ -12298,12 +12298,12 @@ public interface PropertiesPackage extends EPackage {
         EClass ABSTRACT_CONTROL_DESCRIPTION = PropertiesPackage.eINSTANCE.getAbstractControlDescription();
 
         /**
-         * The meta object literal for the '<em><b>Identifier</b></em>'
-         * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Label</b></em>' attribute
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EAttribute ABSTRACT_CONTROL_DESCRIPTION__IDENTIFIER = PropertiesPackage.eINSTANCE.getAbstractControlDescription_Identifier();
+        EAttribute ABSTRACT_CONTROL_DESCRIPTION__LABEL = PropertiesPackage.eINSTANCE.getAbstractControlDescription_Label();
 
         /**
          * The meta object literal for the
@@ -13216,12 +13216,12 @@ public interface PropertiesPackage extends EPackage {
         EReference ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET = PropertiesPackage.eINSTANCE.getAbstractDynamicMappingIfDescription_Widget();
 
         /**
-         * The meta object literal for the '<em><b>Identifier</b></em>'
-         * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Label</b></em>' attribute
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EAttribute ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER = PropertiesPackage.eINSTANCE.getAbstractDynamicMappingIfDescription_Identifier();
+        EAttribute ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL = PropertiesPackage.eINSTANCE.getAbstractDynamicMappingIfDescription_Label();
 
         /**
          * The meta object literal for the '<em><b>Extends</b></em>' reference

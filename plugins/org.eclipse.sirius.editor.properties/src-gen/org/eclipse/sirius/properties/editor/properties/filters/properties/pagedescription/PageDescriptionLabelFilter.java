@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2017 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,16 +18,16 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 // End of user code specific imports
 
 /**
- * A filter for the identifier property section.
+ * A filter for the label property section.
  */
-public class PageDescriptionIdentifierFilter extends ViewpointPropertyFilter {
+public class PageDescriptionLabelFilter extends ViewpointPropertyFilter {
 
     /**
      * {@inheritDoc}
      */
     @Override
     protected EStructuralFeature getFeature() {
-        return PropertiesPackage.eINSTANCE.getAbstractPageDescription_Identifier();
+        return PropertiesPackage.eINSTANCE.getAbstractPageDescription_Label();
     }
 
     /**

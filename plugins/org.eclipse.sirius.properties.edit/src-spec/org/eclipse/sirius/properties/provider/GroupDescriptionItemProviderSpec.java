@@ -40,7 +40,7 @@ public class GroupDescriptionItemProviderSpec extends GroupDescriptionItemProvid
 
     @Override
     public String getText(Object object) {
-        String label = ((GroupDescription) object).getIdentifier();
+        String label = ((GroupDescription) object).getLabel();
         return label == null || label.length() == 0 ? getString("_UI_GroupDescription_type") : //$NON-NLS-1$
                 label;
     }

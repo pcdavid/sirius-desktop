@@ -38,8 +38,8 @@ import org.eclipse.sirius.properties.ViewExtensionDescription;
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getDocumentation
  * <em>Documentation</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getIdentifier
- * <em>Identifier</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getLabel
+ * <em>Label</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getMetamodels
  * <em>Metamodels</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.ViewExtensionDescriptionImpl#getCategories
@@ -72,24 +72,24 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
     protected String documentation = ViewExtensionDescriptionImpl.DOCUMENTATION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getIdentifier() <em>Identifier</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getIdentifier()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected static final String IDENTIFIER_EDEFAULT = null;
+    protected static final String LABEL_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getIdentifier()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected String identifier = ViewExtensionDescriptionImpl.IDENTIFIER_EDEFAULT;
+    protected String label = ViewExtensionDescriptionImpl.LABEL_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getMetamodels() <em>Metamodels</em>}'
@@ -160,8 +160,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
      * @generated
      */
     @Override
-    public String getIdentifier() {
-        return identifier;
+    public String getLabel() {
+        return label;
     }
 
     /**
@@ -170,11 +170,11 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
      * @generated
      */
     @Override
-    public void setIdentifier(String newIdentifier) {
-        String oldIdentifier = identifier;
-        identifier = newIdentifier;
+    public void setLabel(String newLabel) {
+        String oldLabel = label;
+        label = newLabel;
         if (eNotificationRequired()) {
-            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER, oldIdentifier, identifier));
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__LABEL, oldLabel, label));
         }
     }
 
@@ -228,8 +228,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
         switch (featureID) {
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION:
             return getDocumentation();
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER:
-            return getIdentifier();
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__LABEL:
+            return getLabel();
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__METAMODELS:
             return getMetamodels();
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__CATEGORIES:
@@ -250,8 +250,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION:
             setDocumentation((String) newValue);
             return;
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER:
-            setIdentifier((String) newValue);
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__LABEL:
+            setLabel((String) newValue);
             return;
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__METAMODELS:
             getMetamodels().clear();
@@ -276,8 +276,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION:
             setDocumentation(ViewExtensionDescriptionImpl.DOCUMENTATION_EDEFAULT);
             return;
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER:
-            setIdentifier(ViewExtensionDescriptionImpl.IDENTIFIER_EDEFAULT);
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__LABEL:
+            setLabel(ViewExtensionDescriptionImpl.LABEL_EDEFAULT);
             return;
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__METAMODELS:
             getMetamodels().clear();
@@ -299,8 +299,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
         switch (featureID) {
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__DOCUMENTATION:
             return ViewExtensionDescriptionImpl.DOCUMENTATION_EDEFAULT == null ? documentation != null : !ViewExtensionDescriptionImpl.DOCUMENTATION_EDEFAULT.equals(documentation);
-        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__IDENTIFIER:
-            return ViewExtensionDescriptionImpl.IDENTIFIER_EDEFAULT == null ? identifier != null : !ViewExtensionDescriptionImpl.IDENTIFIER_EDEFAULT.equals(identifier);
+        case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__LABEL:
+            return ViewExtensionDescriptionImpl.LABEL_EDEFAULT == null ? label != null : !ViewExtensionDescriptionImpl.LABEL_EDEFAULT.equals(label);
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__METAMODELS:
             return metamodels != null && !metamodels.isEmpty();
         case PropertiesPackage.VIEW_EXTENSION_DESCRIPTION__CATEGORIES:
@@ -359,8 +359,8 @@ public class ViewExtensionDescriptionImpl extends MinimalEObjectImpl.Container i
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (documentation: "); //$NON-NLS-1$
         result.append(documentation);
-        result.append(", identifier: "); //$NON-NLS-1$
-        result.append(identifier);
+        result.append(", label: "); //$NON-NLS-1$
+        result.append(label);
         result.append(')');
         return result.toString();
     }

@@ -14,7 +14,9 @@ package org.eclipse.sirius.properties.ext.widgets.reference.propertiesextwidgets
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.sirius.properties.AbstractControlDescription;
 import org.eclipse.sirius.properties.ControlDescription;
+import org.eclipse.sirius.properties.DocumentedElementDescription;
 import org.eclipse.sirius.properties.WidgetConditionalStyle;
 import org.eclipse.sirius.properties.WidgetDescription;
 import org.eclipse.sirius.properties.WidgetStyle;
@@ -89,6 +91,12 @@ public class PropertiesExtWidgetsReferenceSwitch<T> extends Switch<T> {
                 result = caseControlDescription(extReferenceDescription);
             }
             if (result == null) {
+                result = caseAbstractControlDescription(extReferenceDescription);
+            }
+            if (result == null) {
+                result = caseDocumentedElementDescription(extReferenceDescription);
+            }
+            if (result == null) {
                 result = defaultCase(theEObject);
             }
             return result;
@@ -121,15 +129,15 @@ public class PropertiesExtWidgetsReferenceSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Ext Reference Description</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Ext
+     * Reference Description</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Ext Reference Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Ext
+     *         Reference Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -138,15 +146,15 @@ public class PropertiesExtWidgetsReferenceSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Ext Reference Widget Style</em>'. <!-- begin-user-doc --> This
-     * implementation returns null; returning a non-null result will terminate
-     * the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Ext
+     * Reference Widget Style</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Ext Reference Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Ext
+     *         Reference Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -155,15 +163,15 @@ public class PropertiesExtWidgetsReferenceSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Ext Reference Widget Conditional Style</em>'. <!-- begin-user-doc -->
-     * This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Ext
+     * Reference Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Ext Reference Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Ext
+     *         Reference Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -172,15 +180,49 @@ public class PropertiesExtWidgetsReferenceSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Control Description</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Documented Element Description</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Control Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Documented Element Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDocumentedElementDescription(DocumentedElementDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Abstract Control Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Abstract Control Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractControlDescription(AbstractControlDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Control Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Control Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -189,15 +231,15 @@ public class PropertiesExtWidgetsReferenceSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Description</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!--
-     * end-user-doc -->
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Description</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate
+     * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Description</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -206,15 +248,15 @@ public class PropertiesExtWidgetsReferenceSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Style</em>'. <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Style</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -223,15 +265,15 @@ public class PropertiesExtWidgetsReferenceSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Widget Conditional Style</em>'. <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of
+     * '<em>Widget Conditional Style</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate
      * the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Widget Conditional Style</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>Widget Conditional Style</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -240,15 +282,15 @@ public class PropertiesExtWidgetsReferenceSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
+     * Returns the result of interpreting the object as an instance of
+     * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch, but this is
      * the last case anyway. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>EObject</em>'.
+     * @return the result of interpreting the object as an instance of
+     *         '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */

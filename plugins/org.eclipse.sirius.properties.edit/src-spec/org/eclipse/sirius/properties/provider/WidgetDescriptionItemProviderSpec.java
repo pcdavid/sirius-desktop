@@ -33,7 +33,7 @@ public class WidgetDescriptionItemProviderSpec extends WidgetDescriptionItemProv
 
     @Override
     public String getText(Object object) {
-        String label = ((WidgetDescription) object).getIdentifier();
+        String label = ((WidgetDescription) object).getLabel();
         return label == null || label.length() == 0 ? getString("_UI_WidgetDescription_type") : //$NON-NLS-1$
                 label;
     }

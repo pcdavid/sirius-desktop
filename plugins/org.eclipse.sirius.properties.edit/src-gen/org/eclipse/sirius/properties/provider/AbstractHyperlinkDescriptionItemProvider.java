@@ -37,7 +37,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AbstractHyperlinkDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -47,7 +47,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -67,7 +67,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
     /**
      * This adds a property descriptor for the Value Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addValueExpressionPropertyDescriptor(Object object) {
@@ -80,7 +80,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
     /**
      * This adds a property descriptor for the Display Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addDisplayExpressionPropertyDescriptor(Object object) {
@@ -93,7 +93,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -123,7 +123,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
      * This adds a property descriptor for the Filter Actions From Extended
      * Hyperlink Expression feature. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     protected void addFilterActionsFromExtendedHyperlinkExpressionPropertyDescriptor(Object object) {
@@ -216,7 +216,7 @@ public class AbstractHyperlinkDescriptionItemProvider extends AbstractWidgetDesc
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -18,6 +18,7 @@ import org.eclipse.eef.EEFTextDescription;
 import org.eclipse.eef.EEFTextStyle;
 import org.eclipse.eef.EefFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.TextDescription;
 import org.eclipse.sirius.properties.core.api.AbstractDescriptionConverter;
@@ -43,7 +44,7 @@ public class TextDescriptionConverter extends AbstractDescriptionConverter {
             TextDescription textDescription = (TextDescription) description;
 
             EEFTextDescription eefTextDescription = EefFactory.eINSTANCE.createEEFTextDescription();
-            eefTextDescription.setIdentifier(textDescription.getIdentifier());
+            eefTextDescription.setIdentifier(EcoreUtil.getURI(textDescription).toString());
             eefTextDescription.setHelpExpression(textDescription.getHelpExpression());
             eefTextDescription.setLabelExpression(textDescription.getLabelExpression());
             eefTextDescription.setIsEnabledExpression(textDescription.getIsEnabledExpression());

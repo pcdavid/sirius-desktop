@@ -34,7 +34,7 @@ public class HyperlinkOverrideDescriptionItemProvider extends AbstractHyperlinkD
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public HyperlinkOverrideDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class HyperlinkOverrideDescriptionItemProvider extends AbstractHyperlinkD
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,7 +62,7 @@ public class HyperlinkOverrideDescriptionItemProvider extends AbstractHyperlinkD
     /**
      * This adds a property descriptor for the Overrides feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addOverridesPropertyDescriptor(Object object) {
@@ -92,7 +92,7 @@ public class HyperlinkOverrideDescriptionItemProvider extends AbstractHyperlinkD
      * This adds a property descriptor for the Filter Actions From Overridden
      * Hyperlink Expression feature. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     protected void addFilterActionsFromOverriddenHyperlinkExpressionPropertyDescriptor(Object object) {
@@ -152,7 +152,7 @@ public class HyperlinkOverrideDescriptionItemProvider extends AbstractHyperlinkD
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

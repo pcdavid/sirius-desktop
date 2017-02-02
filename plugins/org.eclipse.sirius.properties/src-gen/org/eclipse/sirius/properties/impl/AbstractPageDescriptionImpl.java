@@ -33,8 +33,8 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.impl.AbstractPageDescriptionImpl#getIdentifier
- * <em>Identifier</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.AbstractPageDescriptionImpl#getLabel
+ * <em>Label</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.AbstractPageDescriptionImpl#getLabelExpression
  * <em>Label Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.AbstractPageDescriptionImpl#getDomainClass
@@ -59,24 +59,24 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  */
 public abstract class AbstractPageDescriptionImpl extends DocumentedElementDescriptionImpl implements AbstractPageDescription {
     /**
-     * The default value of the '{@link #getIdentifier() <em>Identifier</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getIdentifier()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected static final String IDENTIFIER_EDEFAULT = null;
+    protected static final String LABEL_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getIdentifier()
+     * @see #getLabel()
      * @generated
      * @ordered
      */
-    protected String identifier = AbstractPageDescriptionImpl.IDENTIFIER_EDEFAULT;
+    protected String label = AbstractPageDescriptionImpl.LABEL_EDEFAULT;
 
     /**
      * The default value of the '{@link #getLabelExpression() <em>Label
@@ -268,8 +268,8 @@ public abstract class AbstractPageDescriptionImpl extends DocumentedElementDescr
      * @generated
      */
     @Override
-    public String getIdentifier() {
-        return identifier;
+    public String getLabel() {
+        return label;
     }
 
     /**
@@ -278,11 +278,11 @@ public abstract class AbstractPageDescriptionImpl extends DocumentedElementDescr
      * @generated
      */
     @Override
-    public void setIdentifier(String newIdentifier) {
-        String oldIdentifier = identifier;
-        identifier = newIdentifier;
+    public void setLabel(String newLabel) {
+        String oldLabel = label;
+        label = newLabel;
         if (eNotificationRequired()) {
-            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__IDENTIFIER, oldIdentifier, identifier));
+            eNotify(new ENotificationImpl(this, Notification.SET, PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL, oldLabel, label));
         }
     }
 
@@ -563,8 +563,8 @@ public abstract class AbstractPageDescriptionImpl extends DocumentedElementDescr
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-        case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__IDENTIFIER:
-            return getIdentifier();
+        case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL:
+            return getLabel();
         case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL_EXPRESSION:
             return getLabelExpression();
         case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__DOMAIN_CLASS:
@@ -599,8 +599,8 @@ public abstract class AbstractPageDescriptionImpl extends DocumentedElementDescr
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-        case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__IDENTIFIER:
-            setIdentifier((String) newValue);
+        case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL:
+            setLabel((String) newValue);
             return;
         case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL_EXPRESSION:
             setLabelExpression((String) newValue);
@@ -642,8 +642,8 @@ public abstract class AbstractPageDescriptionImpl extends DocumentedElementDescr
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-        case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__IDENTIFIER:
-            setIdentifier(AbstractPageDescriptionImpl.IDENTIFIER_EDEFAULT);
+        case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL:
+            setLabel(AbstractPageDescriptionImpl.LABEL_EDEFAULT);
             return;
         case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL_EXPRESSION:
             setLabelExpression(AbstractPageDescriptionImpl.LABEL_EXPRESSION_EDEFAULT);
@@ -684,8 +684,8 @@ public abstract class AbstractPageDescriptionImpl extends DocumentedElementDescr
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-        case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__IDENTIFIER:
-            return AbstractPageDescriptionImpl.IDENTIFIER_EDEFAULT == null ? identifier != null : !AbstractPageDescriptionImpl.IDENTIFIER_EDEFAULT.equals(identifier);
+        case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL:
+            return AbstractPageDescriptionImpl.LABEL_EDEFAULT == null ? label != null : !AbstractPageDescriptionImpl.LABEL_EDEFAULT.equals(label);
         case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__LABEL_EXPRESSION:
             return AbstractPageDescriptionImpl.LABEL_EXPRESSION_EDEFAULT == null ? labelExpression != null : !AbstractPageDescriptionImpl.LABEL_EXPRESSION_EDEFAULT.equals(labelExpression);
         case PropertiesPackage.ABSTRACT_PAGE_DESCRIPTION__DOMAIN_CLASS:
@@ -724,8 +724,8 @@ public abstract class AbstractPageDescriptionImpl extends DocumentedElementDescr
         }
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (identifier: "); //$NON-NLS-1$
-        result.append(identifier);
+        result.append(" (label: "); //$NON-NLS-1$
+        result.append(label);
         result.append(", labelExpression: "); //$NON-NLS-1$
         result.append(labelExpression);
         result.append(", domainClass: "); //$NON-NLS-1$

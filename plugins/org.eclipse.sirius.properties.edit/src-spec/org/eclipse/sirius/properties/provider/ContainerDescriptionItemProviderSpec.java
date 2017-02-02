@@ -38,7 +38,7 @@ public class ContainerDescriptionItemProviderSpec extends ContainerDescriptionIt
 
     @Override
     public String getText(Object object) {
-        String label = ((ContainerDescription) object).getIdentifier();
+        String label = ((ContainerDescription) object).getLabel();
         return label == null || label.length() == 0 ? getString("_UI_ContainerDescription_type") : //$NON-NLS-1$
                 label;
     }

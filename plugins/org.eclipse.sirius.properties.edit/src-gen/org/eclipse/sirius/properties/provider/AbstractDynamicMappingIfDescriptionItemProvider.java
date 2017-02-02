@@ -45,7 +45,7 @@ public class AbstractDynamicMappingIfDescriptionItemProvider extends ItemProvide
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AbstractDynamicMappingIfDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -55,7 +55,7 @@ public class AbstractDynamicMappingIfDescriptionItemProvider extends ItemProvide
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -64,7 +64,7 @@ public class AbstractDynamicMappingIfDescriptionItemProvider extends ItemProvide
             super.getPropertyDescriptors(object);
 
             addPredicateExpressionPropertyDescriptor(object);
-            addIdentifierPropertyDescriptor(object);
+            addLabelPropertyDescriptor(object);
             addExtendsPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
@@ -84,22 +84,22 @@ public class AbstractDynamicMappingIfDescriptionItemProvider extends ItemProvide
     }
 
     /**
-     * This adds a property descriptor for the Identifier feature. <!--
+     * This adds a property descriptor for the Label feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      */
-    protected void addIdentifierPropertyDescriptor(Object object) {
+    protected void addLabelPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_AbstractDynamicMappingIfDescription_identifier_feature"), //$NON-NLS-1$
-                getString("_UI_PropertyDescriptor_description", "_UI_AbstractDynamicMappingIfDescription_identifier_feature", "_UI_AbstractDynamicMappingIfDescription_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                PropertiesPackage.Literals.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                getString("_UI_AbstractDynamicMappingIfDescription_label_feature"), //$NON-NLS-1$
+                getString("_UI_PropertyDescriptor_description", "_UI_AbstractDynamicMappingIfDescription_label_feature", "_UI_AbstractDynamicMappingIfDescription_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                PropertiesPackage.Literals.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -169,7 +169,7 @@ public class AbstractDynamicMappingIfDescriptionItemProvider extends ItemProvide
 
         switch (notification.getFeatureID(AbstractDynamicMappingIfDescription.class)) {
         case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__PREDICATE_EXPRESSION:
-        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__IDENTIFIER:
+        case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__LABEL:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case PropertiesPackage.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET:
@@ -183,7 +183,7 @@ public class AbstractDynamicMappingIfDescriptionItemProvider extends ItemProvide
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -214,7 +214,7 @@ public class AbstractDynamicMappingIfDescriptionItemProvider extends ItemProvide
     /**
      * Return the resource locator for this item provider's resources. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -21,8 +21,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.Category#getIdentifier
- * <em>Identifier</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.Category#getLabel
+ * <em>Label</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.Category#getPages
  * <em>Pages</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.Category#getGroups
@@ -37,34 +37,33 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Category extends DocumentedElementDescription {
     /**
-     * Returns the value of the '<em><b>Identifier</b></em>' attribute. <!--
+     * Returns the value of the '<em><b>Label</b></em>' attribute. <!--
      * begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Identifier</em>' attribute isn't clear, there
+     * If the meaning of the '<em>Label</em>' attribute isn't clear, there
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '<em>Identifier</em>' attribute.
-     * @see #setIdentifier(String)
-     * @see org.eclipse.sirius.properties.PropertiesPackage#getCategory_Identifier()
+     * @return the value of the '<em>Label</em>' attribute.
+     * @see #setLabel(String)
+     * @see org.eclipse.sirius.properties.PropertiesPackage#getCategory_Label()
      * @model
      * @generated
      */
-    String getIdentifier();
+    String getLabel();
 
     /**
      * Sets the value of the
-     * '{@link org.eclipse.sirius.properties.Category#getIdentifier
-     * <em>Identifier</em>}' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * '{@link org.eclipse.sirius.properties.Category#getLabel <em>Label</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '<em>Identifier</em>' attribute.
-     * @see #getIdentifier()
+     *            the new value of the '<em>Label</em>' attribute.
+     * @see #getLabel()
      * @generated
      */
-    void setIdentifier(String value);
+    void setLabel(String value);
 
     /**
      * Returns the value of the '<em><b>Pages</b></em>' containment reference

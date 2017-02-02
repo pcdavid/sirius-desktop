@@ -27,12 +27,12 @@
       <genEnumLiterals ecoreEnumLiteral="properties.ecore#//TitleBarStyle/NO_TITLE"/>
     </genEnums>
     <genClasses ecoreClass="properties.ecore#//ViewExtensionDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//ViewExtensionDescription/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//ViewExtensionDescription/label"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference properties.ecore#//ViewExtensionDescription/metamodels"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//ViewExtensionDescription/categories"/>
     </genClasses>
     <genClasses ecoreClass="properties.ecore#//Category">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//Category/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//Category/label"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//Category/pages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//Category/groups"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//Category/overrides"/>
@@ -43,7 +43,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="properties.ecore#//AbstractOverrideDescription"/>
     <genClasses image="false" ecoreClass="properties.ecore#//AbstractPageDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractPageDescription/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractPageDescription/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractPageDescription/labelExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractPageDescription/domainClass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractPageDescription/semanticCandidateExpression"/>
@@ -67,7 +67,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference properties.ecore#//PropertyValidationRule/targets"/>
     </genClasses>
     <genClasses image="false" ecoreClass="properties.ecore#//AbstractGroupDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractGroupDescription/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractGroupDescription/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractGroupDescription/labelExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractGroupDescription/domainClass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractGroupDescription/semanticCandidateExpression"/>
@@ -93,7 +93,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//GroupValidationSetDescription/propertyValidationRules"/>
     </genClasses>
     <genClasses image="false" ecoreClass="properties.ecore#//AbstractControlDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractControlDescription/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractControlDescription/label"/>
     </genClasses>
     <genClasses image="false" ecoreClass="properties.ecore#//ControlDescription"/>
     <genClasses image="false" ecoreClass="properties.ecore#//AbstractContainerDescription">
@@ -206,7 +206,7 @@
     <genClasses image="false" ecoreClass="properties.ecore#//AbstractDynamicMappingIfDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractDynamicMappingIfDescription/predicateExpression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//AbstractDynamicMappingIfDescription/widget"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractDynamicMappingIfDescription/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//AbstractDynamicMappingIfDescription/label"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference properties.ecore#//AbstractDynamicMappingIfDescription/extends"/>
     </genClasses>
     <genClasses ecoreClass="properties.ecore#//DynamicMappingIfDescription"/>

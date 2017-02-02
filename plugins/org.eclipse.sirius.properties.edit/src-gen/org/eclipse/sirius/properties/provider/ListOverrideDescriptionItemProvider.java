@@ -27,14 +27,14 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.ListOverrideDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ListOverrideDescriptionItemProvider extends AbstractListDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ListOverrideDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class ListOverrideDescriptionItemProvider extends AbstractListDescription
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,7 +62,7 @@ public class ListOverrideDescriptionItemProvider extends AbstractListDescription
     /**
      * This adds a property descriptor for the Overrides feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addOverridesPropertyDescriptor(Object object) {
@@ -149,7 +149,7 @@ public class ListOverrideDescriptionItemProvider extends AbstractListDescription
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

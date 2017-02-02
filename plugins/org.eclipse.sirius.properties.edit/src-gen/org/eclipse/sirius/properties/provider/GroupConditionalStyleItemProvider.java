@@ -27,14 +27,14 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.GroupConditionalStyle} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class GroupConditionalStyleItemProvider extends WidgetConditionalStyleItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public GroupConditionalStyleItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class GroupConditionalStyleItemProvider extends WidgetConditionalStyleIte
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +137,7 @@ public class GroupConditionalStyleItemProvider extends WidgetConditionalStyleIte
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

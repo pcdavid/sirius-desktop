@@ -29,14 +29,14 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * This is the item provider adapter for a
  * {@link org.eclipse.sirius.properties.AbstractLabelDescription} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AbstractLabelDescriptionItemProvider extends AbstractWidgetDescriptionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AbstractLabelDescriptionItemProvider(AdapterFactory adapterFactory) {
@@ -46,7 +46,7 @@ public class AbstractLabelDescriptionItemProvider extends AbstractWidgetDescript
     /**
      * This returns the property descriptors for the adapted class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -66,7 +66,7 @@ public class AbstractLabelDescriptionItemProvider extends AbstractWidgetDescript
     /**
      * This adds a property descriptor for the Value Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addValueExpressionPropertyDescriptor(Object object) {
@@ -79,7 +79,7 @@ public class AbstractLabelDescriptionItemProvider extends AbstractWidgetDescript
     /**
      * This adds a property descriptor for the Display Expression feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addDisplayExpressionPropertyDescriptor(Object object) {
@@ -92,7 +92,7 @@ public class AbstractLabelDescriptionItemProvider extends AbstractWidgetDescript
     /**
      * This adds a property descriptor for the Extends feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addExtendsPropertyDescriptor(Object object) {
@@ -210,7 +210,7 @@ public class AbstractLabelDescriptionItemProvider extends AbstractWidgetDescript
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
      * describing the children that can be created under this object. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

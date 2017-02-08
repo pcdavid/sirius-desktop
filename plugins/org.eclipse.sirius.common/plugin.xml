@@ -20,6 +20,7 @@
   <extension-point id="fileModificationValidator" name="%extension-point.fileModificationValidator.name" schema="schema/fileModificationValidator.exsd"/>
   <extension-point id="resourceSetFactory" name="%extension-point.resourceSetFactory.name" schema="schema/resourceSetFactory.exsd"/>
   <extension-point id="classloading_override" name="%extension-point.classloading_override.name" schema="schema/classloading_override.exsd"/>
+  <extension-point id="resource_sync_backend" name="%extension-point.resource_sync_backend.name" schema="schema/resource_sync_backend.exsd"/>
   
   <extension id="org.eclipse.sirius.common.variableInterpreter" point="org.eclipse.sirius.common.expressionInterpreter">
     <expressionInterpreterProvider interpreterProviderClass="org.eclipse.sirius.common.tools.internal.interpreter.VariableInterpreter" />
@@ -29,6 +30,12 @@
   </extension>
   <extension id="org.eclipse.sirius.common.serviceInterpreter" point="org.eclipse.sirius.common.expressionInterpreter">
     <expressionInterpreterProvider interpreterProviderClass="org.eclipse.sirius.common.tools.internal.interpreter.ServiceInterpreter" />
+  </extension>
+  <extension
+        point="org.eclipse.sirius.common.resource_sync_backend">
+     <backend
+           class="org.eclipse.sirius.common.tools.api.resource.WorkspaceBackendFactory">
+     </backend>
   </extension>
   
 </plugin>

@@ -23,7 +23,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
@@ -32,7 +31,6 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
@@ -43,7 +41,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.sirius.common.tools.DslCommonPlugin;
 import org.eclipse.sirius.common.tools.api.query.NotificationQuery;
-import org.eclipse.sirius.common.tools.internal.resource.WorkspaceBackend;
+import org.eclipse.sirius.common.tools.api.util.EclipseUtil;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
 
@@ -76,6 +74,17 @@ public final class ResourceSetSync extends ResourceSetListenerImpl implements Re
     public static final String CDO_URI_SCHEME = "cdo"; //$NON-NLS-1$
 
     private static final String FILE_MODIFICATION_VALIDATION_STATUS = "File modification validation status"; //$NON-NLS-1$
+    
+    /**
+     * ResourceSetSync backends extension point ID.
+     */
+    private static final String ID = "org.eclipse.sirius.common.resource_sync_backend"; //$NON-NLS-1$
+
+    /**
+     * Extension point attribute to get the {@link ResourceSyncBackendFactory}
+     * class.
+     */
+    private static final String CLASS_ATTRIBUTE = "class"; //$NON-NLS-1$
 
     private boolean notificationIsRequired = true;
 
@@ -263,10 +272,16 @@ public final class ResourceSetSync extends ResourceSetListenerImpl implements Re
         }
     }
 
+
     private void addDefaultBackends() {
-        IWorkspaceRoot workspaceRoot = EcorePlugin.getWorkspaceRoot();
-        if (workspaceRoot != null) {
-            backends.add(new WorkspaceBackend(this));
+
+        final List<ResourceSyncBackendFactory> providedClassLoadings = EclipseUtil.getExtensionPlugins(ResourceSyncBackendFactory.class, ID, CLASS_ATTRIBUTE);
+        Iterator<ResourceSyncBackendFactory> it = providedClassLoadings.iterator();
+        while (it.hasNext()) {
+            AbstractResourceSyncBackend newBackend = it.next().createBackend(this);
+            if (newBackend != null) {
+                backends.add(newBackend);
+            }
         }
     }
 

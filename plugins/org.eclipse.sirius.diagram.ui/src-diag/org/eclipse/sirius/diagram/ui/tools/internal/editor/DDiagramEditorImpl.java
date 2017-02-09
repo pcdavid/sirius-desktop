@@ -42,6 +42,7 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IDisposable;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.IWorkspaceCommandStack;
 import org.eclipse.gef.DefaultEditDomain;
@@ -114,6 +115,7 @@ import org.eclipse.sirius.diagram.business.api.query.EObjectQuery;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizer;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizerFactory;
 import org.eclipse.sirius.diagram.business.api.refresh.DiagramCreationUtil;
+import org.eclipse.sirius.diagram.business.internal.sync.DDiagramSynchronizer;
 import org.eclipse.sirius.diagram.tools.api.command.DiagramCommandFactoryService;
 import org.eclipse.sirius.diagram.tools.api.command.IDiagramCommandFactory;
 import org.eclipse.sirius.diagram.tools.api.command.IDiagramCommandFactoryProvider;
@@ -149,6 +151,7 @@ import org.eclipse.sirius.diagram.ui.tools.internal.actions.visibility.RevealOut
 import org.eclipse.sirius.diagram.ui.tools.internal.actions.visibility.RevealOutlineLabelsAction;
 import org.eclipse.sirius.diagram.ui.tools.internal.commands.emf.EMFCommandFactoryUI;
 import org.eclipse.sirius.diagram.ui.tools.internal.dnd.DragAndDropWrapper;
+import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl.DDiagramEditorTransferDropTargetListener;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.header.DiagramHeaderComposite;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.tabbar.Tabbar;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.tabbar.TabbarRefresher;
@@ -167,6 +170,7 @@ import org.eclipse.sirius.diagram.ui.tools.internal.views.outlineview.DiagramOut
 import org.eclipse.sirius.diagram.ui.tools.internal.views.providers.outline.OutlineComparator;
 import org.eclipse.sirius.diagram.ui.tools.internal.views.providers.outline.OutlineContentProvider;
 import org.eclipse.sirius.diagram.ui.tools.internal.views.providers.outline.OutlineLabelProvider;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IAuthorityListener;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
 import org.eclipse.sirius.ecore.extender.business.api.permission.LockStatus;
@@ -189,6 +193,7 @@ import org.eclipse.sirius.ui.tools.internal.editor.SelectDRepresentationElements
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTarget;
@@ -488,10 +493,27 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
 
             initPermissionAuthority();
 
+            activateTransientLayers();
+
         } catch (NullPointerException e) {
             DiagramPlugin.getDefault().getLog().log(new Status(IStatus.ERROR, DiagramPlugin.ID, Messages.DDiagramEditorImpl_noSessionMsg, e));
         }
 
+    }
+
+    private void activateTransientLayers() {
+        EObject semantic = ((DSemanticDecorator) this.getRepresentation()).getTarget();
+        final IInterpreter interpreter = SiriusPlugin.getDefault().getInterpreterRegistry().getInterpreter(semantic);
+        final ModelAccessor accessor = SiriusPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(semantic);
+        final DDiagramSynchronizer sync = new DDiagramSynchronizer(interpreter, ((DDiagram) this.getRepresentation()).getDescription(), accessor);
+        sync.setDiagram((DSemanticDiagram) this.getRepresentation());
+        session.getTransactionalEditingDomain().getCommandStack().execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
+
+            @Override
+            protected void doExecute() {
+                sync.activateTransientLayers();
+            }
+        });
     }
 
     private void initUndoContext() {

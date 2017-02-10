@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -286,6 +287,13 @@ public class ViewpointPackageImpl extends EPackageImpl implements ViewpointPacka
      * @generated
      */
     private EDataType resourceDescriptorEDataType = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    private EDataType objectEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
@@ -1130,6 +1138,16 @@ public class ViewpointPackageImpl extends EPackageImpl implements ViewpointPacka
      * @generated
      */
     @Override
+    public EAttribute getUIState_DecorationImage() {
+        return (EAttribute) uiStateEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
     public EEnum getFontFormat() {
         return fontFormatEEnum;
     }
@@ -1172,6 +1190,16 @@ public class ViewpointPackageImpl extends EPackageImpl implements ViewpointPacka
     @Override
     public EDataType getResourceDescriptor() {
         return resourceDescriptorEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public EDataType getObject() {
+        return objectEDataType;
     }
 
     /**
@@ -1304,6 +1332,7 @@ public class ViewpointPackageImpl extends EPackageImpl implements ViewpointPacka
         uiStateEClass = createEClass(ViewpointPackage.UI_STATE);
         createEAttribute(uiStateEClass, ViewpointPackage.UI_STATE__INVERSE_SELECTION_ORDER);
         createEReference(uiStateEClass, ViewpointPackage.UI_STATE__ELEMENTS_TO_SELECT);
+        createEAttribute(uiStateEClass, ViewpointPackage.UI_STATE__DECORATION_IMAGE);
 
         // Create enums
         fontFormatEEnum = createEEnum(ViewpointPackage.FONT_FORMAT);
@@ -1313,6 +1342,7 @@ public class ViewpointPackageImpl extends EPackageImpl implements ViewpointPacka
         // Create data types
         rgbValuesEDataType = createEDataType(ViewpointPackage.RGB_VALUES);
         resourceDescriptorEDataType = createEDataType(ViewpointPackage.RESOURCE_DESCRIPTOR);
+        objectEDataType = createEDataType(ViewpointPackage.OBJECT);
     }
 
     /**
@@ -1586,6 +1616,14 @@ public class ViewpointPackageImpl extends EPackageImpl implements ViewpointPacka
         initEReference(getUIState_ElementsToSelect(), theEcorePackage.getEObject(), null, "elementsToSelect", null, 0, -1, UIState.class, EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, //$NON-NLS-1$
                 EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_COMPOSITE,
                 !EPackageImpl.IS_RESOLVE_PROXIES, EPackageImpl.IS_UNSETTABLE, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        EGenericType g1 = createEGenericType(theEcorePackage.getEMap());
+        EGenericType g2 = createEGenericType(this.getDecoration());
+        g1.getETypeArguments().add(g2);
+        g2 = createEGenericType(this.getObject());
+        g1.getETypeArguments().add(g2);
+        initEAttribute(getUIState_DecorationImage(), g1, "decorationImage", null, 0, 1, UIState.class, EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, //$NON-NLS-1$
+                !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED,
+                EPackageImpl.IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(fontFormatEEnum, FontFormat.class, "FontFormat"); //$NON-NLS-1$
@@ -1606,6 +1644,7 @@ public class ViewpointPackageImpl extends EPackageImpl implements ViewpointPacka
         // Initialize data types
         initEDataType(rgbValuesEDataType, RGBValues.class, "RGBValues", EPackageImpl.IS_SERIALIZABLE, !EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEDataType(resourceDescriptorEDataType, ResourceDescriptor.class, "ResourceDescriptor", EPackageImpl.IS_SERIALIZABLE, !EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+        initEDataType(objectEDataType, Object.class, "Object", EPackageImpl.IS_SERIALIZABLE, !EPackageImpl.IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
         // Create resource
         createResource(ViewpointPackage.eNS_URI);

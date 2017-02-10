@@ -809,6 +809,15 @@ public interface ViewpointPackage extends EPackage {
     int RESOURCE_DESCRIPTOR = 30;
 
     /**
+     * The meta object id for the '<em>Object</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see java.lang.Object
+     * @see org.eclipse.sirius.viewpoint.impl.ViewpointPackageImpl#getObject()
+     * @generated
+     */
+    int OBJECT = 31;
+
+    /**
      * The meta object id for the '{@link org.eclipse.sirius.viewpoint.impl.DAnalysisSessionEObjectImpl
      * <em>DAnalysis Session EObject</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -1168,12 +1177,21 @@ public interface ViewpointPackage extends EPackage {
     int UI_STATE__ELEMENTS_TO_SELECT = 1;
 
     /**
+     * The feature id for the '<em><b>Decoration Image</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int UI_STATE__DECORATION_IMAGE = 2;
+
+    /**
      * The number of structural features of the '<em>UI State</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      * @ordered
      */
-    int UI_STATE_FEATURE_COUNT = 2;
+    int UI_STATE_FEATURE_COUNT = 3;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.viewpoint.FontFormat <em>Font Format</em>}' enum. <!--
@@ -1735,6 +1753,17 @@ public interface ViewpointPackage extends EPackage {
     EDataType getResourceDescriptor();
 
     /**
+     * Returns the meta object for data type '{@link java.lang.Object <em>Object</em>}'. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @return the meta object for data type '<em>Object</em>'.
+     * @see java.lang.Object
+     * @model instanceClass="java.lang.Object"
+     * @generated
+     */
+    EDataType getObject();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.sirius.viewpoint.DAnalysisSessionEObject
      * <em>DAnalysis Session EObject</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -2050,6 +2079,17 @@ public interface ViewpointPackage extends EPackage {
      * @generated
      */
     EReference getUIState_ElementsToSelect();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.sirius.viewpoint.UIState#getDecorationImage
+     * <em>Decoration Image</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @return the meta object for the attribute '<em>Decoration Image</em>'.
+     * @see org.eclipse.sirius.viewpoint.UIState#getDecorationImage()
+     * @see #getUIState()
+     * @generated
+     */
+    EAttribute getUIState_DecorationImage();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.sirius.viewpoint.FontFormat <em>Font Format</em>}'. <!--
@@ -2521,6 +2561,15 @@ public interface ViewpointPackage extends EPackage {
         EDataType RESOURCE_DESCRIPTOR = ViewpointPackage.eINSTANCE.getResourceDescriptor();
 
         /**
+         * The meta object literal for the '<em>Object</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @see java.lang.Object
+         * @see org.eclipse.sirius.viewpoint.impl.ViewpointPackageImpl#getObject()
+         * @generated
+         */
+        EDataType OBJECT = ViewpointPackage.eINSTANCE.getObject();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.sirius.viewpoint.impl.DAnalysisSessionEObjectImpl
          * <em>DAnalysis Session EObject</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
@@ -2773,6 +2822,14 @@ public interface ViewpointPackage extends EPackage {
          * @generated
          */
         EReference UI_STATE__ELEMENTS_TO_SELECT = ViewpointPackage.eINSTANCE.getUIState_ElementsToSelect();
+
+        /**
+         * The meta object literal for the '<em><b>Decoration Image</b></em>' attribute feature. <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        EAttribute UI_STATE__DECORATION_IMAGE = ViewpointPackage.eINSTANCE.getUIState_DecorationImage();
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.viewpoint.FontFormat <em>Font Format</em>}' enum.

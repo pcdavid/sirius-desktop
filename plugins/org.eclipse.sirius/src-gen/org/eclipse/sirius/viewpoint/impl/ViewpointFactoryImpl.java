@@ -142,6 +142,8 @@ public class ViewpointFactoryImpl extends EFactoryImpl implements ViewpointFacto
             return createRGBValuesFromString(eDataType, initialValue);
         case ViewpointPackage.RESOURCE_DESCRIPTOR:
             return createResourceDescriptorFromString(eDataType, initialValue);
+        case ViewpointPackage.OBJECT:
+            return createObjectFromString(eDataType, initialValue);
         default:
             throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -165,6 +167,8 @@ public class ViewpointFactoryImpl extends EFactoryImpl implements ViewpointFacto
             return convertRGBValuesToString(eDataType, instanceValue);
         case ViewpointPackage.RESOURCE_DESCRIPTOR:
             return convertResourceDescriptorToString(eDataType, instanceValue);
+        case ViewpointPackage.OBJECT:
+            return convertObjectToString(eDataType, instanceValue);
         default:
             throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -476,6 +480,24 @@ public class ViewpointFactoryImpl extends EFactoryImpl implements ViewpointFacto
      * @generated
      */
     public String convertResourceDescriptorToString(EDataType eDataType, Object instanceValue) {
+        return super.convertToString(eDataType, instanceValue);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public Object createObjectFromString(EDataType eDataType, String initialValue) {
+        return super.createFromString(eDataType, initialValue);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public String convertObjectToString(EDataType eDataType, Object instanceValue) {
         return super.convertToString(eDataType, instanceValue);
     }
 

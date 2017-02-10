@@ -37,6 +37,7 @@ import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DView;
 import org.eclipse.sirius.viewpoint.Messages;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;
@@ -176,7 +177,7 @@ class SessionResourcesTracker {
                 // Do not resolve derived features.
                 // Do not resolve containment/container references : they are
                 // already resolved by the model structural analysis course.
-                return !input.isDerived() && !input.isContainer() && !input.isContainment();
+                return !input.isDerived() && !input.isContainer() && !input.isContainment() && !ViewpointPackage.eINSTANCE.getDRepresentationDescriptor_Representation().equals(input);
             }
         });
     }
@@ -221,7 +222,8 @@ class SessionResourcesTracker {
 
     /**
      * Check the resources in the resourceSet. Detect new resources and add them
-     * to the session as new semantic resources or referenced session resources.<BR>
+     * to the session as new semantic resources or referenced session resources.
+     * <BR>
      * <BR>
      * New semantic resources are :
      * <UL>
@@ -270,6 +272,7 @@ class SessionResourcesTracker {
         Iterators.removeAll(resourcesAfterLoadOfSession.iterator(), referencedSessionResources);
 
         final Iterable<Resource> newSemanticResourcesIterator = Iterables.filter(resourcesAfterLoadOfSession, new Predicate<Resource>() {
+            @Override
             public boolean apply(Resource resource) {
                 // Remove empty resource and the Sirius environment
                 return !resource.getContents().isEmpty() && !(new URIQuery(resource.getURI()).isEnvironmentURI());

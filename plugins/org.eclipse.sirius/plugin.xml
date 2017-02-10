@@ -426,6 +426,9 @@
          type="aird"
          class="org.eclipse.sirius.business.internal.resource.AirDResourceFactory">
       </parser>
+      <parser
+            type="repfile" class="org.eclipse.sirius.business.internal.resource.RepFileResourceFactory">
+      </parser>
    </extension>
    <extension
          point="org.eclipse.sirius.mmdescriptor">

@@ -47,6 +47,11 @@ h4. Changes in @org.eclipse.sirius.ui.properties@
 
 * <span class="label label-info">Modified</span> All the content related to the IDescriptionConverter and ILinkResolver has been moved from the plugin org.eclipse.sirius.ui.properties to the newly created plugin org.eclipse.sirius.properties.core. It includes all the APIs and both extension points.
 
+h4. Changes in @org.eclipse.sirius.diagram@
+
+* <span class="label label-success">Added</span> 
+The utility class @org.eclipse.sirius.diagram.business.api.helper.decoration.DecorationHelper@ has been added. It provides @updateDecorations(List<Layer>)@ and @updateAllDecorations@ methods that allow to update only decorations in a diagram.
+
 h4. Changes in @org.eclipse.sirius.tests.junit.support@
 
 * <span class="label label-success">Added</span> The utility method @org.eclipse.sirius.tests.support.api.TestsUtil.setTargetPlatform()@ has been added to allow to load a PDE target platform according to all known OSGi bundles. It is useful to compile a plug-in in the execution runtime of the tests.

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2016 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2007, 2017 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -170,6 +170,13 @@ public abstract class AbstractDDiagramEditPart extends DiagramEditPart implement
         if (DiagramPackage.eINSTANCE.getDDiagram_ActivatedFilters().equals(notification.getFeature())) {
             refresh();
             refreshSourceAndTargetOfRevealedEdges(notification);
+        } else if (DiagramPackage.eINSTANCE.getDDiagram_ActivatedTransientLayers().equals(notification.getFeature())
+                || DiagramPackage.eINSTANCE.getDDiagram_ActivatedLayers().equals(notification.getFeature())) {
+            // We don't launch a refresh if the notification is a adding of
+            // a layer that has only tools
+            if (!(notification.getNewValue() instanceof Layer && LayerHelper.containsOnlyTools((Layer) notification.getNewValue()))) {
+                refresh();
+            }
         } else {
             /**
              * If the notification is an ADD we want to refresh the editpart as
@@ -179,11 +186,7 @@ public abstract class AbstractDDiagramEditPart extends DiagramEditPart implement
              * element deletion fail if a diagram is open.
              */
             if (notification.getEventType() == Notification.SET || notification.getEventType() == Notification.UNSET || notification.getEventType() == Notification.ADD) {
-                // We don't launch a refresh is the notification is a adding of
-                // a layer that has only tools
-                if (!(notification.getEventType() == Notification.ADD && notification.getNewValue() instanceof Layer && LayerHelper.containsOnlyTools((Layer) notification.getNewValue()))) {
-                    refresh();
-                }
+                refresh();
             }
         }
     }

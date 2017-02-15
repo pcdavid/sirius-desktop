@@ -57,7 +57,6 @@ import org.eclipse.sirius.diagram.DiagramPackage;
 import org.eclipse.sirius.diagram.DragAndDropTarget;
 import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.diagram.Messages;
-import org.eclipse.sirius.diagram.business.api.componentization.DiagramComponentizationManager;
 import org.eclipse.sirius.diagram.business.api.componentization.DiagramMappingsManager;
 import org.eclipse.sirius.diagram.business.api.componentization.DiagramMappingsManagerRegistry;
 import org.eclipse.sirius.diagram.business.api.helper.SiriusDiagramHelper;
@@ -69,8 +68,8 @@ import org.eclipse.sirius.diagram.business.api.query.DiagramElementMappingQuery;
 import org.eclipse.sirius.diagram.business.api.query.EObjectQuery;
 import org.eclipse.sirius.diagram.business.api.query.IEdgeMappingQuery;
 import org.eclipse.sirius.diagram.business.api.refresh.RefreshExtensionService;
+import org.eclipse.sirius.diagram.business.internal.helper.decoration.DecorationHelperInternal;
 import org.eclipse.sirius.diagram.business.internal.metamodel.description.operations.EdgeMappingImportWrapper;
-import org.eclipse.sirius.diagram.business.internal.metamodel.helper.DiagramComponentizationHelper;
 import org.eclipse.sirius.diagram.business.internal.metamodel.helper.EdgeMappingHelper;
 import org.eclipse.sirius.diagram.business.internal.metamodel.helper.LayerHelper;
 import org.eclipse.sirius.diagram.business.internal.query.DDiagramInternalQuery;
@@ -102,14 +101,11 @@ import org.eclipse.sirius.ext.base.collect.SetIntersection;
 import org.eclipse.sirius.tools.api.command.ui.NoUICallback;
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
 import org.eclipse.sirius.tools.api.profiler.SiriusTasksKey;
-import org.eclipse.sirius.viewpoint.description.DecorationDescription;
-import org.eclipse.sirius.viewpoint.description.GenericDecorationDescription;
 import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
 import org.eclipse.sirius.viewpoint.description.SemanticBasedDecoration;
 import org.eclipse.sirius.viewpoint.description.style.StyleDescription;
 
 import com.google.common.base.Predicate;
-import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Lists;
@@ -166,6 +162,8 @@ public class DDiagramSynchronizer {
 
     private RefreshIdsHolder ids;
 
+    private DecorationHelperInternal decorationHelper;
+
     /**
      * Create a new synchronizer.
      * 
@@ -213,6 +211,7 @@ public class DDiagramSynchronizer {
     public void setDiagram(final DSemanticDiagram diagram) {
         this.diagram = diagram;
         this.session = SessionManager.INSTANCE.getSession(diagram.getTarget());
+        this.decorationHelper = new DecorationHelperInternal(diagram, interpreter, accessor);
         this.sync = new DDiagramElementSynchronizer(this.diagram, this.interpreter, this.accessor);
         initDiagramRelatedFields();
     }
@@ -288,53 +287,9 @@ public class DDiagramSynchronizer {
     public void activateInitialLayers() {
         List<Layer> layersToActivate = Lists.newArrayList();
         List<AdditionalLayer> transientLayersToActivate = Lists.newArrayList();
-        getInitialActiveLayers(layersToActivate, transientLayersToActivate);
+        LayerHelper.getInitialActiveLayers(description, session.getSelectedViewpoints(false), layersToActivate, transientLayersToActivate);
         this.diagram.getActivatedLayers().addAll(layersToActivate);
         this.diagram.getActivatedTransientLayers().addAll(transientLayersToActivate);
-    }
-
-    /**
-     * Activates transient {@link Layer}.
-     */
-    public void activateTransientLayers() {
-        // Activate only the first time
-        if (!this.diagram.isSetActivatedTransientLayers()) {
-            List<Layer> layersToActivate = Lists.newArrayList();
-            List<AdditionalLayer> transientLayersToActivate = Lists.newArrayList();
-            getInitialActiveLayers(layersToActivate, transientLayersToActivate);
-            this.diagram.getActivatedTransientLayers().addAll(transientLayersToActivate);
-        }
-    }
-
-    private void getInitialActiveLayers(List<Layer> layersToActivate, List<AdditionalLayer> transientLayersToActivate) {
-        final Predicate<Layer> isActiveByDefault = new Predicate<Layer>() {
-            @Override
-            public boolean apply(final Layer layer) {
-                boolean result = true;
-                if (layer instanceof AdditionalLayer) {
-                    AdditionalLayer additionalLayer = (AdditionalLayer) layer;
-                    result = additionalLayer.isActiveByDefault() || !additionalLayer.isOptional();
-                }
-                return result;
-            }
-        };
-
-        getFilteredLayers(layersToActivate, transientLayersToActivate, isActiveByDefault);
-    }
-
-    private void getFilteredLayers(List<Layer> layers, List<AdditionalLayer> transientLayers, Predicate<Layer> predicate) {
-        Collection<Layer> allLayers = new ArrayList<Layer>(new DiagramComponentizationManager().getAllLayers(session.getSelectedViewpoints(false), description));
-
-        Collection<Layer> allActivatedLayers = Collections2.filter(allLayers, predicate);
-        allActivatedLayers.addAll(Collections2.filter(DiagramComponentizationHelper.getContributedLayers(this.description, this.session.getSelectedViewpoints(false)), predicate));
-
-        for (Layer layer : allActivatedLayers) {
-            if (LayerHelper.isTransientLayer(layer)) {
-                transientLayers.add((AdditionalLayer) layer);
-            } else {
-                layers.add(layer);
-            }
-        }
     }
 
     /**
@@ -344,27 +299,12 @@ public class DDiagramSynchronizer {
     private void activateNewMandatoryAdditionalLayers() {
         List<Layer> layersToActivate = Lists.newArrayList();
         List<AdditionalLayer> transientLayersToActivate = Lists.newArrayList();
-        getMandatoriesAdditionalLayers(layersToActivate, transientLayersToActivate);
+        LayerHelper.getMandatoriesAdditionalLayers(description, session.getSelectedViewpoints(false), layersToActivate, transientLayersToActivate);
 
         layersToActivate.removeAll(this.diagram.getActivatedLayers());
         transientLayersToActivate.removeAll(this.diagram.getActivatedTransientLayers());
         this.diagram.getActivatedLayers().addAll(layersToActivate);
         this.diagram.getActivatedTransientLayers().addAll(transientLayersToActivate);
-    }
-
-    /**
-     * Get from descriptions the list of mandatories layers.
-     * 
-     * @return all mandatories layers.
-     */
-    private void getMandatoriesAdditionalLayers(List<Layer> layers, List<AdditionalLayer> transientLayers) {
-        final Predicate<Layer> isMandatory = new Predicate<Layer>() {
-            @Override
-            public boolean apply(final Layer layer) {
-                return (layer instanceof AdditionalLayer) && !((AdditionalLayer) layer).isOptional();
-            }
-        };
-        getFilteredLayers(layers, transientLayers, isMandatory);
     }
 
     /**
@@ -445,7 +385,7 @@ public class DDiagramSynchronizer {
                     handleImportersIssues();
 
                     /* Compute the decorations. */
-                    computeDecorations(mappingsToEdgeTargets, edgeToSemanticBasedDecoration, edgeToMappingBasedDecoration);
+                    decorationHelper.computeDecorations(mappingsToEdgeTargets, edgeToSemanticBasedDecoration, edgeToMappingBasedDecoration);
 
                     /*
                      * now all the nodes/containers are done and ready in the
@@ -649,81 +589,6 @@ public class DDiagramSynchronizer {
 
     private boolean shouldKeepElement(DiagramMappingsManager mappingManager, final DDiagramElement element) {
         return element.getParentDiagram() != null && !DisplayServiceManager.INSTANCE.getDisplayService().computeVisibility(mappingManager, this.diagram, element);
-    }
-
-    /**
-     * compute all decorations.
-     * 
-     * @param mappingsToEdgeTargets
-     *            the mapping to edge targets
-     * @param edgeToSemanticBasedDecoration
-     *            an empty map
-     * @param edgeToMappingBasedDecoration
-     *            an empty map
-     */
-    public void computeDecorations(final Map<DiagramElementMapping, Collection<EdgeTarget>> mappingsToEdgeTargets, final Map<String, Collection<SemanticBasedDecoration>> edgeToSemanticBasedDecoration,
-            final Map<EdgeMapping, Collection<MappingBasedDecoration>> edgeToMappingBasedDecoration) {
-        final List<Layer> activatedLayers = Lists.newArrayList();
-        activatedLayers.addAll(diagram.getActivatedLayers());
-        activatedLayers.addAll(diagram.getActivatedTransientLayers());
-
-        for (final Layer layer : activatedLayers) {
-            if (layer.getDecorationDescriptionsSet() != null && layer.getDecorationDescriptionsSet().getDecorationDescriptions().size() > 0) {
-                for (final DecorationDescription decorationDescription : layer.getDecorationDescriptionsSet().getDecorationDescriptions()) {
-                    if (decorationDescription instanceof MappingBasedDecoration) {
-                        computeDecoration((MappingBasedDecoration) decorationDescription, mappingsToEdgeTargets, edgeToMappingBasedDecoration);
-                    } else if (decorationDescription instanceof SemanticBasedDecoration) {
-                        computeDecoration((SemanticBasedDecoration) decorationDescription, mappingsToEdgeTargets, edgeToSemanticBasedDecoration);
-                    } else if (decorationDescription instanceof GenericDecorationDescription) {
-                        computeDecoration((GenericDecorationDescription) decorationDescription, mappingsToEdgeTargets);
-                    }
-                }
-            }
-        }
-    }
-
-    private void computeDecoration(final SemanticBasedDecoration decorationDescription, final Map<DiagramElementMapping, Collection<EdgeTarget>> mappingsToEdgeTargets,
-            final Map<String, Collection<SemanticBasedDecoration>> edgeToSemanticBasedDecoration) {
-        final String domainClass = decorationDescription.getDomainClass();
-        for (final Collection<EdgeTarget> collection : mappingsToEdgeTargets.values()) {
-            for (final DDiagramElement element : Iterables.filter(collection, DDiagramElement.class)) {
-                if (accessor.eInstanceOf(element.getTarget(), decorationDescription.getDomainClass())) {
-                    this.sync.addDecoration(element, decorationDescription);
-                }
-            }
-        }
-        if (!edgeToSemanticBasedDecoration.containsKey(domainClass)) {
-            edgeToSemanticBasedDecoration.put(domainClass, new HashSet<SemanticBasedDecoration>());
-        }
-        edgeToSemanticBasedDecoration.get(domainClass).add(decorationDescription);
-    }
-
-    private void computeDecoration(final MappingBasedDecoration decorationDescription, final Map<DiagramElementMapping, Collection<EdgeTarget>> mappingsToEdgeTargets,
-            final Map<EdgeMapping, Collection<MappingBasedDecoration>> edgeToMappingBasedDecoration) {
-        for (final DiagramElementMapping mapping : decorationDescription.getMappings()) {
-            if (mapping instanceof AbstractNodeMapping) {
-                final Collection<EdgeTarget> targets = mappingsToEdgeTargets.get(mapping);
-                if (targets != null) {
-                    for (final DDiagramElement element : Iterables.filter(targets, DDiagramElement.class)) {
-                        this.sync.addDecoration(element, decorationDescription);
-                    }
-                }
-            } else if (mapping instanceof EdgeMapping) {
-                if (!edgeToMappingBasedDecoration.containsKey(mapping)) {
-                    edgeToMappingBasedDecoration.put((EdgeMapping) mapping, new HashSet<MappingBasedDecoration>());
-                }
-                edgeToMappingBasedDecoration.get(mapping).add(decorationDescription);
-            }
-        }
-
-    }
-
-    private void computeDecoration(final GenericDecorationDescription decorationDescription, final Map<DiagramElementMapping, Collection<EdgeTarget>> mappingsToEdgeTargets) {
-        for (final Collection<EdgeTarget> collection : mappingsToEdgeTargets.values()) {
-            for (final DDiagramElement element : Iterables.filter(collection, DDiagramElement.class)) {
-                this.sync.addDecoration(element, decorationDescription);
-            }
-        }
     }
 
     private void convertType(final EObject eObject) {

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2002, 2015 IBM Corporation and others and others.
+ * Copyright (c) 2002, 2017 IBM Corporation and others and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,13 +13,19 @@
 package org.eclipse.sirius.diagram.ui.tools.internal.part;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.text.MessageFormat;
 import java.util.List;
 
 import org.eclipse.draw2d.DeferredUpdateManager;
+import org.eclipse.draw2d.EventDispatcher;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LightweightSystem;
+import org.eclipse.draw2d.SWTEventDispatcher;
+import org.eclipse.draw2d.ToolTipHelper;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gef.EditDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.internal.parts.PaletteToolTransferDropTargetListener;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramGraphicalViewer;
@@ -32,6 +38,7 @@ import org.eclipse.sirius.diagram.ui.provider.Messages;
 import org.eclipse.sirius.diagram.ui.tools.api.part.IDiagramDialectGraphicalViewer;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.SiriusPaletteToolDropTargetListener;
 import org.eclipse.sirius.diagram.ui.tools.internal.graphical.edit.policies.ChangeBoundRequestRecorder;
+import org.eclipse.sirius.viewpoint.SiriusPlugin;
 
 /**
  * {@link org.eclipse.gef.GraphicalViewer} used for the
@@ -41,6 +48,7 @@ import org.eclipse.sirius.diagram.ui.tools.internal.graphical.edit.policies.Chan
  */
 @SuppressWarnings("restriction")
 public class SiriusDiagramGraphicalViewer extends DiagramGraphicalViewer implements IDiagramDialectGraphicalViewer {
+    private static final int TOOLTIP_DISPLAY_DELAY = 10_000;
 
     private ChangeBoundRequestRecorder recorder = new ChangeBoundRequestRecorder();
 
@@ -350,6 +358,23 @@ public class SiriusDiagramGraphicalViewer extends DiagramGraphicalViewer impleme
             }
 
             super.setSelection(newSelection);
+        }
+    }
+
+    @Override
+    public void setEditDomain(EditDomain domain) {
+        super.setEditDomain(domain);
+
+        // Change the tooltip hide delay using reflection API
+        EventDispatcher eventDispatcher = getEventDispatcher();
+        Method getToolTipHelperMethod = null;
+        try {
+            getToolTipHelperMethod = SWTEventDispatcher.class.getDeclaredMethod("getToolTipHelper"); //$NON-NLS-1$
+            getToolTipHelperMethod.setAccessible(true);
+            ToolTipHelper toolTipHelper = (ToolTipHelper) getToolTipHelperMethod.invoke(eventDispatcher);
+            toolTipHelper.setHideDelay(TOOLTIP_DISPLAY_DELAY);
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+            SiriusPlugin.getDefault().error(Messages.SiriusDiagramGraphicalViewer_tooltipDisplayDelay, e);
         }
     }
 }

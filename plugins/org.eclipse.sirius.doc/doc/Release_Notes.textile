@@ -47,6 +47,10 @@ h4. Changes in @org.eclipse.sirius.ui.properties@
 
 * <span class="label label-info">Modified</span> All the content related to the IDescriptionConverter and ILinkResolver has been moved from the plugin org.eclipse.sirius.ui.properties to the newly created plugin org.eclipse.sirius.properties.core. It includes all the APIs and both extension points.
 
+h4. Changes in @org.eclipse.sirius.ui@
+
+* <span class="label label-info">Modified</span> The boolean parameter @exportDecorations@ has been added to @org.eclipse.sirius.ui.business.api.dialect.DialectUIServices.export(DRepresentation, Session, IPath, ExportFormat, IProgressMonitor, boolean)@ method and in @org.eclipse.sirius.ui.tools.api.actions.export.ExportAction.ExportAction(Session, Collection<DRepresentation>, IPath, ImageFileFormat, boolean, boolean)@ constructor. It allows to choose if the diagram element decorations will be exported or not.
+
 h4. Changes in @org.eclipse.sirius.diagram@
 
 * <span class="label label-success">Added</span> 

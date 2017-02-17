@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2015 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2010, 2017 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -70,7 +70,7 @@ public abstract class AbstractExportRepresentationsAsImagesDialog extends Dialog
     /**
      * The empty string.
      */
-    protected static final String EMPTY_STRING = ""; //$NON-NLS-1$    
+    protected static final String EMPTY_STRING = ""; //$NON-NLS-1$
 
     /**
      * the image format label text.
@@ -100,7 +100,7 @@ public abstract class AbstractExportRepresentationsAsImagesDialog extends Dialog
     /**
      * The id for the persistent settings for this dialog.
      */
-    private static final String DIALOG_SETTINGS_ID = "ExportRepresentationsAsImagesDialog"; //$NON-NLS-1$       
+    private static final String DIALOG_SETTINGS_ID = "ExportRepresentationsAsImagesDialog"; //$NON-NLS-1$
 
     /**
      * Combo length history path.
@@ -148,6 +148,11 @@ public abstract class AbstractExportRepresentationsAsImagesDialog extends Dialog
      * true to export to HTML.
      */
     private boolean exportToHTML;
+
+    /**
+     * true to export decorations.
+     */
+    private boolean exportDecorations;
 
     /**
      * Creates an instance of the copy to image dialog.
@@ -207,6 +212,16 @@ public abstract class AbstractExportRepresentationsAsImagesDialog extends Dialog
      */
     public boolean isExportToHtml() {
         return exportToHTML;
+    }
+
+    /**
+     * Check if the user choose to export decorations.
+     * 
+     * @return <code>true</code> if it decided to export decorations ,
+     *         <code>false</code> otherwise
+     */
+    public boolean isExportDecorations() {
+        return exportDecorations;
     }
 
     /**
@@ -364,6 +379,7 @@ public abstract class AbstractExportRepresentationsAsImagesDialog extends Dialog
         final Composite composite = (Composite) super.createDialogArea(parent);
         createFolderGroup(composite);
         createImageFormatGroup(composite);
+        createExportDecorationsGroup(composite);
         if (DialectUIManager.INSTANCE.canExport(new ExportFormat(ExportDocumentFormat.HTML, null))) {
             createGenerateHTMLGroup(composite);
         }
@@ -423,6 +439,21 @@ public abstract class AbstractExportRepresentationsAsImagesDialog extends Dialog
             @Override
             public void widgetSelected(SelectionEvent event) {
                 exportToHTML = exportToHTMLCheckbox.getSelection();
+            }
+        });
+    }
+
+    private void createExportDecorationsGroup(Composite parent) {
+        Composite composite = SWTUtil.createCompositeHorizontalFill(parent, 1, false);
+        final Button exportDecorationsCheckBox = new Button(composite, SWT.CHECK | SWT.LEFT);
+        exportDecorationsCheckBox.setText(Messages.AbstractExportRepresentationsAsImagesDialog_decorationExport);
+        GridData data = new GridData(GridData.FILL_HORIZONTAL);
+        exportDecorationsCheckBox.setLayoutData(data);
+        exportDecorationsCheckBox.setSelection(exportToHTML);
+        exportDecorationsCheckBox.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent event) {
+                exportDecorations = exportDecorationsCheckBox.getSelection();
             }
         });
     }

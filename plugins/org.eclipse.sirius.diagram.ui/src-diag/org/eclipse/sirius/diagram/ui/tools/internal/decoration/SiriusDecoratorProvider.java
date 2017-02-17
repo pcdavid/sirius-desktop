@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 20016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -35,9 +35,29 @@ public class SiriusDecoratorProvider extends AbstractProvider implements IDecora
 
     private static final String KEY = "siriusDecorator"; //$NON-NLS-1$
 
+    /**
+     * Allows to globally activate or deactivate the decoration in sirius
+     * diagram.
+     */
+    private static boolean isActivateSiriusDecoration = true;
+
+    public static boolean isActivateSiriusDecoration() {
+        return isActivateSiriusDecoration;
+    }
+
+    /**
+     * Indicates if Sirius decorator must be installed.
+     * 
+     * @param isActivateSiriusDecorationNew
+     *            true if if Sirius decorator must be installed
+     */
+    public static void setActivateSiriusDecoration(boolean isActivateSiriusDecorationNew) {
+        SiriusDecoratorProvider.isActivateSiriusDecoration = isActivateSiriusDecorationNew;
+    }
+
     @Override
     public boolean provides(IOperation operation) {
-        if (!(operation instanceof CreateDecoratorsOperation)) {
+        if (isActivateSiriusDecoration || !(operation instanceof CreateDecoratorsOperation)) {
             return false;
         }
 

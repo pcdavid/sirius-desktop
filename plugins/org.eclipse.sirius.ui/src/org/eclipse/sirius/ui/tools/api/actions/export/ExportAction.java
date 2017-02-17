@@ -59,6 +59,8 @@ public class ExportAction extends WorkspaceModifyOperation {
 
     private boolean exportToHtml;
 
+    private boolean exportDecorations;
+
     /**
      * Default constructor.
      *
@@ -74,13 +76,17 @@ public class ExportAction extends WorkspaceModifyOperation {
      * @param exportToHtml
      *            true if we must export {@link DRepresentation} to html instead
      *            of image
+     * @param exportDecorations
+     *            true if we want the image to contain diagram element
+     *            decorations
      */
-    public ExportAction(Session session, Collection<DRepresentation> dRepresentationsToExportAsImage, IPath outputPath, ImageFileFormat imageFormat, boolean exportToHtml) {
+    public ExportAction(Session session, Collection<DRepresentation> dRepresentationsToExportAsImage, IPath outputPath, ImageFileFormat imageFormat, boolean exportToHtml, boolean exportDecorations) {
         this.session = session;
         this.dRepresentationsToExportAsImage = dRepresentationsToExportAsImage;
         this.outputPath = outputPath;
         this.imageFormat = imageFormat;
         this.exportToHtml = exportToHtml;
+        this.exportDecorations = exportDecorations;
     }
 
     /**
@@ -173,7 +179,7 @@ public class ExportAction extends WorkspaceModifyOperation {
                     }
                     if (DialectUIManager.INSTANCE.canHandle(representation)) {
                         try {
-                            DialectUIManager.INSTANCE.export(representation, session, filePath, exportFormat, new SubProgressMonitor(monitor, 7));
+                            DialectUIManager.INSTANCE.export(representation, session, filePath, exportFormat, new SubProgressMonitor(monitor, 7), exportDecorations);
                         } catch (CoreException exception) {
                             if (exception instanceof SizeTooLargeException) {
                                 errorDuringExport = true;

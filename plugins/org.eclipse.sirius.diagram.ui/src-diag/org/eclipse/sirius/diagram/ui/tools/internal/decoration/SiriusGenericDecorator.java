@@ -97,6 +97,8 @@ public class SiriusGenericDecorator extends AbstractDecorator {
 
     private boolean authorizeOverlap;
 
+    private boolean printDecoration;
+
     /**
      * Create a decorator.
      * 
@@ -110,6 +112,7 @@ public class SiriusGenericDecorator extends AbstractDecorator {
 
         IPreferenceStore prefs = DiagramUIPlugin.getPlugin().getPreferenceStore();
         authorizeOverlap = prefs.getBoolean(SiriusDiagramUiPreferencesKeys.PREF_AUTHORIZE_DECORATION_OVERLAP.name());
+        printDecoration = prefs.getBoolean(SiriusDiagramUiPreferencesKeys.PREF_PRINT_DECORATION.name());
 
         this.decorationDescriptorProviders = decorationDescriptorProviders;
         editPart = (GraphicalEditPart) getDecoratorTarget().getAdapter(GraphicalEditPart.class);
@@ -161,7 +164,7 @@ public class SiriusGenericDecorator extends AbstractDecorator {
                 }
 
                 Map<Position, IFigure> figureAtPosition = computeGroupDecorationsFigure(positionToDecorators);
-                addDecoration(getDecoratorTarget().addConnectionDecoration(figureAtPosition.get(Position.CENTER_LITERAL), 50, true));
+                addDecoration(getDecoratorTarget().addConnectionDecoration(figureAtPosition.get(Position.CENTER_LITERAL), 50, !printDecoration));
             } else {
                 for (DecorationDescriptor decorationDescriptor : decorationDescriptors) {
                     Position position = decorationDescriptor.getPosition();
@@ -177,7 +180,7 @@ public class SiriusGenericDecorator extends AbstractDecorator {
                 Map<Position, IFigure> figureAtPosition = computeGroupDecorationsFigure(positionToDecorators);
                 if (figureAtPosition != null) {
                     for (Position position : figureAtPosition.keySet()) {
-                        addDecoration(getDecoratorTarget().addShapeDecoration(figureAtPosition.get(position), getGMFPosition(position), -MARGIN, true));
+                        addDecoration(getDecoratorTarget().addShapeDecoration(figureAtPosition.get(position), getGMFPosition(position), -MARGIN, !printDecoration));
                     }
                 }
             }

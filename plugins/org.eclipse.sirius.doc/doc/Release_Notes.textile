@@ -59,6 +59,7 @@ The utility class @org.eclipse.sirius.diagram.business.api.helper.decoration.Dec
 h4. Changes in @org.eclipse.sirius.diagram.ui@
 
 * <span class="label label-info">Modified</span> The preference @SiriusDiagramUiPreferencesKeys.PREF_AUTHORIZE_DECORATION_OVERLAP@ has been added in @org.eclipse.sirius.diagram.ui.tools.api.preferences.SiriusDiagramUiPreferencesKeys@. If true, the overlap is authorized between decoration group on diagram element.
+* <span class="label label-info">Modified</span> The preference @SiriusDiagramUiPreferencesKeys.PREF_PRINT_DECORATION@ has been added in @org.eclipse.sirius.diagram.ui.tools.api.preferences.SiriusDiagramUiPreferencesKeys@. If true, the decorations of the diagram elements of a diagram will be printed, when printing a diagram.
 
 h4. Changes in @org.eclipse.sirius.tests.junit.support@
 

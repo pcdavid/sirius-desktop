@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -416,6 +417,12 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
             resource = dView.eResource();
         }
         if (resource != null) {
+            ECrossReferenceAdapter crossReferencer = session.getSemanticCrossReferencer();
+            if (crossReferencer != null) {
+                if (!resource.eAdapters().contains(crossReferencer)) {
+                    resource.eAdapters().add(crossReferencer);
+                }
+            }
             resource.getContents().add(representation);
         }
 

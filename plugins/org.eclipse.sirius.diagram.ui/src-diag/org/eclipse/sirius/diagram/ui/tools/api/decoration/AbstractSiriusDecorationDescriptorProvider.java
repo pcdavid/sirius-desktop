@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,6 +15,7 @@ import java.util.List;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecorator;
+import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramListEditPart;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramNameEditPart;
@@ -25,21 +26,20 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListNameEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeNameEditPart;
 
 /**
- * Abstract implementation used for sub classes that implement
- * SiriusDecorationDescriptorProvider.
+ * Abstract implementation used for sub classes that implement SiriusDecorationDescriptorProvider.
  * 
- * @author lfasani
+ * @author <a href="mailto:laurent.fasani@obeo.fr">Laurent Fasani</a>
  *
  */
 public abstract class AbstractSiriusDecorationDescriptorProvider implements SiriusDecorationDescriptorProvider {
 
     @Override
-    public void activate(IDecorator decorator, GraphicalEditPart editPart) {
+    public void activate(IDecoratorTarget decoratorTarget, IDecorator decorator, GraphicalEditPart editPart) {
         // do nothing
     }
 
     @Override
-    public void deActivate(GraphicalEditPart editPart) {
+    public void deActivate(GraphicalEditPart editPart, IDecorator decorator) {
         // do nothing
     }
 
@@ -72,11 +72,10 @@ public abstract class AbstractSiriusDecorationDescriptorProvider implements Siri
     protected abstract List<DecorationDescriptor> createDecorationDescriptors(IDiagramElementEditPart diagramEditPart);
 
     /**
-     * Indicates whether this decorator should consider detached {@link View}s
-     * (i.e. {@link View}s which eResource() is null).
+     * Indicates whether this decorator should consider detached {@link View}s (i.e. {@link View}s which eResource() is
+     * null).
      * 
-     * @return true if this decorator should consider detached {@link View}s,
-     *         false otherwise.
+     * @return true if this decorator should consider detached {@link View}s, false otherwise.
      */
     protected boolean shouldConsiderDetachedViews() {
         return false;
@@ -87,8 +86,7 @@ public abstract class AbstractSiriusDecorationDescriptorProvider implements Siri
      * 
      * @param editPart
      *            the editPart to check
-     * @return true if the editPart respect conditions to be decorate, false
-     *         otherwise
+     * @return true if the editPart respect conditions to be decorate, false otherwise
      */
     protected boolean shouldBeDecorated(final EditPart editPart) {
         boolean shouldBeDecorated = true;
@@ -102,14 +100,12 @@ public abstract class AbstractSiriusDecorationDescriptorProvider implements Siri
     }
 
     /**
-     * Indicates if the given editPart should contain decorations according to
-     * its type. For example, {@link DNodeListNameEditPart}s should not be
-     * decorated.
+     * Indicates if the given editPart should contain decorations according to its type. For example,
+     * {@link DNodeListNameEditPart}s should not be decorated.
      * 
      * @param editPart
      *            the edit part to inspect
-     * @return true if the given editPart should contain decorations, false
-     *         otherwise
+     * @return true if the given editPart should contain decorations, false otherwise
      */
     public boolean isDecorableEditPart(IDiagramElementEditPart editPart) {
         boolean result = true;
@@ -130,19 +126,5 @@ public abstract class AbstractSiriusDecorationDescriptorProvider implements Siri
             }
         }
         return result;
-    }
-
-    /**
-     * Tells if the decoration added by this decorator should be visible at
-     * image export or print. By default true is returned to have decoration
-     * visible at image export and print. Override this method to change this
-     * behavior.
-     * 
-     * @param editPart
-     *            the EditPart
-     * @return true to have decorations visible at image export and at print
-     */
-    protected boolean shouldBeVisibleAtPrint(EditPart editPart) {
-        return true;
     }
 }

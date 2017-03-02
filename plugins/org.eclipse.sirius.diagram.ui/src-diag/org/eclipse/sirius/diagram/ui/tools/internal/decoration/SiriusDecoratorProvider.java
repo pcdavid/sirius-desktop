@@ -25,9 +25,8 @@ import org.eclipse.sirius.diagram.ui.tools.api.decoration.SiriusDecorationProvid
 import com.google.common.collect.Sets;
 
 /**
- * This {@link IDecoratorProvider} should be the only one for Sirius Diagram.
- * Indeed, it will install a {@link IDecorator} that will handle fixed Sirius
- * decorations and decorations provided in the VSM.
+ * This {@link IDecoratorProvider} should be the only one for Sirius Diagram. Indeed, it will install a
+ * {@link IDecorator} that will handle fixed Sirius decorations and decorations provided in the VSM.
  * 
  * @author <a href="mailto:laurent.fasani@obeo.fr">Laurent Fasani</a>
  */
@@ -36,8 +35,7 @@ public class SiriusDecoratorProvider extends AbstractProvider implements IDecora
     private static final String KEY = "siriusDecorator"; //$NON-NLS-1$
 
     /**
-     * Allows to globally activate or deactivate the decoration in sirius
-     * diagram.
+     * Allows to globally activate or deactivate the decoration in sirius diagram.
      */
     private static boolean isActivateSiriusDecoration = true;
 
@@ -57,7 +55,7 @@ public class SiriusDecoratorProvider extends AbstractProvider implements IDecora
 
     @Override
     public boolean provides(IOperation operation) {
-        if (isActivateSiriusDecoration || !(operation instanceof CreateDecoratorsOperation)) {
+        if (!isActivateSiriusDecoration || !(operation instanceof CreateDecoratorsOperation)) {
             return false;
         }
 

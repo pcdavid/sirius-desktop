@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -21,6 +21,7 @@ import org.eclipse.gef.editparts.AbstractConnectionEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecorator;
+import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
@@ -59,8 +60,8 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
 /**
- * This {@link SiriusDecorationDescriptorProvider} provides a decoration on the
- * bottom right corner when the element provides a detail diagram.
+ * This {@link SiriusDecorationDescriptorProvider} provides a decoration on the bottom right corner when the element
+ * provides a detail diagram.
  * 
  * @author <a href="mailto:laurent.fasani@obeo.fr">Laurent Fasani</a>
  */
@@ -136,8 +137,7 @@ public class SubDiagramDecorationDescriptorProvider implements SiriusDecorationD
     }
 
     /**
-     * Tests whether the specified node has the same semantic element as its
-     * parent.
+     * Tests whether the specified node has the same semantic element as its parent.
      */
     private boolean parentHasSameSemanticElement(DRepresentationElement element) {
         return (element.eContainer() instanceof DDiagramElement) && ((DDiagramElement) element.eContainer()).getTarget() == element.getTarget();
@@ -209,12 +209,12 @@ public class SubDiagramDecorationDescriptorProvider implements SiriusDecorationD
     }
 
     @Override
-    public void activate(IDecorator decorator, org.eclipse.gef.GraphicalEditPart editPart) {
+    public void activate(IDecoratorTarget decoratorTarget, IDecorator decorator, org.eclipse.gef.GraphicalEditPart editPart) {
         // do nothing
     }
 
     @Override
-    public void deActivate(org.eclipse.gef.GraphicalEditPart editPart) {
+    public void deActivate(org.eclipse.gef.GraphicalEditPart editPart, IDecorator decorator) {
         // do nothing
     }
 

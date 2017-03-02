@@ -83,7 +83,7 @@ public class SiriusValidationDecoratorProvider extends AbstractProvider implemen
     /**
      * @was-generated
      */
-    private static Map/* <String, List<IDecorator>> */ allDecorators = new HashMap();
+    private static Map<String, List<IDecorator>> allDecorators = new HashMap();
 
     /**
      * @was-generated
@@ -114,12 +114,14 @@ public class SiriusValidationDecoratorProvider extends AbstractProvider implemen
      */
     @Override
     public boolean provides(IOperation operation) {
+        boolean provides = false;
         if (!(operation instanceof CreateDecoratorsOperation)) {
             return false;
         }
         IDecoratorTarget decoratorTarget = ((CreateDecoratorsOperation) operation).getDecoratorTarget();
         View view = decoratorTarget.getAdapter(View.class);
-        return view != null && DDiagramEditPart.MODEL_ID.equals(SiriusVisualIDRegistry.getModelID(view));
+        provides = view != null && DDiagramEditPart.MODEL_ID.equals(SiriusVisualIDRegistry.getModelID(view));
+        return false;
     }
 
     /**
@@ -325,7 +327,7 @@ public class SiriusValidationDecoratorProvider extends AbstractProvider implemen
             }
 
             // add self to global decorators registry
-            List list = (List) allDecorators.get(viewId);
+            List list = allDecorators.get(viewId);
             if (list == null) {
                 list = new ArrayList(2);
                 list.add(this);
@@ -358,7 +360,7 @@ public class SiriusValidationDecoratorProvider extends AbstractProvider implemen
             }
 
             // remove self from global decorators registry
-            List list = (List) allDecorators.get(viewId);
+            List list = allDecorators.get(viewId);
             if (list != null) {
                 list.remove(this);
                 if (list.isEmpty()) {

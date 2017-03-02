@@ -63,8 +63,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 /**
- * This IDecorator handles fixed Sirius decorations and decorations provided in
- * the VSM.
+ * This IDecorator handles fixed Sirius decorations and decorations provided in the VSM.
  * 
  * @author <a href="mailto:laurent.fasani@obeo.fr">Laurent Fasani</a>
  */
@@ -123,7 +122,7 @@ public class SiriusGenericDecorator extends AbstractDecorator {
     @Override
     public void activate() {
         for (SiriusDecorationDescriptorProvider siriusDecorationDescriptorProvider : decorationDescriptorProviders) {
-            siriusDecorationDescriptorProvider.activate(this, editPart);
+            siriusDecorationDescriptorProvider.activate(getDecoratorTarget(), this, editPart);
         }
     }
 
@@ -131,7 +130,7 @@ public class SiriusGenericDecorator extends AbstractDecorator {
     public void deactivate() {
         super.deactivate();
         for (SiriusDecorationDescriptorProvider siriusDecorationDescriptorProvider : decorationDescriptorProviders) {
-            siriusDecorationDescriptorProvider.deActivate(editPart);
+            siriusDecorationDescriptorProvider.deActivate(editPart, this);
         }
         removeDecorations();
     }
@@ -259,8 +258,7 @@ public class SiriusGenericDecorator extends AbstractDecorator {
     }
 
     /**
-     * Get the figure dimension reduced with the margin used to display
-     * decorations.
+     * Get the figure dimension reduced with the margin used to display decorations.
      * 
      * @return
      */
@@ -638,8 +636,7 @@ public class SiriusGenericDecorator extends AbstractDecorator {
     }
 
     /**
-     * A decoration figure which tooltip is computed when required the first
-     * time.
+     * A decoration figure which tooltip is computed when required the first time.
      * 
      * @author lfasani
      *
@@ -662,8 +659,7 @@ public class SiriusGenericDecorator extends AbstractDecorator {
     }
 
     /**
-     * A decoration figure which represents a list of decorations. The tooltip
-     * is computed when required the first time.
+     * A decoration figure which represents a list of decorations. The tooltip is computed when required the first time.
      * 
      * @author lfasani
      *
@@ -756,8 +752,7 @@ public class SiriusGenericDecorator extends AbstractDecorator {
     }
 
     /**
-     * Define position of the group relatively to the edit part figure bounding
-     * box.
+     * Define position of the group relatively to the edit part figure bounding box.
      * 
      * @param groupBounds
      * @param position

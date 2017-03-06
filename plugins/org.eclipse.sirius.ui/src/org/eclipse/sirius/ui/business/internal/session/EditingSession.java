@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2007, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -60,8 +60,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 /**
- * An {@link EditingSession} is responsible of keeping track of the opened
- * editors on a given model and cleaning stuffs when the every editor is closed.
+ * An {@link EditingSession} is responsible of keeping track of the opened editors on a given model and cleaning stuffs
+ * when the every editor is closed.
  * 
  * @author cbrun
  */
@@ -110,14 +110,12 @@ public class EditingSession implements IEditingSession, ISaveablesSource, Refres
     }
 
     /**
-     * Returns a new {@link SaveSessionWhenNoDialectEditorsListener} instance to
-     * use.
+     * Returns a new {@link SaveSessionWhenNoDialectEditorsListener} instance to use.
      * 
      * @param theSession
      *            session listened by the new save session listener.
      * 
-     * @return a new {@link SaveSessionWhenNoDialectEditorsListener} instance to
-     *         use.
+     * @return a new {@link SaveSessionWhenNoDialectEditorsListener} instance to use.
      */
     protected SaveSessionWhenNoDialectEditorsListener createSaveSessionWhenNoDialectEditorsListener(Session theSession) {
         return new SaveSessionWhenNoDialectEditorsListener(session);
@@ -283,7 +281,7 @@ public class EditingSession implements IEditingSession, ISaveablesSource, Refres
     @Override
     public void close() {
         if (opened) {
-            close(true);
+            close(false);
         }
     }
 
@@ -462,13 +460,11 @@ public class EditingSession implements IEditingSession, ISaveablesSource, Refres
     }
 
     /**
-     * Helper to detect whether the contents of this part should be saved when
-     * the given part is closed.
+     * Helper to detect whether the contents of this part should be saved when the given part is closed.
      * 
-     * The needToBeSavedOnClose method is called just before closing the
-     * editors, re-initialization of the detector on attachment/detachment of an
-     * editor with its EditingSession allow to safely detect close all, close
-     * other and close workbench events.
+     * The needToBeSavedOnClose method is called just before closing the editors, re-initialization of the detector on
+     * attachment/detachment of an editor with its EditingSession allow to safely detect close all, close other and
+     * close workbench events.
      * 
      * @see IEditingSession#needToBeSavedOnClose(IEditorPart)
      * 
@@ -504,8 +500,7 @@ public class EditingSession implements IEditingSession, ISaveablesSource, Refres
         }
 
         /**
-         * Try to detect closing of all editors on a same session from system
-         * actions:
+         * Try to detect closing of all editors on a same session from system actions:
          * <ol>
          * <li>close all</li>
          * <li>close other</li>

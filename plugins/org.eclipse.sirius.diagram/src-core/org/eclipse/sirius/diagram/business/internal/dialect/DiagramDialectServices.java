@@ -34,6 +34,7 @@ import org.eclipse.sirius.business.api.dialect.description.IInterpretedExpressio
 import org.eclipse.sirius.business.api.dialect.identifier.RepresentationElementIdentifier;
 import org.eclipse.sirius.business.api.helper.SiriusUtil;
 import org.eclipse.sirius.business.api.helper.task.AbstractCommandTask;
+import org.eclipse.sirius.business.api.helper.task.TaskHelper;
 import org.eclipse.sirius.business.api.query.DRepresentationElementQuery;
 import org.eclipse.sirius.business.api.query.DViewQuery;
 import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
@@ -41,6 +42,7 @@ import org.eclipse.sirius.business.api.session.CustomDataConstants;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.internal.metamodel.helper.ComponentizationHelper;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
+import org.eclipse.sirius.common.tools.api.interpreter.IInterpreterSiriusVariables;
 import org.eclipse.sirius.common.tools.api.listener.NotificationUtil;
 import org.eclipse.sirius.common.tools.api.query.NotificationQuery;
 import org.eclipse.sirius.diagram.AbstractDNode;
@@ -77,10 +79,13 @@ import org.eclipse.sirius.diagram.description.tool.Navigation;
 import org.eclipse.sirius.diagram.tools.api.command.ChangeLayerActivationCommand;
 import org.eclipse.sirius.diagram.tools.api.command.DiagramCommandFactoryService;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.FeatureNotFoundException;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.MetaClassNotFoundException;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
 import org.eclipse.sirius.tools.api.command.CommandContext;
 import org.eclipse.sirius.tools.api.command.DCommand;
+import org.eclipse.sirius.tools.api.command.ui.NoUICallback;
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
@@ -198,6 +203,11 @@ public class DiagramDialectServices extends AbstractRepresentationDialectService
 
                 session.getServices().putCustomData(CustomDataConstants.DREPRESENTATION, semantic, diagram);
                 monitor.worked(1);
+
+                if (diagram instanceof DSemanticDiagram) {
+                    applyInitializationOperation((DSemanticDiagram) diagram, session);
+                }
+
                 Diagram gmfDiag = DiagramDialectServices.createAndStoreGMFDiagram(session, (DSemanticDiagram) diagram);
                 monitor.worked(1);
                 // Synchronizes the GMF diagram model according to the viewpoint
@@ -213,6 +223,22 @@ public class DiagramDialectServices extends AbstractRepresentationDialectService
             monitor.done();
         }
         return diagram;
+    }
+
+    private void applyInitializationOperation(DSemanticDiagram diag, Session s) {
+        if (diag.getDescription() != null && diag.getDescription().getDiagramInitialisation() != null && diag.getDescription().getDiagramInitialisation().getFirstModelOperations() != null) {
+            try {
+                s.getInterpreter().setVariable(IInterpreterSiriusVariables.DIAGRAM, diag);
+                new TaskHelper(s.getModelAccessor(), new NoUICallback()).buildTaskFromModelOperation(diag, diag.getTarget(), diag.getDescription().getDiagramInitialisation().getFirstModelOperations())
+                        .execute();
+            } catch (MetaClassNotFoundException e) {
+                // TODO should we log something
+            } catch (FeatureNotFoundException e) {
+                // TODO should we log something
+            } finally {
+                s.getInterpreter().unSetVariable(IInterpreterSiriusVariables.DIAGRAM);
+            }
+        }
     }
 
     /**

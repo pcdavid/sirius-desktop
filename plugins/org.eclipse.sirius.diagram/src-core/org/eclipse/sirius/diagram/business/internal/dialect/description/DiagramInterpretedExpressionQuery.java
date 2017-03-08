@@ -74,6 +74,7 @@ import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
 import org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription;
 import org.eclipse.sirius.viewpoint.description.tool.EditMaskVariables;
+import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
 import org.eclipse.sirius.viewpoint.description.tool.OperationAction;
 import org.eclipse.sirius.viewpoint.description.tool.RepresentationCreationDescription;
@@ -166,6 +167,23 @@ public class DiagramInterpretedExpressionQuery extends AbstractInterpretedExpres
     }
 
     @Override
+    protected Option<EObject> getToolContext() {
+        Option<EObject> found = super.getToolContext();
+        if (!found.some()) {
+            boolean isInDiagramInitialisation = false;
+            EObject cur = this.target;
+            while (cur.eContainingFeature() != null && !isInDiagramInitialisation && cur != null) {
+                isInDiagramInitialisation = cur.eContainingFeature() == DescriptionPackage.Literals.DIAGRAM_DESCRIPTION__DIAGRAM_INITIALISATION;
+                cur = cur.eContainer();
+            }
+            if (isInDiagramInitialisation) {
+                found = Options.newSome(cur);
+            }
+        }
+        return found;
+    }
+
+    @Override
     protected void collectContextualVariableForOperation(EObject current, Map<String, Collection<VariableType>> definitions, EObject leaf) {
         super.collectContextualVariableForOperation(current, definitions, leaf);
         if (current instanceof CreateView) {
@@ -182,6 +200,9 @@ public class DiagramInterpretedExpressionQuery extends AbstractInterpretedExpres
             } else if (mapping instanceof EdgeMapping) {
                 changeSelfType(VariableType.fromString(DIAGRAM_D_EDGE_TYPE));
             }
+        }
+        if (current instanceof InitialOperation && current.eContainingFeature() == DescriptionPackage.Literals.DIAGRAM_DESCRIPTION__DIAGRAM_INITIALISATION) {
+            availableVariables.put(IInterpreterSiriusVariables.DIAGRAM, VariableType.fromString(DIAGRAM_D_SEMANTIC_DIAGRAM));
         }
     }
 

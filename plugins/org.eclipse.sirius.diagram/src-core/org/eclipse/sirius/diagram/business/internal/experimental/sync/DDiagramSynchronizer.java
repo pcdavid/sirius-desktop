@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.business.api.helper.task.TaskHelper;
 import org.eclipse.sirius.business.api.logger.RuntimeLoggerManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
@@ -89,16 +88,12 @@ import org.eclipse.sirius.diagram.description.MappingBasedDecoration;
 import org.eclipse.sirius.diagram.description.NodeMapping;
 import org.eclipse.sirius.diagram.description.NodeMappingImport;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
-import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.FeatureNotFoundException;
-import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.MetaClassNotFoundException;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
 import org.eclipse.sirius.ext.base.cache.KeyCache;
 import org.eclipse.sirius.ext.base.collect.GSetIntersection;
 import org.eclipse.sirius.ext.base.collect.MultipleCollection;
 import org.eclipse.sirius.ext.base.collect.SetIntersection;
-import org.eclipse.sirius.tools.api.command.ui.NoUICallback;
-import org.eclipse.sirius.tools.api.command.ui.UICallBack;
 import org.eclipse.sirius.tools.api.profiler.SiriusTasksKey;
 import org.eclipse.sirius.viewpoint.description.DecorationDescription;
 import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
@@ -226,11 +221,9 @@ public class DDiagramSynchronizer {
      */
     public void initDiagram(final String name, final EObject target, final IProgressMonitor monitor) {
         try {
-            monitor.beginTask(Messages.DDiagramSynchronizer_initDiagramMsg, 4);
+            monitor.beginTask(Messages.DDiagramSynchronizer_initDiagramMsg, 3);
             this.session = SessionManager.INSTANCE.getSession(target);
             this.diagram = createEmptyDiagram(name, target);
-            monitor.worked(1);
-            applyInitializationOperation(target);
             monitor.worked(1);
             this.sync = new DDiagramElementSynchronizer(this.diagram, this.interpreter, this.accessor);
             ConcernService.setCurrentConcern(this.diagram, this.description.getDefaultConcern());
@@ -252,22 +245,6 @@ public class DDiagramSynchronizer {
         result.setDescription(description);
         result.setTarget(target);
         return result;
-    }
-
-    private void applyInitializationOperation(final EObject target) {
-        if (description.getDiagramInitialisation() != null && description.getDiagramInitialisation().getFirstModelOperations() != null) {
-            try {
-                new TaskHelper(accessor, createUICallBack()).buildTaskFromModelOperation(this.diagram, target, description.getDiagramInitialisation().getFirstModelOperations()).execute();
-            } catch (MetaClassNotFoundException e) {
-                // TODO should we log something
-            } catch (FeatureNotFoundException e) {
-                // TODO should we log something
-            }
-        }
-    }
-
-    private UICallBack createUICallBack() {
-        return new NoUICallback();
     }
 
     private void initDiagramRelatedFields() {

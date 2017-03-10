@@ -155,8 +155,7 @@ public class DiagramDialectUIServices implements DialectUIServices {
 
                 if (gmfDiags.isEmpty()) {
                     /*
-                     * we have our diagrams but not the gmf ones => old aird
-                     * version or corrupted file
+                     * we have our diagrams but not the gmf ones => old aird version or corrupted file
                      */
                     TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
                     domain.getCommandStack().execute(new CreateAndStoreGMFDiagramCommand(session, diag));
@@ -261,8 +260,7 @@ public class DiagramDialectUIServices implements DialectUIServices {
     }
 
     /**
-     * Synchronizes the GMF diagram model according to the viewpoint
-     * DSemanticDiagram model.
+     * Synchronizes the GMF diagram model according to the viewpoint DSemanticDiagram model.
      *
      * @param diagram
      *            the GMF diagram model to synchronize.
@@ -298,7 +296,7 @@ public class DiagramDialectUIServices implements DialectUIServices {
                 if (diagramEditPart != null) {
                     diagramEditPart.deactivate();
                 }
-            } catch (final NullPointerException e) {
+            } catch (NullPointerException | IllegalStateException e) {
                 // we might have an exception closing an editor which is
                 // already in trouble
                 DiagramPlugin.getDefault().getLog().log(new Status(IStatus.WARNING, DiagramPlugin.ID, Messages.DiagramDialectUIServices_diagramEditPartDeactivationError));
@@ -306,7 +304,7 @@ public class DiagramDialectUIServices implements DialectUIServices {
 
             try {
                 ((DiagramDocumentEditor) editorPart).close(save);
-            } catch (final NullPointerException e) {
+            } catch (NullPointerException | IllegalStateException e) {
                 // we might have an exception closing an editor which is
                 // already in trouble
                 DiagramUIPlugin.getPlugin().getLog().log(new Status(IStatus.WARNING, DiagramUIPlugin.ID, Messages.DiagramDialectUIServices_diagramEditorClosingError, e));
@@ -499,10 +497,8 @@ public class DiagramDialectUIServices implements DialectUIServices {
                         /* validate to have all nodes in the right position */
                         diagramEditPart.getFigure().validate();
                         /*
-                         * In the case of connection on EditParts created during
-                         * first Refresh they will not appear until we refresh a
-                         * second time Example of such cases are exchanges on
-                         * DFI (mch)
+                         * In the case of connection on EditParts created during first Refresh they will not appear
+                         * until we refresh a second time Example of such cases are exchanges on DFI (mch)
                          */
                         diagramEditPart.getRoot().refresh();
                         /*
@@ -521,7 +517,7 @@ public class DiagramDialectUIServices implements DialectUIServices {
                         if (exception instanceof SizeTooLargeException) {
                             throw (SizeTooLargeException) exception;
                         } else if (exception.getStatus() != null && exception.getStatus().getException() instanceof SWTException) {
-                            /* Case that can occurs on Windows.*/
+                            /* Case that can occurs on Windows. */
                             throw new SizeTooLargeException(new Status(IStatus.ERROR, SiriusPlugin.ID, representation.getName()));
                         }
                         SiriusPlugin.getDefault().error(MessageFormat.format(Messages.DiagramDialectUIServices_exportedDiagramImageCreationError, correctPath), exception);
@@ -727,8 +723,7 @@ public class DiagramDialectUIServices implements DialectUIServices {
      * @param session
      *            the current session
      *
-     * @return the editPart corresponding to the diagram element given as
-     *         parameter or null if any
+     * @return the editPart corresponding to the diagram element given as parameter or null if any
      */
     protected IGraphicalEditPart getEditPart(final DDiagramElement diagramElement, final EditPartViewer graphicalViewer, Session session) {
         IGraphicalEditPart result = null;
@@ -756,8 +751,8 @@ public class DiagramDialectUIServices implements DialectUIServices {
     /**
      * {@inheritDoc}
      *
-     * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#completeToolTipText(String,
-     *      EObject, EStructuralFeature)
+     * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#completeToolTipText(String, EObject,
+     *      EStructuralFeature)
      */
     @Override
     public String completeToolTipText(String toolTipText, EObject eObject, EStructuralFeature feature) {
@@ -799,13 +794,10 @@ public class DiagramDialectUIServices implements DialectUIServices {
     /**
      * {@inheritDoc}
      *
-     * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#completeToolTipText(String,
-     *      EObject)
-     * @deprecated this method has not access to the feature of eObject. This is
-     *             supported in
+     * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#completeToolTipText(String, EObject)
+     * @deprecated this method has not access to the feature of eObject. This is supported in
      *             org.eclipse.sirius.diagram.ui.business.internal.dialect
-     *             .DiagramDialectUIServices.completeToolTipText(String,
-     *             EObject, EStructuralFeature)
+     *             .DiagramDialectUIServices.completeToolTipText(String, EObject, EStructuralFeature)
      */
     @Deprecated
     @Override

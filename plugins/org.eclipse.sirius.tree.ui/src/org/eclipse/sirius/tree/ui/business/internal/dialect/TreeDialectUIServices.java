@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2010, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -153,7 +153,7 @@ public class TreeDialectUIServices implements DialectUIServices {
         if (canHandleEditor(editorPart)) {
             try {
                 ((DTreeEditor) editorPart).close(save);
-            } catch (NullPointerException e) {
+            } catch (NullPointerException | IllegalStateException e) {
                 // we might have an exception closing an editor which is
                 // already in trouble
                 TreeUIPlugin.getPlugin().log(new Status(IStatus.ERROR, TreeUIPlugin.ID, Messages.TreeDialectUIServices_errorOpeningEditor, e));
@@ -282,13 +282,10 @@ public class TreeDialectUIServices implements DialectUIServices {
     /**
      * {@inheritDoc}
      * 
-     * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#completeToolTipText(String,
-     *      EObject)
-     * @deprecated this method has not access to the feature of eObject. This is
-     *             supported in
+     * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#completeToolTipText(String, EObject)
+     * @deprecated this method has not access to the feature of eObject. This is supported in
      *             org.eclipse.sirius.tree.ui.business.internal.dialect
-     *             .TreeDialectUIServices.completeToolTipText(String, EObject,
-     *             EStructuralFeature)
+     *             .TreeDialectUIServices.completeToolTipText(String, EObject, EStructuralFeature)
      */
     @Deprecated
     @Override

@@ -99,6 +99,11 @@ public class RestoreToLastSavePointListener implements ResourceSyncClient, IOper
                 changed.add(currentResource);
             }
         }
+        for (Resource currentResource : session.getSrmResources()) {
+            if (currentResource.isModified()) {
+                changed.add(currentResource);
+            }
+        }
         for (Resource currentResource : session.getSemanticResources()) {
             if (currentResource.isModified()) {
                 changed.add(currentResource);
@@ -199,9 +204,8 @@ public class RestoreToLastSavePointListener implements ResourceSyncClient, IOper
     }
 
     /**
-     * Returns whether we can perform the entire revert by undoing all
-     * operations. In other words, if the undo history is strictly lower to the
-     * max limit.
+     * Returns whether we can perform the entire revert by undoing all operations. In other words, if the undo history
+     * is strictly lower to the max limit.
      *
      * @return true if we can perform the undo, false otherwise.
      */
@@ -213,8 +217,7 @@ public class RestoreToLastSavePointListener implements ResourceSyncClient, IOper
     }
 
     /**
-     * Check the DesignerUIPreferencesKeys.PREF_RELOAD_ON_LAST_EDITOR_CLOSE
-     * preference state.
+     * Check the DesignerUIPreferencesKeys.PREF_RELOAD_ON_LAST_EDITOR_CLOSE preference state.
      *
      * @return the preference value.
      */

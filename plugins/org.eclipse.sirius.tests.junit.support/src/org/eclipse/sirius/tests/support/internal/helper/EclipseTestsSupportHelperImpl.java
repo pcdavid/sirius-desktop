@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.core.filebuffers.manipulation.ContainerCreator;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
@@ -43,10 +44,15 @@ import junit.framework.TestCase;
  * @author mchauvin
  */
 public final class EclipseTestsSupportHelperImpl implements EclipseTestsSupportHelper {
+
     /**
      * Singleton instance of the eclipse tests support.
      */
     public static final EclipseTestsSupportHelper INSTANCE = new EclipseTestsSupportHelperImpl();
+
+    private static final String AIRD = ".aird";
+
+    private static final String SEP = "/";
 
     /**
      * Avoid instantiation.
@@ -57,7 +63,7 @@ public final class EclipseTestsSupportHelperImpl implements EclipseTestsSupportH
 
     @Override
     public Resource createResourceInProject(final ResourceSet set, final String projectName, final String fileName) {
-        return set.createResource(URI.createPlatformResourceURI("/" + projectName + "/" + fileName, true));
+        return set.createResource(URI.createPlatformResourceURI(SEP + projectName + SEP + fileName, true));
     }
 
     @Override
@@ -209,6 +215,22 @@ public final class EclipseTestsSupportHelperImpl implements EclipseTestsSupportH
                 // Refresh the new created file
                 destinationFile.refreshLocal(IResource.DEPTH_ZERO, new NullProgressMonitor());
             }
+
+            if (sourceFile.getPath().endsWith(AIRD)) {
+                File repFolder = new File(sourceFile.getParentFile(), sourceFile.getName().replaceAll(AIRD, "_aird"));
+                if (repFolder.exists() && repFolder.isDirectory()) {
+                    IContainer destRepFolder = new ContainerCreator(ResourcesPlugin.getWorkspace(), new Path(destinationFile.getFullPath().toOSString().replace(AIRD, "_aird")))
+                            .createContainer(new NullProgressMonitor());
+                    for (File repFile : repFolder.listFiles()) {
+                        copyFile(repFile, new File(destRepFolder.getLocation().toOSString() + SEP + repFile.getName()));
+                    }
+                    if (refreshAfterCopy) {
+                        // Refresh the new created folder
+                        destRepFolder.refreshLocal(IResource.DEPTH_ONE, new NullProgressMonitor());
+                    }
+                }
+            }
+
         } catch (final CoreException e) {
             errorMessage.append(e.getMessage());
         } catch (final IOException e) {

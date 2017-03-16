@@ -413,6 +413,10 @@
             class="org.eclipse.sirius.business.internal.migration.EmptyMigrationForPropertyViewMigrationParticipant"
             kind="VSM">
       </participant>
+      <participant
+            class="org.eclipse.sirius.business.internal.migration.AutoFragmentRepresentationParticipant"
+            kind="RepresentationsFile">
+      </participant>
    </extension>
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated contribution -->

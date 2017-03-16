@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.sirius.business.internal.session.danalysis;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -439,5 +440,26 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
     @Override
     public void setAnalysisSelector(final DAnalysisSelector selector) {
         this.analysisSelector = selector;
+    }
+
+    /**
+     * Extract the given representation in its own resource.
+     * 
+     * @param rep
+     *            the representation to extract.
+     * @param eResource
+     *            the current aird resource.
+     */
+    public static void extract(DRepresentation rep, Resource eResource) {
+        DRepresentationLocationManager representationLocationManager = new DRepresentationLocationManager();
+        Resource newResource = representationLocationManager.getOrCreateRepresentationResource(rep, eResource);
+        newResource.getContents().add(rep);
+        try {
+            newResource.save(Collections.emptyMap());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
     }
 }

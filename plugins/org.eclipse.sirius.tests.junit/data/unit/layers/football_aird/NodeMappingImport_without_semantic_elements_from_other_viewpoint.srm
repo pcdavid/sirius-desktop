@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_g6uC4eDtEd6iJoDb7lhWwA" name="NodeMappingImport without semantic elements from other viewpoint">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BZL2fQ5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_BZL2fg5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_E4mdgJjFEeCTjf2eRUPO7Q" name="Zidane" width="3" height="3">
+    <target xmi:type="uml:Class" href="../football.uml#_Zfig0EjgEd2dA-w4B9F6fQ"/>
+    <semanticElements xmi:type="uml:Class" href="../football.uml#_Zfig0EjgEd2dA-w4B9F6fQ"/>
+    <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_E4nEkJjFEeCTjf2eRUPO7Q" color="114,159,207">
+      <description xmi:type="style:BundledImageDescription" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20without%20semantic%20elements%20from%20other%20viewpoint']/@defaultLayer/@nodeMappings[name='annexe%20node%20imported']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMappingImport" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20without%20semantic%20elements%20from%20other%20viewpoint']/@defaultLayer/@nodeMappings[name='annexe%20node%20imported']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_E4nElJjFEeCTjf2eRUPO7Q" name="Benzema" width="3" height="3">
+    <target xmi:type="uml:Class" href="../football.uml#_wLR7QHg7Ed2ISLgtvgSAmQ"/>
+    <semanticElements xmi:type="uml:Class" href="../football.uml#_wLR7QHg7Ed2ISLgtvgSAmQ"/>
+    <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_E4nroJjFEeCTjf2eRUPO7Q" color="114,159,207">
+      <description xmi:type="style:BundledImageDescription" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20without%20semantic%20elements%20from%20other%20viewpoint']/@defaultLayer/@nodeMappings[name='annexe%20node%20imported']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMappingImport" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20without%20semantic%20elements%20from%20other%20viewpoint']/@defaultLayer/@nodeMappings[name='annexe%20node%20imported']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_E4nrpJjFEeCTjf2eRUPO7Q" name="Makelele" width="3" height="3">
+    <target xmi:type="uml:Class" href="../football.uml#_XFrIwHg7Ed2ISLgtvgSAmQ"/>
+    <semanticElements xmi:type="uml:Class" href="../football.uml#_XFrIwHg7Ed2ISLgtvgSAmQ"/>
+    <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_E4nrpZjFEeCTjf2eRUPO7Q" color="114,159,207">
+      <description xmi:type="style:BundledImageDescription" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20without%20semantic%20elements%20from%20other%20viewpoint']/@defaultLayer/@nodeMappings[name='annexe%20node%20imported']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMappingImport" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20without%20semantic%20elements%20from%20other%20viewpoint']/@defaultLayer/@nodeMappings[name='annexe%20node%20imported']"/>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20without%20semantic%20elements%20from%20other%20viewpoint']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_g6uC4uDtEd6iJoDb7lhWwA"/>
+  <activatedLayers xmi:type="description_1:Layer" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20without%20semantic%20elements%20from%20other%20viewpoint']/@defaultLayer"/>
+  <target xmi:type="uml:Model" href="../football.uml#_Wh_KkEjgEd2dA-w4B9F6fQ"/>
+</diagram:DSemanticDiagram>

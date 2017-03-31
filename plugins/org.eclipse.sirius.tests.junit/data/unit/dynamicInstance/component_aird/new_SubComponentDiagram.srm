@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:component="http://www.example.com/samples/component/0.1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://www.example.com/samples/component/0.1.0 ../component.ecore http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" xmi:id="_BSsN8CsZEeG1GL5ImXNO1A" name="new SubComponentDiagram">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BSs1ACsZEeG1GL5ImXNO1A" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_BSs1ASsZEeG1GL5ImXNO1A" type="Sirius" element="_BSsN8CsZEeG1GL5ImXNO1A" measurementUnit="Pixel">
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_BSs1AisZEeG1GL5ImXNO1A"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BW9B1g5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_BW9B1w5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_BSsN8SsZEeG1GL5ImXNO1A"/>
+  <target xmi:type="component:Component" href="../component.component#//@components.0"/>
+</diagram:DSemanticDiagram>

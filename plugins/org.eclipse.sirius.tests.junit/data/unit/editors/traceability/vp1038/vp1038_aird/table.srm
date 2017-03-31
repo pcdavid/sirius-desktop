@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="_EihtUP0pEd-oPM3U8Zxb7g" name="table" headerColumnWidth="279">
+  <target xmi:type="ecore:EPackage" href="../vp1038.ecore#/"/>
+  <lines xmi:type="table:DLine" xmi:id="_EihtUf0pEd-oPM3U8Zxb7g" label="p1" collapsed="true">
+    <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p1"/>
+    <lines xmi:type="table:DLine" xmi:id="_EihtUv0pEd-oPM3U8Zxb7g" label="A" collapsed="true">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/A"/>
+      <lines xmi:type="table:DLine" xmi:id="_0Mh1wP4ZEd-tEIivEm4ULA" label="toB : B">
+        <target xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/A/toB"/>
+        <lines xmi:type="table:DLine" xmi:id="_09eGUP4gEd-tEIivEm4ULA" label="theRefAnnotation">
+          <target xmi:type="ecore:EAnnotation" href="../vp1038.ecore#//p1/A/toB/%theRefAnnotation%"/>
+          <semanticElements xmi:type="ecore:EAnnotation" href="../vp1038.ecore#//p1/A/toB/%theRefAnnotation%"/>
+          <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']/@ownedSubLines[name='']/@ownedSubLines[name='']"/>
+        </lines>
+        <semanticElements xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/A/toB"/>
+        <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']/@ownedSubLines[name='']"/>
+        <cells xmi:type="table:DCell" xmi:id="_acMgkPimEeCP1MiVkpt0BA" label="toB" column="_acLScPimEeCP1MiVkpt0BA">
+          <target xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/A/toB"/>
+          <semanticElements xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/A/toB"/>
+        </cells>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/A"/>
+      <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']"/>
+      <cells xmi:type="table:DCell" xmi:id="_acL5gfimEeCP1MiVkpt0BA" label="A" column="_acLScPimEeCP1MiVkpt0BA">
+        <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/A"/>
+        <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/A"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_EihtU_0pEd-oPM3U8Zxb7g" label="G" collapsed="true">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/G"/>
+      <lines xmi:type="table:DLine" xmi:id="_0Mh1wf4ZEd-tEIivEm4ULA" label="toE : E">
+        <target xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/G/toE"/>
+        <semanticElements xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/G/toE"/>
+        <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']/@ownedSubLines[name='']"/>
+        <cells xmi:type="table:DCell" xmi:id="_acNHoPimEeCP1MiVkpt0BA" label="toE" column="_acLScPimEeCP1MiVkpt0BA">
+          <target xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/G/toE"/>
+          <semanticElements xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/G/toE"/>
+        </cells>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/G"/>
+      <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']"/>
+      <cells xmi:type="table:DCell" xmi:id="_acMgkfimEeCP1MiVkpt0BA" label="G" column="_acLScPimEeCP1MiVkpt0BA">
+        <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/G"/>
+        <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/G"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_EihtVP0pEd-oPM3U8Zxb7g" label="H" collapsed="true">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/H"/>
+      <lines xmi:type="table:DLine" xmi:id="_0Mh1wv4ZEd-tEIivEm4ULA" label="toF : F">
+        <target xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/H/toF"/>
+        <semanticElements xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/H/toF"/>
+        <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']/@ownedSubLines[name='']"/>
+        <cells xmi:type="table:DCell" xmi:id="_acNHovimEeCP1MiVkpt0BA" label="toF" column="_acLScPimEeCP1MiVkpt0BA">
+          <target xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/H/toF"/>
+          <semanticElements xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/H/toF"/>
+        </cells>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/H"/>
+      <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']"/>
+      <cells xmi:type="table:DCell" xmi:id="_acNHofimEeCP1MiVkpt0BA" label="H" column="_acLScPimEeCP1MiVkpt0BA">
+        <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/H"/>
+        <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/H"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_EihtVf0pEd-oPM3U8Zxb7g" label="I" collapsed="true">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/I"/>
+      <lines xmi:type="table:DLine" xmi:id="_0Mh1w_4ZEd-tEIivEm4ULA" label="toJ : J">
+        <target xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/I/toJ"/>
+        <semanticElements xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/I/toJ"/>
+        <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']/@ownedSubLines[name='']"/>
+        <cells xmi:type="table:DCell" xmi:id="_acNusfimEeCP1MiVkpt0BA" label="toJ" column="_acLScPimEeCP1MiVkpt0BA">
+          <target xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/I/toJ"/>
+          <semanticElements xmi:type="ecore:EReference" href="../vp1038.ecore#//p1/I/toJ"/>
+        </cells>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/I"/>
+      <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']"/>
+      <cells xmi:type="table:DCell" xmi:id="_acNusPimEeCP1MiVkpt0BA" label="I" column="_acLScPimEeCP1MiVkpt0BA">
+        <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/I"/>
+        <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/I"/>
+      </cells>
+    </lines>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p1"/>
+    <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']"/>
+    <cells xmi:type="table:DCell" xmi:id="_acL5gPimEeCP1MiVkpt0BA" label="p1" column="_acLScPimEeCP1MiVkpt0BA">
+      <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p1"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p1"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_EihtVv0pEd-oPM3U8Zxb7g" label="p2" collapsed="true">
+    <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p2"/>
+    <lines xmi:type="table:DLine" xmi:id="_EihtV_0pEd-oPM3U8Zxb7g" label="B">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p2/B"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p2/B"/>
+      <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']"/>
+      <cells xmi:type="table:DCell" xmi:id="_acOVwPimEeCP1MiVkpt0BA" label="B" column="_acLScPimEeCP1MiVkpt0BA">
+        <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p2/B"/>
+        <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p2/B"/>
+      </cells>
+    </lines>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p2"/>
+    <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']"/>
+    <cells xmi:type="table:DCell" xmi:id="_acNusvimEeCP1MiVkpt0BA" label="p2" column="_acLScPimEeCP1MiVkpt0BA">
+      <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p2"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p2"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_EihtWP0pEd-oPM3U8Zxb7g" label="p3" collapsed="true">
+    <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p3"/>
+    <lines xmi:type="table:DLine" xmi:id="_EihtWf0pEd-oPM3U8Zxb7g" label="E">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p3/E"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p3/E"/>
+      <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']"/>
+      <cells xmi:type="table:DCell" xmi:id="_acO80PimEeCP1MiVkpt0BA" label="E" column="_acLScPimEeCP1MiVkpt0BA">
+        <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p3/E"/>
+        <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p3/E"/>
+      </cells>
+    </lines>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p3"/>
+    <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']"/>
+    <cells xmi:type="table:DCell" xmi:id="_acOVwfimEeCP1MiVkpt0BA" label="p3" column="_acLScPimEeCP1MiVkpt0BA">
+      <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p3"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p3"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_EihtWv0pEd-oPM3U8Zxb7g" label="p4" collapsed="true">
+    <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p4"/>
+    <lines xmi:type="table:DLine" xmi:id="_EihtW_0pEd-oPM3U8Zxb7g" label="F">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p4/F"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p4/F"/>
+      <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']"/>
+      <cells xmi:type="table:DCell" xmi:id="_acO80vimEeCP1MiVkpt0BA" label="F" column="_acLScPimEeCP1MiVkpt0BA">
+        <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p4/F"/>
+        <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p4/F"/>
+      </cells>
+    </lines>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p4"/>
+    <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']"/>
+    <cells xmi:type="table:DCell" xmi:id="_acO80fimEeCP1MiVkpt0BA" label="p4" column="_acLScPimEeCP1MiVkpt0BA">
+      <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p4"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p4"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_EihtXP0pEd-oPM3U8Zxb7g" label="p5" collapsed="true">
+    <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p5"/>
+    <lines xmi:type="table:DLine" xmi:id="_EihtXf0pEd-oPM3U8Zxb7g" label="J">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p5/J"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p5/J"/>
+      <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']"/>
+      <cells xmi:type="table:DCell" xmi:id="_acPj4fimEeCP1MiVkpt0BA" label="J" column="_acLScPimEeCP1MiVkpt0BA">
+        <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p5/J"/>
+        <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p5/J"/>
+      </cells>
+    </lines>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p5"/>
+    <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']"/>
+    <cells xmi:type="table:DCell" xmi:id="_acPj4PimEeCP1MiVkpt0BA" label="p5" column="_acLScPimEeCP1MiVkpt0BA">
+      <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p5"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p5"/>
+    </cells>
+  </lines>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_acLScPimEeCP1MiVkpt0BA" cells="_acL5gPimEeCP1MiVkpt0BA _acL5gfimEeCP1MiVkpt0BA _acMgkPimEeCP1MiVkpt0BA _acMgkfimEeCP1MiVkpt0BA _acNHoPimEeCP1MiVkpt0BA _acNHofimEeCP1MiVkpt0BA _acNHovimEeCP1MiVkpt0BA _acNusPimEeCP1MiVkpt0BA _acNusfimEeCP1MiVkpt0BA _acNusvimEeCP1MiVkpt0BA _acOVwPimEeCP1MiVkpt0BA _acOVwfimEeCP1MiVkpt0BA _acO80PimEeCP1MiVkpt0BA _acO80fimEeCP1MiVkpt0BA _acO80vimEeCP1MiVkpt0BA _acPj4PimEeCP1MiVkpt0BA _acPj4fimEeCP1MiVkpt0BA" featureName="name">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedColumnMappings[name='name']"/>
+  </columns>
+  <description xmi:type="description:EditionTableDescription" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']"/>
+</table:DTable>

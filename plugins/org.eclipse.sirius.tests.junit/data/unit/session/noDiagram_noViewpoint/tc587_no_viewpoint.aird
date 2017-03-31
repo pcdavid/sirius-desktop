@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xmi:id="_kzn-UCE8Ed-WYvDtRPVxmQ" version="11.1.0.201608251200">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xmi:id="_kzn-UCE8Ed-WYvDtRPVxmQ" version="12.0.0.201703161200">
   <semanticResources>tc587.ecore</semanticResources>
 </viewpoint:DAnalysis>

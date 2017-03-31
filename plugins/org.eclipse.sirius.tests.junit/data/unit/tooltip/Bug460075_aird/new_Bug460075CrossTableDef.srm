@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="_xwjnwFU3EeWac8QKzk2I0Q" name="new Bug460075CrossTableDef" headerColumnWidth="131">
+  <target xmi:type="ecore:EPackage" href="../Bug460075.ecore#/"/>
+  <lines xmi:type="table:DLine" xmi:id="_xwjnwVU3EeWac8QKzk2I0Q" label="p1">
+    <target xmi:type="ecore:EPackage" href="../Bug460075.ecore#//p1"/>
+    <lines xmi:type="table:DLine" xmi:id="_xwjnwlU3EeWac8QKzk2I0Q" label="c2">
+      <target xmi:type="ecore:EClass" href="../Bug460075.ecore#//p1/c2"/>
+      <lines xmi:type="table:DLine" xmi:id="_xwjnw1U3EeWac8QKzk2I0Q" label="a2">
+        <target xmi:type="ecore:EAttribute" href="../Bug460075.ecore#//p1/c2/a2"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../Bug460075.ecore#//p1/c2/a2"/>
+        <originMapping xmi:type="description:LineMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@ownedLineMappings[name='EClassLineMapping']/@ownedSubLines[name='EAttributeLineMapping']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_xwjnxFU3EeWac8QKzk2I0Q" label="r2 : c1">
+        <target xmi:type="ecore:EReference" href="../Bug460075.ecore#//p1/c2/r2"/>
+        <semanticElements xmi:type="ecore:EReference" href="../Bug460075.ecore#//p1/c2/r2"/>
+        <originMapping xmi:type="description:LineMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@ownedLineMappings[name='EClassLineMapping']/@ownedSubLines[name='EReferenceLineMapping']"/>
+        <cells xmi:type="table:DCell" xmi:id="_xwkO0FU3EeWac8QKzk2I0Q" label="X" column="_xwkO1VU3EeWac8QKzk2I0Q">
+          <target xmi:type="ecore:EReference" href="../Bug460075.ecore#//p1/c2/r2"/>
+          <semanticElements xmi:type="ecore:EReference" href="../Bug460075.ecore#//p1/c2/r2"/>
+          <intersectionMapping xmi:type="description:IntersectionMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@intersection.0"/>
+        </cells>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="../Bug460075.ecore#//p1/c2"/>
+      <originMapping xmi:type="description:LineMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@ownedLineMappings[name='EClassLineMapping']"/>
+    </lines>
+    <semanticElements xmi:type="ecore:EPackage" href="../Bug460075.ecore#//p1"/>
+    <originMapping xmi:type="description:LineMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@ownedLineMappings[name='EPackageLineMapping']"/>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_xwkO0VU3EeWac8QKzk2I0Q" label="c1">
+    <target xmi:type="ecore:EClass" href="../Bug460075.ecore#//c1"/>
+    <lines xmi:type="table:DLine" xmi:id="_xwkO0lU3EeWac8QKzk2I0Q" label="a1">
+      <target xmi:type="ecore:EAttribute" href="../Bug460075.ecore#//c1/a1"/>
+      <semanticElements xmi:type="ecore:EAttribute" href="../Bug460075.ecore#//c1/a1"/>
+      <originMapping xmi:type="description:LineMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@ownedLineMappings[name='EClassLineMapping']/@ownedSubLines[name='EAttributeLineMapping']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_xwkO01U3EeWac8QKzk2I0Q" label="r1 : c2">
+      <target xmi:type="ecore:EReference" href="../Bug460075.ecore#//c1/r1"/>
+      <semanticElements xmi:type="ecore:EReference" href="../Bug460075.ecore#//c1/r1"/>
+      <originMapping xmi:type="description:LineMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@ownedLineMappings[name='EClassLineMapping']/@ownedSubLines[name='EReferenceLineMapping']"/>
+      <cells xmi:type="table:DCell" xmi:id="_xwkO1FU3EeWac8QKzk2I0Q" label="X" column="_xwkO1lU3EeWac8QKzk2I0Q">
+        <target xmi:type="ecore:EReference" href="../Bug460075.ecore#//c1/r1"/>
+        <semanticElements xmi:type="ecore:EReference" href="../Bug460075.ecore#//c1/r1"/>
+        <intersectionMapping xmi:type="description:IntersectionMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@intersection.0"/>
+      </cells>
+    </lines>
+    <semanticElements xmi:type="ecore:EClass" href="../Bug460075.ecore#//c1"/>
+    <originMapping xmi:type="description:LineMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@ownedLineMappings[name='EClassLineMapping']"/>
+  </lines>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_xwkO1VU3EeWac8QKzk2I0Q" label="c1" cells="_xwkO0FU3EeWac8QKzk2I0Q" width="639">
+    <target xmi:type="ecore:EClass" href="../Bug460075.ecore#//c1"/>
+    <semanticElements xmi:type="ecore:EClass" href="../Bug460075.ecore#//c1"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@ownedColumnMappings.0"/>
+  </columns>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_xwkO1lU3EeWac8QKzk2I0Q" label="c2" cells="_xwkO1FU3EeWac8QKzk2I0Q">
+    <target xmi:type="ecore:EClass" href="../Bug460075.ecore#//p1/c2"/>
+    <semanticElements xmi:type="ecore:EClass" href="../Bug460075.ecore#//p1/c2"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']/@ownedColumnMappings.0"/>
+  </columns>
+  <description xmi:type="description:CrossTableDescription" href="../Bug460075.odesign#//@ownedViewpoints[name='Bug460075Viewpoint']/@ownedRepresentations[name='Bug460075CrossTableDef']"/>
+</table:DTable>

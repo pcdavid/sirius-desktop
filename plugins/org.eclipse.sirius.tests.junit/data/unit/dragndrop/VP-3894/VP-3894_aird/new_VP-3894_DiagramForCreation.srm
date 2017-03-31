@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description" xmi:id="_WnLA8KXAEeKtvL2Dr12KsQ" name="new VP-3894_DiagramForCreation">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_WnYcUKXAEeKtvL2Dr12KsQ" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_WnYcUaXAEeKtvL2Dr12KsQ" type="Sirius" element="_WnLA8KXAEeKtvL2Dr12KsQ" measurementUnit="Pixel">
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_WnYcUqXAEeKtvL2Dr12KsQ"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BWzQ0g5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_BWzQ0w5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <description xmi:type="description_1:DiagramDescription" href="../VP-3894.odesign#//@ownedViewpoints[name='VP-3894_Viewpoint']/@ownedRepresentations[name='VP-3894_Diagram']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_WnLoIKXAEeKtvL2Dr12KsQ"/>
+  <activatedLayers xmi:type="description_1:Layer" href="../VP-3894.odesign#//@ownedViewpoints[name='VP-3894_Viewpoint']/@ownedRepresentations[name='VP-3894_Diagram']/@defaultLayer"/>
+  <activatedLayers xmi:type="description_1:AdditionalLayer" href="../VP-3894.odesign#//@ownedViewpoints[name='VP-3894_Viewpoint']/@ownedRepresentations[name='VP-3894_Diagram']/@additionalLayers[name='LABEL_HIDDEN_BY_DEFAULT_LAYER']"/>
+  <target xmi:type="ecore:EPackage" href="../VP-3894.ecore#/"/>
+</diagram:DSemanticDiagram>

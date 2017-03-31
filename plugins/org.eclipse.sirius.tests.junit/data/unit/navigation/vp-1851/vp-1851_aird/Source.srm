@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_GAo3cEiTEeCf1afkbiTPUA" name="Source">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_GAo3ckiTEeCf1afkbiTPUA" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_GAo3c0iTEeCf1afkbiTPUA" type="Sirius" element="_GAo3cEiTEeCf1afkbiTPUA" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_GBa6kEiTEeCf1afkbiTPUA" type="2001" element="_GAqsoEiTEeCf1afkbiTPUA">
+        <children xmi:type="notation:Node" xmi:id="_GBbhoUiTEeCf1afkbiTPUA" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_GBbhokiTEeCf1afkbiTPUA" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_GBcvwEiTEeCf1afkbiTPUA" type="3003" element="_GBYeUEiTEeCf1afkbiTPUA">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_GBcvwUiTEeCf1afkbiTPUA" fontName="Sans"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GBcvwkiTEeCf1afkbiTPUA"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_GBa6kUiTEeCf1afkbiTPUA" fontName="Sans" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GBbhoEiTEeCf1afkbiTPUA" width="30" height="30"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_GAo3dEiTEeCf1afkbiTPUA"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Bm-a0Q5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_Bm-a0g5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_GAqsoEiTEeCf1afkbiTPUA" name="A" width="3" height="3">
+    <target xmi:type="ecore:EClass" href="../vp-1851.ecore#//A"/>
+    <semanticElements xmi:type="ecore:EClass" href="../vp-1851.ecore#//A"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_GBYeUEiTEeCf1afkbiTPUA">
+      <description xmi:type="style:SquareDescription" href="../vp-1851.odesign#//@ownedViewpoints[name='VP-1851']/@ownedRepresentations[name='Source']/@defaultLayer/@nodeMappings[name='Class']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../vp-1851.odesign#//@ownedViewpoints[name='VP-1851']/@ownedRepresentations[name='Source']/@defaultLayer/@nodeMappings[name='Class']"/>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="../vp-1851.odesign#//@ownedViewpoints[name='VP-1851']/@ownedRepresentations[name='Source']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_GAo3cUiTEeCf1afkbiTPUA"/>
+  <activatedLayers xmi:type="description_1:Layer" href="../vp-1851.odesign#//@ownedViewpoints[name='VP-1851']/@ownedRepresentations[name='Source']/@defaultLayer"/>
+  <target xmi:type="ecore:EPackage" href="../vp-1851.ecore#/"/>
+</diagram:DSemanticDiagram>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:component="http://www.example.com/samples/component/0.1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://www.example.com/samples/component/0.1.0 ../component.ecore http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" xmi:id="_9k9bISscEeGOlMz6jSo7_g" name="new SubComponentDiagram">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_9lEv4CscEeGOlMz6jSo7_g" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_9lEv4SscEeGOlMz6jSo7_g" type="Sirius" element="_9k9bISscEeGOlMz6jSo7_g" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_9mTe8CscEeGOlMz6jSo7_g" type="2001" element="_9mJt8CscEeGOlMz6jSo7_g">
+        <children xmi:type="notation:Node" xmi:id="_9mWiQCscEeGOlMz6jSo7_g" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9mWiQSscEeGOlMz6jSo7_g" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_9mcB0CscEeGOlMz6jSo7_g" type="3002" element="_9mK8ECscEeGOlMz6jSo7_g">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_9mcB0SscEeGOlMz6jSo7_g" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9mcB0iscEeGOlMz6jSo7_g"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_9mTe8SscEeGOlMz6jSo7_g" fontName="Ubuntu" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9mTe8iscEeGOlMz6jSo7_g" width="3" height="3"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9mXwYCscEeGOlMz6jSo7_g" type="2001" element="_9mMKMCscEeGOlMz6jSo7_g">
+        <children xmi:type="notation:Node" xmi:id="_9mY-gCscEeGOlMz6jSo7_g" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9mY-gSscEeGOlMz6jSo7_g" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_9mco4CscEeGOlMz6jSo7_g" type="3002" element="_9mMxQCscEeGOlMz6jSo7_g">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_9mco4SscEeGOlMz6jSo7_g" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9mco4iscEeGOlMz6jSo7_g"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_9mXwYSscEeGOlMz6jSo7_g" fontName="Ubuntu" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9mXwYiscEeGOlMz6jSo7_g" x="90" width="3" height="3"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9mY-giscEeGOlMz6jSo7_g" type="2001" element="_9mNYUCscEeGOlMz6jSo7_g">
+        <children xmi:type="notation:Node" xmi:id="_9mZlkCscEeGOlMz6jSo7_g" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9mZlkSscEeGOlMz6jSo7_g" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_9mdP8CscEeGOlMz6jSo7_g" type="3002" element="_9mN_YCscEeGOlMz6jSo7_g">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_9mdP8SscEeGOlMz6jSo7_g" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9mdP8iscEeGOlMz6jSo7_g"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_9mY-gyscEeGOlMz6jSo7_g" fontName="Ubuntu" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9mY-hCscEeGOlMz6jSo7_g" x="180" width="3" height="3"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9maMoCscEeGOlMz6jSo7_g" type="2001" element="_9mN_ZCscEeGOlMz6jSo7_g">
+        <children xmi:type="notation:Node" xmi:id="_9mazsCscEeGOlMz6jSo7_g" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9mazsSscEeGOlMz6jSo7_g" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_9md3ACscEeGOlMz6jSo7_g" type="3002" element="_9mOmcCscEeGOlMz6jSo7_g">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_9md3ASscEeGOlMz6jSo7_g" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9md3AiscEeGOlMz6jSo7_g"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_9maMoSscEeGOlMz6jSo7_g" fontName="Ubuntu" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9maMoiscEeGOlMz6jSo7_g" x="270" width="3" height="3"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_9lEv4iscEeGOlMz6jSo7_g"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BW9B2A5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_BW9B2Q5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_9mJt8CscEeGOlMz6jSo7_g" name="comp1" width="3" height="3" resizeKind="NSEW">
+    <target xmi:type="component:Component" href="../component.component#//@components.0"/>
+    <semanticElements xmi:type="component:Component" href="../component.component#//@components.0"/>
+    <ownedStyle xmi:type="diagram:Dot" xmi:id="_9mK8ECscEeGOlMz6jSo7_g"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_9mMKMCscEeGOlMz6jSo7_g" name="comp11" width="3" height="3" resizeKind="NSEW">
+    <ownedStyle xmi:type="diagram:Dot" xmi:id="_9mMxQCscEeGOlMz6jSo7_g"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_9mNYUCscEeGOlMz6jSo7_g" name="comp111" width="3" height="3" resizeKind="NSEW">
+    <ownedStyle xmi:type="diagram:Dot" xmi:id="_9mN_YCscEeGOlMz6jSo7_g"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_9mN_ZCscEeGOlMz6jSo7_g" name="comp1111" width="3" height="3" resizeKind="NSEW">
+    <ownedStyle xmi:type="diagram:Dot" xmi:id="_9mOmcCscEeGOlMz6jSo7_g"/>
+  </ownedDiagramElements>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_9k9bIiscEeGOlMz6jSo7_g"/>
+</diagram:DSemanticDiagram>

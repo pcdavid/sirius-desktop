@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_SNftIG8OEd-TfKcVTAA2LQ" name="P1A1 With Nodes Target All Expanded">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_zVQ7cIRLEeOg_8QSiaL3XA" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_SNgUMG8OEd-TfKcVTAA2LQ" type="Sirius" element="_SNftIG8OEd-TfKcVTAA2LQ" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_SNkloG8OEd-TfKcVTAA2LQ" type="2001" element="_H1lzEJjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_SNklo28OEd-TfKcVTAA2LQ" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_SNklpG8OEd-TfKcVTAA2LQ" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_SNlzwG8OEd-TfKcVTAA2LQ" type="3003" element="_H1lzEZjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_SNlzwW8OEd-TfKcVTAA2LQ" fontName="Sans"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SNlzwm8OEd-TfKcVTAA2LQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_SNkloW8OEd-TfKcVTAA2LQ" fontName="Sans" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SNklom8OEd-TfKcVTAA2LQ" width="50" height="30"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_SNklpW8OEd-TfKcVTAA2LQ" type="2001" element="_H1lzFZjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_SNlMsG8OEd-TfKcVTAA2LQ" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_SNlMsW8OEd-TfKcVTAA2LQ" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_SNnB4G8OEd-TfKcVTAA2LQ" type="3003" element="_H1lzFpjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_SNnB4W8OEd-TfKcVTAA2LQ" fontName="Sans"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SNnB4m8OEd-TfKcVTAA2LQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_SNklpm8OEd-TfKcVTAA2LQ" fontName="Sans" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SNklp28OEd-TfKcVTAA2LQ" x="110" width="50" height="30"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_SNgUMW8OEd-TfKcVTAA2LQ"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BYkLYA5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_BYkLYQ5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_H1lzEJjFEeCTjf2eRUPO7Q" name="P1A1A" width="5" height="3">
+    <target xmi:type="ecore:EPackage" href="../test.ecore#//P1/P1A/P1A1/P1A1A"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../test.ecore#//P1/P1A/P1A1/P1A1A"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_H1lzEZjFEeCTjf2eRUPO7Q" labelPosition="node" width="5" height="3" color="255,245,181">
+      <description xmi:type="style:SquareDescription" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Nodes%20Target']/@defaultLayer/@nodeMappings[name='NT%20Package']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Nodes%20Target']/@defaultLayer/@nodeMappings[name='NT%20Package']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_H1lzFZjFEeCTjf2eRUPO7Q" name="P1A1B" width="5" height="3">
+    <target xmi:type="ecore:EPackage" href="../test.ecore#//P1/P1A/P1A1/P1A1B"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../test.ecore#//P1/P1A/P1A1/P1A1B"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_H1lzFpjFEeCTjf2eRUPO7Q" labelPosition="node" width="5" height="3" color="255,245,181">
+      <description xmi:type="style:SquareDescription" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Nodes%20Target']/@defaultLayer/@nodeMappings[name='NT%20Package']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Nodes%20Target']/@defaultLayer/@nodeMappings[name='NT%20Package']"/>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Nodes%20Target']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_SNftIW8OEd-TfKcVTAA2LQ"/>
+  <activatedLayers xmi:type="description_1:Layer" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Nodes%20Target']/@defaultLayer"/>
+  <target xmi:type="ecore:EPackage" href="../test.ecore#//P1/P1A/P1A1"/>
+</diagram:DSemanticDiagram>

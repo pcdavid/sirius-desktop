@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="_gpy-4PAtEeC8KakD0LKjHw" name="new Table" headerColumnWidth="358">
+  <target xmi:type="ecore:EPackage" href="../tree.ecore#/"/>
+  <lines xmi:type="table:DLine" xmi:id="_gpzl8PAtEeC8KakD0LKjHw" label="EClass : EClass1">
+    <target xmi:type="ecore:EClass" href="../tree.ecore#//EClass1"/>
+    <lines xmi:type="table:DLine" xmi:id="_gpzl8fAtEeC8KakD0LKjHw" label="EAttribute : myAttribute">
+      <target xmi:type="ecore:EAttribute" href="../tree.ecore#//EClass1/myAttribute"/>
+      <semanticElements xmi:type="ecore:EAttribute" href="../tree.ecore#//EClass1/myAttribute"/>
+      <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_QhlRkPimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_gpzl9fAtEeC8KakD0LKjHw" label="EAttribute : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa">
+      <target xmi:type="ecore:EAttribute" href="../tree.ecore#//EClass1/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+      <semanticElements xmi:type="ecore:EAttribute" href="../tree.ecore#//EClass1/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+      <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_QhlRkvimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+    </lines>
+    <semanticElements xmi:type="ecore:EClass" href="../tree.ecore#//EClass1"/>
+    <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_QhdVwPimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_gpzl_PAtEeC8KakD0LKjHw" label="EClass : EClass2">
+    <target xmi:type="ecore:EClass" href="../tree.ecore#//EClass2"/>
+    <lines xmi:type="table:DLine" xmi:id="_gpzl_fAtEeC8KakD0LKjHw" label="EReference : new EReference">
+      <target xmi:type="ecore:EReference" href="../tree.ecore#//EClass2/new%20EReference"/>
+      <semanticElements xmi:type="ecore:EReference" href="../tree.ecore#//EClass2/new%20EReference"/>
+      <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_Qhl4oPimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_gpzmAfAtEeC8KakD0LKjHw" label="EAttribute : new Attribute">
+      <target xmi:type="ecore:EAttribute" href="../tree.ecore#//EClass2/new%20Attribute"/>
+      <semanticElements xmi:type="ecore:EAttribute" href="../tree.ecore#//EClass2/new%20Attribute"/>
+      <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_Qhl4ovimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_gpzmBfAtEeC8KakD0LKjHw" label="EAttribute : new Attribute">
+      <target xmi:type="ecore:EAttribute" href="../tree.ecore#//EClass2/new%20Attribute.1"/>
+      <semanticElements xmi:type="ecore:EAttribute" href="../tree.ecore#//EClass2/new%20Attribute.1"/>
+      <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_QhmfsPimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+    </lines>
+    <semanticElements xmi:type="ecore:EClass" href="../tree.ecore#//EClass2"/>
+    <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_Qhd80PimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_gpzmDPAtEeC8KakD0LKjHw" label="EEnum : Enum">
+    <target xmi:type="ecore:EEnum" href="../tree.ecore#//Enum"/>
+    <semanticElements xmi:type="ecore:EEnum" href="../tree.ecore#//Enum"/>
+    <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_Qhd80vimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_gpzmEPAtEeC8KakD0LKjHw" label="EEnum : Enum2">
+    <target xmi:type="ecore:EEnum" href="../tree.ecore#//Enum2"/>
+    <semanticElements xmi:type="ecore:EEnum" href="../tree.ecore#//Enum2"/>
+    <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_QhiOQPimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_gpzmFPAtEeC8KakD0LKjHw" label="EClass : new EClass 3">
+    <target xmi:type="ecore:EClass" href="../tree.ecore#//new%20EClass%203"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tree.ecore#//new%20EClass%203"/>
+    <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_Qhi1UPimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_Qhi1UvimEeCP1MiVkpt0BA" label="EClass : NewEClass">
+    <target xmi:type="ecore:EClass" href="../tree.ecore#//NewEClass.3"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tree.ecore#//NewEClass.3"/>
+    <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_QhjcYPimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_gpzmHPAtEeC8KakD0LKjHw" label="EClass : NewEClass">
+    <target xmi:type="ecore:EClass" href="../tree.ecore#//NewEClass.1"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tree.ecore#//NewEClass.1"/>
+    <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_QhkDcPimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_gpzmIPAtEeC8KakD0LKjHw" label="EClass : NewEClass">
+    <target xmi:type="ecore:EClass" href="../tree.ecore#//NewEClass.2"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tree.ecore#//NewEClass.2"/>
+    <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_QhkDcvimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_gpzmGPAtEeC8KakD0LKjHw" label="EClass : NewEClass">
+    <target xmi:type="ecore:EClass" href="../tree.ecore#//NewEClass.3"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tree.ecore#//NewEClass.3"/>
+    <originMapping xmi:type="description:LineMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_QhkqgPimEeCP1MiVkpt0BA" defaultBackgroundStyle="true"/>
+  </lines>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_gp0NAvAtEeC8KakD0LKjHw" label="Domain Documentation" width="1293">
+    <target xmi:type="ecore:EPackage" href="../tree.ecore#/"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../tree.ecore#/"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedColumnMappings.0"/>
+  </columns>
+  <description xmi:type="description:CrossTableDescription" href="../tree.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
+</table:DTable>

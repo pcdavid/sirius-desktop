@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_xGk0UEgKEeWO8ekbzmZQXg" name="VStackDiag">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_xGk0UUgKEeWO8ekbzmZQXg" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_xGk0UkgKEeWO8ekbzmZQXg"/>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_xGlbYEgKEeWO8ekbzmZQXg" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_xGlbYUgKEeWO8ekbzmZQXg" type="Sirius" element="_xGk0UEgKEeWO8ekbzmZQXg" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_x1rWAEgKEeWO8ekbzmZQXg" type="2002" element="_x0rQcEgKEeWO8ekbzmZQXg">
+        <children xmi:type="notation:Node" xmi:id="_x1rWA0gKEeWO8ekbzmZQXg" type="5006"/>
+        <children xmi:type="notation:Node" xmi:id="_x1rWBEgKEeWO8ekbzmZQXg" type="7001">
+          <children xmi:type="notation:Node" xmi:id="_x1skI0gKEeWO8ekbzmZQXg" type="3009" element="_x0tssEgKEeWO8ekbzmZQXg">
+            <children xmi:type="notation:Node" xmi:id="_x1tyQEgKEeWO8ekbzmZQXg" type="5004"/>
+            <children xmi:type="notation:Node" xmi:id="_x1tyQUgKEeWO8ekbzmZQXg" type="7003">
+              <children xmi:type="notation:Node" xmi:id="_x1yqxUgKEeWO8ekbzmZQXg" type="3010" element="_x04EwUgKEeWO8ekbzmZQXg">
+                <styles xmi:type="notation:FontStyle" xmi:id="_x1yqxkgKEeWO8ekbzmZQXg" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_x1yqx0gKEeWO8ekbzmZQXg"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_x1zR0EgKEeWO8ekbzmZQXg" type="3010" element="_x0558EgKEeWO8ekbzmZQXg">
+                <styles xmi:type="notation:FontStyle" xmi:id="_x1zR0UgKEeWO8ekbzmZQXg" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_x1zR0kgKEeWO8ekbzmZQXg"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_x1zR00gKEeWO8ekbzmZQXg" type="3010" element="_x07vIUgKEeWO8ekbzmZQXg">
+                <styles xmi:type="notation:FontStyle" xmi:id="_x1zR1EgKEeWO8ekbzmZQXg" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_x1zR1UgKEeWO8ekbzmZQXg"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_x1z44EgKEeWO8ekbzmZQXg" type="3010" element="_x0-ycEgKEeWO8ekbzmZQXg">
+                <styles xmi:type="notation:FontStyle" xmi:id="_x1z44UgKEeWO8ekbzmZQXg" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_x1z44kgKEeWO8ekbzmZQXg"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_x1tyQkgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_x1tyQ0gKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_x1tyREgKEeWO8ekbzmZQXg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_x1skJEgKEeWO8ekbzmZQXg" fontColor="2697711" fontName="Comic Sans MS" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x1skJUgKEeWO8ekbzmZQXg"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_x1uZUEgKEeWO8ekbzmZQXg" type="3009" element="_x0u60EgKEeWO8ekbzmZQXg">
+            <children xmi:type="notation:Node" xmi:id="_x1uZU0gKEeWO8ekbzmZQXg" type="5004"/>
+            <children xmi:type="notation:Node" xmi:id="_x1uZVEgKEeWO8ekbzmZQXg" type="7003">
+              <children xmi:type="notation:Node" xmi:id="_HXIpIHGIEeWC_YQiieS2Ig" type="3010" element="_HWwOoHGIEeWC_YQiieS2Ig">
+                <styles xmi:type="notation:FontStyle" xmi:id="_HXIpIXGIEeWC_YQiieS2Ig" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_HXIpInGIEeWC_YQiieS2Ig"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_HXIpI3GIEeWC_YQiieS2Ig" type="3010" element="_HWxcwHGIEeWC_YQiieS2Ig">
+                <styles xmi:type="notation:FontStyle" xmi:id="_HXIpJHGIEeWC_YQiieS2Ig" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_HXIpJXGIEeWC_YQiieS2Ig"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_HXJQMHGIEeWC_YQiieS2Ig" type="3010" element="_HWyD0HGIEeWC_YQiieS2Ig">
+                <styles xmi:type="notation:FontStyle" xmi:id="_HXJQMXGIEeWC_YQiieS2Ig" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_HXJQMnGIEeWC_YQiieS2Ig"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_HXJQM3GIEeWC_YQiieS2Ig" type="3010" element="_HWyq4XGIEeWC_YQiieS2Ig">
+                <styles xmi:type="notation:FontStyle" xmi:id="_HXJQNHGIEeWC_YQiieS2Ig" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_HXJQNXGIEeWC_YQiieS2Ig"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_x1uZVUgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_x1uZVkgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_x1uZV0gKEeWO8ekbzmZQXg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_x1uZUUgKEeWO8ekbzmZQXg" fontColor="2697711" fontName="Comic Sans MS" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x1uZUkgKEeWO8ekbzmZQXg" y="91"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_x1uZWEgKEeWO8ekbzmZQXg" type="3009" element="_x0wwAEgKEeWO8ekbzmZQXg">
+            <children xmi:type="notation:Node" xmi:id="_x1vAYEgKEeWO8ekbzmZQXg" type="5004"/>
+            <children xmi:type="notation:Node" xmi:id="_x1vAYUgKEeWO8ekbzmZQXg" type="7003">
+              <children xmi:type="notation:Node" xmi:id="_x11HA0gKEeWO8ekbzmZQXg" type="3010" element="_x1FgIEgKEeWO8ekbzmZQXg">
+                <styles xmi:type="notation:FontStyle" xmi:id="_x11HBEgKEeWO8ekbzmZQXg" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_x11HBUgKEeWO8ekbzmZQXg"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_x1vAYkgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_x1vAY0gKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_x1vAZEgKEeWO8ekbzmZQXg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_x1uZWUgKEeWO8ekbzmZQXg" fontColor="2697711" fontName="Comic Sans MS" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x1uZWkgKEeWO8ekbzmZQXg" y="183"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_x1wOhEgKEeWO8ekbzmZQXg" type="3008" element="_x1H8YEgKEeWO8ekbzmZQXg">
+            <children xmi:type="notation:Node" xmi:id="_x1wOh0gKEeWO8ekbzmZQXg" type="5005"/>
+            <children xmi:type="notation:Node" xmi:id="_x1w1kEgKEeWO8ekbzmZQXg" type="7002">
+              <children xmi:type="notation:Node" xmi:id="_x11uEEgKEeWO8ekbzmZQXg" type="3007" element="_x1QfQEgKEeWO8ekbzmZQXg">
+                <children xmi:type="notation:Node" xmi:id="_x11uE0gKEeWO8ekbzmZQXg" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_x11uFEgKEeWO8ekbzmZQXg" y="5"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_x12VJUgKEeWO8ekbzmZQXg" type="3003" element="_x1RGUEgKEeWO8ekbzmZQXg">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_x12VJkgKEeWO8ekbzmZQXg" fontName="Comic Sans MS"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x12VJ0gKEeWO8ekbzmZQXg"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_x11uEUgKEeWO8ekbzmZQXg" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x11uEkgKEeWO8ekbzmZQXg" width="30" height="30"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_x12VIEgKEeWO8ekbzmZQXg" type="3007" element="_x1SUcEgKEeWO8ekbzmZQXg">
+                <children xmi:type="notation:Node" xmi:id="_x12VI0gKEeWO8ekbzmZQXg" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_x12VJEgKEeWO8ekbzmZQXg" y="5"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_x13jQEgKEeWO8ekbzmZQXg" type="3003" element="_x1SUcUgKEeWO8ekbzmZQXg">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_x13jQUgKEeWO8ekbzmZQXg" fontName="Comic Sans MS"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x13jQkgKEeWO8ekbzmZQXg"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_x12VIUgKEeWO8ekbzmZQXg" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x12VIkgKEeWO8ekbzmZQXg" x="90" width="30" height="30"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_x1w1kUgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_x1w1kkgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_x1w1k0gKEeWO8ekbzmZQXg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_x1wOhUgKEeWO8ekbzmZQXg" fontColor="2697711" fontName="Comic Sans MS" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x1wOhkgKEeWO8ekbzmZQXg" y="227"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_x1w1lEgKEeWO8ekbzmZQXg" type="3008" element="_x1JKgEgKEeWO8ekbzmZQXg">
+            <children xmi:type="notation:Node" xmi:id="_x1w1l0gKEeWO8ekbzmZQXg" type="5005"/>
+            <children xmi:type="notation:Node" xmi:id="_x1w1mEgKEeWO8ekbzmZQXg" type="7002">
+              <children xmi:type="notation:Node" xmi:id="_x14KUEgKEeWO8ekbzmZQXg" type="3007" element="_x1S7gEgKEeWO8ekbzmZQXg">
+                <children xmi:type="notation:Node" xmi:id="_x14KU0gKEeWO8ekbzmZQXg" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_x14KVEgKEeWO8ekbzmZQXg" y="5"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_x14KVUgKEeWO8ekbzmZQXg" type="3003" element="_x1S7gUgKEeWO8ekbzmZQXg">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_x14KVkgKEeWO8ekbzmZQXg" fontName="Comic Sans MS"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x14KV0gKEeWO8ekbzmZQXg"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_x14KUUgKEeWO8ekbzmZQXg" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x14KUkgKEeWO8ekbzmZQXg" width="30" height="30"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_x1w1mUgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_x1w1mkgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_x1xcoEgKEeWO8ekbzmZQXg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_x1w1lUgKEeWO8ekbzmZQXg" fontColor="2697711" fontName="Comic Sans MS" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x1w1lkgKEeWO8ekbzmZQXg" y="268"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_x1xcoUgKEeWO8ekbzmZQXg" type="3008" element="_x1K_sEgKEeWO8ekbzmZQXg">
+            <children xmi:type="notation:Node" xmi:id="_x1xcpEgKEeWO8ekbzmZQXg" type="5005"/>
+            <children xmi:type="notation:Node" xmi:id="_x1xcpUgKEeWO8ekbzmZQXg" type="7002">
+              <children xmi:type="notation:Node" xmi:id="_50vPQFWoEeWed_P9Y9XnRA" type="3007" element="_50msYFWoEeWed_P9Y9XnRA">
+                <children xmi:type="notation:Node" xmi:id="_50vPQ1WoEeWed_P9Y9XnRA" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_50vPRFWoEeWed_P9Y9XnRA" y="5"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_50v2UFWoEeWed_P9Y9XnRA" type="3003" element="_50msYVWoEeWed_P9Y9XnRA">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_50v2UVWoEeWed_P9Y9XnRA" fontName="Comic Sans MS"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50v2UlWoEeWed_P9Y9XnRA"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_50vPQVWoEeWed_P9Y9XnRA" fontName="Comic Sans MS" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50vPQlWoEeWed_P9Y9XnRA" width="30" height="30"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_x1xcpkgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_x1xcp0gKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_x1xcqEgKEeWO8ekbzmZQXg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_x1xcokgKEeWO8ekbzmZQXg" fontColor="4108284" fontName="Comic Sans MS" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x1xco0gKEeWO8ekbzmZQXg" y="335"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_x1rWBUgKEeWO8ekbzmZQXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_x1rWBkgKEeWO8ekbzmZQXg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_x1rWAUgKEeWO8ekbzmZQXg" fontName="Comic Sans MS" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x1rWAkgKEeWO8ekbzmZQXg" x="64" y="16"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_x1rWB0gKEeWO8ekbzmZQXg" type="2002" element="_x0r3gEgKEeWO8ekbzmZQXg">
+        <children xmi:type="notation:Node" xmi:id="_x1r9EEgKEeWO8ekbzmZQXg" type="5006"/>
+        <children xmi:type="notation:Node" xmi:id="_x1r9EUgKEeWO8ekbzmZQXg" type="7001">
+          <children xmi:type="notation:Node" xmi:id="_x16mkEgKEeWO8ekbzmZQXg" type="3008" element="_x1csgEgKEeWO8ekbzmZQXg">
+            <children xmi:type="notation:Node" xmi:id="_x16mk0gKEeWO8ekbzmZQXg" type="5005"/>
+            <children xmi:type="notation:Node" xmi:id="_x16mlEgKEeWO8ekbzmZQXg" type="7002">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_x16mlUgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_x16mlkgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_x16ml0gKEeWO8ekbzmZQXg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_x16mkUgKEeWO8ekbzmZQXg" fontColor="4108284" fontName="Comic Sans MS" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x16mkkgKEeWO8ekbzmZQXg" y="80" width="154" height="40"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_x17NoEgKEeWO8ekbzmZQXg" type="3008" element="_x1ehsEgKEeWO8ekbzmZQXg">
+            <children xmi:type="notation:Node" xmi:id="_x17No0gKEeWO8ekbzmZQXg" type="5005"/>
+            <children xmi:type="notation:Node" xmi:id="_x17NpEgKEeWO8ekbzmZQXg" type="7002">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_x17NpUgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_x17NpkgKEeWO8ekbzmZQXg"/>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_x17Np0gKEeWO8ekbzmZQXg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_x17NoUgKEeWO8ekbzmZQXg" fontColor="4108284" fontName="Comic Sans MS" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x17NokgKEeWO8ekbzmZQXg" y="120" width="154" height="40"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1BaWkFuwEeWZQLQxIrHbCA" type="3009" element="_1A3kAFuwEeWZQLQxIrHbCA">
+            <children xmi:type="notation:Node" xmi:id="_1Ba9oFuwEeWZQLQxIrHbCA" visible="false" type="5004"/>
+            <children xmi:type="notation:Node" xmi:id="_1Ba9oVuwEeWZQLQxIrHbCA" type="7003">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_1Ba9oluwEeWZQLQxIrHbCA"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_1Ba9o1uwEeWZQLQxIrHbCA"/>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_1Ba9pFuwEeWZQLQxIrHbCA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1BaWkVuwEeWZQLQxIrHbCA" fontColor="2697711" fontName="Comic Sans MS" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1BaWkluwEeWZQLQxIrHbCA" width="154" height="40"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1Ba9pVuwEeWZQLQxIrHbCA" type="3009" element="_1A6AQVuwEeWZQLQxIrHbCA">
+            <children xmi:type="notation:Node" xmi:id="_1BbksFuwEeWZQLQxIrHbCA" visible="false" type="5004"/>
+            <children xmi:type="notation:Node" xmi:id="_1BbksVuwEeWZQLQxIrHbCA" type="7003">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_1BbksluwEeWZQLQxIrHbCA"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_1Bbks1uwEeWZQLQxIrHbCA"/>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_1BbktFuwEeWZQLQxIrHbCA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1Ba9pluwEeWZQLQxIrHbCA" fontColor="2697711" fontName="Comic Sans MS" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1Ba9p1uwEeWZQLQxIrHbCA" y="40" width="154" height="40"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_x1r9EkgKEeWO8ekbzmZQXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_x1r9E0gKEeWO8ekbzmZQXg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_x1rWCEgKEeWO8ekbzmZQXg" fontName="Comic Sans MS" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x1rWCUgKEeWO8ekbzmZQXg" x="338" y="66" width="166"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_xGlbYkgKEeWO8ekbzmZQXg"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_x0rQcEgKEeWO8ekbzmZQXg" name="P1" width="-1" height="-1" childrenPresentation="VerticalStack">
+    <target xmi:type="ecore:EPackage" href="../My.ecore#//P1"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//P1"/>
+    <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_-_YwYHfwEeWQo7JxcqP_Mw" borderSize="5" borderSizeComputationExpression="5" borderColor="156,12,12">
+      <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_x0tssEgKEeWO8ekbzmZQXg" name="Left_class1" width="-1" height="-1">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//P1/Left_class1"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//P1/Left_class1"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_x0uTwEgKEeWO8ekbzmZQXg" labelColor="239,41,41" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" backgroundColor="122,181,155" foregroundColor="122,181,155">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@conditionnalStyles.0/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_x04EwUgKEeWO8ekbzmZQXg" name="attr1">
+        <target xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Left_class1/attr1"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Left_class1/attr1"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_x05S4EgKEeWO8ekbzmZQXg" labelAlignment="RIGHT" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_x0558EgKEeWO8ekbzmZQXg" name="attr2">
+        <target xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Left_class1/attr2"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Left_class1/attr2"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_x07vIEgKEeWO8ekbzmZQXg" labelAlignment="RIGHT" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_x07vIUgKEeWO8ekbzmZQXg" name="attr3">
+        <target xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Left_class1/attr3"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Left_class1/attr3"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_x089QEgKEeWO8ekbzmZQXg" labelAlignment="RIGHT" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_x0-ycEgKEeWO8ekbzmZQXg" name="attr5">
+        <target xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Left_class1/attr5"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Left_class1/attr5"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_x0_ZgEgKEeWO8ekbzmZQXg" labelAlignment="RIGHT" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_x0u60EgKEeWO8ekbzmZQXg" name="Center_class2" width="-1" height="-1">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//P1/Center_class2"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//P1/Center_class2"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="__i6UMHfwEeWQo7JxcqP_Mw" labelColor="239,41,41" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" backgroundColor="130,203,103" foregroundColor="130,203,103">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@conditionnalStyles.1/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_HWwOoHGIEeWC_YQiieS2Ig" name="Leftattr1">
+        <target xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Center_class2/Leftattr1"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Center_class2/Leftattr1"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_HWw1sHGIEeWC_YQiieS2Ig" labelAlignment="LEFT" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_HWxcwHGIEeWC_YQiieS2Ig" name="Leftattr2">
+        <target xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Center_class2/Leftattr2"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Center_class2/Leftattr2"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_HWxcwXGIEeWC_YQiieS2Ig" labelAlignment="LEFT" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_HWyD0HGIEeWC_YQiieS2Ig" name="Centerattr3">
+        <target xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Center_class2/Centerattr3"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Center_class2/Centerattr3"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_HWyq4HGIEeWC_YQiieS2Ig" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']/@conditionnalStyles.1/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_HWyq4XGIEeWC_YQiieS2Ig" name="Leftattr4">
+        <target xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Center_class2/Leftattr4"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Center_class2/Leftattr4"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_HWzR8HGIEeWC_YQiieS2Ig" labelAlignment="LEFT" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_x0wwAEgKEeWO8ekbzmZQXg" name="Right_class3" tooltipText="Right_class3" width="-1" height="-1">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//P1/Right_class3"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//P1/Right_class3"/>
+      <graphicalFilters xmi:type="diagram:AbsoluteBoundsFilter" xmi:id="_KEDiYHGIEeWC_YQiieS2Ig" height="-1" width="-1"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_x0xXEEgKEeWO8ekbzmZQXg" labelColor="239,41,41" labelAlignment="RIGHT" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" borderLineStyle="dash" hideLabelByDefault="true" backgroundStyle="Liquid" backgroundColor="138,226,52" foregroundColor="138,226,52">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_x1FgIEgKEeWO8ekbzmZQXg" name="Centerattr1">
+        <target xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Right_class3/Centerattr1"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../My.ecore#//P1/Right_class3/Centerattr1"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_x1GuQEgKEeWO8ekbzmZQXg" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']/@conditionnalStyles.1/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@subNodeMappings[name='Attributes']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_x1H8YEgKEeWO8ekbzmZQXg" name="Left_p3" width="-1" height="-1">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#//P1/Left_p3"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//P1/Left_p3"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_x1IjcEgKEeWO8ekbzmZQXg" labelColor="239,41,41" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" borderLineStyle="dot" backgroundStyle="Liquid" backgroundColor="138,226,52" foregroundColor="138,226,52">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@conditionnalStyles.0/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']"/>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_x1QfQEgKEeWO8ekbzmZQXg" name="class1" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="../My.ecore#//P1/Left_p3/class1"/>
+        <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//P1/Left_p3/class1"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_x1RGUEgKEeWO8ekbzmZQXg" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@subNodeMappings[name='nodes']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@subNodeMappings[name='nodes']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_x1SUcEgKEeWO8ekbzmZQXg" name="class3" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="../My.ecore#//P1/Left_p3/class3"/>
+        <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//P1/Left_p3/class3"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_x1SUcUgKEeWO8ekbzmZQXg" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@subNodeMappings[name='nodes']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@subNodeMappings[name='nodes']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_x1JKgEgKEeWO8ekbzmZQXg" name="Center_p4" width="-1" height="-1">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#//P1/Center_p4"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//P1/Center_p4"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_x1KYoEgKEeWO8ekbzmZQXg" labelColor="239,41,41" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" borderLineStyle="dash_dot" backgroundStyle="Liquid" backgroundColor="195,229,65" foregroundColor="195,229,65">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@conditionnalStyles.1/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']"/>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_x1S7gEgKEeWO8ekbzmZQXg" name="class2" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="../My.ecore#//P1/Center_p4/class2"/>
+        <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//P1/Center_p4/class2"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_x1S7gUgKEeWO8ekbzmZQXg" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@subNodeMappings[name='nodes']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@subNodeMappings[name='nodes']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_x1K_sEgKEeWO8ekbzmZQXg" name="Right_p5" width="-1" height="-1">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#//P1/Right_p5"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//P1/Right_p5"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_x1MN0EgKEeWO8ekbzmZQXg" labelColor="252,175,62" labelAlignment="RIGHT" borderSize="1" borderSizeComputationExpression="1" borderColor="252,175,62" backgroundColor="252,233,79" foregroundColor="252,233,79">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']"/>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_50msYFWoEeWed_P9Y9XnRA" name="class4" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="../My.ecore#//P1/Right_p5/class4"/>
+        <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//P1/Right_p5/class4"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_50msYVWoEeWed_P9Y9XnRA" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@subNodeMappings[name='nodes']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@subNodeMappings[name='nodes']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_x0r3gEgKEeWO8ekbzmZQXg" name="az" width="-1" height="-1" childrenPresentation="VerticalStack">
+    <target xmi:type="ecore:EPackage" href="../My.ecore#//az"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//az"/>
+    <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_x0r3gUgKEeWO8ekbzmZQXg" borderSize="5" borderSizeComputationExpression="5" borderColor="156,12,12">
+      <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_x1csgEgKEeWO8ekbzmZQXg" name="aaa">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#//az/aaa"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//az/aaa"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_x1d6oEgKEeWO8ekbzmZQXg" labelColor="252,175,62" labelAlignment="RIGHT" borderSize="1" borderSizeComputationExpression="1" borderColor="252,175,62" backgroundColor="114,159,207" foregroundColor="114,159,207">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_x1ehsEgKEeWO8ekbzmZQXg" name="aaaa">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#//az/aaaa"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//az/aaaa"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_x1fv0EgKEeWO8ekbzmZQXg" labelColor="252,175,62" labelAlignment="RIGHT" borderSize="1" borderSizeComputationExpression="1" borderColor="252,175,62" backgroundColor="114,159,207" foregroundColor="114,159,207">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='FreeFormRegions']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_1A3kAFuwEeWZQLQxIrHbCA" name="cl1" tooltipText="cl1">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//az/cl1"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//az/cl1"/>
+      <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_1A6AQFuwEeWZQLQxIrHbCA"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_1A4LEFuwEeWZQLQxIrHbCA" labelColor="239,41,41" labelAlignment="RIGHT" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" borderLineStyle="dash" hideLabelByDefault="true" backgroundStyle="Liquid" backgroundColor="122,181,155" foregroundColor="122,181,155">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_1A6AQVuwEeWZQLQxIrHbCA" name="cl2" tooltipText="cl2">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//az/cl2"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//az/cl2"/>
+      <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_1A71cFuwEeWZQLQxIrHbCA"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_1A7OYFuwEeWZQLQxIrHbCA" labelColor="239,41,41" labelAlignment="RIGHT" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" borderLineStyle="dash" hideLabelByDefault="true" backgroundStyle="Liquid" backgroundColor="130,203,103" foregroundColor="130,203,103">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer/@containerMappings[name='VStack']/@subContainerMappings[name='ListRegions']"/>
+    </ownedDiagramElements>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_xGk0U0gKEeWO8ekbzmZQXg"/>
+  <activatedLayers xmi:type="description_1:Layer" href="../compartments.odesign#//@ownedViewpoints[name='Compartments']/@ownedRepresentations[name='Diag%20with%20VStack']/@defaultLayer"/>
+  <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+</diagram:DSemanticDiagram>

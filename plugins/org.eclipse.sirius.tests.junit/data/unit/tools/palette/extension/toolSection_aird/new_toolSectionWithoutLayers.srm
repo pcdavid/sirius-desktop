@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description" xmi:id="_L0lgQSIgEd-asvFvTQzt7g" name="new toolSectionWithoutLayers">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_r4zWYBHiEeKS07mYEJy8yw" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_39NG8SbREd-rtb2NqI4LJQ" type="Sirius" element="_L0lgQSIgEd-asvFvTQzt7g" measurementUnit="Pixel">
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_39NG8ibREd-rtb2NqI4LJQ"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_B2_MxA5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_B2_MxQ5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <description xmi:type="description_1:DiagramDescription" href="../toolSection.odesign#//@ownedViewpoints[name='toolSection']/@ownedRepresentations[name='toolSectionWithoutLayers']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_L0lgQiIgEd-asvFvTQzt7g"/>
+  <target xmi:type="ecore:EPackage" href="../toolSection.ecore#/"/>
+</diagram:DSemanticDiagram>

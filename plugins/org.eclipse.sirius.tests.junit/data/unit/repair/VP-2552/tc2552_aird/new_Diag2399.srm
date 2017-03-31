@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/filter/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/filter http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_BELp4AksEeCNRahLHNRApQ" name="new Diag2399">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BEnuwAksEeCNRahLHNRApQ" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_BEnuwQksEeCNRahLHNRApQ" type="Sirius" element="_BELp4AksEeCNRahLHNRApQ" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_BFgfkAksEeCNRahLHNRApQ" type="2001" element="_TlxckJjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_BFhtsAksEeCNRahLHNRApQ" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_BFhtsQksEeCNRahLHNRApQ" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_BFkJ8AksEeCNRahLHNRApQ" type="3003" element="_TlxckZjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_BFkJ8QksEeCNRahLHNRApQ" fontName="Sans" fillColor="2631912"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BFkJ8gksEeCNRahLHNRApQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_BFgfkQksEeCNRahLHNRApQ" fontName="Sans" fontHeight="8" fillColor="2631912"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BFgfkgksEeCNRahLHNRApQ" x="140" y="120" width="30" height="30"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_HYYy4AksEeCNRahLHNRApQ" type="2001" element="_TlxclZjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_HYZZ8AksEeCNRahLHNRApQ" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_HYZZ8QksEeCNRahLHNRApQ" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HYe5gAksEeCNRahLHNRApQ" type="3003" element="_TlyDoJjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HYe5gQksEeCNRahLHNRApQ" fontName="Sans" fillColor="2631912"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HYe5ggksEeCNRahLHNRApQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_HYYy4QksEeCNRahLHNRApQ" fontName="Sans" fontHeight="8" fillColor="2631912"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HYYy4gksEeCNRahLHNRApQ" x="420" y="140" width="30" height="30"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_BEnuwgksEeCNRahLHNRApQ"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Btw_UA5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_Btw_UQ5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_TlxckJjFEeCTjf2eRUPO7Q" name="Class1" width="3" height="3">
+    <target xmi:type="ecore:EClass" href="../tc2552.ecore#//Class1"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tc2552.ecore#//Class1"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_TlxckZjFEeCTjf2eRUPO7Q">
+      <description xmi:type="style:SquareDescription" href="../tc2552.odesign#//@ownedViewpoints[name='tc2552']/@ownedRepresentations[name='Diag2399']/@defaultLayer/@nodeMappings[name='EClassNode']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../tc2552.odesign#//@ownedViewpoints[name='tc2552']/@ownedRepresentations[name='Diag2399']/@defaultLayer/@nodeMappings[name='EClassNode']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_TlxclZjFEeCTjf2eRUPO7Q" name="Class2" width="3" height="3">
+    <target xmi:type="ecore:EClass" href="../tc2552.ecore#//Class2"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tc2552.ecore#//Class2"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_TlyDoJjFEeCTjf2eRUPO7Q">
+      <description xmi:type="style:SquareDescription" href="../tc2552.odesign#//@ownedViewpoints[name='tc2552']/@ownedRepresentations[name='Diag2399']/@defaultLayer/@nodeMappings[name='EClassNode']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../tc2552.odesign#//@ownedViewpoints[name='tc2552']/@ownedRepresentations[name='Diag2399']/@defaultLayer/@nodeMappings[name='EClassNode']"/>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="../tc2552.odesign#//@ownedViewpoints[name='tc2552']/@ownedRepresentations[name='Diag2399']"/>
+  <activatedFilters xmi:type="filter:CompositeFilterDescription" href="../tc2552.odesign#//@ownedViewpoints[name='tc2552']/@ownedRepresentations[name='Diag2399']/@filters[name='HideReference']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_BELp4QksEeCNRahLHNRApQ"/>
+  <activatedLayers xmi:type="description_1:Layer" href="../tc2552.odesign#//@ownedViewpoints[name='tc2552']/@ownedRepresentations[name='Diag2399']/@defaultLayer"/>
+  <target xmi:type="ecore:EPackage" href="../tc2552.ecore#/"/>
+</diagram:DSemanticDiagram>

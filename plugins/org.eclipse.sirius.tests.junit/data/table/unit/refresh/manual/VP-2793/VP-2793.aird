@@ -1,29 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description">
-  <viewpoint:DAnalysis xmi:id="__JJ8AEdbEeG8hZ7Gu1kw4w" selectedViews="_yRdJcEdeEeG2sZCKRCme6w" version="11.1.0.201608251200">
-    <semanticResources>VP-2793.ecore</semanticResources>
-    <ownedViews xmi:type="viewpoint:DView" xmi:id="_yRdJcEdeEeG2sZCKRCme6w">
-      <viewpoint xmi:type="description:Viewpoint" href="VP-2793.odesign#//@ownedViewpoints[name='VP-2793']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_BE8r0A5BEeeC26hV23mG9w" name="new VP-2793_EditionTableDescription" representation="_zsb5sEdeEeG2sZCKRCme6w">
-        <description xmi:type="description_1:EditionTableDescription" href="VP-2793.odesign#//@ownedViewpoints[name='VP-2793']/@ownedRepresentations[name='VP-2793_EditionTableDescription']"/>
-        <target xmi:type="ecore:EPackage" href="VP-2793.ecore#/"/>
-      </ownedRepresentationDescriptors>
-    </ownedViews>
-  </viewpoint:DAnalysis>
-  <table:DTable xmi:id="_zsb5sEdeEeG2sZCKRCme6w" name="new VP-2793_EditionTableDescription" headerColumnWidth="44">
-    <target xmi:type="ecore:EPackage" href="VP-2793.ecore#/"/>
-    <lines xmi:type="table:DLine" xmi:id="_zsb5sUdeEeG2sZCKRCme6w">
-      <target xmi:type="ecore:EClass" href="VP-2793.ecore#//NewEClass"/>
-      <semanticElements xmi:type="ecore:EClass" href="VP-2793.ecore#//NewEClass"/>
-      <originMapping xmi:type="description_1:LineMapping" href="VP-2793.odesign#//@ownedViewpoints[name='VP-2793']/@ownedRepresentations[name='VP-2793_EditionTableDescription']/@ownedLineMappings[name='EClassLineMapping']"/>
-      <cells xmi:type="table:DCell" xmi:id="_zsb5skdeEeG2sZCKRCme6w" label="NewEClass" column="_zsb5s0deEeG2sZCKRCme6w">
-        <target xmi:type="ecore:EClass" href="VP-2793.ecore#//NewEClass"/>
-        <semanticElements xmi:type="ecore:EClass" href="VP-2793.ecore#//NewEClass"/>
-      </cells>
-    </lines>
-    <columns xmi:type="table:DFeatureColumn" xmi:id="_zsb5s0deEeG2sZCKRCme6w" cells="_zsb5skdeEeG2sZCKRCme6w" featureName="name">
-      <originMapping xmi:type="description_1:FeatureColumnMapping" href="VP-2793.odesign#//@ownedViewpoints[name='VP-2793']/@ownedRepresentations[name='VP-2793_EditionTableDescription']/@ownedColumnMappings[name='NameColumnMapping']"/>
-    </columns>
-    <description xmi:type="description_1:EditionTableDescription" href="VP-2793.odesign#//@ownedViewpoints[name='VP-2793']/@ownedRepresentations[name='VP-2793_EditionTableDescription']"/>
-  </table:DTable>
-</xmi:XMI>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="__JJ8AEdbEeG8hZ7Gu1kw4w" selectedViews="_yRdJcEdeEeG2sZCKRCme6w" version="12.0.0.201703161200">
+  <semanticResources>VP-2793.ecore</semanticResources>
+  <ownedViews xmi:type="viewpoint:DView" xmi:id="_yRdJcEdeEeG2sZCKRCme6w">
+    <viewpoint xmi:type="description:Viewpoint" href="VP-2793.odesign#//@ownedViewpoints[name='VP-2793']"/>
+    <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_BE8r0A5BEeeC26hV23mG9w" name="new VP-2793_EditionTableDescription">
+      <description xmi:type="description_1:EditionTableDescription" href="VP-2793.odesign#//@ownedViewpoints[name='VP-2793']/@ownedRepresentations[name='VP-2793_EditionTableDescription']"/>
+      <target xmi:type="ecore:EPackage" href="VP-2793.ecore#/"/>
+      <representation xmi:type="table:DTable" href="VP-2793_aird/new_VP-2793_EditionTableDescription.srm#_zsb5sEdeEeG2sZCKRCme6w"/>
+    </ownedRepresentationDescriptors>
+  </ownedViews>
+</viewpoint:DAnalysis>

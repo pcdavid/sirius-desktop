@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree:DTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xsi:schemaLocation="http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description" xmi:id="_tWWh4EDlEeCnT_v8mN7CLg" name="new Tree">
+  <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpIlcEDoEeCnT_v8mN7CLg" name="new Package 12" expanded="true">
+    <target xmi:type="ecore:EPackage" href="../My.ecore#//new%20Package%2012"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpKaokDoEeCnT_v8mN7CLg" name="new EClass 12" expanded="true">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%2012/new%20EClass%2012"/>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpLBsEDoEeCnT_v8mN7CLg" name="attribut1">
+        <target xmi:type="ecore:EAttribute" href="../My.ecore#//new%20Package%2012/new%20EClass%2012/attribut1"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../My.ecore#//new%20Package%2012/new%20EClass%2012/attribut1"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpLBsUDoEeCnT_v8mN7CLg"/>
+        <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']/@subItemMappings[name='Class']/@subItemMappings[name='Attribute']"/>
+      </ownedTreeItems>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%2012/new%20EClass%2012"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpKao0DoEeCnT_v8mN7CLg"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']/@subItemMappings[name='Class']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpJzkEDoEeCnT_v8mN7CLg" name="new EClass 2A">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%2012/new%20EClass%202A"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%2012/new%20EClass%202A"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpJzkUDoEeCnT_v8mN7CLg"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']/@subItemMappings[name='Class']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//new%20Package%2012"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpIlcUDoEeCnT_v8mN7CLg"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']"/>
+  </ownedTreeItems>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpM24EDoEeCnT_v8mN7CLg" name="new Package 2">
+    <target xmi:type="ecore:EPackage" href="../My.ecore#//new%20Package%202"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpRIVUDoEeCnT_v8mN7CLg" name="new EClass 1">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%202/new%20EClass%201"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%202/new%20EClass%201"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpRIVkDoEeCnT_v8mN7CLg"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']/@subItemMappings[name='Class']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpOsEEDoEeCnT_v8mN7CLg" name="new EClass 2">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%202/new%20EClass%202"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%202/new%20EClass%202"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpOsEUDoEeCnT_v8mN7CLg"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']/@subItemMappings[name='Class']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpOFBEDoEeCnT_v8mN7CLg" name="new EClass 3">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%202/new%20EClass%203"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%202/new%20EClass%203"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpOFBUDoEeCnT_v8mN7CLg"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']/@subItemMappings[name='Class']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//new%20Package%202"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpM24UDoEeCnT_v8mN7CLg"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']"/>
+  </ownedTreeItems>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpACkEDoEeCnT_v8mN7CLg" name="new Package 3">
+    <target xmi:type="ecore:EPackage" href="../My.ecore#//new%20Package%203"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpApoEDoEeCnT_v8mN7CLg" name="new EClass 1">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%203/new%20EClass%201"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%203/new%20EClass%201"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpApoUDoEeCnT_v8mN7CLg"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']/@subItemMappings[name='Class']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//new%20Package%203"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpACkUDoEeCnT_v8mN7CLg"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']"/>
+  </ownedTreeItems>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpEUAEDoEeCnT_v8mN7CLg" name="new Package 4">
+    <target xmi:type="ecore:EPackage" href="../My.ecore#//new%20Package%204"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_hpHXVUDoEeCnT_v8mN7CLg" name="new EClass 1">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%204/new%20EClass%201"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//new%20Package%204/new%20EClass%201"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpHXVkDoEeCnT_v8mN7CLg"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']/@subItemMappings[name='Class']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//new%20Package%204"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_hpEUAUDoEeCnT_v8mN7CLg"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']/@subItemMappings[name='package']"/>
+  </ownedTreeItems>
+  <description xmi:type="description:TreeDescription" href="../EcoreExtension.odesign#//@ownedViewpoints[name='EcoreForResfreshTest']/@ownedRepresentations[name='Tree']"/>
+</tree:DTree>

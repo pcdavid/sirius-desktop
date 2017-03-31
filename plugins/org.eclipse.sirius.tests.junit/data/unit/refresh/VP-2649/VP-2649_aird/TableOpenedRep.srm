@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="_aaKYIB8lEeGrXvTogfdAmw" name="TableOpenedRep" headerColumnWidth="116">
+  <target xmi:type="ecore:EPackage" href="../VP-2649.ecore#/"/>
+  <lines xmi:type="table:DLine" xmi:id="_gBQq8CDPEeG0-NVJpPfBcQ" label="EClass1">
+    <target xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass1"/>
+    <semanticElements xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass1"/>
+    <originMapping xmi:type="description:LineMapping" href="../VP-2649.odesign#//@ownedViewpoints[name='VP-2649_Viewpoint']/@ownedRepresentations[name='VP-2649_Table']/@ownedLineMappings[name='EClassLineMapping']"/>
+    <cells xmi:type="table:DCell" xmi:id="_gBSgIiDPEeG0-NVJpPfBcQ" label="EClass1" column="_aaKYKR8lEeGrXvTogfdAmw">
+      <target xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass1"/>
+      <semanticElements xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass1"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_gBRSACDPEeG0-NVJpPfBcQ" label="EClass2">
+    <target xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass2"/>
+    <semanticElements xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass2"/>
+    <originMapping xmi:type="description:LineMapping" href="../VP-2649.odesign#//@ownedViewpoints[name='VP-2649_Viewpoint']/@ownedRepresentations[name='VP-2649_Table']/@ownedLineMappings[name='EClassLineMapping']"/>
+    <cells xmi:type="table:DCell" xmi:id="_gBTHMCDPEeG0-NVJpPfBcQ" label="EClass2" column="_aaKYKR8lEeGrXvTogfdAmw">
+      <target xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass2"/>
+      <semanticElements xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass2"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_gBR5ECDPEeG0-NVJpPfBcQ" label="EPackage1">
+    <target xmi:type="ecore:EPackage" href="../VP-2649.ecore#//EPackage1"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../VP-2649.ecore#//EPackage1"/>
+    <originMapping xmi:type="description:LineMapping" href="../VP-2649.odesign#//@ownedViewpoints[name='VP-2649_Viewpoint']/@ownedRepresentations[name='VP-2649_Table']/@ownedLineMappings[name='EPackageLineMapping']"/>
+    <cells xmi:type="table:DCell" xmi:id="_gBTuQCDPEeG0-NVJpPfBcQ" label="EPackage1" column="_aaKYKR8lEeGrXvTogfdAmw">
+      <target xmi:type="ecore:EPackage" href="../VP-2649.ecore#//EPackage1"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../VP-2649.ecore#//EPackage1"/>
+    </cells>
+    <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_gBSgICDPEeG0-NVJpPfBcQ" defaultBackgroundStyle="true" backgroundColor="255,245,181"/>
+  </lines>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_aaKYKR8lEeGrXvTogfdAmw" label="Name" cells="_gBSgIiDPEeG0-NVJpPfBcQ _gBTHMCDPEeG0-NVJpPfBcQ _gBTuQCDPEeG0-NVJpPfBcQ" width="1534" featureName="name">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../VP-2649.odesign#//@ownedViewpoints[name='VP-2649_Viewpoint']/@ownedRepresentations[name='VP-2649_Table']/@ownedColumnMappings[name='Name']"/>
+  </columns>
+  <description xmi:type="description:EditionTableDescription" href="../VP-2649.odesign#//@ownedViewpoints[name='VP-2649_Viewpoint']/@ownedRepresentations[name='VP-2649_Table']"/>
+</table:DTable>

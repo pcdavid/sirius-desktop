@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_g6q_keDtEd6iJoDb7lhWwA" name="NodeMappingImport with semantic elements and hide sub mappings">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_FbLuQBFQEeKQrpwaBKeVCA" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_iYTbMODtEd6iJoDb7lhWwA" type="Sirius" element="_g6q_keDtEd6iJoDb7lhWwA" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_iazVkODtEd6iJoDb7lhWwA" type="2001" element="_E4cFcJjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_ia2_8ODtEd6iJoDb7lhWwA" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ia2_8eDtEd6iJoDb7lhWwA" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_94D78ODtEd6D_qRZ1cYtQA" type="3004" element="_E4cFcZjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_94D78eDtEd6D_qRZ1cYtQA" fontName="Segoe UI"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_94D78uDtEd6D_qRZ1cYtQA"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_iazVkeDtEd6iJoDb7lhWwA" fontName="Segoe UI" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iazVkuDtEd6iJoDb7lhWwA" x="30" y="30" width="30" height="30"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ia3nAODtEd6iJoDb7lhWwA" type="2001" element="_E4cFdZjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_ia4OEODtEd6iJoDb7lhWwA" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ia4OEeDtEd6iJoDb7lhWwA" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_9q0xMODtEd6D_qRZ1cYtQA" type="3004" element="_E4csgJjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_9q0xMeDtEd6D_qRZ1cYtQA" fontName="Segoe UI"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9q0xMuDtEd6D_qRZ1cYtQA"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_ia3nAeDtEd6iJoDb7lhWwA" fontName="Segoe UI" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ia3nAuDtEd6iJoDb7lhWwA" x="120" y="30" width="30" height="30"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ia4OEuDtEd6iJoDb7lhWwA" type="2001" element="_E4cshJjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_ia41IODtEd6iJoDb7lhWwA" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ia41IeDtEd6iJoDb7lhWwA" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ia-UsODtEd6iJoDb7lhWwA" type="3004" element="_E4cshZjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_ia-UseDtEd6iJoDb7lhWwA" fontName="Segoe UI"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ia-UsuDtEd6iJoDb7lhWwA"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_ia4OE-DtEd6iJoDb7lhWwA" fontName="Segoe UI" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ia4OFODtEd6iJoDb7lhWwA" x="210" y="30" width="30" height="30"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_iYTbMeDtEd6iJoDb7lhWwA"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BZL2cw5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_BZL2dA5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_E4cFcJjFEeCTjf2eRUPO7Q" name="Zidane" width="3" height="3">
+    <target xmi:type="uml:Class" href="../football.uml#_Zfig0EjgEd2dA-w4B9F6fQ"/>
+    <semanticElements xmi:type="uml:Class" href="../football.uml#_Zfig0EjgEd2dA-w4B9F6fQ"/>
+    <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_E4cFcZjFEeCTjf2eRUPO7Q" color="114,159,207">
+      <description xmi:type="style:BundledImageDescription" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20with%20semantic%20elements%20and%20hide%20sub%20mappings']/@defaultLayer/@nodeMappings[name='Class%20Diagram%20hide']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20with%20semantic%20elements%20and%20hide%20sub%20mappings']/@defaultLayer/@nodeMappings[name='Class%20Diagram%20hide']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_E4cFdZjFEeCTjf2eRUPO7Q" name="Benzema" width="3" height="3">
+    <target xmi:type="uml:Class" href="../football.uml#_wLR7QHg7Ed2ISLgtvgSAmQ"/>
+    <semanticElements xmi:type="uml:Class" href="../football.uml#_wLR7QHg7Ed2ISLgtvgSAmQ"/>
+    <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_E4csgJjFEeCTjf2eRUPO7Q" color="114,159,207">
+      <description xmi:type="style:BundledImageDescription" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20with%20semantic%20elements%20and%20hide%20sub%20mappings']/@defaultLayer/@nodeMappings[name='Class%20Diagram%20hide']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20with%20semantic%20elements%20and%20hide%20sub%20mappings']/@defaultLayer/@nodeMappings[name='Class%20Diagram%20hide']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_E4cshJjFEeCTjf2eRUPO7Q" name="Makelele" width="3" height="3">
+    <target xmi:type="uml:Class" href="../football.uml#_XFrIwHg7Ed2ISLgtvgSAmQ"/>
+    <semanticElements xmi:type="uml:Class" href="../football.uml#_XFrIwHg7Ed2ISLgtvgSAmQ"/>
+    <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_E4cshZjFEeCTjf2eRUPO7Q" color="114,159,207">
+      <description xmi:type="style:BundledImageDescription" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20with%20semantic%20elements%20and%20hide%20sub%20mappings']/@defaultLayer/@nodeMappings[name='Class%20Diagram%20hide']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20with%20semantic%20elements%20and%20hide%20sub%20mappings']/@defaultLayer/@nodeMappings[name='Class%20Diagram%20hide']"/>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20with%20semantic%20elements%20and%20hide%20sub%20mappings']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_g6q_kuDtEd6iJoDb7lhWwA"/>
+  <activatedLayers xmi:type="description_1:Layer" href="../football.odesign#//@ownedViewpoints[name='Football%20with%20UML2%20(Modeler%20test%20for%20layers)']/@ownedRepresentations[name='NodeMappingImport%20with%20semantic%20elements%20and%20hide%20sub%20mappings']/@defaultLayer"/>
+  <target xmi:type="uml:Model" href="../football.uml#_Wh_KkEjgEd2dA-w4B9F6fQ"/>
+</diagram:DSemanticDiagram>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_AqPAkcJNEd6zFrzjAe9CHw" name="fixture package entities">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_ddrTYBFPEeKQrpwaBKeVCA" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_AqQOsMJNEd6zFrzjAe9CHw" type="Sirius" element="_AqPAkcJNEd6zFrzjAe9CHw" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_AqiikMJNEd6zFrzjAe9CHw" type="2003" element="_GWEhEJjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_AqjwsMJNEd6zFrzjAe9CHw" type="5007"/>
+        <children xmi:type="notation:Node" xmi:id="_AqjwscJNEd6zFrzjAe9CHw" type="7004">
+          <children xmi:type="notation:Node" xmi:id="_GWKAoJjFEeCTjf2eRUPO7Q" type="3010" element="_GWFvMJjFEeCTjf2eRUPO7Q">
+            <styles xmi:type="notation:FontStyle" xmi:id="_BY_CIA5BEeeC26hV23mG9w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_GWKAoZjFEeCTjf2eRUPO7Q"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_GWKnsJjFEeCTjf2eRUPO7Q" type="3010" element="_GWGWRJjFEeCTjf2eRUPO7Q">
+            <styles xmi:type="notation:FontStyle" xmi:id="_BY_CIQ5BEeeC26hV23mG9w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_GWKnsZjFEeCTjf2eRUPO7Q" x="60"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_AqjwssJNEd6zFrzjAe9CHw"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_Aqjws8JNEd6zFrzjAe9CHw"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_AqiikcJNEd6zFrzjAe9CHw" fontName="Sans" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AqjJoMJNEd6zFrzjAe9CHw" x="25" y="25"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_AqQOscJNEd6zFrzjAe9CHw"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BY8l4A5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_BY8l4Q5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_GWEhEJjFEeCTjf2eRUPO7Q" name="ActionTarget" tooltipText="fixture.ActionTarget">
+    <target xmi:type="ecore:EClass" href="../external_action_fixture.ecore#//ActionTarget"/>
+    <semanticElements xmi:type="ecore:EClass" href="../external_action_fixture.ecore#//ActionTarget"/>
+    <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_GWFIIJjFEeCTjf2eRUPO7Q" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="209,209,209" foregroundColor="255,255,255">
+      <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.tests.junit/data/unit/java_action/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.tests.junit/data/unit/java_action/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+    <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_GWFvMJjFEeCTjf2eRUPO7Q" name="attributeOne : ">
+      <target xmi:type="ecore:EAttribute" href="../external_action_fixture.ecore#//ActionTarget/attributeOne"/>
+      <semanticElements xmi:type="ecore:EAttribute" href="../external_action_fixture.ecore#//ActionTarget/attributeOne"/>
+      <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_GWGWQJjFEeCTjf2eRUPO7Q" labelAlignment="LEFT">
+        <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.sirius.tests.junit/data/unit/java_action/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.junit/data/unit/java_action/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+    </ownedElements>
+    <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_GWGWRJjFEeCTjf2eRUPO7Q" name="attributeTwo : ">
+      <target xmi:type="ecore:EAttribute" href="../external_action_fixture.ecore#//ActionTarget/attributeTwo"/>
+      <semanticElements xmi:type="ecore:EAttribute" href="../external_action_fixture.ecore#//ActionTarget/attributeTwo"/>
+      <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_GWGWRZjFEeCTjf2eRUPO7Q" labelAlignment="LEFT">
+        <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.sirius.tests.junit/data/unit/java_action/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.tests.junit/data/unit/java_action/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+    </ownedElements>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.tests.junit/data/unit/java_action/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_AqPAksJNEd6zFrzjAe9CHw"/>
+  <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.tests.junit/data/unit/java_action/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+  <target xmi:type="ecore:EPackage" href="../external_action_fixture.ecore#/"/>
+</diagram:DSemanticDiagram>

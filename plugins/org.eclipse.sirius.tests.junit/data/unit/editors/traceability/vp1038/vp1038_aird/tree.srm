@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree:DTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xsi:schemaLocation="http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description" xmi:id="_417G0P0pEd-oPM3U8Zxb7g" name="tree">
+  <target xmi:type="ecore:EPackage" href="../vp1038.ecore#/"/>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G0f0pEd-oPM3U8Zxb7g" name="p1">
+    <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p1"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G0v0pEd-oPM3U8Zxb7g" name="A">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/A"/>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_ryK1YP4VEd-tEIivEm4ULA" name="myAnnotation">
+        <target xmi:type="ecore:EAnnotation" href="../vp1038.ecore#//p1/A/%myAnnotation%"/>
+        <semanticElements xmi:type="ecore:EAnnotation" href="../vp1038.ecore#//p1/A/%myAnnotation%"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_ryK1Yf4VEd-tEIivEm4ULA" labelColor="114,159,207" backgroundColor="194,239,255"/>
+        <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']/@subItemMappings[name='EClass']/@subItemMappings[name='EAnnotation']"/>
+      </ownedTreeItems>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/A"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G0_0pEd-oPM3U8Zxb7g"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']/@subItemMappings[name='EClass']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G1v0pEd-oPM3U8Zxb7g" name="G">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/G"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/G"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G1_0pEd-oPM3U8Zxb7g"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']/@subItemMappings[name='EClass']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G2v0pEd-oPM3U8Zxb7g" name="H">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/H"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/H"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G2_0pEd-oPM3U8Zxb7g"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']/@subItemMappings[name='EClass']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G3v0pEd-oPM3U8Zxb7g" name="I">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/I"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p1/I"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G3_0pEd-oPM3U8Zxb7g"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']/@subItemMappings[name='EClass']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p1"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G4v0pEd-oPM3U8Zxb7g"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']"/>
+  </ownedTreeItems>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G5f0pEd-oPM3U8Zxb7g" name="p2">
+    <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p2"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G5v0pEd-oPM3U8Zxb7g" name="B">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p2/B"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p2/B"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G5_0pEd-oPM3U8Zxb7g"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']/@subItemMappings[name='EClass']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p2"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G6v0pEd-oPM3U8Zxb7g"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']"/>
+  </ownedTreeItems>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G7f0pEd-oPM3U8Zxb7g" name="p3">
+    <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p3"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G7v0pEd-oPM3U8Zxb7g" name="E">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p3/E"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p3/E"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G7_0pEd-oPM3U8Zxb7g"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']/@subItemMappings[name='EClass']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p3"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G8v0pEd-oPM3U8Zxb7g"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']"/>
+  </ownedTreeItems>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G9f0pEd-oPM3U8Zxb7g" name="p4">
+    <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p4"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G9v0pEd-oPM3U8Zxb7g" name="F">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p4/F"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p4/F"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G9_0pEd-oPM3U8Zxb7g"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']/@subItemMappings[name='EClass']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p4"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G-v0pEd-oPM3U8Zxb7g"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']"/>
+  </ownedTreeItems>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G_f0pEd-oPM3U8Zxb7g" name="p5">
+    <target xmi:type="ecore:EPackage" href="../vp1038.ecore#//p5"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_417G_v0pEd-oPM3U8Zxb7g" name="J">
+      <target xmi:type="ecore:EClass" href="../vp1038.ecore#//p5/J"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038.ecore#//p5/J"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417G__0pEd-oPM3U8Zxb7g"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']/@subItemMappings[name='EClass']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038.ecore#//p5"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_417HAv0pEd-oPM3U8Zxb7g"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']/@subItemMappings[name='EPackage']"/>
+  </ownedTreeItems>
+  <description xmi:type="description:TreeDescription" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Tree']"/>
+</tree:DTree>

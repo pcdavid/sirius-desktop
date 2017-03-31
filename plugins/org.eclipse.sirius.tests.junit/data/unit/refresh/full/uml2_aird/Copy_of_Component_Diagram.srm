@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description" xmi:id="_hnNqUF_QEd286YgWhSQipA" name="Copy of Component Diagram">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Pc2vohHhEeKS07mYEJy8yw" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_hnXbUF_QEd286YgWhSQipA" type="Sirius" element="_hnNqUF_QEd286YgWhSQipA" measurementUnit="Pixel">
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_hnXbUV_QEd286YgWhSQipA"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BovVYg5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_BovVYw5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <description xmi:type="description_1:DiagramDescription" href="../uml2.odesign#//@ownedViewpoints[name='UML%20Analysis%20workspace']/@ownedRepresentations[name='Component%20Diagram']"/>
+  <target xmi:type="uml:Package" href="../uml2.uml#_sQN841M5Ed2swLTvVm1NKg"/>
+</diagram:DSemanticDiagram>

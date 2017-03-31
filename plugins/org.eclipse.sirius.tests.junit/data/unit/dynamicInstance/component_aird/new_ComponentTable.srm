@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:component="http://www.example.com/samples/component/0.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xsi:schemaLocation="http://www.example.com/samples/component/0.1.0 ../component.ecore" xmi:id="_Cva9oSy5EeGUvZX-i9oOKw" name="new ComponentTable" headerColumnWidth="1423">
+  <target xmi:type="component:Application" href="../component.component#/"/>
+  <lines xmi:type="table:DLine" xmi:id="_Cva9oiy5EeGUvZX-i9oOKw" label="comp1">
+    <target xmi:type="component:Component" href="../component.component#//@components.0"/>
+    <semanticElements xmi:type="component:Component" href="../component.component#//@components.0"/>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_hrFkkCy5EeGUvZX-i9oOKw" label="comp2">
+    <target xmi:type="component:Component" href="../component.component#//@components.1"/>
+    <semanticElements xmi:type="component:Component" href="../component.component#//@components.1"/>
+  </lines>
+</table:DTable>

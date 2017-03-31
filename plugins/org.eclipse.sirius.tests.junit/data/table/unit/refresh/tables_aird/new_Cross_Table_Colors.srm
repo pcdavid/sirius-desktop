@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_20AN0M3REd27vtJe3G8h8w" name="new Cross Table Colors">
+  <target xmi:type="uml:Model" href="../tables.uml#_jLo-cXnPEd2hNdpX8IgW8Q"/>
+</table:DTable>

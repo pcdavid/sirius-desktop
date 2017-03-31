@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="_B2UUoEaSEeGOC4OMhs-mig" name="vp-2734" headerColumnWidth="124">
+  <target xmi:type="ecore:EPackage" href="../vp-2734.ecore#/"/>
+  <lines xmi:type="table:DLine" xmi:id="_B2UUoUaSEeGOC4OMhs-mig" label="c14">
+    <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c14"/>
+    <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c14"/>
+    <semanticElements xmi:type="ecore:EReference" href="../vp-2734.ecore#//c14/newEReference1"/>
+    <originMapping xmi:type="description:LineMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@ownedLineMappings[name='classLine']"/>
+    <cells xmi:type="table:DCell" xmi:id="_SHZrsA0-EeK4kKNCxhBF5g" label="X" column="_B2U7x0aSEeGOC4OMhs-mig">
+      <target xmi:type="ecore:EReference" href="../vp-2734.ecore#//c14/newEReference1"/>
+      <semanticElements xmi:type="ecore:EReference" href="../vp-2734.ecore#//c14/newEReference1"/>
+      <intersectionMapping xmi:type="description:IntersectionMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@intersection.1"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_B2UUrkaSEeGOC4OMhs-mig" label="c24 -> c14, c34">
+    <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c24"/>
+    <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c24"/>
+    <semanticElements xmi:type="ecore:EReference" href="../vp-2734.ecore#//c24/newEReference1"/>
+    <originMapping xmi:type="description:LineMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@ownedLineMappings[name='classLine']"/>
+    <cells xmi:type="table:DCell" xmi:id="_B2U7sEaSEeGOC4OMhs-mig" label="X" column="_B2U7xUaSEeGOC4OMhs-mig">
+      <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c24"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c24"/>
+      <currentStyle xmi:type="table:DCellStyle" xmi:id="_B2U7sUaSEeGOC4OMhs-mig"/>
+      <intersectionMapping xmi:type="description:IntersectionMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@intersection.0"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_B2U7skaSEeGOC4OMhs-mig" label="X" column="_B2U7w0aSEeGOC4OMhs-mig">
+      <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c24"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c24"/>
+      <currentStyle xmi:type="table:DCellStyle" xmi:id="_B2U7s0aSEeGOC4OMhs-mig"/>
+      <intersectionMapping xmi:type="description:IntersectionMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@intersection.0"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_B2U7tkaSEeGOC4OMhs-mig" label="c34 -> c24">
+    <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c34"/>
+    <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c34"/>
+    <semanticElements xmi:type="ecore:EReference" href="../vp-2734.ecore#//c34/newEReference1"/>
+    <originMapping xmi:type="description:LineMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@ownedLineMappings[name='classLine']"/>
+    <cells xmi:type="table:DCell" xmi:id="_r2ZqMEdhEeG9Acg1c3zX9Q" label="X" column="_B2U7xEaSEeGOC4OMhs-mig">
+      <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c34"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c34"/>
+      <intersectionMapping xmi:type="description:IntersectionMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@intersection.0"/>
+    </cells>
+  </lines>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_B2U7w0aSEeGOC4OMhs-mig" label="c14" cells="_B2U7skaSEeGOC4OMhs-mig" width="33">
+    <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c14"/>
+    <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c14"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@ownedColumnMappings.0"/>
+  </columns>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_B2U7xEaSEeGOC4OMhs-mig" label="c24 -> c14, c34" cells="_r2ZqMEdhEeG9Acg1c3zX9Q" width="94">
+    <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c24"/>
+    <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c24"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@ownedColumnMappings.0"/>
+  </columns>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_B2U7xUaSEeGOC4OMhs-mig" label="c34 -> c24" cells="_B2U7sEaSEeGOC4OMhs-mig" width="70">
+    <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c34"/>
+    <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c34"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@ownedColumnMappings.0"/>
+  </columns>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_B2U7xkaSEeGOC4OMhs-mig" label="refs : c14" width="107">
+    <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c14"/>
+    <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c14"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@ownedColumnMappings.1"/>
+  </columns>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_B2U7x0aSEeGOC4OMhs-mig" label="refs : c24" cells="_SHZrsA0-EeK4kKNCxhBF5g" width="61">
+    <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c24"/>
+    <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c24"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@ownedColumnMappings.1"/>
+  </columns>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_B2U7yEaSEeGOC4OMhs-mig" label="refs : c34" width="63">
+    <target xmi:type="ecore:EClass" href="../vp-2734.ecore#//c34"/>
+    <semanticElements xmi:type="ecore:EClass" href="../vp-2734.ecore#//c34"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']/@ownedColumnMappings.1"/>
+  </columns>
+  <description xmi:type="description:CrossTableDescription" href="../vp-2734.odesign#//@ownedViewpoints[name='VP-2734']/@ownedRepresentations[name='vp-2734']"/>
+</table:DTable>

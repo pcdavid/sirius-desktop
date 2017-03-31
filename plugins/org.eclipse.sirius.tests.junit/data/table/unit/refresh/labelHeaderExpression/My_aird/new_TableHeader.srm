@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="_liCiIKWFEeG3aeE6_pdmnw" name="new TableHeader" headerColumnWidth="69">
+  <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+  <lines xmi:type="table:DLine" xmi:id="_liCiIaWFEeG3aeE6_pdmnw" label="E221">
+    <target xmi:type="ecore:EClass" href="../My.ecore#//E221"/>
+    <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//E221"/>
+    <originMapping xmi:type="description:LineMapping" href="platform:/resource/description/My.odesign#//@ownedViewpoints[name='ModifyHeader']/@ownedRepresentations[name='TableHeader']/@ownedLineMappings[name='Class']"/>
+    <cells xmi:type="table:DCell" xmi:id="_liCiIqWFEeG3aeE6_pdmnw" label="E221" column="_liCiJaWFEeG3aeE6_pdmnw">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//E221"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//E221"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_liCiI6WFEeG3aeE6_pdmnw" label="E2">
+    <target xmi:type="ecore:EClass" href="../My.ecore#//E2"/>
+    <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//E2"/>
+    <originMapping xmi:type="description:LineMapping" href="platform:/resource/description/My.odesign#//@ownedViewpoints[name='ModifyHeader']/@ownedRepresentations[name='TableHeader']/@ownedLineMappings[name='Class']"/>
+    <cells xmi:type="table:DCell" xmi:id="_liCiJKWFEeG3aeE6_pdmnw" label="E2" column="_liCiJaWFEeG3aeE6_pdmnw">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//E2"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//E2"/>
+    </cells>
+  </lines>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_liCiJaWFEeG3aeE6_pdmnw" label="Name" cells="_liCiIqWFEeG3aeE6_pdmnw _liCiJKWFEeG3aeE6_pdmnw" width="47" featureName="name">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/resource/description/My.odesign#//@ownedViewpoints[name='ModifyHeader']/@ownedRepresentations[name='TableHeader']/@ownedColumnMappings[name='Name']"/>
+  </columns>
+  <description xmi:type="description:EditionTableDescription" href="platform:/resource/description/My.odesign#//@ownedViewpoints[name='ModifyHeader']/@ownedRepresentations[name='TableHeader']"/>
+</table:DTable>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree:DTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xsi:schemaLocation="http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description" xmi:id="_0gU0MLNmEeSDfIge-GfFOQ" name="new Tree">
+  <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_0gU0MbNmEeSDfIge-GfFOQ" name="p1" expanded="true">
+    <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2IJWAO9QEeSKRItqswzrVw" name="p2" expanded="true">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2IKkIu9QEeSKRItqswzrVw" name="p3">
+        <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2IKkI-9QEeSKRItqswzrVw"/>
+        <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p1']/@subItemMappings[name='p1.2']"/>
+      </ownedTreeItems>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2IJWAe9QEeSKRItqswzrVw"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p1']/@subItemMappings[name='p1.1-reuse-p1.2']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2IJ9EO9QEeSKRItqswzrVw" name="p3">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2IJ9Ee9QEeSKRItqswzrVw"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p1']/@subItemMappings[name='p1.2']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2IJ9Fu9QEeSKRItqswzrVw" name="p4" expanded="true">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2ILLMO9QEeSKRItqswzrVw" name="p2" expanded="true">
+        <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2b0f8O9QEeSKRItqswzrVw" name="p3">
+          <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+          <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2b0f8e9QEeSKRItqswzrVw"/>
+          <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p1']/@subItemMappings[name='p1.2']"/>
+        </ownedTreeItems>
+        <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2ILLMe9QEeSKRItqswzrVw"/>
+        <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p1']/@subItemMappings[name='p1.1-reuse-p1.2']"/>
+      </ownedTreeItems>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2IJ9F-9QEeSKRItqswzrVw"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p1']/@subItemMappings[name='p1.3-reuse-p1.2']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_0gU0NrNmEeSDfIge-GfFOQ"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p1']"/>
+  </ownedTreeItems>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_sy8WoO9PEeSKRItqswzrVw" name="p5" expanded="true">
+    <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2ILLNO9QEeSKRItqswzrVw" name="p6" expanded="true">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2-Th8O9QEeSKRItqswzrVw" name="p7">
+        <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2-Th8e9QEeSKRItqswzrVw"/>
+        <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p2.2']"/>
+      </ownedTreeItems>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2ILLNe9QEeSKRItqswzrVw"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p2.1-reuse-p2.2']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2-OCYO9QEeSKRItqswzrVw" name="p7">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2-OCYe9QEeSKRItqswzrVw"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p2.2']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2-P3kO9QEeSKRItqswzrVw" name="p8" expanded="true">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2-UJAO9QEeSKRItqswzrVw" name="p6" expanded="true">
+        <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_3PhNwO9QEeSKRItqswzrVw" name="p7">
+          <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+          <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_3PhNwe9QEeSKRItqswzrVw"/>
+          <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p2.2']"/>
+        </ownedTreeItems>
+        <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2-UJAe9QEeSKRItqswzrVw"/>
+        <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p2.1-reuse-p2.2']"/>
+      </ownedTreeItems>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2-P3ke9QEeSKRItqswzrVw"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p2.3-reuse-p2.1']"/>
+    </ownedTreeItems>
+    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2-RswO9QEeSKRItqswzrVw" name="p9" expanded="true">
+      <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_2-VXIO9QEeSKRItqswzrVw" name="p10" expanded="true">
+        <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_3VONIO9QEeSKRItqswzrVw" name="p11">
+          <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+          <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_3VONIe9QEeSKRItqswzrVw"/>
+          <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p3']/@subItemMappings[name='p3.2']"/>
+        </ownedTreeItems>
+        <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2-VXIe9QEeSKRItqswzrVw"/>
+        <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p3']/@subItemMappings[name='p3.1-reuse-p3.2']"/>
+      </ownedTreeItems>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_3VKiwO9QEeSKRItqswzrVw" name="p11">
+        <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_3VKiwe9QEeSKRItqswzrVw"/>
+        <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p3']/@subItemMappings[name='p3.2']"/>
+      </ownedTreeItems>
+      <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_3VMX8O9QEeSKRItqswzrVw" name="p12" expanded="true">
+        <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_3VPbQO9QEeSKRItqswzrVw" name="p10" expanded="true">
+          <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_3l34QO9QEeSKRItqswzrVw" name="p11">
+            <target xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+            <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_3l34Qe9QEeSKRItqswzrVw"/>
+            <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p3']/@subItemMappings[name='p3.2']"/>
+          </ownedTreeItems>
+          <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_3VPbQe9QEeSKRItqswzrVw"/>
+          <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p3']/@subItemMappings[name='p3.1-reuse-p3.2']"/>
+        </ownedTreeItems>
+        <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+        <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_3VMX8e9QEeSKRItqswzrVw"/>
+        <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p3']/@subItemMappings[name='p3.3-reuse-p2']"/>
+      </ownedTreeItems>
+      <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_2-Rswe9QEeSKRItqswzrVw"/>
+      <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']/@subItemMappings[name='p3']"/>
+    </ownedTreeItems>
+    <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#/"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_sy8Woe9PEeSKRItqswzrVw"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']/@subItemMappings[name='p2']"/>
+  </ownedTreeItems>
+  <description xmi:type="description:TreeDescription" href="../project.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree']"/>
+</tree:DTree>

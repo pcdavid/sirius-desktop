@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" xmi:id="_1vAeYNElEd-kLoGiBy80Mw" name="Reuse node mapping">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_1vEIwNElEd-kLoGiBy80Mw" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_1vEv0NElEd-kLoGiBy80Mw" type="Sirius" element="_1vAeYNElEd-kLoGiBy80Mw" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_nz7_AJjFEeCTjf2eRUPO7Q" type="2001" element="_n5sBsJjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_nz8mEJjFEeCTjf2eRUPO7Q" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_nz8mEZjFEeCTjf2eRUPO7Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nz-bQJjFEeCTjf2eRUPO7Q" type="3003" element="_n5sBsZjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nz-bQZjFEeCTjf2eRUPO7Q" fontName="Sans Serif"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nz-bQpjFEeCTjf2eRUPO7Q" x="60"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_nz7_AZjFEeCTjf2eRUPO7Q" fontName="Sans Serif" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nz7_ApjFEeCTjf2eRUPO7Q" width="30" height="30"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_nz8mEpjFEeCTjf2eRUPO7Q" type="2001" element="_n5sowJjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_nz8mFZjFEeCTjf2eRUPO7Q" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_nz8mFpjFEeCTjf2eRUPO7Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nz-bQ5jFEeCTjf2eRUPO7Q" type="3003" element="_n5sowZjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nz-bRJjFEeCTjf2eRUPO7Q" fontName="Sans Serif"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nz-bRZjFEeCTjf2eRUPO7Q" x="60"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_nz8mE5jFEeCTjf2eRUPO7Q" fontName="Sans Serif" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nz8mFJjFEeCTjf2eRUPO7Q" x="90" width="30" height="30"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_nz9NIJjFEeCTjf2eRUPO7Q" type="2001" element="_n5soxZjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_nz9NI5jFEeCTjf2eRUPO7Q" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_nz9NJJjFEeCTjf2eRUPO7Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nz_CUJjFEeCTjf2eRUPO7Q" type="3003" element="_n5soxpjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nz_CUZjFEeCTjf2eRUPO7Q" fontName="Sans Serif"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nz_CUpjFEeCTjf2eRUPO7Q" x="60"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_nz9NIZjFEeCTjf2eRUPO7Q" fontName="Sans Serif" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nz9NIpjFEeCTjf2eRUPO7Q" x="180" width="30" height="30"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_nz9NJZjFEeCTjf2eRUPO7Q" type="2001" element="_n5tP0JjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_nz90MJjFEeCTjf2eRUPO7Q" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_nz90MZjFEeCTjf2eRUPO7Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nz_CU5jFEeCTjf2eRUPO7Q" type="3003" element="_n5tP0ZjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nz_CVJjFEeCTjf2eRUPO7Q" fontName="Sans Serif"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nz_CVZjFEeCTjf2eRUPO7Q" x="60"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_nz9NJpjFEeCTjf2eRUPO7Q" fontName="Sans Serif" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nz9NJ5jFEeCTjf2eRUPO7Q" x="270" width="30" height="30"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_nz90MpjFEeCTjf2eRUPO7Q" type="2001" element="_n5tP1ZjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_nz90NZjFEeCTjf2eRUPO7Q" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_nz90NpjFEeCTjf2eRUPO7Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nz_pYJjFEeCTjf2eRUPO7Q" type="3003" element="_n5tP1pjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nz_pYZjFEeCTjf2eRUPO7Q" fontName="Sans Serif"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nz_pYpjFEeCTjf2eRUPO7Q" x="60"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_nz90M5jFEeCTjf2eRUPO7Q" fontName="Sans Serif" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nz90NJjFEeCTjf2eRUPO7Q" x="360" width="30" height="30"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_1vEv0dElEd-kLoGiBy80Mw"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_A_lDow5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_A_lDpA5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_n5sBsJjFEeCTjf2eRUPO7Q" name="A" width="3" height="3">
+    <target xmi:type="ecore:EClass" href="../semanticModelTypes.ecore#//A"/>
+    <semanticElements xmi:type="ecore:EClass" href="../semanticModelTypes.ecore#//A"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_n5sBsZjFEeCTjf2eRUPO7Q"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_n5sowJjFEeCTjf2eRUPO7Q" name="B" width="3" height="3">
+    <target xmi:type="ecore:EClass" href="../semanticModelTypes.ecore#//B"/>
+    <semanticElements xmi:type="ecore:EClass" href="../semanticModelTypes.ecore#//B"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_n5sowZjFEeCTjf2eRUPO7Q"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_n5soxZjFEeCTjf2eRUPO7Q" name="C" width="3" height="3">
+    <target xmi:type="ecore:EClass" href="../semanticModelTypes.ecore#//C"/>
+    <semanticElements xmi:type="ecore:EClass" href="../semanticModelTypes.ecore#//C"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_n5soxpjFEeCTjf2eRUPO7Q"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_n5tP0JjFEeCTjf2eRUPO7Q" name="D" width="3" height="3">
+    <target xmi:type="ecore:EClass" href="../semanticModelTypes.ecore#//D"/>
+    <semanticElements xmi:type="ecore:EClass" href="../semanticModelTypes.ecore#//D"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_n5tP0ZjFEeCTjf2eRUPO7Q"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_n5tP1ZjFEeCTjf2eRUPO7Q" name="E" width="3" height="3">
+    <target xmi:type="ecore:EClass" href="../semanticModelTypes.ecore#//E"/>
+    <semanticElements xmi:type="ecore:EClass" href="../semanticModelTypes.ecore#//E"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_n5tP1pjFEeCTjf2eRUPO7Q"/>
+  </ownedDiagramElements>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_1vAeYdElEd-kLoGiBy80Mw"/>
+  <target xmi:type="ecore:EPackage" href="../semanticModelTypes.ecore#/"/>
+</diagram:DSemanticDiagram>

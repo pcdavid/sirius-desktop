@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_8DQcMOidEd6M-vDQgLmz6Q" name="Recursive_Simple_Some_Pinned_No_Overlaps">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_X5XEUBFREeKQrpwaBKeVCA" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_8DaNMOidEd6M-vDQgLmz6Q" type="Sirius" element="_8DQcMOidEd6M-vDQgLmz6Q" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_8DaNMeidEd6M-vDQgLmz6Q" type="2001" element="_A9U6wJjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_8DaNMuidEd6M-vDQgLmz6Q" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_8DaNM-idEd6M-vDQgLmz6Q" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_8DaNNOidEd6M-vDQgLmz6Q" type="3004" element="_A9U6wZjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_8DaNNeidEd6M-vDQgLmz6Q" fontName="Sans"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8DaNNuidEd6M-vDQgLmz6Q"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_8DaNN-idEd6M-vDQgLmz6Q" fontName="Sans" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8DaNOOidEd6M-vDQgLmz6Q" x="54" y="161" width="46" height="46"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_8Da0QOidEd6M-vDQgLmz6Q" type="2001" element="_A9Vh0JjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_8Da0QeidEd6M-vDQgLmz6Q" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_8Da0QuidEd6M-vDQgLmz6Q" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_8Da0Q-idEd6M-vDQgLmz6Q" type="3004" element="_A9Vh0ZjFEeCTjf2eRUPO7Q">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0ROidEd6M-vDQgLmz6Q" fontName="Sans"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0ReidEd6M-vDQgLmz6Q"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0RuidEd6M-vDQgLmz6Q" fontName="Sans" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0R-idEd6M-vDQgLmz6Q" x="141" y="155" width="46" height="46"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_8Da0SOidEd6M-vDQgLmz6Q" type="2002" element="_A9WI4JjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_8Da0SeidEd6M-vDQgLmz6Q" type="5006"/>
+        <children xmi:type="notation:Node" xmi:id="_8Da0SuidEd6M-vDQgLmz6Q" type="7001">
+          <children xmi:type="notation:Node" xmi:id="_8Da0S-idEd6M-vDQgLmz6Q" type="3007" element="_A9YlIJjFEeCTjf2eRUPO7Q">
+            <children xmi:type="notation:Node" xmi:id="_8Da0TOidEd6M-vDQgLmz6Q" type="5003">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_8Da0TeidEd6M-vDQgLmz6Q" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_8Da0TuidEd6M-vDQgLmz6Q" type="3004" element="_A9YlIZjFEeCTjf2eRUPO7Q">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0T-idEd6M-vDQgLmz6Q" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0UOidEd6M-vDQgLmz6Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0UeidEd6M-vDQgLmz6Q" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0UuidEd6M-vDQgLmz6Q" x="289" y="190" width="47" height="46"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_8Da0U-idEd6M-vDQgLmz6Q" type="3007" element="_A9ZMMJjFEeCTjf2eRUPO7Q">
+            <children xmi:type="notation:Node" xmi:id="_8Da0VOidEd6M-vDQgLmz6Q" type="5003">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_8Da0VeidEd6M-vDQgLmz6Q" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_8Da0VuidEd6M-vDQgLmz6Q" type="3004" element="_A9ZMMZjFEeCTjf2eRUPO7Q">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0V-idEd6M-vDQgLmz6Q" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0WOidEd6M-vDQgLmz6Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0WeidEd6M-vDQgLmz6Q" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0WuidEd6M-vDQgLmz6Q" x="219" y="358" width="47" height="46"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_8Da0W-idEd6M-vDQgLmz6Q" type="3008" element="_A9Wv8JjFEeCTjf2eRUPO7Q">
+            <children xmi:type="notation:Node" xmi:id="_8Da0XOidEd6M-vDQgLmz6Q" type="5005"/>
+            <children xmi:type="notation:Node" xmi:id="_8Da0XeidEd6M-vDQgLmz6Q" type="7002">
+              <children xmi:type="notation:Node" xmi:id="_8Da0XuidEd6M-vDQgLmz6Q" type="3007" element="_A9XXAJjFEeCTjf2eRUPO7Q">
+                <children xmi:type="notation:Node" xmi:id="_8Da0X-idEd6M-vDQgLmz6Q" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_8Da0YOidEd6M-vDQgLmz6Q" y="5"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_8Da0YeidEd6M-vDQgLmz6Q" type="3004" element="_A9XXAZjFEeCTjf2eRUPO7Q">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0YuidEd6M-vDQgLmz6Q" fontName="Sans"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0Y-idEd6M-vDQgLmz6Q"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0ZOidEd6M-vDQgLmz6Q" fontName="Sans" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0ZeidEd6M-vDQgLmz6Q" x="30" y="30" width="46" height="46"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_8Da0ZuidEd6M-vDQgLmz6Q" type="3007" element="_A9X-EJjFEeCTjf2eRUPO7Q">
+                <children xmi:type="notation:Node" xmi:id="_8Da0Z-idEd6M-vDQgLmz6Q" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_8Da0aOidEd6M-vDQgLmz6Q" y="5"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_8Da0aeidEd6M-vDQgLmz6Q" type="3004" element="_A9X-EZjFEeCTjf2eRUPO7Q">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0auidEd6M-vDQgLmz6Q" fontName="Sans"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0a-idEd6M-vDQgLmz6Q"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0bOidEd6M-vDQgLmz6Q" fontName="Sans" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0beidEd6M-vDQgLmz6Q" x="107" y="8" width="45" height="46"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_8Da0buidEd6M-vDQgLmz6Q"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_8Da0b-idEd6M-vDQgLmz6Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0cOidEd6M-vDQgLmz6Q" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0ceidEd6M-vDQgLmz6Q" x="43" y="143" width="171" height="185"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_8Da0cuidEd6M-vDQgLmz6Q"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_8Da0c-idEd6M-vDQgLmz6Q"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_8Da0dOidEd6M-vDQgLmz6Q" fontName="Sans" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Da0deidEd6M-vDQgLmz6Q" x="238" y="36" width="506" height="420"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_8Da0duidEd6M-vDQgLmz6Q"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Bcu5vg5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_Bcu5vw5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_A9U6wJjFEeCTjf2eRUPO7Q" name="A" width="3" height="3" resizeKind="NSEW">
+    <target xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/A"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/A"/>
+    <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+    <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+    <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+    <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A9U6wZjFEeCTjf2eRUPO7Q" borderColor="194,239,255" labelPosition="node" color="114,159,207">
+      <description xmi:type="style:BundledImageDescription" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_A9Vh0JjFEeCTjf2eRUPO7Q" name="B" width="3" height="3" resizeKind="NSEW">
+    <target xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/B"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/B"/>
+    <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A9Vh0ZjFEeCTjf2eRUPO7Q" borderColor="194,239,255" labelPosition="node" color="114,159,207">
+      <description xmi:type="style:BundledImageDescription" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_A9WI4JjFEeCTjf2eRUPO7Q" name="P1">
+    <target xmi:type="ecore:EPackage" href="../tc1825.ecore#//simple_recursive/P1"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../tc1825.ecore#//simple_recursive/P1"/>
+    <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_A9WI4ZjFEeCTjf2eRUPO7Q" borderSize="1" borderSizeComputationExpression="1" borderColor="114,73,110" backgroundColor="173,127,168" foregroundColor="217,196,215">
+      <description xmi:type="style:FlatContainerStyleDescription" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@containerMappings[name='CM_EPackage']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:ContainerMapping" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@containerMappings[name='CM_EPackage']"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_A9Wv8JjFEeCTjf2eRUPO7Q" name="P2">
+      <target xmi:type="ecore:EPackage" href="../tc1825.ecore#//simple_recursive/P1/P2"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../tc1825.ecore#//simple_recursive/P1/P2"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_A9Wv8ZjFEeCTjf2eRUPO7Q" borderSize="1" borderSizeComputationExpression="1" borderColor="114,73,110" backgroundColor="173,127,168" foregroundColor="217,196,215">
+        <description xmi:type="style:FlatContainerStyleDescription" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@containerMappings[name='CM_EPackage']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@containerMappings[name='CM_EPackage']"/>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_A9XXAJjFEeCTjf2eRUPO7Q" name="E" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/P1/P2/E"/>
+        <semanticElements xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/P1/P2/E"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A9XXAZjFEeCTjf2eRUPO7Q" borderColor="194,239,255" labelPosition="node" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_A9X-EJjFEeCTjf2eRUPO7Q" name="F" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/P1/P2/F"/>
+        <semanticElements xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/P1/P2/F"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A9X-EZjFEeCTjf2eRUPO7Q" borderColor="194,239,255" labelPosition="node" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_A9YlIJjFEeCTjf2eRUPO7Q" name="C" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/P1/C"/>
+      <semanticElements xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/P1/C"/>
+      <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A9YlIZjFEeCTjf2eRUPO7Q" borderColor="194,239,255" labelPosition="node" color="114,159,207">
+        <description xmi:type="style:BundledImageDescription" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_A9ZMMJjFEeCTjf2eRUPO7Q" name="D" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/P1/D"/>
+      <semanticElements xmi:type="ecore:EClass" href="../tc1825.ecore#//simple_recursive/P1/D"/>
+      <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A9ZMMZjFEeCTjf2eRUPO7Q" borderColor="194,239,255" labelPosition="node" color="114,159,207">
+        <description xmi:type="style:BundledImageDescription" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer/@nodeMappings[name='NM_EClass']"/>
+    </ownedDiagramElements>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_8DRDQuidEd6M-vDQgLmz6Q"/>
+  <activatedLayers xmi:type="description_1:Layer" href="../../description/tc1825.odesign#//@ownedViewpoints[name='Tests%20Cases%20for%20ticket%20%231825%20(partial%20layout)']/@ownedRepresentations[name='Nodes%20and%20Containers%20(recursive)']/@defaultLayer"/>
+  <target xmi:type="ecore:EPackage" href="../tc1825.ecore#//simple_recursive"/>
+</diagram:DSemanticDiagram>

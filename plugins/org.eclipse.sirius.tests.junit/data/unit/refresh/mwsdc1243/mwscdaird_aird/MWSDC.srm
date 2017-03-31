@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_fEYlkdA8Ed2DQ8KmEodhBg" name="MWSDC">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Bo_NAQ5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_Bo_NAg5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8q2OYJjDEeCTjf2eRUPO7Q" name="class1" width="3" height="3">
+    <target xmi:type="uml:Class" href="../mwscd.uml#_OTlCMNA5Ed2DQ8KmEodhBg"/>
+    <semanticElements xmi:type="uml:Class" href="../mwscd.uml#_OTlCMNA5Ed2DQ8KmEodhBg"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_8q2OYZjDEeCTjf2eRUPO7Q">
+      <description xmi:type="style:SquareDescription" href="../mwsdc.odesign#//@ownedViewpoints[name='Mapping%20With%20Same%20Domain%20Class']/@ownedRepresentations[name='MWSDC']/@defaultLayer/@nodeMappings[name='NMClass1']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../mwsdc.odesign#//@ownedViewpoints[name='Mapping%20With%20Same%20Domain%20Class']/@ownedRepresentations[name='MWSDC']/@defaultLayer/@nodeMappings[name='NMClass1']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8q21cJjDEeCTjf2eRUPO7Q" name="class2" width="3" height="3">
+    <target xmi:type="uml:Class" href="../mwscd.uml#_PpynMNA5Ed2DQ8KmEodhBg"/>
+    <semanticElements xmi:type="uml:Class" href="../mwscd.uml#_PpynMNA5Ed2DQ8KmEodhBg"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_8q3cgJjDEeCTjf2eRUPO7Q">
+      <description xmi:type="style:SquareDescription" href="../mwsdc.odesign#//@ownedViewpoints[name='Mapping%20With%20Same%20Domain%20Class']/@ownedRepresentations[name='MWSDC']/@defaultLayer/@nodeMappings[name='NMClass1']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../mwsdc.odesign#//@ownedViewpoints[name='Mapping%20With%20Same%20Domain%20Class']/@ownedRepresentations[name='MWSDC']/@defaultLayer/@nodeMappings[name='NMClass1']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8q4DkJjDEeCTjf2eRUPO7Q" name="class1" width="3" height="3">
+    <target xmi:type="uml:Class" href="../mwscd.uml#_OTlCMNA5Ed2DQ8KmEodhBg"/>
+    <semanticElements xmi:type="uml:Class" href="../mwscd.uml#_OTlCMNA5Ed2DQ8KmEodhBg"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_8q4qoJjDEeCTjf2eRUPO7Q">
+      <description xmi:type="style:SquareDescription" href="../mwsdc.odesign#//@ownedViewpoints[name='Mapping%20With%20Same%20Domain%20Class']/@ownedRepresentations[name='MWSDC']/@defaultLayer/@nodeMappings[name='NMClass2']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../mwsdc.odesign#//@ownedViewpoints[name='Mapping%20With%20Same%20Domain%20Class']/@ownedRepresentations[name='MWSDC']/@defaultLayer/@nodeMappings[name='NMClass2']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8q4qpJjDEeCTjf2eRUPO7Q" name="class2" width="3" height="3">
+    <target xmi:type="uml:Class" href="../mwscd.uml#_PpynMNA5Ed2DQ8KmEodhBg"/>
+    <semanticElements xmi:type="uml:Class" href="../mwscd.uml#_PpynMNA5Ed2DQ8KmEodhBg"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_8q5RsJjDEeCTjf2eRUPO7Q">
+      <description xmi:type="style:SquareDescription" href="../mwsdc.odesign#//@ownedViewpoints[name='Mapping%20With%20Same%20Domain%20Class']/@ownedRepresentations[name='MWSDC']/@defaultLayer/@nodeMappings[name='NMClass2']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:NodeMapping" href="../mwsdc.odesign#//@ownedViewpoints[name='Mapping%20With%20Same%20Domain%20Class']/@ownedRepresentations[name='MWSDC']/@defaultLayer/@nodeMappings[name='NMClass2']"/>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="../mwsdc.odesign#//@ownedViewpoints[name='Mapping%20With%20Same%20Domain%20Class']/@ownedRepresentations[name='MWSDC']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_fEYlktA8Ed2DQ8KmEodhBg"/>
+  <activatedLayers xmi:type="description_1:Layer" href="../mwsdc.odesign#//@ownedViewpoints[name='Mapping%20With%20Same%20Domain%20Class']/@ownedRepresentations[name='MWSDC']/@defaultLayer"/>
+  <target xmi:type="uml:Model" href="../mwscd.uml#_MaTzcdA5Ed2DQ8KmEodhBg"/>
+</diagram:DSemanticDiagram>

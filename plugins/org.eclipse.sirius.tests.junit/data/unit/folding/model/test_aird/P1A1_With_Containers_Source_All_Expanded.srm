@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_b0mKQG8OEd-TfKcVTAA2LQ" name="P1A1 With Containers Source All Expanded">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_zVQ7c4RLEeOg_8QSiaL3XA" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_b0mKQm8OEd-TfKcVTAA2LQ" type="Sirius" element="_b0mKQG8OEd-TfKcVTAA2LQ" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_b0qbsG8OEd-TfKcVTAA2LQ" type="2002" element="_H1qEgJjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_b0qbs28OEd-TfKcVTAA2LQ" type="5006"/>
+        <children xmi:type="notation:Node" xmi:id="_b0qbtG8OEd-TfKcVTAA2LQ" type="7001">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_b0qbtW8OEd-TfKcVTAA2LQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_b0qbtm8OEd-TfKcVTAA2LQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_b0qbsW8OEd-TfKcVTAA2LQ" fontName="Sans" fontHeight="10"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_b0qbsm8OEd-TfKcVTAA2LQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_b0qbt28OEd-TfKcVTAA2LQ" type="2002" element="_H1qrkJjFEeCTjf2eRUPO7Q">
+        <children xmi:type="notation:Node" xmi:id="_b0rCwG8OEd-TfKcVTAA2LQ" type="5006"/>
+        <children xmi:type="notation:Node" xmi:id="_b0rCwW8OEd-TfKcVTAA2LQ" type="7001">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_b0rCwm8OEd-TfKcVTAA2LQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_b0rCw28OEd-TfKcVTAA2LQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_b0qbuG8OEd-TfKcVTAA2LQ" fontName="Sans" fontHeight="10"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_b0qbuW8OEd-TfKcVTAA2LQ" x="210"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_b0mKQ28OEd-TfKcVTAA2LQ"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BYmnoA5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_BYmnoQ5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_H1qEgJjFEeCTjf2eRUPO7Q" name="P1A1A">
+    <target xmi:type="ecore:EPackage" href="../test.ecore#//P1/P1A/P1A1/P1A1A"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../test.ecore#//P1/P1A/P1A1/P1A1A"/>
+    <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_H1qEgZjFEeCTjf2eRUPO7Q" labelSize="10" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="255,245,181" foregroundColor="255,255,255">
+      <description xmi:type="style:FlatContainerStyleDescription" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Containers%20Source']/@defaultLayer/@containerMappings[name='CS%20Package']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:ContainerMapping" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Containers%20Source']/@defaultLayer/@containerMappings[name='CS%20Package']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_H1qrkJjFEeCTjf2eRUPO7Q" name="P1A1B">
+    <target xmi:type="ecore:EPackage" href="../test.ecore#//P1/P1A/P1A1/P1A1B"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../test.ecore#//P1/P1A/P1A1/P1A1B"/>
+    <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_H1qrkZjFEeCTjf2eRUPO7Q" labelSize="10" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="255,245,181" foregroundColor="255,255,255">
+      <description xmi:type="style:FlatContainerStyleDescription" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Containers%20Source']/@defaultLayer/@containerMappings[name='CS%20Package']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:ContainerMapping" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Containers%20Source']/@defaultLayer/@containerMappings[name='CS%20Package']"/>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Containers%20Source']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_b0mKQW8OEd-TfKcVTAA2LQ"/>
+  <activatedLayers xmi:type="description_1:Layer" href="../../description/ecore.odesign#//@ownedViewpoints[name='DesignTestFoldingStyle']/@ownedRepresentations[name='Package%20Hierarchy%20With%20Containers%20Source']/@defaultLayer"/>
+  <target xmi:type="ecore:EPackage" href="../test.ecore#//P1/P1A/P1A1"/>
+</diagram:DSemanticDiagram>

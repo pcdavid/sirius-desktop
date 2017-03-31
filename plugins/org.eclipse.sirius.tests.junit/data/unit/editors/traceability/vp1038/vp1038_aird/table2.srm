@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="_xN_qIP0_Ed-1yrT-Hi_u6g" name="table2" headerColumnWidth="272">
+  <target xmi:type="ecore:EPackage" href="../vp1038-2.ecore#/"/>
+  <lines xmi:type="table:DLine" xmi:id="_xN_qIf0_Ed-1yrT-Hi_u6g" label="p1" collapsed="true">
+    <target xmi:type="ecore:EPackage" href="../vp1038-2.ecore#//p1"/>
+    <lines xmi:type="table:DLine" xmi:id="_xN_qIv0_Ed-1yrT-Hi_u6g" label="myEClass">
+      <target xmi:type="ecore:EClass" href="../vp1038-2.ecore#//p1/myEClass"/>
+      <semanticElements xmi:type="ecore:EClass" href="../vp1038-2.ecore#//p1/myEClass"/>
+      <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']/@ownedSubLines[name='']"/>
+      <cells xmi:type="table:DCell" xmi:id="_adkZkfimEeCP1MiVkpt0BA" label="myEClass" column="_adjygPimEeCP1MiVkpt0BA">
+        <target xmi:type="ecore:EClass" href="../vp1038-2.ecore#//p1/myEClass"/>
+        <semanticElements xmi:type="ecore:EClass" href="../vp1038-2.ecore#//p1/myEClass"/>
+      </cells>
+    </lines>
+    <semanticElements xmi:type="ecore:EPackage" href="../vp1038-2.ecore#//p1"/>
+    <originMapping xmi:type="description:LineMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedLineMappings[name='']"/>
+    <cells xmi:type="table:DCell" xmi:id="_adkZkPimEeCP1MiVkpt0BA" label="p1" column="_adjygPimEeCP1MiVkpt0BA">
+      <target xmi:type="ecore:EPackage" href="../vp1038-2.ecore#//p1"/>
+      <semanticElements xmi:type="ecore:EPackage" href="../vp1038-2.ecore#//p1"/>
+    </cells>
+  </lines>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_adjygPimEeCP1MiVkpt0BA" cells="_adkZkPimEeCP1MiVkpt0BA _adkZkfimEeCP1MiVkpt0BA" featureName="name">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']/@ownedColumnMappings[name='name']"/>
+  </columns>
+  <description xmi:type="description:EditionTableDescription" href="../vp1038.odesign#//@ownedViewpoints[name='Traceability']/@ownedRepresentations[name='Trace%20Table']"/>
+</table:DTable>

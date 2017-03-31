@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_E26kAOi7Ed6VHqj_dPYIrw" name="DiagType8 of p2">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_67sbIBFQEeKQrpwaBKeVCA" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_E3Cf0Oi7Ed6VHqj_dPYIrw" type="Sirius" element="_E26kAOi7Ed6VHqj_dPYIrw" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_E3H_YOi7Ed6VHqj_dPYIrw" type="2002" element="_nLG0gEggEeClJJrVvqnbbg">
+        <children xmi:type="notation:Node" xmi:id="_E3JNgOi7Ed6VHqj_dPYIrw" type="5006"/>
+        <children xmi:type="notation:Node" xmi:id="_E3JNgei7Ed6VHqj_dPYIrw" type="7001">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_E3JNgui7Ed6VHqj_dPYIrw"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_E3JNg-i7Ed6VHqj_dPYIrw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_E3i2IOi7Ed6VHqj_dPYIrw" type="3012" element="_nLHbmEggEeClJJrVvqnbbg">
+          <children xmi:type="notation:Node" xmi:id="_E3jdMOi7Ed6VHqj_dPYIrw" type="5010">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_E3jdMei7Ed6VHqj_dPYIrw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_E3w4kOi7Ed6VHqj_dPYIrw" type="3002" element="_nLHbmUggEeClJJrVvqnbbg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_E3w4kei7Ed6VHqj_dPYIrw" fontName="Sans"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3w4kui7Ed6VHqj_dPYIrw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_E3i2Iei7Ed6VHqj_dPYIrw" fontName="Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3i2Iui7Ed6VHqj_dPYIrw" x="-22" width="30" height="30"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_E3H_Yei7Ed6VHqj_dPYIrw" fontName="Sans" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3H_Yui7Ed6VHqj_dPYIrw" x="200" y="100" width="309" height="79"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_E3J0kOi7Ed6VHqj_dPYIrw" type="2002" element="_nLG0iUggEeClJJrVvqnbbg">
+        <children xmi:type="notation:Node" xmi:id="_E3J0k-i7Ed6VHqj_dPYIrw" type="5006"/>
+        <children xmi:type="notation:Node" xmi:id="_E3KboOi7Ed6VHqj_dPYIrw" type="7001">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_E3Kboei7Ed6VHqj_dPYIrw"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_E3Kboui7Ed6VHqj_dPYIrw"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_E3J0kei7Ed6VHqj_dPYIrw" fontName="Sans" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3J0kui7Ed6VHqj_dPYIrw" x="200" y="200" width="309" height="78"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_E3Cf0ei7Ed6VHqj_dPYIrw"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Baon_A5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_Baon_Q5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_nLG0gEggEeClJJrVvqnbbg" name="Container without children p2-1">
+    <target xmi:type="ecore:EPackage" href="../My.ecore#//p2/p2-1"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//p2/p2-1"/>
+    <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_nLHbmEggEeClJJrVvqnbbg" name="new EClass 1" width="3" height="3" resizeKind="EAST_WEST">
+      <target xmi:type="ecore:EClass" href="../My.ecore#//p2/p2-1/new%20EClass%201"/>
+      <semanticElements xmi:type="ecore:EClass" href="../My.ecore#//p2/p2-1/new%20EClass%201"/>
+      <ownedStyle xmi:type="diagram:Dot" xmi:id="_nLHbmUggEeClJJrVvqnbbg">
+        <description xmi:type="style:DotDescription" href="../My.odesign#//@ownedViewpoints[name='TestLayoutCopy']/@ownedRepresentations[name='DiagType8']/@containerMappings[name='DT8_Package']/@borderedNodeMappings[name='DT8_Class']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="../My.odesign#//@ownedViewpoints[name='TestLayoutCopy']/@ownedRepresentations[name='DiagType8']/@containerMappings[name='DT8_Package']/@borderedNodeMappings[name='DT8_Class']"/>
+    </ownedBorderedNodes>
+    <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_nLG0gUggEeClJJrVvqnbbg" borderSize="1" borderSizeComputationExpression="1">
+      <description xmi:type="style:FlatContainerStyleDescription" href="../My.odesign#//@ownedViewpoints[name='TestLayoutCopy']/@ownedRepresentations[name='DiagType8']/@containerMappings[name='DT8_Package']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:ContainerMapping" href="../My.odesign#//@ownedViewpoints[name='TestLayoutCopy']/@ownedRepresentations[name='DiagType8']/@containerMappings[name='DT8_Package']"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_nLG0iUggEeClJJrVvqnbbg" name="Container without children p2-2">
+    <target xmi:type="ecore:EPackage" href="../My.ecore#//p2/p2-2"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../My.ecore#//p2/p2-2"/>
+    <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_nLHbkEggEeClJJrVvqnbbg" borderSize="1" borderSizeComputationExpression="1">
+      <description xmi:type="style:FlatContainerStyleDescription" href="../My.odesign#//@ownedViewpoints[name='TestLayoutCopy']/@ownedRepresentations[name='DiagType8']/@containerMappings[name='DT8_Package']/@style"/>
+    </ownedStyle>
+    <actualMapping xmi:type="description_1:ContainerMapping" href="../My.odesign#//@ownedViewpoints[name='TestLayoutCopy']/@ownedRepresentations[name='DiagType8']/@containerMappings[name='DT8_Package']"/>
+  </ownedDiagramElements>
+  <description xmi:type="description_1:DiagramDescription" href="../My.odesign#//@ownedViewpoints[name='TestLayoutCopy']/@ownedRepresentations[name='DiagType8']"/>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_E26kAei7Ed6VHqj_dPYIrw"/>
+  <target xmi:type="ecore:EPackage" href="../My.ecore#//p2"/>
+</diagram:DSemanticDiagram>

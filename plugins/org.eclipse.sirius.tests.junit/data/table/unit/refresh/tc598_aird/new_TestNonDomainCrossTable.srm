@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="_fhL6QFVcEeCt49DhCo5fGg" name="new TestNonDomainCrossTable" headerColumnWidth="112">
+  <target xmi:type="ecore:EPackage" href="../tc598.ecore#/"/>
+  <lines xmi:type="table:DLine" xmi:id="_fhL6QVVcEeCt49DhCo5fGg" label="new EClass 1">
+    <target xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%201"/>
+    <lines xmi:type="table:DLine" xmi:id="_fhL6QlVcEeCt49DhCo5fGg" label="1-Attribut1">
+      <target xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+      <lines xmi:type="table:DLine" xmi:id="_fhL6Q1VcEeCt49DhCo5fGg" label="S1-Attribut1">
+        <target xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+        <originMapping xmi:type="description:LineMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@ownedLineMappings[name='crossLines']/@ownedSubLines[name='Attribut1']/@ownedSubLines[name='SousAttribut1']"/>
+        <cells xmi:type="table:DCell" xmi:id="_fhL6RlVcEeCt49DhCo5fGg" label="X" column="_fhL6ZFVcEeCt49DhCo5fGg">
+          <target xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_fhL6R1VcEeCt49DhCo5fGg"/>
+          <intersectionMapping xmi:type="description:IntersectionMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_fhL6SFVcEeCt49DhCo5fGg" label="S2-Attribut1">
+        <target xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+        <originMapping xmi:type="description:LineMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@ownedLineMappings[name='crossLines']/@ownedSubLines[name='Attribut1']/@ownedSubLines[name='SousAttribut2']"/>
+        <cells xmi:type="table:DCell" xmi:id="_fhL6S1VcEeCt49DhCo5fGg" label="X" column="_fhL6ZFVcEeCt49DhCo5fGg">
+          <target xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_fhL6TFVcEeCt49DhCo5fGg"/>
+          <intersectionMapping xmi:type="description:IntersectionMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_fhL6TVVcEeCt49DhCo5fGg" label="S3-Attribut1">
+        <target xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+        <originMapping xmi:type="description:LineMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@ownedLineMappings[name='crossLines']/@ownedSubLines[name='Attribut1']/@ownedSubLines[name='SousAttribut3']"/>
+        <cells xmi:type="table:DCell" xmi:id="_fhL6UFVcEeCt49DhCo5fGg" label="X" column="_fhL6ZFVcEeCt49DhCo5fGg">
+          <target xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_fhL6UVVcEeCt49DhCo5fGg"/>
+          <intersectionMapping xmi:type="description:IntersectionMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@intersection.0"/>
+        </cells>
+      </lines>
+      <semanticElements xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+      <originMapping xmi:type="description:LineMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@ownedLineMappings[name='crossLines']/@ownedSubLines[name='Attribut1']"/>
+      <cells xmi:type="table:DCell" xmi:id="_fhL6VFVcEeCt49DhCo5fGg" label="X" column="_fhL6ZFVcEeCt49DhCo5fGg">
+        <target xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_fhL6VVVcEeCt49DhCo5fGg"/>
+        <intersectionMapping xmi:type="description:IntersectionMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@intersection.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_fhL6VlVcEeCt49DhCo5fGg" label="2-Attribut1">
+      <target xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+      <semanticElements xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+      <originMapping xmi:type="description:LineMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@ownedLineMappings[name='crossLines']/@ownedSubLines[name='Attribut2']"/>
+      <cells xmi:type="table:DCell" xmi:id="_fhL6WVVcEeCt49DhCo5fGg" label="X" column="_fhL6ZFVcEeCt49DhCo5fGg">
+        <target xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="../tc598.ecore#//new%20EClass%201/Attribut1"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_fhL6WlVcEeCt49DhCo5fGg"/>
+        <intersectionMapping xmi:type="description:IntersectionMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@intersection.0"/>
+      </cells>
+    </lines>
+    <semanticElements xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%201"/>
+    <originMapping xmi:type="description:LineMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@ownedLineMappings[name='crossLines']"/>
+    <cells xmi:type="table:DCell" xmi:id="_fhL6XVVcEeCt49DhCo5fGg" label="X" column="_fhL6ZFVcEeCt49DhCo5fGg">
+      <target xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%201"/>
+      <semanticElements xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%201"/>
+      <currentStyle xmi:type="table:DCellStyle" xmi:id="_fhL6XlVcEeCt49DhCo5fGg"/>
+      <intersectionMapping xmi:type="description:IntersectionMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@intersection.0"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_fhL6X1VcEeCt49DhCo5fGg" label="new EClass 2">
+    <target xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%202"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%202"/>
+    <originMapping xmi:type="description:LineMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@ownedLineMappings[name='crossLines']"/>
+    <cells xmi:type="table:DCell" xmi:id="_fhL6YlVcEeCt49DhCo5fGg" label="X" column="_fhL6ZVVcEeCt49DhCo5fGg">
+      <target xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%202"/>
+      <semanticElements xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%202"/>
+      <currentStyle xmi:type="table:DCellStyle" xmi:id="_fhL6Y1VcEeCt49DhCo5fGg"/>
+      <intersectionMapping xmi:type="description:IntersectionMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@intersection.0"/>
+    </cells>
+  </lines>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_fhL6ZFVcEeCt49DhCo5fGg" label="new EClass 1" cells="_fhL6XVVcEeCt49DhCo5fGg _fhL6VFVcEeCt49DhCo5fGg _fhL6RlVcEeCt49DhCo5fGg _fhL6S1VcEeCt49DhCo5fGg _fhL6UFVcEeCt49DhCo5fGg _fhL6WVVcEeCt49DhCo5fGg" width="82">
+    <target xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%201"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%201"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@ownedColumnMappings.0"/>
+  </columns>
+  <columns xmi:type="table:DTargetColumn" xmi:id="_fhL6ZVVcEeCt49DhCo5fGg" label="new EClass 2" cells="_fhL6YlVcEeCt49DhCo5fGg" width="79">
+    <target xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%202"/>
+    <semanticElements xmi:type="ecore:EClass" href="../tc598.ecore#//new%20EClass%202"/>
+    <originMapping xmi:type="description:ElementColumnMapping" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']/@ownedColumnMappings.0"/>
+  </columns>
+  <description xmi:type="description:CrossTableDescription" href="../tc598.odesign#//@ownedViewpoints[name='Table']/@ownedRepresentations[name='TestNonDomainCrossTable']"/>
+</table:DTable>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree:DTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xsi:schemaLocation="http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description" xmi:id="_FYkNoB8lEeGnpJnt9nIHBw" name="TreeOpenedRep">
+  <target xmi:type="ecore:EPackage" href="../VP-2649.ecore#/"/>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_UlyGICDPEeG0-NVJpPfBcQ" name="EClass1">
+    <target xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass1"/>
+    <semanticElements xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass1"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_UlytMCDPEeG0-NVJpPfBcQ"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../VP-2649.odesign#//@ownedViewpoints[name='VP-2649_Viewpoint']/@ownedRepresentations[name='VP-2649_Tree']/@subItemMappings[name='EClassTreeItemMapping']"/>
+  </ownedTreeItems>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_UlzUQCDPEeG0-NVJpPfBcQ" name="EClass2">
+    <target xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass2"/>
+    <semanticElements xmi:type="ecore:EClass" href="../VP-2649.ecore#//EClass2"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_UlzUQSDPEeG0-NVJpPfBcQ"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../VP-2649.odesign#//@ownedViewpoints[name='VP-2649_Viewpoint']/@ownedRepresentations[name='VP-2649_Tree']/@subItemMappings[name='EClassTreeItemMapping']"/>
+  </ownedTreeItems>
+  <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_UlzURSDPEeG0-NVJpPfBcQ" name="EPackage1">
+    <target xmi:type="ecore:EPackage" href="../VP-2649.ecore#//EPackage1"/>
+    <semanticElements xmi:type="ecore:EPackage" href="../VP-2649.ecore#//EPackage1"/>
+    <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_UlzURiDPEeG0-NVJpPfBcQ"/>
+    <actualMapping xmi:type="description:TreeItemMapping" href="../VP-2649.odesign#//@ownedViewpoints[name='VP-2649_Viewpoint']/@ownedRepresentations[name='VP-2649_Tree']/@subItemMappings[name='EPackageTreeItemMapping']"/>
+  </ownedTreeItems>
+  <description xmi:type="description:TreeDescription" href="../VP-2649.odesign#//@ownedViewpoints[name='VP-2649_Viewpoint']/@ownedRepresentations[name='VP-2649_Tree']"/>
+</tree:DTree>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="_Bl1YICVFEeWDnr19lwEYeA" name="new Classes" headerColumnWidth="55">
+  <target xmi:type="ecore:EPackage" href="../testVSMForSelection.ecore#/"/>
+  <lines xmi:type="table:DLine" xmi:id="_Bl1YISVFEeWDnr19lwEYeA" label="A">
+    <target xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//A"/>
+    <semanticElements xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//A"/>
+    <originMapping xmi:type="description:LineMapping" href="../VSMForSelection.odesign#//@ownedViewpoints[name='VSMForSelection']/@ownedRepresentations[name='Classes']/@ownedLineMappings[name='Classes%20lines']"/>
+    <cells xmi:type="table:DCell" xmi:id="_Bl1YIiVFEeWDnr19lwEYeA" label="A" column="_Bl1YJyVFEeWDnr19lwEYeA">
+      <target xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//A"/>
+      <semanticElements xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//A"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_Bl1YIyVFEeWDnr19lwEYeA" label="B">
+    <target xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//B"/>
+    <semanticElements xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//B"/>
+    <originMapping xmi:type="description:LineMapping" href="../VSMForSelection.odesign#//@ownedViewpoints[name='VSMForSelection']/@ownedRepresentations[name='Classes']/@ownedLineMappings[name='Classes%20lines']"/>
+    <cells xmi:type="table:DCell" xmi:id="_Bl1YJCVFEeWDnr19lwEYeA" label="B" column="_Bl1YJyVFEeWDnr19lwEYeA">
+      <target xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//B"/>
+      <semanticElements xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//B"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_Bl1YJSVFEeWDnr19lwEYeA" label="C">
+    <target xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//C"/>
+    <semanticElements xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//C"/>
+    <originMapping xmi:type="description:LineMapping" href="../VSMForSelection.odesign#//@ownedViewpoints[name='VSMForSelection']/@ownedRepresentations[name='Classes']/@ownedLineMappings[name='Classes%20lines']"/>
+    <cells xmi:type="table:DCell" xmi:id="_Bl1YJiVFEeWDnr19lwEYeA" label="C" column="_Bl1YJyVFEeWDnr19lwEYeA">
+      <target xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//C"/>
+      <semanticElements xmi:type="ecore:EClass" href="../testVSMForSelection.ecore#//C"/>
+    </cells>
+  </lines>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_Bl1YJyVFEeWDnr19lwEYeA" cells="_Bl1YIiVFEeWDnr19lwEYeA _Bl1YJCVFEeWDnr19lwEYeA _Bl1YJiVFEeWDnr19lwEYeA" width="19" featureName="name">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../VSMForSelection.odesign#//@ownedViewpoints[name='VSMForSelection']/@ownedRepresentations[name='Classes']/@ownedColumnMappings[name='Name']"/>
+  </columns>
+  <description xmi:type="description:EditionTableDescription" href="../VSMForSelection.odesign#//@ownedViewpoints[name='VSMForSelection']/@ownedRepresentations[name='Classes']"/>
+</table:DTable>

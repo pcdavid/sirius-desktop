@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table:DTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description" xmi:id="_nXokkA09EeK4kKNCxhBF5g" name="Class and subClass with some attributes" headerColumnWidth="168">
+  <target xmi:type="uml:Model" href="../tables.uml#_jLo-cXnPEd2hNdpX8IgW8Q"/>
+  <lines xmi:type="table:DLine" xmi:id="_nXokkQ09EeK4kKNCxhBF5g" label="&lt;Class> Class3">
+    <target xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+    <semanticElements xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+    <originMapping xmi:type="description:LineMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedLineMappings[name='Class%20lines']"/>
+    <cells xmi:type="table:DCell" xmi:id="_nXokkg09EeK4kKNCxhBF5g" label="Class3" column="_nXokuQ09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXokkw09EeK4kKNCxhBF5g" label="false" column="_nXokug09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXoklA09EeK4kKNCxhBF5g" label="protected" column="_nXokuw09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXoklQ09EeK4kKNCxhBF5g" label="" column="_nXokvA09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXoklg09EeK4kKNCxhBF5g" label="" column="_nXokvQ09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXoklw09EeK4kKNCxhBF5g" column="_nXokvg09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXokmA09EeK4kKNCxhBF5g" column="_nXokvw09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_nWM6YHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_nXokmQ09EeK4kKNCxhBF5g" label="&lt;Class> AbstractClass1">
+    <target xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+    <lines xmi:type="table:DLine" xmi:id="_nXokmg09EeK4kKNCxhBF5g" label="Class1">
+      <target xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+      <originMapping xmi:type="description:LineMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedLineMappings[name='Class%20lines']/@ownedSubLines[name='SubClass%20lines']"/>
+      <cells xmi:type="table:DCell" xmi:id="_nXokmw09EeK4kKNCxhBF5g" label="Class1" column="_nXokuQ09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXoknA09EeK4kKNCxhBF5g" label="true" column="_nXokug09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXoknQ09EeK4kKNCxhBF5g" label="public" column="_nXokuw09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXokng09EeK4kKNCxhBF5g" label="&lt;Collaboration Use> BColab2" column="_nXokvA09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXoknw09EeK4kKNCxhBF5g" label="" column="_nXokvQ09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXokoA09EeK4kKNCxhBF5g" column="_nXokvg09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXokoQ09EeK4kKNCxhBF5g" column="_nXokvw09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_lS3JoHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+    </lines>
+    <semanticElements xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+    <originMapping xmi:type="description:LineMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedLineMappings[name='Class%20lines']"/>
+    <cells xmi:type="table:DCell" xmi:id="_nXokog09EeK4kKNCxhBF5g" label="AbstractClass1" column="_nXokuQ09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXokow09EeK4kKNCxhBF5g" label="true" column="_nXokug09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXokpA09EeK4kKNCxhBF5g" label="public" column="_nXokuw09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXokpQ09EeK4kKNCxhBF5g" label="" column="_nXokvA09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXokpg09EeK4kKNCxhBF5g" label="" column="_nXokvQ09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXokpw09EeK4kKNCxhBF5g" column="_nXokvg09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXokqA09EeK4kKNCxhBF5g" column="_nXokvw09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_oD2qkHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+  </lines>
+  <lines xmi:type="table:DLine" xmi:id="_nXokqQ09EeK4kKNCxhBF5g" label="&lt;Class> AbstractClass2">
+    <target xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+    <lines xmi:type="table:DLine" xmi:id="_nXokqg09EeK4kKNCxhBF5g" label="Class2">
+      <target xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+      <originMapping xmi:type="description:LineMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedLineMappings[name='Class%20lines']/@ownedSubLines[name='SubClass%20lines']"/>
+      <cells xmi:type="table:DCell" xmi:id="_nXokqw09EeK4kKNCxhBF5g" label="Class2" column="_nXokuQ09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXokrA09EeK4kKNCxhBF5g" label="false" column="_nXokug09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXokrQ09EeK4kKNCxhBF5g" label="public" column="_nXokuw09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXokrg09EeK4kKNCxhBF5g" label="" column="_nXokvA09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXokrw09EeK4kKNCxhBF5g" label="" column="_nXokvQ09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXoksA09EeK4kKNCxhBF5g" column="_nXokvg09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+      <cells xmi:type="table:DCell" xmi:id="_nXoksQ09EeK4kKNCxhBF5g" column="_nXokvw09EeK4kKNCxhBF5g">
+        <target xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+        <semanticElements xmi:type="uml:Class" href="../tables.uml#_mgqZgHnPEd2hNdpX8IgW8Q"/>
+      </cells>
+    </lines>
+    <semanticElements xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+    <originMapping xmi:type="description:LineMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedLineMappings[name='Class%20lines']"/>
+    <cells xmi:type="table:DCell" xmi:id="_nXoksg09EeK4kKNCxhBF5g" label="AbstractClass2" column="_nXokuQ09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXoksw09EeK4kKNCxhBF5g" label="true" column="_nXokug09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXoktA09EeK4kKNCxhBF5g" label="public" column="_nXokuw09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXoktQ09EeK4kKNCxhBF5g" label="" column="_nXokvA09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXoktg09EeK4kKNCxhBF5g" label="" column="_nXokvQ09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXoktw09EeK4kKNCxhBF5g" column="_nXokvg09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+    <cells xmi:type="table:DCell" xmi:id="_nXokuA09EeK4kKNCxhBF5g" column="_nXokvw09EeK4kKNCxhBF5g">
+      <target xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+      <semanticElements xmi:type="uml:Class" href="../tables.uml#_po8ZEHnPEd2hNdpX8IgW8Q"/>
+    </cells>
+  </lines>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_nXokuQ09EeK4kKNCxhBF5g" label="Name" cells="_nXokkg09EeK4kKNCxhBF5g _nXokog09EeK4kKNCxhBF5g _nXokmw09EeK4kKNCxhBF5g _nXoksg09EeK4kKNCxhBF5g _nXokqw09EeK4kKNCxhBF5g" width="199" featureName="name">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedColumnMappings[name='Class%20name']"/>
+  </columns>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_nXokug09EeK4kKNCxhBF5g" label="IsAbstract" cells="_nXokkw09EeK4kKNCxhBF5g _nXokow09EeK4kKNCxhBF5g _nXoknA09EeK4kKNCxhBF5g _nXoksw09EeK4kKNCxhBF5g _nXokrA09EeK4kKNCxhBF5g" width="67" featureName="isAbstract">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedColumnMappings[name='Is%20class%20abstract']"/>
+  </columns>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_nXokuw09EeK4kKNCxhBF5g" label="Visibility" cells="_nXoklA09EeK4kKNCxhBF5g _nXokpA09EeK4kKNCxhBF5g _nXoknQ09EeK4kKNCxhBF5g _nXoktA09EeK4kKNCxhBF5g _nXokrQ09EeK4kKNCxhBF5g" width="59" featureName="visibility">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedColumnMappings[name='Visibility%20of%20class']"/>
+  </columns>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_nXokvA09EeK4kKNCxhBF5g" label="Representation" cells="_nXoklQ09EeK4kKNCxhBF5g _nXokpQ09EeK4kKNCxhBF5g _nXokng09EeK4kKNCxhBF5g _nXoktQ09EeK4kKNCxhBF5g _nXokrg09EeK4kKNCxhBF5g" width="148" featureName="representation">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedColumnMappings[name='CollaborationUse']"/>
+  </columns>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_nXokvQ09EeK4kKNCxhBF5g" label="OwnedUseCase" cells="_nXoklg09EeK4kKNCxhBF5g _nXokpg09EeK4kKNCxhBF5g _nXoknw09EeK4kKNCxhBF5g _nXoktg09EeK4kKNCxhBF5g _nXokrw09EeK4kKNCxhBF5g" width="97" featureName="ownedUseCase">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedColumnMappings[name='OwnedUseCase']"/>
+  </columns>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_nXokvg09EeK4kKNCxhBF5g" label="BehaviorDirectEdit" cells="_nXoklw09EeK4kKNCxhBF5g _nXokpw09EeK4kKNCxhBF5g _nXokoA09EeK4kKNCxhBF5g _nXoktw09EeK4kKNCxhBF5g _nXoksA09EeK4kKNCxhBF5g" width="112" featureName="classifierBehavior">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedColumnMappings[name='BehaviorDirectEdit']"/>
+  </columns>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_nXokvw09EeK4kKNCxhBF5g" label="UseCaseDirectEdit" cells="_nXokmA09EeK4kKNCxhBF5g _nXokqA09EeK4kKNCxhBF5g _nXokoQ09EeK4kKNCxhBF5g _nXokuA09EeK4kKNCxhBF5g _nXoksQ09EeK4kKNCxhBF5g" width="110" featureName="useCase">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedColumnMappings[name='UseCaseDirectEdit']"/>
+  </columns>
+  <columns xmi:type="table:DFeatureColumn" xmi:id="_nXokwA09EeK4kKNCxhBF5g" label="Comment" width="69" featureName="body">
+    <originMapping xmi:type="description:FeatureColumnMapping" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']/@ownedColumnMappings[name='Commentaire']"/>
+  </columns>
+  <description xmi:type="description:EditionTableDescription" href="../tables.odesign#//@ownedViewpoints[name='UML2%20tables%20for%20tests']/@ownedRepresentations[name='Class%20and%20subClass%20with%20some%20attributes']"/>
+</table:DTable>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram:DSemanticDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:component="http://www.example.com/samples/component/0.1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://www.example.com/samples/component/0.1.0 ../component.ecore http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" xmi:id="_sZF7cCTOEeG3saw-C1yKsQ" name="new ComponentDiagram">
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_sZGigCTOEeG3saw-C1yKsQ" source="GMF_DIAGRAMS">
+    <data xmi:type="notation:Diagram" xmi:id="_sZGigSTOEeG3saw-C1yKsQ" type="Sirius" element="_sZF7cCTOEeG3saw-C1yKsQ" measurementUnit="Pixel">
+      <children xmi:type="notation:Node" xmi:id="_sZ6a0CTOEeG3saw-C1yKsQ" type="2001" element="_sZyfACTOEeG3saw-C1yKsQ">
+        <children xmi:type="notation:Node" xmi:id="_sZ7B4CTOEeG3saw-C1yKsQ" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_sZ7B4STOEeG3saw-C1yKsQ" x="391" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_sZ83ECTOEeG3saw-C1yKsQ" type="3003" element="_sZzGECTOEeG3saw-C1yKsQ">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_sZ83ESTOEeG3saw-C1yKsQ" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sZ83EiTOEeG3saw-C1yKsQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_sZ6a0STOEeG3saw-C1yKsQ" fontName="Ubuntu" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sZ6a0iTOEeG3saw-C1yKsQ" x="400" y="210" width="30" height="30"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_w9VH8CyrEeGL4ej3TQGnGQ" type="2001" element="_w9FQUSyrEeGL4ej3TQGnGQ">
+        <children xmi:type="notation:Node" xmi:id="_w9bOkCyrEeGL4ej3TQGnGQ" type="5002">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_w9bOkSyrEeGL4ej3TQGnGQ" y="5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_w9dq0CyrEeGL4ej3TQGnGQ" type="3003" element="_w9FQUiyrEeGL4ej3TQGnGQ">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_w9dq0SyrEeGL4ej3TQGnGQ" fontName="Ubuntu"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w9dq0iyrEeGL4ej3TQGnGQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_w9VH8SyrEeGL4ej3TQGnGQ" fontName="Ubuntu" fontHeight="8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w9VH8iyrEeGL4ej3TQGnGQ" x="655" y="210" width="30" height="30"/>
+      </children>
+      <styles xmi:type="notation:DiagramStyle" xmi:id="_sZGigiTOEeG3saw-C1yKsQ"/>
+    </data>
+  </ownedAnnotationEntries>
+  <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_BW9B1A5BEeeC26hV23mG9w" source="DANNOTATION_CUSTOMIZATION_KEY">
+    <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_BW9B1Q5BEeeC26hV23mG9w"/>
+  </ownedAnnotationEntries>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_sZyfACTOEeG3saw-C1yKsQ" name="comp1" width="3" height="3">
+    <target xmi:type="component:Component" href="../component.component#//@components.0"/>
+    <semanticElements xmi:type="component:Component" href="../component.component#//@components.0"/>
+    <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+    <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+    <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_sZzGECTOEeG3saw-C1yKsQ"/>
+  </ownedDiagramElements>
+  <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_w9FQUSyrEeGL4ej3TQGnGQ" name="comp2" width="3" height="3" originalStyle="_w9FQUiyrEeGL4ej3TQGnGQ">
+    <target xmi:type="component:Component" href="../component.component#//@components.1"/>
+    <semanticElements xmi:type="component:Component" href="../component.component#//@components.1"/>
+    <ownedStyle xmi:type="diagram:Square" xmi:id="_w9FQUiyrEeGL4ej3TQGnGQ"/>
+  </ownedDiagramElements>
+  <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_sZF7cSTOEeG3saw-C1yKsQ"/>
+  <target xmi:type="component:Application" href="../component.component#/"/>
+</diagram:DSemanticDiagram>

@@ -39,6 +39,7 @@ import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IDisposable;
@@ -252,15 +253,43 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
             final ChangeBoundsRequest request = new ChangeBoundsRequest(RequestConstants.REQ_DROP);
             final List<EditPart> list = new ArrayList<EditPart>(1);
             if (getCurrentEvent().data instanceof IStructuredSelection) {
-                list.add(new DragAndDropWrapper(getCurrentEvent().data));
+                IStructuredSelection selection = (IStructuredSelection) getCurrentEvent().data;
+                selection = resolvedSelection(selection);
+                list.add(new DragAndDropWrapper(selection));
             } else if (getTransfer() instanceof LocalSelectionTransfer) {
                 final LocalSelectionTransfer localSelectionTransfer = (LocalSelectionTransfer) getTransfer();
-                if (localSelectionTransfer.getSelection() instanceof IStructuredSelection) {
-                    list.add(new DragAndDropWrapper(localSelectionTransfer.getSelection()));
+                ISelection selection = localSelectionTransfer.getSelection();
+                if (selection instanceof IStructuredSelection) {
+                    selection = resolvedSelection((IStructuredSelection) selection);
+                    list.add(new DragAndDropWrapper(selection));
                 }
             }
             request.setEditParts(list);
             return request;
+        }
+
+        private IStructuredSelection resolvedSelection(IStructuredSelection selection) {
+            final List<Object> result = new ArrayList<Object>();
+            for (Object element : selection.toList()) {
+                if (element instanceof EObject && isFromAnOtherResourceSet((EObject) element)) {
+                    final EObject eObjectFromSiriusResourceSet = getEObjectFromSessionResourceSet((EObject) element);
+                    result.add(eObjectFromSiriusResourceSet);
+                } else {
+                    result.add(element);
+                }
+            }
+            return new StructuredSelection(result);
+        }
+
+        private boolean isFromAnOtherResourceSet(final EObject incommingEObject) {
+            final ResourceSet incomingResourceSet = incommingEObject.eResource().getResourceSet();
+            final ResourceSet siriusResourceSet = getSession().getSessionResource().getResourceSet();
+            return incomingResourceSet != siriusResourceSet;
+        }
+
+        private EObject getEObjectFromSessionResourceSet(final EObject incommingEObject) {
+            final URI uri = EcoreUtil.getURI(incommingEObject);
+            return getSession().getSessionResource().getResourceSet().getEObject(uri, true);
         }
 
         @Override

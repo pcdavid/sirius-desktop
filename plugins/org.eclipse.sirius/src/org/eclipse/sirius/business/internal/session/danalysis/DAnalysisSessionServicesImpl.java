@@ -420,18 +420,21 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
             analysis.getOwnedViews().add(dView);
         }
 
-        Resource resource = representationLocationManager.getOrCreateRepresentationResource(representation, session.getSessionResource());
-        if (resource == null) {
-            resource = dView.eResource();
+        Resource resourceforRepresentation = null;
+        if (Boolean.getBoolean("activateAirdSplit")) { //$NON-NLS-1$
+            resourceforRepresentation = representationLocationManager.getOrCreateRepresentationResource(representation, dView.eResource());
         }
-        if (resource != null) {
+        if (resourceforRepresentation == null) {
+            resourceforRepresentation = dView.eResource();
+        }
+        if (resourceforRepresentation != null) {
             ECrossReferenceAdapter crossReferencer = session.getSemanticCrossReferencer();
             if (crossReferencer != null) {
-                if (!resource.eAdapters().contains(crossReferencer)) {
-                    resource.eAdapters().add(crossReferencer);
+                if (!resourceforRepresentation.eAdapters().contains(crossReferencer)) {
+                    resourceforRepresentation.eAdapters().add(crossReferencer);
                 }
             }
-            resource.getContents().add(representation);
+            resourceforRepresentation.getContents().add(representation);
         }
 
         final DRepresentationDescriptor descriptor = DRepresentationDescriptorInternalHelper.createDescriptor(representation);

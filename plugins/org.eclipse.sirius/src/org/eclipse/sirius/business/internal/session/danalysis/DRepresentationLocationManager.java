@@ -10,7 +10,9 @@
  *******************************************************************************/
 package org.eclipse.sirius.business.internal.session.danalysis;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -34,52 +36,66 @@ public class DRepresentationLocationManager {
      * 
      * @param representation
      *            the current representation.
-     * 
      * @param aird
-     *            the aird resource in which the representation will be referenced.
+     *            the aird resource from which the representation will be referenced.
      * @return the representation resource.
      */
     public Resource getOrCreateRepresentationResource(DRepresentation representation, Resource aird) {
-        if (aird != null && aird.getURI().isPlatformResource()) {
-            ResourceSet resourceSet = aird.getResourceSet();
-            URI uri = getURI(representation, aird, resourceSet);
-            Resource newResource = aird.getResourceSet().createResource(uri);
-            return newResource;
-        }
-        return null;
-    }
-
-    private URI getURI(DRepresentation representation, Resource aird, ResourceSet resourceSet) {
-        URI uri = getURIFromExtensionPoint(representation, aird);
-        if (uri == null) {
-            int count = 0;
-            String pathName = createURIString(aird, representation, count++);
-            uri = URI.createPlatformResourceURI(pathName, true);
-            while (resourceSet.getResource(uri, false) != null) {
-                pathName = createURIString(aird, representation, count++);
-                uri = URI.createPlatformResourceURI(pathName, true);
+        Resource newResource = null;
+        ResourceSet resourceSet = aird != null ? aird.getResourceSet() : null;
+        if (resourceSet != null) {
+            // Get the fragment of the URI
+            URI repResourceURI = getURIFromExtensionPoint(representation, aird);
+            if (repResourceURI == null) {
+                repResourceURI = getRepURI(representation, aird, resourceSet);
             }
+
+            // create resource
+            newResource = aird.getResourceSet().createResource(repResourceURI);
         }
-        return uri;
+        return newResource;
     }
 
-    private URI getURIFromExtensionPoint(DRepresentation representation, Resource aird) {
+    private URI getRepURI(DRepresentation representation, Resource aird, ResourceSet resourceSet) {
+        int count = 0;
+        URI repUri = createRepURI(aird, representation, count++);
+        while (resourceSet.getResource(repUri, false) != null) {
+            repUri = createRepURI(aird, representation, count++);
+        }
+        return repUri;
+
+    }
+
+    private URI getURIFromExtensionPoint(DRepresentation representation, Resource dViewResource) {
         List<DRepresentationLocationRule> extensionPointRules = Lists.newArrayList();
         extensionPointRules.addAll(EclipseUtil.getExtensionPlugins(DRepresentationLocationRule.class, DRepresentationLocationRule.ID, DRepresentationLocationRule.CLASS_ATTRIBUTE));
-        for (DRepresentationLocationRule locationRule : extensionPointRules) {
-            URI uri = locationRule.getResourceURI(representation, aird);
-            if (uri != null) {
-                return uri;
-            }
-        }
-        return null;
+
+        Optional<DRepresentationLocationRule> locationRule = extensionPointRules.stream().filter(rule -> rule.provides(representation, dViewResource)).findFirst();
+        return locationRule.isPresent() ? locationRule.get().getResourceURI(representation, dViewResource) : null;
     }
 
-    private String createURIString(Resource aird, DRepresentation representation, int count) {
-        String fileName = representation.getName().replace(' ', '_');
+    /**
+     * Create the representation URI based on the aird resource URI. Only the last part of the segment is changed.
+     * 
+     * @param aird
+     * @param representation
+     * @param count
+     * @return
+     */
+    private URI createRepURI(Resource aird, DRepresentation representation, int count) {
+        // get the representation URI fragment
+        String repName = representation.getName().replace(' ', '_');
         if (count > 0) {
-            fileName += String.valueOf(count);
+            repName += String.valueOf(count);
         }
-        return aird.getURI().toPlatformString(true).replace(".aird", "_aird") + "/" + fileName + "." + SiriusUtil.REPRESENTATION_FILE_EXTENSION; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+        URI airdURI = aird.getURI();
+
+        List<String> srmFileSegments = new ArrayList<>(airdURI.segmentsList());
+        srmFileSegments.remove(srmFileSegments.size() - 1);
+        srmFileSegments.add(airdURI.lastSegment().replace("." + SiriusUtil.SESSION_RESOURCE_EXTENSION, "_aird")); //$NON-NLS-1$ //$NON-NLS-2$
+        srmFileSegments.add(repName + "." + SiriusUtil.REPRESENTATION_FILE_EXTENSION); //$NON-NLS-1$
+
+        // return the URI
+        return URI.createHierarchicalURI(airdURI.scheme(), airdURI.authority(), airdURI.device(), srmFileSegments.toArray(new String[srmFileSegments.size()]), airdURI.query(), airdURI.fragment());
     }
 }

@@ -2,19 +2,19 @@
 <!-- Schema file written by PDE -->
 <schema targetNamespace="org.eclipes.sirius" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
-      <appInfo>
-         <meta.schema plugin="org.eclipes.sirius" id="DRepresentationLocationRule" name="org.eclipse.sirius.DRepresentationLocationRule"/>
-      </appInfo>
+      <appinfo>
+         <meta.schema plugin="org.eclipes.sirius" id="dRepresentationLocationRule" name="org.eclipse.sirius.dRepresentationLocationRule"/>
+      </appinfo>
       <documentation>
-         This extension point allow developers to customize the resource location of new representations.
+         This extension point allows developers to customize the resource location of new representations.
       </documentation>
    </annotation>
 
    <element name="extension">
       <annotation>
-         <appInfo>
+         <appinfo>
             <meta.element />
-         </appInfo>
+         </appinfo>
       </annotation>
       <complexType>
          <sequence>
@@ -39,9 +39,9 @@
                <documentation>
                   
                </documentation>
-               <appInfo>
+               <appinfo>
                   <meta.attribute translatable="true"/>
-               </appInfo>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>
@@ -54,18 +54,18 @@
                <documentation>
                   Provides a rule implementing org.eclipse.sirius.business.internal.session.danalysis.DRepresentationLocationRule that will return the new Resource URI for the given new representation.
                </documentation>
-               <appInfo>
+               <appinfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.sirius.business.internal.session.danalysis.DRepresentationLocationRule"/>
-               </appInfo>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>
    </element>
 
    <annotation>
-      <appInfo>
+      <appinfo>
          <meta.section type="since"/>
-      </appInfo>
+      </appinfo>
       <documentation>
          Sirius 5.0
       </documentation>
@@ -75,9 +75,9 @@
 
 
    <annotation>
-      <appInfo>
+      <appinfo>
          <meta.section type="copyright"/>
-      </appInfo>
+      </appinfo>
       <documentation>
          Copyright (c) 2017 THALES GLOBAL SERVICES&lt;br&gt;
 All rights reserved. This program and the accompanying materials

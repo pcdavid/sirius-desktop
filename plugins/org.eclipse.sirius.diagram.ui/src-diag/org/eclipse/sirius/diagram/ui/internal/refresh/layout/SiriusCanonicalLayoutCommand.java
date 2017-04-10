@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2015 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2011, 2018 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,11 +23,13 @@ import org.eclipse.sirius.diagram.ui.provider.Messages;
 import org.eclipse.swt.widgets.Display;
 
 /**
- * Specific Command to do layout for newly created views in pre-commit without
- * being in the IOperationHistory by being a {@link NonDirtying} . </br> <b>NOTE
- * : the use of {@link NonDirtying} is a workaround to not have layout of
- * created views (in pre-commit) in the undo stack, but this doesn't seems break
- * the undo/redo model because here we only changes Bounds </b>.
+ * Specific Command to do layout for newly created views in pre-commit without being in the IOperationHistory by being a
+ * {@link NonDirtying} . </br>
+ * <b>NOTE : the use of {@link NonDirtying} is a workaround to not have layout of created views (in pre-commit) in the
+ * undo stack, but this doesn't seems break the undo/redo model because here we only changes Bounds </b>.
+ * 
+ * This Command is not done as a precommit listener because it uses at end the gmf DeferredLayoutCommand which requires
+ * the EditPart to be created and the editPart are created only in the post commit(too late).
  * 
  * @author <a href="mailto:esteban.dugueperoux@obeo.fr">Esteban Dugueperoux</a>
  */
@@ -40,13 +42,11 @@ public class SiriusCanonicalLayoutCommand extends RecordingCommand implements No
     private List<IAdaptable> childViewsAdaptersForCenterLayout;
 
     /**
-     * Constructor used to do a layout on all created views child (directly or
-     * indirectly) of Diagram. </br> NOTE : to use at diagram representation
-     * opening.
+     * Constructor used to do a layout on all created views child (directly or indirectly) of Diagram. </br>
+     * NOTE : to use at diagram representation opening.
      * 
      * @param domain
-     *            the {@link TransactionalEditingDomain} on which executes this
-     *            command
+     *            the {@link TransactionalEditingDomain} on which executes this command
      * @param diagramEditPart
      *            the {@link DiagramEditPart} on which do the layout
      */
@@ -55,12 +55,11 @@ public class SiriusCanonicalLayoutCommand extends RecordingCommand implements No
     }
 
     /**
-     * Constructor to do layout on all created views child directly of a View.
-     * </br> NOTE : to use when external changes occurs.
+     * Constructor to do layout on all created views child directly of a View. </br>
+     * NOTE : to use when external changes occurs.
      * 
      * @param domain
-     *            the {@link TransactionalEditingDomain} on which executes this
-     *            command
+     *            the {@link TransactionalEditingDomain} on which executes this command
      * @param parentEditPart
      *            the {@link IGraphicalEditPart} on which do the layout
      * @param childViewsAdapters
@@ -80,8 +79,7 @@ public class SiriusCanonicalLayoutCommand extends RecordingCommand implements No
      */
     @Override
     protected void doExecute() {
-        Display.getDefault().asyncExec(new Runnable() {
-
+        Display.getDefault().syncExec(new Runnable() {
             @Override
             public void run() {
                 if (childViewsAdapters == null && childViewsAdaptersForCenterLayout == null) {
@@ -91,7 +89,6 @@ public class SiriusCanonicalLayoutCommand extends RecordingCommand implements No
                 }
             }
         });
-
     }
 
     private void executeLayoutOnDiagramOpening() {

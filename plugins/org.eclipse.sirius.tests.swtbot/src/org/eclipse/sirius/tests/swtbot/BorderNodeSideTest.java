@@ -39,6 +39,7 @@ import org.eclipse.sirius.tests.swtbot.support.api.business.UIResource;
 import org.eclipse.sirius.tests.swtbot.support.api.editor.SWTBotSiriusDiagramEditor;
 import org.eclipse.sirius.tests.swtbot.support.api.view.DesignerViews;
 import org.eclipse.sirius.tests.swtbot.support.utils.SWTBotUtils;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.waits.ICondition;
@@ -440,12 +441,14 @@ public class BorderNodeSideTest extends AbstractSiriusSwtBotGefTestCase {
     }
 
     private void synchronizeDiagram() {
-        session.getTransactionalEditingDomain().getCommandStack().execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
-            @Override
-            protected void doExecute() {
-                dDiagram.setSynchronized(true);
-                DialectManager.INSTANCE.refresh(dDiagram, new NullProgressMonitor());
-            }
+        Display.getDefault().syncExec(() -> {
+            session.getTransactionalEditingDomain().getCommandStack().execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
+                @Override
+                protected void doExecute() {
+                    dDiagram.setSynchronized(true);
+                    DialectManager.INSTANCE.refresh(dDiagram, new NullProgressMonitor());
+                }
+            });
         });
     }
 

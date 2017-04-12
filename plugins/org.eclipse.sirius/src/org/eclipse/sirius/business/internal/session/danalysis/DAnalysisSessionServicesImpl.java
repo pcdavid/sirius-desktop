@@ -421,9 +421,9 @@ public class DAnalysisSessionServicesImpl implements SessionService, DAnalysisSe
         }
 
         Resource resourceforRepresentation = null;
-        if (Boolean.getBoolean("createRepresentationInSeparateResource")) { //$NON-NLS-1$
-            resourceforRepresentation = representationLocationManager.getOrCreateRepresentationResource(representation, dView.eResource());
-        }
+        // if (Boolean.getBoolean("createRepresentationInSeparateResource")) { //$NON-NLS-1$
+        resourceforRepresentation = representationLocationManager.getOrCreateRepresentationResource(representation, dView.eResource());
+        // }
         if (resourceforRepresentation == null) {
             resourceforRepresentation = dView.eResource();
         }

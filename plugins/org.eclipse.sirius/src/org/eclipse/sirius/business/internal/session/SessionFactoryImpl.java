@@ -118,12 +118,17 @@ public final class SessionFactoryImpl implements SessionFactory {
             final Resource sessionModelResource = resourceSet.getResource(sessionResourceURI, true);
             if (sessionModelResource != null) {
                 DAnalysis analysis = null;
-                if (!sessionModelResource.getContents().isEmpty() && (sessionModelResource.getContents().get(0) instanceof DAnalysis)) {
+                if (sessionModelResource.getContents().isEmpty()) {
+                    // TODO might need a check on the fileExtension, see file
+                    // query
+                    session = createSessionResource(sessionResourceURI, transactionalEditingDomain, new SubProgressMonitor(monitor, 2));
+                } else if (sessionModelResource.getContents().get(0) instanceof DAnalysis) {
                     analysis = (DAnalysis) sessionModelResource.getContents().get(0);
                     session = new DAnalysisSessionImpl(analysis);
                     monitor.worked(2);
                 } else {
-                    session = createSessionResource(sessionResourceURI, transactionalEditingDomain, new SubProgressMonitor(monitor, 2));
+                    // TODO complete / create the error message: we do not want to overwrite a resource which is not a Sirius resource.
+                    throw new CoreException(new Status(IStatus.ERROR, SiriusPlugin.ID, Messages.SessionFactoryImpl_loadingError));
                 }
             }
         } catch (WrappedException e) {

@@ -282,6 +282,7 @@ public class SessionEditorInput extends URIEditorInput {
         try {
             session = SessionFactory.INSTANCE.createSession(sessionResourceURI, new NullProgressMonitor());
         } catch (CoreException e) {
+            // The error should be logged to the error log to help the user to understand why the diagram was not opened...
             return null;
         }
         return new SessionEditorInput(sessionResourceURI, Messages.SessionEditorInput_defaultEditorName, session);

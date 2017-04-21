@@ -57,6 +57,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -84,6 +85,12 @@ import org.eclipse.jface.resource.FontDescriptor;
 import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.ColumnViewerEditor;
+import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
+import org.eclipse.jface.viewers.ColumnViewerEditorActivationStrategy;
+import org.eclipse.jface.viewers.FocusCellOwnerDrawHighlighter;
+import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -91,14 +98,19 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
+import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.TreeViewerEditor;
+import org.eclipse.jface.viewers.TreeViewerFocusCellManager;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.sirius.editor.properties.ViewpointPropertySheetPage;
 import org.eclipse.sirius.editor.utils.SelectionTreeTextEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.featureExtensions.FeatureExtensionsUIManager;
 import org.eclipse.sirius.viewpoint.description.DescriptionFactory;
+import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
+import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
 import org.eclipse.sirius.viewpoint.description.audit.provider.AuditItemProviderAdapterFactory;
 import org.eclipse.sirius.viewpoint.description.provider.DescriptionItemProviderAdapterFactory;
 import org.eclipse.sirius.viewpoint.description.style.provider.StyleItemProviderAdapterFactory;
@@ -122,6 +134,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
@@ -153,6 +166,8 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
  */
 public class SiriusEditor extends MultiPageEditorPart
         implements IAdapterFactoryProvider, IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, ITabbedPropertySheetPageContributor, IGotoMarker {
+
+    private static final String[] COLUMNS = new String[] { " " };
 
     /**
      * A Color registry for the current editor.
@@ -850,7 +865,7 @@ public class SiriusEditor extends MultiPageEditorPart
                     public Viewer createViewer(Composite composite) {
                         Tree tree = new Tree(composite, SWT.MULTI);
                         initRefreshListeners(tree);
-                        TreeViewer newTreeViewer = new TreeViewer(tree);
+                        TreeViewer newTreeViewer = createEditingTreeViewer(tree);
                         return newTreeViewer;
                     }
 
@@ -963,6 +978,78 @@ public class SiriusEditor extends MultiPageEditorPart
         if (contentOutlinePage != null) {
             handleContentOutlineSelection(contentOutlinePage.getSelection());
         }
+    }
+
+    /**
+     * This is used to create new tree Viewer with editing support for tree item.
+     * 
+     * @param tree
+     *            the SWT tree
+     * @return the content viewer based on SWT Tree
+     */
+    private TreeViewer createEditingTreeViewer(Tree tree) {
+        TreeViewer treeViewer = new TreeViewer(tree);
+
+        // trigger editing in tree item on double click or key pressed
+        ColumnViewerEditorActivationStrategy editorActivationStrategy = new ColumnViewerEditorActivationStrategy(treeViewer) {
+            protected boolean isEditorActivationEvent(ColumnViewerEditorActivationEvent event) {
+                boolean result = false;
+                // mouseActivation
+                result = result || event.eventType == ColumnViewerEditorActivationEvent.MOUSE_DOUBLE_CLICK_SELECTION;
+                // keyboardActivation
+                result = result || event.eventType == ColumnViewerEditorActivationEvent.KEY_PRESSED && event.keyCode == SWT.F2;
+                return result;
+            }
+        };
+        // Create a new CellFocusManager
+        final TreeViewerFocusCellManager focusCellManager = new TreeViewerFocusCellManager(treeViewer, new FocusCellOwnerDrawHighlighter(treeViewer));
+
+        TreeViewerEditor.create(treeViewer, focusCellManager, editorActivationStrategy, ColumnViewerEditor.KEYBOARD_ACTIVATION);
+
+        final CellEditor textEditor = new TextCellEditor(treeViewer.getTree());
+        final CellEditor[] editors = new CellEditor[] { textEditor };
+        treeViewer.setCellEditors(editors);
+
+        treeViewer.setColumnProperties(COLUMNS);
+
+        treeViewer.setCellModifier(new ICellModifier() {
+
+            @Override
+            public void modify(final Object element, final String property, final Object value) {
+                if (element instanceof TreeItem) {
+                    TreeItem treeItem = (TreeItem) element;
+                    Object data = treeItem.getData();
+                    if (data instanceof IdentifiedElement) {
+                        IdentifiedElement elt = (IdentifiedElement) data;
+                        if (elt.getLabel() == null) {
+                            getEditingDomain().getCommandStack().execute(SetCommand.create(getEditingDomain(), elt, DescriptionPackage.Literals.IDENTIFIED_ELEMENT__NAME, value));
+                        } else {
+                            getEditingDomain().getCommandStack().execute(SetCommand.create(getEditingDomain(), elt, DescriptionPackage.Literals.IDENTIFIED_ELEMENT__LABEL, value));
+                        }
+                        treeItem.setText(value.toString());
+                    }
+                }
+            }
+
+            @Override
+            public Object getValue(final Object element, final String property) {
+                if (element instanceof IdentifiedElement) {
+                    IdentifiedElement elt = (IdentifiedElement) element;
+                    if (elt.getLabel() == null) {
+                        return elt.getName();
+                    } else {
+                        return elt.getLabel();
+                    }
+                }
+                return element.toString();
+            }
+
+            @Override
+            public boolean canModify(final Object element, final String property) {
+                return element instanceof IdentifiedElement;
+            }
+        });
+        return treeViewer;
     }
 
     /**

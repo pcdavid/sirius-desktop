@@ -178,6 +178,7 @@ public class AllTestSuite extends TestCase {
         suite.addTestSuite(NoteCreationTest.class);
         suite.addTestSuite(MigrationOnVsmEditorReloadTest.class);
         suite.addTestSuite(VSMFieldTest.class);
+        suite.addTestSuite(org.eclipse.sirius.tests.swtbot.editor.vsm.DirectEditLabelTest.class);
         suite.addTestSuite(VSMAndDiagramEditorSynchronisationTest.class);
         suite.addTestSuite(SVGImageBundleTest.class);
         suite.addTestSuite(SVGZImageTest.class);

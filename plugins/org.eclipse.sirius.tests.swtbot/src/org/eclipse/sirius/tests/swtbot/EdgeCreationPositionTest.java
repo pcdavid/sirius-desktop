@@ -138,10 +138,35 @@ public class EdgeCreationPositionTest extends AbstractSiriusSwtBotGefTestCase {
      *            The type of the expected target edit part
      */
     private void createEdgeAndValidateAnchors(String diagramName, String sourceName, Class<? extends EditPart> expectedSourceType, String targetName, Class<? extends EditPart> expectedTargetType) {
+        createEdgeAndValidateAnchors(diagramName, sourceName, expectedSourceType, TOP_LEFT_CORNER, targetName, expectedTargetType, BOTTOM_RIGHT_CORNER);
+    }
+
+    /**
+     * Open the diagram <code>diagramName</code>, create an edge between
+     * <code>sourceName</code> and <code>targetName</code> and validate the
+     * source and target anchors.
+     * 
+     * @param diagramName
+     *            The name of the diagram to open
+     * @param sourceName
+     *            The name of the source
+     * @param expectedSourceType
+     *            The type of the expected source edit part
+     * @param sourcePosition
+     *            The position for the first point of the edge (source)
+     * @param targetName
+     *            The name of the target
+     * @param expectedTargetType
+     *            The type of the expected target edit part
+     * @param targetPosition
+     *            The position for the last point of the edge (target)
+     */
+    protected void createEdgeAndValidateAnchors(String diagramName, String sourceName, Class<? extends EditPart> expectedSourceType, PrecisionPoint sourcePosition, String targetName,
+            Class<? extends EditPart> expectedTargetType, PrecisionPoint targetPosition) {
         openDiagram(diagramName);
         IGraphicalEditPart sourcePart = (IGraphicalEditPart) editor.getEditPart(sourceName, expectedSourceType).part();
         IGraphicalEditPart targetPart = (IGraphicalEditPart) editor.getEditPart(targetName, expectedTargetType).part();
-        createEdge(sourcePart, TOP_LEFT_CORNER, targetPart, BOTTOM_RIGHT_CORNER);
+        createEdge(sourcePart, sourcePosition, targetPart, targetPosition);
         DEdgeEditPart edge = getSingleDEdgeFrom((NodeEditPart) sourcePart);
         assertAreValidAnchors(sourcePart, targetPart, edge);
     }
@@ -240,7 +265,19 @@ public class EdgeCreationPositionTest extends AbstractSiriusSwtBotGefTestCase {
         return (DEdgeEditPart) edge;
     }
 
-    private void createEdge(IGraphicalEditPart source, PrecisionPoint sourcePosition, IGraphicalEditPart target, PrecisionPoint targetPosition) {
+    /**
+     * Create an edge between a source and a target.
+     * 
+     * @param source
+     *            The source edit part
+     * @param sourcePosition
+     *            The position for the first point of the edge
+     * @param target
+     *            The target edit part
+     * @param targetPosition
+     *            The position for the first laste of the edge
+     */
+    protected void createEdge(IGraphicalEditPart source, PrecisionPoint sourcePosition, IGraphicalEditPart target, PrecisionPoint targetPosition) {
         Point sourcePoint = getProportionalPoint(GraphicalHelper.getAbsoluteBounds(source), sourcePosition);
         Point targetPoint = getProportionalPoint(GraphicalHelper.getAbsoluteBounds(target), targetPosition);
 

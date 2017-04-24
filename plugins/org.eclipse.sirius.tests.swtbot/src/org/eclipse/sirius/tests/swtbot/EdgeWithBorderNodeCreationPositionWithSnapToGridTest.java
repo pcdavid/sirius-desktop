@@ -19,6 +19,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.NodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.sirius.business.api.preferences.SiriusPreferencesKeys;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramBorderNodeEditPart;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramContainerEditPart;
@@ -43,6 +44,10 @@ import com.google.common.collect.Iterables;
  * @author <a href="mailto:laurent.redor@obeo.fr">Laurent Redor</a>
  */
 public class EdgeWithBorderNodeCreationPositionWithSnapToGridTest extends EdgeCreationPositionTest {
+
+    private static final PrecisionPoint MIDDLE_LEFT = new PrecisionPoint(0.1, 0.5);
+
+    private static final PrecisionPoint MIDDLE_RIGHT = new PrecisionPoint(0.9, 0.5);
 
     private static final double gridStep = 100;
 
@@ -190,6 +195,15 @@ public class EdgeWithBorderNodeCreationPositionWithSnapToGridTest extends EdgeCr
     public void testBorderNodesOnContainerInContainerAreAlignedWithScrollOnDiagramAndContainerAndZoom() {
         testBorderNodesAreAligned("TC2185 Container in Container", "Container in Container With Scroll", "C", AbstractDiagramContainerEditPart.class, 100, "D", AbstractDiagramContainerEditPart.class,
                 109, false, ZoomLevel.ZOOM_50, Options.newSome("OtherClass"));
+    }
+
+    /**
+     * Case of edge created between 2 containers (source and target border nodes
+     * are created with the edge).
+     */
+    public void testBorderNodesOnContainer_WithGrid() {
+        changeSiriusPreference(SiriusPreferencesKeys.PREF_AUTO_REFRESH.name(), true);
+        createEdgeAndValidateAnchors("EdgeOnBorderedNodes_WithGrid", "sub3", AbstractDiagramContainerEditPart.class, MIDDLE_RIGHT, "sub4", AbstractDiagramContainerEditPart.class, MIDDLE_LEFT);
     }
 
     /**

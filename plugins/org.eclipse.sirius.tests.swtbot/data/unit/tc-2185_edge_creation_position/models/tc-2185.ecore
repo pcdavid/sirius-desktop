@@ -10,4 +10,6 @@
   <eSubpackages name="sub2">
     <eClassifiers xsi:type="ecore:EClass" name="D"/>
   </eSubpackages>
+  <eSubpackages name="sub3"/>
+  <eSubpackages name="sub4"/>
 </ecore:EPackage>

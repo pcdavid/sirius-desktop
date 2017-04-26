@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2021 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2007, 2022 THALES GLOBAL SERVICES and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -77,8 +77,22 @@ public class ArrangeAllWithAutoSize {
      * @return Return true if this part should be auto-size
      */
     public static boolean shouldBeAutosized(final IGraphicalEditPart part) {
+        return shouldBeAutosized(part, false);
+
+    }
+
+    /**
+     * Return true if this part should be autosized.
+     * 
+     * @param part
+     *            The concern part
+     * @param cleanMarkerSizeHasJustBeenSet
+     *            true if the marker must be removed (no longer useful), false otherwise
+     * @return Return true if this part should be auto-size
+     */
+    protected static boolean shouldBeAutosized(final IGraphicalEditPart part, boolean cleanMarkerSizeHasJustBeenSet) {
         boolean enabled = ArrangeAllWithAutoSize.isEnabled() && (ArrangeAllWithAutoSize.isContainer(part) || ArrangeAllWithAutoSize.isList(part)) && !ArrangeAllWithAutoSize.isPinned(part);
-        enabled = enabled && !ArrangeAllWithAutoSize.isDefaultSizeHasJustBeenSet(part);
+        enabled = enabled && !ArrangeAllWithAutoSize.isDefaultSizeHasJustBeenSet(part, cleanMarkerSizeHasJustBeenSet);
         if (enabled && ArrangeAllWithAutoSize.isRegion(part)) {
             EditPart regionContainerCompartment = part.getParent();
             if (regionContainerCompartment != null) {
@@ -107,16 +121,20 @@ public class ArrangeAllWithAutoSize {
      * 
      * @param part
      *            the graphical edit part.
+     * @param cleanMarkerSizeHasJustBeenSet
+     *            true if the marker must be removed (no longer useful), false otherwise
      * @return true if the marker is found.
      */
-    private static boolean isDefaultSizeHasJustBeenSet(final IGraphicalEditPart part) {
+    private static boolean isDefaultSizeHasJustBeenSet(final IGraphicalEditPart part, boolean cleanMarkerSizeHasJustBeenSet) {
         View view = part.getNotationView();
         if (view != null) {
             Iterator<Adapter> iterator = view.eAdapters().iterator();
             while (iterator.hasNext()) {
                 Adapter adapter = iterator.next();
                 if (adapter.isAdapterForType(AbstractContainerViewFactory.class)) {
-                    iterator.remove();
+                    if (cleanMarkerSizeHasJustBeenSet) {
+                        //iterator.remove();
+                    }
                     return true;
                 }
             }
@@ -298,6 +316,7 @@ public class ArrangeAllWithAutoSize {
             request.setSizeDelta(deltaSize);
         }
 
+        boolean shouldBeAutosized = ArrangeAllWithAutoSize.shouldBeAutosized(gep, true);
         if (LayoutUtil.isArrangeAtOpeningChangesDisabled()) {
             // Old code executed before the changes done in bugzilla 577676.
             if (!(delta.height == 0 && delta.width == 0) || isRegion && !(request.getSizeDelta().height == 0 && request.getSizeDelta().width == 0)) {
@@ -305,7 +324,7 @@ public class ArrangeAllWithAutoSize {
                 request.setMoveDelta(new Point(delta.width, delta.height));
                 request.setLocation(ptLocation);
 
-                if (ArrangeAllWithAutoSize.shouldBeAutosized(gep)) {
+                if (shouldBeAutosized) {
                     final CompoundCommand cmd = new CompoundCommand();
                     cmd.add(gep.getCommand(request));
                     cmd.add(gep.getCommand(new Request(RequestConstants.REQ_AUTOSIZE)));
@@ -325,7 +344,7 @@ public class ArrangeAllWithAutoSize {
                 request.setLocation(ptLocation);
                 cmd.add(gep.getCommand(request));
             }
-            if (ArrangeAllWithAutoSize.shouldBeAutosized(gep)) {
+            if (shouldBeAutosized) {
                 cmd.add(gep.getCommand(new Request(RequestConstants.REQ_AUTOSIZE)));
             }
             if (cmd.canExecute()) {

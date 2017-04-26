@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014, 2021 THALES GLOBAL SERVICES.
+ * Copyright (c) 2014, 2022 THALES GLOBAL SERVICES.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -54,6 +54,13 @@ public class DNodeContainerQuery {
         if (container.getOwnedStyle() instanceof FlatContainerStyle && !new DDiagramElementContainerExperimentalQuery(container).isRegion()
                 && !new DNodeContainerExperimentalQuery(container).isRegionContainer()) {
             defaultSize.setSize(LayoutUtils.DEFAULT_CONTAINER_DIMENSION);
+        }
+        // Use the width and the height of the DNC if they are set
+        if (container.getWidth() != null && container.getWidth().intValue() > 0) {
+            defaultSize.setWidth(container.getWidth().intValue() * LayoutUtils.SCALE);
+        }
+        if (container.getHeight() != null && container.getHeight().intValue() > 0) {
+            defaultSize.setHeight(container.getHeight().intValue() * LayoutUtils.SCALE);
         }
 
         return defaultSize;

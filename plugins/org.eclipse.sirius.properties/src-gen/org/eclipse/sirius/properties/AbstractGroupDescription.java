@@ -25,22 +25,21 @@ import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getLabelExpression <em>Label Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getDomainClass <em>Domain Class</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getSemanticCandidateExpression
- * <em>Semantic Candidate Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getPreconditionExpression
- * <em>Precondition Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getSemanticCandidateExpression <em>Semantic
+ * Candidate Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getPreconditionExpression <em>Precondition
+ * Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getControls <em>Controls</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getValidationSet <em>Validation Set</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getStyle <em>Style</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getConditionalStyles <em>Conditional Styles</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getConditionalStyles <em>Conditional
+ * Styles</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getExtends <em>Extends</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getFilterControlsFromExtendedGroupExpression
  * <em>Filter Controls From Extended Group Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getFilterValidationRulesFromExtendedGroupExpression
  * <em>Filter Validation Rules From Extended Group Expression</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.AbstractGroupDescription#getFilterConditionalStylesFromExtendedGroupExpression
+ * <li>{@link org.eclipse.sirius.properties.AbstractGroupDescription#getFilterConditionalStylesFromExtendedGroupExpression
  * <em>Filter Conditional Styles From Extended Group Expression</em>}</li>
  * </ul>
  *
@@ -66,8 +65,8 @@ public interface AbstractGroupDescription extends IdentifiedElement, DocumentedE
     String getLabelExpression();
 
     /**
-     * Sets the value of the '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getLabelExpression
-     * <em>Label Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getLabelExpression <em>Label
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Label Expression</em>' attribute.
@@ -93,8 +92,8 @@ public interface AbstractGroupDescription extends IdentifiedElement, DocumentedE
     String getDomainClass();
 
     /**
-     * Sets the value of the '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getDomainClass
-     * <em>Domain Class</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getDomainClass <em>Domain
+     * Class</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Domain Class</em>' attribute.
@@ -120,9 +119,9 @@ public interface AbstractGroupDescription extends IdentifiedElement, DocumentedE
     String getSemanticCandidateExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.AbstractGroupDescription#getSemanticCandidateExpression
-     * <em>Semantic Candidate Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getSemanticCandidateExpression <em>Semantic
+     * Candidate Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Semantic Candidate Expression</em>' attribute.
@@ -261,8 +260,8 @@ public interface AbstractGroupDescription extends IdentifiedElement, DocumentedE
     GroupDescription getExtends();
 
     /**
-     * Sets the value of the '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getExtends <em>Extends</em>}
-     * ' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getExtends
+     * <em>Extends</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Extends</em>' reference.
@@ -319,8 +318,8 @@ public interface AbstractGroupDescription extends IdentifiedElement, DocumentedE
     String getFilterValidationRulesFromExtendedGroupExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.AbstractGroupDescription#getFilterValidationRulesFromExtendedGroupExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getFilterValidationRulesFromExtendedGroupExpression
      * <em>Filter Validation Rules From Extended Group Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -349,8 +348,8 @@ public interface AbstractGroupDescription extends IdentifiedElement, DocumentedE
     String getFilterConditionalStylesFromExtendedGroupExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.AbstractGroupDescription#getFilterConditionalStylesFromExtendedGroupExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.AbstractGroupDescription#getFilterConditionalStylesFromExtendedGroupExpression
      * <em>Filter Conditional Styles From Extended Group Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

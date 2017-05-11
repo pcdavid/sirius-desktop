@@ -115,21 +115,21 @@ import org.eclipse.sirius.viewpoint.description.validation.ValidationRule;
  * {@link #doSwitch(EObject) doSwitch(object)} to invoke the <code>caseXXX</code> method for each class of the model,
  * starting with the actual class of the object and proceeding up the inheritance hierarchy until a non-null result is
  * returned, which is the result of the switch. <!-- end-user-doc -->
- *
+ * 
  * @see org.eclipse.sirius.properties.PropertiesPackage
  * @generated
  */
 public class PropertiesSwitch<T> {
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static PropertiesPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PropertiesSwitch() {
@@ -141,7 +141,7 @@ public class PropertiesSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
      * result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -152,7 +152,7 @@ public class PropertiesSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
      * result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -168,7 +168,7 @@ public class PropertiesSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
      * result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -1699,7 +1699,7 @@ public class PropertiesSwitch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>Category</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Category</em>'.
@@ -2236,14 +2236,14 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Abstract Dynamic Mapping For Description</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping For
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Abstract Dynamic Mapping For Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping For
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -2267,14 +2267,14 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Dynamic Mapping For Override Description</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * Returns the result of interpreting the object as an instance of '<em>Dynamic Mapping For Override
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Dynamic Mapping For Override Description</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Dynamic Mapping For Override
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -2283,14 +2283,14 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping If Description</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will terminate the
-     * switch. <!-- end-user-doc -->
-     *
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping If
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping If Description</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Dynamic Mapping If
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -2314,14 +2314,14 @@ public class PropertiesSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Dynamic Mapping If Override Description</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will terminate the
-     * switch. <!-- end-user-doc -->
-     *
+     * Returns the result of interpreting the object as an instance of '<em>Dynamic Mapping If Override
+     * Description</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Dynamic Mapping If Override Description</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '<em>Dynamic Mapping If Override
+     *         Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -2602,7 +2602,7 @@ public class PropertiesSwitch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>Widget Style</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Widget Style</em>'.
@@ -2751,7 +2751,7 @@ public class PropertiesSwitch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>Group Style</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Group Style</em>'.
@@ -2811,7 +2811,7 @@ public class PropertiesSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Checkbox Widget Conditional Style</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Checkbox Widget Conditional Style</em>'.
@@ -2900,7 +2900,7 @@ public class PropertiesSwitch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>Widget Action</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Widget Action</em>'.
@@ -2915,7 +2915,7 @@ public class PropertiesSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Hyperlink Widget Conditional Style</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Hyperlink Widget Conditional Style</em>'.
@@ -2959,7 +2959,7 @@ public class PropertiesSwitch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>Dialog Button</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Dialog Button</em>'.
@@ -2988,7 +2988,7 @@ public class PropertiesSwitch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>Edit Support</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Edit Support</em>'.
@@ -3002,7 +3002,7 @@ public class PropertiesSwitch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>Extension</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Extension</em>'.
@@ -3046,7 +3046,7 @@ public class PropertiesSwitch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>Rule</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Rule</em>'.
@@ -3076,7 +3076,7 @@ public class PropertiesSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>EObject</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate the switch, but this is the last case
      * anyway. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>EObject</em>'.

@@ -20,8 +20,7 @@ package org.eclipse.sirius.properties;
  * </p>
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.TextAreaOverrideDescription#getOverrides <em>Overrides</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.TextAreaOverrideDescription#getFilterConditionalStylesFromOverriddenTextAreaExpression
+ * <li>{@link org.eclipse.sirius.properties.TextAreaOverrideDescription#getFilterConditionalStylesFromOverriddenTextAreaExpression
  * <em>Filter Conditional Styles From Overridden Text Area Expression</em>}</li>
  * </ul>
  *
@@ -75,8 +74,8 @@ public interface TextAreaOverrideDescription extends AbstractTextAreaDescription
     String getFilterConditionalStylesFromOverriddenTextAreaExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.TextAreaOverrideDescription#getFilterConditionalStylesFromOverriddenTextAreaExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.TextAreaOverrideDescription#getFilterConditionalStylesFromOverriddenTextAreaExpression
      * <em>Filter Conditional Styles From Overridden Text Area Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

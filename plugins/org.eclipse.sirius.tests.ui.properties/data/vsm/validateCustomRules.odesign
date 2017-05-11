@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="validateCustomRules" version="12.0.0.2017041100">
+  <ownedViewpoints name="validateCustomRulesViewpoint">
+    <ownedJavaExtensions qualifiedClassName="validation.project.design.Services"/>
+  </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <categories name="Default Category">
+      <pages name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self"/>
+      <groups name="TextGroup" labelExpression="Group" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="TextMissingInitialOperation"/>
+        <controls xsi:type="properties:TextDescription" name="TextExtendingAnotherInitialOperation" extends="//@extensions.0/@categories.0/@groups.0/@controls.2"/>
+        <controls xsi:type="properties:TextDescription" name="DefaultText">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="ButtonGroup" labelExpression="Group" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ButtonDescription" name="ButtonMissingInitialOperation"/>
+        <controls xsi:type="properties:ButtonDescription" name="ButonExtendingAnotherInitialOperation" extends="//@extensions.0/@categories.0/@groups.1/@controls.2"/>
+        <controls xsi:type="properties:ButtonDescription" name="DefaultButton">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="CheckboxGroup">
+        <controls xsi:type="properties:CheckboxDescription" name="CheckboxMissingInitialOperation"/>
+        <controls xsi:type="properties:CheckboxDescription" name="CheckboxExtendingAnotherInitialOperation" extends="//@extensions.0/@categories.0/@groups.2/@controls.2"/>
+        <controls xsi:type="properties:CheckboxDescription" name="DefaultCheckbox">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="SelectGroup">
+        <controls xsi:type="properties:SelectDescription" name="SelectMissingInitialOperation"/>
+        <controls xsi:type="properties:SelectDescription" name="SelectExtendingAnotherInitialOperation" extends="//@extensions.0/@categories.0/@groups.3/@controls.2"/>
+        <controls xsi:type="properties:SelectDescription" name="DefaultSelect">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="DynamicMappingForGroup">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="ForMissingIfs" label="" iterator="iterator" iterableExpression="iterable expession "/>
+        <controls xsi:type="properties:DynamicMappingForDescription" name="ForExtendingAnotherIfs" label="ForWithExtends" iterableExpression="" extends="//@extensions.0/@categories.0/@groups.4/@controls.4"/>
+        <controls xsi:type="properties:DynamicMappingForDescription" name="ForMissingIterator" label="" iterableExpression="DefaultForIterableExpression">
+          <ifs name="If" label="If" predicateExpression="predicate">
+            <widget xsi:type="properties:TextDescription" name="Text">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="feature" valueExpression="value expression"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+        </controls>
+        <controls xsi:type="properties:DynamicMappingForDescription" name="ForMissingIterableExpression" label="" iterator="DefaultForIterator">
+          <ifs name="If" label="If" predicateExpression="predicate">
+            <widget xsi:type="properties:TextDescription" name="Text">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="feature" valueExpression="value expression"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+        </controls>
+        <controls xsi:type="properties:DynamicMappingForDescription" name="DefaultFor" label="" iterator="DefaultForIterator" iterableExpression="DefaultForIterableExpression">
+          <ifs name="If" label="If" predicateExpression="predicate">
+            <widget xsi:type="properties:TextDescription" name="Text">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="feature" valueExpression="value expression"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+        </controls>
+      </groups>
+      <groups name="DynamicMappingIfGroup">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="DefaultFor" label="" iterator="DefaultForIterator" iterableExpression="DefaultForIterableExpression">
+          <ifs name="IfMissingWidget" label="If" predicateExpression="predicate"/>
+          <ifs name="IfExtendingAnotherWidget" label="If" predicateExpression="predicate" extends="//@extensions.0/@categories.0/@groups.5/@controls.0/@ifs.3"/>
+          <ifs name="IfMissingPredicateExpression" label="If">
+            <widget xsi:type="properties:TextDescription" name="DefaultText">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="DefaultIf" predicateExpression="DefaultPredicateExpression">
+            <widget xsi:type="properties:TextDescription" name="DefaultText">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+        </controls>
+      </groups>
+      <groups name="TextAreaGroup">
+        <controls xsi:type="properties:TextAreaDescription" name="TextAreaMissingInitialOperation"/>
+        <controls xsi:type="properties:TextAreaDescription" name="TextAreaExtendingAnotherInitialOperation" extends="//@extensions.0/@categories.0/@groups.6/@controls.2"/>
+        <controls xsi:type="properties:TextAreaDescription" name="DefaultTextArea">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="RadioGroup">
+        <controls xsi:type="properties:RadioDescription" name="RadioMissingInitialOperation"/>
+        <controls xsi:type="properties:RadioDescription" name="RadioExtendingAnotherIntitialOperation" extends="//@extensions.0/@categories.0/@groups.7/@controls.2"/>
+        <controls xsi:type="properties:RadioDescription" name="DefaultRadio">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="HyperlinkGroup">
+        <controls xsi:type="properties:HyperlinkDescription" name="HyperlinkMissingInitialOperation"/>
+        <controls xsi:type="properties:HyperlinkDescription" name="HyperlinkExtendingAnotherInitialOperation" extends="//@extensions.0/@categories.0/@groups.8/@controls.2"/>
+        <controls xsi:type="properties:HyperlinkDescription" name="DefaultHyperlink">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext"/>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
+</description:Group>

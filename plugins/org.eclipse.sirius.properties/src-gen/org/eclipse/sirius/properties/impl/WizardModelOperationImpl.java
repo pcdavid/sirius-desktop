@@ -35,18 +35,18 @@ import org.eclipse.sirius.viewpoint.description.tool.impl.ModelOperationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getWindowTitleExpression
- * <em>Window Title Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getTitleExpression <em>Title Expression</em>}
- * </li>
- * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getDescriptionExpression
- * <em>Description Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getIsPageCompleteExpression
- * <em>Is Page Complete Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getWindowTitleExpression <em>Window Title
+ * Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getTitleExpression <em>Title
+ * Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getDescriptionExpression <em>Description
+ * Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getIsPageCompleteExpression <em>Is Page
+ * Complete Expression</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getPages <em>Pages</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getGroups <em>Groups</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getInitialOperation <em>Initial Operation</em>
- * }</li>
+ * <li>{@link org.eclipse.sirius.properties.impl.WizardModelOperationImpl#getInitialOperation <em>Initial
+ * Operation</em>}</li>
  * </ul>
  *
  * @generated

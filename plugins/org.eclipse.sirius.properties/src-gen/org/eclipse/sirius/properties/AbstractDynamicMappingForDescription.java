@@ -22,14 +22,13 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getIterator <em>Iterator</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getIterableExpression
- * <em>Iterable Expression</em>}</li>
- * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#isForceRefresh <em>Force Refresh</em>}
- * </li>
+ * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getIterableExpression <em>Iterable
+ * Expression</em>}</li>
+ * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#isForceRefresh <em>Force
+ * Refresh</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getIfs <em>Ifs</em>}</li>
  * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getExtends <em>Extends</em>}</li>
- * <li>
- * {@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getFilterIfsFromExtendedDynamicMappingForExpression
+ * <li>{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getFilterIfsFromExtendedDynamicMappingForExpression
  * <em>Filter Ifs From Extended Dynamic Mapping For Expression</em>}</li>
  * </ul>
  *
@@ -49,7 +48,7 @@ public interface AbstractDynamicMappingForDescription extends AbstractControlDes
      * @return the value of the '<em>Iterator</em>' attribute.
      * @see #setIterator(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getAbstractDynamicMappingForDescription_Iterator()
-     * @model required="true"
+     * @model
      * @generated
      */
     String getIterator();
@@ -76,15 +75,15 @@ public interface AbstractDynamicMappingForDescription extends AbstractControlDes
      * @return the value of the '<em>Iterable Expression</em>' attribute.
      * @see #setIterableExpression(String)
      * @see org.eclipse.sirius.properties.PropertiesPackage#getAbstractDynamicMappingForDescription_IterableExpression()
-     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression" required="true"
+     * @model dataType="org.eclipse.sirius.viewpoint.description.InterpretedExpression"
      * @generated
      */
     String getIterableExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getIterableExpression
-     * <em>Iterable Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getIterableExpression <em>Iterable
+     * Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Iterable Expression</em>' attribute.
@@ -131,7 +130,7 @@ public interface AbstractDynamicMappingForDescription extends AbstractControlDes
      *
      * @return the value of the '<em>Ifs</em>' containment reference list.
      * @see org.eclipse.sirius.properties.PropertiesPackage#getAbstractDynamicMappingForDescription_Ifs()
-     * @model containment="true" required="true"
+     * @model containment="true"
      * @generated
      */
     EList<DynamicMappingIfDescription> getIfs();
@@ -181,8 +180,8 @@ public interface AbstractDynamicMappingForDescription extends AbstractControlDes
     String getFilterIfsFromExtendedDynamicMappingForExpression();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getFilterIfsFromExtendedDynamicMappingForExpression
+     * Sets the value of the
+     * '{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription#getFilterIfsFromExtendedDynamicMappingForExpression
      * <em>Filter Ifs From Extended Dynamic Mapping For Expression</em>}' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

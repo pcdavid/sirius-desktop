@@ -113,21 +113,21 @@ import org.eclipse.sirius.viewpoint.description.validation.ValidationRule;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code>
  * method for each class of the model. <!-- end-user-doc -->
- *
+ * 
  * @see org.eclipse.sirius.properties.PropertiesPackage
  * @generated
  */
 public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static PropertiesPackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PropertiesAdapterFactory() {
@@ -140,7 +140,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc --> This
      * implementation returns <code>true</code> if the object is either the model's package or is an instance object of
      * the model. <!-- end-user-doc -->
-     *
+     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
@@ -157,7 +157,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PropertiesSwitch<Adapter> modelSwitch = new PropertiesSwitch<Adapter>() {
@@ -634,7 +634,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
@@ -650,7 +650,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>View Extension Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ViewExtensionDescription
      * @generated
@@ -663,7 +663,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.Category <em>Category</em>}'.
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
      * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.Category
      * @generated
@@ -677,7 +677,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractOverrideDescription
      * @generated
@@ -691,7 +691,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Page Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractPageDescription
      * @generated
@@ -701,11 +701,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.PageDescription
-     * <em>Page Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.PageDescription <em>Page
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.PageDescription
      * @generated
@@ -719,7 +718,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Page Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.PageOverrideDescription
      * @generated
@@ -733,7 +732,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Page Validation Set Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.PageValidationSetDescription
      * @generated
@@ -747,7 +746,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Property Validation Rule</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.PropertyValidationRule
      * @generated
@@ -761,7 +760,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Group Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractGroupDescription
      * @generated
@@ -771,11 +770,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.GroupDescription
-     * <em>Group Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.GroupDescription <em>Group
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.GroupDescription
      * @generated
@@ -789,7 +787,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Group Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.GroupOverrideDescription
      * @generated
@@ -803,7 +801,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Group Validation Set Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.GroupValidationSetDescription
      * @generated
@@ -817,7 +815,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Control Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractControlDescription
      * @generated
@@ -827,11 +825,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ControlDescription
-     * <em>Control Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ControlDescription <em>Control
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ControlDescription
      * @generated
@@ -845,7 +842,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Container Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractContainerDescription
      * @generated
@@ -859,7 +856,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Container Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ContainerDescription
      * @generated
@@ -873,7 +870,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Container Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ContainerOverrideDescription
      * @generated
@@ -883,11 +880,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.LayoutDescription
-     * <em>Layout Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.LayoutDescription <em>Layout
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.LayoutDescription
      * @generated
@@ -897,10 +893,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.FillLayoutDescription
-     * <em>Fill Layout Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
-     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.FillLayoutDescription <em>Fill
+     * Layout Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
      *
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.FillLayoutDescription
@@ -911,10 +907,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.GridLayoutDescription
-     * <em>Grid Layout Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
-     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.GridLayoutDescription <em>Grid
+     * Layout Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
      *
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.GridLayoutDescription
@@ -929,7 +925,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Widget Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractWidgetDescription
      * @generated
@@ -939,11 +935,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.WidgetDescription
-     * <em>Widget Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.WidgetDescription <em>Widget
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.WidgetDescription
      * @generated
@@ -957,7 +952,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Text Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractTextDescription
      * @generated
@@ -967,11 +962,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.TextDescription
-     * <em>Text Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.TextDescription <em>Text
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.TextDescription
      * @generated
@@ -985,7 +979,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Text Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.TextOverrideDescription
      * @generated
@@ -999,7 +993,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Button Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractButtonDescription
      * @generated
@@ -1009,11 +1003,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ButtonDescription
-     * <em>Button Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ButtonDescription <em>Button
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ButtonDescription
      * @generated
@@ -1027,7 +1020,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Button Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ButtonOverrideDescription
      * @generated
@@ -1041,7 +1034,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Label Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractLabelDescription
      * @generated
@@ -1051,11 +1044,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.LabelDescription
-     * <em>Label Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.LabelDescription <em>Label
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.LabelDescription
      * @generated
@@ -1069,7 +1061,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Label Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.LabelOverrideDescription
      * @generated
@@ -1083,7 +1075,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Checkbox Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractCheckboxDescription
      * @generated
@@ -1097,7 +1089,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Checkbox Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.CheckboxDescription
      * @generated
@@ -1111,7 +1103,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Checkbox Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.CheckboxOverrideDescription
      * @generated
@@ -1125,7 +1117,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Select Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractSelectDescription
      * @generated
@@ -1135,11 +1127,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.SelectDescription
-     * <em>Select Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.SelectDescription <em>Select
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.SelectDescription
      * @generated
@@ -1153,7 +1144,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Select Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.SelectOverrideDescription
      * @generated
@@ -1163,12 +1154,11 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription
-     * <em>Abstract Dynamic Mapping For Description</em>}'. <!-- begin-user-doc --> This default implementation returns
-     * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
-     * anyway. <!-- end-user-doc -->
-     *
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.properties.AbstractDynamicMappingForDescription <em>Abstract Dynamic Mapping For
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractDynamicMappingForDescription
      * @generated
@@ -1182,7 +1172,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Dynamic Mapping For Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.DynamicMappingForDescription
      * @generated
@@ -1192,12 +1182,11 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.sirius.properties.DynamicMappingForOverrideDescription
-     * <em>Dynamic Mapping For Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns
-     * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
-     * anyway. <!-- end-user-doc -->
-     *
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.properties.DynamicMappingForOverrideDescription <em>Dynamic Mapping For Override
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.DynamicMappingForOverrideDescription
      * @generated
@@ -1207,12 +1196,11 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription
-     * <em>Abstract Dynamic Mapping If Description</em>}'. <!-- begin-user-doc --> This default implementation returns
-     * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
-     * anyway. <!-- end-user-doc -->
-     *
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription <em>Abstract Dynamic Mapping If
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractDynamicMappingIfDescription
      * @generated
@@ -1226,7 +1214,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Dynamic Mapping If Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.DynamicMappingIfDescription
      * @generated
@@ -1236,12 +1224,11 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.sirius.properties.DynamicMappingIfOverrideDescription
-     * <em>Dynamic Mapping If Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns
-     * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
-     * anyway. <!-- end-user-doc -->
-     *
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.properties.DynamicMappingIfOverrideDescription <em>Dynamic Mapping If Override
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.DynamicMappingIfOverrideDescription
      * @generated
@@ -1255,7 +1242,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Text Area Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractTextAreaDescription
      * @generated
@@ -1265,10 +1252,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.TextAreaDescription
-     * <em>Text Area Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.TextAreaDescription <em>Text
+     * Area Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
      *
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.TextAreaDescription
@@ -1283,7 +1270,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Text Area Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.TextAreaOverrideDescription
      * @generated
@@ -1297,7 +1284,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Radio Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractRadioDescription
      * @generated
@@ -1307,11 +1294,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.RadioDescription
-     * <em>Radio Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.RadioDescription <em>Radio
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.RadioDescription
      * @generated
@@ -1325,7 +1311,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Radio Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.RadioOverrideDescription
      * @generated
@@ -1339,7 +1325,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract List Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractListDescription
      * @generated
@@ -1349,11 +1335,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ListDescription
-     * <em>List Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ListDescription <em>List
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ListDescription
      * @generated
@@ -1367,7 +1352,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>List Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ListOverrideDescription
      * @generated
@@ -1381,7 +1366,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Operation Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.OperationDescription
      * @generated
@@ -1395,7 +1380,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Custom Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractCustomDescription
      * @generated
@@ -1405,11 +1390,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.CustomDescription
-     * <em>Custom Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.CustomDescription <em>Custom
+     * Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.CustomDescription
      * @generated
@@ -1423,7 +1407,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Custom Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.CustomOverrideDescription
      * @generated
@@ -1433,11 +1417,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.CustomExpression
-     * <em>Custom Expression</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.CustomExpression <em>Custom
+     * Expression</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.CustomExpression
      * @generated
@@ -1447,11 +1430,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.CustomOperation
-     * <em>Custom Operation</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.CustomOperation <em>Custom
+     * Operation</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.CustomOperation
      * @generated
@@ -1465,7 +1447,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Hyperlink Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.AbstractHyperlinkDescription
      * @generated
@@ -1479,7 +1461,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Hyperlink Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.HyperlinkDescription
      * @generated
@@ -1493,7 +1475,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Hyperlink Override Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.HyperlinkOverrideDescription
      * @generated
@@ -1503,11 +1485,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.WidgetStyle
-     * <em>Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-     * -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.WidgetStyle <em>Widget
+     * Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.WidgetStyle
      * @generated
@@ -1517,10 +1498,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.TextWidgetStyle
-     * <em>Text Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.TextWidgetStyle <em>Text
+     * Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
      *
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.TextWidgetStyle
@@ -1531,10 +1512,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.LabelWidgetStyle
-     * <em>Label Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.LabelWidgetStyle <em>Label
+     * Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
      *
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.LabelWidgetStyle
@@ -1549,7 +1530,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Checkbox Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.CheckboxWidgetStyle
      * @generated
@@ -1559,10 +1540,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.RadioWidgetStyle
-     * <em>Radio Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.RadioWidgetStyle <em>Radio
+     * Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
      *
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.RadioWidgetStyle
@@ -1573,10 +1554,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ButtonWidgetStyle
-     * <em>Button Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ButtonWidgetStyle <em>Button
+     * Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
      *
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ButtonWidgetStyle
@@ -1587,10 +1568,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.SelectWidgetStyle
-     * <em>Select Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.SelectWidgetStyle <em>Select
+     * Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
      *
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.SelectWidgetStyle
@@ -1601,10 +1582,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.CustomWidgetStyle
-     * <em>Custom Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.CustomWidgetStyle <em>Custom
+     * Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
      *
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.CustomWidgetStyle
@@ -1615,10 +1596,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ListWidgetStyle
-     * <em>List Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
-     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ListWidgetStyle <em>List
+     * Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
+     * -->
      *
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ListWidgetStyle
@@ -1633,7 +1614,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Hyperlink Widget Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.HyperlinkWidgetStyle
      * @generated
@@ -1643,11 +1624,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.GroupStyle
-     * <em>Group Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-     * -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.GroupStyle <em>Group
+     * Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.GroupStyle
      * @generated
@@ -1661,7 +1641,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Widget Conditional Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.WidgetConditionalStyle
      * @generated
@@ -1675,7 +1655,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Text Widget Conditional Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.TextWidgetConditionalStyle
      * @generated
@@ -1689,7 +1669,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Label Widget Conditional Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.LabelWidgetConditionalStyle
      * @generated
@@ -1703,7 +1683,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Checkbox Widget Conditional Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.CheckboxWidgetConditionalStyle
      * @generated
@@ -1717,7 +1697,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Radio Widget Conditional Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.RadioWidgetConditionalStyle
      * @generated
@@ -1731,7 +1711,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Button Widget Conditional Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ButtonWidgetConditionalStyle
      * @generated
@@ -1745,7 +1725,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Select Widget Conditional Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.SelectWidgetConditionalStyle
      * @generated
@@ -1759,7 +1739,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Custom Widget Conditional Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.CustomWidgetConditionalStyle
      * @generated
@@ -1773,7 +1753,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>List Widget Conditional Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.ListWidgetConditionalStyle
      * @generated
@@ -1783,11 +1763,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.WidgetAction
-     * <em>Widget Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-     * -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.WidgetAction <em>Widget
+     * Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.WidgetAction
      * @generated
@@ -1797,11 +1776,11 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle <em>Hyperlink Widget Conditional Style</em>}
-     * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
-     * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle <em>Hyperlink Widget Conditional
+     * Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.HyperlinkWidgetConditionalStyle
      * @generated
@@ -1815,7 +1794,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Group Conditional Style</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.GroupConditionalStyle
      * @generated
@@ -1829,7 +1808,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Dialog Model Operation</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.DialogModelOperation
      * @generated
@@ -1839,11 +1818,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.DialogButton
-     * <em>Dialog Button</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-     * -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.DialogButton <em>Dialog
+     * Button</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.DialogButton
      * @generated
@@ -1857,7 +1835,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Wizard Model Operation</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.WizardModelOperation
      * @generated
@@ -1867,11 +1845,10 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.EditSupport
-     * <em>Edit Support</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-     * -->
-     *
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.EditSupport <em>Edit
+     * Support</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.properties.EditSupport
      * @generated
@@ -1899,7 +1876,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Identified Element</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.viewpoint.description.IdentifiedElement
      * @generated
@@ -1913,7 +1890,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Documented Element</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.viewpoint.description.DocumentedElement
      * @generated
@@ -1923,11 +1900,11 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.sirius.viewpoint.description.validation.ValidationRule <em>Rule</em>}'. <!-- begin-user-doc
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.viewpoint.description.validation.ValidationRule <em>Rule</em>}'. <!-- begin-user-doc
      * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.viewpoint.description.validation.ValidationRule
      * @generated
@@ -1941,7 +1918,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
      * <em>Model Operation</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.eclipse.sirius.viewpoint.description.tool.ModelOperation
      * @generated
@@ -1953,7 +1930,7 @@ public class PropertiesAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default implementation returns null.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @generated
      */

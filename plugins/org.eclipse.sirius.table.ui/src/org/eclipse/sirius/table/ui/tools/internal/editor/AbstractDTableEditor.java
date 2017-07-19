@@ -356,9 +356,7 @@ public abstract class AbstractDTableEditor extends AbstractDTreeEditor implement
         if (resource != null && resource.isLoaded()) {
             if (uri.fragment() != null) {
                 final EObject rootElement = resource.getEObject(uri.fragment());
-                if (rootElement instanceof DTable) {
-                    result = (DTable) rootElement;
-                } else if (rootElement instanceof DRepresentationDescriptor) {
+                if (rootElement instanceof DRepresentationDescriptor) {
                     result = Optional.ofNullable(((DRepresentationDescriptor) rootElement).getRepresentation()).filter(DTable.class::isInstance).map(DTable.class::cast).orElse(null);
                 }
             }

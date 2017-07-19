@@ -180,7 +180,7 @@ public class DiagramDialectUIServices implements DialectUIServices {
                 for (final EObject object : gmfDiags) {
                     final Diagram gmfDiag = (Diagram) object;
                     if (gmfDiag != null) {
-                        result = openEditor(session, gmfDiag, dRepresentation, monitor);
+                        result = doOpenEditor(session, dRepresentation, monitor);
                         new DiagramDialectArrangeOperation().arrange(result, diag);
                         monitor.worked(3);
                     }
@@ -196,14 +196,15 @@ public class DiagramDialectUIServices implements DialectUIServices {
         return result;
     }
 
-    private DialectEditor openEditor(Session session, Diagram gmfDiag, DRepresentation dRepresentation, IProgressMonitor monitor) {
+    private DialectEditor doOpenEditor(Session session, DRepresentation dRepresentation, IProgressMonitor monitor) {
         DialectEditor dialectEditor = null;
-        URI uri = EcoreUtil.getURI(gmfDiag);
         String editorName = DialectUIManager.INSTANCE.getEditorName(dRepresentation);
         DRepresentationQuery query = new DRepresentationQuery(dRepresentation);
-        URI repDescURI = Optional.ofNullable(query.getRepresentationDescriptor()).map(repDesc -> EcoreUtil.getURI(repDesc)).orElse(null);
+        URI repDescURI = Optional.ofNullable(query.getRepresentationDescriptor()).map(repDesc -> EcoreUtil.getURI(repDesc)).orElseThrow(() -> {
+            throw new RuntimeException(Messages.DiagramDialectUIServices_diagramEditorOpeningError);
+        });
         monitor.worked(1);
-        final IEditorInput editorInput = new SessionEditorInput(uri, repDescURI, editorName, session);
+        final IEditorInput editorInput = new SessionEditorInput(repDescURI, editorName, session);
         monitor.subTask(MessageFormat.format(Messages.DiagramDialectUIServices_diagramEditorOpeningMonitorTaskName, dRepresentation.getName()));
         RunnableWithResult<DialectEditor> runnable = new RunnableWithResult.Impl<DialectEditor>() {
 

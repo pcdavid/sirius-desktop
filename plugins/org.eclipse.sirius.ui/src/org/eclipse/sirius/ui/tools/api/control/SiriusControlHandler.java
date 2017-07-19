@@ -131,8 +131,7 @@ public class SiriusControlHandler extends AbstractHandler {
                         DialectEditor editor = uiSession.getEditor(dRepDescriptor.getRepresentation());
                         if (editor instanceof IReusableEditor) {
                             IReusableEditor iReusableEditor = (IReusableEditor) editor;
-                            SessionEditorInput updatedEditorInput = new SessionEditorInput(EcoreUtil.getURI(dRepDescriptor.getRepresentation()), EcoreUtil.getURI(dRepDescriptor),
-                                    dRepDescriptor.getRepresentation().getName(), session);
+                            SessionEditorInput updatedEditorInput = new SessionEditorInput(EcoreUtil.getURI(dRepDescriptor), dRepDescriptor.getRepresentation().getName(), session);
                             iReusableEditor.setInput(updatedEditorInput);
                         }
                     }

@@ -14,7 +14,6 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -22,7 +21,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -100,12 +98,10 @@ public class TableDialectUIServices implements DialectUIServices {
             if (dRepresentation instanceof DTable) {
                 DTable dTable = (DTable) dRepresentation;
                 DRepresentationQuery query = new DRepresentationQuery(dTable);
-                URI repDescURI = Optional.ofNullable(query.getRepresentationDescriptor()).map(repDesc -> EcoreUtil.getURI(repDesc)).orElse(null);
                 DslCommonPlugin.PROFILER.startWork(SiriusTasksKey.OPEN_TABLE_KEY);
-                final URI uri = EcoreUtil.getURI(dTable);
                 final String editorName = DialectUIManager.INSTANCE.getEditorName(dTable);
                 monitor.worked(2);
-                final IEditorInput editorInput = new SessionEditorInput(uri, repDescURI, editorName, session);
+                final IEditorInput editorInput = new SessionEditorInput(EcoreUtil.getURI(query.getRepresentationDescriptor()), editorName, session);
 
                 final String editorId;
                 if (dTable.getDescription() instanceof EditionTableDescription) {

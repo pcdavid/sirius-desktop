@@ -27,8 +27,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.factory.SessionFactory;
-import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.provider.Messages;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.ui.IMemento;
@@ -46,8 +44,6 @@ public class SessionEditorInput extends URIEditorInput {
      */
     private static final String SESSION_RESOURCE_URI = "SESSION_RESOURCE_URI"; //$NON-NLS-1$
 
-    private static final String REP_DESC_URI = "REP_DESC_URI"; //$NON-NLS-1$
-
     private WeakReference<Session> sessionRef;
 
     /**
@@ -60,8 +56,6 @@ public class SessionEditorInput extends URIEditorInput {
     private WeakReference<EObject> inputRef;
 
     private IStatus status = Status.OK_STATUS;
-
-    private URI repDescURI;
 
     /**
      * Create a new SessionEditorInput with the current session and ui session.
@@ -80,25 +74,6 @@ public class SessionEditorInput extends URIEditorInput {
         if (session.getSessionResource() != null) {
             this.sessionResourceURI = session.getSessionResource().getURI();
         }
-    }
-
-    /**
-     * Create a new SessionEditorInput with the current session and ui session.
-     *
-     * @param uri
-     *            element URI.
-     * @param repDescURI
-     *            The URI of the {@link DRepresentationDescriptor}. This URI is Used for loading the
-     *            {@link DRepresentation} from the {@link DRepresentationDescriptor#getRepresentation()}. Can be null.
-     * @param name
-     *            name of the editor.
-     * @param session
-     *            the current session.
-     */
-    public SessionEditorInput(URI uri, URI repDescURI, String name, Session session) {
-        this(uri, name, session);
-        this.repDescURI = repDescURI;
-
     }
 
     /**
@@ -185,14 +160,6 @@ public class SessionEditorInput extends URIEditorInput {
         this.name = string;
     }
 
-    public URI getRepDescUri() {
-        return repDescURI;
-    }
-
-    public void setRepDescURI(URI repDescURI) {
-        this.repDescURI = repDescURI;
-    }
-
     @Override
     public void saveState(final IMemento memento) {
         super.saveState(memento);
@@ -202,9 +169,6 @@ public class SessionEditorInput extends URIEditorInput {
         if (sessionResourceURI != null) {
             memento.putString(SessionEditorInput.SESSION_RESOURCE_URI, sessionResourceURI.toString());
         }
-        if (repDescURI != null) {
-            memento.putString(SessionEditorInput.REP_DESC_URI, repDescURI.toString());
-        }
     }
 
     @Override
@@ -212,16 +176,12 @@ public class SessionEditorInput extends URIEditorInput {
         super.loadState(memento);
         setName(memento.getString(URIEditorInput.NAME_TAG));
         final String sessionResourceURIString = memento.getString(SessionEditorInput.SESSION_RESOURCE_URI);
-        final String repDescURIString = memento.getString(SessionEditorInput.REP_DESC_URI);
         if (sessionResourceURIString != null) {
             sessionResourceURI = URI.createURI(sessionResourceURIString);
             Session newSession = getSession(sessionResourceURI);
             if (newSession != null) {
                 this.sessionRef = new WeakReference<Session>(newSession);
             }
-        }
-        if (repDescURIString != null) {
-            repDescURI = URI.createURI(repDescURIString);
         }
     }
 

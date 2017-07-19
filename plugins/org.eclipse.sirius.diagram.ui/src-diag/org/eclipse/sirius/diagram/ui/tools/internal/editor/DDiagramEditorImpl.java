@@ -17,7 +17,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.eclipse.core.commands.operations.IOperationHistoryListener;
 import org.eclipse.core.commands.operations.IUndoContext;
@@ -40,7 +39,6 @@ import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -103,7 +101,6 @@ import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionManagerListener;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
-import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.common.ui.tools.api.util.IObjectActionDelegateWrapper;
 import org.eclipse.sirius.diagram.DDiagram;
@@ -114,7 +111,6 @@ import org.eclipse.sirius.diagram.business.api.query.DDiagramElementQuery;
 import org.eclipse.sirius.diagram.business.api.query.EObjectQuery;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizer;
 import org.eclipse.sirius.diagram.business.api.refresh.CanonicalSynchronizerFactory;
-import org.eclipse.sirius.diagram.business.api.refresh.DiagramCreationUtil;
 import org.eclipse.sirius.diagram.business.internal.metamodel.helper.LayerHelper;
 import org.eclipse.sirius.diagram.description.AdditionalLayer;
 import org.eclipse.sirius.diagram.tools.api.command.ChangeLayerActivationCommand;
@@ -191,7 +187,6 @@ import org.eclipse.sirius.ui.business.api.session.SessionEditorInputFactory;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.ui.tools.internal.editor.SelectDRepresentationElementsListener;
 import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.swt.SWT;
@@ -1728,35 +1723,6 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
      */
     @Override
     public void setInput(IEditorInput input) {
-        // In case the input is based on the DDiagram, we need to updated it to
-        // use the GMF diagram
-        IEditorInput updatedEditorInput = input;
-        if (session != null && input instanceof URIEditorInput) {
-            URI uri = ((URIEditorInput) input).getURI();
-            URI repDescURI = Optional.of(input).filter(SessionEditorInput.class::isInstance).map(SessionEditorInput.class::cast).map(s -> s.getRepDescUri()).orElse(null);
-            Optional<DDiagram> dDiagramOptional = Optional.ofNullable(repDescURI).map(rduri -> session.getTransactionalEditingDomain().getResourceSet().getEObject(rduri, false))
-                    .filter(DRepresentationDescriptor.class::isInstance).map(rd -> ((DRepresentationDescriptor) rd).getRepresentation()).map(DDiagram.class::cast);
-            DDiagram dDiagram = dDiagramOptional.orElse(null);
-
-            if (dDiagram == null) {
-                if (uri != null && !StringUtil.isEmpty(uri.fragment())) {
-                    EObject eObject = session.getTransactionalEditingDomain().getResourceSet().getEObject(uri, false);
-                    if (eObject instanceof DDiagram) {
-                        dDiagram = (DDiagram) eObject;
-                    }
-                }
-            }
-            if (dDiagram != null) {
-                final DiagramCreationUtil util = new DiagramCreationUtil(dDiagram);
-                if (!util.findAssociatedGMFDiagram()) {
-                    DiagramPlugin.getDefault().getLog().log(new Status(IStatus.WARNING, DiagramPlugin.ID, Messages.DDiagramEditorImpl_noAssociatedGMFDiagramMsg));
-                }
-                final Diagram gmfDiag = util.getAssociatedGMFDiagram();
-                updatedEditorInput = new SessionEditorInput(EcoreUtil.getURI(gmfDiag), repDescURI, dDiagram.getName(), session);
-            }
-
-        }
-        super.setInput(updatedEditorInput);
         if (getGraphicalViewer() != null) {
             getGraphicalViewer().setSelection(new StructuredSelection());
         }

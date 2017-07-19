@@ -11,7 +11,6 @@
 package org.eclipse.sirius.ui.tools.api.control;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Optional;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -22,7 +21,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -31,6 +29,7 @@ import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.control.SiriusUncontrolCommand;
+import org.eclipse.sirius.business.api.query.DRepresentationQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
@@ -108,9 +107,9 @@ public class SiriusUncontrolHandler extends AbstractHandler {
                     if (editor instanceof IReusableEditor) {
                         IReusableEditor iReusableEditor = (IReusableEditor) editor;
                         DRepresentation representation = editor.getRepresentation();
-                        URI repDescURI = Optional.ofNullable(editor.getEditorInput()).filter(SessionEditorInput.class::isInstance).map(SessionEditorInput.class::cast)
-                                .map(SessionEditorInput::getRepDescUri).orElse(null);
-                        SessionEditorInput updatedEditorInput = new SessionEditorInput(EcoreUtil.getURI(representation), repDescURI, representation.getName(), session);
+                        DRepresentationQuery query = new DRepresentationQuery(representation);
+                        query.getRepresentationDescriptor();
+                        SessionEditorInput updatedEditorInput = new SessionEditorInput(EcoreUtil.getURI(query.getRepresentationDescriptor()), representation.getName(), session);
                         iReusableEditor.setInput(updatedEditorInput);
                     }
                 }

@@ -33,6 +33,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -53,6 +54,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.TreeItem;
+import org.eclipse.ui.PlatformUI;
 
 import com.google.common.collect.Iterators;
 
@@ -99,8 +101,7 @@ public class EObjectPaneBasedSelectionWizardPage extends AbstractSelectionWizard
      * @param title
      *            the title for this wizard page, or <code>null</code> if none
      * @param imageTitle
-     *            the image descriptor for the title of this wizard page, or
-     *            <code>null</code> if none
+     *            the image descriptor for the title of this wizard page, or <code>null</code> if none
      * @param choiceOfValuesMessage
      *            the dialog message
      * @param selectedValuesMessage
@@ -153,11 +154,7 @@ public class EObjectPaneBasedSelectionWizardPage extends AbstractSelectionWizard
         return root;
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
-     */
+    @Override
     public void createControl(final Composite parent) {
         initializeDialogUnits(parent);
 
@@ -204,6 +201,7 @@ public class EObjectPaneBasedSelectionWizardPage extends AbstractSelectionWizard
     private void createAddButtonListener() {
         if (addButton != null && treeViewer != null) {
             treeViewer.addDoubleClickListener(new IDoubleClickListener() {
+                @Override
                 public void doubleClick(final DoubleClickEvent event) {
                     if (addButton.isEnabled()) {
                         addButton.notifyListeners(SWT.Selection, null);
@@ -241,6 +239,7 @@ public class EObjectPaneBasedSelectionWizardPage extends AbstractSelectionWizard
     private void createRemoveButtonListener() {
         if (removeButton != null && tableViewer != null) {
             tableViewer.addDoubleClickListener(new IDoubleClickListener() {
+                @Override
                 public void doubleClick(final DoubleClickEvent event) {
                     if (removeButton.isEnabled()) {
                         removeButton.notifyListeners(SWT.Selection, null);
@@ -468,15 +467,26 @@ public class EObjectPaneBasedSelectionWizardPage extends AbstractSelectionWizard
      */
     private class EObjectSelectionLabelProvider extends LabelProvider {
 
+        ILabelDecorator decorator = PlatformUI.getWorkbench().getDecoratorManager().getLabelDecorator();
+
         @Override
         public Image getImage(final Object element) {
             Image result = null;
+            Object wrappedObject = null;
             if (element instanceof TreeItemWrapper) {
-                result = myAdapterFactoryLabelProvider.getImage(((TreeItemWrapper) element).getWrappedObject());
+                wrappedObject = ((TreeItemWrapper) element).getWrappedObject();
+                result = myAdapterFactoryLabelProvider.getImage(wrappedObject);
             } else if (element instanceof ItemDecorator) {
                 result = ((ItemDecorator) element).getImage();
             } else {
                 result = myAdapterFactoryLabelProvider.getImage(element);
+            }
+
+            if (result != null) {
+                Image decorateImage = decorator.decorateImage(result, wrappedObject != null ? wrappedObject : element);
+                if (decorateImage != null) {
+                    result = decorateImage;
+                }
             }
             return result;
         }
@@ -492,6 +502,12 @@ public class EObjectPaneBasedSelectionWizardPage extends AbstractSelectionWizard
                 result = myAdapterFactoryLabelProvider.getText(element);
             }
             return result;
+        }
+
+        @Override
+        public void dispose() {
+            decorator.dispose();
+            super.dispose();
         }
     }
 

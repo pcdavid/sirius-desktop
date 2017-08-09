@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 THALES GLOBAL SERVICES.
+ * Copyright (c) 2007, 2017 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
@@ -26,17 +27,17 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerComparator;
+import org.eclipse.sirius.common.tools.api.util.TreeItemWrapper;
+import org.eclipse.sirius.common.ui.tools.api.navigator.GroupingContentProvider;
+import org.eclipse.sirius.common.ui.tools.api.util.TreeItemWrapperContentProvider;
+import org.eclipse.sirius.common.ui.tools.api.view.common.item.ItemDecorator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.TreeItem;
-
-import org.eclipse.sirius.common.tools.api.util.TreeItemWrapper;
-import org.eclipse.sirius.common.ui.tools.api.navigator.GroupingContentProvider;
-import org.eclipse.sirius.common.ui.tools.api.util.TreeItemWrapperContentProvider;
-import org.eclipse.sirius.common.ui.tools.api.view.common.item.ItemDecorator;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * A wizard page to select an EObject.
@@ -74,8 +75,7 @@ public class EObjectSelectionWizardPage extends AbstractSelectionWizardPage {
      * @param title
      *            the title for this wizard page, or <code>null</code> if none
      * @param imageTitle
-     *            the image descriptor for the title of this wizard page, or
-     *            <code>null</code> if none
+     *            the image descriptor for the title of this wizard page, or <code>null</code> if none
      * @param objects
      *            the candidate objects
      * @param factory
@@ -97,8 +97,7 @@ public class EObjectSelectionWizardPage extends AbstractSelectionWizardPage {
      * @param title
      *            the title for this wizard page, or <code>null</code> if none
      * @param imageTitle
-     *            the image descriptor for the title of this wizard page, or
-     *            <code>null</code> if none
+     *            the image descriptor for the title of this wizard page, or <code>null</code> if none
      * @param treeObjects
      *            the candidate objects
      * @param factory
@@ -136,18 +135,13 @@ public class EObjectSelectionWizardPage extends AbstractSelectionWizardPage {
      * Select the first element in the list or not.
      * 
      * @param select
-     *            <code>true</code> if first element should be automatically
-     *            selected, <code>false</code> otherwise
+     *            <code>true</code> if first element should be automatically selected, <code>false</code> otherwise
      */
     public void setFirstElementSelected(final boolean select) {
         this.selectFirst = select;
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
-     */
+    @Override
     public void createControl(final Composite parent) {
         initializeDialogUnits(parent);
 
@@ -294,8 +288,7 @@ public class EObjectSelectionWizardPage extends AbstractSelectionWizardPage {
     }
 
     /**
-     * Get the selected EObject. If they are several objects selected, return
-     * the first.
+     * Get the selected EObject. If they are several objects selected, return the first.
      * 
      * @return the selected EObject
      */
@@ -323,6 +316,7 @@ public class EObjectSelectionWizardPage extends AbstractSelectionWizardPage {
      */
     private class EObjectSelectionListAdapter implements ISelectionChangedListener {
 
+        @Override
         public void selectionChanged(final SelectionChangedEvent event) {
             if (event.getSelection() instanceof IStructuredSelection) {
                 final IStructuredSelection selection = (IStructuredSelection) event.getSelection();
@@ -356,15 +350,26 @@ public class EObjectSelectionWizardPage extends AbstractSelectionWizardPage {
      */
     private class EObjectSelectionLabelProvider extends LabelProvider {
 
+        ILabelDecorator decorator = PlatformUI.getWorkbench().getDecoratorManager().getLabelDecorator();
+
         @Override
         public Image getImage(final Object element) {
             Image result = null;
+            Object wrappedObject = null;
             if (element instanceof TreeItemWrapper) {
-                result = myAdapterFactoryLabelProvider.getImage(((TreeItemWrapper) element).getWrappedObject());
+                wrappedObject = ((TreeItemWrapper) element).getWrappedObject();
+                result = myAdapterFactoryLabelProvider.getImage(wrappedObject);
             } else if (element instanceof ItemDecorator) {
                 result = ((ItemDecorator) element).getImage();
             } else {
                 result = myAdapterFactoryLabelProvider.getImage(element);
+            }
+
+            if (result != null) {
+                Image decorateImage = decorator.decorateImage(result, wrappedObject != null ? wrappedObject : element);
+                if (decorateImage != null) {
+                    result = decorateImage;
+                }
             }
             return result;
         }
@@ -380,6 +385,12 @@ public class EObjectSelectionWizardPage extends AbstractSelectionWizardPage {
                 result = myAdapterFactoryLabelProvider.getText(element);
             }
             return result;
+        }
+
+        @Override
+        public void dispose() {
+            decorator.dispose();
+            super.dispose();
         }
     }
 

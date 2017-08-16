@@ -33,6 +33,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.IElementComparer;
 import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
@@ -44,6 +45,9 @@ import org.eclipse.sirius.common.tools.api.util.TreeItemWrapper;
 import org.eclipse.sirius.common.ui.tools.api.navigator.GroupingContentProvider;
 import org.eclipse.sirius.common.ui.tools.api.util.TreeItemWrapperContentProvider;
 import org.eclipse.sirius.common.ui.tools.api.view.common.item.ItemDecorator;
+import org.eclipse.sirius.ecore.extender.business.api.permission.IAuthorityListener;
+import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
+import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -126,9 +130,7 @@ public class EObjectPaneBasedSelectionWizardPage extends AbstractSelectionWizard
      *            the pre-selected candidate objects
      */
     public void init(final Collection<? extends EObject> choiceOfValues, final Collection<? extends EObject> preSelectedValues) {
-        this.treeObjects = convertToTree(choiceOfValues);
-        this.selectedEObjects.addAll(preSelectedValues);
-
+        init(convertToTree(choiceOfValues), selectedEObjects);
     }
 
     /**
@@ -142,6 +144,43 @@ public class EObjectPaneBasedSelectionWizardPage extends AbstractSelectionWizard
     public void init(final TreeItemWrapper choiceOfValues, final Collection<? extends EObject> preSelectedValues) {
         this.treeObjects = choiceOfValues;
         this.selectedEObjects.addAll(preSelectedValues);
+
+        EObject obj = null;
+        if (selectedEObjects.isEmpty()) {
+            obj = (EObject) treeObjects.getChildren().get(0).getWrappedObject();
+        } else {
+            obj = selectedEObjects.iterator().next();
+        }
+
+        IPermissionAuthority permissionAuthority = PermissionAuthorityRegistry.getDefault().getPermissionAuthority(obj);
+        permissionAuthority.addAuthorityListener(new IAuthorityListener() {
+
+            @Override
+            public void notifyIsReleased(Collection<EObject> instances) {
+                treeViewer.update(instances.toArray(), null);
+                tableViewer.update(instances.toArray(), null);
+            }
+
+            @Override
+            public void notifyIsReleased(EObject instance) {
+                treeViewer.update(instance, null);
+                tableViewer.update(instance, null);
+            }
+
+            @Override
+            public void notifyIsLocked(Collection<EObject> instances) {
+                treeViewer.update(instances.toArray(), null);
+                tableViewer.update(instances.toArray(), null);
+
+            }
+
+            @Override
+            public void notifyIsLocked(EObject instance) {
+                treeViewer.update(instance, null);
+                tableViewer.update(instance, null);
+
+            }
+        });
     }
 
     private TreeItemWrapper convertToTree(final Collection<?> objects2) {
@@ -187,6 +226,30 @@ public class EObjectPaneBasedSelectionWizardPage extends AbstractSelectionWizard
         if (treeViewer.getTree().getItemCount() > 0) {
             treeViewer.getTree().setSelection(treeViewer.getTree().getItem(0));
         }
+
+        IElementComparer iElementComparer = new IElementComparer() {
+
+            @Override
+            public int hashCode(Object element) {
+                return element.hashCode();
+            }
+
+            @Override
+            public boolean equals(Object a, Object b) {
+                boolean result = a.equals(b);
+                if (a instanceof TreeItemWrapper && b instanceof EObject) {
+                    TreeItemWrapper wrapper = (TreeItemWrapper) a;
+                    result = b.equals(wrapper.getWrappedObject());
+                } else if (b instanceof TreeItemWrapper && a instanceof EObject) {
+                    TreeItemWrapper wrapper = (TreeItemWrapper) b;
+                    result = a.equals(wrapper.getWrappedObject());
+                }
+
+                return result;
+            }
+        };
+        tableViewer.setComparer(iElementComparer);
+        treeViewer.setComparer(iElementComparer);
 
         setControl(pageComposite);
     }

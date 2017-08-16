@@ -206,7 +206,6 @@ public class EObjectSelectionWizardPage extends AbstractSelectionWizardPage {
         viewer.addFilter(this.myViewerfilter);
 
         viewer.addSelectionChangedListener(new EObjectSelectionListAdapter());
-
         return viewer;
     }
 

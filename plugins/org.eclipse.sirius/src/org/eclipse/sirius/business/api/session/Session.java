@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.internal.session.danalysis.SaveSessionJob;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 import org.eclipse.sirius.tools.api.ui.RefreshEditorsPrecommitListener;
@@ -155,7 +156,7 @@ public interface Session {
     void removeSemanticResource(Resource semanticResource, IProgressMonitor monitor, boolean removeReferencingResources);
 
     /**
-     * Save the session data.
+     * Do the same as {@link #save(Map, IProgressMonitor)} with null options.
      * 
      * @param monitor
      *            the Progress monitor to associate to this operation
@@ -164,8 +165,9 @@ public interface Session {
     void save(IProgressMonitor monitor);
 
     /**
-     * Saves the session data using the specified options.
-     * 
+     * Saves the session data using the specified options.</br>
+     * It will first join every previously scheduled {@link SaveSessionJob} to avoid any concurrent access on
+     * {@link Session} resources.
      * <p>
      * Options are handled generically as feature-to-setting entries; the resource will ignore options it doesn't
      * recognize. The options could even include things like an Eclipse progress monitor...

@@ -17,6 +17,8 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.IWorkspaceRunnable;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -27,6 +29,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomainListenerImpl;
 import org.eclipse.emf.transaction.impl.InternalTransaction;
 import org.eclipse.emf.transaction.impl.InternalTransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.viewpoint.Messages;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 
@@ -104,14 +107,29 @@ final class Saver extends TransactionalEditingDomainListenerImpl {
     }
 
     /**
-     * Save immediately and disarm the trigger.
+     * Save immediately and disarm the trigger.</br>
+     * This method will first run every previously scheduling of SaveSessionJob to avoid any concurrent access on
+     * {@link Session} resources.
      */
     private void saveNow(final Map<?, ?> options, IProgressMonitor monitor, final boolean runExclusive) {
+
         if (alreadyIsInWorkspaceModificationOperation()) {
+            // save may have been scheduled or is already running if it has been calling using SaveSessionJob
+            // we must avoid two concurrent saves for obvious reasons.
+            try {
+                Job.getJobManager().join(SaveSessionJob.FAMILY, new NullProgressMonitor());
+            } catch (OperationCanceledException | InterruptedException e) {
+                SiriusPlugin.getDefault().error(Messages.Saver_savingErrorMsg, e);
+            }
             wrappedSave(options, monitor, runExclusive);
         } else {
             IWorkspaceRoot workspaceRoot = EcorePlugin.getWorkspaceRoot();
-            if (workspaceRoot != null) {
+            // Wrap with workspace Modify operation only if not already in one.
+            // Indeed this could stop the execution if Session.save caller is already in a WorkspaceModifyOperation. It
+            // could lead to a dead lock if the save has been called with SaveSessionJob because of the join required
+            // above. (caller is in WorkspaceModifyOperation which tries here to join with SaveSessionJob and
+            // SaveSessionJob can not ends because it would require the workspace unlock
+            if (workspaceRoot != null && !workspaceRoot.getWorkspace().isTreeLocked()) {
                 try {
                     workspaceRoot.getWorkspace().run(new IWorkspaceRunnable() {
                         @Override

@@ -893,6 +893,7 @@ public class SiriusCommonContentProvider implements ICommonContentProvider {
             case SessionListener.SELECTED_VIEWS_CHANGE_KIND:
             case SessionListener.VSM_UPDATED:
             case SessionListener.REPLACED:
+            case SessionListener.CLOSING:
                 refreshViewer(updated);
                 break;
 

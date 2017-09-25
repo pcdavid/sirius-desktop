@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2008 THALES GLOBAL SERVICES.
+ * Copyright (c) 2007, 2017 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,12 +16,11 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.refresh.LabelAndIconRef
 
 /**
  * <p>
- * A standard ShapeNodeEditPart that have the peculiarity of not being
- * selectable.
+ * A standard ShapeNodeEditPart that have the peculiarity of not being selectable.
  * </p>
  * <p>
- * Typically, all IStyleEditPart should extends this class, so that the
- * <i>Select All Shapes</i> action doesn't select them.
+ * Typically, all IStyleEditPart should extends this class, so that the <i>Select All Shapes</i> action doesn't select
+ * them.
  * </p>
  * 
  * @author <a href="mailto:alex.lagarde@obeo.fr">Alex Lagarde</a>
@@ -56,8 +55,10 @@ public abstract class AbstractNotSelectableShapeNodeEditPart extends ShapeNodeEd
 
     @Override
     public void deactivate() {
-        labelAndIconRefresher.dispose();
-        labelAndIconRefresher = null;
+        if (labelAndIconRefresher != null) {
+            labelAndIconRefresher.dispose();
+            labelAndIconRefresher = null;
+        }
         super.deactivate();
     }
 }

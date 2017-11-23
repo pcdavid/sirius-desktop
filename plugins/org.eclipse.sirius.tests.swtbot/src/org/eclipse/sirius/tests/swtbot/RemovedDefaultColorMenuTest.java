@@ -33,7 +33,6 @@ import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarDropDownButton;
-import org.eclipse.swtbot.swt.finder.widgets.TimeoutException;
 
 /**
  * Test the default color menu was removed from Contextual menu, property view
@@ -568,7 +567,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 0).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         }
     }
@@ -584,7 +583,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 1).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         }
     }
@@ -600,7 +599,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 2).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         }
     }
@@ -616,7 +615,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 0).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         }
     }
@@ -632,7 +631,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 1).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         }
     }
@@ -649,7 +648,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
             SWTBotPreferences.TIMEOUT = 1000;
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 2).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -668,7 +667,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
             SWTBotPreferences.TIMEOUT = 1000;
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 0).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -687,7 +686,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 1).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -706,7 +705,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 0).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -725,7 +724,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 0).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -744,7 +743,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 1).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -763,7 +762,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 2).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -782,7 +781,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 0).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -801,7 +800,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 1).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -820,7 +819,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 2).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -839,7 +838,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 0).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -858,7 +857,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 1).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -877,7 +876,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 2).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -896,7 +895,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 0).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -915,7 +914,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 1).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -935,7 +934,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 0).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -955,7 +954,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 1).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;
@@ -975,7 +974,7 @@ public class RemovedDefaultColorMenuTest extends AbstractSiriusSwtBotGefTestCase
         try {
             bot.viewByTitle("Properties").bot().buttonInGroup("Fonts and Colors:", 2).click().contextMenu(DEFAULT_COLOR);
             fail();
-        } catch (TimeoutException tme) {
+        } catch (WidgetNotFoundException e) {
             assertTrue(true);
         } finally {
             SWTBotPreferences.TIMEOUT = oldTimeout;

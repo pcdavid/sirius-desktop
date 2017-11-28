@@ -39,8 +39,8 @@ public class GerritSWTBotSuite extends TestCase {
      */
     public static Test suite() {
         TestSuite suite = new TestSuite("Sirius Gerrit SWTBot Tests");
-        AllTestSuite.addGerritPart1(suite);
-        AllTestSuite.addGerritPart2(suite);
+        AllTestSuite.addPart1(suite);
+        AllTestSuite.addPart2(suite);
         return suite;
     }
 }

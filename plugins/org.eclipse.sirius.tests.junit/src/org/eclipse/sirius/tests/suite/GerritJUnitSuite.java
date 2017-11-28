@@ -39,7 +39,7 @@ public class GerritJUnitSuite extends TestCase {
      */
     public static Test suite() {
         TestSuite suite = new TestSuite("Sirius Gerrit JUnit Tests");
-        AllSiriusTestSuite.addGerritPart(suite);
+        // AllSiriusTestSuite.addGerritPart(suite);
         return suite;
     }
 }

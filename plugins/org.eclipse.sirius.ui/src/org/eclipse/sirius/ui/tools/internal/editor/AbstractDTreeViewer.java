@@ -45,10 +45,13 @@ public abstract class AbstractDTreeViewer extends TreeViewer {
      *            its corresponding Widget#getData()
      */
     public void refreshItem(final Item item, final DRepresentationElement dRepresentationElement) {
-        preservingSelection(new Runnable() {
-            public void run() {
-                AbstractDTreeViewer.this.internalRefresh(item, dRepresentationElement, false, true);
-            }
-        });
+        if (!getTree().isDisposed()) {
+            preservingSelection(new Runnable() {
+                @Override
+                public void run() {
+                    AbstractDTreeViewer.this.internalRefresh(item, dRepresentationElement, false, true);
+                }
+            });
+        }
     }
 }

@@ -173,24 +173,28 @@ public class DTableTreeViewer extends AbstractDTreeViewer {
      * 
      * {@inheritDoc}
      */
+    @Override
     public void refreshItem(final Item item, final DRepresentationElement dRepresentationElement) {
-        if (item instanceof TreeColumn) {
-            preservingSelection(new Runnable() {
-                public void run() {
-                    TreeColumn treeColumn = (TreeColumn) item;
+        if (!getTree().isDisposed()) {
+            if (item instanceof TreeColumn) {
+                preservingSelection(new Runnable() {
+                    @Override
+                    public void run() {
+                        TreeColumn treeColumn = (TreeColumn) item;
 
-                    ILabelProvider dTableColumnHeaderLabelProvider = new DTableColumnHeaderLabelProvider();
+                        ILabelProvider dTableColumnHeaderLabelProvider = new DTableColumnHeaderLabelProvider();
 
-                    String text = dTableColumnHeaderLabelProvider.getText(dRepresentationElement);
-                    treeColumn.setText(text);
+                        String text = dTableColumnHeaderLabelProvider.getText(dRepresentationElement);
+                        treeColumn.setText(text);
 
-                    Image image = dTableColumnHeaderLabelProvider.getImage(dRepresentationElement);
-                    treeColumn.setImage(image);
-                }
-            });
+                        Image image = dTableColumnHeaderLabelProvider.getImage(dRepresentationElement);
+                        treeColumn.setImage(image);
+                    }
+                });
 
-        } else {
-            super.refreshItem(item, dRepresentationElement);
+            } else {
+                super.refreshItem(item, dRepresentationElement);
+            }
         }
     }
 

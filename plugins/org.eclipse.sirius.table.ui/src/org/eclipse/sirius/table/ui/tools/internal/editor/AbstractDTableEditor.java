@@ -484,6 +484,7 @@ public abstract class AbstractDTableEditor extends AbstractDTreeEditor implement
 
     @Override
     public void dispose() {
+        System.out.println("dispose: " + this); //$NON-NLS-1$
         if (getAdapterFactory() instanceof IDisposable) {
             ((IDisposable) getAdapterFactory()).dispose();
         }

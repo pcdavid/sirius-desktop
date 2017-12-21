@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2015 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2007, 2018 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,13 +10,16 @@
  *******************************************************************************/
 package org.eclipse.sirius.diagram.ui.internal.edit.parts;
 
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.SnapToHelper;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.sirius.business.api.color.AbstractColorUpdater;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDDiagramEditPart;
 import org.eclipse.sirius.diagram.ui.graphical.edit.policies.AirXYLayoutEditPolicy;
 import org.eclipse.sirius.diagram.ui.graphical.edit.policies.ContainerCreationEditPolicy;
@@ -34,6 +37,9 @@ import org.eclipse.sirius.diagram.ui.tools.api.policy.CompoundEditPolicy;
 import org.eclipse.sirius.diagram.ui.tools.api.requests.RequestConstants;
 import org.eclipse.sirius.diagram.ui.tools.internal.ruler.SiriusSnapToHelperUtil;
 import org.eclipse.sirius.tools.api.command.SiriusCommand;
+import org.eclipse.sirius.viewpoint.RGBValues;
+import org.eclipse.sirius.viewpoint.description.ColorDescription;
+import org.eclipse.swt.graphics.Color;
 
 /**
  * @was-generated
@@ -96,6 +102,19 @@ public class DDiagramEditPart extends AbstractDDiagramEditPart {
     public void deactivate() {
         deactivateLayoutingMode();
         super.deactivate();
+    }
+
+    @Override
+    protected IFigure createFigure() {
+        IFigure fig = super.createFigure();
+        configureBackground(fig);
+        return fig;
+    }
+
+    @Override
+    protected void refreshVisuals() {
+        super.refreshVisuals();
+        configureBackground(getFigure());
     }
 
     /**
@@ -177,5 +196,40 @@ public class DDiagramEditPart extends AbstractDDiagramEditPart {
             return SiriusSnapToHelperUtil.getSnapHelper(this);
         }
         return super.getAdapter(key);
+    }
+
+    /**
+     * Check if color referenced by RGBValues is a white color.
+     * 
+     * @param color
+     *            the color to compare
+     * @return true if the color is white, false otherwise.
+     */
+    private boolean isWhiteColor(RGBValues color) {
+        return color.getRed() == 255 && color.getGreen() == 255 && color.getBlue() == 255;
+    }
+
+    /**
+     * Configure the background of a given figure by using color defined on semantic diagram description.
+     *
+     * @param fig
+     *            figure with the background to configure
+     */
+    private void configureBackground(IFigure fig) {
+        DSemanticDiagram dSemanticDiagram = (DSemanticDiagram) this.resolveDDiagram().get();
+        if (dSemanticDiagram != null && fig != null) {
+            ColorDescription backgroundColor = dSemanticDiagram.getDescription().getBackgroundColor();
+            if (backgroundColor != null) {
+                RGBValues rgbBackgroundValues = new AbstractColorUpdater().getRGBValuesFromColorDescription(dSemanticDiagram.getTarget(), backgroundColor);
+                Color colorUpdate = new Color(null, rgbBackgroundValues.getRed(), rgbBackgroundValues.getGreen(), rgbBackgroundValues.getBlue());
+                if (isWhiteColor(rgbBackgroundValues)) {
+                    fig.setBackgroundColor(null);
+                    fig.setOpaque(false);
+                } else {
+                    fig.setBackgroundColor(colorUpdate);
+                    fig.setOpaque(true);
+                }
+            }
+        }
     }
 }

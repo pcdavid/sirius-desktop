@@ -4,6 +4,20 @@ h1. Release Notes for Sirius
 
 This document contains the release notes for recent major releases of Sirius. See also "the release notes from previous versions":Release_Notes_Previous.html for details about older releases.
 
+h2(#sirius6.0.0). Changes in Sirius 6.0.0
+
+h3. User-Visible Changes
+
+h3. Specifier-Visible Changes
+
+* <span class="label label-success">Added</span> Specifier can now define a background color for a diagram representation. It is possible by specifying color in the _Background_ property section of the _Diagram Description_. Pre-defined system colors and colors from the _User Color Palette_ are supported. See "the documentation":specifier/diagrams/Diagrams.html#diagram_description for details.
+
+h3. Developer-Visible Changes
+
+h4. Migrations
+
+h4. Translation Keys Changes
+
 h2(#sirius5.1.1). Changes in Sirius 5.1.1
 
 h3. User-Visible Changes
@@ -14,21 +28,21 @@ h3. User-Visible Changes
 
 h3. Developer-Visible Changes
 
-* <span class="label label-info">Modified</span> If you previously override the default Sirius value for @SiriusDiagramUiPreferencesKeys.PREF_SCALE_DIAGRAMS_ON_EXPORT@, you must replace this override by an override of the new preference @SiriusUIPreferencesKeys.PREF_SCALE_LEVEL_DIAGRAMS_ON_EXPORT@. Example: 
-pre.. SiriusEditPlugin.getPlugin().getPreferenceStore().setDefault(SiriusUIPreferencesKeys.PREF_SCALE_LEVEL_DIAGRAMS_ON_EXPORT.name(),0); 
-
 h4. Changes in @org.eclipse.sirius@
 
 * <span class="label label-success">Added</span> The method @org.eclipse.sirius.business.api.query.SiriusReferenceFinder.of(EObject)@ has been added to provide an easy way to get the @SiriusReferenceFinder@ from an @EObject@ in the Sirius @Session@. 
+* <span class="label label-info">Modified</span> (experimental) The method @org.eclipse.sirius.business.api.query.SiriusReferenceFinder.getReferencingSiriusElements(Collection<EObject>, SearchScope)@. The SearchScope.LOADED_REPRESENTATIONS_SCOPE scope covers the search and result scope. Then, no additional resource will be loaded using this scope.
 
 h4. Changes in @org.eclipse.sirius.diagram.ui@
 
 * <span class="label label-warning">Deprecated</span> Preference @PREF_SCALE_DIAGRAMS_ON_EXPORT@ from @org.eclipse.sirius.diagram.ui.tools.api.preferences.SiriusDiagramUiPreferencesKeys@ is now deprecated. User should use new preference @org.eclipse.sirius.ui.business.api.preferences.SiriusUIPreferencesKeys@: @PREF_SCALE_LEVEL_DIAGRAMS_ON_EXPORT@.
+* <span class="label label-success">Added</span> A new attribute @margin@ has been added in @org.eclipse.sirius.diagram.ui.business.api.DiagramExportResult@. This attribute indicates what margin has been used to produce a white frame during diagram export. This attribute is available from the getter @getMargin()@. A new constructor is also available to pass on the margin @org.eclipse.sirius.diagram.ui.business.api.DiagramExportResult.DiagramExportResult(DDiagram, double, int, Collection<IPath>)@. 
+* <span class="label label-info">Modified</span> If you previously override the default Sirius value for @SiriusDiagramUiPreferencesKeys.PREF_SCALE_DIAGRAMS_ON_EXPORT@, you must replace this override by an override of the new preference @SiriusUIPreferencesKeys.PREF_SCALE_LEVEL_DIAGRAMS_ON_EXPORT@. Example: 
+pre.. SiriusEditPlugin.getPlugin().getPreferenceStore().setDefault(SiriusUIPreferencesKeys.PREF_SCALE_LEVEL_DIAGRAMS_ON_EXPORT.name(),0); 
 
 h4. Changes in @org.eclipse.sirius.ui@
 
 * <span class="label label-success">Added</span> A new preference has been added to @org.eclipse.sirius.ui.business.api.preferences.SiriusUIPreferencesKeys@: @PREF_SCALE_LEVEL_DIAGRAMS_ON_EXPORT@. It is used to control the scaling level behavior when exporting diagrams. Refer to the JavaDoc for the details. 
-
 * <span class="label label-success">Added</span> The type @org.eclipse.sirius.ui.business.api.dialect.ExportFormat@ has a new attribute representing the scaling level to use for diagram export. It is defined by an integer type. Refer to the JavaDoc for details on its meaning.
 
 h2(#sirius5.1.0). Changes in Sirius 5.1.0

@@ -13,6 +13,7 @@ package org.eclipse.sirius.diagram.ui.internal.edit.parts;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.LayerConstants;
 import org.eclipse.gef.SnapToHelper;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.Diagram;
@@ -33,8 +34,10 @@ import org.eclipse.sirius.diagram.ui.graphical.edit.policies.SiriusContainerDrop
 import org.eclipse.sirius.diagram.ui.graphical.edit.policies.SiriusPropertyHandlerEditPolicy;
 import org.eclipse.sirius.diagram.ui.internal.edit.policies.DDiagramItemSemanticEditPolicy;
 import org.eclipse.sirius.diagram.ui.provider.Messages;
+import org.eclipse.sirius.diagram.ui.tools.api.figure.WorkspaceImageFigure;
 import org.eclipse.sirius.diagram.ui.tools.api.policy.CompoundEditPolicy;
 import org.eclipse.sirius.diagram.ui.tools.api.requests.RequestConstants;
+import org.eclipse.sirius.diagram.ui.tools.internal.figure.BackgroundLayerWithImage;
 import org.eclipse.sirius.diagram.ui.tools.internal.ruler.SiriusSnapToHelperUtil;
 import org.eclipse.sirius.tools.api.command.SiriusCommand;
 import org.eclipse.sirius.viewpoint.RGBValues;
@@ -107,14 +110,74 @@ public class DDiagramEditPart extends AbstractDDiagramEditPart {
     @Override
     protected IFigure createFigure() {
         IFigure fig = super.createFigure();
-        configureBackground(fig);
+        DSemanticDiagram dSemanticDiagram = (DSemanticDiagram) this.resolveDDiagram().get();
+        if (dSemanticDiagram != null) {
+            String imagePath = dSemanticDiagram.getDescription().getImagePath();
+            if (imagePath != null && !imagePath.isEmpty()) {
+                BackgroundLayerWithImage layerBackground = new BackgroundLayerWithImage(imagePath, 100);
+                getLayer(LayerConstants.PRINTABLE_LAYERS).add(layerBackground, 0);
+            } else {
+                configureBackgroundColor(fig);
+            }
+        }
         return fig;
     }
 
     @Override
     protected void refreshVisuals() {
         super.refreshVisuals();
-        configureBackground(getFigure());
+        DSemanticDiagram dSemanticDiagram = (DSemanticDiagram) this.resolveDDiagram().get();
+        if (dSemanticDiagram != null) {
+            String imagePath = dSemanticDiagram.getDescription().getImagePath();
+            if (imagePath != null && !imagePath.isEmpty()) {
+                refreshBackgroundImage(imagePath);
+            } else {
+                refreshBackgroundColor(dSemanticDiagram);
+            }
+        }
+    }
+
+    /**
+     * Refresh background with a new color.
+     * 
+     * @param dSemanticDiagram
+     *            the {@link DSemanticDiagram} corresponding to the model
+     * 
+     */
+    private void refreshBackgroundColor(DSemanticDiagram dSemanticDiagram) {
+        // check background layer
+        BackgroundLayerWithImage previousLayer = getBackgroundLayer();
+        if (previousLayer != null) {
+            // Remove background layer
+            getLayer(LayerConstants.PRINTABLE_LAYERS).remove(previousLayer);
+        }
+        configureBackgroundColor(getFigure());
+    }
+
+    /**
+     * Refresh background with image given by its path.
+     * 
+     * @param imagePath
+     *            path of the image to display in background
+     */
+    private void refreshBackgroundImage(String imagePath) {
+        // check background color
+        if (getFigure().isOpaque()) {
+            // reset background
+            getFigure().setBackgroundColor(null);
+            getFigure().setOpaque(false);
+        }
+        // check background layer
+        BackgroundLayerWithImage backgroundLayer = getBackgroundLayer();
+        if (backgroundLayer != null) {
+            // update background layer
+            backgroundLayer.setImage(WorkspaceImageFigure.getImageInstanceFromPath(imagePath));
+        } else {
+            // create background layer
+            BackgroundLayerWithImage layerBackground = new BackgroundLayerWithImage(imagePath, 100);
+            getLayer(LayerConstants.PRINTABLE_LAYERS).add(layerBackground, 0);
+        }
+        getFigure().repaint();
     }
 
     /**
@@ -162,11 +225,9 @@ public class DDiagramEditPart extends AbstractDDiagramEditPart {
          * @param editingDomain
          *            the editing domain
          * @param diagram
-         *            the {@link DDiagram} on witch the layouting mode should be
-         *            switched
+         *            the {@link DDiagram} on witch the layouting mode should be switched
          * @param layoutingModeShouldBeEnabled
-         *            indicates whether the layouting mode should be enabled or
-         *            disabled
+         *            indicates whether the layouting mode should be enabled or disabled
          */
         public SetLayoutingModeCommand(TransactionalEditingDomain editingDomain, DDiagram diagram, boolean layoutingModeShouldBeEnabled) {
             super(editingDomain, Messages.SetLayoutingModeCommand_deactivateLabel);
@@ -215,7 +276,7 @@ public class DDiagramEditPart extends AbstractDDiagramEditPart {
      * @param fig
      *            figure with the background to configure
      */
-    private void configureBackground(IFigure fig) {
+    private void configureBackgroundColor(IFigure fig) {
         DSemanticDiagram dSemanticDiagram = (DSemanticDiagram) this.resolveDDiagram().get();
         if (dSemanticDiagram != null && fig != null) {
             ColorDescription backgroundColor = dSemanticDiagram.getDescription().getBackgroundColor();
@@ -231,5 +292,19 @@ public class DDiagramEditPart extends AbstractDDiagramEditPart {
                 }
             }
         }
+    }
+
+    /**
+     * Get the background layer used to display image in diagram background.
+     * 
+     * @return the background layer used to display image in diagram background.
+     */
+    private BackgroundLayerWithImage getBackgroundLayer() {
+        for (Object layer : getLayer(LayerConstants.PRINTABLE_LAYERS).getChildren()) {
+            if (layer instanceof BackgroundLayerWithImage) {
+                return (BackgroundLayerWithImage) layer;
+            }
+        }
+        return null;
     }
 }

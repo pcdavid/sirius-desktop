@@ -420,13 +420,21 @@ public interface DescriptionPackage extends EPackage {
     int DIAGRAM_DESCRIPTION__BACKGROUND_COLOR = DescriptionPackage.DRAG_AND_DROP_TARGET_DESCRIPTION_FEATURE_COUNT + 35;
 
     /**
+     * The feature id for the '<em><b>Image Path</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int DIAGRAM_DESCRIPTION__IMAGE_PATH = DescriptionPackage.DRAG_AND_DROP_TARGET_DESCRIPTION_FEATURE_COUNT + 36;
+
+    /**
      * The number of structural features of the '<em>Diagram Description</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int DIAGRAM_DESCRIPTION_FEATURE_COUNT = DescriptionPackage.DRAG_AND_DROP_TARGET_DESCRIPTION_FEATURE_COUNT + 36;
+    int DIAGRAM_DESCRIPTION_FEATURE_COUNT = DescriptionPackage.DRAG_AND_DROP_TARGET_DESCRIPTION_FEATURE_COUNT + 37;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.diagram.description.impl.DiagramImportDescriptionImpl
@@ -760,13 +768,21 @@ public interface DescriptionPackage extends EPackage {
     int DIAGRAM_IMPORT_DESCRIPTION__BACKGROUND_COLOR = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_IMPORT_DESCRIPTION_FEATURE_COUNT + 28;
 
     /**
+     * The feature id for the '<em><b>Image Path</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int DIAGRAM_IMPORT_DESCRIPTION__IMAGE_PATH = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_IMPORT_DESCRIPTION_FEATURE_COUNT + 29;
+
+    /**
      * The feature id for the '<em><b>Imported Diagram</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
      * @generated
      * @ordered
      */
-    int DIAGRAM_IMPORT_DESCRIPTION__IMPORTED_DIAGRAM = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_IMPORT_DESCRIPTION_FEATURE_COUNT + 29;
+    int DIAGRAM_IMPORT_DESCRIPTION__IMPORTED_DIAGRAM = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_IMPORT_DESCRIPTION_FEATURE_COUNT + 30;
 
     /**
      * The number of structural features of the '<em>Diagram Import Description</em>' class. <!-- begin-user-doc -->
@@ -775,7 +791,7 @@ public interface DescriptionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DIAGRAM_IMPORT_DESCRIPTION_FEATURE_COUNT = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_IMPORT_DESCRIPTION_FEATURE_COUNT + 30;
+    int DIAGRAM_IMPORT_DESCRIPTION_FEATURE_COUNT = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_IMPORT_DESCRIPTION_FEATURE_COUNT + 31;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.diagram.description.impl.DiagramExtensionDescriptionImpl
@@ -3452,6 +3468,18 @@ public interface DescriptionPackage extends EPackage {
     EReference getDiagramDescription_BackgroundColor();
 
     /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.diagram.description.DiagramDescription#getImagePath <em>Image Path</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Image Path</em>'.
+     * @see org.eclipse.sirius.diagram.description.DiagramDescription#getImagePath()
+     * @see #getDiagramDescription()
+     * @generated
+     */
+    EAttribute getDiagramDescription_ImagePath();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.sirius.diagram.description.DiagramImportDescription
      * <em>Diagram Import Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -4728,6 +4756,14 @@ public interface DescriptionPackage extends EPackage {
          * @generated
          */
         EReference DIAGRAM_DESCRIPTION__BACKGROUND_COLOR = DescriptionPackage.eINSTANCE.getDiagramDescription_BackgroundColor();
+
+        /**
+         * The meta object literal for the '<em><b>Image Path</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute DIAGRAM_DESCRIPTION__IMAGE_PATH = DescriptionPackage.eINSTANCE.getDiagramDescription_ImagePath();
 
         /**
          * The meta object literal for the

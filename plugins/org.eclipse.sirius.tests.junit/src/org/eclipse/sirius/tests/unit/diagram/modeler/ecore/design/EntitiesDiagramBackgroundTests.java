@@ -14,10 +14,13 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.gef.LayerConstants;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DDiagramEditPart;
+import org.eclipse.sirius.diagram.ui.tools.api.figure.WorkspaceImageFigure;
+import org.eclipse.sirius.diagram.ui.tools.internal.figure.BackgroundLayerWithImage;
 import org.eclipse.sirius.tests.SiriusTestsPlugin;
 import org.eclipse.sirius.tests.support.api.SiriusDiagramTestCase;
 import org.eclipse.sirius.tests.support.api.TestsUtil;
@@ -29,6 +32,7 @@ import org.eclipse.sirius.viewpoint.description.DescriptionFactory;
 import org.eclipse.sirius.viewpoint.description.FixedColor;
 import org.eclipse.sirius.viewpoint.description.UserFixedColor;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IEditorPart;
 
 /**
@@ -43,6 +47,9 @@ public class EntitiesDiagramBackgroundTests extends SiriusDiagramTestCase implem
 
     private static final String REPRESENTATIONS_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID
         + "/data/unit/modelers/ecore/directEdit/testOperation.aird"; //$NON-NLS-1$
+
+    private static final String IMAGE_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID
+        + "/data/unit/modelers/ecore/directEdit/background1.png"; //$NON-NLS-1$
 
     private DDiagram diagram;
 
@@ -82,21 +89,21 @@ public class EntitiesDiagramBackgroundTests extends SiriusDiagramTestCase implem
     public void testDiagramBackgroundColorWithFixedColor() {
         // update background color with red color
         FixedColor redColor = createFixedColor(RED_COLOR);
-        setDescriptionBackground(redColor);
+        setDescriptionBackgroundColor(redColor);
         dDiagramEditPart.refresh();
 
         checkBackgroundColor(RED_COLOR);
 
         // update background color with green color
         FixedColor greenColor = createFixedColor(GREEN_COLOR);
-        setDescriptionBackground(greenColor);
+        setDescriptionBackgroundColor(greenColor);
         dDiagramEditPart.refresh();
 
         checkBackgroundColor(GREEN_COLOR);
 
         // update background color with white color
         FixedColor whiteColor = createFixedColor(WHITE_COLOR);
-        setDescriptionBackground(whiteColor);
+        setDescriptionBackgroundColor(whiteColor);
         dDiagramEditPart.refresh();
 
         checkBackgroundColor(WHITE_COLOR);
@@ -110,7 +117,7 @@ public class EntitiesDiagramBackgroundTests extends SiriusDiagramTestCase implem
     public void testDiagramBackgroundColorWithComputedColor() {
         // update background color
         ComputedColor computedColor = createComputedColor();
-        setDescriptionBackground(computedColor);
+        setDescriptionBackgroundColor(computedColor);
         dDiagramEditPart.refresh();
 
         checkBackgroundColor(RED_COLOR);
@@ -121,6 +128,21 @@ public class EntitiesDiagramBackgroundTests extends SiriusDiagramTestCase implem
         dDiagramEditPart.refresh();
 
         checkBackgroundColor(GREEN_COLOR);
+    }
+
+    /**
+     * Tests that when the background image path of the diagram description change, the background of the diagram
+     * is also changed.
+     */
+    public void testDiagramBackgroundImage() {
+        // update background
+        setDescriptionBackgroundImage(IMAGE_PATH);
+        dDiagramEditPart.refresh();
+
+        // check background updated
+        Image backGroundImage = getBackgroundLayer().getImage();
+        Image expectedImage = WorkspaceImageFigure.getImageInstanceFromPath(IMAGE_PATH);
+        assertEquals(backGroundImage, expectedImage);
     }
 
     /**
@@ -145,13 +167,30 @@ public class EntitiesDiagramBackgroundTests extends SiriusDiagramTestCase implem
      * @param colorUpdate
      *            the new color to set on the background
      */
-    private void setDescriptionBackground(final ColorDescription newColor) {
+    private void setDescriptionBackgroundColor(final ColorDescription newColor) {
         session.getTransactionalEditingDomain().getCommandStack()
                 .execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
                     /** {@inheritDoc} */
                     @Override
                     protected void doExecute() {
                         diagram.getDescription().setBackgroundColor(newColor);
+                    }
+                });
+    }
+
+    /**
+     * Update background image path of the diagram from a given path.
+     * 
+     * @param imagePath
+     *            the path of the image to set on the background
+     */
+    private void setDescriptionBackgroundImage(final String imagePath) {
+        session.getTransactionalEditingDomain().getCommandStack()
+                .execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
+                    /** {@inheritDoc} */
+                    @Override
+                    protected void doExecute() {
+                        diagram.getDescription().setImagePath(imagePath);
                     }
                 });
     }
@@ -222,5 +261,19 @@ public class EntitiesDiagramBackgroundTests extends SiriusDiagramTestCase implem
         DialectUIManager.INSTANCE.closeEditor(diagramEditor, false);
         TestsUtil.synchronizationWithUIThread();
         super.tearDown();
+    }
+
+    /**
+     * Get the background layer used to display image in diagram background.
+     * 
+     * @return the background layer used to display image in diagram background.
+     */
+    private BackgroundLayerWithImage getBackgroundLayer() {
+        for (Object layer : dDiagramEditPart.getLayer(LayerConstants.PRINTABLE_LAYERS).getChildren()) {
+            if (layer instanceof BackgroundLayerWithImage) {
+                return (BackgroundLayerWithImage) layer;
+            }
+        }
+        return null;
     }
 }

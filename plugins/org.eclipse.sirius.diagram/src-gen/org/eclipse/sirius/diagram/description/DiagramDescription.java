@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2007, 2013 THALES GLOBAL SERVICES.
+ * Copyright (c) 2007, 2018 THALES GLOBAL SERVICES and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -73,6 +73,7 @@ import org.eclipse.sirius.viewpoint.description.validation.ValidationSet;
  * Bars</em>}</li>
  * <li>{@link org.eclipse.sirius.diagram.description.DiagramDescription#getBackgroundColor <em>Background
  * Color</em>}</li>
+ * <li>{@link org.eclipse.sirius.diagram.description.DiagramDescription#getImagePath <em>Image Path</em>}</li>
  * </ul>
  *
  * @see org.eclipse.sirius.diagram.description.DescriptionPackage#getDiagramDescription()
@@ -593,6 +594,34 @@ public interface DiagramDescription extends DragAndDropTargetDescription, Repres
      * @generated
      */
     void setBackgroundColor(ColorDescription value);
+
+    /**
+     * Returns the value of the '<em><b>Image Path</b></em>' attribute. <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Image Path</em>' attribute isn't clear, there really should be more of a description
+     * here...
+     * </p>
+     * <!-- end-user-doc --> <!-- begin-model-doc --> Path to a specific image used for background, if unset the
+     * background color will be used. <!-- end-model-doc -->
+     *
+     * @return the value of the '<em>Image Path</em>' attribute.
+     * @see #setImagePath(String)
+     * @see org.eclipse.sirius.diagram.description.DescriptionPackage#getDiagramDescription_ImagePath()
+     * @model dataType="org.eclipse.sirius.viewpoint.description.ImagePath"
+     * @generated
+     */
+    String getImagePath();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.sirius.diagram.description.DiagramDescription#getImagePath <em>Image
+     * Path</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @param value
+     *            the new value of the '<em>Image Path</em>' attribute.
+     * @see #getImagePath()
+     * @generated
+     */
+    void setImagePath(String value);
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

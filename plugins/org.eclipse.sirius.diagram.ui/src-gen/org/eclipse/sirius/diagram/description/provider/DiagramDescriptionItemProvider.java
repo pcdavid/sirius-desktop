@@ -87,6 +87,7 @@ public class DiagramDescriptionItemProvider extends DragAndDropTargetDescription
             addReusedToolsPropertyDescriptor(object);
             addEnablePopupBarsPropertyDescriptor(object);
             addBackgroundColorPropertyDescriptor(object);
+            addImagePathPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -409,6 +410,20 @@ public class DiagramDescriptionItemProvider extends DragAndDropTargetDescription
     }
 
     /**
+     * This adds a property descriptor for the Image Path feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addImagePathPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(), getString("_UI_DiagramDescription_imagePath_feature"), //$NON-NLS-1$
+                        getString("_UI_DiagramDescription_imagePath_description"), //$NON-NLS-1$
+                        org.eclipse.sirius.diagram.description.DescriptionPackage.Literals.DIAGRAM_DESCRIPTION__IMAGE_PATH, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString("_UI_BackgroundPropertyCategory"), //$NON-NLS-1$
+                        null));
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
@@ -497,6 +512,7 @@ public class DiagramDescriptionItemProvider extends DragAndDropTargetDescription
         case org.eclipse.sirius.diagram.description.DescriptionPackage.DIAGRAM_DESCRIPTION__PRECONDITION_EXPRESSION:
         case org.eclipse.sirius.diagram.description.DescriptionPackage.DIAGRAM_DESCRIPTION__ROOT_EXPRESSION:
         case org.eclipse.sirius.diagram.description.DescriptionPackage.DIAGRAM_DESCRIPTION__ENABLE_POPUP_BARS:
+        case org.eclipse.sirius.diagram.description.DescriptionPackage.DIAGRAM_DESCRIPTION__IMAGE_PATH:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case org.eclipse.sirius.diagram.description.DescriptionPackage.DIAGRAM_DESCRIPTION__FILTERS:

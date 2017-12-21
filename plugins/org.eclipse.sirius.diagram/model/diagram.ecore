@@ -1153,6 +1153,11 @@
           <details key="documentation" value="Color of the diagram background, white if unset."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="imagePath" eType="ecore:EDataType ../../org.eclipse.sirius/model/viewpoint.ecore#//description/ImagePath">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Path to a specific image used for background, if unset the background color will be used."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DiagramImportDescription" eSuperTypes="../../org.eclipse.sirius/model/viewpoint.ecore#//description/RepresentationImportDescription #//description/DiagramDescription">
       <eStructuralFeatures xsi:type="ecore:EReference" name="importedDiagram" eType="#//description/DiagramDescription">

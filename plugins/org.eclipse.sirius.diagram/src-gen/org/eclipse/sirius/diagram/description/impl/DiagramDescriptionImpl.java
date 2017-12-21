@@ -120,6 +120,7 @@ import org.eclipse.sirius.viewpoint.description.validation.ValidationSet;
  * Bars</em>}</li>
  * <li>{@link org.eclipse.sirius.diagram.description.impl.DiagramDescriptionImpl#getBackgroundColor <em>Background
  * Color</em>}</li>
+ * <li>{@link org.eclipse.sirius.diagram.description.impl.DiagramDescriptionImpl#getImagePath <em>Image Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -534,6 +535,26 @@ public class DiagramDescriptionImpl extends DragAndDropTargetDescriptionImpl imp
      * @ordered
      */
     protected ColorDescription backgroundColor;
+
+    /**
+     * The default value of the '{@link #getImagePath() <em>Image Path</em>}' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see #getImagePath()
+     * @generated
+     * @ordered
+     */
+    protected static final String IMAGE_PATH_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getImagePath() <em>Image Path</em>}' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see #getImagePath()
+     * @generated
+     * @ordered
+     */
+    protected String imagePath = DiagramDescriptionImpl.IMAGE_PATH_EDEFAULT;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1648,6 +1669,30 @@ public class DiagramDescriptionImpl extends DragAndDropTargetDescriptionImpl imp
      * @generated
      */
     @Override
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setImagePath(String newImagePath) {
+        String oldImagePath = imagePath;
+        imagePath = newImagePath;
+        if (eNotificationRequired()) {
+            eNotify(new ENotificationImpl(this, Notification.SET, DescriptionPackage.DIAGRAM_DESCRIPTION__IMAGE_PATH, oldImagePath, imagePath));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public DSemanticDiagram createDiagram() {
         // TODO: implement this method
         // Ensure that you remove @generated or mark it @generated NOT
@@ -1797,6 +1842,8 @@ public class DiagramDescriptionImpl extends DragAndDropTargetDescriptionImpl imp
                 return getBackgroundColor();
             }
             return basicGetBackgroundColor();
+        case DescriptionPackage.DIAGRAM_DESCRIPTION__IMAGE_PATH:
+            return getImagePath();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -1914,6 +1961,9 @@ public class DiagramDescriptionImpl extends DragAndDropTargetDescriptionImpl imp
         case DescriptionPackage.DIAGRAM_DESCRIPTION__BACKGROUND_COLOR:
             setBackgroundColor((ColorDescription) newValue);
             return;
+        case DescriptionPackage.DIAGRAM_DESCRIPTION__IMAGE_PATH:
+            setImagePath((String) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
@@ -2019,6 +2069,9 @@ public class DiagramDescriptionImpl extends DragAndDropTargetDescriptionImpl imp
         case DescriptionPackage.DIAGRAM_DESCRIPTION__BACKGROUND_COLOR:
             setBackgroundColor((ColorDescription) null);
             return;
+        case DescriptionPackage.DIAGRAM_DESCRIPTION__IMAGE_PATH:
+            setImagePath(DiagramDescriptionImpl.IMAGE_PATH_EDEFAULT);
+            return;
         }
         super.eUnset(featureID);
     }
@@ -2104,6 +2157,8 @@ public class DiagramDescriptionImpl extends DragAndDropTargetDescriptionImpl imp
             return enablePopupBars != DiagramDescriptionImpl.ENABLE_POPUP_BARS_EDEFAULT;
         case DescriptionPackage.DIAGRAM_DESCRIPTION__BACKGROUND_COLOR:
             return backgroundColor != null;
+        case DescriptionPackage.DIAGRAM_DESCRIPTION__IMAGE_PATH:
+            return DiagramDescriptionImpl.IMAGE_PATH_EDEFAULT == null ? imagePath != null : !DiagramDescriptionImpl.IMAGE_PATH_EDEFAULT.equals(imagePath);
         }
         return super.eIsSet(featureID);
     }
@@ -2258,6 +2313,8 @@ public class DiagramDescriptionImpl extends DragAndDropTargetDescriptionImpl imp
         result.append(rootExpression);
         result.append(", enablePopupBars: "); //$NON-NLS-1$
         result.append(enablePopupBars);
+        result.append(", imagePath: "); //$NON-NLS-1$
+        result.append(imagePath);
         result.append(')');
         return result.toString();
     }

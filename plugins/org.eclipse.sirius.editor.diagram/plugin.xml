@@ -1073,6 +1073,14 @@
         <input type="org.eclipse.sirius.diagram.description.DiagramImportDescription"/>
       </propertySection>
   	  <propertySection
+               class="org.eclipse.sirius.diagram.editor.properties.sections.description.diagramdescription.DiagramDescriptionImagePathPropertySection"
+               id="description.section.diagramDescription.ImagePath"
+               filter="org.eclipse.sirius.diagram.editor.properties.filters.description.diagramdescription.DiagramDescriptionImagePathFilter"
+               afterSection="description.section.diagramDescription.BackgroundColor"
+                tab="viewpoint.tab.background">
+        <input type="org.eclipse.sirius.diagram.description.DiagramDescription"/>
+      </propertySection>
+  	  <propertySection
                class="org.eclipse.sirius.diagram.editor.properties.sections.description.diagramdescription.DiagramDescriptionBackgroundColorPropertySection"
                id="description.section.diagramDescription.BackgroundColor"
                filter="org.eclipse.sirius.diagram.editor.properties.filters.description.diagramdescription.DiagramDescriptionBackgroundColorFilter"

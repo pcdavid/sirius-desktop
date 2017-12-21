@@ -613,6 +613,16 @@ public class DescriptionPackageImpl extends EPackageImpl implements DescriptionP
      * @generated
      */
     @Override
+    public EAttribute getDiagramDescription_ImagePath() {
+        return (EAttribute) diagramDescriptionEClass.getEStructuralFeatures().get(27);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getDiagramImportDescription() {
         return diagramImportDescriptionEClass;
     }
@@ -1565,6 +1575,7 @@ public class DescriptionPackageImpl extends EPackageImpl implements DescriptionP
         createEReference(diagramDescriptionEClass, DescriptionPackage.DIAGRAM_DESCRIPTION__REUSED_TOOLS);
         createEAttribute(diagramDescriptionEClass, DescriptionPackage.DIAGRAM_DESCRIPTION__ENABLE_POPUP_BARS);
         createEReference(diagramDescriptionEClass, DescriptionPackage.DIAGRAM_DESCRIPTION__BACKGROUND_COLOR);
+        createEAttribute(diagramDescriptionEClass, DescriptionPackage.DIAGRAM_DESCRIPTION__IMAGE_PATH);
 
         diagramImportDescriptionEClass = createEClass(DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION);
         createEReference(diagramImportDescriptionEClass, DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMPORTED_DIAGRAM);
@@ -1852,6 +1863,8 @@ public class DescriptionPackageImpl extends EPackageImpl implements DescriptionP
         initEReference(getDiagramDescription_BackgroundColor(), theDescriptionPackage_1.getColorDescription(), null, "backgroundColor", null, 0, 1, DiagramDescription.class, //$NON-NLS-1$
                 !EPackageImpl.IS_TRANSIENT, !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_COMPOSITE, EPackageImpl.IS_RESOLVE_PROXIES, !EPackageImpl.IS_UNSETTABLE,
                 EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
+        initEAttribute(getDiagramDescription_ImagePath(), theDescriptionPackage_1.getImagePath(), "imagePath", null, 0, 1, DiagramDescription.class, !EPackageImpl.IS_TRANSIENT, //$NON-NLS-1$
+                !EPackageImpl.IS_VOLATILE, EPackageImpl.IS_CHANGEABLE, !EPackageImpl.IS_UNSETTABLE, !EPackageImpl.IS_ID, EPackageImpl.IS_UNIQUE, !EPackageImpl.IS_DERIVED, EPackageImpl.IS_ORDERED);
 
         addEOperation(diagramDescriptionEClass, theDiagramPackage.getDSemanticDiagram(), "createDiagram", 0, 1, EPackageImpl.IS_UNIQUE, EPackageImpl.IS_ORDERED); //$NON-NLS-1$
 

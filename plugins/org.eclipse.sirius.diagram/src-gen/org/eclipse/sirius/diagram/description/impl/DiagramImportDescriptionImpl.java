@@ -126,6 +126,8 @@ import org.eclipse.sirius.viewpoint.description.validation.ValidationSet;
  * Popup Bars</em>}</li>
  * <li>{@link org.eclipse.sirius.diagram.description.impl.DiagramImportDescriptionImpl#getBackgroundColor <em>Background
  * Color</em>}</li>
+ * <li>{@link org.eclipse.sirius.diagram.description.impl.DiagramImportDescriptionImpl#getImagePath <em>Image
+ * Path</em>}</li>
  * <li>{@link org.eclipse.sirius.diagram.description.impl.DiagramImportDescriptionImpl#getImportedDiagram <em>Imported
  * Diagram</em>}</li>
  * </ul>
@@ -532,6 +534,26 @@ public class DiagramImportDescriptionImpl extends DocumentedElementImpl implemen
      * @ordered
      */
     protected ColorDescription backgroundColor;
+
+    /**
+     * The default value of the '{@link #getImagePath() <em>Image Path</em>}' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see #getImagePath()
+     * @generated
+     * @ordered
+     */
+    protected static final String IMAGE_PATH_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getImagePath() <em>Image Path</em>}' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see #getImagePath()
+     * @generated
+     * @ordered
+     */
+    protected String imagePath = DiagramImportDescriptionImpl.IMAGE_PATH_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getImportedDiagram() <em>Imported Diagram</em>}' reference. <!-- begin-user-doc
@@ -1645,6 +1667,30 @@ public class DiagramImportDescriptionImpl extends DocumentedElementImpl implemen
      * @generated
      */
     @Override
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setImagePath(String newImagePath) {
+        String oldImagePath = imagePath;
+        imagePath = newImagePath;
+        if (eNotificationRequired()) {
+            eNotify(new ENotificationImpl(this, Notification.SET, DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMAGE_PATH, oldImagePath, imagePath));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public DiagramDescription getImportedDiagram() {
         if (importedDiagram != null && importedDiagram.eIsProxy()) {
             InternalEObject oldImportedDiagram = (InternalEObject) importedDiagram;
@@ -1836,6 +1882,8 @@ public class DiagramImportDescriptionImpl extends DocumentedElementImpl implemen
                 return getBackgroundColor();
             }
             return basicGetBackgroundColor();
+        case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMAGE_PATH:
+            return getImagePath();
         case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMPORTED_DIAGRAM:
             if (resolve) {
                 return getImportedDiagram();
@@ -1959,6 +2007,9 @@ public class DiagramImportDescriptionImpl extends DocumentedElementImpl implemen
         case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__BACKGROUND_COLOR:
             setBackgroundColor((ColorDescription) newValue);
             return;
+        case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMAGE_PATH:
+            setImagePath((String) newValue);
+            return;
         case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMPORTED_DIAGRAM:
             setImportedDiagram((DiagramDescription) newValue);
             return;
@@ -2067,6 +2118,9 @@ public class DiagramImportDescriptionImpl extends DocumentedElementImpl implemen
         case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__BACKGROUND_COLOR:
             setBackgroundColor((ColorDescription) null);
             return;
+        case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMAGE_PATH:
+            setImagePath(DiagramImportDescriptionImpl.IMAGE_PATH_EDEFAULT);
+            return;
         case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMPORTED_DIAGRAM:
             setImportedDiagram((DiagramDescription) null);
             return;
@@ -2156,6 +2210,8 @@ public class DiagramImportDescriptionImpl extends DocumentedElementImpl implemen
             return enablePopupBars != DiagramImportDescriptionImpl.ENABLE_POPUP_BARS_EDEFAULT;
         case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__BACKGROUND_COLOR:
             return backgroundColor != null;
+        case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMAGE_PATH:
+            return DiagramImportDescriptionImpl.IMAGE_PATH_EDEFAULT == null ? imagePath != null : !DiagramImportDescriptionImpl.IMAGE_PATH_EDEFAULT.equals(imagePath);
         case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMPORTED_DIAGRAM:
             return importedDiagram != null;
         }
@@ -2259,6 +2315,8 @@ public class DiagramImportDescriptionImpl extends DocumentedElementImpl implemen
                 return DescriptionPackage.DIAGRAM_DESCRIPTION__ENABLE_POPUP_BARS;
             case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__BACKGROUND_COLOR:
                 return DescriptionPackage.DIAGRAM_DESCRIPTION__BACKGROUND_COLOR;
+            case DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMAGE_PATH:
+                return DescriptionPackage.DIAGRAM_DESCRIPTION__IMAGE_PATH;
             default:
                 return -1;
             }
@@ -2363,6 +2421,8 @@ public class DiagramImportDescriptionImpl extends DocumentedElementImpl implemen
                 return DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__ENABLE_POPUP_BARS;
             case DescriptionPackage.DIAGRAM_DESCRIPTION__BACKGROUND_COLOR:
                 return DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__BACKGROUND_COLOR;
+            case DescriptionPackage.DIAGRAM_DESCRIPTION__IMAGE_PATH:
+                return DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMAGE_PATH;
             default:
                 return -1;
             }
@@ -2402,6 +2462,8 @@ public class DiagramImportDescriptionImpl extends DocumentedElementImpl implemen
         result.append(rootExpression);
         result.append(", enablePopupBars: "); //$NON-NLS-1$
         result.append(enablePopupBars);
+        result.append(", imagePath: "); //$NON-NLS-1$
+        result.append(imagePath);
         result.append(')');
         return result.toString();
     }

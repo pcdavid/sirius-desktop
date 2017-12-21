@@ -88,6 +88,7 @@ public class DiagramImportDescriptionItemProvider extends DocumentedElementItemP
             addReusedToolsPropertyDescriptor(object);
             addEnablePopupBarsPropertyDescriptor(object);
             addBackgroundColorPropertyDescriptor(object);
+            addImagePathPropertyDescriptor(object);
             addImportedDiagramPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
@@ -412,6 +413,20 @@ public class DiagramImportDescriptionItemProvider extends DocumentedElementItemP
     }
 
     /**
+     * This adds a property descriptor for the Image Path feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addImagePathPropertyDescriptor(Object object) {
+        itemPropertyDescriptors
+                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(), getString("_UI_DiagramDescription_imagePath_feature"), //$NON-NLS-1$
+                        getString("_UI_DiagramDescription_imagePath_description"), //$NON-NLS-1$
+                        org.eclipse.sirius.diagram.description.DescriptionPackage.Literals.DIAGRAM_DESCRIPTION__IMAGE_PATH, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString("_UI_BackgroundPropertyCategory"), //$NON-NLS-1$
+                        null));
+    }
+
+    /**
      * This adds a property descriptor for the Imported Diagram feature. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
@@ -508,6 +523,7 @@ public class DiagramImportDescriptionItemProvider extends DocumentedElementItemP
         case org.eclipse.sirius.diagram.description.DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__PRECONDITION_EXPRESSION:
         case org.eclipse.sirius.diagram.description.DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__ROOT_EXPRESSION:
         case org.eclipse.sirius.diagram.description.DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__ENABLE_POPUP_BARS:
+        case org.eclipse.sirius.diagram.description.DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__IMAGE_PATH:
             fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case org.eclipse.sirius.diagram.description.DescriptionPackage.DIAGRAM_IMPORT_DESCRIPTION__FILTERS:

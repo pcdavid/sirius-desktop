@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012, 2014 THALES GLOBAL SERVICES
+ * Copyright (c) 2012, 2017 THALES GLOBAL SERVICES
  * All rights reserved.   This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,10 +10,9 @@
  */
 package org.eclipse.sirius.tests.support.api;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import junit.framework.TestCase;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -28,6 +27,8 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
+import junit.framework.TestCase;
+
 /**
  * Test cardinality and initialization of Color references.
  * 
@@ -38,6 +39,9 @@ public abstract class AbstractColorReferenceTestCase extends TestCase {
     private Collection<EReference> colorReferences;
 
     private Collection<EClass> classesWithColorReferences;
+
+    // Specific color references : non required and without initalization.
+    private Collection<EReference> specialColorRefs = new ArrayList<>();
 
     private EPackage basePackage;
 
@@ -91,7 +95,7 @@ public abstract class AbstractColorReferenceTestCase extends TestCase {
         Predicate<EReference> shouldBeRequired = new Predicate<EReference>() {
             @Override
             public boolean apply(EReference input) {
-                return !input.isRequired();
+                return !input.isRequired() && !specialColorRefs.contains(input);
             }
         };
 
@@ -107,7 +111,7 @@ public abstract class AbstractColorReferenceTestCase extends TestCase {
         for (EClass clazz : classesWithColorReferences) {
             EObject created = EcoreUtil.create(clazz);
             for (EReference colorRef : Iterables.filter(clazz.getEAllReferences(), isColorReference)) {
-                if (!created.eIsSet(colorRef) || created.eGet(colorRef) == null) {
+                if ((!created.eIsSet(colorRef) || created.eGet(colorRef) == null) && !specialColorRefs.contains(colorRef)) {
                     sb.append(" . " + clazz.getName() + "#" + colorRef.getName() + "\n");
                 }
             }

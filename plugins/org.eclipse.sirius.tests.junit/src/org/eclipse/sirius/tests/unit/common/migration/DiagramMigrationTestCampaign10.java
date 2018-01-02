@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014 THALES GLOBAL SERVICES.
+ * Copyright (c) 2010, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,9 +20,7 @@ import org.eclipse.sirius.tests.sample.migration.design.MigrationModeler;
 import org.eclipse.sirius.tests.sample.migration.migrationmodeler.Diagram;
 import org.eclipse.sirius.tests.sample.migration.migrationmodeler.TestCase;
 import org.eclipse.sirius.tests.support.api.EclipseTestsSupportHelper;
-import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.ui.business.api.preferences.SiriusUIPreferencesKeys;
-import org.eclipse.swt.SWT;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -90,9 +88,6 @@ public class DiagramMigrationTestCampaign10 extends AbstractMigrationTestCase {
                 + SESSION_RESOURCE_FILENAME);
 
         String projectRelativePath = GENERAL_TEST_CASE_PATH + "/" + SEMANTIC_RESOURCE_FILENAME;
-        if (TestsUtil.isJuno3Platform() && "win32".equals(SWT.getPlatform())) {
-            projectRelativePath = GENERAL_TEST_CASE_PATH + "/3.8/" + SEMANTIC_RESOURCE_FILENAME;
-        }
         EclipseTestsSupportHelper.INSTANCE.copyFile(SiriusTestsPlugin.PLUGIN_ID, projectRelativePath, "/" + TEMPORARY_PROJECT_NAME + "/" + SEMANTIC_RESOURCE_FILENAME);
 
         EclipseTestsSupportHelper.INSTANCE.copyFile(SiriusTestsPlugin.PLUGIN_ID, GENERAL_TEST_CASE_PATH + "/" + IMAGE_FILENAME, "/" + TEMPORARY_PROJECT_NAME + "/" + IMAGE_FILENAME);
@@ -106,23 +101,21 @@ public class DiagramMigrationTestCampaign10 extends AbstractMigrationTestCase {
      */
     @Test
     public void testAllCustomisationsKeeped() throws Exception {
-        if (!TestsUtil.isJuno3Platform()) {
-            openEditorOnDiagram("" + diagramID, MigrationModeler.DIAGRAM_BIS_VIEWPOINT_NAME);
-            assertTrue("", semanticModel instanceof TestCase);
-            Diagram expectedDiagram = (Diagram) ((TestCase) semanticModel).getRepresentations().get(diagramID - 1);
+        openEditorOnDiagram("" + diagramID, MigrationModeler.DIAGRAM_BIS_VIEWPOINT_NAME);
+        assertTrue("", semanticModel instanceof TestCase);
+        Diagram expectedDiagram = (Diagram) ((TestCase) semanticModel).getRepresentations().get(diagramID - 1);
 
-            DDiagramEditPart dDiagramEditPart = getDDiagramEditPart();
-            Draw2dToSiriusModelTransformer draw2dToSiriusModelTransformer = new Draw2dToSiriusModelTransformer(dDiagramEditPart);
-            Diagram migrationModel = draw2dToSiriusModelTransformer.getMigrationModel();
+        DDiagramEditPart dDiagramEditPart = getDDiagramEditPart();
+        Draw2dToSiriusModelTransformer draw2dToSiriusModelTransformer = new Draw2dToSiriusModelTransformer(dDiagramEditPart);
+        Diagram migrationModel = draw2dToSiriusModelTransformer.getMigrationModel();
 
-            assertEqualsMigrationDiagrams(expectedDiagram, migrationModel);
+        assertEqualsMigrationDiagrams(expectedDiagram, migrationModel);
 
-            refresh(currentdRepresentation);
+        refresh(currentdRepresentation);
 
-            migrationModel = draw2dToSiriusModelTransformer.getMigrationModel();
+        migrationModel = draw2dToSiriusModelTransformer.getMigrationModel();
 
-            assertEqualsMigrationDiagrams(expectedDiagram, migrationModel);
-        }
+        assertEqualsMigrationDiagrams(expectedDiagram, migrationModel);
     }
 
 }

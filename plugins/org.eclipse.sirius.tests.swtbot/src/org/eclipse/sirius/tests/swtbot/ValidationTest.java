@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2017 THALES GLOBAL SERVICES.
+ * Copyright (c) 2010, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -99,7 +99,7 @@ public class ValidationTest extends AbstractScenarioTestCase {
 
         // Close the table
         SWTBotCommonHelper.closeCurrentEditor();
-        bot.button(TestsUtil.isOxygenPlatform() ? "Don't Save" : "No").click();
+        bot.button(TestsUtil.isOxygenPlatformOrLater() ? "Don't Save" : "No").click();
         bot.sleep(500);
 
         // Check that all editors are closes
@@ -210,6 +210,6 @@ public class ValidationTest extends AbstractScenarioTestCase {
 
         bot.tree().getTreeItem("General").expand().getNode("Problems").select();
 
-        bot.button(TestsUtil.isOxygenPlatform() ? "Open" : "OK").click();
+        bot.button(TestsUtil.isOxygenPlatformOrLater() ? "Open" : "OK").click();
     }
 }

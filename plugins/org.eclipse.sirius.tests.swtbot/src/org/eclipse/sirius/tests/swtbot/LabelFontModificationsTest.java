@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2010, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -28,7 +28,6 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeList2EditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListElementEditPart;
-import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.tests.swtbot.support.utils.SWTBotUtils;
 import org.eclipse.sirius.viewpoint.FontFormat;
 import org.eclipse.swt.SWT;
@@ -294,11 +293,8 @@ public class LabelFontModificationsTest extends AbstractFontModificationTest {
     /**
      * Test method.
      */
-    public void testItalicAndBoldFromToolbar() {
+    public void _testItalicAndBoldFromToolbar() {
         // Not available in 4.x specific Tabbar
-        if (TestsUtil.isEclipse4xPlatform()) {
-            return;
-        }
 
         doTestItalicAndBoldFromToolbar("myEClass", DNodeList2EditPart.class);
         doTestItalicAndBoldFromToolbar("myEClass3", DNodeListEditPart.class);

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2010, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,7 +13,6 @@ package org.eclipse.sirius.tests.swtbot.std;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.tests.swtbot.Activator;
 import org.eclipse.sirius.tests.swtbot.sequence.condition.CheckNoOpenedSessionInModelContentView;
 import org.eclipse.sirius.tests.swtbot.support.api.AbstractSiriusSwtBotGefTestCase;
@@ -74,12 +73,6 @@ public class STD009 extends AbstractSiriusSwtBotGefTestCase {
      *             Test error.
      */
     public void testSTD009() throws Exception {
-
-        // Disable test that fails after Juno3 release (see Bugzilla
-        // 424429).
-        if (TestsUtil.isEclipse4xPlatform()) {
-            return;
-        }
 
         final UIResource ecoreEcoreResource = new UIResource(designerProject, FILE_DIR, MODEL);
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009, 2014 THALES GLOBAL SERVICES
+ * Copyright (c) 2009, 2018 THALES GLOBAL SERVICES
  * All rights reserved.   This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -104,7 +104,7 @@ public class DesignerViews {
         bot.sleep(500);
         // The node is already expanded (so don't use expand method)
         bot.tree().getTreeItem(categoryName).getNode(labelInList).select();
-        final SWTBotButton okButton = bot.button(TestsUtil.isOxygenPlatform() ? "Open" : IDialogConstants.OK_LABEL);
+        final SWTBotButton okButton = bot.button(TestsUtil.isOxygenPlatformOrLater() ? "Open" : IDialogConstants.OK_LABEL);
         bot.waitUntil(new OKButtonEnabledCondition(okButton));
         okButton.click();
         return bot.viewByTitle(viewTitle);

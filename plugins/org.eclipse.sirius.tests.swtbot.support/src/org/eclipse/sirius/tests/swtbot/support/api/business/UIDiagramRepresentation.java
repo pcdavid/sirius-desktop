@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009, 2017 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2009, 2018 THALES GLOBAL SERVICES and others.
  * All rights reserved.   This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,7 +16,6 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.diagram.ui.tools.api.preferences.SiriusDiagramUiPreferencesKeys;
-import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.tests.swtbot.support.api.editor.SWTBotSiriusDiagramEditor;
 import org.eclipse.sirius.tests.swtbot.support.api.editor.SWTBotSiriusHelper;
 import org.eclipse.sirius.tests.swtbot.support.api.view.DesignerViews;
@@ -249,9 +248,7 @@ public class UIDiagramRepresentation extends AbstractUIRepresentation<SWTBotSiri
     @Override
     public SWTBotSiriusDiagramEditor getEditor() {
         String expectedTitle = getRepresentationName();
-        if (TestsUtil.isLunaPlatform()) {
-            expectedTitle = Optional.ofNullable(getRepresentationName()).orElse("").trim();
-        }
+        expectedTitle = Optional.ofNullable(getRepresentationName()).orElse("").trim();
         return SWTBotSiriusHelper.getDesignerEditorContainingName(expectedTitle);
     }
 }

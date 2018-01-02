@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2010, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,7 +19,6 @@ import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.query.DViewQuery;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.tests.support.api.EclipseTestsSupportHelper;
-import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.tests.swtbot.support.api.AbstractSiriusSwtBotGefTestCase;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UILocalSession;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UIResource;
@@ -91,10 +90,8 @@ public class DragAndDropFromTableAndTreeToDiagramTest extends AbstractSiriusSwtB
      * @throws Exception
      */
     public void testDragAndDropFromTableToDiagram() throws Exception {
+        // TODO Should we fix this test ?
         // Not available in 4.x specific. Split Editor issues.
-        if (TestsUtil.isEclipse4xPlatform()) {
-            return;
-        }
         // open table
         table = localSession.getLocalSessionBrowser().perCategory().selectViewpoint("dnd").selectRepresentation("dndTable").selectRepresentationInstance("new dndTable", UITableRepresentation.class)
                 .open();
@@ -144,9 +141,7 @@ public class DragAndDropFromTableAndTreeToDiagramTest extends AbstractSiriusSwtB
      */
     public void testDragAndDropFromTreeToDiagram() throws Exception {
         // Not available in 4.x : split editor issue.
-        if (TestsUtil.isEclipse4xPlatform()) {
-            return;
-        }
+        // TODO Should we fix this test ?
         // open table
         tree = localSession.getLocalSessionBrowser().perCategory().selectViewpoint("dnd").selectRepresentation("dndTree").selectRepresentationInstance("new dndTree", UITreeRepresentation.class)
                 .open();

@@ -169,41 +169,6 @@ public final class TestsUtil {
         return Platform.getBundle("org.eclipse.sirius.ui.properties") != null;
     }
 
-    /**
-     * Tells if the current platform corresponds to juno3 (i.e. Eclipse 3.8).
-     * 
-     * @return true if the current platform corresponds to juno3 (i.e. Eclipse 3.8), false else
-     */
-    public static boolean isJuno3Platform() {
-        boolean isJuno3Platform = false;
-        String platformVersion = Platform.getBundle("org.eclipse.core.runtime").getHeaders().get("Bundle-Version");
-        if (platformVersion.startsWith("3.8")) {
-            isJuno3Platform = true;
-        }
-        return isJuno3Platform && !isJuno4Platform();
-    }
-
-    /**
-     * Tells if the current platform corresponds to Juno, Kepler, Luna, .. (i.e. Eclipse 4.x).
-     * 
-     * @return true if the current platform corresponds to eclipse 4.x, false otherwise.
-     */
-    public static boolean isEclipse4xPlatform() {
-        Version junoStart = Version.parseVersion(UI_WORKBENCH_JUNO_START);
-        return checkUiWorkbenchVersion(junoStart, null);
-    }
-
-    /**
-     * Tells if the current platform corresponds to Juno (i.e. Eclipse 4.x).
-     * 
-     * @return true if the current platform corresponds to Juno 4.x, false otherwise.
-     */
-    public static boolean isJuno4Platform() {
-        Version junoStart = Version.parseVersion(UI_WORKBENCH_JUNO_START);
-        Version keplerStart = Version.parseVersion(UI_WORKBENCH_KEPLER_START);
-        return checkUiWorkbenchVersion(junoStart, keplerStart);
-    }
-
     private static boolean checkUiWorkbenchVersion(Version versiontStart, Version versionEnd) {
         /*
          * Juno/Kepler Core Runtime plugins version are 3.8/3.9 and not 4.x. So the "org.eclipse.ui.workbench" is used
@@ -217,31 +182,11 @@ public final class TestsUtil {
     }
 
     /**
-     * Tells if the current platform corresponds to Kepler.
-     * 
-     * @return true if the current platform corresponds to Kepler, false otherwise.
-     */
-    public static boolean isKeplerPlatform() {
-        Version keplerStart = Version.parseVersion(UI_WORKBENCH_KEPLER_START);
-        Version lunaStart = Version.parseVersion(UI_WORKBENCH_LUNA_START);
-        return checkUiWorkbenchVersion(keplerStart, lunaStart);
-    }
-
-    /**
-     * Tells if the current platform corresponds to Luna.
-     * 
-     * @return true if the current platform corresponds to Luna, false otherwise.
-     */
-    public static boolean isLunaPlatform() {
-        return checkUiWorkbenchVersion(Version.parseVersion(UI_WORKBENCH_LUNA_START), null);
-    }
-
-    /**
      * Tells if the current platform corresponds to Oxygen or later.
      * 
      * @return true if the current platform corresponds to Oxygen or later, false otherwise.
      */
-    public static boolean isOxygenPlatform() {
+    public static boolean isOxygenPlatformOrLater() {
         return checkUiWorkbenchVersion(Version.parseVersion(UI_WORKBENCH_OXYGEN_START), null);
     }
 

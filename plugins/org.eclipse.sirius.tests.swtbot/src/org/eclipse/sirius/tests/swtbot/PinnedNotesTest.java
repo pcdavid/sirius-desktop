@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014 THALES GLOBAL SERVICES.
+ * Copyright (c) 2010, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -313,7 +313,7 @@ public class PinnedNotesTest extends AbstractPinnedElementsTest {
         } else {
             checkBox.deselect();
         }
-        bot.button(TestsUtil.isOxygenPlatform() ? JFaceResources.getString("PreferencesDialog.okButtonLabel") : IDialogConstants.OK_LABEL).click();
+        bot.button(TestsUtil.isOxygenPlatformOrLater() ? JFaceResources.getString("PreferencesDialog.okButtonLabel") : IDialogConstants.OK_LABEL).click();
     }
 
     private void checkSiriusDiagramPreferencePage(boolean expectedValue) {
@@ -321,7 +321,7 @@ public class PinnedNotesTest extends AbstractPinnedElementsTest {
         bot.waitUntil(Conditions.shellIsActive("Preferences"));
         bot.tree().getTreeItem("Sirius").expand().select().getNode("Sirius Diagram").select();
         assertEquals(expectedValue, bot.checkBox("Move unlinked notes during layout").isChecked());
-        bot.button(TestsUtil.isOxygenPlatform() ? JFaceResources.getString("PreferencesDialog.okButtonLabel") : IDialogConstants.OK_LABEL).click();
+        bot.button(TestsUtil.isOxygenPlatformOrLater() ? JFaceResources.getString("PreferencesDialog.okButtonLabel") : IDialogConstants.OK_LABEL).click();
         
     }
 

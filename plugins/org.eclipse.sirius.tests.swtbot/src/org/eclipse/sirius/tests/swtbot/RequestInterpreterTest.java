@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2016 THALES GLOBAL SERVICES.
+ * Copyright (c) 2010, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.eclipse.sirius.tests.swtbot;
 
-import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UIDiagramRepresentation;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UILocalSession;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UIResource;
@@ -42,10 +41,6 @@ public class RequestInterpreterTest extends AbstractMMEcoreBasedScenarioTestCase
      *             Test error.
      */
     public void testInitalizeSession() throws Exception {
-        // Disable test that fails after Juno3 release (see Bugzilla 424429).
-        if (TestsUtil.isEclipse4xPlatform()) {
-            return;
-        }
         final UIResource ecoreEcoreResource = new UIResource(designerProject, MODELS_DIR, "Ecore.ecore");
         final UIResource ecoreAirdResource = new UIResource(designerProject, MODELS_DIR, "Ecore.aird");
 

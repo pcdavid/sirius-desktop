@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2017 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2009, 2018 THALES GLOBAL SERVICES and others.
  * All rights reserved.   This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -588,7 +588,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
 
         String savedKeyboardLayout = SWTBotPreferences.KEYBOARD_LAYOUT;
         SWTBotPreferences.KEYBOARD_LAYOUT = AbstractSiriusSwtBotGefTestCase.EN_US;
-        if (System.getProperty("os.name").equals("Linux") && (TestsUtil.isJuno3Platform() || TestsUtil.isEclipse4xPlatform())) {
+        if (System.getProperty("os.name").equals("Linux")) {
             editor.getCanvas().pressShortcut(SWT.SHIFT | SWT.CTRL, 'z');
         } else {
             editor.getCanvas().pressShortcut(SWT.CTRL, 'y');
@@ -1222,9 +1222,7 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
         // editors' name, so we must adjust the title of the editor we are
         // looking for.
         String expectedTitle = editorPart.getTitle();
-        if (TestsUtil.isLunaPlatform()) {
-            expectedTitle = Optional.ofNullable(expectedTitle).orElse("").trim();
-        }
+        expectedTitle = Optional.ofNullable(expectedTitle).orElse("").trim();
         if (DDiagram.class.isAssignableFrom(expectedRepresentationClass)) {
             swtBotEditor = SWTBotSiriusHelper.getSiriusDiagramEditor(expectedTitle);
             if (disableSnapToGridOnThisEditor) {

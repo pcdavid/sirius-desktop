@@ -145,7 +145,8 @@ public class AllTestSuite extends TestCase {
         suite.addTestSuite(PinnedNotesTest.class);
         suite.addTestSuite(RemoveEdgeBendpointsTest.class);
         suite.addTestSuite(RemoveNoteTextTest.class);
-        suite.addTestSuite(RequestInterpreterTest.class);
+        // Disabled. The model requests interpreter is deprecated.
+        // suite.addTestSuite(RequestInterpreterTest.class);
         suite.addTestSuite(ResetStylePropertiesToDefaultValuesActionTests.class);
         suite.addTestSuite(MoveBorderNodeTest.class);
         suite.addTestSuite(LayoutingModeTest.class);
@@ -200,7 +201,8 @@ public class AllTestSuite extends TestCase {
         suite.addTestSuite(ExtraMappingEdgeCreationTest.class);
         suite.addTestSuite(ExportDiagramAsImageWhenManyRepresentationsHaveSameNameTest.class);
         suite.addTestSuite(EdgeCreationTest.class);
-        suite.addTestSuite(DragAndDropFromTableAndTreeToDiagramTest.class);
+        // This test was disabled in Eclipse 4 platform
+        // suite.addTestSuite(DragAndDropFromTableAndTreeToDiagramTest.class);
         suite.addTestSuite(DeleteFromDiagramTest.class);
         suite.addTestSuite(DeleteDiagramWithListeningPaletteToolTest.class);
         suite.addTestSuite(BoldItalicFontSynchronizationTest.class);

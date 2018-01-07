@@ -1814,56 +1814,8 @@
             kind="RepresentationsFile">
       </participant>
       <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.StyleCustomizationsRepresentationsFileMigrationParticipant"
-            kind="RepresentationsFile">
-      </participant>
-      <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.SetGMFViewsToNillMigrationParticipant"
-            kind="RepresentationsFile">
-      </participant>
-      <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.FontStyleForDNodeListElementMigrationParticipant"
-            kind="RepresentationsFile">
-      </participant>
-      <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.description.ListContainerAttributeMigrationParticipant"
-            kind="VSM">
-      </participant>
-      <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.description.OptionalLayersVSMMigrationParticipant"
-            kind="VSM">
-      </participant>
-            <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.description.AcceleoExpressionsMigrationParticipant"
-            kind="VSM">
-      </participant>
-            <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.DiagramSplitMigrationParticipant"
-            kind="RepresentationsFile">
-      </participant>
-      <participant
-             class="org.eclipse.sirius.diagram.ui.business.internal.migration.DiagramSplitMigrationParticipant"
-             kind="VSM">
-       </participant>
-      <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.description.RoundedCornerDefaultValuesMigrationParticipant"
-            kind="VSM">
-      </participant>
-      <participant
             class="org.eclipse.sirius.diagram.ui.business.internal.migration.CollapseSupportOnRegionMigrationParticipant"
             kind="RepresentationsFile">
-      </participant>
-      <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.description.BorderSizeComputationExpressionMigrationParticipant"
-            kind="VSM">
-      </participant>
-      <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.BorderSizeRepresentationFileMigrationParticipant"
-            kind="RepresentationsFile">
-      </participant>
-      <participant
-            class="org.eclipse.sirius.diagram.ui.business.internal.migration.description.DecorationImageDescriptionVSMMigrationParticipant"
-            kind="VSM">
       </participant>
       <participant
             class="org.eclipse.sirius.diagram.ui.business.internal.migration.NoteShapeDefaultLabelAlignmentMigrationParticipant"

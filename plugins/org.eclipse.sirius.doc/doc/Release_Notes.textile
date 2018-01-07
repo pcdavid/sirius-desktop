@@ -16,6 +16,11 @@ h4. Migrations
 
 h4. Translation Keys Changes
 
+h4. Changes in @org.eclipse.sirius.diagram.ui@
+
+* <span class="label label-danger">Removed</span> Class @org.eclipse.sirius.diagram.ui.business.api.query.DDiagramGraphicalQuery@ has been moved to @org.eclipse.sirius.diagram.business.api.query@ in order to be independent from UI plugin.
+* <span class="label label-danger">Removed</span> Class @org.eclipse.sirius.diagram.ui.business.internal.query.DDiagramGraphicalQuery@ has been moved to @org.eclipse.sirius.diagram.business.internal.query@ in order to be independent from UI plugin.
+
 h2(#sirius5.1.1). Changes in Sirius 5.1.1
 
 h3. User-Visible Changes

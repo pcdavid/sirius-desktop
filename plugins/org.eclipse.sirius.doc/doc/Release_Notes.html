@@ -130,6 +130,19 @@
 		<h3 id="DeveloperVisibleChanges">Developer-Visible Changes</h3>
 		<h4 id="Migrations">Migrations</h4>
 		<h4 id="TranslationKeysChanges">Translation Keys Changes</h4>
+		<h4 id="Changesinorg.eclipse.sirius.diagram.ui">Changes in 
+			<code>org.eclipse.sirius.diagram.ui</code>
+		</h4>
+		<ul>
+			<li><span class="label label-danger">Removed</span> Class 
+				<code>org.eclipse.sirius.diagram.ui.business.api.query.DDiagramGraphicalQuery</code> has been moved to 
+				<code>org.eclipse.sirius.diagram.business.api.query</code> in order to be independent from UI plugin.
+			</li>
+			<li><span class="label label-danger">Removed</span> Class 
+				<code>org.eclipse.sirius.diagram.ui.business.internal.query.DDiagramGraphicalQuery</code> has been moved to 
+				<code>org.eclipse.sirius.diagram.business.internal.query</code> in order to be independent from UI plugin.
+			</li>
+		</ul>
 		<h2 id="sirius5.1.1">Changes in Sirius 5.1.1</h2>
 		<h3 id="UserVisibleChanges2">User-Visible Changes</h3>
 		<ul>
@@ -165,7 +178,7 @@
 				<code>org.eclipse.sirius.business.api.query.SiriusReferenceFinder.getReferencingSiriusElements(Collection&lt;EObject&gt;, SearchScope)</code>. The SearchScope.LOADED_REPRESENTATIONS_SCOPE scope covers the search and result scope. Then, no additional resource will be loaded using this scope.
 			</li>
 		</ul>
-		<h4 id="Changesinorg.eclipse.sirius.diagram.ui">Changes in 
+		<h4 id="Changesinorg.eclipse.sirius.diagram.ui2">Changes in 
 			<code>org.eclipse.sirius.diagram.ui</code>
 		</h4>
 		<ul>
@@ -411,7 +424,7 @@
 				<code>DDiagram.getActivatedLayers</code> in several cases if you directly use it.
 			</li>
 		</ul>
-		<h4 id="Changesinorg.eclipse.sirius.diagram.ui2">Changes in 
+		<h4 id="Changesinorg.eclipse.sirius.diagram.ui3">Changes in 
 			<code>org.eclipse.sirius.diagram.ui</code>
 		</h4>
 		<ul>
@@ -894,7 +907,7 @@
 				<code>NodeStyleIdentifier</code>) have been removed.
 			</li>
 		</ul>
-		<h4 id="Changesinorg.eclipse.sirius.diagram.ui3">Changes in 
+		<h4 id="Changesinorg.eclipse.sirius.diagram.ui4">Changes in 
 			<code>org.eclipse.sirius.diagram.ui</code>
 		</h4>
 		<ul>
@@ -1483,7 +1496,7 @@ SWTBotUtils.waitAllUiEvents();
 				<code>allowsCopyPasteLayout(DSemanticDecorator)</code> will be removed in the new major version.
 			</li>
 		</ul>
-		<h4 id="Changesinorg.eclipse.sirius.diagram.ui4">Changes in 
+		<h4 id="Changesinorg.eclipse.sirius.diagram.ui5">Changes in 
 			<code>org.eclipse.sirius.diagram.ui</code>
 		</h4>
 		<ul>
@@ -1967,7 +1980,7 @@ SWTBotUtils.waitAllUiEvents();
 				<code>org.eclipse.sirius.ui.business.api.editor.SpecificSessionManager</code> has been removed. 
 			</li>
 		</ul>
-		<h4 id="Changesinorg.eclipse.sirius.diagram.ui5">Changes in 
+		<h4 id="Changesinorg.eclipse.sirius.diagram.ui6">Changes in 
 			<code>org.eclipse.sirius.diagram.ui</code>
 		</h4>
 		<ul>

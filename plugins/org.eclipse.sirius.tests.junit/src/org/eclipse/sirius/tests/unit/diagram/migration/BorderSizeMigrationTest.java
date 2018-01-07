@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Obeo.
+ * Copyright (c) 2016, 2018 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,8 +27,8 @@ import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.description.ContainerMapping;
 import org.eclipse.sirius.diagram.description.style.ContainerStyleDescription;
 import org.eclipse.sirius.diagram.tools.api.command.IDiagramCommandFactory;
-import org.eclipse.sirius.diagram.ui.business.internal.migration.BorderSizeRepresentationFileMigrationParticipant;
-import org.eclipse.sirius.diagram.ui.business.internal.migration.description.BorderSizeComputationExpressionMigrationParticipant;
+import org.eclipse.sirius.diagram.business.internal.migration.BorderSizeRepresentationFileMigrationParticipant;
+import org.eclipse.sirius.diagram.business.internal.migration.description.BorderSizeComputationExpressionMigrationParticipant;
 import org.eclipse.sirius.ecore.extender.tool.api.ModelUtils;
 import org.eclipse.sirius.tests.SiriusTestsPlugin;
 import org.eclipse.sirius.tests.support.api.SiriusTestCase;

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2016 THALES GLOBAL SERVICES
+ * Copyright (c) 2013, 2018 THALES GLOBAL SERVICES
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *    Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.sirius.diagram.ui.business.internal.migration;
+package org.eclipse.sirius.diagram.business.internal.migration;
 
 import java.util.Collection;
 import java.util.LinkedHashSet;

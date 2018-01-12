@@ -250,6 +250,7 @@ public class PaletteManagerImpl implements PaletteManager {
             if (dDiagram instanceof DSemanticDiagram) {
                 session = SessionManager.INSTANCE.getSession(((DSemanticDiagram) dDiagram).getTarget());
             }
+            addGenericConnectionTool();
             // Step 1: we add the default tools contributed by the environment
             // in the same group as the default GEF tools
             addDefaultTools(diagram);
@@ -260,6 +261,16 @@ public class PaletteManagerImpl implements PaletteManager {
                 updatePalette(description, session, dDiagram);
             }
         }
+    }
+
+    private void addGenericConnectionTool() {
+        PaletteToolEntry paletteEntry = new PaletteToolEntry("Generic Connection Creation Tool", "desc", new SiriusDiagramPaletteFactory()); //$NON-NLS-1$ //$NON-NLS-2$
+        paletteEntry.setToolClass(GenericConnectionCreationTool.class);
+        paletteEntry.setSmallIcon(paletteRoot.getDefaultEntry().getSmallIcon());
+        paletteEntry.setLargeIcon(paletteRoot.getDefaultEntry().getLargeIcon());
+        final PaletteContainer container = paletteRoot.getDefaultEntry().getParent();
+        container.getChildren().add(paletteEntry);
+
     }
 
     /**

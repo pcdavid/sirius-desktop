@@ -44,10 +44,14 @@ public class SiriusDiagramPaletteFactory extends Adapter {
      */
     @Override
     public Tool createTool(String toolId) {
+        Tool value = null;
         if (toolId.equals(TOOL_NOTEATTACHMENT)) {
-            return new NoteAttachmentCreationTool(getNoteAttachmentNotationType());
+            value = new NoteAttachmentCreationTool(getNoteAttachmentNotationType());
         }
-        return null;
+        else if (toolId.equals("Generic Connection Creation Tool")) { //$NON-NLS-1$
+            value = new GenericConnectionCreationTool();
+        }
+        return value;
     }
 
     private INotationType getNoteAttachmentNotationType() {

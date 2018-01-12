@@ -904,6 +904,13 @@
       </viewProvider>
    </extension>
 
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders">
+      <viewProvider class="org.eclipse.sirius.diagram.ui.internal.providers.SiriusShortcutNoteViewProvider">
+         <Priority name="Low"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="Note"/>
+      </viewProvider>
+   </extension>
+
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
       <?gmfgen generated="true"?>
       <editpartProvider class="org.eclipse.sirius.diagram.ui.internal.providers.SiriusEditPartProvider">
@@ -1989,4 +1996,12 @@
       </statusLineContributionItemProvider>
    </extension>
 
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="org.eclipse.sirius.diagram.ui.internal.actions.DiagramShortcutAction"
+           id="org.eclipse.sirius.diagram.tools.internal.actions.shortcut.shortcutActionId">
+     </javaActions>
+  </extension>
+        
 </plugin>

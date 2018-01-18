@@ -30,13 +30,21 @@ import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.requests.CreateConnectionRequest;
 import org.eclipse.gef.requests.CreationFactory;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.internal.services.palette.PaletteToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.EdgeTarget;
+import org.eclipse.sirius.diagram.description.AbstractNodeMapping;
+import org.eclipse.sirius.diagram.description.DiagramElementMapping;
+import org.eclipse.sirius.diagram.description.EdgeMapping;
+import org.eclipse.sirius.diagram.description.tool.ContainerCreationDescription;
 import org.eclipse.sirius.diagram.description.tool.EdgeCreationDescription;
+import org.eclipse.sirius.diagram.description.tool.NodeCreationDescription;
+import org.eclipse.sirius.diagram.tools.api.command.IDiagramCommandFactoryProvider;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DDiagramEditPart;
 import org.eclipse.sirius.diagram.ui.tools.api.command.GMFCommandWrapper;
 import org.eclipse.sirius.diagram.ui.tools.internal.part.SiriusDiagramGraphicalViewer;
 import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
@@ -61,6 +69,8 @@ public class GenericConnectionCreationTool extends ConnectionCreationTool {
 
     private List<ConnectionCreationToolEntry> connectionToolEntries;
 
+    private List<PaletteToolEntry> elementCreationToolEntries;
+
     @Override
     public void activate() {
         super.activate();
@@ -72,6 +82,7 @@ public class GenericConnectionCreationTool extends ConnectionCreationTool {
 
     private List<ConnectionCreationToolEntry> getAllEntries() {
         this.connectionToolEntries = new ArrayList<>();
+        this.elementCreationToolEntries = new ArrayList<>();
         List<ConnectionCreationToolEntry> entries = new ArrayList<>();
         for (Object container : paletteRoot.getChildren()) {
             PaletteContainer paletteContainer = (PaletteContainer) container;
@@ -84,6 +95,9 @@ public class GenericConnectionCreationTool extends ConnectionCreationTool {
         for (Object entry : paletteContainer.getChildren()) {
             if (entry instanceof ConnectionCreationToolEntry) {
                 connectionToolEntries.add((ConnectionCreationToolEntry) entry);
+            } else if (entry instanceof PaletteToolEntry) {
+                elementCreationToolEntries.add((PaletteToolEntry) entry);
+
             } else if (entry instanceof PaletteContainer) {
                 getToolFromContainer((PaletteContainer) entry);
 
@@ -137,6 +151,9 @@ public class GenericConnectionCreationTool extends ConnectionCreationTool {
         for (ConnectionCreationToolEntry toolEntry : connectionToolEntries) {
             Optional<EdgeCreationDescription> optional = getCreationCreationDescription(EdgeCreationDescription.class, toolEntry);
             if (optional.isPresent()) {
+                if (editPart instanceof DDiagramEditPart) {
+                    handleDiagramCase(optional.get());
+                }
                 CreateConnectionRequest newRequest = createNewConnectionRequest(request, optional.get());
                 Command currentCommand = editPart.getCommand(newRequest);
                 // If at least one of the connection tool is executable, we return an executable command.
@@ -146,6 +163,30 @@ public class GenericConnectionCreationTool extends ConnectionCreationTool {
             }
         }
         return UnexecutableCommand.INSTANCE;
+    }
+
+    private Command handleDiagramCase(EdgeCreationDescription edgeCreationDescription) {
+        for (PaletteToolEntry entry : elementCreationToolEntries) {
+            Optional<MappingBasedToolDescription> optional = getCreationCreationDescription(MappingBasedToolDescription.class, entry);
+            if (optional.isPresent()) {
+                MappingBasedToolDescription description = optional.get();
+                List<AbstractNodeMapping> nodeMappings = new ArrayList<>();
+                if (description instanceof NodeCreationDescription) {
+                    nodeMappings.addAll(((NodeCreationDescription) description).getNodeMappings());
+                }
+
+                else if (description instanceof ContainerCreationDescription) {
+                    nodeMappings.addAll(((ContainerCreationDescription) description).getContainerMappings());
+                }
+                for (EdgeMapping edgeMapping : edgeCreationDescription.getEdgeMappings()) {
+                    Optional<DiagramElementMapping> optionalDiagramElementMapping = edgeMapping.getAllMappings().stream().filter(mapping -> nodeMappings.contains(mapping)).findFirst();
+                    optionalDiagramElementMapping.toString();
+                }
+
+            }
+        }
+        return UnexecutableCommand.INSTANCE;
+
     }
 
     private Command createCompleteCommand(CreateConnectionRequest request) {
@@ -170,6 +211,14 @@ public class GenericConnectionCreationTool extends ConnectionCreationTool {
             }
         }
         return null;
+    }
+
+    private Command getCommand(EdgeTarget source, EdgeTarget target, ConnectionCreationToolEntry entry, TransactionalEditingDomain domain, IDiagramCommandFactoryProvider cmdFactoryProvider) {
+        Optional<EdgeCreationDescription> edgeCreationDescriptionOptional = getCreationCreationDescription(EdgeCreationDescription.class, entry);
+        if (edgeCreationDescriptionOptional.isPresent()) {
+            return new ICommandProxy(new GMFCommandWrapper(domain, cmdFactoryProvider.getCommandFactory(domain).buildCreateEdgeCommandFromTool(source, target, edgeCreationDescriptionOptional.get())));
+        }
+        return UnexecutableCommand.INSTANCE;
     }
 
     private <E extends MappingBasedToolDescription> Optional<E> getCreationCreationDescription(Class<E> type, CreationToolEntry entry) {
@@ -217,12 +266,15 @@ public class GenericConnectionCreationTool extends ConnectionCreationTool {
         @Override
         protected void doExecute() {
             Menu menu = new Menu(control);
+            IDiagramCommandFactoryProvider cmdFactoryProvider = (IDiagramCommandFactoryProvider) editor.getAdapter(IDiagramCommandFactoryProvider.class);
+
             for (ConnectionCreationToolEntry entry : toolEntries) {
                 Optional<EdgeCreationDescription> optional = getCreationCreationDescription(EdgeCreationDescription.class, entry);
                 if (optional.isPresent()) {
                     CreateConnectionRequest connectionRequest = createNewConnectionRequest(request, optional.get());
                     Command currentCommand = request.getTargetEditPart().getCommand(connectionRequest);
-                    createMenuItem(entry, menu, currentCommand);
+                    createMenuItem(entry, menu,
+                            currentCommand/* getCommand(source, target, entry, domain, cmdFactoryProvider) */);
                 }
             }
             new MenuItem(menu, SWT.SEPARATOR);

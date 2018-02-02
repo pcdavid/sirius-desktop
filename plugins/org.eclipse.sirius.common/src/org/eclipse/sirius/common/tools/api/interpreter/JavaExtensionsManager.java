@@ -48,9 +48,8 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 
 /**
- * The {@link JavaExtensionsManager} load and maintains {@link Class} instances
- * based on the current search scope (of projects and/or plugins) and the
- * imported qualified names.
+ * The {@link JavaExtensionsManager} load and maintains {@link Class} instances based on the current search scope (of
+ * projects and/or plugins) and the imported qualified names.
  * 
  * @author Cedric Brun <cedric.brun@obeo.fr>
  */
@@ -58,25 +57,22 @@ public final class JavaExtensionsManager {
 
     private static final String WORKSPACE_SEPARATOR = "/"; //$NON-NLS-1$
 
-    private static final Set<String> JAVA_SERVICES_BUNDLES_WHITE_LIST = Sets.newHashSet(DslCommonPlugin.PLUGIN_ID, "org.eclipse.sirius.ui.properties"); //$NON-NLS-1$
+    private static final Set<String> JAVA_SERVICES_BUNDLES_WHITE_LIST = Sets.newHashSet(DslCommonPlugin.PLUGIN_ID, "org.eclipse.sirius.ui.properties", "org.eclipse.sirius.server"); //$NON-NLS-1$ //$NON-NLS-2$
 
     /**
-     * This will be updated with the list of accessible viewpoint plugins, if
-     * any.
+     * This will be updated with the list of accessible viewpoint plugins, if any.
      */
     private Set<String> viewpointPlugins = new LinkedHashSet<>();
 
     /**
-     * This will be updated with the list of accessible viewpoint projects
-     * present in the workspace, if any.
+     * This will be updated with the list of accessible viewpoint projects present in the workspace, if any.
      */
     private Set<String> viewpointProjects = new LinkedHashSet<>();
 
     private final Set<String> imports = new LinkedHashSet<String>();
 
     /**
-     * These are the imports which are registered as
-     * "not having been loaded so far", waiting for a change of scope or a
+     * These are the imports which are registered as "not having been loaded so far", waiting for a change of scope or a
      * recompilation which would make them loadable.
      */
     private final Set<String> couldNotBeLoaded = new LinkedHashSet<String>();
@@ -98,8 +94,7 @@ public final class JavaExtensionsManager {
         @Override
         public void classpathChanged(Set<String> updatedProjects) {
             /*
-             * we get a notification if something in the classpath we used so
-             * far has changed.
+             * we get a notification if something in the classpath we used so far has changed.
              */
             if (viewpointPlugins.size() > 0 || viewpointProjects.size() > 0) {
                 reload();
@@ -110,9 +105,8 @@ public final class JavaExtensionsManager {
     private Multimap<String, EPackage> lastDeclarerIDsToEPackages = HashMultimap.create();
 
     /**
-     * through this field we keep track fo the EPackage declarers which were
-     * identified as bundles, hence don't need to be reloaded if they are still
-     * bundles when a reload is requested.
+     * through this field we keep track fo the EPackage declarers which were identified as bundles, hence don't need to
+     * be reloaded if they are still bundles when a reload is requested.
      *
      */
     private Set<String> lastDeclarerIDsInBundles;
@@ -125,8 +119,7 @@ public final class JavaExtensionsManager {
     }
 
     /**
-     * Set (or replace) a new classloading override. If a previous one was
-     * already set, then it will be disposed.
+     * Set (or replace) a new classloading override. If a previous one was already set, then it will be disposed.
      * 
      * @param override
      *            the instance to override the class loading process.
@@ -141,8 +134,8 @@ public final class JavaExtensionsManager {
     }
 
     /**
-     * Add a new callback which, from now one, will be notified when a class has
-     * been loaded/unloaded/searched but not found.
+     * Add a new callback which, from now one, will be notified when a class has been loaded/unloaded/searched but not
+     * found.
      * 
      * @param callback
      *            the callback to register.
@@ -162,8 +155,8 @@ public final class JavaExtensionsManager {
     }
 
     /**
-     * Add a new callback which, from now one, will be notified when a EPackage
-     * has been loaded/unloaded/searched but not found.
+     * Add a new callback which, from now one, will be notified when a EPackage has been loaded/unloaded/searched but
+     * not found.
      * 
      * @param callback
      *            the callback to register.
@@ -193,9 +186,8 @@ public final class JavaExtensionsManager {
     }
 
     /**
-     * Update the search scope for Classes. Only if the newly passed scope
-     * differs to the previous one then a reload of the classes will be
-     * triggered.
+     * Update the search scope for Classes. Only if the newly passed scope differs to the previous one then a reload of
+     * the classes will be triggered.
      * 
      * @param plugins
      *            a set of bundle IDs to search in.
@@ -209,8 +201,7 @@ public final class JavaExtensionsManager {
         this.viewpointPlugins = plugins;
         this.viewpointProjects = project;
         /*
-         * something changed in the scope, we have to reload the Java
-         * extensions.
+         * something changed in the scope, we have to reload the Java extensions.
          */
         if (couldNotBeLoaded.size() > 0 || removedAddedAtLeastOnePlugin || removedAddedAtLeastOnProject) {
             if (this.viewpointPlugins.size() > 0 || this.viewpointProjects.size() > 0) {
@@ -221,10 +212,9 @@ public final class JavaExtensionsManager {
     }
 
     /*
-     * This method is synchronized as we expect the workspace listener to call
-     * it when an event requires a reload. There is no guarantee this call is
-     * made from the same thread as the others and we don't want several reloads
-     * being done concurrently.
+     * This method is synchronized as we expect the workspace listener to call it when an event requires a reload. There
+     * is no guarantee this call is made from the same thread as the others and we don't want several reloads being done
+     * concurrently.
      */
     private synchronized void reload() {
         this.shouldLoadEPackages = true;
@@ -232,8 +222,8 @@ public final class JavaExtensionsManager {
     }
 
     /***
-     * This will trigger the loading of EPackages or java Classes with the
-     * current configuration (search scope and imports).
+     * This will trigger the loading of EPackages or java Classes with the current configuration (search scope and
+     * imports).
      */
     public synchronized void reloadIfNeeded() {
         if (this.shouldLoadEPackages) {
@@ -256,9 +246,8 @@ public final class JavaExtensionsManager {
                 newDeclarersAsBundles.add(declarer.getSymbolicName());
                 for (EPackageDeclaration ePackageDeclaration : declarer.getEPackageDeclarations()) {
                     /*
-                     * the EPackage definition comes from a deployed plugin, we
-                     * retrieve the EPackage instance to use by getting it from
-                     * the global registry.
+                     * the EPackage definition comes from a deployed plugin, we retrieve the EPackage instance to use by
+                     * getting it from the global registry.
                      */
                     EPackage pak = EPackage.Registry.INSTANCE.getEPackage(ePackageDeclaration.getNsURI());
                     if (pak != null) {
@@ -268,37 +257,31 @@ public final class JavaExtensionsManager {
 
             } else {
                 /*
-                 * we keep that for later as we need to initialize a specific
-                 * resourceset which will be used by all the subsequent
-                 * loadings.
+                 * we keep that for later as we need to initialize a specific resourceset which will be used by all the
+                 * subsequent loadings.
                  */
                 workspaceDeclarations.add(declarer);
             }
         }
         if (workspaceDeclarations.size() > 0) {
             /*
-             * this resourceset is being used to load the genmodel instances
-             * from the workspace. It is setup with uri mappings so that other
-             * Ecore residing in the workspace are shadowing the ones from the
-             * targetplatform.
+             * this resourceset is being used to load the genmodel instances from the workspace. It is setup with uri
+             * mappings so that other Ecore residing in the workspace are shadowing the ones from the targetplatform.
              */
             ResourceSetImpl set = new ResourceSetImpl();
 
             computePlatformURIMap(set);
 
             /*
-             * the EPackage definition comes from a workspace project, right now
-             * we don't explicitely and fully support this use case where the
-             * Ecore model lives in the workspace next to the .odesign
-             * specification. To properly support this use case we would have to
-             * load the corresponding genmodel and register it, making sure we
-             * clean all the
+             * the EPackage definition comes from a workspace project, right now we don't explicitely and fully support
+             * this use case where the Ecore model lives in the workspace next to the .odesign specification. To
+             * properly support this use case we would have to load the corresponding genmodel and register it, making
+             * sure we clean all the
              */
             for (EPackageDeclarationSource workspaceSource : workspaceDeclarations) {
                 Map<String, EPackage> ecorePackages = new LinkedHashMap<>();
                 /*
-                 * a first iteration to populate the map of loaded Ecore
-                 * packages.
+                 * a first iteration to populate the map of loaded Ecore packages.
                  */
                 loadAndFindEPackages(set, workspaceSource, ecorePackages);
                 /*
@@ -318,8 +301,7 @@ public final class JavaExtensionsManager {
         }
 
         /*
-         * cleaning up previously registered EPackage which are not accessible
-         * any more.
+         * cleaning up previously registered EPackage which are not accessible any more.
          */
         boolean firstRun = lastDeclarerIDsInBundles == null;
         if (!firstRun) {
@@ -345,9 +327,8 @@ public final class JavaExtensionsManager {
     private void computePlatformURIMap(ResourceSetImpl set) {
         Map<URI, URI> result = null;
         /*
-         * We invoke computePlatformURIMap by reflection to keep being
-         * compatible with EMF 2.8 and still leverage the new capabilities
-         * regarding target platforms introduced in EMF 2.9.
+         * We invoke computePlatformURIMap by reflection to keep being compatible with EMF 2.8 and still leverage the
+         * new capabilities regarding target platforms introduced in EMF 2.9.
          */
         try {
             Method computePlatformURIMap = EcorePlugin.class.getMethod("computePlatformURIMap", Boolean.TYPE); //$NON-NLS-1$
@@ -383,9 +364,8 @@ public final class JavaExtensionsManager {
             if (!StringUtil.isEmpty(genmodelPath)) {
                 URI genModelURI = URI.createPlatformResourceURI(WORKSPACE_SEPARATOR + workspaceSource.getSymbolicName() + WORKSPACE_SEPARATOR + genmodelPath, true);
                 /*
-                 * the uri might have a fragment already, for instance in the
-                 * Xcore case, if it is not the case then the genmodel is
-                 * supposed to be the root element.
+                 * the uri might have a fragment already, for instance in the Xcore case, if it is not the case then the
+                 * genmodel is supposed to be the root element.
                  */
                 if (!genModelURI.hasFragment()) {
                     genModelURI = genModelURI.appendFragment("/"); //$NON-NLS-1$
@@ -423,9 +403,8 @@ public final class JavaExtensionsManager {
             } catch (Throwable e) {
                 // CHECKSTYLE:ON
                 /*
-                 * It's the callback responsability to log or manage the errors,
-                 * we should not prevent another callback to process the event
-                 * if another one failed for some reason.
+                 * It's the callback responsability to log or manage the errors, we should not prevent another callback
+                 * to process the event if another one failed for some reason.
                  */
             }
         }
@@ -439,9 +418,8 @@ public final class JavaExtensionsManager {
             } catch (Throwable e) {
                 // CHECKSTYLE:ON
                 /*
-                 * It's the callback responsability to log or manage the errors,
-                 * we should not prevent another callback to process the event
-                 * if another one failed for some reason.
+                 * It's the callback responsability to log or manage the errors, we should not prevent another callback
+                 * to process the event if another one failed for some reason.
                  */
             }
         }
@@ -451,8 +429,7 @@ public final class JavaExtensionsManager {
      * Add a new Java qualified name to consider as an Import.
      * 
      * @param classQualifiedName
-     *            the Java qualified name of a class to consider as a Java
-     *            Extension.
+     *            the Java qualified name of a class to consider as a Java Extension.
      */
     public synchronized void addImport(String classQualifiedName) {
         if (classQualifiedName != null && SourceVersion.isName(classQualifiedName)) {
@@ -467,8 +444,7 @@ public final class JavaExtensionsManager {
      * Remove a JavaExtension in the current manager.
      * 
      * @param classQualifiedName
-     *            the Java qualified name of a class to remove as a Java
-     *            Extension.
+     *            the Java qualified name of a class to remove as a Java Extension.
      */
     public synchronized void removeImport(String classQualifiedName) {
         if (this.imports.contains(classQualifiedName)) {
@@ -523,11 +499,9 @@ public final class JavaExtensionsManager {
             }
         }
         /*
-         * We make sure we notify the callbacks with the following orders :
-         * always notify an unload first, then the loaded classes, then the
-         * qualified names which were not found. This makes it easier for the
-         * callbacks to maintain their own data structures in sync regarding the
-         * latest versions of the classes.
+         * We make sure we notify the callbacks with the following orders : always notify an unload first, then the
+         * loaded classes, then the qualified names which were not found. This makes it easier for the callbacks to
+         * maintain their own data structures in sync regarding the latest versions of the classes.
          */
         for (Map.Entry<String, Class> classToUnload : toUnload.entrySet()) {
             unloaded(classToUnload.getKey(), classToUnload.getValue());
@@ -548,9 +522,8 @@ public final class JavaExtensionsManager {
             } catch (Throwable e) {
                 // CHECKSTYLE:ON
                 /*
-                 * It's the callback responsability to log or manage the errors,
-                 * we should not prevent another callback to process the event
-                 * if another one failed for some reason.
+                 * It's the callback responsability to log or manage the errors, we should not prevent another callback
+                 * to process the event if another one failed for some reason.
                  */
             }
         }
@@ -565,9 +538,8 @@ public final class JavaExtensionsManager {
             } catch (Throwable e) {
                 // CHECKSTYLE:ON
                 /*
-                 * It's the callback responsability to log or manage the errors,
-                 * we should not prevent another callback to process the event
-                 * if another one failed for some reason.
+                 * It's the callback responsability to log or manage the errors, we should not prevent another callback
+                 * to process the event if another one failed for some reason.
                  */
             }
         }
@@ -582,9 +554,8 @@ public final class JavaExtensionsManager {
             } catch (Throwable e) {
                 // CHECKSTYLE:ON
                 /*
-                 * It's the callback responsability to log or manage the errors,
-                 * we should not prevent another callback to process the event
-                 * if another one failed for some reason.
+                 * It's the callback responsability to log or manage the errors, we should not prevent another callback
+                 * to process the event if another one failed for some reason.
                  */
             }
         }
@@ -601,13 +572,12 @@ public final class JavaExtensionsManager {
     }
 
     /**
-     * Takes a pure Object as value to update the scope as sent to the
-     * {@link IInterpreter} instances through the setProperty() method with
-     * IInterpreter.FILES key.
+     * Takes a pure Object as value to update the scope as sent to the {@link IInterpreter} instances through the
+     * setProperty() method with IInterpreter.FILES key.
      * 
      * @param value
-     *            can be null, or a list of String each being the identifier of
-     *            a project which can be in the workspace or not.
+     *            can be null, or a list of String each being the identifier of a project which can be in the workspace
+     *            or not.
      */
     public void updateScope(Collection<String> value) {
         Set<String> prjs = new LinkedHashSet<>();
@@ -631,8 +601,7 @@ public final class JavaExtensionsManager {
      *
      * @param path
      *            The path we need to check.
-     * @return <code>true</code> if <em>path</em> denotes an existing plugin
-     *         resource, <code>false</code> otherwise.
+     * @return <code>true</code> if <em>path</em> denotes an existing plugin resource, <code>false</code> otherwise.
      */
     private static boolean existsInPlugins(String path) {
         try {
@@ -648,8 +617,7 @@ public final class JavaExtensionsManager {
      *
      * @param path
      *            The path we need to check.
-     * @return <code>true</code> if <em>path</em> denotes an existing workspace
-     *         resource, <code>false</code> otherwise.
+     * @return <code>true</code> if <em>path</em> denotes an existing workspace resource, <code>false</code> otherwise.
      */
     private static boolean existsInWorkspace(String path) {
         if (path == null || path.length() == 0 || EcorePlugin.getWorkspaceRoot() == null) {
@@ -659,8 +627,8 @@ public final class JavaExtensionsManager {
     }
 
     /**
-     * Create and setup a {@link JavaExtensionsManager} which might have been
-     * extended with a specific support for workspace class loading.
+     * Create and setup a {@link JavaExtensionsManager} which might have been extended with a specific support for
+     * workspace class loading.
      * 
      * @return the created {@link JavaExtensionsManager}
      */

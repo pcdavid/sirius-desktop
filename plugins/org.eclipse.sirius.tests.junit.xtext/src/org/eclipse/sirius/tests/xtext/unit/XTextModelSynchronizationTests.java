@@ -35,7 +35,9 @@ import org.eclipse.sirius.tests.sample.xtext.statemachine.State;
 import org.eclipse.sirius.tests.sample.xtext.statemachine.Statemachine;
 import org.eclipse.sirius.tests.sample.xtext.statemachine.StatemachineFactory;
 import org.eclipse.sirius.tests.sample.xtext.statemachine.design.Services;
+import org.eclipse.sirius.tests.support.api.ICondition;
 import org.eclipse.sirius.tests.support.api.SiriusDiagramTestCase;
+import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.tests.xtext.SiriusXtextTestsPlugin;
 
 public class XTextModelSynchronizationTests extends SiriusDiagramTestCase {
@@ -89,6 +91,20 @@ public class XTextModelSynchronizationTests extends SiriusDiagramTestCase {
         modifyResourceOutsideOfTheSession(semanticResourceInSession, CHANGED_STATE_DISPLAY_NAME, ORIGINAL_STATE_DISPLAY_NAME);
         // refresh workspace projects
         ResourcesPlugin.getWorkspace().getRoot().getProject(TEMPORARY_PROJECT_NAME).refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+
+        TestsUtil.waitUntil(new ICondition() {
+            @Override
+            public boolean test() throws Exception {
+                // check that the resource is correctly updated in the session
+                NamedElement elementInSession = new Services().getElementByName(semanticResourceInSession, ORIGINAL_STATE_NAME);
+                return ORIGINAL_STATE_DISPLAY_NAME.equals(elementInSession.getDisplayname());
+            }
+
+            @Override
+            public String getFailureMessage() {
+                return "Session has not been updated following the model.statemachine file change";
+            }
+        }, 2000);
     }
 
     /**

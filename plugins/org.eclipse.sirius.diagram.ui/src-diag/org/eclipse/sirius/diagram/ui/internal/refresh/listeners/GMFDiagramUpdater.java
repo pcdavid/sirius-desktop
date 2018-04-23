@@ -76,7 +76,7 @@ public class GMFDiagramUpdater {
         edgeStyleUpdater = new EdgeStyleUpdater(domain, session.getSemanticCrossReferencer());
 
         if (diagramEditor != null) {
-            canonicalLayoutUpdater = new SiriusCanonicalLayoutUpdater(domain, diagramEditor);
+            // canonicalLayoutUpdater = new SiriusCanonicalLayoutUpdater(domain, diagramEditor);
         }
     }
 

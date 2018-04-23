@@ -23,11 +23,10 @@ import org.eclipse.sirius.diagram.ui.provider.Messages;
 import org.eclipse.swt.widgets.Display;
 
 /**
- * Specific Command to do layout for newly created views in pre-commit without
- * being in the IOperationHistory by being a {@link NonDirtying} . </br> <b>NOTE
- * : the use of {@link NonDirtying} is a workaround to not have layout of
- * created views (in pre-commit) in the undo stack, but this doesn't seems break
- * the undo/redo model because here we only changes Bounds </b>.
+ * Specific Command to do layout for newly created views in pre-commit without being in the IOperationHistory by being a
+ * {@link NonDirtying} . </br>
+ * <b>NOTE : the use of {@link NonDirtying} is a workaround to not have layout of created views (in pre-commit) in the
+ * undo stack, but this doesn't seems break the undo/redo model because here we only changes Bounds </b>.
  * 
  * @author <a href="mailto:esteban.dugueperoux@obeo.fr">Esteban Dugueperoux</a>
  */
@@ -40,13 +39,11 @@ public class SiriusCanonicalLayoutCommand extends RecordingCommand implements No
     private List<IAdaptable> childViewsAdaptersForCenterLayout;
 
     /**
-     * Constructor used to do a layout on all created views child (directly or
-     * indirectly) of Diagram. </br> NOTE : to use at diagram representation
-     * opening.
+     * Constructor used to do a layout on all created views child (directly or indirectly) of Diagram. </br>
+     * NOTE : to use at diagram representation opening.
      * 
      * @param domain
-     *            the {@link TransactionalEditingDomain} on which executes this
-     *            command
+     *            the {@link TransactionalEditingDomain} on which executes this command
      * @param diagramEditPart
      *            the {@link DiagramEditPart} on which do the layout
      */
@@ -55,12 +52,11 @@ public class SiriusCanonicalLayoutCommand extends RecordingCommand implements No
     }
 
     /**
-     * Constructor to do layout on all created views child directly of a View.
-     * </br> NOTE : to use when external changes occurs.
+     * Constructor to do layout on all created views child directly of a View. </br>
+     * NOTE : to use when external changes occurs.
      * 
      * @param domain
-     *            the {@link TransactionalEditingDomain} on which executes this
-     *            command
+     *            the {@link TransactionalEditingDomain} on which executes this command
      * @param parentEditPart
      *            the {@link IGraphicalEditPart} on which do the layout
      * @param childViewsAdapters
@@ -80,8 +76,10 @@ public class SiriusCanonicalLayoutCommand extends RecordingCommand implements No
      */
     @Override
     protected void doExecute() {
+        if (Thread.currentThread() != Display.getDefault().getThread()) {
+            System.out.println("pas de thread UI"); //$NON-NLS-1$
+        }
         Display.getDefault().asyncExec(new Runnable() {
-
             @Override
             public void run() {
                 if (childViewsAdapters == null && childViewsAdaptersForCenterLayout == null) {

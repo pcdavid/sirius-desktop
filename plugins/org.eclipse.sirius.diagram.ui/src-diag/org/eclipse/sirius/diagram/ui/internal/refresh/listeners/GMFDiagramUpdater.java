@@ -16,6 +16,7 @@ import org.eclipse.sirius.business.api.session.SessionEventBroker;
 import org.eclipse.sirius.business.internal.session.SessionEventBrokerImpl;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.business.internal.helper.display.VisibilityPropagatorAdapter;
+import org.eclipse.sirius.diagram.ui.tools.api.editor.DDiagramEditor;
 
 /**
  * Register all gmf diagram updaters.
@@ -46,6 +47,8 @@ public class GMFDiagramUpdater {
 
     private EdgeLayoutUpdaterModelChangeTrigger edgeLayoutUpdaterChangeTrigger;
 
+    private SiriusCanonicalLayoutUpdater canonicalLayoutUpdater;
+
     /**
      * Default constructor.
      * 
@@ -54,7 +57,7 @@ public class GMFDiagramUpdater {
      * @param dDiagram
      *            the {@link DDiagram}
      */
-    public GMFDiagramUpdater(Session session, DDiagram dDiagram) {
+    public GMFDiagramUpdater(Session session, DDiagram dDiagram, DDiagramEditor diagramEditor) {
         TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
         notationVisibilityUpdater = new NotationVisibilityUpdater(session);
         viewFontChangesRefactorer = new FontFormatUpdater(domain);
@@ -71,6 +74,10 @@ public class GMFDiagramUpdater {
         visibilityPropagator = new VisibilityPropagatorAdapter(session, dDiagram);
 
         edgeStyleUpdater = new EdgeStyleUpdater(domain, session.getSemanticCrossReferencer());
+
+        if (diagramEditor != null) {
+            canonicalLayoutUpdater = new SiriusCanonicalLayoutUpdater(domain, diagramEditor);
+        }
     }
 
     /**
@@ -85,6 +92,9 @@ public class GMFDiagramUpdater {
         visibilityUpdater.dispose();
         dDiagramHiddenElementsUpdater.dispose();
         edgeStyleUpdater.dispose();
+        if (canonicalLayoutUpdater != null) {
+            canonicalLayoutUpdater.dispose();
+        }
         eventBroker.removeLocalTrigger(filterListener);
         edgeLayoutUpdaterChangeTrigger.dispose();
         edgeLayoutUpdaterChangeTrigger = null;

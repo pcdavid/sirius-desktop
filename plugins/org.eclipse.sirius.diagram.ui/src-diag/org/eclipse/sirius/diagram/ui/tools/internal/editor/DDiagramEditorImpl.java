@@ -134,7 +134,6 @@ import org.eclipse.sirius.diagram.ui.edit.internal.part.listener.SynchronizedSta
 import org.eclipse.sirius.diagram.ui.edit.internal.part.listener.VisibilityPostCommitListener;
 import org.eclipse.sirius.diagram.ui.internal.refresh.SiriusDiagramSessionEventBroker;
 import org.eclipse.sirius.diagram.ui.internal.refresh.SynchronizeGMFModelCommand;
-import org.eclipse.sirius.diagram.ui.internal.refresh.layout.SiriusCanonicalLayoutHandler;
 import org.eclipse.sirius.diagram.ui.internal.refresh.listeners.GMFDiagramUpdater;
 import org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditor;
 import org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorUtil;
@@ -385,8 +384,6 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
 
     private DialectEditorDialogFactory myDialogFactory = new DiagramDialectEditorDialogFactory(this);
 
-    private IOperationHistoryListener operationHistoryListener;
-
     private PaletteManager paletteManager;
 
     private Tabbar tabbar;
@@ -415,7 +412,6 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
      */
     public DDiagramEditorImpl() {
         super();
-        operationHistoryListener = new DOperationHistoryListener(this);
     }
 
     /**
@@ -426,7 +422,6 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
      */
     public DDiagramEditorImpl(IOperationHistoryListener operationHistoryListener) {
         super();
-        this.operationHistoryListener = operationHistoryListener;
     }
 
     @Override
@@ -796,7 +791,6 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
         if (getSite() != null) {
             getSite().getPage().removeSelectionListener(this);
         }
-        getOperationHistory().removeOperationHistoryListener(this.operationHistoryListener);
 
         if (adapterFactory instanceof IDisposable) {
             ((IDisposable) adapterFactory).dispose();
@@ -877,8 +871,6 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
             final DiagramEditorContextMenuProvider provider = new DiagramEditorContextMenuProvider(this, getDiagramGraphicalViewer());
             getDiagramGraphicalViewer().setContextMenu(provider);
             getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU, provider, getDiagramGraphicalViewer());
-
-            getOperationHistory().addOperationHistoryListener(operationHistoryListener);
         } else {
             workspaceViewerPreferenceStore = new PreferenceStore();
             if (getDiagramGraphicalViewer() instanceof DiagramGraphicalViewer) {
@@ -1012,14 +1004,6 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
                         return;
                     }
                 }
-            }
-
-            if (getOperationHistory() != null) {
-                // See the javadoc of addOperationHistoryListener. If the
-                // listener
-                // is already registered, the call has no effect.
-                // so we can safely add the listener here.
-                getOperationHistory().addOperationHistoryListener(this.operationHistoryListener);
             }
 
             setEclipseWindowTitle();
@@ -1499,7 +1483,7 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
             // to be arranged
             final DiagramEditPart diagramEditPart = getDiagramEditPart();
             if (diagramEditPart != null) {
-                SiriusCanonicalLayoutHandler.launchArrangeCommand(diagramEditPart);
+                // SiriusCanonicalLayoutHandler.launchArrangeCommand(diagramEditPart);
             }
 
             transferDropTargetListener = new DDiagramEditorTransferDropTargetListener(getGraphicalViewer(), LocalSelectionTransfer.getTransfer());
@@ -1808,7 +1792,7 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
             gmfDiagramUpdater = null;
         }
         if (representation instanceof DDiagram) {
-            gmfDiagramUpdater = new GMFDiagramUpdater(getSession(), (DDiagram) representation);
+            gmfDiagramUpdater = new GMFDiagramUpdater(getSession(), (DDiagram) representation, this);
         }
     }
 

@@ -325,7 +325,7 @@ public class DiagramRepairParticipant implements IRepairParticipant {
 
         for (DRepresentation representation : new DViewQuery(view).getLoadedRepresentations()) {
             if (representation instanceof DDiagram) {
-                GMFDiagramUpdater updater = new GMFDiagramUpdater(session, (DDiagram) representation);
+                GMFDiagramUpdater updater = new GMFDiagramUpdater(session, (DDiagram) representation, null);
                 gmfDiagramUpdaters.add(updater);
             }
         }

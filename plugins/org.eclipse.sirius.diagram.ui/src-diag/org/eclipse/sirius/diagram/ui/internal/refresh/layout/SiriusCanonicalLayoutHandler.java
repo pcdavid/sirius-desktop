@@ -21,6 +21,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -36,8 +37,8 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 
 /**
- * Helper to execute a ArrangeRequest's {@link Command} for created views (in
- * the DDiagramCanonicalSynchronizer ) to arrange.
+ * Helper to execute a ArrangeRequest's {@link Command} for created views (in the DDiagramCanonicalSynchronizer ) to
+ * arrange.
  * 
  * @author <a href="mailto:esteban.dugueperoux@obeo.fr">Esteban Dugueperoux</a>
  */
@@ -48,12 +49,11 @@ public final class SiriusCanonicalLayoutHandler {
     }
 
     /**
-     * Execute ArrangeRequest's {@link Command} for created views (in the
-     * DDiagramCanonicalSynchronizer) to arrange.
+     * Execute ArrangeRequest's {@link Command} for created views (in the DDiagramCanonicalSynchronizer) to arrange.
      * 
      * @param diagramEditPart
-     *            The {@link DiagramEditPart} used to get parent
-     *            {@link IGraphicalEditPart} of created {@link View}s to layout.
+     *            The {@link DiagramEditPart} used to get parent {@link IGraphicalEditPart} of created {@link View}s to
+     *            layout.
      */
     public static void launchArrangeCommand(DiagramEditPart diagramEditPart) {
         TransactionalEditingDomain editingDomain = diagramEditPart.getEditingDomain();
@@ -63,6 +63,21 @@ public final class SiriusCanonicalLayoutHandler {
         if (layoutCommand.canExecute()) {
             editingDomain.getCommandStack().execute(layoutCommand);
         }
+    }
+
+    /**
+     * Get ArrangeRequest's {@link Command} for created views (in the DDiagramCanonicalSynchronizer) to arrange.
+     * 
+     * @param diagramEditPart
+     *            The {@link DiagramEditPart} used to get parent {@link IGraphicalEditPart} of created {@link View}s to
+     *            layout.
+     */
+    public static Command getArrangeCommand(DiagramEditPart diagramEditPart) {
+        TransactionalEditingDomain editingDomain = diagramEditPart.getEditingDomain();
+        Map<IGraphicalEditPart, List<IAdaptable>> createdViewsToLayoutMap = getCreatedViewsToLayoutMap(diagramEditPart);
+        Map<IGraphicalEditPart, List<IAdaptable>> createdViewsWithSpecialLayoutMap = getCreatedViewsWithSpecialLayoutMap(diagramEditPart);
+        Command layoutCommand = getLayoutCommand(createdViewsToLayoutMap, createdViewsWithSpecialLayoutMap, editingDomain);
+        return layoutCommand;
     }
 
     private static Map<IGraphicalEditPart, List<IAdaptable>> getCreatedViewsToLayoutMap(DiagramEditPart diagramEditPart) {
@@ -152,24 +167,52 @@ public final class SiriusCanonicalLayoutHandler {
         // computed multiple times
         Predicate<Entry<IGraphicalEditPart, List<IAdaptable>>> typeOfElementToLayout = new Predicate<Map.Entry<IGraphicalEditPart, List<IAdaptable>>>() {
 
+            @Override
             public boolean apply(Entry<IGraphicalEditPart, List<IAdaptable>> input) {
-                return input.getKey() instanceof DDiagramEditPart
-                        || input.getKey() instanceof DNodeContainerViewNodeContainerCompartmentEditPart
-                        || (input.getKey() instanceof DNodeContainerViewNodeContainerCompartment2EditPart && !(input.getKey().getParent().getParent() instanceof DNodeContainerViewNodeContainerCompartment2EditPart));
+                return input.getKey() instanceof DDiagramEditPart || input.getKey() instanceof DNodeContainerViewNodeContainerCompartmentEditPart
+                        || (input.getKey() instanceof DNodeContainerViewNodeContainerCompartment2EditPart
+                                && !(input.getKey().getParent().getParent() instanceof DNodeContainerViewNodeContainerCompartment2EditPart));
             }
         };
 
         for (Entry<IGraphicalEditPart, List<IAdaptable>> entry : Iterables.filter(createdViewsToLayoutMap.entrySet(), typeOfElementToLayout)) {
             IGraphicalEditPart parentEditPart = entry.getKey();
             List<IAdaptable> childViewsAdapters = entry.getValue();
-            Command viewpointLayoutCanonicalSynchronizerCommand = new SiriusCanonicalLayoutCommand(editingDomain, parentEditPart, childViewsAdapters, null);
+            // Command viewpointLayoutCanonicalSynchronizerCommand = new SiriusCanonicalLayoutCommand(editingDomain,
+            // parentEditPart, childViewsAdapters, null);
+            org.eclipse.gef.commands.Command arrangeCreatedViewsCommand = SiriusLayoutDataManager.INSTANCE.getArrangeCreatedViewsCommand(childViewsAdapters, null, parentEditPart);
+            Command viewpointLayoutCanonicalSynchronizerCommand = new RecordingCommand(editingDomain) {
+                @Override
+                public boolean canExecute() {
+                    return arrangeCreatedViewsCommand.canExecute();
+                }
+
+                @Override
+                protected void doExecute() {
+                    arrangeCreatedViewsCommand.execute();
+                }
+            };
             compoundCommand.append(viewpointLayoutCanonicalSynchronizerCommand);
         }
 
         for (Entry<IGraphicalEditPart, List<IAdaptable>> entry : Iterables.filter(createdViewsWithSpecialLayoutMap.entrySet(), typeOfElementToLayout)) {
             IGraphicalEditPart parentEditPart = entry.getKey();
             List<IAdaptable> childViewsAdapters = entry.getValue();
-            Command viewpointLayoutCanonicalSynchronizerCommand = new SiriusCanonicalLayoutCommand(editingDomain, parentEditPart, null, childViewsAdapters);
+            // Command viewpointLayoutCanonicalSynchronizerCommand = new SiriusCanonicalLayoutCommand(editingDomain,
+            // parentEditPart, null,
+            // childViewsAdapters)
+            org.eclipse.gef.commands.Command arrangeCreatedViewsCommand = SiriusLayoutDataManager.INSTANCE.getArrangeCreatedViewsCommand(childViewsAdapters, null, parentEditPart);
+            Command viewpointLayoutCanonicalSynchronizerCommand = new RecordingCommand(editingDomain) {
+                @Override
+                public boolean canExecute() {
+                    return arrangeCreatedViewsCommand.canExecute();
+                }
+
+                @Override
+                protected void doExecute() {
+                    arrangeCreatedViewsCommand.execute();
+                }
+            };
             compoundCommand.append(viewpointLayoutCanonicalSynchronizerCommand);
         }
         return compoundCommand;

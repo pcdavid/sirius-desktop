@@ -389,6 +389,16 @@ public class UILocalSession {
      * @return Current {@link UILocalSession}
      */
     public UILocalSession save() {
+    	getOpenedSession().save(new NullProgressMonitor());
+        return this;
+    }
+
+    /**
+     * Save session.
+     * 
+     * @return Current {@link UILocalSession}
+     */
+    public UILocalSession saveUsingUI() {
         final SWTBotTreeItem rootTreeItem = getRootSessionTreeItem().select();
         if (getOpenedSession().getStatus() == SessionStatus.DIRTY) {
             SWTBotUtils.clickContextMenu(rootTreeItem, "Save");

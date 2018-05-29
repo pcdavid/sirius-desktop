@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -429,7 +430,8 @@ public class ViewpointRegistryImpl extends ViewpointRegistry {
      */
     @Override
     public void disposeFromPlugin(final Viewpoint viewpoint) {
-        viewpointsFromPlugin.remove(viewpoint);
+        Map<Viewpoint, URI> viewpointToURI = viewpointsFromPlugin.entrySet().stream().collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
+        viewpointsFromPlugin.remove(viewpointToURI.get(viewpoint));
 
         // remap the viewpoint uri to another viewpoint with same
         // viewpointUri if exists

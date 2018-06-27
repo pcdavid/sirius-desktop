@@ -79,17 +79,17 @@ public class STD013 extends AbstractSTDTestCase {
         editordiagram.activateTool("SuperType");
         // editordiagram.drag(210, 110, 60, 110);
         // sw
-        editordiagram.click("new EClass 1");
-        editordiagram.click("new EClass 2");
+        editordiagram.click("NewEClass1");
+        editordiagram.click("NewEClass2");
         // editordiagram.click(101, 101);
         // editordiagram.click(301, 101);
 
-        assertNotNull("2error", editordiagram.getEditPart("new EClass 2"));
-        assertNotNull("1error", editordiagram.getEditPart("new EClass 1"));
+        assertNotNull("2error", editordiagram.getEditPart("NewEClass2"));
+        assertNotNull("1error", editordiagram.getEditPart("NewEClass1"));
 
-        List<SWTBotGefConnectionEditPart> listResult = editordiagram.getConnectionEditPart(editordiagram.getEditPart("new EClass 2"), editordiagram.getEditPart("new EClass 1"));
+        List<SWTBotGefConnectionEditPart> listResult = editordiagram.getConnectionEditPart(editordiagram.getEditPart("NewEClass2"), editordiagram.getEditPart("NewEClass1"));
 
-        assertEquals("There is no edge between the two class!", 1, editordiagram.getEditPart("new EClass 1").targetConnections().size());
+        assertEquals("There is no edge between the two class!", 1, editordiagram.getEditPart("NewEClass1").targetConnections().size());
 
         assertNotNull(listResult);
         assertEquals("There is no edge between the two class!", 1, listResult.size());
@@ -101,7 +101,7 @@ public class STD013 extends AbstractSTDTestCase {
         editordiagram.click(60, 110);
         editordiagram.click(310, 210);
 
-        listResult = editordiagram.getConnectionEditPart(editordiagram.getEditPart("new EClass 2"), editordiagram.getEditPart("new EClass 3"));
+        listResult = editordiagram.getConnectionEditPart(editordiagram.getEditPart("NewEClass2"), editordiagram.getEditPart("NewEClass3"));
         assertNotNull(listResult);
         assertEquals("There is no edge between the two class!", listResult.size(), 1);
 

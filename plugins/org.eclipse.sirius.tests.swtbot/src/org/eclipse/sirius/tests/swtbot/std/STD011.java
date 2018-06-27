@@ -10,7 +10,11 @@
  *******************************************************************************/
 package org.eclipse.sirius.tests.swtbot.std;
 
+import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.tests.swtbot.Activator;
 import org.eclipse.sirius.tests.swtbot.sequence.condition.CheckNoOpenedSessionInModelContentView;
 import org.eclipse.sirius.tests.swtbot.support.api.AbstractSiriusSwtBotGefTestCase;
@@ -19,6 +23,7 @@ import org.eclipse.sirius.tests.swtbot.support.api.business.UILocalSession;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UIResource;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UISessionCreationWizardFlow.SessionChoice;
 import org.eclipse.sirius.tests.swtbot.support.api.editor.SWTBotSiriusDiagramEditor;
+import org.eclipse.swt.graphics.Color;
 
 /**
  * Test class for STD 011.
@@ -104,7 +109,12 @@ public class STD011 extends AbstractSiriusSwtBotGefTestCase {
 
         assertNotNull(editor.getEditPart(NEW_CLASS));
         assertNotNull(editor.getEditPart(NEW_ATTRIBUTE));
-
+        
+        Color backgroundColor = ((GraphicalEditPart) editor.getEditPart(PACKAGE_NAME).part()).getFigure().getBackgroundColor();
+        assertEquals("The package does not have the expected yellow color", 255, backgroundColor.getRed());
+        assertEquals("The package does not have the expected yellow color", 245, backgroundColor.getGreen());
+        assertEquals("The package does not have the expected yellow color", 181, backgroundColor.getBlue());
+        
         localSession.closeNoDirty();
 
     }

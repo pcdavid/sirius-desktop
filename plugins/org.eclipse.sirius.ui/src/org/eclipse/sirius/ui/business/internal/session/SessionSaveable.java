@@ -161,15 +161,15 @@ public class SessionSaveable extends Saveable {
     public boolean show(final IWorkbenchPage page) {
         if (session != null && page != null) {
             IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(session);
-            if (uiSession != null && !uiSession.getEditors().isEmpty()) {
-                ISiriusEditor siriusEditors = uiSession.getEditors().iterator().next();
-                final IWorkbenchPartReference reference = page.getReference(siriusEditors);
+            if (uiSession != null && !uiSession.getSiriusEditors().isEmpty()) {
+                ISiriusEditor siriusEditor = uiSession.getSiriusEditors(.next();
+                final IWorkbenchPartReference reference = page.getReference(siriusEditor);
                 if (reference != null) {
-                    page.activate(siriusEditors);
+                    page.activate(siriusEditor);
                     return true;
                 }
 
-                if (siriusEditors instanceof IViewPart) {
+                if (siriusEditor instanceof IViewPart) {
                     final IViewPart viewPart = (IViewPart) siriusEditors;
                     try {
                         page.showView(viewPart.getViewSite().getId(), viewPart.getViewSite().getSecondaryId(), IWorkbenchPage.VIEW_ACTIVATE);

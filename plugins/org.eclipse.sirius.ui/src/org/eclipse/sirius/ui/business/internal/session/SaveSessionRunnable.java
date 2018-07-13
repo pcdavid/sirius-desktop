@@ -16,7 +16,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
+import org.eclipse.sirius.ui.business.api.editor.ISiriusEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.ui.IEditorPart;
@@ -48,7 +48,7 @@ public class SaveSessionRunnable implements IJobRunnable {
     public IStatus run(IProgressMonitor monitor) {
         if (session != null) {
             IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(session);
-            Collection<DialectEditor> editors = uiSession.getEditors();
+            Collection<ISiriusEditor> editors = uiSession.getSiriusEditors();
             if (editors.isEmpty()) {
                 session.save(monitor);
             } else {

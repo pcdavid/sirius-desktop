@@ -453,12 +453,10 @@ public class EditingSession implements IEditingSession, ISaveablesSource, Refres
     @Override
     public Collection<DRepresentation> getOpenedRepresantationsToRefresh() {
         Collection<DRepresentation> openedRepresantationsToRefresh = new ArrayList<DRepresentation>();
-        for (ISiriusEditor dialectEditor : getEditors()) {
-            if (dialectEditor instanceof DialectEditor) {
-                DRepresentation dRepresentation = ((DialectEditor) dialectEditor).getRepresentation();
-                if (dRepresentation != null) {
-                    openedRepresantationsToRefresh.add(dRepresentation);
-                }
+        for (DialectEditor dialectEditor : getEditors()) {
+            DRepresentation dRepresentation = dialectEditor.getRepresentation();
+            if (dRepresentation != null) {
+                openedRepresantationsToRefresh.add(dRepresentation);
             }
         }
         return openedRepresantationsToRefresh;

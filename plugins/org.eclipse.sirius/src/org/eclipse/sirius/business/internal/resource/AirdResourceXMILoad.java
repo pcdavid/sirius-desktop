@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 Obeo.
+ * Copyright (c) 2015, 2018 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.UnresolvedReferenceException;
 import org.eclipse.emf.ecore.xmi.XMIException;
@@ -26,8 +29,7 @@ import org.eclipse.sirius.business.internal.migration.RepresentationsFileMigrati
 import org.xml.sax.helpers.DefaultHandler;
 
 /**
- * A specialization of {@link XMILoadImpl} to enable hooking into the XML
- * parsing for modeling migration.
+ * A specialization of {@link XMILoadImpl} to enable hooking into the XML parsing for modeling migration.
  * 
  * @author Cedric Brun <cedric.brun@obeo.fr>
  *
@@ -40,12 +42,10 @@ public class AirdResourceXMILoad extends XMILoadImpl {
     private boolean doMigration;
 
     /**
-     * Create a new {@link AirdResourceXMILoad}, suitable for on the fly
-     * migration of .aird files.
+     * Create a new {@link AirdResourceXMILoad}, suitable for on the fly migration of .aird files.
      * 
      * @param loadedVersion
-     *            the original version of the .aird file which is currently
-     *            being loaded.
+     *            the original version of the .aird file which is currently being loaded.
      * @param helper
      *            the xml helper to use during the load.
      */
@@ -56,8 +56,7 @@ public class AirdResourceXMILoad extends XMILoadImpl {
     }
 
     /**
-     * Create a new {@link AirdResourceXMILoad}, suitable for on the fly
-     * migration of .aird files.
+     * Create a new {@link AirdResourceXMILoad}, suitable for on the fly migration of .aird files.
      * 
      * @param helper
      *            the xml helper to use during the load.
@@ -83,8 +82,7 @@ public class AirdResourceXMILoad extends XMILoadImpl {
     }
 
     /**
-     * A specialization of the SAX XMI handler to delegate to the file migration
-     * service.
+     * A specialization of the SAX XMI handler to delegate to the file migration service.
      * 
      * @author cedric
      *
@@ -97,6 +95,40 @@ public class AirdResourceXMILoad extends XMILoadImpl {
 
             if (Boolean.TRUE.equals(options.get(AirDResourceImpl.OPTION_ABORT_ON_ERROR))) {
                 abortOnError = true;
+            }
+        }
+
+        @Override
+        protected void handleObjectAttribs(EObject obj) {
+            super.handleObjectAttribs(obj);
+
+            // Allow migration service to migrate the xmi:id to an attribute of the meta-model
+            if (doMigration && attribs != null) {
+                InternalEObject internalEObject = (InternalEObject) obj;
+                for (int i = 0, size = attribs.getLength(); i < size; ++i) {
+                    String name = attribs.getQName(i);
+                    if (ID_ATTRIB.equals(name)) {
+
+                        // We use null here instead of "" because an attribute without a prefix is considered to have
+                        // the null target namespace.
+                        // ID_ATTRIB (xmi:id) is used as name parameter because the migration system does currently not
+                        // transfer the namespace to the migration participants.
+                        EStructuralFeature feature = getFeature(internalEObject, null, ID_ATTRIB, false);
+                        if (feature != null && !feature.isMany()) {
+                            int kind = helper.getFeatureKind(feature);
+                            if (kind == XMLHelper.DATATYPE_SINGLE) {
+                                String value = attribs.getValue(i);
+                                setFeatureValue(internalEObject, feature, value, -2);
+                                // The super.handleObjectAttribs() already put the xmi:id as id in the xml resource
+                                // cache.
+                                // Even if the migration service has returned a feature now used as id, the cache is
+                                // already up to date. There is no need to update here it with
+                                // xmlResource.setID(internalEObject, value);
+                            }
+                        }
+                        break;
+                    }
+                }
             }
         }
 

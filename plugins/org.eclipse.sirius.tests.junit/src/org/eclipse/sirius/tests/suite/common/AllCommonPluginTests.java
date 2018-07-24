@@ -114,6 +114,7 @@ import org.eclipse.sirius.tests.unit.common.migration.MigrationFromSirius1_0_0_M
 import org.eclipse.sirius.tests.unit.common.migration.ModelsToSemanticResourcesMigrationTest;
 import org.eclipse.sirius.tests.unit.common.migration.NoteAttachmentMigrationTest;
 import org.eclipse.sirius.tests.unit.common.migration.VariableMigrationTest;
+import org.eclipse.sirius.tests.unit.common.rename.RenameSemanticElementTest;
 import org.eclipse.sirius.tests.unit.diagram.filter.EObjectSelectionFilterTest;
 import org.eclipse.sirius.tests.unit.diagram.migration.BorderSizeMigrationTest;
 import org.eclipse.sirius.tests.unit.diagram.migration.ComputedStyleDescriptionCachePackingFileMigrationParticipantTests;
@@ -343,6 +344,8 @@ public class AllCommonPluginTests extends TestCase {
 
         suite.addTestSuite(PageOrdererTest.class);
         suite.addTestSuite(ModelingProjectDetectionTest.class);
+        
+        suite.addTestSuite(RenameSemanticElementTest.class);
     }
 
     /**

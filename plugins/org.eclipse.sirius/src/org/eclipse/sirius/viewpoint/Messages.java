@@ -193,6 +193,9 @@ public final class Messages {
     public static String DeleteWithoutToolTask_label;
 
     @TranslatableMessage
+    public static String DependenciesCollectProcess_errorMsg;
+
+    @TranslatableMessage
     public static String DialectManagerImpl_refreshImpactedMsg;
 
     @TranslatableMessage
@@ -568,6 +571,9 @@ public final class Messages {
     public static String SetValueTask_label;
 
     @TranslatableMessage
+    public static String SiriusCollectProxies_resourceProxiesFailedMsg;
+
+    @TranslatableMessage
     public static String SiriusControlCommand_controlResourceMsg;
 
     @TranslatableMessage
@@ -629,6 +635,9 @@ public final class Messages {
 
     @TranslatableMessage
     public static String SiriusRepairProcess_handlingViewMsg;
+
+    @TranslatableMessage
+    public static String SiriusSerializeResource_saveFailedMsg;
 
     @TranslatableMessage
     public static String SiriusTasksKey_mmExtension;

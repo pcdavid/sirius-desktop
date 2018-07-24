@@ -83,7 +83,8 @@ Require-Bundle: org.eclipse.sirius.tests.sample.benchmark,
  org.apache.batik.dom.svg,
  org.apache.batik.util,
  org.apache.batik.dom,
- org.eclipse.sirius.ext.draw2d
+ org.eclipse.sirius.ext.draw2d,
+ org.eclipse.ltk.core.refactoring
 Bundle-Activator: org.eclipse.sirius.tests.SiriusTestsPlugin
 Eclipse-LazyStart: true
 Bundle-Localization: plugin

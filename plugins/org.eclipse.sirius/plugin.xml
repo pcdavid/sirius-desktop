@@ -488,5 +488,41 @@
             class="org.eclipse.sirius.business.internal.migration.description.ViewpointMigrationHandler">
       </migrationHandler>
    </extension>
+   <extension
+         point="org.eclipse.ltk.core.refactoring.renameParticipants">
+	     <renameParticipant
+	            class="org.eclipse.sirius.business.internal.rename.RenameModelResourceParticipant"
+	            id="org.eclipse.sirius.business.internal.rename.renameModelResourceParticipant"
+	            name="%ModelResourceRename.name">
+	         <enablement>
+	      	   <or>
+                  <instanceof
+                        value="org.eclipse.core.resources.IFile">
+                  </instanceof>
+                  <instanceof
+                        value="org.eclipse.core.resources.IFolder">
+                  </instanceof>
+               </or>
+	      	 </enablement>
+         </renameParticipant>
+   </extension>
+   <extension
+         point="org.eclipse.ltk.core.refactoring.moveParticipants">
+      <moveParticipant
+            class="org.eclipse.sirius.business.internal.rename.MoveModelResourceParticipant"
+            id="org.eclipse.sirius.business.internal.rename.moveModelParticipant"
+            name="%ModelResourceMove.name">
+          <enablement>
+	      	   <or>
+                  <instanceof
+                        value="org.eclipse.core.resources.IFile">
+                  </instanceof>
+                  <instanceof
+                        value="org.eclipse.core.resources.IFolder">
+                  </instanceof>
+               </or>
+	      </enablement>
+      </moveParticipant>
+   </extension>
 
 </plugin>

@@ -537,7 +537,9 @@ public class DTableViewerManager extends AbstractDTableViewerManager {
      */
     protected void triggerCustomDrawingTreeItems() {
         // Manage selected colors for cells
-        treeViewer.getTree().addListener(SWT.EraseItem, new DTableEraseItemListener(this, treeViewer));
+        if ("win32".equals(SWT.getPlatform())) { //$NON-NLS-1$
+            treeViewer.getTree().addListener(SWT.EraseItem, new DTableEraseItemListener(this, treeViewer));
+        }
     }
 
     /**

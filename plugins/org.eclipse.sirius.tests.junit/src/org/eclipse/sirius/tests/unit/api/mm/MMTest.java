@@ -12,11 +12,16 @@ package org.eclipse.sirius.tests.unit.api.mm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.diagram.DDiagram;
@@ -112,27 +117,56 @@ public class MMTest extends SiriusDiagramTestCase {
         allClassifiers.addAll(TablePackage.eINSTANCE.getEClassifiers());
         allClassifiers.addAll(SequencePackage.eINSTANCE.getEClassifiers());
 
+        System.out.println("Tested factories: ");
+        System.out.println(getFactoryInfo(ViewpointPackage.eINSTANCE.getEFactoryInstance()));
+        System.out.println(getFactoryInfo(DiagramPackage.eINSTANCE.getEFactoryInstance()));
+        System.out.println(getFactoryInfo(TreePackage.eINSTANCE.getEFactoryInstance()));
+        System.out.println(getFactoryInfo(TablePackage.eINSTANCE.getEFactoryInstance()));
+        System.out.println(getFactoryInfo(SequencePackage.eINSTANCE.getEFactoryInstance()));
+
         List<EClass> allClasses = allClassifiers.stream().filter(EClass.class::isInstance).map(EClass.class::cast).filter(cl -> !cl.isInterface()).collect(Collectors.toList());
 
         allClasses.removeAll(TRANSIENT_OBJECTS_WHITE_LIST);
 
         List<String> invalidEClasses = new ArrayList<>();
         List<String> invalidInstances = new ArrayList<>();
+        Collection<EClass> externalEClasses = new LinkedHashSet<>();
         for (EClass eClass : allClasses) {
             Class<?> instanceClass = eClass.getInstanceClass();
             if (!IdentifiedElement.class.isAssignableFrom(instanceClass)) {
                 invalidEClasses.add(eClass.getName());
             } else if (!eClass.isAbstract() && !eClass.isInterface()) {
                 IdentifiedElement identifiedElement = (IdentifiedElement) EcoreUtil.create(eClass);
-              String uid=  identifiedElement.getUid();
-               if(StringUtil.isEmpty(uid) || uid.length() != uuidLength) {
-                   invalidInstances.add(eClass.getName());
-               }
+                String uid = identifiedElement.getUid();
+                if (StringUtil.isEmpty(uid) || uid.length() != uuidLength) {
+                    invalidInstances.add(eClass.getName());
+                }
+            }
+            for (EReference containmentRef : eClass.getEAllContainments()) {
+                EClass eReferenceType = containmentRef.getEReferenceType();
+                if (!containmentRef.isTransient() && !allClasses.contains(eReferenceType) && !TRANSIENT_OBJECTS_WHITE_LIST.contains(eReferenceType)) {
+                    // EClass from a non tested EPackage
+                    if (!ViewpointPackage.eINSTANCE.getIdentifiedElement().isSuperTypeOf(eReferenceType)) {
+                        externalEClasses.add(eReferenceType);
+                        System.out.println(containmentRef.getEContainingClass().getName()+"."+containmentRef.getName()+" : "+eReferenceType.getName() );
+                    } else if (!eReferenceType.isAbstract() && !eReferenceType.isInterface()) {
+                        IdentifiedElement identifiedElement = (IdentifiedElement) EcoreUtil.create(eReferenceType);
+                        String uid = identifiedElement.getUid();
+                        if (StringUtil.isEmpty(uid) || uid.length() != uuidLength) {
+                            invalidInstances.add(eReferenceType.getName());
+                        }
+                    }
+                }
             }
         }
 
         assertTrue("The following classes should inherit from IdentifiedElement class:\n" + invalidEClasses, invalidEClasses.isEmpty());
         assertTrue("The instances of the following classes should have an uid after creation:\n" + invalidInstances, invalidInstances.isEmpty());
+        assertTrue("The following classes should be inspected. They might require to become subtypes of IdentifiedElementQuery:\n" + externalEClasses, externalEClasses.isEmpty());
+    }
+
+    private String getFactoryInfo(EFactory factory) {
+        return factory.getClass() + " from " + factory.getClass().getClassLoader();
     }
 
 }

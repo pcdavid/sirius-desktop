@@ -44,16 +44,17 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListElementEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeNameEditPart;
-import org.eclipse.sirius.tests.support.api.ICondition;
-import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.tests.swtbot.support.api.condition.OperationDoneCondition;
 import org.eclipse.sirius.tests.swtbot.support.api.editor.SWTBotSiriusDiagramEditor;
 import org.eclipse.sirius.tests.swtbot.support.api.editor.SWTBotSiriusHelper;
 import org.eclipse.sirius.tests.swtbot.support.utils.SWTBotUtils;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefConnectionEditPart;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
+import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
+import org.eclipse.swtbot.swt.finder.waits.ICondition;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarDropDownButton;
+import org.eclipse.swtbot.swt.finder.widgets.TimeoutException;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
@@ -66,13 +67,10 @@ import org.hamcrest.Matcher;
 public class EditModeTest extends AbstractModeTest {
 
     private void reconnectEdge(String source, String target, String newTargetName) {
-
         SWTBotGefEditPart sourceEditPartBot = getEditPart(source, AbstractBorderItemEditPart.class);
         SWTBotGefEditPart targetEditPartBot = getEditPart(target, AbstractBorderItemEditPart.class);
         SWTBotGefEditPart newtargetEditPartBot = getEditPart(newTargetName, AbstractBorderItemEditPart.class);
         SWTBotGefConnectionEditPart connectionEditPartBot = editor.getConnectionEditPart(sourceEditPartBot, targetEditPartBot).get(0);
-
-        editor.reveal(connectionEditPartBot.part());
 
         // Reconnect target of first connection
         PointList connection1Points = ((AbstractConnectionEditPart) connectionEditPartBot.part()).getConnectionFigure().getPoints().getCopy();
@@ -145,7 +143,7 @@ public class EditModeTest extends AbstractModeTest {
             assertDragAndDropToolHasBeenApplied("new EClass 5", "new EPackage 3", true);
             SWTBotGefEditPart rootEditPart = editor.rootEditPart();
             editor.click(rootEditPart);
-            TestsUtil.waitUntil(new ICondition() {
+            bot.waitUntil(new ICondition() {
 
                 @Override
                 public boolean test() throws Exception {
@@ -156,6 +154,11 @@ public class EditModeTest extends AbstractModeTest {
                 @Override
                 public String getFailureMessage() {
                     return "diagram was never selected";
+                }
+
+                @Override
+                public void init(SWTBot bot) {
+
                 }
             });
             editor.save();
@@ -365,9 +368,9 @@ public class EditModeTest extends AbstractModeTest {
      *            the corresponding part.
      */
     private void hideShow(DDiagramElement element, SWTBotGefEditPart swtBotEditPart, boolean isLabelHidden) {
-        editor.reveal(swtBotEditPart.part());
         OperationDoneCondition done = new OperationDoneCondition();
         swtBotEditPart.doubleClick();
+        SWTBotUtils.waitAllUiEvents();
         bot.waitUntil(done);
         SWTBotUtils.waitAllUiEvents();
 
@@ -379,6 +382,7 @@ public class EditModeTest extends AbstractModeTest {
         }
         done = new OperationDoneCondition();
         swtBotEditPart.doubleClick();
+        SWTBotUtils.waitAllUiEvents();
         bot.waitUntil(done);
         SWTBotUtils.waitAllUiEvents();
 
@@ -422,7 +426,7 @@ public class EditModeTest extends AbstractModeTest {
     // public void testShowHideDoubleClickOnEdge() {
     // SWTBotGefEditPart swtBotDNodeEditPart = getEdgePart("EPackage4");
     // EditPart part = swtBotDNodeEditPart.part();
-    // DEdgeSpec element = (DEdgeSpec) ((Edge) part.getModel()).getElement();
+    // DEdge element = (DEdge) ((Edge) part.getModel()).getElement();
     // assertFalse("The edge should not have its label filtered.",
     // element.getGraphicalFilters().stream().anyMatch(HideFilter.class::isInstance));
     //
@@ -557,26 +561,14 @@ public class EditModeTest extends AbstractModeTest {
         activateShowHideModeUsingTabbar();
         switchLayer("L7");
         SWTBotUtils.waitAllUiEvents();
-        activateLayerFilterAndAssert(editPart, element);
-    }
-
-    /**
-     * Test that a double click on an element that need a layer to be activated or a filter to be deactivated to be
-     * visible open a dialog for the user to accept the update to make it visible.
-     * 
-     * @param editPart
-     *            edit part of the element to make visible.
-     * @param element
-     *            the element to make visible.
-     */
-    private void activateLayerFilterAndAssert(SWTBotGefEditPart editPart, DDiagramElement element) {
-        assertFalse("The element should not be visible.", element.isVisible());
+        assertFalse("The node should not be visible.", element.isVisible());
         editor.reveal(editPart.part());
         editPart.doubleClick();
         bot.waitUntil(shellIsActive("Filter/layer update confirmation"));
         bot.activeShell().bot().button("OK").click();
         SWTBotUtils.waitAllUiEvents();
-        assertTrue("The element should be visible.", element.isVisible());
+        assertTrue("The node should be visible.", element.isVisible());
+
     }
 
     /**
@@ -585,20 +577,30 @@ public class EditModeTest extends AbstractModeTest {
      */
     public void testShowHideDoubleClickOnFilteredContainer() {
         SWTBotToolbarDropDownButton toolbarDropDownButton = editor.bot().toolbarDropDownButton(3);
+        ICondition done = new OperationDoneCondition();
         toolbarDropDownButton.menuItem("f1").click();
         SWTBotUtils.waitAllUiEvents();
+        bot.waitUntil(done);
 
         try {
             getEditPart("new EPackage 2", DNodeContainerEditPart.class);
             fail("Part should be not visible at all.");
-        } catch (WidgetNotFoundException | AssertionError e) {
+        } catch (WidgetNotFoundException | AssertionError | TimeoutException e) {
         }
 
         activateShowHideModeUsingTabbar();
-        SWTBotGefEditPart swtBotEditPart = getEditPart("new EPackage 2", DNodeContainerEditPart.class);
-        EditPart part = swtBotEditPart.part();
+        SWTBotGefEditPart swtBotDNodeEditPart = getEditPart("new EPackage 2", DNodeContainerEditPart.class);
+        EditPart part = swtBotDNodeEditPart.part();
         DNodeContainer element = (DNodeContainer) ((Node) part.getModel()).getElement();
-        activateLayerFilterAndAssert(swtBotEditPart, element);
+        assertFalse("The container should not be visible", element.isVisible());
+
+        swtBotDNodeEditPart.doubleClick();
+
+        bot.waitUntil(shellIsActive("Filter/layer update confirmation"));
+        bot.activeShell().bot().button("OK").click();
+        SWTBotUtils.waitAllUiEvents();
+
+        assertTrue("The container should be visible", element.isVisible());
     }
 
     /**
@@ -611,14 +613,22 @@ public class EditModeTest extends AbstractModeTest {
 
         activateShowHideModeUsingTabbar();
 
-        SWTBotGefEditPart swtBotEditPart = getEditPart("new EPackage 2", DNodeContainerEditPart.class);
-        EditPart part = swtBotEditPart.part();
+        SWTBotGefEditPart swtBotDNodeEditPart = getEditPart("new EPackage 2", DNodeContainerEditPart.class);
+        EditPart part = swtBotDNodeEditPart.part();
         DNodeContainer element = (DNodeContainer) ((Node) part.getModel()).getElement();
-        activateLayerFilterAndAssert(swtBotEditPart, element);
+        assertFalse("The container should not be visible", element.isVisible());
+
+        swtBotDNodeEditPart.doubleClick();
+
+        bot.waitUntil(shellIsActive("Filter/layer update confirmation"));
+        bot.activeShell().bot().button("OK").click();
+        SWTBotUtils.waitAllUiEvents();
+
+        assertTrue("The container should be visible", element.isVisible());
     }
 
     private List<SWTBotGefEditPart> getAvailableCompartmentEditParts() {
-        TestsUtil.waitUntil(new ICondition() {
+        bot.waitUntil(new ICondition() {
 
             @Override
             public boolean test() throws Exception {
@@ -629,6 +639,10 @@ public class EditModeTest extends AbstractModeTest {
             @Override
             public String getFailureMessage() {
                 return "No compartment parts found.";
+            }
+
+            @Override
+            public void init(SWTBot bot) {
             }
 
         });
@@ -660,7 +674,7 @@ public class EditModeTest extends AbstractModeTest {
     }
 
     private SWTBotGefEditPart getEditPart(String partName, Class classType) {
-        TestsUtil.waitUntil(new ICondition() {
+        bot.waitUntil(new ICondition() {
 
             @Override
             public boolean test() throws Exception {
@@ -675,6 +689,10 @@ public class EditModeTest extends AbstractModeTest {
             @Override
             public String getFailureMessage() {
                 return partName + " not found.";
+            }
+
+            @Override
+            public void init(SWTBot bot) {
             }
         });
         SWTBotGefEditPart swtBotDNodeEditPart = editor.getEditPart(partName, classType);

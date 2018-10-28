@@ -25,15 +25,16 @@ import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart;
 import org.eclipse.sirius.diagram.ui.provider.Messages;
-import org.eclipse.sirius.tests.support.api.ICondition;
-import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.tests.swtbot.support.api.AbstractSiriusSwtBotGefTestCase;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UIResource;
+import org.eclipse.sirius.tests.swtbot.support.api.condition.OperationDoneCondition;
 import org.eclipse.sirius.tests.swtbot.support.api.editor.SWTBotSiriusDiagramEditor;
 import org.eclipse.sirius.tests.swtbot.support.utils.SWTBotUtils;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefConnectionEditPart;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
+import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
+import org.eclipse.swtbot.swt.finder.waits.ICondition;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarDropDownButton;
 
 /**
@@ -82,7 +83,7 @@ public abstract class AbstractModeTest extends AbstractSiriusSwtBotGefTestCase {
      *            indicates whether a tool should have been applied or not
      */
     protected void assertToolHasBeenApplied(boolean shouldHaveBeenApplied) {
-        TestsUtil.waitUntil(new ICondition() {
+        bot.waitUntil(new ICondition() {
 
             @Override
             public boolean test() throws Exception {
@@ -98,6 +99,10 @@ public abstract class AbstractModeTest extends AbstractSiriusSwtBotGefTestCase {
                     message = "Tool should not have been applied as Layouting mode is activated";
                 }
                 return message;
+            }
+
+            @Override
+            public void init(SWTBot bot) {
             }
         });
 
@@ -141,7 +146,7 @@ public abstract class AbstractModeTest extends AbstractSiriusSwtBotGefTestCase {
     protected void assertDragAndDropToolHasBeenApplied(String draggedObject, String parentObject, boolean shouldHaveBeenApplied) {
         SWTBotGefEditPart draggedEditPart = editor.getEditPart(draggedObject);
         SWTBotGefEditPart parentEditPart = editor.getEditPart(parentObject);
-        TestsUtil.waitUntil(new ICondition() {
+        bot.waitUntil(new ICondition() {
 
             @Override
             public boolean test() throws Exception {
@@ -160,6 +165,10 @@ public abstract class AbstractModeTest extends AbstractSiriusSwtBotGefTestCase {
                     message = "Drag and drop should not have been applied";
                 }
                 return message;
+            }
+
+            @Override
+            public void init(SWTBot bot) {
             }
         });
 
@@ -209,18 +218,6 @@ public abstract class AbstractModeTest extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Activates the Show/Hide mode using the tabbar button.
-     */
-    protected void activateShowHideModeUsingTabbar() {
-        SWTBotGefEditPart editPart = editor.getSWTBotGefViewer().mainEditPart();
-        editPart.click();
-        SWTBotUtils.waitAllUiEvents();
-        SWTBotToolbarDropDownButton toolbarDropDownButton = editor.bot().toolbarDropDownButton(4);
-        SWTBotUtils.waitAllUiEvents();
-        toolbarDropDownButton.menuItem(Messages.ShowingModeSwitchingAction_label).click();
-    }
-
-    /**
      * Switch layer activation status.
      * 
      * @param layerName
@@ -232,27 +229,40 @@ public abstract class AbstractModeTest extends AbstractSiriusSwtBotGefTestCase {
         SWTBotUtils.waitAllUiEvents();
         SWTBotToolbarDropDownButton toolbarDropDownButton = editor.bot().toolbarDropDownButton(2);
         SWTBotUtils.waitAllUiEvents();
+        ICondition done = new OperationDoneCondition();
         toolbarDropDownButton.menuItem(layerName).click();
+        bot.waitUntil(done);
+        SWTBotUtils.waitAllUiEvents();
     }
 
     /**
      * Activate the standard mode.
      */
     protected void activateStandardModeUsingTabbar() {
-        SWTBotGefEditPart editPart = editor.getSWTBotGefViewer().mainEditPart();
-        editPart.click();
-        SWTBotToolbarDropDownButton toolbarDropDownButton = editor.bot().toolbarDropDownButton(4);
-        toolbarDropDownButton.menuItem(Messages.DefaultModeAction_Label).click();
+        activateVisibilityModeUsingTabbar(Messages.DefaultModeAction_Label);
     }
-
+    
     /**
      * Activates the Layouting mode using the tabbar button.
      */
     protected void activateLayoutingModeUsingTabbar() {
-        SWTBotGefEditPart editPart = editor.getSWTBotGefViewer().mainEditPart();
-        editPart.click();
-        SWTBotToolbarDropDownButton toolbarDropDownButton = editor.bot().toolbarDropDownButton(4);
-        toolbarDropDownButton.menuItem(Messages.LayoutingModeSwitchingAction_label).click();
+        activateVisibilityModeUsingTabbar(Messages.LayoutingModeSwitchingAction_label);
+    }
+    
+    /**
+     * Activates the Show/Hide mode using the tabbar button.
+     */
+    protected void activateShowHideModeUsingTabbar() {
+        activateVisibilityModeUsingTabbar(Messages.ShowingModeSwitchingAction_label);
     }
 
+    private void activateVisibilityModeUsingTabbar(String visibilityModeLabel) {
+        SWTBotGefEditPart editPart = editor.getSWTBotGefViewer().mainEditPart();
+        editPart.click();
+        SWTBotUtils.waitAllUiEvents();
+        SWTBotToolbarDropDownButton toolbarDropDownButton = editor.bot().toolbarDropDownButton(4);
+        SWTBotUtils.waitAllUiEvents();
+        toolbarDropDownButton.menuItem(visibilityModeLabel).click();
+        SWTBotUtils.waitAllUiEvents();
+    }
 }

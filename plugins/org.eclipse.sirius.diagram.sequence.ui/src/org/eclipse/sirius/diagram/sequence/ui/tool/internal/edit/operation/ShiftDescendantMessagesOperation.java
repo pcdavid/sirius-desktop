@@ -43,9 +43,8 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 
 /**
- * This operation is called when an execution is moved or resized vertically. It
- * adjusts the GMF bendpoints of the messages to/from an execution (or any of
- * its sub-executions) so that the messages are moved along with the execution
+ * This operation is called when an execution is moved or resized vertically. It adjusts the GMF bendpoints of the
+ * messages to/from an execution (or any of its sub-executions) so that the messages are moved along with the execution
  * of the same amount.
  * 
  * @author pcdavid, mporhel, smonnier
@@ -88,12 +87,10 @@ public class ShiftDescendantMessagesOperation extends ShiftMessagesOperation {
      * @param revert
      *            if true, revert the adjustments from source/target vectors
      * @param move
-     *            if true, the messages of any of its sub-executions will be
-     *            shifted. If false, the parent part was resized and only direct
-     *            sub messages will be shifted
+     *            if true, the messages of any of its sub-executions will be shifted. If false, the parent part was
+     *            resized and only direct sub messages will be shifted
      * @param fromTop
-     *            Used if move = false (resize) to know from where the
-     *            parentPart is resized.
+     *            Used if move = false (resize) to know from where the parentPart is resized.
      */
     public ShiftDescendantMessagesOperation(ISequenceEvent parent, int deltaY, boolean revert, boolean move, boolean fromTop) {
         super(MessageFormat.format(Messages.ShifDescendantMessagesOperation_operationName, deltaY), deltaY, revert, move);
@@ -110,13 +107,12 @@ public class ShiftDescendantMessagesOperation extends ShiftMessagesOperation {
      * @param parent
      *            the execution whose descendant messages must be adjusted.
      * @param finalGrandParent
-     *            the actual grandparent of the "executionEditPart" replacement
-     *            (after a refresh) at the time of command execution.
+     *            the actual grandparent of the "executionEditPart" replacement (after a refresh) at the time of command
+     *            execution.
      * @param deltaY
      *            the vertical amount the execution was moved.
      * @param ignoreContainedReflexiveMessage
-     *            the parameter to decide if we need to ignore the contained
-     *            reflexive messages.
+     *            the parameter to decide if we need to ignore the contained reflexive messages.
      */
     public ShiftDescendantMessagesOperation(ISequenceEvent parent, ISequenceEvent finalGrandParent, int deltaY, boolean ignoreContainedReflexiveMessage) {
         this(parent, deltaY);
@@ -187,7 +183,7 @@ public class ShiftDescendantMessagesOperation extends ShiftMessagesOperation {
     private boolean isNoteAttachment(Edge conn) {
         return conn != null && GMFNotationHelper.isNoteAttachment(conn);
     }
-    
+
     private boolean isNonSequenceEdgeAttachment(Edge conn) {
         return conn != null && conn.getElement() instanceof DEdge && !ISequenceElementAccessor.getMessage(conn).some();
     }
@@ -197,18 +193,22 @@ public class ShiftDescendantMessagesOperation extends ShiftMessagesOperation {
 
         if (isOutgoing) {
             IdentityAnchor sourceAnchor = (IdentityAnchor) edge.getSourceAnchor();
-            int sourceAnchorLocation = SequenceGraphicalHelper.getAnchorAbsolutePosition(sourceAnchor, oldParentRange);
-            PrecisionPoint position = BaseSlidableAnchor.parseTerminalString(sourceAnchor.getId());
-            position.setPreciseY(newParentRange.getProportionalLocation(sourceAnchorLocation));
-            String terminal = new SlidableAnchor(null, position).getTerminal();
-            sourceAnchor.setId(terminal);
+            if (sourceAnchor != null) {
+                int sourceAnchorLocation = SequenceGraphicalHelper.getAnchorAbsolutePosition(sourceAnchor, oldParentRange);
+                PrecisionPoint position = BaseSlidableAnchor.parseTerminalString(sourceAnchor.getId());
+                position.setPreciseY(newParentRange.getProportionalLocation(sourceAnchorLocation));
+                String terminal = new SlidableAnchor(null, position).getTerminal();
+                sourceAnchor.setId(terminal);
+            }
         } else {
             IdentityAnchor targetAnchor = (IdentityAnchor) edge.getTargetAnchor();
-            int targetAnchorLocation = SequenceGraphicalHelper.getAnchorAbsolutePosition(targetAnchor, oldParentRange);
-            PrecisionPoint position = BaseSlidableAnchor.parseTerminalString(targetAnchor.getId());
-            position.setPreciseY(newParentRange.getProportionalLocation(targetAnchorLocation));
-            String terminal = new SlidableAnchor(null, position).getTerminal();
-            targetAnchor.setId(terminal);
+            if (targetAnchor != null) {
+                int targetAnchorLocation = SequenceGraphicalHelper.getAnchorAbsolutePosition(targetAnchor, oldParentRange);
+                PrecisionPoint position = BaseSlidableAnchor.parseTerminalString(targetAnchor.getId());
+                position.setPreciseY(newParentRange.getProportionalLocation(targetAnchorLocation));
+                String terminal = new SlidableAnchor(null, position).getTerminal();
+                targetAnchor.setId(terminal);
+            }
         }
     }
 

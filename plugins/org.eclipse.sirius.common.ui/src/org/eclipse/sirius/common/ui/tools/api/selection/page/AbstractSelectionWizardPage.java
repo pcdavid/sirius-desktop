@@ -103,7 +103,12 @@ public abstract class AbstractSelectionWizardPage extends WizardPage {
                 treeViewer.expandToLevel(2);
             }
         } else {
-            treeViewer.expandAll();
+            treeViewer.getTree().setRedraw(false);
+            try {
+              treeViewer.expandAll();
+            } finally {
+                treeViewer.getTree().setRedraw(true);
+            }
         }
     }
 

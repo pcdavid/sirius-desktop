@@ -372,7 +372,12 @@ public class SelectAnalysisFilePage extends WizardPage {
                 if (item == null) {
                     final Object[] expandedElements = getExpandedElements();
 
-                    expandAll();
+                    getTree().setRedraw(false);
+                    try {
+                      expandAll();
+                    } finally {
+                        getTree().setRedraw(true);
+                    }
                     item = findItem(element);
                     setExpandedElements(expandedElements);
                 }

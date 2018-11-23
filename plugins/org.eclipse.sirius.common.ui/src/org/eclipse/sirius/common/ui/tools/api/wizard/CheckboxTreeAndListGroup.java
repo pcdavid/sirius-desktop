@@ -412,7 +412,12 @@ public class CheckboxTreeAndListGroup implements ICheckStateListener, ISelection
      * Cause the tree viewer to expand all its items.
      */
     public void expandAll() {
-        treeViewer.expandAll();
+        treeViewer.getTree().setRedraw(false);
+        try {
+          treeViewer.expandAll();
+        } finally {
+            treeViewer.getTree().setRedraw(true);
+        }
     }
 
     /**

@@ -466,11 +466,22 @@ public class DiagramElementsSelectionDialog {
         }
 
         private void expandAll() {
-            getTreeViewer().expandAll();
+            getTreeViewer().getTree().setRedraw(false);
+            try {
+                getTreeViewer().expandAll();
+            } finally {
+                getTreeViewer().getTree().setRedraw(true);
+            }
+            
         }
 
         private void collapseAll() {
-            getTreeViewer().collapseAll();
+            getTreeViewer().getTree().setRedraw(false);
+            try {
+                getTreeViewer().collapseAll();
+            } finally {
+                getTreeViewer().getTree().setRedraw(true);
+            }
         }
 
         /**
@@ -485,10 +496,18 @@ public class DiagramElementsSelectionDialog {
             this.refresh();
             // We expand the tree so that all elements matching the regular
             // expression (i.e. all visible leafs) are correctly shown
-            getTreeViewer().expandAll();
-            getTreeViewer().setAllChecked(false);
+            CheckboxTreeViewer treeViewer = getTreeViewer();
+            
+            treeViewer.getTree().setRedraw(false);
+            try {
+              treeViewer.expandAll();
+            } finally {
+                treeViewer.getTree().setRedraw(true);
+            }
+            
+            treeViewer.setAllChecked(false);
             for (Object element : checkedElements) {
-                getTreeViewer().setChecked(element, true);
+                treeViewer.setChecked(element, true);
             }
         }
 

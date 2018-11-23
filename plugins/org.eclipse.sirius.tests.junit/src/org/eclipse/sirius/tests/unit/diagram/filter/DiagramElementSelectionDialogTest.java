@@ -55,9 +55,8 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.Sets.SetView;
 
 /**
- * Ensures that the {@link DiagramElementsSelectionDialog} works correctly, i.e.
- * allow end-users to filter elements according to their "check" status and
- * their names (using regular expressions) and change their status.
+ * Ensures that the {@link DiagramElementsSelectionDialog} works correctly, i.e. allow end-users to filter elements
+ * according to their "check" status and their names (using regular expressions) and change their status.
  * 
  * @author <a href="mailto:alex.lagarde@obeo.fr">Alex Lagarde</a>
  */
@@ -110,8 +109,7 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
     };
 
     /**
-     * Used to access protected fields of {@link DiagramElementsSelectionDialog}
-     * and test its behavior.
+     * Used to access protected fields of {@link DiagramElementsSelectionDialog} and test its behavior.
      */
     private DiagramElementsSelectionDialogTester dialogTester;
 
@@ -135,8 +133,7 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
     }
 
     /**
-     * Ensures that the initial RegExp (empty String) allows to select all
-     * elements.
+     * Ensures that the initial RegExp (empty String) allows to select all elements.
      */
     public void testInitialRegExp() {
         // We ensure that all elements are visible and checked
@@ -145,8 +142,8 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
     }
 
     /**
-     * Ensures the viewer is correctly updated and checked elements don't change
-     * if user type complex regular expressions.
+     * Ensures the viewer is correctly updated and checked elements don't change if user type complex regular
+     * expressions.
      */
     public void testComplexRegExp() {
 
@@ -160,8 +157,8 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
     }
 
     /**
-     * Ensures the viewer is correctly updated and checked elements don't change
-     * if user type regular expressions with spaces at the end (exact match).
+     * Ensures the viewer is correctly updated and checked elements don't change if user type regular expressions with
+     * spaces at the end (exact match).
      */
     public void testRegExpWithSpaces() {
         dialogTester.setRegExp("E*d ");
@@ -198,8 +195,7 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
     }
 
     /**
-     * Ensures that the viewer is correctly updated and checked elements don't
-     * change if user change the filtering mode.
+     * Ensures that the viewer is correctly updated and checked elements don't change if user change the filtering mode.
      * 
      */
     public void testFilteringMode() {
@@ -229,8 +225,7 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
     }
 
     /**
-     * Ensures that filtering mode filters correctly checked/unchecked elements
-     * on a Root.
+     * Ensures that filtering mode filters correctly checked/unchecked elements on a Root.
      */
     public void testFilteringModeWithUncheckedElementOnRoot() {
         // unchecking a top element ('p1')
@@ -238,27 +233,29 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
         dialogTester.setChecked(false, "p1 label");
 
         dialogTester.setFilteringMode(1);
-        dialogTester.checkVisibleElementByNames(getElementNamesAndLabels("p2", "p3", "4", "Ed", "Eddy", "Merks", "Mum", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
-        dialogTester.checkCheckedElementByNames(getElementNamesAndLabels("p2", "p3", "4", "Ed", "Eddy", "Merks", "Mum", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
+        dialogTester.checkVisibleElementByNames(
+                getElementNamesAndLabels("p2", "p3", "4", "Ed", "Eddy", "Merks", "Mum", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
+        dialogTester.checkCheckedElementByNames(
+                getElementNamesAndLabels("p2", "p3", "4", "Ed", "Eddy", "Merks", "Mum", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
     }
 
     /**
-     * Ensures that filter mode filters correctly checked/unchecked elements on
-     * a Leaf.
+     * Ensures that filter mode filters correctly checked/unchecked elements on a Leaf.
      */
     public void testFilteringModeWithUncheckedElementOnLeaf() {
         // unchecking a leaf element ('mum' and its label)
         dialogTester.setChecked(false, "Mum");
         dialogTester.setChecked(false, "Mum label");
-        
+
         dialogTester.setFilteringMode(1);
-        dialogTester.checkVisibleElementByNames(getElementNamesAndLabels("p1", "p2", "p3", "4", "Ed", "Eddy", "Merks", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
-        dialogTester.checkCheckedElementByNames(getElementNamesAndLabels("p1", "p2", "p3", "4", "Ed", "Eddy", "Merks", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
+        dialogTester.checkVisibleElementByNames(
+                getElementNamesAndLabels("p1", "p2", "p3", "4", "Ed", "Eddy", "Merks", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
+        dialogTester.checkCheckedElementByNames(
+                getElementNamesAndLabels("p1", "p2", "p3", "4", "Ed", "Eddy", "Merks", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
     }
 
     /**
-     * Ensures that filtering mode and regular expression filters can work
-     * together correctly.
+     * Ensures that filtering mode and regular expression filters can work together correctly.
      */
     public void testFilteringModeWithUncheckedElementAndRegExpOnRoot() {
         dialogTester.setChecked(false, "p1");
@@ -267,34 +264,33 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
         dialogTester.setFilteringMode(1);
         dialogTester.setRegExp("p");
         dialogTester.checkVisibleElementByNames("p2", "p2 label", "p3", "p3 label");
-        dialogTester.checkCheckedElementByNames(getElementNamesAndLabels("p2", "p3", "4", "Ed", "Eddy", "Merks", "Mum", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
+        dialogTester.checkCheckedElementByNames(
+                getElementNamesAndLabels("p2", "p3", "4", "Ed", "Eddy", "Merks", "Mum", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
     }
 
     /**
-     * Ensures that filtering mode and regular expression filters can work
-     * together correctly.
+     * Ensures that filtering mode and regular expression filters can work together correctly.
      */
     public void testFilteringModeWithUncheckedElementAndRegExpOnLeaf() {
         dialogTester.setChecked(false, "Mum");
         dialogTester.setChecked(false, "Mum label");
-        
+
         dialogTester.setFilteringMode(1);
         dialogTester.setRegExp("M?m");
         dialogTester.checkVisibleElementByNames("p3", "4", "Mom", "Mom label", "Mummy", "Mummy label", "mummY", "mummY label");
-        dialogTester.checkCheckedElementByNames(getElementNamesAndLabels("p1", "p2", "p3", "4", "Ed", "Eddy", "Merks", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
+        dialogTester.checkCheckedElementByNames(
+                getElementNamesAndLabels("p1", "p2", "p3", "4", "Ed", "Eddy", "Merks", "Mom", "M with 'simple' quotes", "M with spaces s", "M with \"quotes\" s", "Mummy", "mummY"));
     }
 
     /**
-     * A class used to access protected fields of
-     * {@link DiagramElementsSelectionDialog}. Tests behavior of this Dialog.
+     * A class used to access protected fields of {@link DiagramElementsSelectionDialog}. Tests behavior of this Dialog.
      * 
      * @author <a href="mailto:alex.lagarde@obeo.fr">Alex Lagarde</a>
      */
     protected class DiagramElementsSelectionDialogTester extends DiagramElementsSelectionDialog {
 
         /**
-         * Used of reflection to access the getChildren() method on a
-         * treeViewer.
+         * Used of reflection to access the getChildren() method on a treeViewer.
          */
         private Method treeViewerGetChildrenMethod;
 
@@ -335,7 +331,14 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
         public void setRegExp(String newRegExp) {
             dialog.setPatternMatcher(new DiagramElementsSelectionDialogPatternMatcher(newRegExp));
             dialog.updateFilteringMode(mode);
-            getDialogTreeViewer().expandAll();
+
+            CheckboxTreeViewer dialogTreeViewer = getDialogTreeViewer();
+            dialogTreeViewer.getTree().setRedraw(false);
+            try {
+                dialogTreeViewer.expandAll();
+            } finally {
+                dialogTreeViewer.getTree().setRedraw(true);
+            }
         }
 
         /**
@@ -359,12 +362,18 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
             }
             mode = newModeAsEnum;
             dialog.updateFilteringMode(mode);
-            getDialogTreeViewer().expandAll();
+
+            CheckboxTreeViewer dialogTreeViewer = getDialogTreeViewer();
+            dialogTreeViewer.getTree().setRedraw(false);
+            try {
+                dialogTreeViewer.expandAll();
+            } finally {
+                dialogTreeViewer.getTree().setRedraw(true);
+            }
         }
 
         /**
-         * Checks that all elements currently visible in the TreeViewer matches
-         * the given collection of element names.
+         * Checks that all elements currently visible in the TreeViewer matches the given collection of element names.
          * 
          * @param elementNames
          *            the list of expected elements visible in the TreeViewer
@@ -392,8 +401,7 @@ public class DiagramElementSelectionDialogTest extends SiriusDiagramTestCase imp
         }
 
         /**
-         * Checks that all elements currently checked matches the given
-         * collection of element names.
+         * Checks that all elements currently checked matches the given collection of element names.
          * 
          * @param elementNames
          *            the list of expected checked elements

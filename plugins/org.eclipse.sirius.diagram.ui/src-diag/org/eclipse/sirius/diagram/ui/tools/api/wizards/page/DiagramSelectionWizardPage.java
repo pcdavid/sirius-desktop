@@ -138,8 +138,13 @@ public class DiagramSelectionWizardPage extends WizardPage {
         this.treeViewer = createTreeViewer(pageComposite);
         treeViewer.setInput(root.getModels().iterator().next());
         treeViewer.addFilter(this.diagramSelectionFilter);
-        treeViewer.expandAll();
-        treeViewer.collapseAll();
+        treeViewer.getTree().setRedraw(false);
+        try {
+          treeViewer.expandAll();
+          treeViewer.collapseAll();
+        } finally {
+            treeViewer.getTree().setRedraw(true);
+        }
         setControl(pageComposite);
     }
 

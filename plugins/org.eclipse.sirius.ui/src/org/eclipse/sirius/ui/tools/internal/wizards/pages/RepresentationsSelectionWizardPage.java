@@ -113,8 +113,13 @@ public class RepresentationsSelectionWizardPage extends WizardPage {
         this.treeViewer = createTreeViewer(pageComposite);
         treeViewer.setInput(root);
         // treeViewer.addFilter(this.representationSelectionFilter);
-        treeViewer.expandAll();
-        treeViewer.collapseAll();
+        treeViewer.getTree().setRedraw(false);
+        try {
+          treeViewer.expandAll();
+          treeViewer.collapseAll();
+        } finally {
+            treeViewer.getTree().setRedraw(true);
+        }
         setControl(pageComposite);
 
         for (final DRepresentationDescriptor preselected : preselection) {

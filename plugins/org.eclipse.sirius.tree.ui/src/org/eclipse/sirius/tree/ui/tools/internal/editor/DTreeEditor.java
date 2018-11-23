@@ -402,13 +402,18 @@ public class DTreeEditor extends AbstractDTreeEditor implements org.eclipse.siri
             // FIXME : contrary to tables, getItems() of the Tree returns only
             // expanded elements. So we expand it manually
             Object[] expandedElements = viewer.getExpandedElements();
-            ((TreeViewer) this.getViewer()).expandAll();
+            viewer.getTree().setRedraw(false);
+            try {
+              viewer.expandAll();
+            } finally {
+                viewer.getTree().setRedraw(true);
+            }
             TreeItem contains = contains(viewer.getTree().getItems(), searchedElement);
-            ((TreeViewer) this.getViewer()).setExpandedElements(expandedElements);
+            viewer.setExpandedElements(expandedElements);
 
             if (contains != null) {
                 ISelection selection = new TreeSelection(getTreePathFromItem(contains));
-                ((TreeViewer) this.getViewer()).setSelection(selection, true);
+                viewer.setSelection(selection, true);
             }
 
         }

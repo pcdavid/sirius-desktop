@@ -105,8 +105,7 @@ public class SelectModelElementWizardPage extends WizardPage {
      * @param factory
      *            adapter factory used to represent the models contents.
      * @param typeName
-     *            {@link org.eclipse.emf.ecore.EClass} name of the type to
-     *            select.
+     *            {@link org.eclipse.emf.ecore.EClass} name of the type to select.
      * @param fileExtensions
      *            the file extensions the dialog should show.
      */
@@ -123,8 +122,7 @@ public class SelectModelElementWizardPage extends WizardPage {
      * @param factory
      *            adapter factory used to represent the models contents.
      * @param typeName
-     *            {@link org.eclipse.emf.ecore.EClass} name of the type to
-     *            select.
+     *            {@link org.eclipse.emf.ecore.EClass} name of the type to select.
      * @param fileExtensions
      *            the file extensions the dialog should show.
      * @param selectedFile
@@ -208,7 +206,12 @@ public class SelectModelElementWizardPage extends WizardPage {
                 if (item == null) {
                     final Object[] expandedElements = getExpandedElements();
 
-                    expandAll();
+                    getTree().setRedraw(false);
+                    try {
+                        expandAll();
+                    } finally {
+                        getTree().setRedraw(true);
+                    }
                     item = findItem(element);
                     setExpandedElements(expandedElements);
                 }
@@ -244,8 +247,7 @@ public class SelectModelElementWizardPage extends WizardPage {
      * 
      * @param file
      *            the file to check
-     * @return <code>true</code> if the file is valid, <code>false</code>
-     *         otherwise
+     * @return <code>true</code> if the file is valid, <code>false</code> otherwise
      */
     protected boolean isValidModelFile(final IFile file) {
         if (fileExtensions == null || fileExtensions.size() == 0) {

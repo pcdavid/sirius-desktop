@@ -12,6 +12,9 @@
  */
 package org.eclipse.sirius.tests.swtbot.support.api.condition;
 
+import java.util.Collection;
+
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.swtbot.swt.finder.waits.DefaultCondition;
 import org.eclipse.swtbot.swt.finder.waits.ICondition;
@@ -26,6 +29,8 @@ public class OpenedSessionCondition extends DefaultCondition implements IConditi
 
     private final int expectedNumber;
 
+    private Collection<Session> currentSessions;
+
     /**
      * Construct a condition to wait until a session is closed.
      * 
@@ -34,6 +39,7 @@ public class OpenedSessionCondition extends DefaultCondition implements IConditi
      */
     public OpenedSessionCondition(int expectedNumber) {
         this.expectedNumber = expectedNumber;
+
     }
 
     /**
@@ -41,12 +47,17 @@ public class OpenedSessionCondition extends DefaultCondition implements IConditi
      */
     @Override
     public boolean test() throws Exception {
-        return expectedNumber == SessionManager.INSTANCE.getSessions().size();
+        this.currentSessions = SessionManager.INSTANCE.getSessions();
+        return expectedNumber == currentSessions.size();
     }
 
     @Override
     public String getFailureMessage() {
-        return "The expected number of session was not reached.";
+        String message = "The expected number of session was not reached. Expected " + expectedNumber + " but was " + currentSessions.size() + "\nCurrent Opened sessions: ";
+        for (Session session : currentSessions) {
+            message += "\n" + session.getID();
+        }
+        return message;
     }
 
 }

@@ -230,7 +230,9 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.ISaveablePart2;
 import org.eclipse.ui.ISaveablesSource;
 import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.Saveable;
@@ -469,7 +471,21 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
             getRepresentation().getUiState().getDecorationImage().clear();
         }
 
-        super.close(save);
+        // GMF Runtime's close() is subject to NPEs when running the closeEditor asynchronously, so do not call
+        // super.close() directly but perform a slightly more robust version of the same code.
+        enableSanityChecking(false);
+
+        Display.getDefault().asyncExec(() -> {
+            if (getGraphicalViewer() != null) {
+                IWorkbenchPartSite site = getSite();
+                if (site != null) {
+                    IWorkbenchPage currentPage = site.getPage();
+                    if (currentPage != null) {
+                        currentPage.closeEditor(DDiagramEditorImpl.this, save);
+                    }
+                }
+            }
+        });
     }
 
     /**

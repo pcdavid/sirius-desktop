@@ -192,13 +192,10 @@ public class TableDialectUIServices implements DialectUIServices {
         if (editorPart instanceof AbstractDTableEditor) {
             // We launch the close in asyncExec to avoid the problem with the
             // WorkspaceSynchronizer
-            final Display display = editorPart.getSite().getShell().getDisplay();
-            display.asyncExec(new Runnable() {
-                @Override
-                public void run() {
-                    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closeEditor(editorPart, save);
-                }
-            });
+            IWorkbenchPage page = editorPart.getSite().getPage();
+            if (page != null) {
+                Display.getDefault().asyncExec(() -> page.closeEditor(editorPart, save));
+            }
         }
         return result;
     }

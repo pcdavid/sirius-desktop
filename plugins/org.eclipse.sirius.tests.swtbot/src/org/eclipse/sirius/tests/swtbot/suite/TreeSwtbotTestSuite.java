@@ -61,7 +61,7 @@ public class TreeSwtbotTestSuite extends TestCase {
      */
     public static Test suite() {
         final TestSuite suite = new TestSuite("Tree SWTBOT test suite");
-        suite.addTestSuite(CopyTreeRepresentationTest.class);
+        //suite.addTestSuite(CopyTreeRepresentationTest.class);
         // Test to be executed only from Eclipse Mars because dependent of fix
         // from Bug 460206
         if (Platform.getBundle("org.eclipse.emf.transaction").getVersion().compareTo(Version.parseVersion("1.9.0")) >= 0) {

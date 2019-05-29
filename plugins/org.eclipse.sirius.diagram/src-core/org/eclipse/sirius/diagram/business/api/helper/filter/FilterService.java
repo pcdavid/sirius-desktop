@@ -16,8 +16,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.eclipse.emf.ecore.EObject;
@@ -47,6 +49,8 @@ import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.description.AbstractMappingImport;
 import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
 
+import com.google.common.collect.Iterables;
+
 /**
  * This class is used whenever we need to filter elements (hide/show considering specific properties).
  * 
@@ -54,6 +58,8 @@ import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
  * 
  */
 public final class FilterService {
+
+    private static Map<DDiagram, List<FilterDescription>> cachedSortedFilters = new HashMap<>();
 
     private FilterService() {
 
@@ -69,7 +75,7 @@ public final class FilterService {
      * @return <code>true</code> if the element is visible for the activated filtered, <code>false</code> otherwise
      */
     public static List<FilterDescription> getAppliedFilters(final DDiagram diagram, final DDiagramElement element) {
-        final List<FilterDescription> filters = FilterService.sortFilters(diagram.getActivatedFilters());
+        final List<FilterDescription> filters = FilterService.sortFilters(diagram, diagram.getActivatedFilters());
         if (filters.isEmpty()) {
             return Collections.emptyList();
         }
@@ -251,7 +257,7 @@ public final class FilterService {
         DslCommonPlugin.PROFILER.startWork(SiriusTasksKey.IS_COLLAPSED_KEY);
         boolean isCollapsed = false;
         if (DisplayServiceManager.INSTANCE.getMode() != DisplayMode.ALL_IS_DISPLAYED) {
-            isCollapsed = FilterService.isCollapsed(FilterService.sortFilters(diagram.getActivatedFilters()), element);
+            isCollapsed = FilterService.isCollapsed(FilterService.sortFilters(diagram, diagram.getActivatedFilters()), element);
         }
         DslCommonPlugin.PROFILER.stopWork(SiriusTasksKey.IS_COLLAPSED_KEY);
         return isCollapsed;
@@ -287,37 +293,43 @@ public final class FilterService {
      *            the filters to sort.
      * @return the sorted filters.
      */
-    private static List<FilterDescription> sortFilters(final Collection<FilterDescription> filters) {
-        final List<FilterDescription> result = new ArrayList<FilterDescription>(filters);
-        Collections.sort(result, new Comparator<FilterDescription>() {
+    private static List<FilterDescription> sortFilters(final DDiagram diagram, final Collection<FilterDescription> filters) {
 
-            private boolean ownsACollapsedFilter(final FilterDescription filterDescription) {
-                if (filterDescription instanceof CompositeFilterDescription) {
-                    CompositeFilterDescriptionQuery query = new CompositeFilterDescriptionQuery((CompositeFilterDescription) filterDescription);
-                    return !query.getCollapseFilters().isEmpty();
+        List<FilterDescription> result = cachedSortedFilters.get(diagram);
+        if (result == null || result.size() != filters.size() || !Iterables.elementsEqual(result, filters)) {
+
+            result = new ArrayList<FilterDescription>(filters);
+            Collections.sort(result, new Comparator<FilterDescription>() {
+
+                private boolean ownsACollapsedFilter(final FilterDescription filterDescription) {
+                    if (filterDescription instanceof CompositeFilterDescription) {
+                        CompositeFilterDescriptionQuery query = new CompositeFilterDescriptionQuery((CompositeFilterDescription) filterDescription);
+                        return !query.getCollapseFilters().isEmpty();
+                    }
+                    return false;
                 }
-                return false;
-            }
 
-            @Override
-            public int compare(final FilterDescription o1, final FilterDescription o2) {
-                final FilterDescription filterDescription0 = o1;
-                final FilterDescription filterDescription1 = o2;
+                @Override
+                public int compare(final FilterDescription o1, final FilterDescription o2) {
+                    final FilterDescription filterDescription0 = o1;
+                    final FilterDescription filterDescription1 = o2;
 
-                final boolean hasCollapse0 = ownsACollapsedFilter(filterDescription0);
+                    final boolean hasCollapse0 = ownsACollapsedFilter(filterDescription0);
 
-                final boolean hasCollapse1 = ownsACollapsedFilter(filterDescription1);
-                int result = 0;
-                if (hasCollapse0 && !hasCollapse1) {
-                    result = 1;
-                } else if (hasCollapse1 && !hasCollapse0) {
-                    result = -1;
-                } else {
-                    result = filterDescription0.hashCode() - filterDescription1.hashCode();
+                    final boolean hasCollapse1 = ownsACollapsedFilter(filterDescription1);
+                    int result = 0;
+                    if (hasCollapse0 && !hasCollapse1) {
+                        result = 1;
+                    } else if (hasCollapse1 && !hasCollapse0) {
+                        result = -1;
+                    } else {
+                        result = filterDescription0.hashCode() - filterDescription1.hashCode();
+                    }
+                    return result;
                 }
-                return result;
-            }
-        });
+            });
+            cachedSortedFilters.put(diagram, result);
+        }
         return result;
     }
 }

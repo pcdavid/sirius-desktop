@@ -13,8 +13,10 @@
 package org.eclipse.sirius.tests.swtbot.support.api.editor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.sirius.common.tools.api.util.ReflectionHelper;
 import org.eclipse.sirius.diagram.ui.tools.api.editor.DDiagramEditor;
@@ -41,6 +43,8 @@ import org.eclipse.swtbot.swt.finder.results.StringResult;
 import org.eclipse.swtbot.swt.finder.results.VoidResult;
 import org.eclipse.swtbot.swt.finder.utils.SWTUtils;
 import org.eclipse.swtbot.swt.finder.waits.WaitForObjectCondition;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyList;
@@ -127,6 +131,34 @@ public final class SWTBotSiriusHelper {
         });
 
         return result != null ? result.booleanValue() : false;
+    }
+
+    /**
+     * Returns the menu with the given label from the given bot.
+     * 
+     * @param bot
+     *            the swtbot to use for the search
+     * @param menuLabel
+     *            the label of the menu to search.
+     * @return the menu with the given label from the given bot.
+     * @throws WidgetNotFoundException
+     *             if the menu could not be found.
+     */
+    public static SWTBotMenu menu(SWTBot bot, String menuLabel) {
+        SWTBotShell[] shells = bot.shells();
+        SWTBotMenu menu = null;
+        for (SWTBotShell swtBotShell : shells) {
+            try {
+                menu = bot.menu(swtBotShell).menu(menuLabel);
+            } catch (WidgetNotFoundException e) {
+                // we ignore.
+            }
+        }
+        if (menu == null) {
+            String shellNames = Arrays.stream(shells).map(SWTBotShell::getText).collect(Collectors.joining("\n"));
+            throw new WidgetNotFoundException("No widget with label '" + menuLabel + "' could be found from the given bot in the associated shells: \n" + shellNames);
+        }
+        return menu;
     }
 
     /**

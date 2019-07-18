@@ -41,8 +41,8 @@ import org.eclipse.sirius.viewpoint.DMappingBased;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
 /**
- * Get the best mapping according to a contextual diagram, its enabled layers
- * and contributed diagram extension and default proposed mappings.
+ * Get the best mapping according to a contextual diagram, its enabled layers and contributed diagram extension and
+ * default proposed mappings.
  * 
  * @author <a href="mailto:esteban.dugueperoux@obeo.fr">Esteban Dugueperoux</a>
  */
@@ -105,15 +105,13 @@ public class BestMappingGetter {
     }
 
     /**
-     * Get the most appropriate {@link ContainerMapping} to create a view under
-     * the specified container view for the specified semantic element.
+     * Get the most appropriate {@link ContainerMapping} to create a view under the specified container view for the
+     * specified semantic element.
      * 
      * @param proposedContainerMappings
-     *            a collection of proposed mappings, from a creation tool or a
-     *            create view model operation for examples
-     * @return the most appropriate {@link ContainerMapping} to create a view
-     *         under the specified container view for the specified semantic
-     *         element
+     *            a collection of proposed mappings, from a creation tool or a create view model operation for examples
+     * @return the most appropriate {@link ContainerMapping} to create a view under the specified container view for the
+     *         specified semantic element
      */
     public ContainerMapping getBestContainerMapping(Collection<ContainerMapping> proposedContainerMappings) {
         ContainerMapping bestContainerMapping = null;
@@ -130,23 +128,18 @@ public class BestMappingGetter {
     }
 
     /**
-     * According to the contextual containerView, get a list of
-     * {@link ContainerMapping} representing all mappings valid in this
-     * <code>containerView</code> and which is owned by the inheritance
-     * hierarchy of {@link ContainerMapping} existing in the
-     * <code>proposedContainerMappings</code> collection in parameter. This
-     * <code>proposedContainerMappings</code> collection parameter is useful to
-     * restrict the resulting list. The resulting list is ordered from the most
-     * specific {@link ContainerMapping} to the less one.
+     * According to the contextual containerView, get a list of {@link ContainerMapping} representing all mappings valid
+     * in this <code>containerView</code> and which is owned by the inheritance hierarchy of {@link ContainerMapping}
+     * existing in the <code>proposedContainerMappings</code> collection in parameter. This
+     * <code>proposedContainerMappings</code> collection parameter is useful to restrict the resulting list. The
+     * resulting list is ordered from the most specific {@link ContainerMapping} to the less one.
      * 
      * @param proposedContainerMappings
-     *            a collection of proposed {@link ContainerMapping} to restrict
-     *            the resulting {@link ContainerMapping} list
-     * @return a list of {@link ContainerMapping} valid for the contextual
-     *         <code>containerView</code> restricted by the
-     *         {@link ContainerMapping} collection in parameter. This resulting
-     *         list is ordered from the most specific {@link ContainerMapping}
-     *         to the less one
+     *            a collection of proposed {@link ContainerMapping} to restrict the resulting {@link ContainerMapping}
+     *            list
+     * @return a list of {@link ContainerMapping} valid for the contextual <code>containerView</code> restricted by the
+     *         {@link ContainerMapping} collection in parameter. This resulting list is ordered from the most specific
+     *         {@link ContainerMapping} to the less one
      */
     public List<ContainerMapping> getAllContainerMappingsHierarchy(Collection<ContainerMapping> proposedContainerMappings) {
         List<ContainerMapping> allContainerMappingsHierarchy = new ArrayList<ContainerMapping>();
@@ -177,14 +170,13 @@ public class BestMappingGetter {
     }
 
     /**
-     * Get the most appropriate {@link NodeMapping} to create a view under the
-     * specified container view for the specified semantic element.
+     * Get the most appropriate {@link NodeMapping} to create a view under the specified container view for the
+     * specified semantic element.
      * 
      * @param proposedNodeMappings
-     *            a collection of proposed mappings, from a creation tool or a
-     *            create view model operation for examples
-     * @return the most appropriate {@link NodeMapping} to create a view under
-     *         the specified container view for the specified semantic element
+     *            a collection of proposed mappings, from a creation tool or a create view model operation for examples
+     * @return the most appropriate {@link NodeMapping} to create a view under the specified container view for the
+     *         specified semantic element
      */
     public NodeMapping getBestNodeMapping(Collection<NodeMapping> proposedNodeMappings) {
         NodeMapping bestNodeMapping = null;
@@ -201,22 +193,17 @@ public class BestMappingGetter {
     }
 
     /**
-     * According to the contextual containerView, get a list of
-     * {@link NodeMapping} representing all mappings valid in this
-     * <code>containerView</code> and which is owned by the inheritance
-     * hierarchy of {@link NodeMapping} existing in the
-     * <code>proposedNodeMappings</code> collection in parameter. This
-     * <code>proposedNodeMappings</code> collection parameter is useful to
-     * restrict the resulting list. The resulting list is ordered from the most
+     * According to the contextual containerView, get a list of {@link NodeMapping} representing all mappings valid in
+     * this <code>containerView</code> and which is owned by the inheritance hierarchy of {@link NodeMapping} existing
+     * in the <code>proposedNodeMappings</code> collection in parameter. This <code>proposedNodeMappings</code>
+     * collection parameter is useful to restrict the resulting list. The resulting list is ordered from the most
      * specific {@link NodeMapping} to the less one.
      * 
      * @param proposedNodeMappings
-     *            a collection of proposed {@link NodeMapping} to restrict the
-     *            resulting {@link NodeMapping} list
-     * @return a list of {@link NodeMapping} valid for the contextual
-     *         <code>containerView</code> restricted by the {@link NodeMapping}
-     *         collection in parameter. This resulting list is ordered from the
-     *         most specific {@link NodeMapping} to the less one
+     *            a collection of proposed {@link NodeMapping} to restrict the resulting {@link NodeMapping} list
+     * @return a list of {@link NodeMapping} valid for the contextual <code>containerView</code> restricted by the
+     *         {@link NodeMapping} collection in parameter. This resulting list is ordered from the most specific
+     *         {@link NodeMapping} to the less one
      */
     public List<NodeMapping> getAllNodeMappingsHierarchy(Collection<NodeMapping> proposedNodeMappings) {
         List<NodeMapping> allNodeMappingsHierarchy = new ArrayList<NodeMapping>();
@@ -254,14 +241,13 @@ public class BestMappingGetter {
     }
 
     /**
-     * Get the most appropriate {@link EdgeMapping} to create a view under the
-     * specified container view for the specified semantic element.
+     * Get the most appropriate {@link EdgeMapping} to create a view under the specified container view for the
+     * specified semantic element.
      * 
      * @param proposedEdgeMappings
-     *            a collection of proposed mappings, from a creation tool or a
-     *            create view model operation for examples
-     * @return the most appropriate {@link EdgeMapping} to create a view under
-     *         the specified container view for the specified semantic element
+     *            a collection of proposed mappings, from a creation tool or a create view model operation for examples
+     * @return the most appropriate {@link EdgeMapping} to create a view under the specified container view for the
+     *         specified semantic element
      */
     public EdgeMapping getBestEdgeMapping(Collection<EdgeMapping> proposedEdgeMappings) {
         EdgeMapping bestEdgeMapping = null;
@@ -278,21 +264,16 @@ public class BestMappingGetter {
     }
 
     /**
-     * Get a list of {@link EdgeMapping} representing all mappings valid in the
-     * contextual diagram and which is owned by the inheritance hierarchy of
-     * {@link EdgeMapping} existing in the <code>proposedEdgeMappings</code>
-     * collection in parameter. This <code>proposedEdgeMappings</code>
-     * collection parameter is useful to restrict the resulting list. The
-     * resulting list is ordered from the most specific {@link EdgeMapping} to
-     * the less one.
+     * Get a list of {@link EdgeMapping} representing all mappings valid in the contextual diagram and which is owned by
+     * the inheritance hierarchy of {@link EdgeMapping} existing in the <code>proposedEdgeMappings</code> collection in
+     * parameter. This <code>proposedEdgeMappings</code> collection parameter is useful to restrict the resulting list.
+     * The resulting list is ordered from the most specific {@link EdgeMapping} to the less one.
      * 
      * @param proposedEdgeMappings
-     *            a collection of proposed {@link EdgeMapping} to restrict the
-     *            resulting {@link EdgeMapping} list
-     * @return a list of {@link EdgeMapping} valid for the contextual diagram
-     *         restricted by the {@link EdgeMapping} collection in parameter.
-     *         This resulting list is ordered from the most specific
-     *         {@link EdgeMapping} to the less one
+     *            a collection of proposed {@link EdgeMapping} to restrict the resulting {@link EdgeMapping} list
+     * @return a list of {@link EdgeMapping} valid for the contextual diagram restricted by the {@link EdgeMapping}
+     *         collection in parameter. This resulting list is ordered from the most specific {@link EdgeMapping} to the
+     *         less one
      */
     public List<EdgeMapping> getAllEdgeMappingsHierarchy(Collection<EdgeMapping> proposedEdgeMappings) {
         List<EdgeMapping> allEdgeMappingsHierarchy = new ArrayList<EdgeMapping>();
@@ -357,15 +338,14 @@ public class BestMappingGetter {
     }
 
     /**
-     * First check if semanticElt is an instance of the mapping candidate domain
-     * class. Then if the semantic element has the expected type, and if the
-     * mapping defines a semantic candidate expression, check that the semantic
-     * candidates contains the semanticElt.
+     * First check if semanticElt is an instance of the mapping candidate domain class. Then if the semantic element has
+     * the expected type, and if the mapping defines a semantic candidate expression, check that the semantic candidates
+     * contains the semanticElt.
      */
     private boolean isSemanticCandidate(DiagramElementMappingQuery query) {
         boolean candidate = modelAccessor.eInstanceOf(semanticElt, query.getDomainClass().get());
         if (candidate && query.hasCandidatesExpression()) {
-            Collection<EObject> semanticCandidates = query.evaluateCandidateExpression(parentDDiagram, interpreter, (DragAndDropTarget) containerView);
+            Collection<Object> semanticCandidates = query.evaluateCandidateExpression(parentDDiagram, interpreter, (DragAndDropTarget) containerView);
             candidate = semanticCandidates.contains(semanticElt);
         }
         return candidate;

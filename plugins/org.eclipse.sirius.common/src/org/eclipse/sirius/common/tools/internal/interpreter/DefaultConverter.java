@@ -13,16 +13,16 @@
 
 package org.eclipse.sirius.common.tools.internal.interpreter;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.common.tools.api.interpreter.IConverter;
-
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
 
 /**
  * The default implementation of type conversion for interpreters. It should be the one used for all implementations
@@ -56,7 +56,7 @@ public class DefaultConverter implements IConverter {
         }
         return Optional.of(result);
     }
-    
+
     @Override
     public Optional<EObject> toEObject(Object rawValue) {
         if (rawValue instanceof EObject) {
@@ -65,7 +65,7 @@ public class DefaultConverter implements IConverter {
             return Optional.empty();
         }
     }
-    
+
     @Override
     public Optional<String> toString(Object rawValue) {
         if (rawValue != null) {
@@ -74,7 +74,7 @@ public class DefaultConverter implements IConverter {
             return Optional.empty();
         }
     }
-    
+
     @Override
     public OptionalInt toInt(Object rawValue) {
         try {
@@ -83,18 +83,35 @@ public class DefaultConverter implements IConverter {
             return OptionalInt.empty();
         }
     }
-    
+
     @Override
     public Optional<Collection<EObject>> toEObjectCollection(Object rawValue) {
-        final Collection<EObject> result;
+        Collection<EObject> result;
         if (rawValue instanceof Collection<?>) {
-            result = Lists.newArrayList(Iterables.filter((Collection<?>) rawValue, EObject.class));
+            result = ((Collection<?>) rawValue).stream().filter(EObject.class::isInstance).map(element -> (EObject) element).collect(Collectors.toCollection(LinkedHashSet::new));
+
         } else if (rawValue instanceof EObject) {
+
             result = Collections.singleton((EObject) rawValue);
         } else if (rawValue != null && rawValue.getClass().isArray()) {
-            result = Lists.newArrayList(Iterables.filter(Lists.newArrayList((Object[]) rawValue), EObject.class));
+            result = Arrays.stream(((Object[]) rawValue)).filter(EObject.class::isInstance).map(element -> (EObject) element).collect(Collectors.toCollection(LinkedHashSet::new));
+
         } else {
             result = Collections.emptySet();
+        }
+        return Optional.of(result);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public Optional<Collection<Object>> toCollection(Object rawValue) {
+        Collection<Object> result;
+        if (rawValue instanceof Collection<?>) {
+            result = (Collection<Object>) rawValue;
+        } else if (rawValue != null && rawValue.getClass().isArray()) {
+            result = Arrays.asList((Object[]) rawValue);
+        } else {
+            result = Collections.singleton(rawValue);
         }
         return Optional.of(result);
     }

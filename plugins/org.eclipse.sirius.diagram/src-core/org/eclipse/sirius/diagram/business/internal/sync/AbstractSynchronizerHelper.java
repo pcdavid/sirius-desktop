@@ -12,8 +12,9 @@
  *******************************************************************************/
 package org.eclipse.sirius.diagram.business.internal.sync;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
@@ -33,9 +34,6 @@ import org.eclipse.sirius.ext.base.collect.MultipleCollection;
 import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.eclipse.sirius.tools.api.profiler.SiriusTasksKey;
 
-import com.google.common.collect.Collections2;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 
@@ -104,7 +102,7 @@ public abstract class AbstractSynchronizerHelper {
      *            the mapping of the potential candidates.
      * @return a collection of semantic candidates.
      */
-    protected Collection<EObject> evaluateCandidateExpression(final DragAndDropTarget container, final DiagramElementMapping mapping) {
+    protected Collection<Object> evaluateCandidateExpression(final DragAndDropTarget container, final DiagramElementMapping mapping) {
         return new DiagramElementMappingQuery(mapping).evaluateCandidateExpression(diagram, interpreter, container);
     }
 
@@ -116,7 +114,7 @@ public abstract class AbstractSynchronizerHelper {
      * @return candidates
      */
     protected Collection<EObject> getAllCandidates(DiagramElementMapping mapping) {
-        final Collection<EObject> semantics = new MultipleCollection<EObject>();
+        final Collection<EObject> semantics = new MultipleCollection<>();
 
         Option<String> domainClass = new DiagramElementMappingQuery(mapping).getDomainClass();
         if (domainClass.some()) {
@@ -145,10 +143,32 @@ public abstract class AbstractSynchronizerHelper {
      */
     protected Collection<EObject> getPreviousSemanticsElements(DragAndDropTarget container, DiagramElementMapping mapping) {
         // @formatter:off
-        return ImmutableSet.copyOf(sync.getPreviousDiagramElements(container, mapping).stream()
+        return sync.getPreviousDiagramElements(container, mapping).stream()
                 .map(DDiagramElement::getTarget)
                 .filter(input -> input != null && ((input.eContainer() != null && input.eContainer().eResource() != null) || input.eResource() != null))
-                .collect(Collectors.toSet()));
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+       
+        // @formatter:on
+    }
+
+    /**
+     * Get all the common elements between a list of candidates and the synchronized current elements of the diagram
+     * (the retained elements)
+     * 
+     * @param container
+     * @param mapping
+     * @param allCandidates
+     *            a list of candidates (probably the result of the semantic candidate expression evaluation)
+     * @return all the retained elements
+     */
+    protected Collection<EObject> getRetainedPreviousSemanticsElements(DragAndDropTarget container, DiagramElementMapping mapping, Collection<Object> allCandidates) {
+        // @formatter:off
+        return sync.getPreviousDiagramElements(container, mapping).stream()
+                .map(DDiagramElement::getTarget)
+                .filter(input -> input != null && ((input.eContainer() != null && input.eContainer().eResource() != null) || input.eResource() != null))
+                .filter(allCandidates::contains)
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+       
         // @formatter:on
     }
 
@@ -163,30 +183,35 @@ public abstract class AbstractSynchronizerHelper {
      */
     protected Iterable<EObject> getSemanticCandidates(DragAndDropTarget container, DiagramElementMapping mapping) {
         DslCommonPlugin.PROFILER.startWork(SiriusTasksKey.GET_NODE_CANDIDATES_KEY);
-        Iterable<EObject> semantics = new ArrayList<>();
-        boolean synchronizedAndCreateElement = new DiagramElementMappingQuery(mapping).isSynchronizedAndCreateElement(diagram);
+        Collection<EObject> semantics = new HashSet<>();
+
+        DiagramElementMappingQuery mappingQuery = new DiagramElementMappingQuery(mapping);
+        boolean synchronizedAndCreateElement = mappingQuery.isSynchronizedAndCreateElement(diagram);
         synchronizedAndCreateElement = tool || synchronizedAndCreateElement;
-        if (new DiagramElementMappingQuery(mapping).hasCandidatesExpression()) {
-            final Collection<EObject> allCandidates = evaluateCandidateExpression(container, mapping);
+        if (mappingQuery.hasCandidatesExpression()) {
+            final Collection<Object> allCandidates = evaluateCandidateExpression(container, mapping);
             if (synchronizedAndCreateElement) {
                 /* Check domain class */
-                Option<String> domainClassOption = new DiagramElementMappingQuery(mapping).getDomainClass();
+                Option<String> domainClassOption = mappingQuery.getDomainClass();
                 if (domainClassOption.some()) {
-                    semantics = Iterables.concat(semantics, Iterables.filter(allCandidates, input -> accessor.eInstanceOf(input, domainClassOption.get())));
+                    Collection<EObject> domainClassfilteredcandidates = allCandidates.stream()
+                            .filter(candidate -> candidate instanceof EObject && accessor.eInstanceOf((EObject) candidate, domainClassOption.get())).map(element -> (EObject) element)
+                            .collect(Collectors.toList());
+
+                    semantics = domainClassfilteredcandidates;
                 }
             } else {
                 sync.forceRetrieve();
-                Collection<EObject> previousSemanticsElements = getPreviousSemanticsElements(container, mapping);
+                semantics = getRetainedPreviousSemanticsElements(container, mapping, allCandidates);
                 sync.resetforceRetrieve();
-                Collection<EObject> keeped = ImmutableSet.copyOf(Collections2.filter(previousSemanticsElements, allCandidates::contains));
-                semantics = Iterables.concat(semantics, keeped);
+
             }
         } else {
             if (synchronizedAndCreateElement) {
-                semantics = Iterables.concat(semantics, getAllCandidates(mapping));
+                semantics = getAllCandidates(mapping);
             } else {
                 sync.forceRetrieve();
-                semantics = Iterables.concat(semantics, getPreviousSemanticsElements(container, mapping));
+                semantics = getPreviousSemanticsElements(container, mapping);
                 sync.resetforceRetrieve();
             }
         }

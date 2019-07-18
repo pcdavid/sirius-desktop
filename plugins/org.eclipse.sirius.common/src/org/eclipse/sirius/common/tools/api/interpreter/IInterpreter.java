@@ -38,7 +38,7 @@ public interface IInterpreter {
     // ===================================================================
     // General information about the language supported by the interpreter
     // ===================================================================
-    
+
     /**
      * Returns <code>true</code> if this interpreter is able to evaluate the given expression.
      * 
@@ -150,6 +150,23 @@ public interface IInterpreter {
     }
 
     /**
+     * Evaluates the given expression on the given context and returns the result as a collection of {@link Object}s.
+     * 
+     * @param context
+     *            The context.
+     * @param expression
+     *            the expression to evaluate.
+     * @return the collection of {@link Object}s.
+     * @throws EvaluationException
+     *             if the evaluation fails.
+     * @since 6.2
+     */
+    default Collection<Object> evaluateAllObjectCollection(EObject context, String expression) throws EvaluationException {
+        Object rawValue = evaluate(context, expression);
+        return getConverter().toCollection(rawValue).orElse(Collections.emptySet());
+    }
+
+    /**
      * Evaluates the given expression on the given context and returns the result as a Boolean.
      * 
      * @param context
@@ -212,7 +229,7 @@ public interface IInterpreter {
         Object rawValue = evaluate(context, expression);
         return getConverter().toInt(rawValue).orElse(0);
     }
-    
+
     // ===================================================================
     // Stateful variable/environment management
     // ===================================================================
@@ -294,7 +311,7 @@ public interface IInterpreter {
      * Clear all dependencies of this interpreter.
      */
     void clearImports();
-    
+
     /**
      * Sets a property to this interpreter.
      * 
@@ -312,7 +329,7 @@ public interface IInterpreter {
      *            the optional model accessor to use.
      */
     void setModelAccessor(ModelAccessor modelAccessor);
-    
+
     /**
      * Set the interpreter cross referencer.
      * 

@@ -61,6 +61,11 @@ public class EvaluationResult implements IEvaluationResult {
         public Optional<Boolean> toBoolean(Object rawValue) {
             return Optional.empty();
         }
+
+        @Override
+        public Optional<Collection<Object>> toCollection(Object rawValue) {
+          return Optional.empty();
+        }
     }
 
     /**

@@ -74,4 +74,14 @@ public interface IConverter {
      *         not be converted meaningfully.
      */
     Optional<Collection<EObject>> toEObjectCollection(Object rawValue);
+
+    /**
+     * Try to convert a raw value into a collection of {@link Object}s.
+     * 
+     * @param rawValue
+     *            the raw value.
+     * @return a collection of {@link Object}s "equivalent" to the raw value, or an empty optional of the value could
+     *         not be converted meaningfully.
+     */
+    Optional<Collection<Object>> toCollection(Object rawValue);
 }

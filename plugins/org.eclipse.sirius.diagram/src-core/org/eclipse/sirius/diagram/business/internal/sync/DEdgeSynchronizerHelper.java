@@ -31,7 +31,6 @@ import org.eclipse.sirius.common.tools.api.interpreter.IInterpreterSiriusVariabl
 import org.eclipse.sirius.common.tools.api.util.CartesianProduct;
 import org.eclipse.sirius.common.tools.api.util.EObjectCouple;
 import org.eclipse.sirius.common.tools.api.util.StringUtil;
-import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.EdgeTarget;
@@ -117,7 +116,7 @@ public class DEdgeSynchronizerHelper extends AbstractSynchronizerHelper {
 
         DslCommonPlugin.PROFILER.startWork(SiriusTasksKey.GET_EDGE_CANDIDATES_KEY);
 
-        final Collection<DEdgeCandidate> result = new ArrayList<DEdgeCandidate>();
+        final Collection<DEdgeCandidate> result = new ArrayList<>();
 
         final Set<EObject> targetCandidates = Sets.newLinkedHashSet(getSemanticCandidates(diagram, mapping));
         if (tool || new DiagramElementMappingQuery(mapping).isSynchronizedAndCreateElement(diagram)) {
@@ -129,26 +128,20 @@ public class DEdgeSynchronizerHelper extends AbstractSynchronizerHelper {
                 handleCandidatesFromSemanticTargets(result, target, mapping, sourceViewsSemantics, targetViewsSemantics);
             }
         } else {
-            sync.forceRetrieve();
-            Set<DDiagramElement> previousDiagramElements = sync.getPreviousDiagramElements(diagram, mapping);
-            sync.resetforceRetrieve();
-            Predicate<DDiagramElement> stillCandidate = new Predicate<DDiagramElement>() {
-                public boolean apply(DDiagramElement input) {
-                    return input != null && input.getTarget() != null && targetCandidates.contains(input.getTarget());
-                }
-            };
-            handlePreviousCandidates(result, Iterables.filter(previousDiagramElements, stillCandidate), mapping, sourceViewsSemantics, targetViewsSemantics);
+
+            handlePreviousCandidates(result, targetCandidates, mapping, sourceViewsSemantics, targetViewsSemantics);
         }
         DslCommonPlugin.PROFILER.stopWork(SiriusTasksKey.GET_EDGE_CANDIDATES_KEY);
         return result;
     }
 
-    private void handlePreviousCandidates(final Collection<DEdgeCandidate> result, final Iterable<DDiagramElement> previousDiagramElements, final EdgeMapping mapping,
+    private void handlePreviousCandidates(final Collection<DEdgeCandidate> result, final Iterable<? extends EObject> previousDiagramElements, final EdgeMapping mapping,
             final Map<EObject, Collection<EdgeTarget>> sourceViewsSemantics, final Map<EObject, Collection<EdgeTarget>> targetViewsSemantics) {
 
         final EdgeMappingQuery edgeMappingQuery = new EdgeMappingQuery(mapping);
 
         Predicate<DEdge> stillCandidate = new Predicate<DEdge>() {
+            @Override
             public boolean apply(DEdge input) {
                 // Validate source node (and its semantic target) exists in the
                 // sourceViewsSemantics
@@ -177,13 +170,21 @@ public class DEdgeSynchronizerHelper extends AbstractSynchronizerHelper {
             }
         };
 
-        for (DEdge prevDEdge : Iterables.filter(Iterables.filter(previousDiagramElements, DEdge.class), stillCandidate)) {
-            final EdgeTarget sourceView = prevDEdge.getSourceNode();
-            final EdgeTarget targetView = prevDEdge.getTargetNode();
+        for (EObject diagramElement : previousDiagramElements) {
+            if (diagramElement instanceof DEdge) {
+                DEdge prevDEdge = (DEdge) diagramElement;
+                if (stillCandidate.apply(prevDEdge)) {
 
-            EObject target = prevDEdge.getTarget();
-            if (edgeMappingQuery.evaluatePrecondition(diagram, diagram, interpreter, target, (DSemanticDecorator) sourceView, (DSemanticDecorator) targetView)) {
-                result.add(new DEdgeCandidate(mapping, target, sourceView, targetView, sync.getFactory()));
+                    final EdgeTarget sourceView = prevDEdge.getSourceNode();
+                    final EdgeTarget targetView = prevDEdge.getTargetNode();
+
+                    EObject target = prevDEdge.getTarget();
+                    if (edgeMappingQuery.evaluatePrecondition(diagram, diagram, interpreter, target, (DSemanticDecorator) sourceView, (DSemanticDecorator) targetView)) {
+                        result.add(new DEdgeCandidate(mapping, target, sourceView, targetView, sync.getFactory()));
+                    }
+
+                }
+
             }
         }
     }
@@ -235,7 +236,8 @@ public class DEdgeSynchronizerHelper extends AbstractSynchronizerHelper {
                 handleCandidatesFromSourceView(result, sourceView, mapping, targetViews, targetViewsSemantics);
             }
         } else {
-            Collection<DDiagramElement> previousDiagramElements = sync.getPreviousDiagramElements(diagram, mapping);
+            Collection<? extends EObject> previousDiagramElements = sync.getPreviousDiagramElements(diagram, mapping);
+
             handlePreviousCandidates(result, previousDiagramElements, mapping, null, targetViewsSemantics);
         }
         DslCommonPlugin.PROFILER.stopWork(SiriusTasksKey.GET_EDGE_CANDIDATES_KEY);

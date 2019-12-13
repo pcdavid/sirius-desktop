@@ -149,6 +149,31 @@ public abstract class AbstractDiagramCommandBuilder extends org.eclipse.sirius.t
     }
 
     /**
+     * Add $tool to the interpreter. Use it after
+     * {@link org.eclipse.sirius.business.api.helper.task.InitInterpreterVariablesTask}
+     * 
+     * @param command
+     *            .
+     * @param tool
+     *            .
+     * @param interpreter
+     *            .
+     */
+    protected void addToolVariable(final DCommand command, final AbstractToolDescription tool, final IInterpreter interpreter) {
+        command.getTasks().add(new AbstractCommandTask() {
+            @Override
+            public String getLabel() {
+                return "tool variable task"; //$NON-NLS-1$
+            }
+
+            @Override
+            public void execute() {
+                interpreter.setVariable(IInterpreterSiriusVariables.TOOL, tool);
+            }
+        });
+    }
+
+    /**
      * Indicates if the given element is contained in a {@link DDiagram} that is in Layouting mode.
      * 
      * @param element

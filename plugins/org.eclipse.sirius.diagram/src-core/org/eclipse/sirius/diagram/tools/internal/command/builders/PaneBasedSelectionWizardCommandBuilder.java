@@ -106,6 +106,7 @@ public class PaneBasedSelectionWizardCommandBuilder extends AbstractDiagramComma
         final InitInterpreterVariablesTask initInterpreterVariablesTask = buildInitVariablesTasks(interpreter);
         command.getTasks().add(initInterpreterVariablesTask);
         addDiagramVariable(command, containerView, interpreter);
+        addToolVariable(command, tool, interpreter);
     }
 
     /**

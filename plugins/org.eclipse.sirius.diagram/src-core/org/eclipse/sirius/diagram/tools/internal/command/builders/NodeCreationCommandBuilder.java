@@ -52,14 +52,13 @@ public class NodeCreationCommandBuilder extends AbstractDiagramCommandBuilder {
     protected final NodeCreationDescription tool;
 
     /**
-     * {@link DDiagramElement} on which the current NodeCreationDescription's
-     * operations are executed.
+     * {@link DDiagramElement} on which the current NodeCreationDescription's operations are executed.
      */
     protected DDiagramElement diagramElement;
 
     /**
-     * {@link DDiagram} on which (or parent of the diagramElement on which) the
-     * current NodeCreationDescription's operations are executed.
+     * {@link DDiagram} on which (or parent of the diagramElement on which) the current NodeCreationDescription's
+     * operations are executed.
      */
     protected DDiagram diagram;
 
@@ -71,8 +70,7 @@ public class NodeCreationCommandBuilder extends AbstractDiagramCommandBuilder {
      * @param tool
      *            a node creation tool
      * @param diagramElement
-     *            the diagram element in which the created element should be
-     *            displayed
+     *            the diagram element in which the created element should be displayed
      */
     public NodeCreationCommandBuilder(final NodeCreationDescription tool, final DDiagramElement diagramElement) {
         this.tool = tool;
@@ -142,8 +140,8 @@ public class NodeCreationCommandBuilder extends AbstractDiagramCommandBuilder {
     }
 
     /**
-     * Build a command to create a {@link DNode} considering the semantic
-     * container and a {@link NodeCreationDescription}.
+     * Build a command to create a {@link DNode} considering the semantic container and a
+     * {@link NodeCreationDescription}.
      * 
      * @param semanticContainer
      *            the semantic container.
@@ -161,8 +159,9 @@ public class NodeCreationCommandBuilder extends AbstractDiagramCommandBuilder {
             result.getTasks().add(new InitInterpreterVariablesTask(variables, interpreter, uiCallback));
             variables.put(tool.getVariable(), semanticContainer);
             variables.put(tool.getViewVariable(), container);
-            addDiagramVariable(result, container, interpreter);
 
+            addDiagramVariable(result, container, interpreter);
+            addToolVariable(result, tool, interpreter);
             if (tool.getInitialOperation().getFirstModelOperations() != null) {
                 result.getTasks().add(taskHelper.buildTaskFromModelOperation(diagram, semanticContainer, tool.getInitialOperation().getFirstModelOperations()));
             }
@@ -174,9 +173,8 @@ public class NodeCreationCommandBuilder extends AbstractDiagramCommandBuilder {
     }
 
     /**
-     * Indicates if the target of the Node to create (DDiagramElement or
-     * directly the DDiagram) can be editable (by calling the
-     * PermissionAuthority).
+     * Indicates if the target of the Node to create (DDiagramElement or directly the DDiagram) can be editable (by
+     * calling the PermissionAuthority).
      * 
      * @return true if the node can be created, false otherwise
      */

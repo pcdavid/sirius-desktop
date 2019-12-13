@@ -107,6 +107,7 @@ public class ObservationPointCreationCommandBuilder extends NodeCreationCommandB
             }
             // </added for ObservationPointCreationTool>
             addDiagramVariable(result, container, interpreter);
+            addToolVariable(result, tool, interpreter);
             if (diagram != null && tool.getInitialOperation().getFirstModelOperations() != null) {
                 result.getTasks().add(taskHelper.buildTaskFromModelOperation(diagram, semanticContainer, tool.getInitialOperation().getFirstModelOperations()));
             }

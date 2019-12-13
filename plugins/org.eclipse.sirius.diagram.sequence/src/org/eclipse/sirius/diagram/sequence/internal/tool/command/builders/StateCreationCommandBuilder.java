@@ -86,6 +86,7 @@ public class StateCreationCommandBuilder extends NodeCreationCommandBuilder {
             }
             // </added for ExecutionCreationTool>
             addDiagramVariable(result, container, interpreter);
+            addToolVariable(result, tool, interpreter);
             if (tool.getInitialOperation().getFirstModelOperations() != null) {
                 result.getTasks().add(taskHelper.buildTaskFromModelOperation(diagram, semanticContainer, tool.getInitialOperation().getFirstModelOperations()));
             }

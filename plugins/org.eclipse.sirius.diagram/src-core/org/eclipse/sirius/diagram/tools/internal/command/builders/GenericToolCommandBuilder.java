@@ -103,6 +103,7 @@ public class GenericToolCommandBuilder extends AbstractDiagramCommandBuilder {
         final InitInterpreterVariablesTask initInterpreterVariablesTask = buildInitVariablesTasks(interpreter);
         command.getTasks().add(initInterpreterVariablesTask);
         addDiagramVariable(command, containerView, interpreter);
+        addToolVariable(command, tool, interpreter);
     }
 
     /**

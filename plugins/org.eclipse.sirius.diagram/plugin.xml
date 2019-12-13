@@ -19,6 +19,7 @@
    <extension-point id="bundledImageShape" name="%extension-point.bundledImageShape.name" schema="schema/bundledImageShape.exsd"/>
    <extension-point id="customBundledImageShape" name="%extension-point.customBundledImageShape.name" schema="schema/customBundledImageShape.exsd"/>
    <extension-point id="toolManagement" name="%extension-point.toolManagement.name" schema="schema/toolManagement.exsd"/>
+   <extension-point id="commandBuilderProviders" name="%extension-point.commandBuilderProviders.name" schema="schema/commandBuilderProviders.exsd"/>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
       <?gmfgen generated="false"?>
@@ -814,5 +815,15 @@
      <listener
            class="org.eclipse.sirius.diagram.business.internal.refresh.InitSessionEventBrokerListener">
      </listener>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.diagram.commandBuilderProviders">
+     <CommandBuilderProvider
+           class="org.eclipse.sirius.diagram.tools.internal.command.builders.SiriusCommandBuilderProvider"
+           id="defaultSiriusCommandBuilderProvider">
+        <Priority
+              name="Lowest">
+        </Priority>
+     </CommandBuilderProvider>
   </extension>  
 </plugin>

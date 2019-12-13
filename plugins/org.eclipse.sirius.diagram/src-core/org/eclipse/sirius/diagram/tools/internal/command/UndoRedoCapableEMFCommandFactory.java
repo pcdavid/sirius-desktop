@@ -54,6 +54,7 @@ import org.eclipse.sirius.diagram.description.tool.DoubleClickDescription;
 import org.eclipse.sirius.diagram.description.tool.EdgeCreationDescription;
 import org.eclipse.sirius.diagram.description.tool.NodeCreationDescription;
 import org.eclipse.sirius.diagram.description.tool.ReconnectEdgeDescription;
+import org.eclipse.sirius.diagram.tools.api.command.CommandBuilderService;
 import org.eclipse.sirius.diagram.tools.api.command.IDiagramCommandFactory;
 import org.eclipse.sirius.diagram.tools.api.command.view.CreateDiagramWithInitialOperation;
 import org.eclipse.sirius.diagram.tools.api.command.view.HideDDiagramElement;
@@ -62,14 +63,12 @@ import org.eclipse.sirius.diagram.tools.api.command.view.RefreshSiriusElement;
 import org.eclipse.sirius.diagram.tools.api.command.view.RevealAllElementsCommand;
 import org.eclipse.sirius.diagram.tools.api.command.view.RevealDDiagramElements;
 import org.eclipse.sirius.diagram.tools.api.command.view.RevealDDiagramElementsLabel;
-import org.eclipse.sirius.diagram.tools.internal.command.builders.ContainerCreationCommandBuilder;
 import org.eclipse.sirius.diagram.tools.internal.command.builders.DeletionCommandBuilder;
 import org.eclipse.sirius.diagram.tools.internal.command.builders.DirectEditCommandBuilder;
 import org.eclipse.sirius.diagram.tools.internal.command.builders.DoubleClickCommandBuilder;
 import org.eclipse.sirius.diagram.tools.internal.command.builders.DragAndDropCommandBuilder;
 import org.eclipse.sirius.diagram.tools.internal.command.builders.EdgeCreationCommandBuilder;
 import org.eclipse.sirius.diagram.tools.internal.command.builders.GenericToolCommandBuilder;
-import org.eclipse.sirius.diagram.tools.internal.command.builders.NodeCreationCommandBuilder;
 import org.eclipse.sirius.diagram.tools.internal.command.builders.PaneBasedSelectionWizardCommandBuilder;
 import org.eclipse.sirius.diagram.tools.internal.command.builders.PasteCommandBuilder;
 import org.eclipse.sirius.diagram.tools.internal.command.builders.ReconnectionCommandBuilder;
@@ -179,7 +178,7 @@ public class UndoRedoCapableEMFCommandFactory extends AbstractCommandFactory imp
      */
     @Override
     public Command buildCreateNodeCommandFromTool(final DDiagramElementContainer container, final NodeCreationDescription tool) {
-        final CommandBuilder builder = new NodeCreationCommandBuilder(tool, container);
+        final CommandBuilder builder = CommandBuilderService.INSTANCE.getCommandBuilder(tool, container);
         builder.init(modelAccessor, domain, uiCallBack);
         return builder.buildCommand();
     }
@@ -192,7 +191,7 @@ public class UndoRedoCapableEMFCommandFactory extends AbstractCommandFactory imp
      */
     @Override
     public Command buildCreateNodeCommandFromTool(final DNode node, final NodeCreationDescription tool) {
-        final CommandBuilder builder = new NodeCreationCommandBuilder(tool, node);
+        final CommandBuilder builder = CommandBuilderService.INSTANCE.getCommandBuilder(tool, node);
         builder.init(modelAccessor, domain, uiCallBack);
         return builder.buildCommand();
     }
@@ -205,7 +204,7 @@ public class UndoRedoCapableEMFCommandFactory extends AbstractCommandFactory imp
      */
     @Override
     public Command buildCreateNodeCommandFromTool(final DDiagram diagram, final NodeCreationDescription tool) {
-        final CommandBuilder builder = new NodeCreationCommandBuilder(tool, diagram);
+        final CommandBuilder builder = CommandBuilderService.INSTANCE.getCommandBuilder(tool, diagram);
         builder.init(modelAccessor, domain, uiCallBack);
         return builder.buildCommand();
     }
@@ -218,7 +217,7 @@ public class UndoRedoCapableEMFCommandFactory extends AbstractCommandFactory imp
      */
     @Override
     public Command buildCreateContainerCommandFromTool(final DDiagram diagram, final ContainerCreationDescription tool) {
-        final CommandBuilder builder = new ContainerCreationCommandBuilder(tool, diagram);
+        final CommandBuilder builder = CommandBuilderService.INSTANCE.getCommandBuilder(tool, diagram);
         builder.init(modelAccessor, domain, uiCallBack);
         return builder.buildCommand();
     }
@@ -231,7 +230,7 @@ public class UndoRedoCapableEMFCommandFactory extends AbstractCommandFactory imp
      */
     @Override
     public Command buildCreateContainerCommandFromTool(final DDiagramElementContainer nodeContainer, final ContainerCreationDescription tool) {
-        final CommandBuilder builder = new ContainerCreationCommandBuilder(tool, nodeContainer);
+        final CommandBuilder builder = CommandBuilderService.INSTANCE.getCommandBuilder(tool, nodeContainer);
         builder.init(modelAccessor, domain, uiCallBack);
         return builder.buildCommand();
     }

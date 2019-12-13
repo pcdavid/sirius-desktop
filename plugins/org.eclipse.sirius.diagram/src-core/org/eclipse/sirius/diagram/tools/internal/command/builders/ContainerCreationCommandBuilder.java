@@ -161,7 +161,7 @@ public class ContainerCreationCommandBuilder extends AbstractDiagramCommandBuild
             variables.put(tool.getVariable(), semanticContainer);
             variables.put(tool.getViewVariable(), container);
             addDiagramVariable(result, container, interpreter);
-
+            addToolVariable(result, tool, interpreter);
             Option<DDiagram> parentDiagram = new EObjectQuery(container).getParentDiagram();
             result.getTasks().add(taskHelper.buildTaskFromModelOperation(parentDiagram.get(), semanticContainer, tool.getInitialOperation().getFirstModelOperations()));
         } else {

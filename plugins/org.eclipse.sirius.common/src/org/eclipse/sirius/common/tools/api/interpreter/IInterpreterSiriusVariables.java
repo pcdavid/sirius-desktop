@@ -92,4 +92,7 @@ public interface IInterpreterSiriusVariables {
 
     /** "root" representation root element. */
     String ROOT = "root"; //$NON-NLS-1$
+
+    /** the current tool description */
+    String TOOL = "tool"; //$NON-NLS-1$
 }

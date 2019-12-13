@@ -105,6 +105,7 @@ public class FrameCreationCommandBuilder extends ContainerCreationCommandBuilder
             }
 
             addDiagramVariable(result, container, interpreter);
+            addToolVariable(result, tool, interpreter);
             result.getTasks().add(taskHelper.buildTaskFromModelOperation(diagram, semanticContainer, tool.getInitialOperation().getFirstModelOperations()));
         } else {
             result.getTasks().add(UnexecutableTask.INSTANCE);

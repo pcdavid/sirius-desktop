@@ -275,6 +275,7 @@ public class DeletionCommandBuilder extends AbstractDiagramCommandBuilder {
             variables.put(tool.getElementView(), diagramElement);
 
             addDiagramVariable(result, containerView, interpreter);
+            addToolVariable(result, tool, interpreter);
 
             Option<DDiagram> parentDiagram = new EObjectQuery(containerView).getParentDiagram();
             if (tool.getInitialOperation() != null && tool.getInitialOperation().getFirstModelOperations() != null) {

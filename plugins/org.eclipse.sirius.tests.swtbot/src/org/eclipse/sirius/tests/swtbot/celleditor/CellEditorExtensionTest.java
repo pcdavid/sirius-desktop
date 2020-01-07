@@ -39,6 +39,7 @@ import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotText;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
+import org.junit.Assert;
 
 /**
  * Test case to check properties CellEditor extensibility. See https://bugs.eclipse.org/bugs/show_bug.cgi?id=451364
@@ -147,7 +148,11 @@ public class CellEditorExtensionTest extends AbstractSiriusSwtBotGefTestCase {
     private void registerExtension() {
         IExtensionRegistry extensionRegistry = Platform.getExtensionRegistry();
         IContributor contributor = ContributorFactoryOSGi.createContributor(Activator.getDefault().getBundle());
-        extensionRegistry.addContribution(new ByteArrayInputStream(PLUGIN_XML.getBytes()), contributor, false, null, null, ((ExtensionRegistry) extensionRegistry).getTemporaryUserToken());
+        int contributionNumber = extensionRegistry.getConfigurationElementsFor(SiriusCellEditorProviderCollector.EXTENSION_POINT_ID).length;
+        extensionRegistry.addContribution(new ByteArrayInputStream(PLUGIN_XML.getBytes()), contributor, false, "CustomCellEditor", null,
+                ((ExtensionRegistry) extensionRegistry).getTemporaryUserToken());
+        Assert.assertEquals("The contribution has not been registered", contributionNumber + 1,
+                extensionRegistry.getConfigurationElementsFor(SiriusCellEditorProviderCollector.EXTENSION_POINT_ID).length);
     }
 
     /**

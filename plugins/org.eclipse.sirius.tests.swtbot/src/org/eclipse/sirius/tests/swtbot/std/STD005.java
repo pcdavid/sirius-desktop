@@ -96,8 +96,7 @@ public class STD005 extends AbstractSiriusSwtBotGefTestCase {
 
         final SWTBot propertiesViewbot = propertiesView.bot();
         propertiesView.setFocus();
-        SWTBotTreeItem item = propertiesViewbot.tree(0).getTreeItem(NEW_E_CLASS).getNode("Name").select();
-        item.setFocus();
+        SWTBotTreeItem item = propertiesViewbot.tree(0).getTreeItem(NEW_E_CLASS).getNode("Name");
 
         assertEquals(item.cell(1), NEW_E_CLASS);
 

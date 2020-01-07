@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.eclipse.sirius.tests.swtbot;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.sirius.diagram.BackgroundStyle;
 import org.eclipse.sirius.diagram.DDiagram;
@@ -84,21 +86,34 @@ public class BackgroundStyleUpdateTest extends AbstractSiriusSwtBotGefTestCase {
         // Ensure that the background style do not change on representation
         // opening
         SWTBotGefEditPart editPart = selectAndCheckEditPart(CONTAINER_NAME, DNodeContainerEditPart.class);
-        checkBackgroundStyle(editPart, "GradientTopToBottom");
+         checkBackgroundStyle(editPart, "GradientTopToBottom");
         // Change the container background style
-        changeBackgroundStyle(true);
+        EObject target = ((org.eclipse.sirius.diagram.DNodeContainer) ((org.eclipse.gmf.runtime.notation.Node) editPart.part().getModel()).getElement()).getTarget();
+        changeBackgroundStyle(target, true);
         // Check if the background style is correctly changed
         checkBackgroundStyle(editPart, "Liquid");
         // Reset the container background style
-        changeBackgroundStyle(false);
+        changeBackgroundStyle(target, false);
         // Check if the background style is correctly changed
         checkBackgroundStyle(editPart, "GradientTopToBottom");
+        editor.close();
     }
 
     private void checkBackgroundStyle(SWTBotGefEditPart editPart, String backgroundStyleName) {
         DDiagramElement diagramElement = DiagramElementEditPartOperation.resolveDiagramElement((IDiagramElementEditPart) editPart.part());
         BackgroundStyle backgroundStyle = ((FlatContainerStyle) diagramElement.getStyle()).getBackgroundStyle();
         assertEquals("Wrong background style of the container '" + diagramElement.getName() + "'", backgroundStyleName, backgroundStyle.getName());
+    }
+
+    private void changeBackgroundStyle(EObject semanticElement, boolean liquid) {
+        localSession.getOpenedSession().getTransactionalEditingDomain().getCommandStack().execute(new RecordingCommand(localSession.getOpenedSession().getTransactionalEditingDomain()) {
+
+            @Override
+            protected void doExecute() {
+                semanticElement.eSet(semanticElement.eClass().getEAllStructuralFeatures().get(0), liquid);
+
+            }
+        });
     }
 
     private void changeBackgroundStyle(boolean liquid) {

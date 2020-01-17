@@ -63,6 +63,12 @@ public enum SiriusUIPreferencesKeys {
      * Indicates if the UserFixedColors, defined in the VSM, are displayed in the color palette.</br>
      * The color palette is used in appearance tab of properties view.
      */
-    PREF_DISPLAY_VSM_USER_FIXED_COLOR_IN_PALETTE;
+    PREF_DISPLAY_VSM_USER_FIXED_COLOR_IN_PALETTE,
+
+    /**
+     * 
+     * Indicates if the permission decorator should be displayed on representation elements.
+     */
+    PREF_DISPLAY_WRITE_PERMISSION_DECORATOR;
 
 }

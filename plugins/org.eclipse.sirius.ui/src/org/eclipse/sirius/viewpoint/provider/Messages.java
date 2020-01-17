@@ -1015,6 +1015,12 @@ public final class Messages {
     public static String SiriusPreferencePage_askUserToSaveAfterMigration;
 
     @TranslatableMessage
+    public static String SiriusPreferencePage_decorationGroupText;
+
+    @TranslatableMessage
+    public static String SiriusPreferencePage_displayWritePermissionDecoratorText;
+
+    @TranslatableMessage
     public static String SiriusRepresentationWithInactiveStatusLabelProvider_representationDescriptionItem_tooltip;
 
     @TranslatableMessage

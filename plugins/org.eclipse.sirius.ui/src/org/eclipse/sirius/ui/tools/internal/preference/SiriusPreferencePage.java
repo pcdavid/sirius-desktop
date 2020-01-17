@@ -62,6 +62,8 @@ public class SiriusPreferencePage extends FieldEditorPreferencePage implements I
 
     private IntegerFieldEditor groupSize;
 
+    private BooleanFieldEditor displayPermissionDecorator;
+
     @Override
     protected void createFieldEditors() {
         setPreferenceStore(SiriusEditPlugin.getPlugin().getPreferenceStore());
@@ -78,7 +80,9 @@ public class SiriusPreferencePage extends FieldEditorPreferencePage implements I
         addGroupTreeItemsField(parent);
         addSessionEditorFields(parent);
         addMigrationFields(parent);
+        addDecoratorsFields(parent);
     }
+
 
     private void addFilesFields(Composite parent) {
         Composite fileComposite = createGroup(parent, Messages.SiriusPreferencePage_filesGroup);
@@ -122,6 +126,36 @@ public class SiriusPreferencePage extends FieldEditorPreferencePage implements I
         addField(autoRefresh);
     }
 
+    /**
+     * Create the decoration group for the boolean property in this preference page.
+     * 
+     * @param parent
+     *            the composite on which create this group.
+     */
+    private void addDecoratorsFields(Composite parent) {
+        Group group = new Group(parent, SWT.NONE);
+        group.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        group.setLayout(new GridLayout(3, false));
+        Composite composite = new Composite(group, SWT.NONE);
+        GridLayout gridLayout = new GridLayout(3, false);
+        composite.setLayout(gridLayout);
+        GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+        gridData.grabExcessHorizontalSpace = true;
+        gridData.horizontalSpan = 3;
+        composite.setLayoutData(gridData);
+        group.setText(Messages.SiriusPreferencePage_decorationGroupText);
+
+        displayPermissionDecorator = new BooleanFieldEditor(SiriusUIPreferencesKeys.PREF_DISPLAY_WRITE_PERMISSION_DECORATOR.name(), Messages.SiriusPreferencePage_displayWritePermissionDecoratorText,
+                composite);
+        addField(displayPermissionDecorator);
+
+        GridLayout layout = new GridLayout();
+        layout.numColumns = 3;
+        layout.marginWidth = 0;
+        layout.marginHeight = 0;
+        layout.horizontalSpacing = 8;
+        composite.setLayout(layout);
+    }
     private void addProfilingField(Composite parent) {
         Composite profilerComposite = createGroup(parent, Messages.SiriusPreferencePage_profilerGroup);
 
@@ -201,5 +235,6 @@ public class SiriusPreferencePage extends FieldEditorPreferencePage implements I
         autoRefresh.load();
         emptyAirdFragmentOnControl.setPreferenceStore(siriusPluginPreferences);
         emptyAirdFragmentOnControl.load();
+
     }
 }

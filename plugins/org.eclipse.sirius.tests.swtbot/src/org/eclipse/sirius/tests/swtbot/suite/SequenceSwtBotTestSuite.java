@@ -57,6 +57,7 @@ import org.eclipse.sirius.tests.swtbot.sequence.MessageExtensionTest;
 import org.eclipse.sirius.tests.swtbot.sequence.NonAutoRefreshSequenceExecutionBasicAndReturnMessageTest;
 import org.eclipse.sirius.tests.swtbot.sequence.NoteAttachmentTest;
 import org.eclipse.sirius.tests.swtbot.sequence.ObservationPointTests;
+import org.eclipse.sirius.tests.swtbot.sequence.OperandLabelsOverlayTests;
 import org.eclipse.sirius.tests.swtbot.sequence.PunctualStateTests;
 import org.eclipse.sirius.tests.swtbot.sequence.RefreshLayoutNotExecutedOnNoSequenceChangesTests;
 import org.eclipse.sirius.tests.swtbot.sequence.SequenceArrangeLinkedBorderedNodesTest;
@@ -209,6 +210,7 @@ public class SequenceSwtBotTestSuite extends TestCase {
             suite.addTestSuite(HeaderSequenceDiagramTests.class);
             suite.addTestSuite(SequenceExecutionBasicAndReturnMessageTest.class);
             suite.addTestSuite(ExecutionMoveTests.class);
+            suite.addTestSuite(OperandLabelsOverlayTests.class);
         }
         return suite;
     }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interactions:Interaction xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:interactions="http://www.eclipse.org/sirius/sample/interactions">
+  <participants name="newParticipant1"/>
+  <participants name="newParticipant2"/>
+  <participants name="newParticipant3"/>
+  <executions name="e1" owner="//@participants.0" start="//@ends.0" end="//@ends.4"/>
+  <combinedFragments operator="alt.1" coveredParticipants="//@participants.0" start="//@ends.1" finish="//@ends.3">
+    <ownedOperands name="Condition cachée par l'exécution" start="//@ends.2"/>
+  </combinedFragments>
+  <ends xsi:type="interactions:ExecutionEnd" name="start_e1" context="//@participants.0" execution="//@executions.0"/>
+  <ends xsi:type="interactions:CombinedFragmentEnd" name="start_alt.1" owner="//@combinedFragments.0"/>
+  <ends xsi:type="interactions:OperandEnd" name="start_condition1" owner="//@combinedFragments.0/@ownedOperands.0"/>
+  <ends xsi:type="interactions:CombinedFragmentEnd" name="finish_alt.1" owner="//@combinedFragments.0"/>
+  <ends xsi:type="interactions:ExecutionEnd" name="finishe1" context="//@participants.0" execution="//@executions.0"/>
+</interactions:Interaction>

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2008 THALES GLOBAL SERVICES.
+ * Copyright (c) 2007, 2020 THALES GLOBAL SERVICES.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -16,6 +16,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.sirius.ext.base.Option;
 
 /**
@@ -28,16 +29,18 @@ import org.eclipse.sirius.ext.base.Option;
 public interface ModelChangeTrigger {
 
     /**
-     * Will be called when a Notification event gets sent from the
-     * SiriusEventBroker during the firing of pre-commit events.
+     * Will be called when a Notification event gets sent from the SiriusEventBroker during the firing of pre-commit
+     * events.
      * 
      * Might return <tt>null</tt> if there is nothing to do.
      * 
      * @param notifications
      *            the list of notifications of interest.
      * @return the command to do wrapped in a option.
+     * @throws RollbackException
+     *             to force a roll-back of the current transaction
      */
-    Option<Command> localChangesAboutToCommit(Collection<Notification> notifications);
+    Option<Command> localChangesAboutToCommit(Collection<Notification> notifications) throws RollbackException;
 
     /**
      * return an int representing the triggering priority, less meaning sooner,

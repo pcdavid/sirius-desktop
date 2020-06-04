@@ -31,6 +31,13 @@ import org.eclipse.pde.core.target.ITargetLocation;
 import org.eclipse.pde.core.target.ITargetPlatformService;
 import org.eclipse.pde.core.target.LoadTargetDefinitionJob;
 import org.eclipse.pde.internal.core.target.TargetPlatformService;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.ImageLoader;
+import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 import org.junit.Assert;
 import org.osgi.framework.Bundle;
@@ -80,6 +87,48 @@ public final class TestsUtil {
                 shouldRetry = true;
             }
         } while (shouldRetry);
+    }
+
+    /**
+     * Copied from org.eclipse.swtbot.swt.finder.utils.SWTUtils.captureScreenshotInternal(String, Rectangle).
+     * 
+     * @param fileName
+     *            the file name to create the screenshot file relative to the plugin folder it is called from.
+     * @return true if the capture succeeded
+     */
+    public static boolean captureScreenshot(final String fileName) {
+        Display display = Display.getCurrent();
+        Rectangle bounds = display.getBounds();
+        GC gc = new GC(display);
+        Image image = null;
+        File file = new File(fileName);
+        File parentDir = file.getParentFile();
+        if (parentDir != null)
+            parentDir.mkdirs();
+        try {
+            image = new Image(display, bounds.width, bounds.height);
+            gc.copyArea(image, bounds.x, bounds.y);
+            ImageLoader imageLoader = new ImageLoader();
+            imageLoader.data = new ImageData[] { image.getImageData() };
+            imageLoader.save(fileName, SWT.IMAGE_JPEG);
+            return true;
+            // CHECKSTYLE:OFF
+        } catch (Exception e) {
+            File brokenImage = file.getAbsoluteFile();
+            if (brokenImage.exists()) {
+                try {
+                    brokenImage.deleteOnExit();
+                } catch (Exception ex) {
+                    // CHECKSTYLE:ON
+                }
+            }
+            return false;
+        } finally {
+            gc.dispose();
+            if (image != null) {
+                image.dispose();
+            }
+        }
     }
 
     /**

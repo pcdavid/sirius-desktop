@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2019 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2009, 2020 THALES GLOBAL SERVICES and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,10 @@
  *      Obeo - Initial API and implementation
  *******************************************************************************/
 package org.eclipse.sirius.tests.support.api;
+
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 
 import java.io.File;
 import java.io.IOException;
@@ -77,12 +81,7 @@ import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.diagram.DiagramPlugin;
 import org.eclipse.sirius.diagram.tools.api.command.DiagramCommandFactoryService;
 import org.eclipse.sirius.diagram.tools.api.command.IDiagramCommandFactory;
-import org.eclipse.sirius.diagram.tools.api.preferences.SiriusDiagramCorePreferences;
-import org.eclipse.sirius.diagram.tools.api.preferences.SiriusDiagramPreferencesKeys;
-import org.eclipse.sirius.diagram.tools.internal.preferences.SiriusDiagramInternalPreferencesKeys;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
-import org.eclipse.sirius.diagram.ui.tools.api.preferences.SiriusDiagramUiPreferencesKeys;
-import org.eclipse.sirius.diagram.ui.tools.internal.preferences.SiriusDiagramUiInternalPreferencesKeys;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 import org.eclipse.sirius.ecore.extender.tool.api.ModelUtils;
 import org.eclipse.sirius.ext.base.Option;
@@ -115,13 +114,6 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.junit.Assert;
 import org.osgi.framework.Version;
 
-import com.google.common.base.Function;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
-
 import junit.framework.TestCase;
 
 /**
@@ -142,7 +134,7 @@ public abstract class SiriusTestCase extends TestCase {
     /** Initialization error message. */
     public static final String INIT_ERROR_MSG = "An error occurs during tests initialization";
 
-    /** name of the project created in the test workspace.*/
+    /** name of the project created in the test workspace. */
     protected static final String TEMPORARY_PROJECT_NAME = "DesignerTestProject";
 
     /**
@@ -152,6 +144,10 @@ public abstract class SiriusTestCase extends TestCase {
             .createPlatformResourceURI(File.separator + SiriusTestCase.TEMPORARY_PROJECT_NAME + File.separator + ModelingProject.DEFAULT_REPRESENTATIONS_FILE_NAME, true);
 
     private static final String DOT = ".";
+
+    private static final String CAPTURE_JUNIT_SCREENSHOT = "captureJUnitScreenshot";
+
+    private static final String SCREENSHOT_FOLDER = "screenshots";
 
     /** The local session. */
     protected Session session;
@@ -238,6 +234,27 @@ public abstract class SiriusTestCase extends TestCase {
             EclipseTestsSupportHelper.INSTANCE.createModelingProject(SiriusTestCase.TEMPORARY_PROJECT_NAME, false);
         } else {
             EclipseTestsSupportHelper.INSTANCE.createProject(SiriusTestCase.TEMPORARY_PROJECT_NAME);
+        }
+    }
+
+    @Override
+    protected void runTest() throws Throwable {
+        try {
+            super.runTest();
+        } catch (AssertionError e) {
+            captureScreenshot();
+            TestsUtil.synchronizationWithUIThread();
+            throw e;
+        }
+    }
+
+    private void captureScreenshot() {
+        if (Boolean.getBoolean(CAPTURE_JUNIT_SCREENSHOT)) {
+            String fileName = SCREENSHOT_FOLDER + "/screenshot-" + getClass().getSimpleName() + DOT + getName() + DOT + "jpeg"; //$NON-NLS-1$ //$NON-NLS-2$
+                                                                                                                                // //$NON-NLS-3$
+
+            new File("screenshots").mkdirs(); // $NON-NLS-1$
+            TestsUtil.captureScreenshot(fileName);
         }
     }
 
@@ -732,12 +749,10 @@ public abstract class SiriusTestCase extends TestCase {
     }
 
     /**
-     * Activate or deactivate the external info detection: the test will fail in
-     * a warning is logged or uncaught.
+     * Activate or deactivate the external info detection: the test will fail in a warning is logged or uncaught.
      * 
      * @param infoCatchActive
-     *            boolean to indicate if we activate or deactivate the external
-     *            info detection
+     *            boolean to indicate if we activate or deactivate the external info detection
      */
     protected synchronized void setInfoCatchActive(boolean infoCatchActive) {
         this.infoCatchActive = infoCatchActive;
@@ -788,7 +803,7 @@ public abstract class SiriusTestCase extends TestCase {
             }
         }
     }
-    
+
     /**
      * Compute a message from the detected warnings/errors/infos.
      * 
@@ -1253,7 +1268,6 @@ public abstract class SiriusTestCase extends TestCase {
         return representations;
     }
 
-
     /**
      * Get the representation with the given name.</br>
      * The search scope is the representations already loaded in the session.
@@ -1264,8 +1278,7 @@ public abstract class SiriusTestCase extends TestCase {
      */
     protected final List<DRepresentation> getRepresentationsByName(final String representationName) {
         final List<DRepresentation> representations = DialectManager.INSTANCE.getAllRepresentationDescriptors(session).stream().filter(rep -> representationName.equals(rep.getName()))
-                .map(DRepresentationDescriptor::getRepresentation)
-                .collect(Collectors.toList());
+                .map(DRepresentationDescriptor::getRepresentation).collect(Collectors.toList());
         return representations;
     }
 
@@ -1593,7 +1606,7 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeDiagramPreference(String preferenceKey, Integer newValue) {
-        assertNoDiagramUIPreferenceChangedinDiagramCoreStore(preferenceKey);
+        SiriusAssert.assertNoDiagramUIPreferenceChangedinDiagramCoreStore(preferenceKey);
 
         int oldValue = Platform.getPreferencesService().getInt(DiagramPlugin.ID, preferenceKey, 0, null);
         oldValueDiagramPreferences.put(preferenceKey, oldValue);
@@ -1616,7 +1629,7 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeDiagramPreference(String preferenceKey, Boolean newValue) {
-        assertNoDiagramUIPreferenceChangedinDiagramCoreStore(preferenceKey);
+        SiriusAssert.assertNoDiagramUIPreferenceChangedinDiagramCoreStore(preferenceKey);
 
         boolean oldValue = Platform.getPreferencesService().getBoolean(DiagramPlugin.ID, preferenceKey, false, null);
         oldValueDiagramPreferences.put(preferenceKey, oldValue);
@@ -1671,7 +1684,7 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeDiagramUIPreference(String preferenceKey, Integer newValue) {
-        assertNoDiagramCorePreferenceChangedinDiagramUIStore(preferenceKey);
+        SiriusAssert.assertNoDiagramCorePreferenceChangedinDiagramUIStore(preferenceKey);
 
         final IPreferenceStore prefs = DiagramUIPlugin.getPlugin().getPreferenceStore();
         oldValueDiagramUiPreferences.put(preferenceKey, prefs.getInt(preferenceKey));
@@ -1689,7 +1702,7 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeDiagramUIPreference(String preferenceKey, Boolean newValue) {
-        assertNoDiagramCorePreferenceChangedinDiagramUIStore(preferenceKey);
+        SiriusAssert.assertNoDiagramCorePreferenceChangedinDiagramUIStore(preferenceKey);
 
         final IPreferenceStore prefs = DiagramUIPlugin.getPlugin().getPreferenceStore();
         oldValueDiagramUiPreferences.put(preferenceKey, prefs.getBoolean(preferenceKey));
@@ -1774,47 +1787,11 @@ public abstract class SiriusTestCase extends TestCase {
      *            The new value.
      */
     protected void changeSiriusUIPreference(String preferenceKey, Boolean newValue) {
-        assertNoSiriusCorePreferenceChangedinSiriusUIStore(preferenceKey);
+        SiriusAssert.assertNoSiriusCorePreferenceChangedinSiriusUIStore(preferenceKey);
 
         IPreferenceStore viewpointUIPrefs = SiriusEditPlugin.getPlugin().getPreferenceStore();
         oldValueSiriusUIPreferences.put(preferenceKey, viewpointUIPrefs.getBoolean(preferenceKey));
         viewpointUIPrefs.setValue(preferenceKey, newValue);
-    }
-
-    private void assertNoSiriusCorePreferenceChangedinSiriusUIStore(String preferenceKey) {
-        Collection<SiriusPreferencesKeys> coreKeys = new ArrayList<SiriusPreferencesKeys>(Arrays.asList(SiriusPreferencesKeys.values()));
-        Function<SiriusPreferencesKeys, String> prefToName = new Function<SiriusPreferencesKeys, String>() {
-            @Override
-            public String apply(SiriusPreferencesKeys input) {
-                return input.name();
-            }
-        };
-        TestCase.assertFalse("The DesignerPreferenceKey named " + preferenceKey + " should not be modified in the UI store.",
-                Lists.newArrayList(Iterables.transform(coreKeys, prefToName)).contains(preferenceKey));
-    }
-
-    private void assertNoDiagramCorePreferenceChangedinDiagramUIStore(String preferenceKey) {
-        Collection<String> coreKeys = new ArrayList<>();
-        for (SiriusDiagramInternalPreferencesKeys key : SiriusDiagramInternalPreferencesKeys.values()) {
-            coreKeys.add(key.name());
-        }
-        for (SiriusDiagramPreferencesKeys key : SiriusDiagramPreferencesKeys.values()) {
-            coreKeys.add(key.name());
-        }
-        coreKeys.add(SiriusDiagramCorePreferences.PREF_ENABLE_OVERRIDE);
-        coreKeys.add(SiriusDiagramCorePreferences.PREF_LINE_STYLE);
-        assertFalse("The Diagram core preference named " + preferenceKey + " should not be modified in the Diagram UI store.", coreKeys.contains(preferenceKey));
-    }
-
-    private void assertNoDiagramUIPreferenceChangedinDiagramCoreStore(String preferenceKey) {
-        Collection<String> uiKeys = new ArrayList<>();
-        for (SiriusDiagramUiInternalPreferencesKeys key : SiriusDiagramUiInternalPreferencesKeys.values()) {
-            uiKeys.add(key.name());
-        }
-        for (SiriusDiagramUiPreferencesKeys key : SiriusDiagramUiPreferencesKeys.values()) {
-            uiKeys.add(key.name());
-        }
-        assertFalse("The Diagram UI preference named " + preferenceKey + " should not be modified in the Diagram core store.", uiKeys.contains(preferenceKey));
     }
 
     private String getErrorMessage(String preferenceKey, String pluginId) {

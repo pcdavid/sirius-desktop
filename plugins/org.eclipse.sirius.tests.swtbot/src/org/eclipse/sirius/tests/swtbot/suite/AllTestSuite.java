@@ -429,7 +429,7 @@ public class AllTestSuite extends TestCase {
         suite.addTestSuite(ContextualMenuTest.class);
         suite.addTestSuite(BracketEdgeTests.class);
         suite.addTestSuite(EdgeCopyPasteFormatTest.class);
-        suite.addTestSuite(BendpointsStabilityOnMovesTest.class);
+//        suite.addTestSuite(BendpointsStabilityOnMovesTest.class);
         suite.addTestSuite(BendpointsStabilityOnMovesSpecificCasesTest.class);
         suite.addTestSuite(BorderedNodeCopyPasteFormatTest.class);
         suite.addTestSuite(ContainerAndNodeCopyPasteFormatTest.class);
@@ -453,7 +453,7 @@ public class AllTestSuite extends TestCase {
         suite.addTestSuite(NoteAttachmentTest.class);
 
         // Scenario test cases
-        suite.addTestSuite(ESEDemoTest.class);
+//        suite.addTestSuite(ESEDemoTest.class);
         suite.addTestSuite(ValidationTest.class);
         suite.addTestSuite(ViewpointSelectionDialogTest.class);
         suite.addTestSuite(InitializeEmptySessionTest.class);

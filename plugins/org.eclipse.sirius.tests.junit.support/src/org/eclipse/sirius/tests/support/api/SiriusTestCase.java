@@ -1301,7 +1301,7 @@ public abstract class SiriusTestCase extends TestCase {
     protected final Collection<DRepresentation> getRepresentations(final String name, final Session alternateSession) {
         final Collection<DRepresentation> allRepresentations = DialectManager.INSTANCE.getAllRepresentations(alternateSession);
 
-        final Collection<DRepresentation> representations = new HashSet<DRepresentation>();
+        final Collection<DRepresentation> representations = new LinkedHashSet<DRepresentation>();
 
         for (final DRepresentation representation : allRepresentations) {
             final RepresentationDescription desc = DialectManager.INSTANCE.getDescription(representation);
@@ -1324,7 +1324,7 @@ public abstract class SiriusTestCase extends TestCase {
     protected final Collection<DRepresentationDescriptor> getRepresentationDescriptors(final String representationDescriptionName, final Session alternateSession) {
         final Collection<DRepresentationDescriptor> allRepDescriptors = DialectManager.INSTANCE.getAllRepresentationDescriptors(alternateSession);
 
-        final Collection<DRepresentationDescriptor> repDescriptors = new HashSet<DRepresentationDescriptor>();
+        final Collection<DRepresentationDescriptor> repDescriptors = new LinkedHashSet<DRepresentationDescriptor>();
 
         for (final DRepresentationDescriptor repDescriptor : allRepDescriptors) {
             final RepresentationDescription desc = repDescriptor.getDescription();
@@ -1349,7 +1349,7 @@ public abstract class SiriusTestCase extends TestCase {
     protected final Collection<DRepresentation> getRepresentations(final String name, final EObject semantic, final Session alternateSession) {
         final Collection<DRepresentation> allRepresentations = DialectManager.INSTANCE.getRepresentations(semantic, alternateSession);
 
-        final Collection<DRepresentation> representations = new HashSet<DRepresentation>();
+        final Collection<DRepresentation> representations = new LinkedHashSet<DRepresentation>();
         for (final DRepresentation representation : allRepresentations) {
             final RepresentationDescription desc = DialectManager.INSTANCE.getDescription(representation);
             if (name.equals(desc.getName())) {
@@ -1371,7 +1371,7 @@ public abstract class SiriusTestCase extends TestCase {
     protected final Collection<DRepresentation> getRepresentations(final String name, final EObject semantic) {
         final Collection<DRepresentation> allRepresentations = DialectManager.INSTANCE.getRepresentations(semantic, session);
 
-        final Collection<DRepresentation> representations = new HashSet<DRepresentation>();
+        final Collection<DRepresentation> representations = new LinkedHashSet<DRepresentation>();
 
         for (final DRepresentation representation : allRepresentations) {
             final RepresentationDescription desc = DialectManager.INSTANCE.getDescription(representation);

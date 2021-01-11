@@ -15,15 +15,15 @@
   <topic href="doc/Release_Notes.html" label="Release Notes">
     <topic href="doc/Release_Notes_Previous.html" label="Release Notes for Older Versions" />
   </topic>
-  <topic href="doc/user/Sirius User Manual.html" label="Sirius User Manual">
+  <topic href="doc/user/SiriusUserManual.html" label="Sirius User Manual">
     <anchor id="userStart" />
-    <topic href="doc/user/general/Modeling Project.html" label="Modeling Project">
-      <topic href="doc/user/general/Modeling Project.html#Introduction" label="Introduction" />
-      <topic href="doc/user/general/Modeling Project.html#FormerUsers" label="Note to Users of Previous Versions" />
-      <topic href="doc/user/general/Modeling Project.html#ModelingPerspective" label="The Modeling Perspective" />
-      <topic href="doc/user/general/Modeling Project.html#MP" label="Modeling Projects" />
-      <topic href="doc/user/general/Modeling Project.html#Representations" label="Representations" />
-      <topic href="doc/user/general/Modeling Project.html#LegacyMode" label="Legacy Mode" />
+    <topic href="doc/user/general/ModelingProject.html" label="Modeling Project">
+      <topic href="doc/user/general/ModelingProject.html#Introduction" label="Introduction" />
+      <topic href="doc/user/general/ModelingProject.html#FormerUsers" label="Note to Users of Previous Versions" />
+      <topic href="doc/user/general/ModelingProject.html#ModelingPerspective" label="The Modeling Perspective" />
+      <topic href="doc/user/general/ModelingProject.html#MP" label="Modeling Projects" />
+      <topic href="doc/user/general/ModelingProject.html#Representations" label="Representations" />
+      <topic href="doc/user/general/ModelingProject.html#LegacyMode" label="Legacy Mode" />
     </topic>
     <topic href="doc/user/general/Aird_Editor.html" label="Aird Editor">
       <topic href="doc/user/general/Aird_Editor.html#overview" label="Overview" />
@@ -37,12 +37,12 @@
       <topic href="doc/user/diagrams/Diagrams.html#reference" label="Reference" />
       <topic href="doc/user/diagrams/Diagrams.html#preferences" label="Preferences" />
     </topic>
-    <topic href="doc/user/sequences/Sequence Diagrams.html" label="Sequence Diagrams">
-      <topic href="doc/user/sequences/Sequence Diagrams.html#introduction" label="Introduction" />
-      <topic href="doc/user/sequences/Sequence Diagrams.html#semantics" label="Sequence Diagrams Semantics" />
-      <topic href="doc/user/sequences/Sequence Diagrams.html#restrictions" label="Restrictions and Limitations" />
-      <topic href="doc/user/sequences/Sequence Diagrams.html#layout" label="Automatic Layout" />
-      <topic href="doc/user/sequences/Sequence Diagrams.html#elements" label="Sequence Diagram Elements" />
+    <topic href="doc/user/sequences/SequenceDiagrams.html" label="Sequence Diagrams">
+      <topic href="doc/user/sequences/SequenceDiagrams.html#introduction" label="Introduction" />
+      <topic href="doc/user/sequences/SequenceDiagrams.html#semantics" label="Sequence Diagrams Semantics" />
+      <topic href="doc/user/sequences/SequenceDiagrams.html#restrictions" label="Restrictions and Limitations" />
+      <topic href="doc/user/sequences/SequenceDiagrams.html#layout" label="Automatic Layout" />
+      <topic href="doc/user/sequences/SequenceDiagrams.html#elements" label="Sequence Diagram Elements" />
     </topic>
     <topic href="doc/user/tables/Tables.html" label="Tables">
       <topic href="doc/user/tables/Tables.html#introduction" label="Introduction" />
@@ -63,7 +63,7 @@
     <topic href="doc/user/properties/Properties%20View.html" label="Properties Views"/>
     <anchor id="moreUserRefs" />
   </topic>
-  <topic href="doc/specifier/Sirius Specifier Manual.html" label="Sirius Specifier Manual">
+  <topic href="doc/specifier/SiriusSpecifierManual.html" label="Sirius Specifier Manual">
     <anchor id="specifierStart" />
     <topic href="doc/specifier/general/Specifying_Viewpoints.html" label="Viewpoints">
       <topic href="doc/specifier/general/Specifying_Viewpoints.html#introduction" label="Introduction" />
@@ -99,15 +99,15 @@
       <topic href="doc/specifier/diagrams/Diagrams.html#customization" label="Diagram Styles Customization Features">
       </topic>
     </topic>
-    <topic href="doc/specifier/sequences/Sequence Diagrams.html" label="Sequence Diagrams">
-      <topic href="doc/specifier/sequences/Sequence Diagrams.html#introduction" label="Introduction" />
-      <topic href="doc/specifier/sequences/Sequence Diagrams.html#semantics" label="Sequence Diagrams Semantics" />
-      <topic href="doc/specifier/sequences/Sequence Diagrams.html#restrictions" label="Restrictions and Limitations" />
-      <topic href="doc/specifier/sequences/Sequence Diagrams.html#prerequisites" label="Prerequisites" />
-      <topic href="doc/specifier/sequences/Sequence Diagrams.html#sd_description" label="Sequence Diagram Description" />
-      <topic href="doc/specifier/sequences/Sequence Diagrams.html#DefaultLayer" label="Default Layer" />
-      <topic href="doc/specifier/sequences/Sequence Diagrams.html#mappings" label="Mappings" />
-      <topic href="doc/specifier/sequences/Sequence Diagrams.html#tools" label="Tools" />
+    <topic href="doc/specifier/sequences/SequenceDiagrams.html" label="Sequence Diagrams">
+      <topic href="doc/specifier/sequences/SequenceDiagrams.html#introduction" label="Introduction" />
+      <topic href="doc/specifier/sequences/SequenceDiagrams.html#semantics" label="Sequence Diagrams Semantics" />
+      <topic href="doc/specifier/sequences/SequenceDiagrams.html#restrictions" label="Restrictions and Limitations" />
+      <topic href="doc/specifier/sequences/SequenceDiagrams.html#prerequisites" label="Prerequisites" />
+      <topic href="doc/specifier/sequences/SequenceDiagrams.html#sd_description" label="Sequence Diagram Description" />
+      <topic href="doc/specifier/sequences/SequenceDiagrams.html#DefaultLayer" label="Default Layer" />
+      <topic href="doc/specifier/sequences/SequenceDiagrams.html#mappings" label="Mappings" />
+      <topic href="doc/specifier/sequences/SequenceDiagrams.html#tools" label="Tools" />
     </topic>
     <topic href="doc/specifier/tables/Tables.html" label="Tables">
       <topic href="doc/specifier/tables/Tables.html#introduction" label="Introduction" />
@@ -223,7 +223,7 @@
     </topic>
     <anchor id="moreSpecifierRefs" />
   </topic>
-  <topic href="doc/developer/Sirius Developer Manual.html" label="Sirius Developer Manual">
+  <topic href="doc/developer/SiriusDeveloperManual.html" label="Sirius Developer Manual">
     <anchor id="developerStart" />
     <topic href="doc/developer/Architecture_Overview.html" label="Architecture Overview" />
     <topic href="doc/developer/Architecture.html" label="Architecture and Concepts" />

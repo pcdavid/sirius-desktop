@@ -268,6 +268,9 @@ public class SiriusCommonContentProvider implements ICommonContentProvider {
                     resource = getSemanticResource(parentFile, modelingProjectSession);
                     if (resource != null && resource.isLoaded()) {
                         fileChildren.addAll(safeGetDefaultContentProviderChildren(resource, parentFile));
+                    } else {
+                        // the semantic resource not yet loaded into the session
+                        fileChildren.addAll(doGetChildrenForTransientSession(modelingProjectSession, parentFile));
                     }
                 }
             } else {

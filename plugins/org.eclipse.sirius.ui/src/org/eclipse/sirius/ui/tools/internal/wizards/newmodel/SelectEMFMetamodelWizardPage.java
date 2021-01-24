@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017 Obeo
+ * Copyright (c) 2017, 2021 Obeo and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -160,6 +160,12 @@ public class SelectEMFMetamodelWizardPage extends WizardPage {
         this.metamodelFilteredList.setFilter(this.metamodelFilter == null ? "" : this.metamodelFilter); //$NON-NLS-1$
 
         this.metamodelFilteredList.addSelectionListener(new SelectionAdapter() {
+
+            @Override
+            public void widgetDefaultSelected(SelectionEvent e) {
+                getContainer().showPage(getNextPage());
+            }
+
             @SuppressWarnings("unchecked")
             @Override
             public void widgetSelected(SelectionEvent e) {

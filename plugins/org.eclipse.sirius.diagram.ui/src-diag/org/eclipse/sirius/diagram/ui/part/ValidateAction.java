@@ -249,26 +249,36 @@ public class ValidateAction extends Action {
         collectTargetElements(rootStatus, new HashSet(), allStatuses);
         for (Iterator it = allStatuses.iterator(); it.hasNext();) {
             IConstraintStatus nextStatus = (IConstraintStatus) it.next();
-            View view = getCorrespondingView(nextStatus.getTarget(), diagramEditPart);
+            List<View> views = getCorrespondingViews(nextStatus.getTarget(), diagramEditPart);
             String qualifiedName = EMFCoreUtil.getQualifiedName(nextStatus.getTarget(), true);
-            if (nextStatus instanceof RuleWrappingStatus) {
-                createValidationRuleMarker((RuleWrappingStatus) nextStatus, diagramEditPart.getViewer(), target, view, qualifiedName, nextStatus.getMessage(), nextStatus.getSeverity());
-            } else {
-                addMarker(diagramEditPart.getViewer(), target, view, qualifiedName, nextStatus.getMessage(), nextStatus.getSeverity());
+            for (View view : views) {
+                if (nextStatus instanceof RuleWrappingStatus) {
+                    createValidationRuleMarker((RuleWrappingStatus) nextStatus, diagramEditPart.getViewer(), target, view, qualifiedName, nextStatus.getMessage(), nextStatus.getSeverity());
+                } else {
+                    addMarker(diagramEditPart.getViewer(), target, view, qualifiedName, nextStatus.getMessage(), nextStatus.getSeverity());
+                }
             }
         }
     }
 
-    private static View getCorrespondingView(EObject element, DiagramEditPart diagramEditPart) {
-        DSemanticDecorator dSemanticDecorator = getDSemanticDecorator(element, diagramEditPart);
-        View view = null;
-        if (dSemanticDecorator != null) {
-            view = SiriusGMFHelper.getGmfView(dSemanticDecorator);
+    /**
+     * If element is a {@link DSemanticDecorator}, its associated view is returned.<br/>
+     * If element is a semantic Object, the Views of the DDiagramElement representing the semantic object are
+     * returned.<br/>
+     * Otherwise, the GMF Diagram is returned as a fallback
+     * 
+     * @return
+     */
+    private static List<View> getCorrespondingViews(EObject element, DiagramEditPart diagramEditPart) {
+        List<DSemanticDecorator> dSemanticDecorators = getDSemanticDecorators(element, diagramEditPart);
+        List<View> views = new ArrayList<View>();
+        for (DSemanticDecorator dSemanticDecorator : dSemanticDecorators) {
+            views.add(SiriusGMFHelper.getGmfView(dSemanticDecorator));
         }
-        if (view == null) {
-            view = diagramEditPart.getDiagramView();
+        if (views.isEmpty()) {
+            views.add(diagramEditPart.getDiagramView());
         }
-        return view;
+        return views;
     }
 
     private static void createValidationRuleMarker(RuleWrappingStatus nextStatus, EditPartViewer viewer, IFile target, View view, String location, String message, int statusSeverity) {
@@ -305,28 +315,29 @@ public class ValidateAction extends Action {
             List data = nextDiagnostic.getData();
             if (data != null && !data.isEmpty() && data.get(0) instanceof EObject) {
                 EObject element = (EObject) data.get(0);
-                View view = getCorrespondingView(element, diagramEditPart);
-                addMarker(diagramEditPart.getViewer(), target, view, EMFCoreUtil.getQualifiedName(element, true), nextDiagnostic.getMessage(),
-                        diagnosticToStatusSeverity(nextDiagnostic.getSeverity()));
+                List<View> views = getCorrespondingViews(element, diagramEditPart);
+                for (View view : views) {
+                    addMarker(diagramEditPart.getViewer(), target, view, EMFCoreUtil.getQualifiedName(element, true), nextDiagnostic.getMessage(),
+                            diagnosticToStatusSeverity(nextDiagnostic.getSeverity()));
+                }
             }
         }
     }
 
-    private static DSemanticDecorator getDSemanticDecorator(EObject element, DiagramEditPart diagramEditPart) {
-        DSemanticDecorator dSemanticDecorator = null;
+    private static List<DSemanticDecorator> getDSemanticDecorators(EObject element, DiagramEditPart diagramEditPart) {
+        List<DSemanticDecorator> dSemanticDecorators = new ArrayList<DSemanticDecorator>();
         if (!(element instanceof DSemanticDecorator)) {
             Collection<EObject> xrefs = new EObjectQuery(element).getInverseReferences(ViewpointPackage.Literals.DSEMANTIC_DECORATOR__TARGET);
             DDiagram dDiagram = (DDiagram) diagramEditPart.getDiagramView().getElement();
             for (EObject eObject : xrefs) {
                 if (eObject == dDiagram || eObject instanceof DSemanticDecorator && EcoreUtil.isAncestor(dDiagram, eObject)) {
-                    dSemanticDecorator = (DSemanticDecorator) eObject;
-                    break;
+                    dSemanticDecorators.add((DSemanticDecorator) eObject);
                 }
             }
         } else {
-            dSemanticDecorator = (DSemanticDecorator) element;
+            dSemanticDecorators.add((DSemanticDecorator) element);
         }
-        return dSemanticDecorator;
+        return dSemanticDecorators;
     }
 
     private static void addMarker(EditPartViewer viewer, IFile target, View view, String location, String message, int statusSeverity) {

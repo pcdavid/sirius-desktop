@@ -13,8 +13,10 @@
 package org.eclipse.sirius.diagram.ui.tools.internal.marker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -27,14 +29,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.business.api.modelingproject.AbstractRepresentationsFileJob;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.DiagramPlugin;
 import org.eclipse.sirius.diagram.business.api.query.EObjectQuery;
 import org.eclipse.sirius.diagram.ui.business.api.query.DDiagramGraphicalQuery;
+import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
 import org.eclipse.sirius.diagram.ui.internal.providers.SiriusMarkerNavigationProvider;
 import org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditor;
 import org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorUtil;
@@ -46,6 +51,7 @@ import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.sirius.viewpoint.description.validation.ValidationRule;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.PartInitException;
@@ -64,25 +70,65 @@ public class SiriusMarkerNavigationProviderSpec extends SiriusMarkerNavigationPr
         final String diagramDescriptorURI = marker.getAttribute(NavigationMarkerConstants.DIAGRAM_DESCRIPTOR_URI, null);
         final String elementId = marker.getAttribute(org.eclipse.gmf.runtime.common.core.resources.IMarker.ELEMENT_ID, null);
 
-        if (diagramDescriptorURI == null || elementId == null || !(getEditor() instanceof SiriusDiagramEditor)) {
+        if (!(getEditor() instanceof SiriusDiagramEditor)) {
             return;
         }
-        final SiriusDiagramEditor defaultEditor = (SiriusDiagramEditor) getEditor();
 
-        URI markedResource = URI.createPlatformResourceURI(marker.getResource().getFullPath().toString(), true);
-        URI markedDiagramDescriptorURI = URI.createURI(diagramDescriptorURI);
-        final SiriusDiagramEditor targetEditor = switchToTargetEditor(defaultEditor, markedResource, markedDiagramDescriptorURI);
-        if (targetEditor != null) {
-            final Map<?, ?> editPartRegistry = targetEditor.getDiagramGraphicalViewer().getEditPartRegistry();
-            final EObject targetView = targetEditor.getDiagram().eResource().getEObject(elementId);
-            if (targetView == null) {
-                return;
+        boolean manageSelectionFromSemanticElement = false;
+        final SiriusDiagramEditor defaultEditor = (SiriusDiagramEditor) getEditor();
+        if (diagramDescriptorURI == null || elementId == null) {
+            manageSelectionFromSemanticElement = true;
+        } else {
+
+            URI markedResource = URI.createPlatformResourceURI(marker.getResource().getFullPath().toString(), true);
+            URI markedDiagramDescriptorURI = URI.createURI(diagramDescriptorURI);
+            final SiriusDiagramEditor targetEditor = switchToTargetEditor(defaultEditor, markedResource, markedDiagramDescriptorURI);
+            if (targetEditor != null) {
+                final Map<?, ?> editPartRegistry = targetEditor.getDiagramGraphicalViewer().getEditPartRegistry();
+                final EObject targetView = targetEditor.getDiagram().eResource().getEObject(elementId);
+                if (targetView == null) {
+                    manageSelectionFromSemanticElement = true;
+                } else {
+                    final EditPart targetEditPart = (EditPart) editPartRegistry.get(targetView);
+                    if (targetEditPart != null) {
+                        SiriusDiagramEditorUtil.selectElementsInDiagram(targetEditor, Arrays.asList(new EditPart[] { targetEditPart }));
+                    }
+                    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().activate(targetEditor);
+                }
             }
-            final EditPart targetEditPart = (EditPart) editPartRegistry.get(targetView);
-            if (targetEditPart != null) {
-                SiriusDiagramEditorUtil.selectElementsInDiagram(targetEditor, Arrays.asList(new EditPart[] { targetEditPart }));
-            }
-            PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().activate(targetEditor);
+        }
+
+        if (manageSelectionFromSemanticElement) {
+            String semanticElementURIString = marker.getAttribute(NavigationMarkerConstants.SEMANTIC_URI, null);
+            URI semanticElementURI = URI.createURI(semanticElementURIString);
+            EObject semanticObject = defaultEditor.getEditingDomain().getResourceSet().getEObject(semanticElementURI, true);
+
+            selectDDiagramElementsAccordingToSemanticElement(semanticObject, defaultEditor);
+        }
+    }
+
+    private void selectDDiagramElementsAccordingToSemanticElement(EObject semanticObject, SiriusDiagramEditor defaultEditor) {
+        EObject element = defaultEditor.getDiagram().getElement();
+        if (element instanceof DDiagram) {
+            // @formatter:off
+            final Map<?, ?> editPartRegistry = defaultEditor.getDiagramGraphicalViewer().getEditPartRegistry();
+            List<EditPart> editPartInCurrentDiagramToSelect = new EObjectQuery(semanticObject).getInverseReferences(ViewpointPackage.Literals.DSEMANTIC_DECORATOR__TARGET).stream()
+                    .filter(DDiagramElement.class::isInstance)
+                    .map(DDiagramElement.class::cast)
+                    .filter(diagramElement -> {
+                        return element.equals(diagramElement.getParentDiagram());
+                    })
+                    .map(diagramElement -> {
+                        View gmfView = SiriusGMFHelper.getGmfView(diagramElement);
+                        return gmfView;
+                    })
+                    .map(view-> {
+                        EditPart targetEditPart = (EditPart) editPartRegistry.get(view);
+                        return targetEditPart;
+                    })
+                    .collect(Collectors.toList());
+            // @formatter:on
+            SiriusDiagramEditorUtil.selectElementsInDiagram(defaultEditor, editPartInCurrentDiagramToSelect);
         }
     }
 

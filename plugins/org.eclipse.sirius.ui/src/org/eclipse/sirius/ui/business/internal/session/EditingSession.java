@@ -18,21 +18,30 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.transaction.NotificationFilter;
+import org.eclipse.emf.transaction.ResourceSetChangeEvent;
+import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSession;
 import org.eclipse.sirius.business.internal.session.ReloadingPolicyImpl;
+import org.eclipse.sirius.common.tools.api.query.NotificationQuery;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.common.ui.tools.api.util.SWTUtil;
 import org.eclipse.sirius.tools.api.command.ui.RefreshFilter;
@@ -46,6 +55,7 @@ import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.internal.dialect.editor.DialectEditorCloser;
 import org.eclipse.sirius.ui.tools.internal.util.SessionCallBackWithUI;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
@@ -93,6 +103,101 @@ public class EditingSession implements IEditingSession, ISaveablesSource, Refres
     private RestoreToLastSavePointListener restoreToSavePointListener;
 
     private SaveSessionWhenNoDialectEditorsListener saveSessionListener;
+    
+    private DRepresentationChangeListener dRepresentationChangeListener;
+    
+    /**
+     * Listener that clears the sub diagram decoration descriptors when a {@link DRepresentation} is either created or
+     * deleted.
+     * 
+     * @author <a href="mailto:pierre.guilet@obeo.fr">Pierre Guilet</a>
+     */
+    private final class DRepresentationChangeListener extends ResourceSetListenerImpl {
+
+        private Session session;
+
+        private DRepresentationChangeListener(Session session) {
+            this.session = session;
+            this.session.getTransactionalEditingDomain().addResourceSetListener(this);
+            setTarget(this.session.getTransactionalEditingDomain());
+        }
+
+        @Override
+        public void resourceSetChanged(ResourceSetChangeEvent event) {
+            List<Notification> notifications = event.getNotifications();
+            boolean clearSubDiagramDecorationDesciptors = false;
+            boolean removeNoSubDecorationDescriptors = false;
+            for (Notification notification : notifications) {
+                if (notification.getNewValue() instanceof DRepresentation || notification.getOldValue() instanceof DRepresentation) {
+                    clearSubDiagramDecorationDesciptors = true;
+                    break;
+                } else if (ignore(notification)) {
+                    continue;
+                } else {
+                    removeNoSubDecorationDescriptors = true;
+                }
+            }
+
+            if (clearSubDiagramDecorationDesciptors) {
+                for (DialectEditor editor : getEditors()) {
+                    editor.getRepresentation().getUiState().getSubDiagramDecorationDescriptors().clear();
+                }
+            } else if (removeNoSubDecorationDescriptors) {
+                for (DialectEditor editor : getEditors()) {
+                    Iterator<Entry<Object, Object>> it = editor.getRepresentation().getUiState().getSubDiagramDecorationDescriptors().entrySet().iterator();
+                    while (it.hasNext()) {
+                        Entry<Object, Object> next = it.next();
+                        if (next.getValue() instanceof NoSubDecorationDescriptor) {
+                            it.remove();
+                        }
+                    }
+                }
+            }
+        }
+
+        private boolean ignore(Notification notification) {
+            return notification.getFeature() == ViewpointPackage.eINSTANCE.getDRepresentationDescriptor_ChangeId();
+        }
+
+        @Override
+        public NotificationFilter getFilter() {
+            NotificationFilter filter = super.getFilter();
+           filter =  filter.and(new NotificationFilter.Custom() {
+
+                @Override
+                public boolean matches(Notification notification) {
+                    Object notifier = notification.getNotifier();
+                    if (!notification.isTouch()
+                            && notifier instanceof EObject && !new NotificationQuery(notification).isTransientNotification()) {
+                        return true;
+                    }
+                    return false;
+                }
+            });
+            return filter;
+        }
+
+        @Override
+        public boolean isPostcommitOnly() {
+            return true;
+        }
+        
+        public void close() {
+            Collection<DRepresentation> allLoadedRepresentations = DialectManager.INSTANCE.getAllLoadedRepresentations(session);
+            if (allLoadedRepresentations != null) {
+                allLoadedRepresentations.stream().forEach(rep -> rep.getUiState().getSubDiagramDecorationDescriptors().clear());
+            }
+            getTarget().removeResourceSetListener(this);
+        }
+    }
+
+    /**
+     * Simple marker to indicate that the shouldHaveSubDiagDecoration returned false.
+     * 
+     */
+    public static final class NoSubDecorationDescriptor {
+
+    }
 
     /**
      * Create a new {@link EditingSession}.
@@ -111,6 +216,7 @@ public class EditingSession implements IEditingSession, ISaveablesSource, Refres
         this.restoreToSavePointListener = new RestoreToLastSavePointListener(session);
         this.saveSessionListener = createSaveSessionWhenNoDialectEditorsListener(session);
         this.saveSessionListener.register();
+        this.dRepresentationChangeListener = new DRepresentationChangeListener(session);
     }
 
     /**
@@ -134,6 +240,11 @@ public class EditingSession implements IEditingSession, ISaveablesSource, Refres
         if (this.saveSessionListener != null) {
             this.saveSessionListener.unregister();
             this.saveSessionListener = null;
+        }
+        
+        if (dRepresentationChangeListener != null) {
+            this.dRepresentationChangeListener.close();
+            this.dRepresentationChangeListener = null;
         }
     }
 
@@ -201,6 +312,7 @@ public class EditingSession implements IEditingSession, ISaveablesSource, Refres
     public void detachEditor(final ISiriusEditor dialectEditor) {
         if (dialectEditor instanceof DialectEditor) {
             editorNameAdapter.unregisterEditor((DialectEditor) dialectEditor);
+            ((DialectEditor) dialectEditor).getRepresentation().getUiState().getSubDiagramDecorationDescriptors().clear();
         }
         editors.remove(dialectEditor);
         needSaveOnCloseDetec.reInit();

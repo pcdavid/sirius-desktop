@@ -24,7 +24,6 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -45,7 +44,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
@@ -57,7 +55,6 @@ import org.eclipse.emf.transaction.impl.InternalTransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.emf.transaction.util.ValidateEditSupport;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
-import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.helper.RepresentationHelper;
 import org.eclipse.sirius.business.api.migration.AirdResourceVersionMismatchException;
 import org.eclipse.sirius.business.api.migration.DescriptionResourceVersionMismatchException;
@@ -92,7 +89,6 @@ import org.eclipse.sirius.business.internal.session.RepresentationNameListener;
 import org.eclipse.sirius.business.internal.session.SessionEventBrokerImpl;
 import org.eclipse.sirius.common.tools.DslCommonPlugin;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
-import org.eclipse.sirius.common.tools.api.query.NotificationQuery;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSetSync;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSetSync.ResourceStatus;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSyncClient;
@@ -196,84 +192,9 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
 
     private RepresentationNameListener representationNameListener;
 
-    private DRepresentationChangeListener dRepresentationChangeListener;
-
     private ChangeIdUpdaterListener changeIdUpdaterListener;
 
     private final String id;
-
-    /**
-     * Listener that clears the sub diagram decoration descriptors when a {@link DRepresentation} is either created or
-     * deleted.
-     * 
-     * @author <a href="mailto:pierre.guilet@obeo.fr">Pierre Guilet</a>
-     */
-    private final class DRepresentationChangeListener extends ResourceSetListenerImpl {
-
-        private DAnalysisSession session;
-
-        private DRepresentationChangeListener(DAnalysisSession session) {
-            this.session = session;
-        }
-
-        @Override
-        public void resourceSetChanged(ResourceSetChangeEvent event) {
-            List<Notification> notifications = event.getNotifications();
-            boolean subDiagramDecorationDesciptorCleared = false;
-            Collection<DRepresentation> allLoadedRepresentations = DialectManager.INSTANCE.getAllLoadedRepresentations(session);
-            for (Notification notification : notifications) {
-                if (notification.getNewValue() instanceof DRepresentation || notification.getOldValue() instanceof DRepresentation) {
-                    allLoadedRepresentations.stream().forEach(rep -> rep.getUiState().getSubDiagramDecorationDescriptors().clear());
-                    subDiagramDecorationDesciptorCleared = true;
-                    break;
-                }
-            }
-
-            if (!subDiagramDecorationDesciptorCleared) {
-                // The model has changed, remove subDiagramDescriptors marked as no sub diagram descriptors as the
-                // navigation tools might now have valid target in the next evaluation of their expressions.
-                allLoadedRepresentations.stream().forEach(rep -> {
-                    Iterator<Entry<Object, Object>> it = rep.getUiState().getSubDiagramDecorationDescriptors().entrySet().iterator();
-                    while (it.hasNext()) {
-                        Entry<Object, Object> next = it.next();
-                        if (next.getValue() instanceof NoSubDecorationDescriptor) {
-                            it.remove();
-                        }
-                    }
-                });
-            }
-        }
-
-        @Override
-        public NotificationFilter getFilter() {
-            NotificationFilter filter = super.getFilter();
-            filter = filter.and(new NotificationFilter.Custom() {
-
-                @Override
-                public boolean matches(Notification notification) {
-                    Object notifier = notification.getNotifier();
-                    if (!notification.isTouch() && notifier instanceof EObject && !new NotificationQuery(notification).isTransientNotification()) {
-                        return true;
-                    }
-                    return false;
-                }
-            });
-            return filter;
-        }
-
-        @Override
-        public boolean isPostcommitOnly() {
-            return true;
-        }
-    }
-
-    /**
-     * Simple marker to indicate that the shouldHaveSubDiagDecoration returned false.
-     * 
-     */
-    public static final class NoSubDecorationDescriptor {
-
-    }
 
     /**
      * Listen to any change to a {@link DRepresentation} or one of its {@link DRepresentationElement} and update the
@@ -409,8 +330,6 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
         setResourceCollector(semanticCrossReferencer);
         setDeferSaveToPostCommit(true);
         setSaveInExclusiveTransaction(true);
-        dRepresentationChangeListener = new DRepresentationChangeListener(this);
-        getTransactionalEditingDomain().addResourceSetListener(dRepresentationChangeListener);
         changeIdUpdaterListener = new ChangeIdUpdaterListener();
         getTransactionalEditingDomain().addResourceSetListener(changeIdUpdaterListener);
     }
@@ -1497,8 +1416,6 @@ public class DAnalysisSessionImpl extends DAnalysisSessionEObjectImpl implements
                 removeListener(getRefreshEditorsListener());
             }
         }
-        getTransactionalEditingDomain().removeResourceSetListener(dRepresentationChangeListener);
-        dRepresentationChangeListener = null;
         getTransactionalEditingDomain().removeResourceSetListener(changeIdUpdaterListener);
         changeIdUpdaterListener = null;
         refreshEditorsListeners = null;

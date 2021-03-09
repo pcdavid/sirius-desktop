@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2015 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2010, 2021 THALES GLOBAL SERVICES and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -28,6 +28,7 @@ import org.eclipse.sirius.diagram.sequence.business.internal.layout.LayoutConsta
 import org.eclipse.sirius.diagram.sequence.business.internal.ordering.EventEndHelper;
 import org.eclipse.sirius.diagram.sequence.business.internal.query.ISequenceEventQuery;
 import org.eclipse.sirius.diagram.sequence.business.internal.query.SequenceNodeQuery;
+import org.eclipse.sirius.diagram.sequence.business.internal.util.CacheHelper;
 import org.eclipse.sirius.diagram.sequence.business.internal.util.RangeSetter;
 import org.eclipse.sirius.diagram.sequence.business.internal.util.SubEventsHelper;
 import org.eclipse.sirius.diagram.sequence.description.DescriptionPackage;
@@ -179,24 +180,38 @@ public class Operand extends AbstractSequenceNode implements ISequenceEvent {
      * @return the parent Combined fragment.
      */
     public CombinedFragment getCombinedFragment() {
-        EObject viewContainer = this.view.eContainer();
-        if (viewContainer instanceof View) {
-            View parentView = (View) viewContainer;
-            Option<CombinedFragment> parentElement = ISequenceElementAccessor.getCombinedFragment(parentView);
-            // The parent should be the compartment of the Combined Fragment
-            if (parentElement.some()) {
-                return parentElement.get();
-            } else {
-                // The grand parent should be the Combined Fragment we are
-                // looking for
-                View grandParentView = (View) viewContainer.eContainer();
-                Option<CombinedFragment> grandparentElement = ISequenceElementAccessor.getCombinedFragment(grandParentView);
-                if (grandparentElement.some()) {
-                    return grandparentElement.get();
+        CombinedFragment combinedFragment = null;
+        if (CacheHelper.isStructuralCacheEnabled()) {
+            combinedFragment = CacheHelper.getOperandToCombinedFragmentCache().get(this);
+        }
+        if (combinedFragment == null) {
+            EObject viewContainer = this.view.eContainer();
+            if (viewContainer instanceof View) {
+                View parentView = (View) viewContainer;
+                Option<CombinedFragment> parentElement = ISequenceElementAccessor.getCombinedFragment(parentView);
+                // The parent should be the compartment of the Combined Fragment
+                if (parentElement.some()) {
+                    combinedFragment = parentElement.get();
+                } else {
+                    // The grand parent should be the Combined Fragment we are
+                    // looking for
+                    View grandParentView = (View) viewContainer.eContainer();
+                    Option<CombinedFragment> grandparentElement = ISequenceElementAccessor.getCombinedFragment(grandParentView);
+                    if (grandparentElement.some()) {
+                        combinedFragment = grandparentElement.get();
+                    }
+                }
+                if (combinedFragment != null) {
+                    if (CacheHelper.isStructuralCacheEnabled()) {
+                       CacheHelper.getOperandToCombinedFragmentCache().put(this, combinedFragment);
+                    }
                 }
             }
+            if (combinedFragment == null) {
+                throw new RuntimeException(MessageFormat.format(Messages.Operand_invalidOperandContext, this));
+            }
         }
-        throw new RuntimeException(MessageFormat.format(Messages.Operand_invalidOperandContext, this));
+        return combinedFragment;
     }
 
     /**

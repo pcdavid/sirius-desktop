@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2015 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2010, 2021 THALES GLOBAL SERVICES and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -23,6 +23,7 @@ import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.sequence.Messages;
 import org.eclipse.sirius.diagram.sequence.business.internal.RangeHelper;
 import org.eclipse.sirius.diagram.sequence.business.internal.query.SequenceNodeQuery;
+import org.eclipse.sirius.diagram.sequence.business.internal.util.CacheHelper;
 import org.eclipse.sirius.diagram.sequence.business.internal.util.RangeSetter;
 import org.eclipse.sirius.diagram.sequence.description.DescriptionPackage;
 import org.eclipse.sirius.diagram.sequence.util.Range;
@@ -135,27 +136,37 @@ public class CombinedFragment extends AbstractFrame {
      * @return the operands of the current combined fragment.
      */
     public List<Operand> getOperands() {
-        List<Operand> result = new ArrayList<>();
-        Predicate<View> compartementView = new Predicate<View>() {
+        List<Operand> result = null;
+        if (CacheHelper.isStructuralCacheEnabled()) {
+            result = CacheHelper.getCombinedFragmentToOperandsCache().get(this);
+        }
 
-            @Override
-            public boolean apply(View input) {
-                return input.getType().equals(Integer.toString(COMPARTMENT_VISUAL_ID));
-            }
-        };
-        // The combined fragment contains a compartment that contains the
-        // operands
-        for (View view : Iterables.filter(Iterables.filter(this.view.eContents(), View.class), compartementView)) {
-            // Filtering compartments
-            for (View viewChild : Iterables.filter(view.eContents(), View.class)) {
-                // Filtering operands
-                Option<Operand> operand = ISequenceElementAccessor.getOperand(viewChild);
-                if (operand.some()) {
-                    result.add(operand.get());
+        if (result == null) {
+            result = new ArrayList<>();
+            Predicate<View> compartementView = new Predicate<View>() {
+
+                @Override
+                public boolean apply(View input) {
+                    return input.getType().equals(Integer.toString(COMPARTMENT_VISUAL_ID));
+                }
+            };
+            // The combined fragment contains a compartment that contains the
+            // operands
+            for (View view : Iterables.filter(Iterables.filter(this.view.eContents(), View.class), compartementView)) {
+                // Filtering compartments
+                for (View viewChild : Iterables.filter(view.eContents(), View.class)) {
+                    // Filtering operands
+                    Option<Operand> operand = ISequenceElementAccessor.getOperand(viewChild);
+                    if (operand.some()) {
+                        result.add(operand.get());
+                    }
                 }
             }
+            Collections.sort(result, RangeHelper.lowerBoundOrdering().onResultOf(ISequenceEvent.VERTICAL_RANGE));
+            if (CacheHelper.isStructuralCacheEnabled()) {
+                CacheHelper.getCombinedFragmentToOperandsCache().put(this, result);
+            }
         }
-        Collections.sort(result, RangeHelper.lowerBoundOrdering().onResultOf(ISequenceEvent.VERTICAL_RANGE));
         return result;
     }
 

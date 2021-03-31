@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2018 THALES GLOBAL SERVICES and others.
+ * Copyright (c) 2018, 2021 THALES GLOBAL SERVICES and others.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -35,8 +35,7 @@ import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 public class OCERuntimeLoggerSpy implements RuntimeLogger {
 
     /**
-     * A specific key in OperationCanceledException message to detect
-     * OperationCanceledException to rethrow.
+     * A specific key in OperationCanceledException message to detect OperationCanceledException to rethrow.
      */
     public static final String RE_THROW_STATUS_MESSAGE_KEY = "-RT-"; //$NON-NLS-1$
 
@@ -53,38 +52,10 @@ public class OCERuntimeLoggerSpy implements RuntimeLogger {
         }
     }
 
-
     private void throwOperationCanceledExceptionIfNeeded(Throwable cause) {
         if (cause instanceof OperationCanceledException && cause.getMessage() != null && cause.getMessage().contains(RE_THROW_STATUS_MESSAGE_KEY)) {
             throw (OperationCanceledException) cause;
         }
     }
 
-    @Override
-    public void error(EObject odesignObject, EStructuralFeature feature, String message) {
-    }
-
-    @Override
-    public void warning(EObject odesignObject, EStructuralFeature feature, Throwable exception) {
-    }
-
-    @Override
-    public void warning(EObject odesignObject, EStructuralFeature feature, String message) {
-    }
-
-    @Override
-    public void info(EObject odesignObject, EStructuralFeature feature, String message) {
-    }
-
-    @Override
-    public void info(EObject odesignObject, EStructuralFeature feature, Throwable exception) {
-    }
-
-    @Override
-    public void clearAll() {
-    }
-
-    @Override
-    public void clear(EObject eObject) {
-    }
 }

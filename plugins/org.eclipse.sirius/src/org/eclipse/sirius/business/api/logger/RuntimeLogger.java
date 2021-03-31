@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009 THALES GLOBAL SERVICES.
+ * Copyright (c) 2009, 2021 THALES GLOBAL SERVICES.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -29,12 +29,13 @@ public interface RuntimeLogger {
      * @param odesignObject
      *            EObject where the error come from
      * @param feature
-     *            element of the EObject where the error come from. May be
-     *            <code>null</code>.
+     *            element of the EObject where the error come from. May be <code>null</code>.
      * @param message
      *            error message we want to display
      */
-    void error(EObject odesignObject, EStructuralFeature feature, String message);
+    default void error(EObject odesignObject, EStructuralFeature feature, String message) {
+
+    }
 
     /**
      * Add error entry to the logger.
@@ -42,12 +43,13 @@ public interface RuntimeLogger {
      * @param odesignObject
      *            EObject where the error come from
      * @param feature
-     *            element of the EObject where the error come from. May be
-     *            <code>null</code>.
+     *            element of the EObject where the error come from. May be <code>null</code>.
      * @param exception
      *            a low-level exception, or <code>null</code> if not applicable
      */
-    void error(EObject odesignObject, EStructuralFeature feature, Throwable exception);
+    default void error(EObject odesignObject, EStructuralFeature feature, Throwable exception) {
+
+    }
 
     /**
      * Add error entry to the logger.
@@ -55,12 +57,13 @@ public interface RuntimeLogger {
      * @param odesignObject
      *            EObject where the warning come from
      * @param feature
-     *            element of the EObject where the warning come from. May be
-     *            <code>null</code>.
+     *            element of the EObject where the warning come from. May be <code>null</code>.
      * @param exception
      *            a low-level exception, or <code>null</code> if not applicable
      */
-    void warning(EObject odesignObject, EStructuralFeature feature, Throwable exception);
+    default void warning(EObject odesignObject, EStructuralFeature feature, Throwable exception) {
+
+    }
 
     /**
      * Add error entry to the logger.
@@ -68,12 +71,13 @@ public interface RuntimeLogger {
      * @param odesignObject
      *            EObject where the warning come from
      * @param feature
-     *            element of the EObject where the warning come from. May be
-     *            <code>null</code>.
+     *            element of the EObject where the warning come from. May be <code>null</code>.
      * @param message
      *            error message we want to display
      */
-    void warning(EObject odesignObject, EStructuralFeature feature, String message);
+    default void warning(EObject odesignObject, EStructuralFeature feature, String message) {
+
+    }
 
     /**
      * Add error entry to the logger.
@@ -81,12 +85,13 @@ public interface RuntimeLogger {
      * @param odesignObject
      *            EObject where the info come from
      * @param feature
-     *            element of the EObject where the info come from. May be
-     *            <code>null</code>.
+     *            element of the EObject where the info come from. May be <code>null</code>.
      * @param message
      *            error message we want to display
      */
-    void info(EObject odesignObject, EStructuralFeature feature, String message);
+    default void info(EObject odesignObject, EStructuralFeature feature, String message) {
+
+    }
 
     /**
      * Add error entry to the logger.
@@ -94,17 +99,20 @@ public interface RuntimeLogger {
      * @param odesignObject
      *            EObject where the info come from
      * @param feature
-     *            element of the EObject where the info come from. May be
-     *            <code>null</code>.
+     *            element of the EObject where the info come from. May be <code>null</code>.
      * @param exception
      *            a low-level exception, or <code>null</code> if not applicable
      */
-    void info(EObject odesignObject, EStructuralFeature feature, Throwable exception);
+    default void info(EObject odesignObject, EStructuralFeature feature, Throwable exception) {
+
+    }
 
     /**
      * Clears all logged entries.
      */
-    void clearAll();
+    default void clearAll() {
+
+    }
 
     /**
      * Clears all logged entries for the EObject.
@@ -112,5 +120,7 @@ public interface RuntimeLogger {
      * @param eObject
      *            EObject we want to clearAll logged entries
      */
-    void clear(EObject eObject);
+    default void clear(EObject eObject) {
+
+    }
 }

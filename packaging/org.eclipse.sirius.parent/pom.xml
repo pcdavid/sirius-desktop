@@ -426,12 +426,16 @@
         <module>../../plugins/org.eclipse.sirius.properties.edit</module>
         <module>../../plugins/org.eclipse.sirius.properties.ext.widgets.reference</module>
         <module>../../plugins/org.eclipse.sirius.properties.ext.widgets.reference.edit</module>
+        <module>../../plugins/org.eclipse.sirius.properties.ext.widgets.markup</module>
+        <module>../../plugins/org.eclipse.sirius.properties.ext.widgets.markup.edit</module>
         <module>../../plugins/org.eclipse.sirius.properties.defaultrules</module>
         <module>../../plugins/org.eclipse.sirius.editor.properties</module>
         <module>../../plugins/org.eclipse.sirius.editor.properties.ext.widgets.reference</module>
+        <module>../../plugins/org.eclipse.sirius.editor.properties.ext.widgets.markup</module>
         <module>../../plugins/org.eclipse.sirius.properties.core</module>
         <module>../../plugins/org.eclipse.sirius.ui.properties</module>
         <module>../../plugins/org.eclipse.sirius.ui.properties.ext.widgets.reference</module>
+        <module>../../plugins/org.eclipse.sirius.ui.properties.ext.widgets.markup</module>
         <module>../../plugins/org.eclipse.sirius.sample.properties</module>
         <module>../../plugins/org.eclipse.sirius.sample.properties.checkbox</module>
         <module>../../plugins/org.eclipse.sirius.sample.properties.radio</module>
@@ -454,6 +458,7 @@
 
         <module>../../packaging/org.eclipse.sirius.interpreter.feature</module>
         <module>../../packaging/org.eclipse.sirius.properties.feature</module>
+        <module>../../packaging/org.eclipse.sirius.properties.markup.feature</module>
         <module>../../packaging/org.eclipse.sirius.specifier.properties.feature</module>
         <module>../../packaging/org.eclipse.sirius.samples.properties.feature</module>
 

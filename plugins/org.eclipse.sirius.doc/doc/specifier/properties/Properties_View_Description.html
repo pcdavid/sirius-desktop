@@ -79,6 +79,12 @@
 								<a href="#reference">Reference</a>
 							</li>
 							<li>
+								<a href="#markdown_widget">Markdown widget</a>
+							</li>
+							<li>
+								<a href="#html_renderer">HTML renderer</a>
+							</li>
+							<li>
 								<a href="#list">List</a>
 							</li>
 							<li>
@@ -1167,6 +1173,112 @@
 			<a href="#styling">styles</a> section for a general presentation of how styles are defined, including 
 			<a href="#conditional_styles">conditional styles</a> and 
 			<a href="#widgets_styles">widgets styles</a> section to find details on what is specific to widgets.
+		</p>
+		<h3 id="markdown_widget">Markdown widget</h3>
+		<p>
+			<em>Warning:</em> this widget is considered experimental at the moment and is not available by default. To use it, make sure to install the 
+			<code>org.eclipse.sirius.properties.markup.feature</code> optional feature, and do not hesitate to give us feedback on 
+			<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Sirius">the bugzilla</a>.
+		</p>
+		<p>A 
+			<em>Markdown</em> is used to edit Markdown content with live feedback (styles, background and foreground colors on semantic Markdown elements).
+		</p>
+		<p>The configuration of a 
+			<em>Markdown</em> widget is minimal. Beside the standard properties available on all widgets like 
+			<em>Label Expression</em>, 
+			<em>Help Expression</em> and 
+			<em>Is Enabled Expression</em>, you only need to specify:
+		</p>
+		<ul>
+			<li>
+				<em>Num of line</em> : The number of lines to be displayed.
+			</li>
+		</ul>
+		<p>The operations defined under the 
+			<em>Begin</em> can use the 
+			<code>newValue</code> variable which represents the value entered by the user (as a string). The root operation is executed in the context of the semantic target element.
+		</p>
+		<p>Sirius automatically invokes the edit operation when the focus leaves the widget.</p>
+		<p>
+			<em>Note that the current implementation might not work consistently with the Sirius collaborative tools</em>.
+		</p>
+		<h4 id="markodwn_service">Markdown Services</h4>
+		<p>With this plugin is bundled a service class named 
+			<em>org.eclipse.eef.ide.ui.ext.widgets.markup.markdown.MarkdownService</em>. It provides usefull services to handle Markdown content. It needs to be registered manually to be reachable from your queries. It provides the following services:
+		</p>
+		<h5 id="ServicevoidmarkdownToHTMLBodyStringmarkdown">Service : 
+			<em>void markdownToHTMLBody(String markdown)</em>
+		</h5>
+		<p>This service transform any Markdown content that respect 
+			<a href="https://commonmark.org/">CommonMark specification</a> into a valid HTML body.
+		</p>
+		<p>Parameters:</p>
+		<ul>
+			<li>
+				<em>markodwn</em> : a Markdown content
+			</li>
+		</ul>
+		<h5 id="ServiceStringeditMarkdownExpressionStringmarkdownbooleanmultiLine">Service : 
+			<em>String editMarkdownExpression(String markdown, boolean multiLine)</em>
+		</h5>
+		<p>This service is used to edit some Markdown content in a dedicated dialog. It provides the same feature as [Markdown Widget](#markdown_widget). It returns the edited value after the user close the dialog. If the user cancel the dialog then the initial content is returned.</p>
+		<p>Parameters:</p>
+		<ul>
+			<li>
+				<em>markodwn</em> : a Markdown content
+			</li>
+			<li>
+				<em>multiline</em> : holds 
+				<strong>true</strong> if the dialog should handle multiline content
+			</li>
+		</ul>
+		<h4 id="markdown_widget_styles">Reference Style</h4>
+		<p>
+			<i>Note that the current implement do not provide any style customization.</i> 
+		</p>
+		<h3 id="html_renderer">HTML renderer</h3>
+		<p>
+			<em>Warning:</em> this widget is considered experimental at the moment and is not available by default. To use it, make sure to install the 
+			<code>org.eclipse.sirius.properties.markup.feature</code> optional feature, and do not hesitate to give us feedback on 
+			<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Sirius">the bugzilla</a>.
+		</p>
+		<p>A 
+			<em>HTML renderer</em> is used to display value that can be represented as HTML content.
+		</p>
+		<p>The configuration of a 
+			<em>HTML renderer</em> widget is minimal. Beside the standard properties available on all widgets like 
+			<em>Label Expression</em>, 
+			<em>Help Expression</em> and 
+			<em>Is Enabled Expression</em>, you only need to specify:
+		</p>
+		<ul>
+			<li>
+				<em>To HTML Expression</em>: 
+				<strong>Mandatory</strong> expression that transforms the result of the 
+				<em>Value Expression</em> (stored in 
+				<code>newValue</code> variable) into HTML content. It provides either the content of an HTML body or full HTML Document (for example to supply your own CSS)
+			</li>
+			<li>
+				<em>CSS Expression</em>: 
+				<em>Optional</em> Used to provide some CSS content. If this expression is used the 
+				<em>To HTML expression</em> should only return the content of a body.
+			</li>
+			<li>
+				<em>Num of line</em> : The number of lines to be displayed, which determines the height of the 
+				<em>HTML Rendered</em> widget. Be aware that this is an estimation. Indeed the text size modification done by CSS styling is not used here.
+			</li>
+			<li>
+				<em>Edition Tool Expression</em> : 
+				<em>Optional</em>  expression used to open a tool to edit the original content (see org.eclipse.eef.ide.ui.ext.widgets.markup.markdown.MarkdownService#editMarkdownExpression for an example to edit Markdown content). A 
+				<code>newValue</code> variable is available containing the result of 
+				<em>Value Expression</em>. If this expression is not provided then the 
+				<em>Edit Button</em> is not displayed. This expression should return a String that is then given to the 
+				<em>Initial Operation</em> to execute an action with the result.
+			</li>
+		</ul>
+		<h4 id="html_renderer_styles">Reference Style</h4>
+		<p>
+			<i>Note that the current implement do not provide any style customization.</i> 
 		</p>
 		<h3 id="list">List</h3>
 		<p>A 

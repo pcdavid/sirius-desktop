@@ -175,6 +175,12 @@
    <feature id="org.eclipse.eef.ext.widgets.reference.feature.source" version="0.0.0">
       <category name="Sirius.Dependencies"/>
    </feature>
+   <feature id="org.eclipse.eef.ext.widgets.markup.feature" version="0.0.0">
+      <category name="Sirius.Dependencies"/>
+   </feature>
+   <feature id="org.eclipse.eef.ext.widgets.markup.feature.source" version="0.0.0">
+      <category name="Sirius.Dependencies"/>
+   </feature>
    <feature id="org.eclipse.elk.algorithms.feature" version="0.0.0">
       <category name="Sirius.Dependencies"/>
    </feature>
@@ -204,6 +210,9 @@
    </feature>
    <feature id="org.eclipse.elk.ui.feature.source" version="0.0.0">
       <category name="Sirius.Dependencies"/>
+   </feature>
+   <feature id="org.eclipse.sirius.properties.markup.feature">
+      <category name="Sirius"/>
    </feature>
    <category-def name="Sirius" label="Sirius">
       <description>

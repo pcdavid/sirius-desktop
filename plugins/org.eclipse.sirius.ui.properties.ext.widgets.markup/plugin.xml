@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+ Copyright (c) 2023 Obeo
+
+ This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License 2.0
+ which accompanies this distribution, and is available at
+ https://www.eclipse.org/legal/epl-2.0/
+ 
+ SPDX-License-Identifier: EPL-2.0
+ 
+ Contributors:
+    Obeo and Israel Aerospace Industries - initial API and implementation
+ 
+-->
+<plugin>
+   <extension
+         point="org.eclipse.sirius.properties.core.descriptionConverter">
+      <descriptor
+            class="org.eclipse.sirius.ui.properties.ext.widgets.markup.internal.ExtHTMLDescriptionConverter"
+            description="%htmlRendererConverter.Description"
+            id="org.eclipse.sirius.ui.properties.ext.widgets.markup.descriptionConverter"
+            label="%htmlRendererConverter.Label"></descriptor>
+      <descriptor
+            class="org.eclipse.sirius.ui.properties.ext.widgets.markup.internal.ExtMarkdownDescriptionConverter"
+            description="%markdownConverter.Description"
+            id="org.eclipse.sirius.ui.properties.ext.widgets.markdown.descriptionConverter"
+            label="%markdownConverter.Label">
+      </descriptor>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.properties.core.descriptionPreprocessor">
+      <descriptor
+            class="org.eclipse.sirius.ui.properties.ext.widgets.markup.internal.ExtHTMLRendererDescriptionPreprocessor"
+            description="%htmlRendererPreProcessor.Description"
+            id="org.eclipse.sirius.ui.properties.ext.widgets.markup.descriptionPreProcessor"
+            label="%htmlRendererPreProcessor.Label">
+      </descriptor>
+      <descriptor
+            class="org.eclipse.sirius.ui.properties.ext.widgets.markup.internal.ExtMarkdownDescriptionPreprocessor"
+            description="%markdownPreProcessor.Description"
+            id="org.eclipse.sirius.ui.properties.ext.widgets.markodwn.descriptionPreProcessor"
+            label="%markdownPreProcessor.Label">
+      </descriptor>
+   </extension>
+
+</plugin>

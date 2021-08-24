@@ -416,9 +416,94 @@ If you need more specific behavior, you need to use either an _Hyperlink_ (for s
 
 In a similar fashion as the hyperlink and the list widgets, it is possible to define an _Initial Operation_ on the reference widget in order to execute some model operations when the user will click on the widget. If an _Initial Operation_ is configured, the single-valued version of the widget will use a hyperlink instead of a regular label.
 
+
 h4(#reference_styles). Reference Styles
 
 See the "styles":#styling section for a general presentation of how styles are defined, including "conditional styles":#conditional_styles and "widgets styles":#widgets_styles section to find details on what is specific to widgets.
+
+
+h3(#markdown_widget). Markdown widget
+
+_Warning:_ this widget is considered experimental at the moment and is not available by default. To use it, make sure to install the @org.eclipse.sirius.properties.markup.feature@ optional feature, and do not hesitate to give us feedback on "the bugzilla":https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Sirius.
+
+A _Markdown_ is used to edit Markdown content with live feedback (styles, background and foreground colors on semantic Markdown elements).
+
+!images/widget_markdown.png(A Markdown widget displaying a Markdown content)!
+
+The definition of a Markdown follows the general rules described "above":#widgets to determine the semantic elements for which an HTML renderer should be created. It is evaluated in the context of the semantic target element.
+
+For Markdown, you need to define:
+
+* _Number of Lines_ : The number of lines to be displayed, which determines the height of the _Markdown_ widget.
+
+h4(#markdown_change_value). Change value
+
+To define the behavior of the Markdown when the selection changes, you simply specify the behavior associated to the edition inside the _Begin_ element using all the standard "model operations":../general/Model_Operations.html.
+
+The operations defined under the _Begin_ can use the @newValue@ variable which represents the value entered by the user (as a string). The root operation is executed in the context of the semantic target element.
+
+Sirius automatically invokes the edit operation when the focus leaves the widget.
+
+!images/widget-markdown-change-value.png(A Markdown widget specification with an operation to change the value)!
+
+_Note that the current implementation might not work consistently with the Sirius collaborative tools_.
+
+h4(#markodwn_service). Markdown Services
+
+With this plugin is bundled a service class named _org.eclipse.eef.ide.ui.ext.widgets.markup.markdown.MarkdownService_. It provides usefull services to handle Markdown content. It needs to be registered manually to be reachable from your queries. It provides the following services:
+
+
+h5. Service : _void markdownToHTMLBody(String markdown)_
+
+This service transform any Markdown content that respect "CommonMark specification":https://commonmark.org/ into a valid HTML body.
+
+Parameters:
+
+* _markodwn_ : a Markdown content
+
+
+h5. Service : _String editMarkdownExpression(String markdown, boolean multiLine)_
+
+This service is used to edit some Markdown content in a dedicated dialog. It provides the same feature as [Markdown Widget](#markdown_widget). It returns the edited value after the user close the dialog. If the user cancel the dialog then the initial content is returned.
+
+Parameters:
+
+* _markodwn_ : a Markdown content
+* _multiline_ : holds *true* if the dialog should handle multiline content
+
+h4(#markdown_widget_styles). Markdown Styles
+
+__Note that the current implement do not provide any style customization.__ 
+
+h3(#html_renderer). HTML renderer
+
+_Warning:_ this widget is considered experimental at the moment and is not available by default. To use it, make sure to install the @org.eclipse.sirius.properties.markup.feature@ optional feature, and do not hesitate to give us feedback on "the bugzilla":https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Sirius.
+
+A _HTML renderer_ is used to display value that can be represented as HTML content.
+
+!images/widget-html-renderer.png(A HTML Renderer widget displaying an HTML content with CSS)!
+
+The definition of an HTML renderer follows the general rules described "above":#widgets to determine the semantic elements for which an HTML renderer should be created. It is evaluated in the context of the semantic target element.
+
+For HTML renderer, you need to define:
+
+* _To HTML Expression_: *Mandatory* expression that transforms the result of the _Value Expression_ (stored in @newValue@ variable) into HTML content. It provides either the content of an HTML body or full HTML Document (for example to supply your own CSS)
+* _Edition Tool Expression_ : _Optional_  expression used to open a tool to edit the original content (see @org.eclipse.eef.ide.ui.ext.widgets.markup.markdown.MarkdownService#editMarkdownExpression(String, boolean)@ for an example to edit Markdown content). A @newValue@ variable is available containing the result of _Value Expression_. If this expression is not provided then the _Edit Button_ is not displayed. This expression should return a String that is then given to the _Initial Operation_ to execute an action with the result.
+* _Number of Lines_ : The number of lines to be displayed, which determines the height of the _HTML Rendered_ widget. Be aware that this is an estimation. Indeed the text size modification done by CSS styling is not used here.
+* _CSS Expression_: _Optional_ Used to provide some CSS content. If this expression is used the _To HTML expression_ should only return the content of a body.
+
+h4(#html_renderer_change_value). Change value
+
+To define the behavior of the HTML renderer when the user click on the edit button, you simply specify the behavior associated to the edition inside the _Begin_ element using all the standard "model operations":../general/Model_Operations.html.
+
+The operations defined under the _Begin_ can use the @newValue@ variable which contains the result of the _Value Expression_. Note that if an error occurs while executing the edit operation, the whole effect of the operation on the underlying model is cancelled, and an error is logged.
+
+!images/widget-html-renderer-change-value.png(A HTML Renderer widget specification with an operation to change the value and displays the edit button)!
+
+h4(#html_renderer_styles). HTML Renderer Styles
+
+__Note that the current implement do not provide any style customization.__ 
+
 
 h3(#list). List
 

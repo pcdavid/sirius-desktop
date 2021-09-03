@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009 THALES GLOBAL SERVICES.
+ * Copyright (c) 2009, 2021 THALES GLOBAL SERVICES.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -34,6 +34,7 @@ import org.eclipse.sirius.diagram.description.DiagramElementMapping;
 import org.eclipse.sirius.diagram.description.tool.DeleteElementDescription;
 import org.eclipse.sirius.diagram.description.tool.DeleteHook;
 import org.eclipse.sirius.diagram.description.tool.DeleteHookParameter;
+import org.eclipse.sirius.diagram.description.tool.ToolFactory;
 import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
@@ -45,6 +46,12 @@ import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
  * @since 0.9.0
  */
 public class DeleteHookHelper {
+
+    /**
+     * The {@link DeleteHook} id to contribute a fallback hook if no one has been contributed and if no tool has been
+     * defined.
+     */
+    public static final String NO_DELETE_TOOL_HOOK_ID = "org.eclipse.sirius.diagram.noDeleteToolHook"; //$NON-NLS-1$
 
     private Collection<DSemanticDecorator> selection;
 
@@ -69,11 +76,10 @@ public class DeleteHookHelper {
     }
 
     /**
-     * Check if an delete hook should be called, and if necessary called it and
-     * return its state.
+     * Check if an delete hook should be called, and if necessary called it and return its state.
      * 
-     * @return <code>true</code> if there is no delete hook, or if delete hook
-     *         returns an OK state, <code>false</code> otherwise
+     * @return <code>true</code> if there is no delete hook, or if delete hook returns an OK state, <code>false</code>
+     *         otherwise
      */
     public boolean checkDeleteHook() {
         if (shouldCallDeleteHook()) {
@@ -133,8 +139,8 @@ public class DeleteHookHelper {
     }
 
     /**
-     * Compute a collection of different delete hook for the given selection.
-     * Two delete hooks are equal if the have the same id.
+     * Compute a collection of different delete hook for the given selection. Two delete hooks are equal if the have the
+     * same id.
      */
     private void computeUniqueHooks() {
         deleteHooks = new LinkedHashSet<DeleteHook>();
@@ -144,6 +150,14 @@ public class DeleteHookHelper {
                 final DeleteElementDescription tool = getTool((DDiagramElement) selectedElement);
                 if (tool != null && tool.getHook() != null && tool.getHook().getId() != null) {
                     deleteHooks.add(tool.getHook());
+                }
+                if (tool == null) {
+                    // there is no tool, we looking for if a NO_TOOL_DELETE_HOOK_ID has been contributed by adding it
+                    // into the deleteHooks list:
+                    DeleteHook deleteHook = ToolFactory.eINSTANCE.createDeleteHook();
+                    deleteHook.setId(NO_DELETE_TOOL_HOOK_ID);
+                    deleteHooks.add(deleteHook);
+
                 }
             }
         }

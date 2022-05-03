@@ -12,18 +12,22 @@
  *******************************************************************************/
 package org.eclipse.sirius.diagram.ui.internal.refresh.listeners;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.ModelChangeTrigger;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DiagramPackage;
 import org.eclipse.sirius.diagram.business.api.helper.filter.FilterService;
+import org.eclipse.sirius.diagram.business.api.query.EObjectQuery;
 import org.eclipse.sirius.diagram.business.internal.refresh.SiriusDiagramSessionEventBroker;
 import org.eclipse.sirius.diagram.description.filter.FilterDescription;
 import org.eclipse.sirius.diagram.ui.business.api.helper.graphicalfilters.CompositeFilterApplicationBuilder;
@@ -79,17 +83,43 @@ public class FilterListener implements ModelChangeTrigger {
     @Override
     public Option<Command> localChangesAboutToCommit(Collection<Notification> notifications) {
         Command finalCommand = null;
-        Command sortFiltersCommand = getSortFiltersCommand(notifications);
-        Command updateFilterApplicationCmd = new FilteredElementsUpdateCommand(domain, dDiagram);
-        if (sortFiltersCommand != null) {
-            CompoundCommand compoundCommand = new CompoundCommand();
-            compoundCommand.append(sortFiltersCommand);
-            compoundCommand.append(updateFilterApplicationCmd);
-            finalCommand = compoundCommand;
-        } else {
-            finalCommand = updateFilterApplicationCmd;
+        if (notifications.size() == 1) {
+            Notification notification = notifications.iterator().next();
+            if (notification.getFeature().equals(DiagramPackage.eINSTANCE.getDDiagram_ActivatedFilters()) && notification.getNotifier() != dDiagram) {
+                return Options.newNone();
+            }
+        }
+        Collection<Notification> notificationsToKeep = getNotificationsToKeep(notifications);
+        if (notifications.size() > 0) {
+            Command sortFiltersCommand = getSortFiltersCommand(notificationsToKeep);
+            Command updateFilterApplicationCmd = new FilteredElementsUpdateCommand(domain, dDiagram);
+            if (sortFiltersCommand != null) {
+                CompoundCommand compoundCommand = new CompoundCommand();
+                compoundCommand.append(sortFiltersCommand);
+                compoundCommand.append(updateFilterApplicationCmd);
+                finalCommand = compoundCommand;
+            } else {
+                finalCommand = updateFilterApplicationCmd;
+            }
         }
         return Options.newSome(finalCommand);
+    }
+
+    private Collection<Notification> getNotificationsToKeep(Collection<Notification> notifications) {
+        List<Notification> notificationsToKeep = new ArrayList<>();
+        for (Notification notification : notifications) {
+            boolean keepNotif = true;
+            if (notification.getNotifier() instanceof DDiagramElement) {
+                Option<DDiagram> parentDiagram = new EObjectQuery((EObject) notification.getNotifier()).getParentDiagram();
+                if (parentDiagram.some() && parentDiagram.get() != dDiagram) {
+                    keepNotif = false;
+                }
+            }
+            if (keepNotif) {
+                notificationsToKeep.add(notification);
+            }
+        }
+        return notificationsToKeep;
     }
 
     /**
@@ -102,14 +132,18 @@ public class FilterListener implements ModelChangeTrigger {
     private Command getSortFiltersCommand(Collection<Notification> notifications) {
         RecordingCommand recordingCommand = null;
         for (Notification notification : notifications) {
-            if (notification.getNotifier() == dDiagram && notification.getFeature().equals(DiagramPackage.eINSTANCE.getDDiagram_ActivatedFilters())
-                    && (Notification.ADD == notification.getEventType() || Notification.ADD_MANY == notification.getEventType())) {
-                DDiagram diagram = (DDiagram) notification.getNotifier();
-                List<FilterDescription> sortedFilters = FilterService.sortFilters(diagram.getActivatedFilters());
-                if (!Iterables.elementsEqual(sortedFilters, diagram.getActivatedFilters())) {
-                    recordingCommand = new FiltersSortingCommand(domain, diagram, sortedFilters);
+            if (notification.getFeature().equals(DiagramPackage.eINSTANCE.getDDiagram_ActivatedFilters())) {
+                if (notification.getNotifier() == dDiagram) {
+                    // isSameDiagram = true;
+                    if ((Notification.ADD == notification.getEventType() || Notification.ADD_MANY == notification.getEventType())) {
+                        DDiagram diagram = (DDiagram) notification.getNotifier();
+                        List<FilterDescription> sortedFilters = FilterService.sortFilters(diagram.getActivatedFilters());
+                        if (!Iterables.elementsEqual(sortedFilters, diagram.getActivatedFilters())) {
+                            recordingCommand = new FiltersSortingCommand(domain, diagram, sortedFilters);
+                        }
+                        break;
+                    }
                 }
-                break;
             }
         }
         return recordingCommand;

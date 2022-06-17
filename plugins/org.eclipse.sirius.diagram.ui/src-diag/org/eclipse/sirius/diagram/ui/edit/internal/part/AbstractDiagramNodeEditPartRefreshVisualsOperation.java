@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009 THALES GLOBAL SERVICES.
+ * Copyright (c) 2022 THALES GLOBAL SERVICES.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
@@ -213,7 +213,7 @@ public class AbstractDiagramNodeEditPartRefreshVisualsOperation {
         }
 
         final int tmpHeight = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getSize_Height())).intValue();
-         if (tmpHeight > 0) {
+        if (tmpHeight > 0 && (new DNodeQuery(node).allowsVerticalResize() || query.isCollapsed())) {
             height = tmpHeight;
         }
 

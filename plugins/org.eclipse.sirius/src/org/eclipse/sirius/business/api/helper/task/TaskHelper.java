@@ -249,6 +249,9 @@ public class TaskHelper {
             result = true;
         } else {
             final IInterpreter interpreter = SiriusPlugin.getDefault().getInterpreterRegistry().getInterpreter(context);
+            // Clear all existing variables to avoid havinge side effects with a previous tool execution. For the tool
+            // execution case, this cleaning is done at the beginning of the command with InitInterpreterVariablesTask.
+            interpreter.clearVariables();
             try {
                 for (var variableToSet : variablesToSet.entrySet()) {
                     interpreter.setVariable(variableToSet.getKey(), variableToSet.getValue());

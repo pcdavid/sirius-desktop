@@ -56,7 +56,12 @@ public class SessionSaveable extends Saveable {
 
     @Override
     public IJobRunnable doSave(IProgressMonitor monitor, IShellProvider shellProvider) throws CoreException {
-        return new SaveSessionRunnable(session);
+        if (Boolean.getBoolean("org.eclipse.sirius.session.forceSynchronousSave")) { //$NON-NLS-1$
+            doSave(monitor);
+            return null;
+        } else {
+            return new SaveSessionRunnable(session);
+        }
     }
 
     /**

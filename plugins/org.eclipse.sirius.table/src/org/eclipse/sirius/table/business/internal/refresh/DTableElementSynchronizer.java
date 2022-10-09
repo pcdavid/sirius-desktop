@@ -1148,4 +1148,28 @@ public class DTableElementSynchronizer {
             target.eUnset(feature);
         }
     }
+
+    /**
+     * Provides the associated accessor.
+     * <p>
+     * Restricted to table synchronizer.
+     * </p>
+     * 
+     * @return accessor
+     */
+    ModelAccessor getAccessor() {
+        return accessor;
+    }
+
+    /**
+     * Provides the associated interpretor.
+     * <p>
+     * Restricted to table synchronizer.
+     * </p>
+     * 
+     * @return interpretor
+     */
+    IInterpreter getInterpreter() {
+        return interpreter;
+    }
 }

@@ -100,13 +100,12 @@ public class DTableSynchronizerImpl implements DTableSynchronizer {
      * @param interpreter
      *            current Interpreter.
      */
-    public DTableSynchronizerImpl(final TableDescription description, final ModelAccessor accessor, final IInterpreter interpreter) {
-        super();
-        this.accessor = accessor;
+    public DTableSynchronizerImpl(final TableDescription description, final DTableElementSynchronizer sync) {
+        this.sync = sync;
+        this.accessor = sync.getAccessor();
         this.description = description;
-        this.interpreter = interpreter;
+        this.interpreter = sync.getInterpreter();
         this.safeInterpreter = RuntimeLoggerManager.INSTANCE.decorate(interpreter);
-        this.sync = new DTableElementSynchronizer(accessor, interpreter);
     }
 
     /**

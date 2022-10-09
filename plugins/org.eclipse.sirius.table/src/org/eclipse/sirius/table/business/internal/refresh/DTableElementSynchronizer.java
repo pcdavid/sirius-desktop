@@ -369,7 +369,7 @@ public class DTableElementSynchronizer {
         if (line != null && line.getTarget() != null && column != null && column.getTarget() != null) {
             Collection<EObject> foundColumnTargets = evaluateColumnFinderExpression(cell, intersectionMapping);
             if (foundColumnTargets != null && foundColumnTargets.contains(column.getTarget())) {
-                if (evaluateIntersectionPrecondition(cell.getColumn().getTarget(), cell.getLine(), cell.getColumn(), intersectionMapping.getPreconditionExpression())) {
+                if (evaluateIntersectionPrecondition(cell.getColumn().getTarget(), cell.getLine(), cell.getColumn(), intersectionMapping)) {
                     cellNeeded = refreshLabel(cell, labelExpression);
                 }
             }
@@ -410,11 +410,12 @@ public class DTableElementSynchronizer {
      *            The line to use as "line" variable by the interpreter
      * @param column
      *            The column to use as "column" variable by the interpreter
-     * @param preconditionExpression
-     *            The expression to evaluate.
+     * @param mapping
+     *            The mapping to evaluate.
      * @return The result of the expression evaluation
      */
-    private boolean evaluateIntersectionPrecondition(final EObject semanticElement, final DLine line, final DColumn column, final String preconditionExpression) {
+    public boolean evaluateIntersectionPrecondition(final EObject semanticElement, final DLine line, final DColumn column, final IntersectionMapping mapping) {
+        String preconditionExpression = mapping.getPreconditionExpression();
         DslCommonPlugin.PROFILER.startWork(SiriusTasksKey.CHECK_PRECONDITION_KEY);
         boolean result = true;
         if (!StringUtil.isEmpty(preconditionExpression)) {

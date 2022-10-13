@@ -18,7 +18,6 @@ import java.util.List;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.table.business.api.refresh.DTableSynchronizer;
-import org.eclipse.sirius.table.business.internal.refresh.DTableSynchronizerImpl;
 import org.eclipse.sirius.table.metamodel.table.DTable;
 import org.eclipse.sirius.table.metamodel.table.TableFactory;
 import org.eclipse.sirius.table.metamodel.table.description.TableDescription;
@@ -37,7 +36,7 @@ public class DTableSortByLineTest extends TableTestCase {
         final TableDescription desc = find("Model Association Cross Table");
         assertNotNull("Unit test data is not correct", desc);
 
-        final DTableSynchronizer sync = new DTableSynchronizerImpl(desc, accessor, interpreter);
+        final DTableSynchronizer sync = createTableSynchronizer(desc);
 
         final DTable newTable = TableFactory.eINSTANCE.createDTable();
         newTable.setDescription(desc);
@@ -63,7 +62,7 @@ public class DTableSortByLineTest extends TableTestCase {
         final TableDescription desc = find("Model Association Cross Table");
         assertNotNull("Unit test data is not correct", desc);
 
-        final DTableSynchronizer sync = new DTableSynchronizerImpl(desc, accessor, interpreter);
+        final DTableSynchronizer sync = createTableSynchronizer(desc);
 
         final DTable newTable = TableFactory.eINSTANCE.createDTable();
         newTable.setDescription(desc);
@@ -94,7 +93,7 @@ public class DTableSortByLineTest extends TableTestCase {
         final TableDescription desc = find("Model Association Cross Table");
         assertNotNull("Unit test data is not correct", desc);
 
-        final DTableSynchronizer sync = new DTableSynchronizerImpl(desc, accessor, interpreter);
+        final DTableSynchronizer sync = createTableSynchronizer(desc);
 
         final DTable newTable = TableFactory.eINSTANCE.createDTable();
         newTable.setDescription(desc);

@@ -161,6 +161,8 @@ import org.eclipse.sirius.diagram.ui.tools.api.graphical.edit.palette.PaletteMan
 import org.eclipse.sirius.diagram.ui.tools.api.preferences.SiriusDiagramUiPreferencesKeys;
 import org.eclipse.sirius.diagram.ui.tools.internal.actions.delete.DeleteFromModelWithHookAction;
 import org.eclipse.sirius.diagram.ui.tools.internal.actions.delete.DeleteWithHookAction;
+import org.eclipse.sirius.diagram.ui.tools.internal.actions.layout.CopyFormatAction;
+import org.eclipse.sirius.diagram.ui.tools.internal.actions.layout.PasteFormatAction;
 import org.eclipse.sirius.diagram.ui.tools.internal.actions.visibility.HideDDiagramElementAction;
 import org.eclipse.sirius.diagram.ui.tools.internal.actions.visibility.HideDDiagramElementLabelAction;
 import org.eclipse.sirius.diagram.ui.tools.internal.actions.visibility.RevealElementsAction;
@@ -777,6 +779,20 @@ public class DDiagramEditorImpl extends SiriusDiagramEditor implements DDiagramE
 
             keyHandler.put(/* CTRL + D */
                     KeyStroke.getPressed((char) 0x4, 100, SWT.CTRL), getActionRegistry().getAction(ActionIds.ACTION_DELETE_FROM_MODEL));
+
+            // Register shortcuts for Copy/Paste format actions (the call to
+            // org.eclipse.jface.action.Action.setAccelerator(int) in the corresponding class is not enough).
+            IWorkbenchPartSite site = this.getSite();
+            if (site != null) {
+                CopyFormatAction copyLayoutAction = new CopyFormatAction(site.getPage(), this);
+                registry.registerAction(copyLayoutAction);
+                keyHandler.put(/* CTRL + SHIFT + ALT + C */
+                        KeyStroke.getPressed('C', SWT.CTRL | SWT.SHIFT | SWT.ALT), getActionRegistry().getAction(org.eclipse.sirius.diagram.ui.tools.api.ui.actions.ActionIds.COPY_FORMAT));
+                PasteFormatAction pasteFormatAction = new PasteFormatAction(site.getPage(), this);
+                registry.registerAction(pasteFormatAction);
+                keyHandler.put(/* CTRL + SHIFT + ALT + D */
+                        KeyStroke.getPressed('V', SWT.CTRL | SWT.SHIFT | SWT.ALT), getActionRegistry().getAction(org.eclipse.sirius.diagram.ui.tools.api.ui.actions.ActionIds.PASTE_FORMAT));
+            }
         }
         return keyHandler;
     }

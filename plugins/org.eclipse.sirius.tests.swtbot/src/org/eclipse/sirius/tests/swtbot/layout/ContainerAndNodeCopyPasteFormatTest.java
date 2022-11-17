@@ -34,7 +34,10 @@ import org.eclipse.sirius.ext.draw2d.figure.ODesignEllipseFigure;
 import org.eclipse.sirius.tests.swtbot.Activator;
 import org.eclipse.sirius.tests.swtbot.support.api.AbstractSiriusSwtBotGefTestCase;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UIResource;
+import org.eclipse.sirius.tests.swtbot.support.api.condition.CheckSelectedCondition;
 import org.eclipse.sirius.tests.swtbot.support.api.editor.SWTBotSiriusDiagramEditor;
+import org.eclipse.sirius.tests.swtbot.support.utils.SWTBotUtils;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
 
@@ -497,13 +500,27 @@ public class ContainerAndNodeCopyPasteFormatTest extends AbstractSiriusSwtBotGef
     }
 
     /**
-     * Test that the paste style and layout changes style on the expected figure
-     * and puts the elements at the expected location. This test uses the
-     * copy-paste layout and style on Diagram using the
-     * org.eclipse.sirius.diagram.ui.layoutDataManager extension-point (the
-     * sampleNameDataProvider contributed in oes.tests.junit plug-in). Style and
-     * layout of node LC2 from a first diagram is applied on node LC1 from a
-     * second diagram.
+     * Launch testNodeToNodeCopyPasteDiamondLayoutAndStyleOnDiagramWithExtensionWithContextualMenu using the shortcut
+     * for the actions.
+     */
+    public void testNodeToNodeCopyPasteDiamondLayoutAndStyleOnDiagramWithExtensionWithShortcut() {
+        testNodeToNodeCopyPasteDiamondLayoutAndStyleOnDiagramWithExtension(true);
+    }
+
+    /**
+     * Launch testNodeToNodeCopyPasteDiamondLayoutAndStyleOnDiagramWithExtensionWithContextualMenu using the contextual
+     * menu for the actions.
+     */
+    public void testNodeToNodeCopyPasteDiamondLayoutAndStyleOnDiagramWithExtensionWithContextualMenu() {
+        testNodeToNodeCopyPasteDiamondLayoutAndStyleOnDiagramWithExtension(false);
+    }
+
+    /**
+     * Test that the paste style and layout changes style on the expected figure and puts the elements at the expected
+     * location. This test uses the copy-paste layout and style on Diagram using the
+     * org.eclipse.sirius.diagram.ui.layoutDataManager extension-point (the sampleNameDataProvider contributed in
+     * oes.tests.junit plug-in). Style and layout of node LC2 from a first diagram is applied on node LC1 from a second
+     * diagram.
      * <ul>
      * <li>Check node locations before copy-paste on rep3</li>
      * <li>Run copy-paste Style from rep7 to rep5</li>
@@ -511,8 +528,11 @@ public class ContainerAndNodeCopyPasteFormatTest extends AbstractSiriusSwtBotGef
      * <li>Check location changes.</li>
      * <li>Check label style changes.</li>
      * </ul>
+     * 
+     * @param useShortcut
+     *            true to use the shortcut to launch the action, false to use the contextual menu
      */
-    public void testNodeToNodeCopyPasteDiamondLayoutAndStyleOnDiagramWithExtension() {
+    protected void testNodeToNodeCopyPasteDiamondLayoutAndStyleOnDiagramWithExtension(boolean useShortcut) {
         // Open the 2 required representations
         diagramEditor5 = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), REPRESENTATION_DESCRIPTION_NAME_SQUARE_LCNODE, REPRESENTATION_NAME_WITH_SQUARE,
                 DDiagram.class);
@@ -525,7 +545,14 @@ public class ContainerAndNodeCopyPasteFormatTest extends AbstractSiriusSwtBotGef
 
         // Copy LC1 layout and style
         diagramEditor7.click(LC2_POINT);
-        diagramEditor7.clickContextMenu(Messages.CopyFormatAction_text);
+        bot.waitUntil(new CheckSelectedCondition(diagramEditor7, LC2_LABEL));
+        if (useShortcut) {
+            SWTBotUtils.pressKeyboardKey(diagramEditor7.getCanvas().widget, SWT.CTRL | SWT.ALT | SWT.SHIFT, 'C');
+            SWTBotUtils.waitAllUiEvents();
+            SWTBotUtils.waitAllUiEvents();
+        } else {
+            diagramEditor7.clickContextMenu(Messages.CopyFormatAction_text);
+        }
 
         diagramEditor5.show();
 
@@ -542,7 +569,13 @@ public class ContainerAndNodeCopyPasteFormatTest extends AbstractSiriusSwtBotGef
 
         // Paste layout on second representation
         diagramEditor5.click(EMPTY_POINT);
-        diagramEditor5.clickContextMenu(Messages.PasteFormatAction_text);
+        if (useShortcut) {
+            SWTBotUtils.pressKeyboardKey(diagramEditor5.getCanvas().widget, SWT.CTRL | SWT.SHIFT | SWT.ALT, 'V');
+            SWTBotUtils.waitAllUiEvents();
+            SWTBotUtils.waitAllUiEvents();
+        } else {
+            diagramEditor5.clickContextMenu(Messages.PasteFormatAction_text);
+        }
 
         // Check LogicalFunction1 node locations after the paste layout.
         // By using diagram extension, it matches with LC2 bounds of diagram7

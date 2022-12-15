@@ -89,7 +89,6 @@ public class DNodeListCreationTest extends AbstractSiriusSwtBotGefTestCase {
         sessionAirdResource = new UIResource(designerProject, FILE_DIR, SESSION_FILE);
         localSession = designerPerspective.openSessionFromFile(sessionAirdResource);
 
-        closeOutline();
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), REPRESENTATION_NAME, REPRESENTATION_INSTANCE_NAME, DDiagram.class);
 
         // Disable snap to grid
@@ -106,8 +105,6 @@ public class DNodeListCreationTest extends AbstractSiriusSwtBotGefTestCase {
         editor.zoom(ZoomLevel.ZOOM_100);
         // Go to the origin to avoid scroll bar
         editor.scrollTo(0, 0);
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
         SWTBotUtils.waitAllUiEvents();
         super.tearDown();
     }

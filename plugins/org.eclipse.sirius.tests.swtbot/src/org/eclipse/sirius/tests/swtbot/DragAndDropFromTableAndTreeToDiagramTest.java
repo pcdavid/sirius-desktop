@@ -80,8 +80,6 @@ public class DragAndDropFromTableAndTreeToDiagramTest extends AbstractSiriusSwtB
         sessionAirdResource = new UIResource(designerProject, FILE_DIR, SESSION_FILE);
         localSession = designerPerspective.openSessionFromFile(sessionAirdResource);
 
-        closeOutline();
-
         changeSiriusUIPreference(SiriusUIPreferencesKeys.PREF_RELOAD_ON_LAST_EDITOR_CLOSE.name(), false);
         changeSiriusUIPreference(SiriusUIPreferencesKeys.PREF_SAVE_WHEN_NO_EDITOR.name(), false);
     }
@@ -182,8 +180,6 @@ public class DragAndDropFromTableAndTreeToDiagramTest extends AbstractSiriusSwtB
 
     @Override
     protected void tearDown() throws Exception {
-        // Reopen outline
-        designerViews.openOutlineView();
         super.tearDown();
     }
 }

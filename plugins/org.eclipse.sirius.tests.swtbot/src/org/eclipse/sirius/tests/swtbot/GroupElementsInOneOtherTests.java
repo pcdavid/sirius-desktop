@@ -98,7 +98,6 @@ public class GroupElementsInOneOtherTests extends AbstractSiriusSwtBotGefTestCas
     protected void onSetUpAfterOpeningDesignerPerspective() throws Exception {
         sessionAirdResource = new UIResource(designerProject, "/", SESSION_RESOURCE_NAME);
         localSession = designerPerspective.openSessionFromFile(sessionAirdResource);
-        closeOutline();
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), FIRST_REPRESENTATION_NAME, FIRST_REPRESENTATION_INSTANCE_NAME, DDiagram.class, true, true);
 
         editor.scrollTo(0, 0);
@@ -273,10 +272,7 @@ public class GroupElementsInOneOtherTests extends AbstractSiriusSwtBotGefTestCas
         class1ChildOfDiagramBot = null;
         class3ChildOfDiagramBot = null;
         class4ChildOfDiagramBot = null;
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
-        SWTBotUtils.waitAllUiEvents();
-        super.tearDown();
+         super.tearDown();
     }
 
     /**

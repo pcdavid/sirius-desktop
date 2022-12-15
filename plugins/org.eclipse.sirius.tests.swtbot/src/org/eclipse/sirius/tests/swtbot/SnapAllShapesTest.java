@@ -66,8 +66,6 @@ public class SnapAllShapesTest extends AbstractSiriusSwtBotGefTestCase {
 
     @Override
     protected void onSetUpAfterOpeningDesignerPerspective() throws Exception {
-        // Close the outline view
-        closeOutline();
 
         // Open the session
         UIResource sessionAirdResource = new UIResource(designerProject, SESSION_RESOURCE_NAME);
@@ -91,9 +89,6 @@ public class SnapAllShapesTest extends AbstractSiriusSwtBotGefTestCase {
             SWTBotUtils.waitAllUiEvents();
         }
 
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
-        SWTBotUtils.waitAllUiEvents();
         super.tearDown();
     }
 

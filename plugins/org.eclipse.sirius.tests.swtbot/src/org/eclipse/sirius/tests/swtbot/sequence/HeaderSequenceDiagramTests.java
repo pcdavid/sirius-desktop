@@ -68,8 +68,6 @@ public class HeaderSequenceDiagramTests extends AbstractDefaultModelSequenceTest
     protected void onSetUpAfterOpeningDesignerPerspective() throws Exception {
         if (getSessionModel() == null) {
         } else {
-            closeOutline();
-            SWTBotUtils.waitAllUiEvents();
 
             sessionAirdResource = new UIResource(designerProject, FILE_DIR, getSessionModel());
             localSession = designerPerspective.openSessionFromFile(sessionAirdResource, true);
@@ -333,8 +331,6 @@ public class HeaderSequenceDiagramTests extends AbstractDefaultModelSequenceTest
     @Override
     protected void tearDown() throws Exception {
         headerDatas = null;
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
         SWTBotUtils.waitAllUiEvents();
         super.tearDown();
     }

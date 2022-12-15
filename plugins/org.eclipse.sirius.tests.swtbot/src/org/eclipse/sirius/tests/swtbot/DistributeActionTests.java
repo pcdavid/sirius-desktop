@@ -81,7 +81,6 @@ public class DistributeActionTests extends AbstractUmlDragAndDropTest {
      */
     @Override
     protected void onSetUpAfterOpeningDesignerPerspective() throws Exception {
-        closeOutline();
         super.onSetUpAfterOpeningDesignerPerspective();
     }
 
@@ -92,8 +91,6 @@ public class DistributeActionTests extends AbstractUmlDragAndDropTest {
      */
     @Override
     protected void tearDown() throws Exception {
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
         SWTBotUtils.waitAllUiEvents();
         super.tearDown();
     }

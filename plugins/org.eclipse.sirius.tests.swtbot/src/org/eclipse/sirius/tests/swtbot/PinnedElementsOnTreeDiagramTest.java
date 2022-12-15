@@ -55,7 +55,6 @@ public class PinnedElementsOnTreeDiagramTest extends AbstractPinnedElementsTest 
      */
     @Override
     protected void onSetUpAfterOpeningDesignerPerspective() throws Exception {
-        closeOutline();
         sessionAirdResource = new UIResource(designerProject, FILE_DIR, "tc1924.aird");
         localSession = designerPerspective.openSessionFromFile(sessionAirdResource);
         SWTBotUtils.waitAllUiEvents();
@@ -64,9 +63,6 @@ public class PinnedElementsOnTreeDiagramTest extends AbstractPinnedElementsTest 
     @Override
     protected void tearDown() throws Exception {
         editor.close();
-        SWTBotUtils.waitAllUiEvents();
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
         SWTBotUtils.waitAllUiEvents();
         super.tearDown();
     }

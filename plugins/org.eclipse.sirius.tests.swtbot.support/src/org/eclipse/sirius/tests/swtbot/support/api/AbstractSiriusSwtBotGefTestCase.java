@@ -1962,23 +1962,5 @@ public abstract class AbstractSiriusSwtBotGefTestCase extends SWTBotGefTestCase 
             }
         }
     }
-    // CHECKSTYLE:ON
-
-    /**
-     * Close the "Outline" view if it is visible (usually to avoid the performance overhead of having it update & redraw
-     * diagrams when it is not needed). This method is safe to use even if the Outline view is not actually visible at
-     * the time, and must be used instead of the more obvious
-     * <code>bot.viewById("org.eclipse.ui.views.ContentOutline").close()</code> which can timeout and fail in this case.
-     */
-    protected void closeOutline() {
-        PlatformUI.getWorkbench().getDisplay().syncExec(() -> {
-            IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-            IViewReference[] views = page.getViewReferences();
-            for (IViewReference view : views) {
-                if (Objects.equal("org.eclipse.ui.views.ContentOutline", view.getId())) {
-                    view.getPage().hideView(view);
-                }
-            }
-        });
-    }
+ // CHECKSTYLE:ON
 }

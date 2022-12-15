@@ -53,8 +53,6 @@ public class EdgeLabelsMoveTest extends AbstractSiriusSwtBotGefTestCase {
 
     private static final String DIAGRAM_DESCRIPTION_NAME = "Diagram";
 
-    boolean isOutlineViewOpened;
-
     boolean isPropertiesViewOpened;
 
     @Override
@@ -74,10 +72,7 @@ public class EdgeLabelsMoveTest extends AbstractSiriusSwtBotGefTestCase {
             @Override
             public void run() {
                 for (int i = 0; i < viewReferences.length; i++) {
-                    if ("org.eclipse.ui.views.ContentOutline".equals(viewReferences[i].getId())) {
-                        isOutlineViewOpened = true;
-                        currentPage.hideView(viewReferences[i]);
-                    } else if (PROPERTIES_VIEW_ID.equals(viewReferences[i].getId())) {
+                    if (PROPERTIES_VIEW_ID.equals(viewReferences[i].getId())) {
                         isPropertiesViewOpened = true;
                         currentPage.hideView(viewReferences[i]);
                     }
@@ -88,9 +83,7 @@ public class EdgeLabelsMoveTest extends AbstractSiriusSwtBotGefTestCase {
 
     @Override
     protected void tearDown() throws Exception {
-        if (isOutlineViewOpened) {
-            designerViews.openOutlineView();
-        }
+
         if (isPropertiesViewOpened) {
             Display.getDefault().asyncExec(new Runnable() {
                 @Override

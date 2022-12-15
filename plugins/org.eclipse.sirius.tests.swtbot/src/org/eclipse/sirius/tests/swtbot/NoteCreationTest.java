@@ -120,7 +120,6 @@ public class NoteCreationTest extends AbstractSiriusSwtBotGefTestCase {
         sessionAirdResource = new UIResource(designerProject, FILE_DIR, SESSION_FILE);
         localSession = designerPerspective.openSessionFromFile(sessionAirdResource);
 
-        closeOutline();
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), REPRESENTATION_NAME, REPRESENTATION_INSTANCE_NAME, DDiagram.class);
 
         editor.setSnapToGrid(false);
@@ -138,9 +137,6 @@ public class NoteCreationTest extends AbstractSiriusSwtBotGefTestCase {
         // Keep a reference to the bot (the bot class field will be cleaned by "super.tearDown();")
         SWTGefBot localBotRef = bot;
         super.tearDown();
-        // Reopen outline after the closing of the editor to avoid potential refresh problems with this view
-        new DesignerViews(localBotRef).openOutlineView();
-        SWTBotUtils.waitAllUiEvents();
     }
 
     /**

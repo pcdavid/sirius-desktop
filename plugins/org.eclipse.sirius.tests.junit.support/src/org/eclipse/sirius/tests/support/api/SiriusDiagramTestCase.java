@@ -144,17 +144,7 @@ public class SiriusDiagramTestCase extends AbstractToolDescriptionTestCase {
 
     @Override
     protected void setUp() throws Exception {
-        super.setUp();
-        PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
-            @Override
-            public void run() {
-                IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-                IViewPart outlineView = page.findView("org.eclipse.ui.views.ContentOutline");
-                if (outlineView != null) {
-                    page.hideView(outlineView);
-                }
-            }
-        });
+        super.setUp();        
     }
 
     /**

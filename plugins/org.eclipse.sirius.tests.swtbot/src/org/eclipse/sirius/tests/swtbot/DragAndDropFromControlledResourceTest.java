@@ -91,8 +91,7 @@ public class DragAndDropFromControlledResourceTest extends AbstractSiriusSwtBotG
 
         ecoreEcoreResource = new UIResource(designerProject, MODEL);
         semanticResourceNode = localSession.getSemanticResourceNode(ecoreEcoreResource);
-        new SWTWorkbenchBot().viewById("org.eclipse.ui.views.ContentOutline").close();
-
+       
         changeSiriusUIPreference(SiriusUIPreferencesKeys.PREF_RELOAD_ON_LAST_EDITOR_CLOSE.name(), false);
         changeSiriusUIPreference(SiriusUIPreferencesKeys.PREF_SAVE_WHEN_NO_EDITOR.name(), false);
     }
@@ -135,9 +134,6 @@ public class DragAndDropFromControlledResourceTest extends AbstractSiriusSwtBotG
     @Override
     @After
     public void tearDown() throws Exception {
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
-
         super.tearDown();
     }
 }

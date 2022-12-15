@@ -89,7 +89,6 @@ public class BorderNodeSideTest extends AbstractSiriusSwtBotGefTestCase {
     protected void onSetUpAfterOpeningDesignerPerspective() throws Exception {
         sessionAirdResource = new UIResource(designerProject, "/", SESSION_FILE);
         localSession = designerPerspective.openSessionFromFile(sessionAirdResource);
-        closeOutline();
         session = localSession.getOpenedSession();
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(session, REPRESENTATION_NAME, REPRESENTATION_NAME, DDiagram.class, true);
         dDiagram = (DDiagram) editor.getDRepresentation();
@@ -459,8 +458,6 @@ public class BorderNodeSideTest extends AbstractSiriusSwtBotGefTestCase {
         editor.zoom(ZoomLevel.ZOOM_100);
         // Go to the origin to avoid scroll bar
         editor.scrollTo(0, 0);
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
         SWTBotUtils.waitAllUiEvents();
         super.tearDown();
     }

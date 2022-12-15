@@ -33,7 +33,6 @@ public class SequenceReturnMessageTest extends AbstractDefaultModelSequenceTests
 
     @Override
     protected void onSetUpAfterOpeningDesignerPerspective() throws Exception {
-        closeOutline();
         super.onSetUpAfterOpeningDesignerPerspective();
     }
 
@@ -44,9 +43,6 @@ public class SequenceReturnMessageTest extends AbstractDefaultModelSequenceTests
             editor.close();
             SWTBotUtils.waitAllUiEvents();
         }
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
-        SWTBotUtils.waitAllUiEvents();
         super.tearDown();
     }
 

@@ -117,9 +117,6 @@ public class BendpointsStabilityOnMovesTest extends AbstractSiriusSwtBotGefTestC
     private static final Point VERTICAL_MOVE_EDGE = new Point(0, 10);
 
     private static final Point VERTICAL_NEGATIV_MOVE_EDGE = new Point(0, -10);
-
-    boolean isOutlineViewOpened;
-
     boolean isPropertiesViewOpened;
 
     @Override
@@ -141,10 +138,7 @@ public class BendpointsStabilityOnMovesTest extends AbstractSiriusSwtBotGefTestC
             @Override
             public void run() {
                 for (int i = 0; i < viewReferences.length; i++) {
-                    if ("org.eclipse.ui.views.ContentOutline".equals(viewReferences[i].getId())) {
-                        isOutlineViewOpened = true;
-                        currentPage.hideView(viewReferences[i]);
-                    } else if (PROPERTIES_VIEW_ID.equals(viewReferences[i].getId())) {
+                   if (PROPERTIES_VIEW_ID.equals(viewReferences[i].getId())) {
                         isPropertiesViewOpened = true;
                         currentPage.hideView(viewReferences[i]);
                     }
@@ -155,9 +149,6 @@ public class BendpointsStabilityOnMovesTest extends AbstractSiriusSwtBotGefTestC
 
     @Override
     protected void tearDown() throws Exception {
-        if (isOutlineViewOpened) {
-            designerViews.openOutlineView();
-        }
         if (isPropertiesViewOpened) {
             Display.getDefault().asyncExec(new Runnable() {
                 @Override

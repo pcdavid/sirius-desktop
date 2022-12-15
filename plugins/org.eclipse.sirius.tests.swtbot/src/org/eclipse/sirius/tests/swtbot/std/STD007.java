@@ -65,13 +65,11 @@ public class STD007 extends AbstractSiriusSwtBotGefTestCase {
 
     @Override
     protected void onSetUpAfterOpeningDesignerPerspective() throws Exception {
-        closeOutline();
+        
     }
 
     @Override
     protected void tearDown() throws Exception {
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
         super.tearDown();
     }
 

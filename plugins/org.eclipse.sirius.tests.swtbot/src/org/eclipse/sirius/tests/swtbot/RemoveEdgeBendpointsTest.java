@@ -78,7 +78,6 @@ public class RemoveEdgeBendpointsTest extends AbstractSiriusSwtBotGefTestCase {
         super.onSetUpAfterOpeningDesignerPerspective();
         sessionAirdResource = new UIResource(designerProject, "/", SESSION_FILE);
         localSession = designerPerspective.openSessionFromFile(sessionAirdResource);
-        closeOutline();
         openDiagram("new useCase");
 
     }
@@ -656,9 +655,6 @@ public class RemoveEdgeBendpointsTest extends AbstractSiriusSwtBotGefTestCase {
         editor.close();
         SWTBotUtils.waitAllUiEvents();
         editor = null;
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
-        SWTBotUtils.waitAllUiEvents();
         super.tearDown();
     }
 

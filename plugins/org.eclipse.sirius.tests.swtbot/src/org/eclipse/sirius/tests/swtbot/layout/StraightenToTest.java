@@ -109,7 +109,7 @@ public class StraightenToTest extends AbstractSiriusSwtBotGefTestCase {
         super.onSetUpAfterOpeningDesignerPerspective();
         sessionAirdResource = new UIResource(designerProject, "/", SESSION_FILE);
         localSession = designerPerspective.openSessionFromFile(sessionAirdResource);
-        closeOutline();
+        
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), "useCase", "new useCase", DDiagram.class);
     }
 
@@ -120,8 +120,6 @@ public class StraightenToTest extends AbstractSiriusSwtBotGefTestCase {
         editor.close();
         SWTBotUtils.waitAllUiEvents();
         editor = null;
-        // Reopen outline
-        new DesignerViews(bot).openOutlineView();
         SWTBotUtils.waitAllUiEvents();
         super.tearDown();
     }

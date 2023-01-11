@@ -167,6 +167,7 @@ import org.eclipse.sirius.tests.unit.diagram.migration.TechnicalUidMigrationTest
 import org.eclipse.sirius.tests.unit.diagram.migration.TransientLayerMigrationTest;
 import org.eclipse.sirius.tests.unit.diagram.migration.UnsetOriginalStyleFeatureMigrationParticipantTest;
 import org.eclipse.sirius.tests.unit.diagram.migration.ViewWithNullElementMigrationParticipantTest;
+import org.eclipse.sirius.tests.unit.diagram.migration.participantordering.OrderingParticipantTest;
 import org.eclipse.sirius.tests.unit.multipageeditor.SiriusMultiPageEditorTest;
 import org.eclipse.sirius.tests.unit.perf.common.CommonPreferencesTest;
 import org.eclipse.sirius.tests.unit.perf.common.Session1MillionTests;
@@ -183,7 +184,7 @@ public class AllCommonPluginTests extends TestCase {
      * Launches the test with the given arguments.
      * 
      * @param args
-     *            Arguments of the testCase.
+     *                 Arguments of the testCase.
      */
     public static void main(final String[] args) {
         TestRunner.run(suite());
@@ -193,7 +194,7 @@ public class AllCommonPluginTests extends TestCase {
      * Add the gerrit part of the Junit tests to the specified suite.
      * 
      * @param suite
-     *            the suite into which to add the tests.
+     *                  the suite into which to add the tests.
      */
     public static void addGerritPart(TestSuite suite) {
         suite.addTestSuite(RefreshEditorsPrecommitListenerTests.class);
@@ -263,7 +264,7 @@ public class AllCommonPluginTests extends TestCase {
         suite.addTestSuite(ViewWithNullElementMigrationParticipantTest.class);
         suite.addTestSuite(UnsetOriginalStyleFeatureMigrationParticipantTest.class);
         suite.addTestSuite(SetChangeIdMigrationParticipantTest.class);
-        // suite.addTestSuite(OrderingParticipantTest.class);
+        suite.addTestSuite(OrderingParticipantTest.class);
 
         suite.addTest(new JUnit4TestAdapter(CommonPreferencesTest.class));
         suite.addTest(new JUnit4TestAdapter(GroupingContentProviderTest.class));
@@ -378,7 +379,7 @@ public class AllCommonPluginTests extends TestCase {
      * Add the tests which for one reason or another are not part of the suite launched on each Gerrit verification.
      * 
      * @param suite
-     *            the suite to add the tests into.
+     *                  the suite to add the tests into.
      */
     public static void addNonGerritPart(TestSuite suite) {
         // This one takes too long (12 minutes) to be part of the Gerrit suite.

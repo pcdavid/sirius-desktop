@@ -42,7 +42,7 @@ public class OrderingParticipantTest extends TestCase {
     public void testMigrationParticipantOrdering() {
 
         ExtensionRegistry extensionRegistry = (ExtensionRegistry) Platform.getExtensionRegistry();
-        registryToken = ReflectionHelper.getFieldValueWithoutException(extensionRegistry, "userToken").get(); //$NON-NLS-1$
+        registryToken = ReflectionHelper.getFieldValueWithoutException(extensionRegistry, "masterToken").get(); //$NON-NLS-1$
 
         addExtension(extensionRegistry, Mp4.class);
         addExtension(extensionRegistry, Mp3.class);

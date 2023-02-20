@@ -84,9 +84,12 @@ public class DTargetColumnEditingSupport extends EditingSupport {
             final DLine line = (DLine) element;
             final Option<DCell> optionalCell = TableHelper.getCell(line, getTargetColumn());
             if (optionalCell.some()) {
-                canEdit = getAuthority().canEditInstance(optionalCell.get().getTarget()) && TableHelper.canEditCrossTableCell(optionalCell.get());
+                canEdit = getAuthority().canEditInstance(optionalCell.get().getTarget()) 
+                        && TableHelper.canEditCrossTableCell(optionalCell.get());
             } else {
-                canEdit = getAuthority().canEditInstance(line) && getAuthority().canEditInstance(getTargetColumn()) && TableHelper.canEditCrossTableCell(line, getTargetColumn());
+                canEdit = getAuthority().canEditInstance(line) 
+                        && getAuthority().canEditInstance(getTargetColumn()) 
+                        && TableHelper.canEditCrossTableCell(line, getTargetColumn());
             }
         }
         return canEdit;
@@ -94,6 +97,13 @@ public class DTargetColumnEditingSupport extends EditingSupport {
 
     @Override
     protected CellEditor getCellEditor(final Object element) {
+        // XXX Improvements: this method should be replaced by:
+        // org.eclipse.sirius.table.ui.tools.internal.editor.provider
+        //  .DFeatureColumnEditingSupport#getCellEditor(Object, DCell, CellUpdater)
+
+        // Using TableHelper.getCell, retrieve the IntersectionMapping
+        // when no intersection, search for a candidate with creationTool.
+        
         if (element instanceof DLine) {
             return getBestCellEditor(((DLine) element).getTarget());
         }

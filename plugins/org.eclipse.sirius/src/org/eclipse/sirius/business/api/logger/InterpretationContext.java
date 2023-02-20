@@ -17,7 +17,10 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.business.internal.logger.RuntimeLoggerInterpreterImpl;
+import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
+import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 
 
 /**
@@ -47,6 +50,15 @@ public final class InterpretationContext {
     }
 
     /**
+     * Returns the interpreter of this context.
+     * 
+     * @return interpreter
+     */
+    public RuntimeLoggerInterpreter getInterpreter() {
+        return implementation;
+    }
+    
+    /**
      * Sets a variable.
      * 
      * @param name
@@ -58,6 +70,7 @@ public final class InterpretationContext {
         if (variables == null) {
             variables = new ArrayList<>();
         }
+        variables.add(name);
         implementation.getDecorated().setVariable(name, value);
     }
     
@@ -81,7 +94,7 @@ public final class InterpretationContext {
     }
     
     /**
-     * Provide a cleanable context to evaluate expressions.
+     * Runs a task in an clean-closable context.
      * 
      * @param interpreter to use
      * @param task to perform
@@ -96,7 +109,7 @@ public final class InterpretationContext {
     }
     
     /**
-     * Provide a cleanable context to evaluate expressions.
+     * Evaluates a function in an clean-closable context.
      * 
      * @param <T> type of task
      * @param interpreter to use
@@ -112,7 +125,49 @@ public final class InterpretationContext {
         }
     }
     
+    /**
+     * Runs a task in an clean-closable context.
+     * 
+     * @param interpreter to use
+     * @param task to perform
+     */
+    public static void with(IInterpreter interpreter, Consumer<InterpretationContext> task) {
+        with(RuntimeLoggerManager.INSTANCE.decorate(interpreter), task);
+    }
     
+    /**
+     * Evaluates a function in an clean-closable context.
+     * 
+     * @param <T> type of task
+     * @param interpreter to use
+     * @param task to perform
+     * @return task result
+     */
+    public static <T> T with(IInterpreter interpreter, Function<InterpretationContext, T> task) {
+        return with(RuntimeLoggerManager.INSTANCE.decorate(interpreter), task);
+    }
+
+    /**
+     * Runs a task in an clean-closable context.
+     * 
+     * @param context to use
+     * @param task to perform
+     */
+    public static void with(EObject context, Consumer<InterpretationContext> task) {
+        with(InterpreterUtil.getInterpreter(context), task);
+    }
+    
+    /**
+     * Evaluates a function in an clean-closable context.
+     * 
+     * @param <T> type of task
+     * @param context to use
+     * @param task to perform
+     * @return task result
+     */
+    public static <T> T with(EObject context, Function<InterpretationContext, T> task) {
+        return with(InterpreterUtil.getInterpreter(context), task);
+    }
 
 
 }

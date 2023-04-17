@@ -63,6 +63,7 @@ import org.eclipse.sirius.diagram.ui.business.internal.dialect.SetBestHeightHead
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DDiagramEditPart;
 import org.eclipse.sirius.diagram.ui.internal.operation.RegionContainerUpdateLayoutOperation;
 import org.eclipse.sirius.diagram.ui.internal.refresh.AbstractCanonicalSynchronizer;
+import org.eclipse.sirius.diagram.ui.internal.refresh.CanonicalSynchronizerResult;
 import org.eclipse.sirius.diagram.ui.part.SiriusDiagramUpdater;
 import org.eclipse.sirius.diagram.ui.part.SiriusLinkDescriptor;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
@@ -188,20 +189,25 @@ public class DDiagramCanonicalSynchronizer extends AbstractCanonicalSynchronizer
 
     private void refreshSemantic() {
         if (gmfDiagram != null && gmfDiagram.getElement() != null) {
-            final Set<View> createdNodeViews = new LinkedHashSet<>();
-            createdNodeViews.addAll(refreshSemanticChildren(gmfDiagram, gmfDiagram.getElement()));
+            CanonicalSynchronizerResult canonicalSynchronizerResult = new CanonicalSynchronizerResult();
+            // final Set<View> createdNodeViews = new LinkedHashSet<>();
+            canonicalSynchronizerResult = refreshSemanticChildren(gmfDiagram, gmfDiagram.getElement(), canonicalSynchronizerResult);
             for (final Object object : gmfDiagram.getChildren()) {
-                createdNodeViews.addAll(refreshSemantic((View) object));
+                canonicalSynchronizerResult = refreshSemantic((View) object, canonicalSynchronizerResult);
             }
+            // Reconciliation of orphaned views
+            canonicalSynchronizerResult.reconciliateOrphanedViews();
+            // Deletion of orphaned views
+            canonicalSynchronizerResult.deleteOrphanedViews();
 
             final Set<Edge> createdConnectionViews = new LinkedHashSet<>();
             createdConnectionViews.addAll(refreshConnections(gmfDiagram));
 
-            Set<View> createdViews = Sets.union(createdNodeViews, createdConnectionViews);
+            Set<View> createdViews = Sets.union(canonicalSynchronizerResult.getCreatedNodeViews(), createdConnectionViews);
 
             manageCreatedViewsLayout(createdViews);
 
-            manageCollapse(createdNodeViews);
+            manageCollapse(canonicalSynchronizerResult.getCreatedNodeViews());
 
             manageRegions();
         }

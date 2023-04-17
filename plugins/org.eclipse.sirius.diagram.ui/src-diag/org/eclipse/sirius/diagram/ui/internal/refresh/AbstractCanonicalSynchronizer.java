@@ -132,16 +132,17 @@ public abstract class AbstractCanonicalSynchronizer implements CanonicalSynchron
      * 
      * @param view
      *            the view to refresh.
-     * @return the create {@link View}s
+     * @param canonicalSynchronizerResult
+     *            List of created {@link View}s and detected orphaned {@link View}s during the canonical refresh of the
+     *            diagram.
+     * @return the {@link CanonicalSynchronizerResult} for convenience
      */
-    protected Set<View> refreshSemantic(final View view) {
-        final Set<View> createdViews = new LinkedHashSet<>();
-        createdViews.addAll(refreshSemanticChildren(view, ViewUtil.resolveSemanticElement(view)));
+    protected CanonicalSynchronizerResult refreshSemantic(final View view, CanonicalSynchronizerResult canonicalSynchronizerResult) {
+        canonicalSynchronizerResult = refreshSemanticChildren(view, ViewUtil.resolveSemanticElement(view), canonicalSynchronizerResult);
         for (View childView : Iterables.filter(view.getChildren(), View.class)) {
-            createdViews.addAll(refreshSemantic(childView));
+            canonicalSynchronizerResult = refreshSemantic(childView, canonicalSynchronizerResult);
         }
-
-        return createdViews;
+        return canonicalSynchronizerResult;
     }
 
     /**
@@ -151,14 +152,17 @@ public abstract class AbstractCanonicalSynchronizer implements CanonicalSynchron
      *            the specified {@link View}
      * @param semanticView
      *            the semantic element of the specified {@link View}
-     * @return the created {@link View}s
+     * @param canonicalSynchronizerResult
+     *            List of created {@link View}s and detected orphaned {@link View}s during the canonical refresh of the
+     *            diagram.
+     * @return the {@link CanonicalSynchronizerResult} for convenience
      */
-    protected Set<View> refreshSemanticChildren(final View gmfView, final EObject semanticView) {
+    protected CanonicalSynchronizerResult refreshSemanticChildren(final View gmfView, final EObject semanticView, CanonicalSynchronizerResult canonicalSynchronizerResult) {
 
         // Don't try to refresh children if the semantic element
         // cannot be resolved.
         if (semanticView == null) {
-            return Collections.emptySet();
+            return canonicalSynchronizerResult;
         }
 
         // isPartOfRegionsContainer is true for regions container and all its
@@ -184,17 +188,21 @@ public abstract class AbstractCanonicalSynchronizer implements CanonicalSynchron
         List<View> orphaned = cleanCanonicalSemanticChildren(gmfView, viewChildren, semanticChildren);
 
         if (!orphaned.isEmpty()) {
+            canonicalSynchronizerResult.addOrphanedViews(orphaned);
+            // deleteViews(orphaned);
+
             // Some children views have been deleted, this container must be
             // layouted if it is a regions container or a sub part of a regions
             // container
             setRegionsContainerAsImpacted(gmfView, isRegionsContainer, isPartOfRegionsContainer);
         }
-        deleteViews(orphaned);
+
 
         // create a view for each remaining semantic element.
         Set<View> createdViews = createViews(semanticChildren, gmfView.getType(), gmfView);
 
         if (!createdViews.isEmpty()) {
+            canonicalSynchronizerResult.addCreatedViews(createdViews);
             // There is at least one new child, this container must be
             // layouted if it is a regions container or a sub part of a regions
             // container.
@@ -206,7 +214,7 @@ public abstract class AbstractCanonicalSynchronizer implements CanonicalSynchron
             refreshSemanticChildrenOrdering(gmfView);
         }
 
-        return createdViews;
+        return canonicalSynchronizerResult;
     }
 
     protected boolean isSnapToGrid() {

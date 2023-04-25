@@ -22,8 +22,9 @@ import org.eclipse.sirius.table.tools.api.command.ITableCommandFactory;
  * An abstract class for all actions on {@link DTargetColumn}.
  * 
  * @author lredor
+ * @param <T> type of the tool
  */
-public abstract class AbstractTargetColumnAction extends AbstractToolAction {
+public abstract class AbstractTargetColumnAction<T extends TableTool> extends AbstractToolAction<T> {
     /**
      * The column concerned with this action
      */
@@ -41,7 +42,7 @@ public abstract class AbstractTargetColumnAction extends AbstractToolAction {
      * @param tableTool
      *            The tool corresponding to this action
      */
-    public AbstractTargetColumnAction(final String text, final TransactionalEditingDomain editingDomain, final ITableCommandFactory tableCommandFactory, final TableTool tableTool) {
+    public AbstractTargetColumnAction(final String text, final TransactionalEditingDomain editingDomain, final ITableCommandFactory tableCommandFactory, final T tableTool) {
         super(text, editingDomain, tableCommandFactory, tableTool);
     }
 
@@ -60,7 +61,7 @@ public abstract class AbstractTargetColumnAction extends AbstractToolAction {
      *            The tool corresponding to this action
      */
     public AbstractTargetColumnAction(final String text, final ImageDescriptor image, final TransactionalEditingDomain editingDomain, final ITableCommandFactory tableCommandFactory,
-            final TableTool tableTool) {
+            final T tableTool) {
         super(text, image, editingDomain, tableCommandFactory, tableTool);
     }
 
@@ -79,7 +80,7 @@ public abstract class AbstractTargetColumnAction extends AbstractToolAction {
      *            The tool corresponding to this action
      */
     public AbstractTargetColumnAction(final String text, final DTargetColumn column, final TransactionalEditingDomain editingDomain, final ITableCommandFactory tableCommandFactory,
-            final TableTool tableTool) {
+            final T tableTool) {
         super(text, editingDomain, tableCommandFactory, tableTool);
         this.column = column;
     }

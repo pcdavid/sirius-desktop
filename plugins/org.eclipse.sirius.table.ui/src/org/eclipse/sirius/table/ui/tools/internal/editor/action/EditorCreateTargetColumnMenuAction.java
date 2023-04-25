@@ -43,7 +43,7 @@ public class EditorCreateTargetColumnMenuAction extends AbstractEditorCreateMenu
      * {@inheritDoc}
      */
     @Override
-    protected List<CreateTargetColumnAction> filter(List<AbstractToolAction> createActionsForTable) {
+    protected List<CreateTargetColumnAction> filter(List<AbstractToolAction<?>> createActionsForTable) {
         return Lists.newArrayList(Iterables.filter(createActionsForTable, CreateTargetColumnAction.class));
     }
 }

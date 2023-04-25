@@ -80,11 +80,17 @@ public final class Messages {
     public static String TableToolVariables_CellEditorResult;
 
     @TranslatableMessage
+    public static String TableToolVariables_CurrentViewElement;
+    
+    @TranslatableMessage
     public static String TableToolVariables_CurrentSemanticElement;
 
     @TranslatableMessage
     public static String TableToolVariables_LineElement;
 
+    @TranslatableMessage
+    public static String TableToolVariables_ColumnElement;
+    
     @TranslatableMessage
     public static String TableToolVariables_SemanticColumnElement;
 
@@ -99,6 +105,12 @@ public final class Messages {
 
     @TranslatableMessage
     public static String TableToolVariables_TableElement;
+
+    @TranslatableMessage
+    public static String TableToolVariables_ContainerElement;
+    
+    @TranslatableMessage
+    public static String TableToolVariables_ContainerView;
 
     @TranslatableMessage
     public static String Table_UnexpectedExceptionMessage;

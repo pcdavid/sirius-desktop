@@ -43,7 +43,7 @@ public class EditorCreateLineMenuAction extends AbstractEditorCreateMenuAction<C
      * {@inheritDoc}
      */
     @Override
-    protected List<CreateLineAction> filter(List<AbstractToolAction> createActionsForTable) {
+    protected List<CreateLineAction> filter(List<AbstractToolAction<?>> createActionsForTable) {
         return Lists.newArrayList(Iterables.filter(createActionsForTable, CreateLineAction.class));
     }
 }

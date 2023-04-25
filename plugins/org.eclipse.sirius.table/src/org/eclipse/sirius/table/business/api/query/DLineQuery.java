@@ -34,6 +34,7 @@ import com.google.common.base.Preconditions;
  * @author mporhel
  * 
  */
+@Deprecated
 public class DLineQuery {
 
     private final DLine line;
@@ -68,7 +69,7 @@ public class DLineQuery {
                 if (delete.getFirstModelOperation() == null) {
                     result = false;
                 } else {
-                    if (delete.getPrecondition() != null && !StringUtil.isEmpty(delete.getPrecondition().trim())) {
+                    if (!StringUtil.isEmpty(delete.getPrecondition())) {
                         final IInterpreter interpreter = InterpreterUtil.getInterpreter(line.getTarget());
                         interpreter.setVariable(IInterpreterSiriusVariables.ROOT, TableHelper.getTable(line).getTarget());
                         interpreter.setVariable(IInterpreterSiriusVariables.ELEMENT, line.getTarget());

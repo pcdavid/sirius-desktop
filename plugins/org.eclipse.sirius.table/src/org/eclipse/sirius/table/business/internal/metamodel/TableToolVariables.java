@@ -12,6 +12,11 @@
  *******************************************************************************/
 package org.eclipse.sirius.table.business.internal.metamodel;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreterSiriusVariables;
 import org.eclipse.sirius.table.business.api.helper.TableHelper;
 import org.eclipse.sirius.table.metamodel.table.description.CellEditorTool;
@@ -40,25 +45,53 @@ import org.eclipse.sirius.viewpoint.description.tool.ToolFactory;
  * @author cbrun
  */
 public class TableToolVariables extends DescriptionSwitch<Object> {
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Object caseCreateCellTool(CreateCellTool object) {
-        addVariableDescriptor(object, IInterpreterSiriusTableVariables.LINE_SEMANTIC, Messages.TableToolVariables_SemanticLineElement);
-        addVariableDescriptor(object, IInterpreterSiriusTableVariables.COLUMN_SEMANTIC, Messages.TableToolVariables_SemanticColumnElement);
-        addVariableDescriptor(object, IInterpreterSiriusVariables.ROOT, Messages.TableToolVariables_SemanticRootElement);
-        return super.caseCreateCellTool(object);
+    
+    private static final Map<String, String> DOCUMENTATIONS = new HashMap<>();
+    static {
+        DOCUMENTATIONS.put(IInterpreterSiriusTableVariables.TABLE, Messages.TableToolVariables_TableElement);
+        DOCUMENTATIONS.put(IInterpreterSiriusVariables.ROOT, Messages.TableToolVariables_SemanticRootElement);
+
+        DOCUMENTATIONS.put(IInterpreterSiriusVariables.CONTAINER_VIEW, Messages.TableToolVariables_ContainerView);
+        DOCUMENTATIONS.put(IInterpreterSiriusVariables.CONTAINER, Messages.TableToolVariables_ContainerElement);
+
+        DOCUMENTATIONS.put(IInterpreterSiriusVariables.VIEW, Messages.TableToolVariables_CurrentViewElement);
+        DOCUMENTATIONS.put(IInterpreterSiriusVariables.ELEMENT, Messages.TableToolVariables_CurrentSemanticElement);
+
+        DOCUMENTATIONS.put(IInterpreterSiriusTableVariables.LINE, Messages.TableToolVariables_LineElement);
+        DOCUMENTATIONS.put(IInterpreterSiriusTableVariables.LINE_SEMANTIC, Messages.TableToolVariables_SemanticLineElement);
+        
+        DOCUMENTATIONS.put(IInterpreterSiriusTableVariables.COLUMN, Messages.TableToolVariables_ColumnElement);
+        DOCUMENTATIONS.put(IInterpreterSiriusTableVariables.COLUMN_SEMANTIC, Messages.TableToolVariables_SemanticColumnElement);
+        DOCUMENTATIONS.put(IInterpreterSiriusTableVariables.CELL_EDITOR_RESULT, Messages.TableToolVariables_CellEditorResult);
     }
+
+    private static final List<String> AXIS_VARIABLE_NAMES = Arrays.asList(// should be java9 List.of()
+            IInterpreterSiriusTableVariables.TABLE, 
+            IInterpreterSiriusVariables.ROOT,
+            IInterpreterSiriusVariables.CONTAINER_VIEW,
+            IInterpreterSiriusVariables.CONTAINER,
+            IInterpreterSiriusVariables.VIEW,
+            IInterpreterSiriusVariables.ELEMENT
+    );
+
+    private static final List<String> CELL_VARIABLE_NAMES = Arrays.asList(// should be java9 List.of()
+            IInterpreterSiriusTableVariables.TABLE, 
+            IInterpreterSiriusVariables.ROOT,
+            IInterpreterSiriusTableVariables.LINE,
+            IInterpreterSiriusTableVariables.LINE_SEMANTIC,
+            IInterpreterSiriusTableVariables.COLUMN,
+            IInterpreterSiriusTableVariables.COLUMN_SEMANTIC,
+            IInterpreterSiriusVariables.VIEW,
+            IInterpreterSiriusVariables.ELEMENT
+    );
 
     /**
      * {@inheritDoc}
      */
     @Override
     public Object caseCreateTool(CreateTool object) {
-        addVariableDescriptor(object, IInterpreterSiriusVariables.ROOT, Messages.TableToolVariables_SemanticRootElement);
-        addVariableDescriptor(object, IInterpreterSiriusVariables.ELEMENT, Messages.TableToolVariables_CurrentSemanticElement);
-        addVariableDescriptor(object, IInterpreterSiriusVariables.CONTAINER, Messages.TableToolVariables_SemanticElementOfContainerView);
+        // CreateLineTool, 
+        AXIS_VARIABLE_NAMES.forEach(name -> addVariableDescriptor(object, name));
         return super.caseCreateTool(object);
     }
 
@@ -66,36 +99,48 @@ public class TableToolVariables extends DescriptionSwitch<Object> {
      * {@inheritDoc}
      */
     @Override
+    public Object caseDeleteTool(DeleteTool object) {
+        AXIS_VARIABLE_NAMES.forEach(name -> addVariableDescriptor(object, name));
+        return super.caseDeleteTool(object);
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Object caseCreateCellTool(CreateCellTool object) {
+        addCellVariables(object);
+        return super.caseCreateCellTool(object);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Object caseLabelEditTool(LabelEditTool object) {
-        addVariableDescriptor(object, IInterpreterSiriusVariables.ELEMENT, Messages.TableToolVariables_CurrentSemanticElement);
-        addVariableDescriptor(object, IInterpreterSiriusTableVariables.TABLE, Messages.TableToolVariables_TableElement);
-        addVariableDescriptor(object, IInterpreterSiriusTableVariables.LINE, Messages.TableToolVariables_LineElement);
-        addVariableDescriptor(object, IInterpreterSiriusTableVariables.LINE_SEMANTIC, Messages.TableToolVariables_SemanticLineElement);
-        addVariableDescriptor(object, IInterpreterSiriusTableVariables.COLUMN_SEMANTIC, Messages.TableToolVariables_SemanticColumnElement);
-        addVariableDescriptor(object, IInterpreterSiriusVariables.ROOT, Messages.TableToolVariables_SemanticRootElement);
+        addVariableDescriptor(object, IInterpreterSiriusVariables.ELEMENT);
+        addCellVariables(object);
         return super.caseLabelEditTool(object);
     }
 
     @Override
     public Object caseCellEditorTool(CellEditorTool object) {
-        addVariableDescriptor(object, IInterpreterSiriusVariables.ELEMENT, Messages.TableToolVariables_CurrentSemanticElement);
-        addVariableDescriptor(object, IInterpreterSiriusTableVariables.TABLE, Messages.TableToolVariables_TableElement);
-        addVariableDescriptor(object, IInterpreterSiriusTableVariables.LINE, Messages.TableToolVariables_LineElement);
-        addVariableDescriptor(object, IInterpreterSiriusTableVariables.LINE_SEMANTIC, Messages.TableToolVariables_SemanticLineElement);
-        addVariableDescriptor(object, IInterpreterSiriusVariables.ROOT, Messages.TableToolVariables_SemanticRootElement);
-        addVariableDescriptor(object, IInterpreterSiriusTableVariables.CELL_EDITOR_RESULT, Messages.TableToolVariables_CellEditorResult);
+        addVariableDescriptor(object, IInterpreterSiriusVariables.ELEMENT);
+        addCellVariables(object);
+        addVariableDescriptor(object, IInterpreterSiriusTableVariables.CELL_EDITOR_RESULT);
         return super.caseCellEditorTool(object);
     }
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Object caseDeleteTool(DeleteTool object) {
-        addVariableDescriptor(object, IInterpreterSiriusVariables.ELEMENT, Messages.TableToolVariables_CurrentSemanticElement);
-        addVariableDescriptor(object, IInterpreterSiriusVariables.ROOT, Messages.TableToolVariables_SemanticRootElement);
-        return super.caseDeleteTool(object);
-    }
 
+    private void addCellVariables(TableTool object) {
+        addVariableDescriptor(object, IInterpreterSiriusTableVariables.TABLE);
+        addVariableDescriptor(object, IInterpreterSiriusVariables.ROOT);
+        addVariableDescriptor(object, IInterpreterSiriusTableVariables.LINE);
+        addVariableDescriptor(object, IInterpreterSiriusTableVariables.LINE_SEMANTIC);
+        // No need for COLUMN: not a container.
+        addVariableDescriptor(object, IInterpreterSiriusTableVariables.COLUMN_SEMANTIC);
+    }
+    
+    
     /**
      *
      * {@inheritDoc}
@@ -105,7 +150,7 @@ public class TableToolVariables extends DescriptionSwitch<Object> {
     @Override
     public Object caseTableCreationDescription(final TableCreationDescription object) {
         final ContainerViewVariable containerViewVariable = ToolFactory.eINSTANCE.createContainerViewVariable();
-        containerViewVariable.setName("containerView"); //$NON-NLS-1$
+        containerViewVariable.setName(IInterpreterSiriusVariables.CONTAINER_VIEW);
         object.setContainerViewVariable(containerViewVariable);
         final NameVariable tableNameVariable = ToolFactory.eINSTANCE.createNameVariable();
         tableNameVariable.setName("tableName"); //$NON-NLS-1$
@@ -124,10 +169,10 @@ public class TableToolVariables extends DescriptionSwitch<Object> {
     @Override
     public Object caseTableNavigationDescription(final TableNavigationDescription object) {
         final ContainerViewVariable containerViewVariable = ToolFactory.eINSTANCE.createContainerViewVariable();
-        containerViewVariable.setName("containerView"); //$NON-NLS-1$
+        containerViewVariable.setName(IInterpreterSiriusVariables.CONTAINER_VIEW);
         object.setContainerViewVariable(containerViewVariable);
         final ElementSelectVariable containerVariable = ToolFactory.eINSTANCE.createElementSelectVariable();
-        containerVariable.setName("container"); //$NON-NLS-1$
+        containerVariable.setName(IInterpreterSiriusVariables.CONTAINER);
         object.setContainerVariable(containerVariable);
         final NameVariable tableNameVariable = ToolFactory.eINSTANCE.createNameVariable();
         tableNameVariable.setName("tableName"); //$NON-NLS-1$
@@ -135,11 +180,11 @@ public class TableToolVariables extends DescriptionSwitch<Object> {
         return super.caseTableNavigationDescription(object);
     }
 
-    private void addVariableDescriptor(TableTool tool, String name, String documentation) {
+    private void addVariableDescriptor(TableTool tool, String name) {
         if (TableHelper.getVariable(tool, name) == null) {
             TableVariable newVar = DescriptionFactory.eINSTANCE.createTableVariable();
             newVar.setName(name);
-            newVar.setDocumentation(documentation);
+            newVar.setDocumentation(DOCUMENTATIONS.get(name));
             tool.getVariables().add(newVar);
             final ModelOperation initialOperation = ToolFactory.eINSTANCE.createInitialOperation().getFirstModelOperations();
             tool.setFirstModelOperation(initialOperation);

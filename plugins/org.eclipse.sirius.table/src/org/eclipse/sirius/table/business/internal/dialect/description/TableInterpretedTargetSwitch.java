@@ -119,11 +119,11 @@ public class TableInterpretedTargetSwitch extends DescriptionSwitch<Option<Colle
      * Returns the {@link LineMapping} associated to the given
      * {@link FeatureColumnMapping}
      * 
-     * @param object
-     * @return
+     * @param featureColumnMapping
+     * @return sibling or container
      */
     private EObject getLineMapping(FeatureColumnMapping featureColumnMapping) {
-        // If featureColumnMapping has slibing, consider sliblings
+        // If featureColumnMapping has sibling, consider siblings
         Iterator<LineMapping> siblings = Iterables.filter(featureColumnMapping.eContainer().eContents(), LineMapping.class).iterator();
         if (siblings.hasNext()) {
             return siblings.next();

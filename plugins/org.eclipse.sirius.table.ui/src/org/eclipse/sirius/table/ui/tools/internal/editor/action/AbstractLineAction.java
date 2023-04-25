@@ -22,8 +22,9 @@ import org.eclipse.sirius.table.tools.api.command.ITableCommandFactory;
  * An abstract class for all actions on {@link DLine}.
  * 
  * @author lredor
+ * @param <T> type of the tool
  */
-public abstract class AbstractLineAction extends AbstractToolAction {
+public abstract class AbstractLineAction<T extends TableTool> extends AbstractToolAction<T> {
 
     /**
      * The line concerned with this action
@@ -42,7 +43,7 @@ public abstract class AbstractLineAction extends AbstractToolAction {
      * @param tableTool
      *            The tool corresponding to this action
      */
-    public AbstractLineAction(final String text, final TransactionalEditingDomain editingDomain, final ITableCommandFactory tableCommandFactory, final TableTool tableTool) {
+    public AbstractLineAction(final String text, final TransactionalEditingDomain editingDomain, final ITableCommandFactory tableCommandFactory, final T tableTool) {
         super(text, editingDomain, tableCommandFactory, tableTool);
     }
 
@@ -60,7 +61,7 @@ public abstract class AbstractLineAction extends AbstractToolAction {
      * @param tableTool
      *            The tool corresponding to this action
      */
-    public AbstractLineAction(final String text, final ImageDescriptor image, final TransactionalEditingDomain editingDomain, final ITableCommandFactory tableCommandFactory, final TableTool tableTool) {
+    public AbstractLineAction(final String text, final ImageDescriptor image, final TransactionalEditingDomain editingDomain, final ITableCommandFactory tableCommandFactory, final T tableTool) {
         super(text, image, editingDomain, tableCommandFactory, tableTool);
     }
 

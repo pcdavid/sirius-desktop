@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.eclipse.sirius.table.ui.tools.internal.editor.provider;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.MessageFormat;
@@ -100,6 +101,8 @@ public final class CellEditorFactoryManager {
     /**
      * Configure the searched scope corresponding to this session (the selected viewpoints, more precisely their
      * plug-ins and their dependencies, are used to retrieve accessible classes).
+     * 
+     * @param dasi analysis session
      */
     void configure(DAnalysisSessionImpl dasi) {
         // Calculate paths of the activated representation description files.
@@ -139,8 +142,8 @@ public final class CellEditorFactoryManager {
         if (found != null) {
             Object instance = null;
             try {
-                instance = found.newInstance();
-            } catch (SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException e) {
+                instance = found.getDeclaredConstructor().newInstance();
+            } catch (SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException e) {
                 // The class can not be instantiated, throw an global exception.
                 throw new IllegalArgumentException(MessageFormat.format(Messages.CelEditorFactoryManager_impossibleInstantiation, qualifiedClassName), e);
             }

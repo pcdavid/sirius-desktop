@@ -91,6 +91,7 @@ public final class TableCsvHelper {
      * @param filler
      * @param descriptors
      * @param line
+     * @param baseOffset
      */
     private static void addLineToDescriptor(final DLine line, final List<List<String>> descriptors, final TableFiller filler, final short baseOffset) {
         // If line is hidden, not added to CSV export

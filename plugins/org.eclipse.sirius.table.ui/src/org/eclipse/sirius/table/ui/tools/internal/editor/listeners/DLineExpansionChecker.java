@@ -90,6 +90,8 @@ public class DLineExpansionChecker implements Listener {
 
     /**
      * Handle the undo of the swt TreeItem collapse if the current {@link IPermissionAuthority} disallow it.
+     * 
+     * @param event
      */
     private void handleTreeCollapse(Event event) {
         if (!isEventForDLineExpandable(event)) {
@@ -101,6 +103,8 @@ public class DLineExpansionChecker implements Listener {
 
     /**
      * Handle the undo the swt TreeItem expansion if the current {@link IPermissionAuthority} disallow it.
+     * 
+     * @param event
      */
     private void handleTreeExpand(Event event) {
         if (!isEventForDLineExpandable(event)) {

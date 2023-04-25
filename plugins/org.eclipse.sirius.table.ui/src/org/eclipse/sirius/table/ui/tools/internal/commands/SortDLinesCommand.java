@@ -65,9 +65,6 @@ public class SortDLinesCommand extends RecordingCommand {
      *
      * @param lineContainer
      *            The lineContainer (table or line)
-     * @param column
-     *            The column use to sort or null if the header column must be
-     *            use to sort
      */
     private void sortLinesBy(final LineContainer lineContainer) {
         if (!lineContainer.getLines().isEmpty()) {

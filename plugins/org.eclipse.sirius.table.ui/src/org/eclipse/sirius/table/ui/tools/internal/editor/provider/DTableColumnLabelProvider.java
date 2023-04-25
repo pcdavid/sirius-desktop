@@ -225,6 +225,9 @@ public class DTableColumnLabelProvider extends ColumnLabelProvider implements IS
 
     /**
      * Returns the image with the given key, or <code>null</code> if not found.
+     * 
+     * @param isSelected
+     * @return image
      */
     private Image getImage(final boolean isSelected) {
         final String key = isSelected ? CHECKED_IMAGE : UNCHECKED_IMAGE;

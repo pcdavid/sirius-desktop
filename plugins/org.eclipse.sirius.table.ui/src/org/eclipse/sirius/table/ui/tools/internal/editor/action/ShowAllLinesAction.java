@@ -50,16 +50,10 @@ public class ShowAllLinesAction extends AbstractTransactionalTableAction {
     public void run() {
         super.run();
         CompoundCommand compoundCommand = new CompoundCommand(MessageFormat.format(Messages.Action_setValues, TablePackage.eINSTANCE.getDLine_Visible().getName()));
-        showLines(compoundCommand);
+        showLines(compoundCommand, getTable());
         getEditingDomain().getCommandStack().execute(compoundCommand);
     }
 
-    /**
-     * Show all the lines of the table.
-     */
-    private void showLines(CompoundCommand compoundCommand) {
-        showLines(compoundCommand, getTable());
-    }
 
     /**
      * Show all the lines of this line container.

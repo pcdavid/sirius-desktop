@@ -46,8 +46,7 @@ import com.google.common.collect.Iterables;
 /**
  * This Junit tests:
  * <ul>
- * <li>that the repair action restore all graphicalFilters of type
- * CollapseFilter with a correct width and height</li>
+ * <li>that the repair action restore all graphicalFilters of type CollapseFilter with a correct width and height</li>
  * <li>that GMF bounds of collapse bordered node are still correct</li>
  * </ul>
  * 
@@ -80,8 +79,7 @@ public class RepairWithActivatedFiltersTest extends AbstractRepairMigrateTest {
     }
 
     /**
-     * Tests that after repair, all collapse filter are recreated correctly with
-     * the same expected width and height.
+     * Tests that after repair, all collapse filter are recreated correctly with the same expected width and height.
      */
     public void testFiltersAreCorrectlyRestoredAfterRunningRepair() {
 
@@ -114,8 +112,9 @@ public class RepairWithActivatedFiltersTest extends AbstractRepairMigrateTest {
 
     private void checkBoundsForGivenNode(String name, Rectangle expected, DDiagram dDiagram) {
         List<DDiagramElement> diagramElements = getDiagramElementsFromLabel(dDiagram, name);
-
+        System.out.println("getDiagramElementsFromLabel size: " + diagramElements.size() + " " + diagramElements.toString());
         EObjectQuery eObjectQuery = new EObjectQuery(diagramElements.get(0));
+        System.out.println("diagramElements.get(0): " + diagramElements.get(0));
         Collection<EObject> objects = eObjectQuery.getInverseReferences(NotationPackage.eINSTANCE.getView_Element());
         Node node = (Node) Iterables.get(objects, 0);
         Bounds bounds = (Bounds) node.getLayoutConstraint();
@@ -129,6 +128,7 @@ public class RepairWithActivatedFiltersTest extends AbstractRepairMigrateTest {
         assertTrue("wrong expected type", diagramElement instanceof DNodeContainer);
         Predicate<Object> predicate = new Predicate<Object>() {
 
+            @Override
             public boolean apply(Object input) {
                 if (input instanceof DNodeContainer) {
                     String name = ((DNodeContainer) input).getName();

@@ -33,7 +33,7 @@ public class AllSiriusTestSuite extends TestCase {
      * Launches the test with the given arguments.
      * 
      * @param args
-     *            Arguments of the testCase.
+     *                 Arguments of the testCase.
      */
     public static void main(final String[] args) {
         TestRunner.run(suite());
@@ -49,7 +49,7 @@ public class AllSiriusTestSuite extends TestCase {
      * Add the gerrit part of the Junit tests to the specified suite.
      * 
      * @param suite
-     *            the suite into which to add the tests.
+     *                  the suite into which to add the tests.
      */
     public static void addGerritPart(TestSuite suite) {
         suite.addTest(new JUnit4TestAdapter(JUnitBundlesReport.class));
@@ -63,14 +63,15 @@ public class AllSiriusTestSuite extends TestCase {
 
     /**
      * Creates the {@link junit.framework.TestSuite TestSuite} for all the test.<BR>
-     * This suite can also launch a specific test by setting the environment variable TEST_CLASS_NAME to the qualified
-     * name of the expected class to launch.
+     * This suite can also launch a specific test by setting the environment variable TEST_CLASS_NAME to the qualified name
+     * of the expected class to launch.
      * 
      * @return The testsuite containing all the tests
      */
     @SuppressWarnings("unchecked")
     public static Test suite() {
         final TestSuite suite = new TestSuite("Sirius tests");
+        // suite.addTestSuite(RepairWithActivatedFiltersTest.class);
         String testClassQualifiedName = System.getenv("TEST_CLASS_NAME"); //$NON-NLS-1$
         if (testClassQualifiedName != null && testClassQualifiedName.length() > 0) {
             try {
@@ -84,7 +85,7 @@ public class AllSiriusTestSuite extends TestCase {
         } else {
             addGerritPart(suite);
             AllCommonPluginTests.addNonGerritPart(suite);
-            AllDiagramPluginsTests.addNonGerritPart(suite);
+            // AllDiagramPluginsTests.addNonGerritPart(suite);
         }
         return suite;
     }

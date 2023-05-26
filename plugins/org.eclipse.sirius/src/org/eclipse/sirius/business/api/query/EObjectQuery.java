@@ -188,10 +188,13 @@ public class EObjectQuery {
             }
         }
         if (xref == null) {
+            System.out.println("xref = null"); //$NON-NLS-1$
             return Collections.emptySet();
         } else {
+            System.out.println("xref OK"); //$NON-NLS-1$
             Collection<EObject> result = new LinkedHashSet<>();
             for (EStructuralFeature.Setting setting : Iterables.filter(xref.getInverseReferences(internalQuery.getEObject()), predicate)) {
+                System.out.println(setting.getEObject()); // $NON-NLS-1$
                 result.add(setting.getEObject());
             }
             return result;

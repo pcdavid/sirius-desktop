@@ -75,7 +75,11 @@ public class TableNotDirtyOnOpeningTest extends TableTestCase {
         TestsUtil.synchronizationWithUIThread();
         tableEditor = (AbstractDTableEditor) openedEditor;
         // Test editor is not dirty
-        assertEquals("The representation shouldn't dirty", false, tableEditor.isDirty());
+        if (tableEditor.isDirty()) {
+        	session.save(new NullProgressMonitor()); // Save it for debug
+        	fail("The representation shouldn't dirty");
+        }
+        
         DialectUIManager.INSTANCE.closeEditor(tableEditor, true);
         openedEditor = DialectUIManager.INSTANCE.openEditor(session, newTable, new NullProgressMonitor());
         TestsUtil.synchronizationWithUIThread();

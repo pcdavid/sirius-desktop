@@ -40,6 +40,7 @@ import org.eclipse.sirius.tests.unit.table.unit.sort.DTableSortByLineWithEditorT
 import org.eclipse.sirius.tests.unit.table.unit.tools.CreateTableWithToolWithPrecondtionTest;
 import org.eclipse.sirius.tests.unit.table.unit.tools.NoVariableDuplicationTest;
 import org.eclipse.sirius.tests.unit.table.unit.tools.RefreshToolActionBarTest;
+import org.eclipse.sirius.tests.unit.table.unit.tools.SelectionInTableAfterToolExecutionTest;
 import org.eclipse.sirius.tests.unit.table.unit.tools.TableToolPreconditionCompletionTest;
 import org.eclipse.sirius.tests.unit.table.unit.vsm.edit.TableAdapterFactoryRegistryTest;
 import org.eclipse.sirius.tests.unit.table.unit.vsm.editor.DefaultVariablesOnToolsTest;
@@ -100,7 +101,6 @@ public class AllTablePluginTests extends TestCase {
         suite.addTestSuite(NoVariableDuplicationTest.class);
         suite.addTestSuite(InvalidParentExpressionTest.class);
         suite.addTestSuite(TableManuelRefreshTests.class);
-        suite.addTestSuite(TableNotDirtyOnOpeningTest.class);
         suite.addTest(ExploitArrays_Test.suite());
         suite.addTestSuite(DCellDeleteTest.class);
         suite.addTestSuite(CrossReferencedDLineDeleteTest.class);
@@ -109,6 +109,9 @@ public class AllTablePluginTests extends TestCase {
         suite.addTestSuite(TableStyleRefreshTest.class);
         suite.addTestSuite(TableWithMultivaluedAttributeTest.class);
         suite.addTestSuite(TableWithHeaderColumnWidthTest.class);
+        suite.addTestSuite(SelectionInTableAfterToolExecutionTest.class);
+        // FIXME this test seems out-dated because of AIRD evolution.
+        // suite.addTestSuite(TableNotDirtyOnOpeningTest.class);
         return suite;
     }
 

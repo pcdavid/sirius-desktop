@@ -49,6 +49,9 @@ public class DCellQuery {
 
     /** Default DTableElement style. */
     public static final DTableElementStyle DEFAULT_STYLE = TableFactory.eINSTANCE.createDTableElementStyle();
+    static {
+        DEFAULT_STYLE.setLabelSize(-1);
+    }
 
     private final DCell cell;
 

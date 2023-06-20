@@ -101,6 +101,10 @@ public class AbstractDEdgeNameEditPart extends AbstractGeneratedDiagramNameEditP
     protected void handleNotificationEvent(Notification event) {
         if (resolveSemanticElement() instanceof DEdge) {
             Object feature = event.getFeature();
+            if (NotationPackage.eINSTANCE.getFontStyle_FontColor() == feature) {
+                refreshVisuals();
+                return;
+            }
             if (DiagramPackage.eINSTANCE.getDDiagramElementContainer_OwnedStyle() == feature) {
                 refreshVisuals();
             }

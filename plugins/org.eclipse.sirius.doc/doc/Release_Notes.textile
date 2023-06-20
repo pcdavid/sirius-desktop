@@ -9,6 +9,13 @@ h2(#sirius7.2.0). Changes in Sirius 7.2.0
 h3. User-Visible Changes
 
 * <span class="label label-info">Modified</span>Java 17 (or later) is now required to run Sirius.
+* <span class="label label-info">Modified</span>Auto-size and layout optimizations for containers with compartments. Those optimizations are disabled by default and can be enabled via three system properties:
+** -Dorg.eclipse.sirius.diagram.ui.internal.region.content.canonical.layout.standard=true
+*** Use standard layout and not centered layout for creation of compartment content when the compartments have been created in the same user action. 
+** -Dorg.eclipse.sirius.diagram.ui.internal.region.autosize.figure.optimized=true
+*** Use model constraints to layout compartments and their container.
+** -Dorg.eclipse.sirius.diagram.ui.internal.region.autosize.action.optimized=true
+*** Enable individual auto-size action and status for compartments.
 
 h3. Specifier-Visible Changes
 

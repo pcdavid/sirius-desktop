@@ -26,7 +26,6 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
@@ -44,7 +43,6 @@ import org.eclipse.sirius.viewpoint.Customizable;
 import org.eclipse.sirius.viewpoint.FontFormat;
 import org.eclipse.sirius.viewpoint.RGBValues;
 import org.eclipse.sirius.viewpoint.Style;
-import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
 /**
  * This class update the notation and viewpoint models font style attributes when it receives a notification about a
@@ -136,9 +134,10 @@ public class FontFormatUpdater extends ResourceSetListenerImpl {
                         // cc.append(addCustomFeaturesCmd);
                         // }
                     } else {
-                        featureNames.addAll(style.getCustomFeatures());
-                        Command addCustomFeaturesCmd = SetCommand.create(getTarget(), style, ViewpointPackage.Literals.CUSTOMIZABLE__CUSTOM_FEATURES, featureNames);
-                        cc.append(addCustomFeaturesCmd);
+                        // featureNames.addAll(style.getCustomFeatures());
+                        // Command addCustomFeaturesCmd = SetCommand.create(getTarget(), style,
+                        // ViewpointPackage.Literals.CUSTOMIZABLE__CUSTOM_FEATURES, featureNames);
+                        // cc.append(addCustomFeaturesCmd);
                     }
                     cc.append(new SynchronizeDDiagramElementStylePropertiesCommand(getTarget(), view));
                 }

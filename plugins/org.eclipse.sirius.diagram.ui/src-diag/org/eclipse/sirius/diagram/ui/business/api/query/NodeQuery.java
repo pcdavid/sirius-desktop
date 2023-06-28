@@ -12,6 +12,9 @@
  *******************************************************************************/
 package org.eclipse.sirius.diagram.ui.business.api.query;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -24,14 +27,21 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.diagram.CollapseFilter;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.business.api.query.ContainerMappingQuery;
 import org.eclipse.sirius.diagram.business.api.query.DDiagramElementQuery;
+import org.eclipse.sirius.diagram.description.ContainerMapping;
 import org.eclipse.sirius.diagram.ui.edit.internal.part.PortLayoutHelper;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNode2EditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNode3EditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNode4EditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainer2EditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartment2EditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartmentEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeList2EditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.NotationViewIDs;
 import org.eclipse.sirius.diagram.ui.internal.refresh.GMFHelper;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
 import org.eclipse.sirius.diagram.ui.tools.api.layout.LayoutUtils;
@@ -178,6 +188,72 @@ public class NodeQuery {
         int type = SiriusVisualIDRegistry.getVisualID(this.node.getType());
         boolean result = type == DNodeContainer2EditPart.VISUAL_ID || type == DNodeContainerEditPart.VISUAL_ID || type == DNodeList2EditPart.VISUAL_ID || type == DNodeListEditPart.VISUAL_ID;
         return result;
+    }
+
+    /**
+     * Return if this GMF node is associated to DNodeContainer Sirius diagram element with free form layout.
+     */
+    public boolean isFreeFormContainer() {
+        int type = SiriusVisualIDRegistry.getVisualID(this.node.getType());
+        return type == DNodeContainerEditPart.VISUAL_ID || type == DNodeContainer2EditPart.VISUAL_ID;
+    }
+
+    /**
+     * Return if this GMF node is compartment of node corresponding to a Sirius container free form.
+     */
+    public boolean isFreeFormCompartment() {
+        int type = SiriusVisualIDRegistry.getVisualID(this.node.getType());
+        return type == DNodeContainerViewNodeContainerCompartmentEditPart.VISUAL_ID //
+                || type == DNodeContainerViewNodeContainerCompartment2EditPart.VISUAL_ID;
+    }
+
+    /**
+     * Return if this GMF node have vertical/horizontal stack layout.
+     */
+    public boolean isRegionContainer() {
+        return this.node.getElement() instanceof DDiagramElement element //
+                && element.getDiagramElementMapping() instanceof ContainerMapping mapping //
+                && new ContainerMappingQuery(mapping).isRegionContainer();
+    }
+
+    /**
+     * Return if this GMF node is associated to DNode Sirius diagram element.
+     */
+    public boolean isNode() {
+        int type = SiriusVisualIDRegistry.getVisualID(this.node.getType());
+        return type == DNodeEditPart.VISUAL_ID //
+                || type == DNode2EditPart.VISUAL_ID //
+                || type == DNode3EditPart.VISUAL_ID //
+                || type == DNode4EditPart.VISUAL_ID;
+    }
+
+    /**
+     * Return if this GMF node is associated to label of DNode Sirius diagram element.
+     */
+    public boolean isNodeLabel() {
+        int type = SiriusVisualIDRegistry.getVisualID(this.node.getType());
+        return type == NotationViewIDs.DNODE_NAME_EDIT_PART_VISUAL_ID //
+                || type == NotationViewIDs.DNODE_NAME_2_EDIT_PART_VISUAL_ID //
+                || type == NotationViewIDs.DNODE_NAME_3_EDIT_PART_VISUAL_ID //
+                || type == NotationViewIDs.DNODE_NAME_4_EDIT_PART_VISUAL_ID;
+    }
+
+    /**
+     * Return the compartment of the GMF node container with "free form" layout.
+     * 
+     * @return the compartment or Optional.empty if view is not container or compartment not found
+     */
+    public Optional<Node> getFreeFormContainerCompartment() {
+        if (this.isFreeFormContainer()) {
+            List<View> children = this.node.getChildren();
+            return children.stream() //
+                    .filter(Node.class::isInstance) //
+                    .map(Node.class::cast) //
+                    .filter(child -> new NodeQuery(child).isFreeFormCompartment()) //
+                    .findAny();
+        } else {
+            return Optional.empty();
+        }
     }
 
     /**

@@ -64,7 +64,6 @@ import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.diagram.ui.provider.Messages;
 import org.eclipse.sirius.diagram.ui.tools.api.command.GMFCommandWrapper;
 import org.eclipse.sirius.diagram.ui.tools.api.editor.DDiagramEditor;
-import org.eclipse.sirius.diagram.ui.tools.internal.graphical.edit.policies.DeleteHelper;
 import org.eclipse.sirius.diagram.ui.tools.internal.preferences.SiriusDiagramUiInternalPreferencesKeys;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
 import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
@@ -170,11 +169,6 @@ public class SiriusBaseItemSemanticEditPolicy extends SemanticEditPolicy {
                                 CompositeCommand compositeCommand = new CompositeCommand(Messages.SiriusBaseItemSemanticEditPolicy_deleteFromDiagramCmdLabel);
                                 IDiagramCommandFactoryProvider cmdFactoryProvider = (IDiagramCommandFactoryProvider) (adapter);
                                 org.eclipse.emf.common.command.Command cmd = cmdFactoryProvider.getCommandFactory(editingDomain).buildDeleteFromDiagramCommand(viewPointElement);
-                                if (shouldImpactLinkedNotesOnHideOrRemove()) {
-                                    DeleteHelper.addDeleteLinkedNotesTask(cmd, view);
-                                } else {
-                                    DeleteHelper.addDeleteLinkedNoteAttachmentsTask(cmd, view);
-                                }
                                 compositeCommand.add(new GMFCommandWrapper(getEditingDomain(), cmd));
                                 cc.add(new ICommandProxy(compositeCommand.reduce()));
                             }
@@ -198,7 +192,7 @@ public class SiriusBaseItemSemanticEditPolicy extends SemanticEditPolicy {
                     if (cmd.canExecute()) {
                         CompositeCommand compositeCommand = new CompositeCommand(Messages.SiriusBaseItemSemanticEditPolicy_deleteCmdLabel);
                         if (shouldImpactLinkedNotesOnHideOrRemove()) {
-                            DeleteHelper.addDeleteLinkedNotesTask(cmd, view);
+                            // DeleteHelper.addDeleteLinkedNotesTask(cmd, view);
                         }
                         compositeCommand.add(new GMFCommandWrapper(this.getEditingDomain(), cmd));
                         cc.add(new ICommandProxy(compositeCommand.reduce()));

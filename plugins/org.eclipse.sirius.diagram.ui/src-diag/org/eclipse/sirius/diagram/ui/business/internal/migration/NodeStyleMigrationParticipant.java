@@ -18,13 +18,14 @@ import java.util.stream.Stream;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.FontStyle;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.business.api.migration.AbstractRepresentationsFileMigrationParticipant;
 import org.eclipse.sirius.business.api.query.DViewQuery;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.ui.business.api.query.DDiagramGraphicalQuery;
-import org.eclipse.sirius.diagram.ui.tools.internal.util.GMFNotationUtilities;
+import org.eclipse.sirius.diagram.ui.business.api.query.NodeQuery;
 import org.eclipse.sirius.ecore.extender.business.internal.accessor.ecore.EMFUtil;
 import org.eclipse.sirius.viewpoint.BasicLabelStyle;
 import org.eclipse.sirius.viewpoint.DAnalysis;
@@ -82,7 +83,13 @@ public class NodeStyleMigrationParticipant extends AbstractRepresentationsFileMi
     private void updateNode(View node) {
         EList<View> children = node.getChildren();
         Optional<View> labelOpt = children.stream() //
-                .filter(GMFNotationUtilities::viewIsLabel) //
+                .filter(viewChild -> {
+                    if (viewChild instanceof Node nodeChild) {
+                        return new NodeQuery(nodeChild).isNodeLabel();
+                    } else {
+                        return false;
+                    }
+                }) //
                 .findAny();
 
         // 1. remove the style of GMF label
@@ -110,7 +117,13 @@ public class NodeStyleMigrationParticipant extends AbstractRepresentationsFileMi
      */
     private void migrateDiagram(Diagram diagram) {
         EMFUtil.<View> getTreeStream(diagram, view -> view.getChildren()) //
-                .filter(GMFNotationUtilities::viewIsNode) //
+                .filter(viewChild -> {
+                    if (viewChild instanceof Node nodeChild) {
+                        return new NodeQuery(nodeChild).isNode();
+                    } else {
+                        return false;
+                    }
+                }) //
                 .forEach(this::updateNode);
     }
 

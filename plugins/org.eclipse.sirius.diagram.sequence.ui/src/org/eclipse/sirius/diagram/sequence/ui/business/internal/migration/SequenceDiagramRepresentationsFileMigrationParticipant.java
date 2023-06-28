@@ -47,7 +47,6 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeList2EditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListEditPart;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
-import org.eclipse.sirius.diagram.ui.tools.internal.util.GMFNotationUtilities;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DView;
@@ -253,7 +252,7 @@ public class SequenceDiagramRepresentationsFileMigrationParticipant extends Abst
     private static class IsNode implements Predicate<Node> {
         @Override
         public boolean apply(Node input) {
-            return GMFNotationUtilities.viewIsNode(input);
+            return new NodeQuery(input).isNode();
         }
     }
 

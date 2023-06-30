@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/filter/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/filter http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_lPcnoBcdEe6pLqAlz1Z-ww" selectedViews="_upSr4BcdEe6pLqAlz1Z-ww _ShJgABceEe6pLqAlz1Z-ww" version="15.2.0.202303281325">
+    <semanticResources>My.ecore</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_upSr4BcdEe6pLqAlz1Z-ww">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.polarsys.kitalpha.ad.integration.sirius/description/ad.odesign#//@ownedViewpoints[name='ad']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_ShJgABceEe6pLqAlz1Z-ww">
+      <viewpoint xmi:type="description:Viewpoint" href="My.odesign#//@ownedViewpoints[name='testTextAnnotationBehavior']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_TnNwMBceEe6pLqAlz1Z-ww" name="new myDiagram" repPath="#_TnMiEBceEe6pLqAlz1Z-ww" changeId="1688113234168">
+        <description xmi:type="description_1:DiagramDescription" href="My.odesign#//@ownedViewpoints[name='testTextAnnotationBehavior']/@ownedRepresentations[name='myDiagram']"/>
+        <target xmi:type="ecore:EPackage" href="My.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_TnMiEBceEe6pLqAlz1Z-ww">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_TnXhMBceEe6pLqAlz1Z-ww" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_TnXhMRceEe6pLqAlz1Z-ww" type="Sirius" element="_TnMiEBceEe6pLqAlz1Z-ww" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_UsD4YBceEe6pLqAlz1Z-ww" type="2001" element="_Ur5gUBceEe6pLqAlz1Z-ww">
+          <children xmi:type="notation:Node" xmi:id="_UsFtkBceEe6pLqAlz1Z-ww" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_UsFtkRceEe6pLqAlz1Z-ww" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_UsHiwBceEe6pLqAlz1Z-ww" type="3003" element="_Ur6ucBceEe6pLqAlz1Z-ww">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_UsHiwRceEe6pLqAlz1Z-ww" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UsHiwhceEe6pLqAlz1Z-ww"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_UsD4YRceEe6pLqAlz1Z-ww" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UsD4YhceEe6pLqAlz1Z-ww" x="90" y="80" width="601" height="341"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_Yz0_ABceEe6pLqAlz1Z-ww" type="Text" fontName="Segoe UI" description="AnnotatingText">
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_Yz1mEBceEe6pLqAlz1Z-ww" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_Yz1mERceEe6pLqAlz1Z-ww" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <element xsi:nil="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Yz0_ARceEe6pLqAlz1Z-ww" x="770" y="200" width="181" height="31"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_gBI6QBceEe6pLqAlz1Z-ww" type="Note" fontName="Segoe UI" description="AnnotatingNote" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gBI6QRceEe6pLqAlz1Z-ww" source="specificStyles">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gBI6QhceEe6pLqAlz1Z-ww" key="verticalAlignment" value="8"/>
+          </eAnnotations>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_gBJhUBceEe6pLqAlz1Z-ww" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_gBJhURceEe6pLqAlz1Z-ww" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <styles xmi:type="notation:TextStyle" xmi:id="_gBI6QxceEe6pLqAlz1Z-ww" textAlignment="Center"/>
+          <styles xmi:type="notation:LineTypeStyle" xmi:id="_gBI6RBceEe6pLqAlz1Z-ww"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gBI6RRceEe6pLqAlz1Z-ww" x="857" y="127"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_TnXhMhceEe6pLqAlz1Z-ww"/>
+        <edges xmi:type="notation:Connector" xmi:id="_bra3MBceEe6pLqAlz1Z-ww" type="NoteAttachment" source="_Yz0_ABceEe6pLqAlz1Z-ww" target="_UsD4YBceEe6pLqAlz1Z-ww" lineWidth="1">
+          <styles xmi:type="notation:ArrowStyle" xmi:id="_bra3MRceEe6pLqAlz1Z-ww"/>
+          <styles xmi:type="notation:LineTypeStyle" xmi:id="_bra3MhceEe6pLqAlz1Z-ww"/>
+          <element xsi:nil="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bra3MxceEe6pLqAlz1Z-ww" points="[-50, -1, 188, 0]$[-129, -25, 109, -24]"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brkBIBceEe6pLqAlz1Z-ww" id="(0.8186356073211315,0.3782991202346041)"/>
+        </edges>
+        <edges xmi:type="notation:Connector" xmi:id="_hoGRABceEe6pLqAlz1Z-ww" type="NoteAttachment" source="_gBI6QBceEe6pLqAlz1Z-ww" target="_UsD4YBceEe6pLqAlz1Z-ww" lineWidth="1">
+          <styles xmi:type="notation:ArrowStyle" xmi:id="_hoGRARceEe6pLqAlz1Z-ww"/>
+          <styles xmi:type="notation:LineTypeStyle" xmi:id="_hoGRAhceEe6pLqAlz1Z-ww"/>
+          <element xsi:nil="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hoGRAxceEe6pLqAlz1Z-ww" points="[-16, 1, 271, -22]$[-182, -18, 105, -41]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hoItQBceEe6pLqAlz1Z-ww" id="(0.16,0.4642857142857143)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hoItQRceEe6pLqAlz1Z-ww" id="(0.8252911813643927,0.28152492668621704)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_TnZWYBceEe6pLqAlz1Z-ww" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_TnZWYRceEe6pLqAlz1Z-ww"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Ur5gUBceEe6pLqAlz1Z-ww" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="ecore:EClass" href="My.ecore#//%"/>
+      <semanticElements xmi:type="ecore:EClass" href="My.ecore#//%"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" uid="_Ur6ucBceEe6pLqAlz1Z-ww" labelSize="12" labelPosition="node">
+        <description xmi:type="style:SquareDescription" href="My.odesign#//@ownedViewpoints[name='testTextAnnotationBehavior']/@ownedRepresentations[name='myDiagram']/@defaultLayer/@nodeMappings[name='classes']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="My.odesign#//@ownedViewpoints[name='testTextAnnotationBehavior']/@ownedRepresentations[name='myDiagram']/@defaultLayer/@nodeMappings[name='classes']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="My.odesign#//@ownedViewpoints[name='testTextAnnotationBehavior']/@ownedRepresentations[name='myDiagram']"/>
+    <activatedFilters xmi:type="filter:CompositeFilterDescription" href="platform:/plugin/org.polarsys.kitalpha.ad.integration.sirius/description/ad.odesign#//@ownedViewpoints[name='ad']/@ownedRepresentations[name='AD%20diagram']/@filters[name='ModelExtensionFilter']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_TnMiERceEe6pLqAlz1Z-ww"/>
+    <activatedLayers xmi:type="description_1:Layer" href="My.odesign#//@ownedViewpoints[name='testTextAnnotationBehavior']/@ownedRepresentations[name='myDiagram']/@defaultLayer"/>
+    <target xmi:type="ecore:EPackage" href="My.ecore#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

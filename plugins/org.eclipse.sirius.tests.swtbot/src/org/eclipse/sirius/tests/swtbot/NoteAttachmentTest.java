@@ -25,11 +25,14 @@ import org.eclipse.gmf.runtime.diagram.ui.internal.editparts.NoteAttachmentEditP
 import org.eclipse.gmf.runtime.diagram.ui.internal.editparts.TextEditPart;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.description.filter.FilterDescription;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramContainerEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.SiriusNoteEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.SiriusTextEditPart;
+import org.eclipse.sirius.diagram.ui.provider.Messages;
 import org.eclipse.sirius.diagram.ui.tools.internal.preferences.SiriusDiagramUiInternalPreferencesKeys;
 import org.eclipse.sirius.ext.gmf.runtime.editparts.GraphicalHelper;
 import org.eclipse.sirius.tests.swtbot.support.api.AbstractSiriusSwtBotGefTestCase;
@@ -37,28 +40,38 @@ import org.eclipse.sirius.tests.swtbot.support.api.business.UIResource;
 import org.eclipse.sirius.tests.swtbot.support.api.condition.CheckSelectedCondition;
 import org.eclipse.sirius.tests.swtbot.support.api.editor.SWTBotSiriusDiagramEditor;
 import org.eclipse.sirius.tests.swtbot.support.utils.SWTBotUtils;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swtbot.eclipse.finder.matchers.WidgetMatcherFactory;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefConnectionEditPart;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.waits.DefaultCondition;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarButton;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarDropDownButton;
 
 /**
- * Verifies that Note (and Text) attachments, which are not handled
- * directly/only by Sirius but inherited from GMF, work correctly.
+ * Verifies that Note (and Text) attachments, which are not handled directly/only by Sirius but inherited from GMF, work
+ * correctly.
  */
 @SuppressWarnings("restriction")
 public class NoteAttachmentTest extends AbstractSiriusSwtBotGefTestCase {
     private static final String MODEL_FILE = "MyEcore.ecore";
 
+    private static final String SECOND_MODEL_FILE = "My.ecore";
+
     private static final String SESSION_FILE = "representations.aird";
+
+    private static final String ODESIGN_FILE = "My.odesign";
 
     private static final String DATA_UNIT_DIR = "data/unit/noteAttachments/Bugzilla-527391/";
 
+    private static final String DATA_SECOND_UNIT_DIR = "data/unit/noteAttachments/bugzilla_582155/";
+
     @Override
     protected void onSetUpBeforeClosingWelcomePage() throws Exception {
-        copyFileToTestProject(Activator.PLUGIN_ID, DATA_UNIT_DIR, MODEL_FILE, SESSION_FILE);
-        sessionAirdResource = new UIResource(designerProject, SESSION_FILE);
-        localSession = designerPerspective.openSessionFromFile(sessionAirdResource, true);
+        
     }
 
     /**
@@ -67,6 +80,9 @@ public class NoteAttachmentTest extends AbstractSiriusSwtBotGefTestCase {
      * @see "https://bugs.eclipse.org/bugs/show_bug.cgi?id=527391"
      */
     public void test_NoteAttachments_can_be_selected() {
+        copyFileToTestProject(Activator.PLUGIN_ID, DATA_UNIT_DIR, MODEL_FILE, SESSION_FILE);
+        sessionAirdResource = new UIResource(designerProject, SESSION_FILE);
+        localSession = designerPerspective.openSessionFromFile(sessionAirdResource, true);
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), "Entities", " package entities", DDiagram.class);
         List<NoteAttachmentEditPart> notes = editor.getConnectionsEditPart().stream().map(SWTBotGefConnectionEditPart::part).filter(NoteAttachmentEditPart.class::isInstance)
                 .map(NoteAttachmentEditPart.class::cast).collect(Collectors.toList());
@@ -83,7 +99,7 @@ public class NoteAttachmentTest extends AbstractSiriusSwtBotGefTestCase {
                 ISelection sel = editor.getSelection();
                 return (sel instanceof StructuredSelection) && ((StructuredSelection) sel).getFirstElement() == editor.getDiagramEditPart();
             }
-            
+
             @Override
             public String getFailureMessage() {
                 return "The diagram was not selected";
@@ -104,6 +120,9 @@ public class NoteAttachmentTest extends AbstractSiriusSwtBotGefTestCase {
      * @see "https://bugs.eclipse.org/bugs/show_bug.cgi?id=581740"
      */
     public void test_NoteAttachmentCreation_betweenNodeAndNote() {
+        copyFileToTestProject(Activator.PLUGIN_ID, DATA_UNIT_DIR, MODEL_FILE, SESSION_FILE);
+        sessionAirdResource = new UIResource(designerProject, SESSION_FILE);
+        localSession = designerPerspective.openSessionFromFile(sessionAirdResource, true);
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), "Entities", " package entities", DDiagram.class);
         // Create the note attachment
         createNoteAttachment("NewEClass2", DNodeListEditPart.class, "A note", SiriusNoteEditPart.class);
@@ -118,6 +137,9 @@ public class NoteAttachmentTest extends AbstractSiriusSwtBotGefTestCase {
      * @see "https://bugs.eclipse.org/bugs/show_bug.cgi?id=581740"
      */
     public void test_NoteAttachmentCreation_betweenNodeAndText() {
+        copyFileToTestProject(Activator.PLUGIN_ID, DATA_UNIT_DIR, MODEL_FILE, SESSION_FILE);
+        sessionAirdResource = new UIResource(designerProject, SESSION_FILE);
+        localSession = designerPerspective.openSessionFromFile(sessionAirdResource, true);
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), "Entities", " package entities", DDiagram.class);
         // Create the note attachment
         createNoteAttachment("NewEClass2", DNodeListEditPart.class, "A text", SiriusTextEditPart.class);
@@ -132,6 +154,9 @@ public class NoteAttachmentTest extends AbstractSiriusSwtBotGefTestCase {
      * @see "https://bugs.eclipse.org/bugs/show_bug.cgi?id=581740"
      */
     public void test_NoteAttachmentCreation_betweenNodeAndNode() {
+        copyFileToTestProject(Activator.PLUGIN_ID, DATA_UNIT_DIR, MODEL_FILE, SESSION_FILE);
+        sessionAirdResource = new UIResource(designerProject, SESSION_FILE);
+        localSession = designerPerspective.openSessionFromFile(sessionAirdResource, true);
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), "Entities", " package entities", DDiagram.class);
         // Create the note attachment
         createNoteAttachment("NewEClass2", DNodeListEditPart.class, "A", DNodeListEditPart.class);
@@ -147,6 +172,9 @@ public class NoteAttachmentTest extends AbstractSiriusSwtBotGefTestCase {
      * @see "https://bugs.eclipse.org/bugs/show_bug.cgi?id=581751"
      */
     public void test_NoteAttachments_deletion() {
+        copyFileToTestProject(Activator.PLUGIN_ID, DATA_UNIT_DIR, MODEL_FILE, SESSION_FILE);
+        sessionAirdResource = new UIResource(designerProject, SESSION_FILE);
+        localSession = designerPerspective.openSessionFromFile(sessionAirdResource, true);
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), "Entities", "ghostCase package entities", DDiagram.class);
         List<String> namesOfNotesToCheck = Arrays.asList("NoteOnNode", "NoteOnEdge", "NoteOnNoteAttachment");
         for (String nameOfNoteToCheck : namesOfNotesToCheck) {
@@ -164,14 +192,17 @@ public class NoteAttachmentTest extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Checks that Note is deleted on all cases of indirect "deletion" (node, edge, another note attachment). Before
-     * this fix, the behavior was not the same for edge and node.
+     * Checks that Note is deleted on all cases of indirect "deletion" (node, edge, another note attachment). Before this
+     * fix, the behavior was not the same for edge and node.
      * 
      * @see "https://bugs.eclipse.org/bugs/show_bug.cgi?id=581752"
      */
     public void test_Note_deletion() {
-        List<String> namesOfNotesToCheck = Arrays.asList("NoteOnNode", "NoteOnEdge", "NoteOnNoteAttachment");
+        copyFileToTestProject(Activator.PLUGIN_ID, DATA_UNIT_DIR, MODEL_FILE, SESSION_FILE);
+        sessionAirdResource = new UIResource(designerProject, SESSION_FILE);
+        localSession = designerPerspective.openSessionFromFile(sessionAirdResource, true);
         editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), "Entities", "ghostCase package entities", DDiagram.class);
+        List<String> namesOfNotesToCheck = Arrays.asList("NoteOnNode", "NoteOnEdge", "NoteOnNoteAttachment");
         changeDiagramUIPreference(SiriusDiagramUiInternalPreferencesKeys.PREF_REMOVE_HIDE_NOTE_WHEN_ANNOTED_ELEMENT_HIDDEN_OR_REMOVE.name(), true);
         for (String nameOfNoteToCheck : namesOfNotesToCheck) {
             checkNoteAttachmentEditPartFrom(nameOfNoteToCheck, 1);
@@ -192,6 +223,38 @@ public class NoteAttachmentTest extends AbstractSiriusSwtBotGefTestCase {
                 // This is the expected behavior
             }
         }
+    }
+
+    /**
+     * Checks that a text is hidden when the node it annotates is hidden and the property remove/hide annotations on
+     * remove/hide node is active
+     * 
+     * @see "https://bugs.eclipse.org/bugs/show_bug.cgi?id=582155"
+     */
+    public void testAnnotationTextBehaviorOnFilters() {
+        copyFileToTestProject(Activator.PLUGIN_ID, DATA_SECOND_UNIT_DIR, SECOND_MODEL_FILE, SESSION_FILE, ODESIGN_FILE);
+        sessionAirdResource = new UIResource(designerProject, SESSION_FILE);
+        localSession = designerPerspective.openSessionFromFile(sessionAirdResource, true);
+        editor = (SWTBotSiriusDiagramEditor) openRepresentation(localSession.getOpenedSession(), "myDiagram", "new myDiagram", DDiagram.class);
+        DRepresentation dRepresentation = editor.getDRepresentation();
+        assertTrue(dRepresentation instanceof DDiagram);
+        DDiagram dDiagram = (DDiagram) dRepresentation;
+        List<FilterDescription> filters = dDiagram.getDescription().getFilters();
+        SWTBotToolbarDropDownButton filtersButton = editor.bot().toolbarDropDownButtonWithTooltip("Filters");
+        List<? extends SWTBotMenu> menuItems = filtersButton.menuItems(WidgetMatcherFactory.widgetOfType(MenuItem.class));
+        assertEquals(filters.size(), menuItems.size());
+        for (int i = 0; i < menuItems.size(); i++) {
+            SWTBotMenu menuItem = menuItems.get(i);
+            assertEquals(new IdentifiedElementQuery(filters.get(i)).getLabel(), menuItem.getText());
+        }
+        SWTBotMenu menuItem = menuItems.get(0);
+        assertEquals("myFilter", menuItem.getText());
+        assertTrue(menuItem.isEnabled());
+        
+        SWTBotGefEditPart textEditPart = editor.getEditPart("Text", SiriusTextEditPart.class);
+       
+        // Change default filters selection
+        menuItems.get(0).click();
     }
 
     private void createNoteAttachment(String sourceName, Class<? extends EditPart> expectedSourceClass, String targetName, Class<? extends EditPart> expectedTargetClass) {

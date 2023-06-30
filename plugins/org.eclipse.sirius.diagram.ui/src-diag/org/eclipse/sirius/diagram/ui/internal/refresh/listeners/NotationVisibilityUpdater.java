@@ -208,7 +208,7 @@ public class NotationVisibilityUpdater extends ResourceSetListenerImpl {
      */
     private Collection<? extends View> getSafe(Set<View> linked) {
         for (View linkedView : linked) {
-            if (!(linkedView instanceof Node && GMFNotationHelper.isNote((Node) linkedView))) {
+            if (!(linkedView instanceof Node && (GMFNotationHelper.isNote((Node) linkedView)) || GMFNotationHelper.isTextNote((Node) linkedView) ) ) {
                 return Collections.emptySet();
             }
         }
